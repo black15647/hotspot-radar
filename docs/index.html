@@ -24,6 +24,7 @@
                 <button class="icon-btn" id="customizeBtn" title="主题定制">🎨</button>
                 <button class="icon-btn history-btn" id="historyBtn" title="历史归档">📅</button>
                 <button class="icon-btn glossary-btn" id="glossaryBtn" title="环境知识库">📖</button>
+                <button class="icon-btn learning-btn" id="learningBtn" title="学习路径">🧭</button>
                 <button class="icon-btn saved-btn" id="savedBtn" title="我的收藏">⭐</button>
             </div>
         </div>
@@ -36,6 +37,22 @@
             <div class="summary-card">
                 <span class="summary-label">📊 今日概览</span>
                 <p class="summary-text" id="summaryText"></p>
+            </div>
+        </section>
+
+        <!-- 每日一词 -->
+        <section class="daily-word-section" id="dailyWordSection">
+            <div class="daily-word-card">
+                <div class="daily-word-header">
+                    <span class="daily-word-icon">📖</span>
+                    <span class="daily-word-label">每日一词</span>
+                    <button class="daily-word-refresh" id="dailyWordRefresh" title="换一个">🔄 换一个</button>
+                </div>
+                <div class="daily-word-content">
+                    <h3 class="daily-word-term" id="dailyWordTerm">加载中...</h3>
+                    <p class="daily-word-definition" id="dailyWordDefinition">正在获取今日词条...</p>
+                    <span class="daily-word-category" id="dailyWordCategory"></span>
+                </div>
             </div>
         </section>
 
@@ -57,6 +74,7 @@
         <section class="trend-section">
             <div class="section-header">
                 <h2 class="section-title">📈 近7天趋势</h2>
+                <button class="timeline-btn" id="timelineBtn" title="查看关键词事件时间线">📊 事件时间线</button>
             </div>
             <div class="chart-container">
                 <canvas id="trendChart"></canvas>
@@ -298,6 +316,46 @@
             <div class="modal-body">
                 <div class="saved-list" id="savedList">
                     <div class="saved-empty">暂无收藏，快去收藏你关心的热点吧！</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 学习路径模态框 -->
+    <div class="modal" id="learningModal">
+        <div class="modal-overlay" id="learningOverlay"></div>
+        <div class="modal-content modal-large">
+            <div class="modal-header">
+                <h3>🧭 学习路径</h3>
+                <button class="modal-close" id="learningClose">✕</button>
+            </div>
+            <div class="modal-body">
+                <div class="learning-list" id="learningList">
+                    <div class="loading-text">加载中...</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 事件时间线模态框 -->
+    <div class="modal" id="timelineModal">
+        <div class="modal-overlay" id="timelineOverlay"></div>
+        <div class="modal-content modal-large">
+            <div class="modal-header">
+                <h3>📊 热点事件时间线</h3>
+                <button class="modal-close" id="timelineClose">✕</button>
+            </div>
+            <div class="modal-body">
+                <div class="timeline-controls">
+                    <label for="timelineKeyword">选择关键词：</label>
+                    <select id="timelineKeyword" class="timeline-select"></select>
+                    <button class="btn-primary" id="timelineLoadBtn">加载时间线</button>
+                </div>
+                <div class="timeline-chart-container">
+                    <canvas id="timelineChart"></canvas>
+                </div>
+                <div class="timeline-info" id="timelineInfo">
+                    <p class="timeline-hint">选择关键词后点击"加载时间线"查看热度变化趋势</p>
                 </div>
             </div>
         </div>

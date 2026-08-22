@@ -2000,3 +2000,436 @@ body.dark .keyword-tag.glossary-term {
         margin-left: 38px;
     }
 }
+
+/* ============================================================
+   v4.1 新增样式
+   ============================================================ */
+
+/* 每日一词卡片 */
+.daily-word-section {
+    margin-bottom: 24px;
+}
+
+.daily-word-card {
+    background: linear-gradient(135deg, rgba(16, 185, 129, 0.08), rgba(16, 185, 129, 0.03));
+    border: 1px solid rgba(16, 185, 129, 0.2);
+    border-radius: var(--border-radius);
+    padding: 20px 24px;
+    transition: var(--transition);
+}
+
+.daily-word-card:hover {
+    border-color: var(--primary-color);
+    box-shadow: 0 4px 12px rgba(16, 185, 129, 0.1);
+}
+
+.daily-word-header {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 12px;
+}
+
+.daily-word-icon {
+    font-size: 1.2rem;
+}
+
+.daily-word-label {
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--primary-color);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.daily-word-refresh {
+    margin-left: auto;
+    padding: 4px 12px;
+    background-color: var(--bg-color);
+    border: 1px solid var(--border-color);
+    border-radius: 6px;
+    font-size: 0.8rem;
+    color: var(--text-secondary);
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+.daily-word-refresh:hover {
+    border-color: var(--primary-color);
+    color: var(--primary-color);
+}
+
+.daily-word-content {
+    position: relative;
+}
+
+.daily-word-term {
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: var(--text-color);
+    margin-bottom: 8px;
+}
+
+.daily-word-definition {
+    font-size: 0.95rem;
+    color: var(--text-secondary);
+    line-height: 1.7;
+    margin-bottom: 10px;
+}
+
+.daily-word-category {
+    display: inline-block;
+    padding: 3px 10px;
+    background-color: rgba(16, 185, 129, 0.12);
+    color: var(--primary-dark);
+    border-radius: 12px;
+    font-size: 0.75rem;
+    font-weight: 500;
+}
+
+body.dark .daily-word-category {
+    color: var(--primary-light);
+}
+
+/* 事件时间线按钮 */
+.timeline-btn {
+    padding: 6px 14px;
+    background-color: var(--bg-color);
+    border: 1px solid var(--border-color);
+    border-radius: 6px;
+    font-size: 0.82rem;
+    color: var(--text-secondary);
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+.timeline-btn:hover {
+    border-color: var(--primary-color);
+    color: var(--primary-color);
+}
+
+/* 学习路径模态框 */
+.learning-list {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.learning-category {
+    border: 1px solid var(--border-color);
+    border-radius: var(--border-radius);
+    overflow: hidden;
+    transition: var(--transition);
+}
+
+.learning-category:hover {
+    border-color: var(--primary-light);
+}
+
+.learning-category-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 14px 18px;
+    background-color: var(--bg-color);
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+.learning-category-header:hover {
+    background-color: rgba(16, 185, 129, 0.06);
+}
+
+.learning-category-title {
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--text-color);
+}
+
+.learning-category-toggle {
+    font-size: 1.2rem;
+    color: var(--text-muted);
+    transition: transform 0.3s ease;
+}
+
+.learning-category.expanded .learning-category-toggle {
+    transform: rotate(180deg);
+}
+
+.learning-category-items {
+    display: none;
+    padding: 0 18px 16px;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.learning-category.expanded .learning-category-items {
+    display: flex;
+}
+
+.learning-item {
+    padding: 6px 14px;
+    background-color: var(--card-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 20px;
+    font-size: 0.85rem;
+    color: var(--text-secondary);
+    transition: var(--transition);
+}
+
+.learning-item:hover {
+    border-color: var(--primary-color);
+    color: var(--primary-color);
+}
+
+/* 事件时间线模态框 */
+.timeline-controls {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 20px;
+    flex-wrap: wrap;
+}
+
+.timeline-controls label {
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+    font-weight: 500;
+}
+
+.timeline-select {
+    flex: 1;
+    min-width: 200px;
+    padding: 8px 12px;
+    background-color: var(--card-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 6px;
+    color: var(--text-color);
+    font-size: 0.9rem;
+    cursor: pointer;
+}
+
+.timeline-select:focus {
+    outline: none;
+    border-color: var(--primary-color);
+}
+
+.timeline-chart-container {
+    position: relative;
+    height: 350px;
+    margin-bottom: 16px;
+}
+
+.timeline-info {
+    padding: 12px 16px;
+    background-color: var(--bg-color);
+    border-radius: 8px;
+}
+
+.timeline-hint {
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    text-align: center;
+    margin: 0;
+}
+
+.timeline-stats {
+    display: flex;
+    gap: 24px;
+    flex-wrap: wrap;
+}
+
+.timeline-stat {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.timeline-stat-label {
+    font-size: 0.75rem;
+    color: var(--text-muted);
+}
+
+.timeline-stat-value {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--primary-color);
+}
+
+.timeline-spike {
+    display: inline-block;
+    padding: 2px 8px;
+    background-color: rgba(245, 158, 11, 0.15);
+    color: #D97706;
+    border-radius: 10px;
+    font-size: 0.75rem;
+    font-weight: 500;
+    margin-left: 8px;
+}
+
+/* 搜索高亮 */
+.highlight {
+    background-color: rgba(245, 158, 11, 0.25);
+    color: #D97706;
+    padding: 1px 3px;
+    border-radius: 3px;
+    font-weight: 600;
+}
+
+body.dark .highlight {
+    background-color: rgba(245, 158, 11, 0.3);
+}
+
+/* 空状态提示 */
+.empty-state {
+    text-align: center;
+    padding: 48px 20px;
+    color: var(--text-muted);
+}
+
+.empty-state-icon {
+    font-size: 3rem;
+    margin-bottom: 16px;
+    opacity: 0.6;
+}
+
+.empty-state-text {
+    font-size: 1rem;
+    margin-bottom: 8px;
+}
+
+.empty-state-hint {
+    font-size: 0.85rem;
+    color: var(--text-muted);
+}
+
+.empty-state-link {
+    color: var(--primary-color);
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.empty-state-link:hover {
+    text-decoration: underline;
+}
+
+/* 知识库无匹配提示 */
+.glossary-no-result {
+    text-align: center;
+    padding: 32px 20px;
+    color: var(--text-muted);
+}
+
+.glossary-no-result p {
+    margin-bottom: 12px;
+}
+
+/* 历史无数据提示 */
+.history-no-data {
+    text-align: center;
+    padding: 40px 20px;
+    color: var(--text-muted);
+}
+
+.history-no-data-icon {
+    font-size: 2.5rem;
+    margin-bottom: 12px;
+    opacity: 0.5;
+}
+
+/* 加载超时提示 */
+.loading-timeout {
+    text-align: center;
+    padding: 20px;
+}
+
+.loading-timeout p {
+    color: var(--text-muted);
+    margin-bottom: 16px;
+}
+
+.loading-timeout .btn-primary {
+    padding: 8px 24px;
+}
+
+/* 移动端适配优化 */
+@media (max-width: 768px) {
+    .daily-word-card {
+        padding: 16px;
+    }
+
+    .daily-word-term {
+        font-size: 1.2rem;
+    }
+
+    .daily-word-definition {
+        font-size: 0.9rem;
+    }
+
+    .timeline-controls {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .timeline-select {
+        min-width: 100%;
+    }
+
+    .timeline-chart-container {
+        height: 280px;
+    }
+
+    .timeline-stats {
+        gap: 16px;
+    }
+
+    .learning-category-header {
+        padding: 12px 14px;
+    }
+
+    .learning-category-items {
+        padding: 0 14px 14px;
+    }
+
+    .learning-item {
+        font-size: 0.8rem;
+        padding: 5px 10px;
+    }
+
+    .section-header {
+        flex-wrap: wrap;
+        gap: 8px;
+    }
+
+    .timeline-btn {
+        font-size: 0.78rem;
+        padding: 5px 10px;
+    }
+}
+
+@media (max-width: 480px) {
+    .daily-word-refresh {
+        font-size: 0.75rem;
+        padding: 3px 8px;
+    }
+
+    .daily-word-header {
+        flex-wrap: wrap;
+    }
+}
+
+/* 图表横向滚动容器（移动端） */
+.chart-scroll-container {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+}
+
+.chart-scroll-container canvas {
+    min-width: 500px;
+}
+
+@media (min-width: 769px) {
+    .chart-scroll-container canvas {
+        min-width: auto;
+    }
+}

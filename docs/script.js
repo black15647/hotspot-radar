@@ -18,6 +18,11 @@
         glossaryCategory: 'all',
         recommendedTerms: [],
         savedHotspots: [],
+        // v4.1 新增
+        dailyWordHistory: [],
+        learningData: [],
+        timelineChart: null,
+        currentTimelineKeyword: null,
     };
 
     // 默认主题配置
@@ -116,6 +121,27 @@
         els.savedList = document.getElementById('savedList');
         // 知识库搜索建议
         els.glossarySuggestions = document.getElementById('glossarySuggestions');
+        // 每日一词
+        els.dailyWordSection = document.getElementById('dailyWordSection');
+        els.dailyWordTerm = document.getElementById('dailyWordTerm');
+        els.dailyWordDefinition = document.getElementById('dailyWordDefinition');
+        els.dailyWordCategory = document.getElementById('dailyWordCategory');
+        els.dailyWordRefresh = document.getElementById('dailyWordRefresh');
+        // 学习路径
+        els.learningBtn = document.getElementById('learningBtn');
+        els.learningModal = document.getElementById('learningModal');
+        els.learningOverlay = document.getElementById('learningOverlay');
+        els.learningClose = document.getElementById('learningClose');
+        els.learningList = document.getElementById('learningList');
+        // 事件时间线
+        els.timelineBtn = document.getElementById('timelineBtn');
+        els.timelineModal = document.getElementById('timelineModal');
+        els.timelineOverlay = document.getElementById('timelineOverlay');
+        els.timelineClose = document.getElementById('timelineClose');
+        els.timelineKeyword = document.getElementById('timelineKeyword');
+        els.timelineLoadBtn = document.getElementById('timelineLoadBtn');
+        els.timelineChart = document.getElementById('timelineChart');
+        els.timelineInfo = document.getElementById('timelineInfo');
     }
 
     /**
@@ -247,6 +273,20 @@
             }
         });
 
+        // 每日一词
+        on(els.dailyWordRefresh, 'click', refreshDailyWord);
+
+        // 学习路径模态框
+        on(els.learningBtn, 'click', openLearningModal);
+        on(els.learningOverlay, 'click', () => closeModal(els.learningModal));
+        on(els.learningClose, 'click', () => closeModal(els.learningModal));
+
+        // 事件时间线模态框
+        on(els.timelineBtn, 'click', openTimelineModal);
+        on(els.timelineOverlay, 'click', () => closeModal(els.timelineModal));
+        on(els.timelineClose, 'click', () => closeModal(els.timelineModal));
+        on(els.timelineLoadBtn, 'click', loadTimelineData);
+
         // ESC 关闭模态框
         document.addEventListener('keydown', (e) => {
             if (e.key === 'Escape') {
@@ -267,23 +307,47 @@
                 fetch('data/glossary.json'),
             ]);
 
+            // 加载 latest.json（必需，失败则显示错误）
             if (!latestRes.ok) {
-                throw new Error('latest.json 加载失败');
+                throw new Error('latest.json 加载失败：' + latestRes.status);
+            }
+            try {
+                state.latestData = await latestRes.json();
+            } catch (e) {
+                console.error('latest.json 解析失败：', e);
+                throw new Error('latest.json 格式错误，请检查后端生成');
             }
 
-            state.latestData = await latestRes.json();
-
+            // 加载 history.json（可选，失败不影响主功能）
             if (historyRes.ok) {
-                state.historyData = await historyRes.json();
+                try {
+                    state.historyData = await historyRes.json();
+                } catch (e) {
+                    console.warn('history.json 解析失败，跳过：', e);
+                    state.historyData = [];
+                }
             }
 
+            // 加载 glossary.json（可选，失败不影响主功能）
             if (glossaryRes.ok) {
-                state.glossaryData = await glossaryRes.json();
-                state.glossaryData.forEach((item) => { state.glossaryMap[item.term] = item; });
+                try {
+                    state.glossaryData = await glossaryRes.json();
+                    if (Array.isArray(state.glossaryData)) {
+                        state.glossaryData.forEach((item) => {
+                            if (item && item.term) {
+                                state.glossaryMap[item.term] = item;
+                            }
+                        });
+                    }
+                } catch (e) {
+                    console.warn('glossary.json 解析失败，跳过：', e);
+                    state.glossaryData = [];
+                }
             }
 
             els.loading.style.display = 'none';
             renderAll();
+            initDailyWord();
         } catch (err) {
             console.error('数据加载失败：', err);
             els.loading.style.display = 'none';
@@ -321,11 +385,15 @@
         if (filterText) {
             const lower = filterText.toLowerCase();
             filtered = items.filter((item) => {
+                const title = (item.title || '').toLowerCase();
+                const summary = (item.summary || '').toLowerCase();
+                const source = (item.source || '').toLowerCase();
+                const keywords = item.matched_keywords || [];
                 return (
-                    item.title.toLowerCase().includes(lower) ||
-                    item.summary.toLowerCase().includes(lower) ||
-                    item.source.toLowerCase().includes(lower) ||
-                    (item.matched_keywords && item.matched_keywords.some((k) => k.toLowerCase().includes(lower)))
+                    title.includes(lower) ||
+                    summary.includes(lower) ||
+                    source.includes(lower) ||
+                    keywords.some((k) => (k || '').toLowerCase().includes(lower))
                 );
             });
         }
@@ -776,10 +844,14 @@
     // 渲染近7天趋势图
     // ============================================================
     function renderTrendChart() {
-        const ctx = document.getElementById('trendChart').getContext('2d');
+        const chartEl = document.getElementById('trendChart');
+        if (!chartEl) return;
+        const ctx = chartEl.getContext('2d');
+        if (!ctx) return;
 
         // 取最近7天数据（按日期升序）
-        const recent7 = state.historyData.slice(0, 7).reverse();
+        const historyData = Array.isArray(state.historyData) ? state.historyData : [];
+        const recent7 = historyData.slice(0, 7).reverse();
 
         const labels = recent7.map((h) => h.date ? h.date.slice(5) : '');
         const data = recent7.map((h) => h.total_items || 0);
@@ -865,7 +937,10 @@
     }
 
     function renderKeywordChart(keyword) {
-        const ctx = document.getElementById('keywordChart').getContext('2d');
+        const chartEl = document.getElementById('keywordChart');
+        if (!chartEl) return;
+        const ctx = chartEl.getContext('2d');
+        if (!ctx) return;
 
         // 从历史数据中统计该关键词出现的情况
         // history.json 中每条记录有 keywords（前5关键词）
@@ -1609,6 +1684,275 @@
         els.historyContent.innerHTML = '';
         els.historyContent.appendChild(header);
         els.historyContent.appendChild(list);
+    }
+
+    // ============================================================
+    // v4.1 新增功能
+    // ============================================================
+
+    // ---------- 每日一词 ----------
+    function initDailyWord() {
+        if (!els.dailyWordSection || state.glossaryData.length === 0) return;
+        refreshDailyWord();
+    }
+
+    function refreshDailyWord() {
+        if (state.glossaryData.length === 0) return;
+        // 避免短期重复：最近5个不重复
+        const recentCount = Math.min(5, state.glossaryData.length - 1);
+        let candidates = state.glossaryData.filter(
+            (g) => !state.dailyWordHistory.slice(-recentCount).includes(g.term)
+        );
+        if (candidates.length === 0) candidates = state.glossaryData;
+        const term = candidates[Math.floor(Math.random() * candidates.length)];
+        state.dailyWordHistory.push(term.term);
+        if (state.dailyWordHistory.length > 20) state.dailyWordHistory.shift();
+
+        if (els.dailyWordTerm) els.dailyWordTerm.textContent = term.term;
+        if (els.dailyWordDefinition) els.dailyWordDefinition.textContent = term.definition;
+        if (els.dailyWordCategory) els.dailyWordCategory.textContent = term.category || '';
+    }
+
+    // ---------- 学习路径 ----------
+    function openLearningModal() {
+        if (!els.learningModal) return;
+        openModal(els.learningModal);
+        if (state.learningData.length === 0) {
+            loadLearningPath();
+        } else {
+            renderLearningPath();
+        }
+    }
+
+    async function loadLearningPath() {
+        if (!els.learningList) return;
+        els.learningList.innerHTML = '<div class="loading-text">加载中...</div>';
+        try {
+            const res = await fetch('data/learning_path.json');
+            if (!res.ok) throw new Error('HTTP ' + res.status);
+            state.learningData = await res.json();
+            renderLearningPath();
+        } catch (err) {
+            console.error('学习路径加载失败:', err);
+            els.learningList.innerHTML = '<div class="empty-state"><div class="empty-state-icon">📚</div><p class="empty-state-text">学习路径加载失败</p><button class="btn-primary" onclick="location.reload()">重试</button></div>';
+        }
+    }
+
+    function renderLearningPath() {
+        if (!els.learningList) return;
+        if (!Array.isArray(state.learningData) || state.learningData.length === 0) {
+            els.learningList.innerHTML = '<div class="empty-state"><div class="empty-state-icon">📭</div><p class="empty-state-text">暂无学习路径数据</p></div>';
+            return;
+        }
+        const frag = document.createDocumentFragment();
+        state.learningData.forEach((cat, idx) => {
+            const catEl = document.createElement('div');
+            catEl.className = 'learning-category' + (idx === 0 ? ' expanded' : '');
+            catEl.innerHTML = `
+                <div class="learning-category-header">
+                    <span class="learning-category-title">${escapeHtml(cat.title || '未分类')}</span>
+                    <span class="learning-category-toggle">▼</span>
+                </div>
+                <div class="learning-category-items">
+                    ${(cat.items || []).map((item) => `<span class="learning-item">${escapeHtml(item)}</span>`).join('')}
+                </div>
+            `;
+            const header = catEl.querySelector('.learning-category-header');
+            if (header) {
+                header.addEventListener('click', () => {
+                    catEl.classList.toggle('expanded');
+                });
+            }
+            frag.appendChild(catEl);
+        });
+        els.learningList.innerHTML = '';
+        els.learningList.appendChild(frag);
+    }
+
+    // ---------- 事件时间线 ----------
+    function openTimelineModal() {
+        if (!els.timelineModal) return;
+        openModal(els.timelineModal);
+        // 填充关键词下拉框
+        populateTimelineKeywords();
+    }
+
+    function populateTimelineKeywords() {
+        if (!els.timelineKeyword) return;
+        // 从 latestData 的 keywords 中获取关键词
+        const keywords = [];
+        if (state.latestData && state.latestData.keywords) {
+            state.latestData.keywords.forEach((k) => {
+                if (k && k.keyword) keywords.push(k.keyword);
+            });
+        }
+        // 从 historyData 中补充关键词
+        if (Array.isArray(state.historyData)) {
+            state.historyData.forEach((h) => {
+                if (h.keywords) {
+                    h.keywords.forEach((kw) => {
+                        if (!keywords.includes(kw)) keywords.push(kw);
+                    });
+                }
+            });
+        }
+        if (keywords.length === 0) {
+            els.timelineKeyword.innerHTML = '<option value="">暂无关键词</option>';
+            return;
+        }
+        els.timelineKeyword.innerHTML = keywords
+            .map((k) => `<option value="${escapeHtml(k)}">${escapeHtml(k)}</option>`)
+            .join('');
+    }
+
+    function loadTimelineData() {
+        if (!els.timelineKeyword || !els.timelineInfo) return;
+        const keyword = els.timelineKeyword.value;
+        if (!keyword) {
+            showToast('请先选择关键词');
+            return;
+        }
+        state.currentTimelineKeyword = keyword;
+
+        // 从 historyData 中提取该关键词的每日出现次数
+        const timelineData = [];
+        if (Array.isArray(state.historyData)) {
+            state.historyData.forEach((h) => {
+                if (h.date && h.keyword_counts) {
+                    const count = h.keyword_counts[keyword] || 0;
+                    if (count > 0) {
+                        timelineData.push({ date: h.date, count: count });
+                    }
+                } else if (h.date && h.keywords && h.keywords.includes(keyword)) {
+                    // 兼容旧数据：只有关键词列表没有计数
+                    timelineData.push({ date: h.date, count: 1 });
+                }
+            });
+        }
+
+        // 按日期排序
+        timelineData.sort((a, b) => a.date.localeCompare(b.date));
+
+        if (timelineData.length === 0) {
+            els.timelineInfo.innerHTML = '<div class="timeline-hint">该关键词暂无历史数据</div>';
+            if (state.timelineChart) {
+                state.timelineChart.destroy();
+                state.timelineChart = null;
+            }
+            return;
+        }
+
+        renderTimelineChart(timelineData, keyword);
+    }
+
+    function renderTimelineChart(data, keyword) {
+        if (!els.timelineChart) return;
+        const ctx = els.timelineChart.getContext('2d');
+        if (state.timelineChart) {
+            state.timelineChart.destroy();
+        }
+
+        const labels = data.map((d) => d.date);
+        const counts = data.map((d) => d.count);
+
+        // 检测热度突增节点（比前一天增长超过50%且绝对值>=2）
+        const spikePoints = [];
+        for (let i = 1; i < data.length; i++) {
+            const prev = data[i - 1].count;
+            const curr = data[i].count;
+            if (prev > 0 && curr >= prev * 1.5 && curr >= 2) {
+                spikePoints.push(data[i].date);
+            }
+        }
+
+        const pointBgColors = labels.map((d) =>
+            spikePoints.includes(d) ? '#F59E0B' : 'rgba(16, 185, 129, 1)'
+        );
+        const pointRadii = labels.map((d) => (spikePoints.includes(d) ? 7 : 4));
+
+        state.timelineChart = new Chart(ctx, {
+            type: 'line',
+            data: {
+                labels: labels,
+                datasets: [{
+                    label: keyword + ' 出现次数',
+                    data: counts,
+                    borderColor: '#10B981',
+                    backgroundColor: 'rgba(16, 185, 129, 0.1)',
+                    fill: true,
+                    tension: 0.3,
+                    pointBackgroundColor: pointBgColors,
+                    pointRadius: pointRadii,
+                    pointHoverRadius: 8,
+                }],
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: { display: true, position: 'top' },
+                    tooltip: {
+                        callbacks: {
+                            afterLabel: (ctx) => {
+                                if (spikePoints.includes(ctx.label)) {
+                                    return '🔥 热度突增';
+                                }
+                                return '';
+                            },
+                        },
+                    },
+                },
+                scales: {
+                    x: { ticks: { maxRotation: 45, minRotation: 45, font: { size: 10 } } },
+                    y: { beginAtZero: true, ticks: { stepSize: 1 } },
+                },
+            },
+        });
+
+        // 显示统计信息
+        const maxCount = Math.max(...counts);
+        const maxDate = data[counts.indexOf(maxCount)].date;
+        const totalAppear = counts.reduce((a, b) => a + b, 0);
+        const spikeHtml = spikePoints.length > 0
+            ? `<div class="timeline-stat"><span class="timeline-stat-label">热度突增</span><span class="timeline-stat-value">${spikePoints.length} 次</span></div>`
+            : '';
+
+        if (els.timelineInfo) {
+            els.timelineInfo.innerHTML = `
+                <div class="timeline-stats">
+                    <div class="timeline-stat"><span class="timeline-stat-label">首次出现</span><span class="timeline-stat-value">${data[0].date}</span></div>
+                    <div class="timeline-stat"><span class="timeline-stat-label">最近出现</span><span class="timeline-stat-value">${data[data.length - 1].date}</span></div>
+                    <div class="timeline-stat"><span class="timeline-stat-label">最高热度</span><span class="timeline-stat-value">${maxCount} 次 (${maxDate})</span></div>
+                    <div class="timeline-stat"><span class="timeline-stat-label">累计出现</span><span class="timeline-stat-value">${totalAppear} 次</span></div>
+                    ${spikeHtml}
+                </div>
+            `;
+        }
+    }
+
+    // ---------- 搜索高亮工具 ----------
+    function highlightText(text, keyword) {
+        if (!text || !keyword) return escapeHtml(text || '');
+        const safeText = escapeHtml(text);
+        const safeKeyword = escapeHtml(keyword).replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+        const regex = new RegExp('(' + safeKeyword + ')', 'gi');
+        return safeText.replace(regex, '<span class="highlight">$1</span>');
+    }
+
+    // ---------- 空状态工具 ----------
+    function showEmptyState(container, icon, text, hint, linkText, linkUrl) {
+        if (!container) return;
+        const linkHtml = linkText && linkUrl
+            ? `<a href="${escapeHtml(linkUrl)}" target="_blank" class="empty-state-link">${escapeHtml(linkText)}</a>`
+            : '';
+        container.innerHTML = `
+            <div class="empty-state">
+                <div class="empty-state-icon">${icon || '📭'}</div>
+                <p class="empty-state-text">${escapeHtml(text || '暂无数据')}</p>
+                ${hint ? `<p class="empty-state-hint">${escapeHtml(hint)}</p>` : ''}
+                ${linkHtml}
+            </div>
+        `;
     }
 
     // ============================================================

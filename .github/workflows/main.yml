@@ -39,30 +39,40 @@ jobs:
           git diff --staged --quiet || git commit -m "chore: update daily hotspot report $(date -u +%Y-%m-%d)"
           git push
 
-      - name: Backup data to backup branch
+      - name: Package backup files
         if: success()
         run: |
-          # 创建备份目录
           mkdir -p /tmp/backup
           cp docs/data/history.csv /tmp/backup/ 2>/dev/null || true
           cp docs/data/glossary.json /tmp/backup/ 2>/dev/null || true
           cp docs/data/learning_path.json /tmp/backup/ 2>/dev/null || true
-          # 打包为 zip
           cd /tmp/backup
           zip -r "hotspot-backup-$(date -u +%Y-%m-%d).zip" .
-          # 切换到 backup 分支并提交
-          cd $GITHUB_WORKSPACE
-          git fetch origin backup:backup 2>/dev/null || git checkout --orphan backup
-          git worktree add /tmp/backup-worktree backup
-          cp /tmp/backup/*.zip /tmp/backup-worktree/
-          cd /tmp/backup-worktree
-          git config --local user.email "github-actions[bot]@users.noreply.github.com"
-          git config --local user.name "github-actions[bot]"
-          git add *.zip
-          git diff --staged --quiet || git commit -m "backup: data backup $(date -u +%Y-%m-%d)"
-          git push origin backup
-          cd $GITHUB_WORKSPACE
-          git worktree remove /tmp/backup-worktree --force
+          echo "BACKUP_FILE=/tmp/backup/hotspot-backup-$(date -u +%Y-%m-%d).zip" >> $GITHUB_ENV
+
+      - name: Upload backup to GitHub Release
+        if: success()
+        uses: softprops/action-gh-release@v2
+        with:
+          tag_name: backup
+          name: "数据备份"
+          body: |
+            ## 环境学子雷达 - 数据备份
+            
+            自动备份日期：${{ github.event.head_commit.timestamp || '手动触发' }}
+            
+            包含文件：
+            - history.csv — 历史记录
+            - glossary.json — 环境知识库
+            - learning_path.json — 学习路径
+            
+            > 此 Release 由 GitHub Actions 自动更新，每次运行覆盖最新备份。
+          files: |
+            ${{ env.BACKUP_FILE }}
+          fail_on_unmatched_files: false
+          make_latest: false
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Failure notification (ntfy.sh)
         if: failure()

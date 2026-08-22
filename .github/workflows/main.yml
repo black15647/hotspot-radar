@@ -38,3 +38,39 @@ jobs:
           git add docs/data/
           git diff --staged --quiet || git commit -m "chore: update daily hotspot report $(date -u +%Y-%m-%d)"
           git push
+
+      - name: Backup data to backup branch
+        if: success()
+        run: |
+          # 创建备份目录
+          mkdir -p /tmp/backup
+          cp docs/data/history.csv /tmp/backup/ 2>/dev/null || true
+          cp docs/data/glossary.json /tmp/backup/ 2>/dev/null || true
+          cp docs/data/learning_path.json /tmp/backup/ 2>/dev/null || true
+          # 打包为 zip
+          cd /tmp/backup
+          zip -r "hotspot-backup-$(date -u +%Y-%m-%d).zip" .
+          # 切换到 backup 分支并提交
+          cd $GITHUB_WORKSPACE
+          git fetch origin backup:backup 2>/dev/null || git checkout --orphan backup
+          git worktree add /tmp/backup-worktree backup
+          cp /tmp/backup/*.zip /tmp/backup-worktree/
+          cd /tmp/backup-worktree
+          git config --local user.email "github-actions[bot]@users.noreply.github.com"
+          git config --local user.name "github-actions[bot]"
+          git add *.zip
+          git diff --staged --quiet || git commit -m "backup: data backup $(date -u +%Y-%m-%d)"
+          git push origin backup
+          cd $GITHUB_WORKSPACE
+          git worktree remove /tmp/backup-worktree --force
+
+      - name: Failure notification (ntfy.sh)
+        if: failure()
+        run: |
+          # 工作流失败时发送通知到 ntfy.sh
+          # 请将 your-topic 替换为你在 ntfy.sh 注册的主题名
+          curl -s -X POST "https://ntfy.sh/your-topic" \
+            -H "Title: 环境学子雷达 - 工作流失败" \
+            -H "Priority: high" \
+            -d "每日热点报告生成失败，请检查 GitHub Actions 日志。仓库: ${{ github.repository }}" \
+            || echo "通知发送失败（可能是 ntfy.sh 未配置）"

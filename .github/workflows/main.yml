@@ -1,9 +1,11 @@
-name: daily-report
+name: Daily Hotspot Report
 
 on:
   schedule:
+    # 每天 UTC 00:00 运行（北京时间 08:00）
     - cron: '0 0 * * *'
   workflow_dispatch:
+    # 允许手动触发
 
 jobs:
   build:
@@ -26,7 +28,8 @@ jobs:
           pip install feedparser pyyaml jieba
 
       - name: Run daily report generator
-        run: python daily_report.py
+        run: |
+          python daily_report.py
 
       - name: Commit and push data changes
         run: |

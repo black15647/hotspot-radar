@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>环境学子雷达</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <!-- 顶部导航 -->
+    <header class="navbar">
+        <div class="nav-container">
+            <div class="nav-brand">
+                <span class="brand-icon">📡</span>
+                <span class="brand-name">环境学子雷达</span>
+            </div>
+            <div class="nav-actions">
+                <div class="search-box">
+                    <input type="text" id="searchInput" placeholder="搜索热点..." autocomplete="off">
+                    <span class="search-icon">🔍</span>
+                </div>
+                <button class="icon-btn" id="themeToggle" title="暗黑模式">🌙</button>
+                <button class="icon-btn" id="customizeBtn" title="主题定制">🎨</button>
+                <button class="icon-btn history-btn" id="historyBtn" title="历史归档">📅</button>
+                <button class="icon-btn glossary-btn" id="glossaryBtn" title="环境知识库">📖</button>
+                <button class="icon-btn saved-btn" id="savedBtn" title="我的收藏">⭐</button>
+            </div>
+        </div>
+    </header>
+
+    <!-- 主区域 -->
+    <main class="main-container">
+        <!-- 热点总结 -->
+        <section class="summary-section" id="summarySection" style="display:none;">
+            <div class="summary-card">
+                <span class="summary-label">📊 今日概览</span>
+                <p class="summary-text" id="summaryText"></p>
+            </div>
+        </section>
+
+        <!-- 今日热点 TOP10 -->
+        <section class="hotspot-section">
+            <div class="section-header">
+                <h2 class="section-title">🔥 今日热点</h2>
+                <span class="section-subtitle" id="itemCount"></span>
+            </div>
+            <div class="card-list" id="cardList">
+                <!-- 卡片由 JS 动态渲染 -->
+            </div>
+            <div class="load-more-container" id="loadMoreContainer" style="display:none;">
+                <button class="load-more-btn" id="loadMoreBtn">查看全部（共 0 条）</button>
+            </div>
+        </section>
+
+        <!-- 近7天趋势图 -->
+        <section class="trend-section">
+            <div class="section-header">
+                <h2 class="section-title">📈 近7天趋势</h2>
+            </div>
+            <div class="chart-container">
+                <canvas id="trendChart"></canvas>
+            </div>
+        </section>
+
+        <!-- 关键词标签云 -->
+        <section class="keywords-section">
+            <div class="section-header">
+                <h2 class="section-title">🏷️ 热门关键词</h2>
+            </div>
+            <div class="tag-cloud" id="tagCloud">
+                <!-- 标签由 JS 动态渲染 -->
+            </div>
+        </section>
+    </main>
+
+    <!-- 底部 -->
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-links">
+                <a href="#" class="footer-link" id="algoLink">算法说明</a>
+                <a href="#" class="footer-link" id="aboutLink">关于</a>
+                <a href="https://github.com" target="_blank" rel="noopener" class="footer-link">GitHub</a>
+            </div>
+            <div class="footer-actions">
+                <a href="https://afdian.com/" target="_blank" rel="noopener" class="support-btn">
+                    ☕ 支持作者
+                </a>
+                <a href="https://github.com/你的用户名/你的仓库名/issues/new?title=网站反馈&body=请描述你的建议或问题：" target="_blank" rel="noopener" class="feedback-btn">
+                    💬 反馈
+                </a>
+            </div>
+            <p class="footer-copyright">© 2024 环境学子雷达 · MIT License</p>
+        </div>
+    </footer>
+
+    <!-- 主题定制面板 -->
+    <div class="customize-panel" id="customizePanel">
+        <div class="panel-header">
+            <h3>🎨 主题定制</h3>
+            <button class="panel-close" id="panelClose">✕</button>
+        </div>
+        <div class="panel-body">
+            <div class="setting-group">
+                <label class="setting-label">主色调</label>
+                <input type="color" id="primaryColorPicker" value="#10B981">
+            </div>
+            <div class="setting-group">
+                <label class="setting-label">背景色</label>
+                <input type="color" id="bgColorPicker" value="#F9FAFB">
+            </div>
+            <div class="setting-group">
+                <label class="setting-label">圆角大小：<span id="radiusValue">12</span>px</label>
+                <input type="range" id="radiusSlider" min="0" max="20" value="12">
+            </div>
+            <div class="setting-group">
+                <label class="setting-label">密度</label>
+                <div class="radio-group">
+                    <label class="radio-label">
+                        <input type="radio" name="density" value="8"> 紧凑
+                    </label>
+                    <label class="radio-label">
+                        <input type="radio" name="density" value="16" checked> 舒适
+                    </label>
+                    <label class="radio-label">
+                        <input type="radio" name="density" value="24"> 宽松
+                    </label>
+                </div>
+            </div>
+            <div class="setting-group">
+                <label class="setting-label">字体大小：<span id="fontSizeValue">16</span>px</label>
+                <input type="range" id="fontSizeSlider" min="14" max="18" value="16">
+            </div>
+            <button class="reset-btn" id="resetThemeBtn">恢复默认</button>
+        </div>
+    </div>
+    <div class="panel-overlay" id="panelOverlay"></div>
+
+    <!-- 关键词曲线模态框 -->
+    <div class="modal" id="keywordModal">
+        <div class="modal-overlay" id="keywordOverlay"></div>
+        <div class="modal-content modal-large">
+            <div class="modal-header">
+                <h3 id="keywordModalTitle">关键词趋势</h3>
+                <button class="modal-close" id="keywordClose">✕</button>
+            </div>
+            <div class="modal-body">
+                <div class="chart-container">
+                    <canvas id="keywordChart"></canvas>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 算法说明模态框 -->
+    <div class="modal" id="algoModal">
+        <div class="modal-overlay" id="algoOverlay"></div>
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>📐 热度算法说明</h3>
+                <button class="modal-close" id="algoClose">✕</button>
+            </div>
+            <div class="modal-body">
+                <div class="algo-content">
+                    <h4>热度计算公式</h4>
+                    <p class="formula">热度 = 5 + 来源权重 × 3 + 关键词匹配数 × 关键词加分 + 主题聚合加分 + 10 × e<sup>-小时数/24</sup></p>
+                    <h4>各项说明</h4>
+                    <ul class="algo-list">
+                        <li><strong>基础分</strong>：5 分，保证每条资讯有基础热度。</li>
+                        <li><strong>来源权重</strong>：Nature 系列 2.0，Google News 1.5，其他 1.0。</li>
+                        <li><strong>关键词加分</strong>：每匹配一个环境专业关键词加 2.0 分。</li>
+                        <li><strong>主题聚合加分</strong>：同一关键词在多条资讯中出现时，每条额外加 2 × 包含该关键词的条目数。</li>
+                        <li><strong>时间衰减</strong>：越新的资讯加分越高，10 × e<sup>-小时数/24</sup>。</li>
+                    </ul>
+                    <h4>数据范围</h4>
+                    <p>仅保留最近 48 小时内发布的资讯，每天自动更新。</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 关于模态框 -->
+    <div class="modal" id="aboutModal">
+        <div class="modal-overlay" id="aboutOverlay"></div>
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>ℹ️ 关于环境学子雷达</h3>
+                <button class="modal-close" id="aboutClose">✕</button>
+            </div>
+            <div class="modal-body">
+                <div class="about-content">
+                    <p><strong>环境学子雷达</strong>是一个面向环境专业学生的开源热点聚合平台。</p>
+                    <p>我们聚合了 Google News、The Guardian、Yale Environment 360、BBC、Nature、Water Research、ScienceDaily 等 15+ 权威信息源，通过透明的热度算法为你筛选每日最值得关注的环境领域资讯。</p>
+                    <h4>主要功能</h4>
+                    <ul>
+                        <li>每日热点 TOP 榜单</li>
+                        <li>关键词标签云与历史趋势曲线</li>
+                        <li>个性化关键词过滤</li>
+                        <li>主题定制与暗黑模式</li>
+                        <li>一键分享资讯</li>
+                        <li>用户反馈通道</li>
+                    </ul>
+                    <p class="about-note">本项目完全开源免费，采用 MIT 协议。欢迎 Star、Fork 和贡献代码！</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 历史归档模态框 -->
+    <div class="modal" id="historyModal">
+        <div class="modal-overlay" id="historyOverlay"></div>
+        <div class="modal-content modal-large">
+            <div class="modal-header">
+                <h3>📅 历史归档</h3>
+                <button class="modal-close" id="historyClose">✕</button>
+            </div>
+            <div class="modal-body">
+                <!-- 年月选择区 -->
+                <div class="history-selector">
+                    <div class="selector-group">
+                        <label>年份</label>
+                        <select id="historyYear"></select>
+                    </div>
+                    <div class="selector-group">
+                        <label>月份</label>
+                        <select id="historyMonth"></select>
+                    </div>
+                    <button class="btn-primary" id="historyViewBtn">查看</button>
+                </div>
+                <!-- 日期快速选择区 -->
+                <div class="history-date-picker">
+                    <label>按日期查看：</label>
+                    <input type="date" id="historyDateInput">
+                </div>
+                <!-- 内容展示区 -->
+                <div class="history-content" id="historyContent">
+                    <div class="history-loading">加载中...</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 知识库模态框 -->
+    <div class="modal" id="glossaryModal">
+        <div class="modal-overlay" id="glossaryOverlay"></div>
+        <div class="modal-content modal-large">
+            <div class="modal-header">
+                <h3>📖 环境知识库</h3>
+                <button class="modal-close" id="glossaryClose">✕</button>
+            </div>
+            <div class="modal-body">
+                <div class="glossary-search-box">
+                    <input type="text" id="glossary-search" placeholder="搜索专业名词..." autocomplete="off">
+                    <div class="glossary-suggestions" id="glossarySuggestions" style="display:none;"></div>
+                </div>
+                <div class="glossary-recommend" id="glossaryRecommend">
+                    <div class="glossary-recommend-header">
+                        <span class="glossary-recommend-title">✨ 推荐词条</span>
+                        <button class="glossary-refresh-btn" id="glossaryRefreshBtn">换一批</button>
+                    </div>
+                    <div class="glossary-recommend-tags" id="glossaryRecommendTags"></div>
+                </div>
+                <div class="glossary-categories" id="glossary-categories"></div>
+                <div class="glossary-list" id="glossary-list"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 术语解释模态框 -->
+    <div class="modal" id="termModal">
+        <div class="modal-overlay" id="termOverlay"></div>
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 id="termModalTitle">术语解释</h3>
+                <button class="modal-close" id="termClose">✕</button>
+            </div>
+            <div class="modal-body">
+                <div class="term-detail">
+                    <span class="term-category" id="termCategory"></span>
+                    <p class="term-definition" id="termDefinition"></p>
+                    <div class="term-actions">
+                        <button class="btn-secondary" id="termCopyBtn">复制术语</button>
+                        <button class="btn-primary" id="termTrendBtn">查看趋势</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 收藏榜模态框 -->
+    <div class="modal" id="savedModal">
+        <div class="modal-overlay" id="savedOverlay"></div>
+        <div class="modal-content modal-large">
+            <div class="modal-header">
+                <h3>⭐ 我的收藏榜</h3>
+                <button class="modal-close" id="savedClose">✕</button>
+            </div>
+            <div class="modal-body">
+                <div class="saved-list" id="savedList">
+                    <div class="saved-empty">暂无收藏，快去收藏你关心的热点吧！</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Toast 提示 -->
+    <div class="toast" id="toast"></div>
+
+    <!-- 加载提示 -->
+    <div class="loading" id="loading">
+        <div class="loading-spinner"></div>
+        <p>正在加载热点数据...</p>
+    </div>
+
+    <!-- 错误提示 -->
+    <div class="error-container" id="errorContainer" style="display:none;">
+        <div class="error-card">
+            <span class="error-icon">⚠️</span>
+            <h3>数据加载失败</h3>
+            <p>无法获取热点数据，请稍后重试或检查网络连接。</p>
+            <button class="btn-primary" onclick="location.reload()">重新加载</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

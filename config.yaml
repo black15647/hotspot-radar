@@ -1,0 +1,101 @@
+# ============================================================
+# 环境学子雷达 - 配置文件
+# 最小配置：只需填写 rss_feeds，其余字段均有默认值
+# ============================================================
+
+# 站点名称（可选，默认"环境学子雷达"）
+site_name: "环境学子雷达"
+
+# ---------- 必填：RSS 源列表 ----------
+# 键为来源名称，值为 RSS 地址
+rss_feeds:
+  "Google News 环境保护": "https://news.google.com/rss/search?q=环境保护&hl=zh-CN&gl=CN&ceid=CN:zh-Hans"
+  "Google News 气候变化": "https://news.google.com/rss/search?q=气候变化&hl=zh-CN&gl=CN&ceid=CN:zh-Hans"
+  "Google News 生态环境": "https://news.google.com/rss/search?q=生态环境&hl=zh-CN&gl=CN&ceid=CN:zh-Hans"
+  "Google News 环境污染": "https://news.google.com/rss/search?q=环境污染&hl=zh-CN&gl=CN&ceid=CN:zh-Hans"
+  "Google News 环保招聘": "https://news.google.com/rss/search?q=环保招聘&hl=zh-CN&gl=CN&ceid=CN:zh-Hans"
+  "Google News 环境考研": "https://news.google.com/rss/search?q=环境考研&hl=zh-CN&gl=CN&ceid=CN:zh-Hans"
+  "Google News 环境竞赛": "https://news.google.com/rss/search?q=环境竞赛&hl=zh-CN&gl=CN&ceid=CN:zh-Hans"
+  "The Guardian Environment": "https://www.theguardian.com/environment/rss"
+  "Yale Environment 360": "https://e360.yale.edu/feed.xml"
+  "BBC 科学与环境": "http://feeds.bbci.co.uk/news/science_and_environment/rss.xml"
+  "Nature": "https://rsshub.app/nature/research"
+  "Nature Sustainability": "https://rsshub.app/nature/natsustain"
+  "Nature 环境科学": "https://www.nature.com/subjects/environmental-sciences.rss"
+  "Water Research": "https://rss.sciencedirect.com/publication/science/00431354"
+  "ScienceDaily 环境科学": "https://www.sciencedaily.com/rss/earth_climate/environmental_science.xml"
+
+# ---------- 可选：关键词列表 ----------
+# 用于热度计算和标签云，覆盖环境专业核心概念和学生关注点
+# 不填写则使用内置默认列表
+# keywords:
+#   - 气候变化
+#   - 碳中和
+#   - 碳排放
+#   - 水污染
+#   - 大气污染
+#   - 土壤污染
+#   - 微塑料
+#   - 新污染物
+#   - 重金属
+#   - 生物多样性
+#   - 生态修复
+#   - 生态系统
+#   - 可再生能源
+#   - 清洁能源
+#   - 循环经济
+#   - 环保督察
+#   - 环评
+#   - 绿色金融
+#   - 可持续发展
+#   - 环境健康
+#   - 垃圾分类
+#   - 塑料污染
+#   - 海洋保护
+#   - 考研
+#   - 招聘
+#   - 实习
+#   - 竞赛
+#   - 水处理
+#   - 土壤修复
+#   - 环境工程
+#   - 环境科学
+
+# ---------- 可选：用户个性化关键词 ----------
+# 填写后会额外生成 data/personal_latest.json
+# user_keywords:
+#   - 水处理
+#   - 土壤修复
+#   - 环境工程
+
+# ---------- 可选：热度权重配置 ----------
+# weights:
+#   source_weights:
+#     # Nature 类来源权重 2.0
+#     "Nature": 2.0
+#     "Nature Sustainability": 2.0
+#     "Nature 环境科学": 2.0
+#     # Google News 来源权重 1.5
+#     "Google News 环境保护": 1.5
+#     "Google News 气候变化": 1.5
+#     "Google News 生态环境": 1.5
+#     "Google News 环境污染": 1.5
+#     "Google News 环保招聘": 1.5
+#     "Google News 环境考研": 1.5
+#     "Google News 环境竞赛": 1.5
+#     # 其他来源默认 1.0
+#   time_decay: 0.8        # 时间衰减系数
+#   keyword_bonus: 2.0     # 每个匹配关键词的加分
+
+# ---------- 可选：邮件推送配置 ----------
+# 仅推送给站长个人；receiver 为空则不发送邮件
+# email_config:
+#   smtp_server: "smtp.qq.com"
+#   smtp_port: 465
+#   sender: "your_email@qq.com"
+#   password: "your_auth_code"
+#   receiver: ""   # 站长个人邮箱，为空则不发送
+
+# ---------- 可选：抓取数量限制 ----------
+# max_items_per_source: 5   # 每个源最大抓取条数（冷启动时自动设为 10）
+# max_total_items: 50        # 总条目上限

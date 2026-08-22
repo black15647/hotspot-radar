@@ -156,8 +156,6 @@ def safe_json_dump(data, path, ensure_ascii=False, indent=2):
     2. 写入后重新读取验证合法性
     3. 验证失败时抛出异常，避免生成损坏的 JSON
     """
-    # 确保目录存在
-    os.makedirs(os.path.dirname(path), exist_ok=True)
     with open(path, "w", encoding="utf-8") as f:
         json.dump(data, f, ensure_ascii=ensure_ascii, indent=indent)
     # 写入后验证
@@ -941,9 +939,25 @@ def update_history(items, config, backfill=False):
     - 冷启动：按条目发布日期分组生成最近7天记录
     - 日常：追加今天记录
     - 保留365条，按日期去重更新
+    - 每条记录包含 keyword_counts（每个关键词当日出现次数），用于热点事件时间线
     """
     history = load_history()
     keywords = config.get("keywords", DEFAULT_KEYWORDS)
+
+    def build_record(date_str, group_items):
+        """构建单条历史记录，包含关键词计数"""
+        day_keywords = []
+        for item in group_items:
+            day_keywords.extend(item.get("matched_keywords", []))
+        top5 = [kw for kw, _ in Counter(day_keywords).most_common(5)]
+        # 统计每个关键词的出现次数（用于时间线）
+        keyword_counts = dict(Counter(day_keywords))
+        return {
+            "date": date_str,
+            "total_items": len(group_items),
+            "keywords": top5,
+            "keyword_counts": keyword_counts,
+        }
 
     if backfill:
         print("[冷启动] 按发布日期生成最近7天历史记录...")
@@ -959,33 +973,14 @@ def update_history(items, config, backfill=False):
         sorted_dates = sorted(date_groups.keys(), reverse=True)[:7]
         for date_str in sorted_dates:
             group_items = date_groups[date_str]
-            # 统计该日关键词
-            day_keywords = []
-            for item in group_items:
-                day_keywords.extend(item.get("matched_keywords", []))
-            top5 = [kw for kw, _ in Counter(day_keywords).most_common(5)]
-
-            record = {
-                "date": date_str,
-                "total_items": len(group_items),
-                "keywords": top5,
-            }
+            record = build_record(date_str, group_items)
             # 按日期去重
             history = [h for h in history if h.get("date") != date_str]
             history.append(record)
     else:
         # 日常追加今天记录
         today = datetime.now(timezone.utc).strftime("%Y-%m-%d")
-        all_keywords = []
-        for item in items:
-            all_keywords.extend(item.get("matched_keywords", []))
-        top5 = [kw for kw, _ in Counter(all_keywords).most_common(5)]
-
-        record = {
-            "date": today,
-            "total_items": len(items),
-            "keywords": top5,
-        }
+        record = build_record(today, items)
         # 按日期去重更新
         history = [h for h in history if h.get("date") != today]
         history.append(record)

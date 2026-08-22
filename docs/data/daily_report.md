@@ -1,7 +1,7 @@
 # 环境学子雷达 - 每日热点报告
 
 **日期**：2026-08-22
-**总条目数**：32
+**总条目数**：31
 
 ---
 
@@ -10,7 +10,7 @@
 ### 1. [蚊子正在悄悄扩张生存版图 气候变化助长其北上脚步 - 中华网](https://news.google.com/rss/articles/CBMicEFVX3lxTE9ld1FzSGRtYXRldzN4aS1KX2h2bld5RFdsUm4xS0YxQ0tFZFlFelpUUUZza09iY0U0cXJpZ2xaVGd3blhDbVB1NGJqZWVkRHVRaVdVZ3JILXZwMi05UUZ4UHhIQ1V2QWdOYXdiQlQyank?oc=5)
 
 - **来源**：Google News 气候变化
-- **热度**：25.72
+- **热度**：25.7
 - **发布时间**：2026-08-22T05:25:42+00:00
 - **关键词**：气候变化
 
@@ -21,7 +21,7 @@
 ### 2. [应对气候变化 “川籍”水稻怎样更有“韧性”？ - Jiemian.com](https://news.google.com/rss/articles/CBMiVkFVX3lxTE9XOXVYWjVGenFsamV0VHhRSS1UaVRCYVhTaDVnc3VuRWRpVk95Y3JmR3FJd3JJTWdJS0dpckI2TE9CaDFZSkJLSUdrX3M4dXlJQUpyaFV3?oc=5)
 
 - **来源**：Google News 气候变化
-- **热度**：25.19
+- **热度**：25.17
 - **发布时间**：2026-08-22T03:15:38+00:00
 - **关键词**：气候变化
 
@@ -34,7 +34,7 @@
 ### 3. [中国据报申办2028年联合国气候变化大会 - 联合早报](https://news.google.com/rss/articles/CBMiZkFVX3lxTE5DcXVfc18xOXlpQ19ZT29GZGFFQ1plWS1VZFphWHB1dnR3VGFqVDZBODE1QXA5SF9hZ2hCN3RpUWJNYkhfb01NVExHcm80MlkxNWYxaHZyem0tMFdmQjgyWi1ieVd0Zw?oc=5)
 
 - **来源**：Google News 气候变化
-- **热度**：24.92
+- **热度**：24.9
 - **发布时间**：2026-08-22T02:07:00+00:00
 - **关键词**：气候变化
 
@@ -45,7 +45,7 @@
 ### 4. [欧洲高温与气候变化有多大关系？ - 手机新浪网](https://news.google.com/rss/articles/CBMigwFBVV95cUxQTno4Y0JEX0VWNkV6MHREQTBfRDFGNlo4clBEemotRTY2NE11UWVqVm1rY0JkZENMdjd4M2szS0ZvWUFsX29HOHIyeFNYTzVTNjVTaGN4Zjh1SWFQZjlleUxXaENsMG96aXZIZ0dZUTl1S0lUekJUSXJhdnAtNXM1UDZIbw?oc=5)
 
 - **来源**：Google News 气候变化
-- **热度**：23.78
+- **热度**：23.76
 - **发布时间**：2026-08-21T20:26:00+00:00
 - **关键词**：气候变化
 
@@ -56,7 +56,7 @@
 ### 5. [山东二战考研全年封闭基地盘点：从南山山庄到长清校区，天辅、高联、峰研吃住学环境 - 中华网科技频道](https://news.google.com/rss/articles/CBMibkFVX3lxTE5UZS1LTndYSHlFZW9VUTNQcHZUamg1TjhYa2UwelBGNVVQZDJTTFRyd2JoN2NQSmh2aTFLV2NvMlBmaU8wMk9OQjhydFRvWS1ZWVg2WDZwQWlGTUsyNDQ3QzBDYVNVLUFfU1hqMklB?oc=5)
 
 - **来源**：Google News 环境考研
-- **热度**：19.49
+- **热度**：19.47
 - **发布时间**：2026-08-22T04:31:03+00:00
 - **关键词**：考研
 
@@ -69,7 +69,7 @@
 ### 6. [21家上市公司暴露环境风险，武汉天源控股公司暗管偷排被罚｜A股绿色报告 - 每日经济新闻](https://news.google.com/rss/articles/CBMiZkFVX3lxTFBncTRHVmJETmR1NUJmX2hfRndvcERYSDhFZUh4Y3VVUlRDQmlTN05jWFNsdmFkVUJxcDZMZG81VXRIcE9xNlJZcGcwVnpqWmVJanVjWDRLLTZMMzNEV3FmUEZCUU5rUQ?oc=5)
 
 - **来源**：Google News 环境保护
-- **热度**：18.25
+- **热度**：18.23
 - **发布时间**：2026-08-22T13:37:00+00:00
 
 > 21家上市公司暴露环境风险，武汉天源控股公司暗管偷排被罚｜A股绿色报告 每日经济新闻
@@ -81,7 +81,7 @@
 ### 7. [祁连山北麓生态环境蝶变十年观察 - 光明网](https://news.google.com/rss/articles/CBMiZkFVX3lxTE5EQmhUMXQxeXJsNEctc014ZG5SdDZGRHN6RVBZeUplOXROTWtJSjc0ZGZIQlNwc000MHFoNW05LXV5bWFBcm1MNWczWFNvRE5odmQ4SjdMNEJQa2pHWmpoQkwtMUE0QQ?oc=5)
 
 - **来源**：Google News 生态环境
-- **热度**：17.86
+- **热度**：17.84
 - **发布时间**：2026-08-22T12:31:00+00:00
 
 **📊 分析**：该条目涉及【环境领域】话题，热度主要由来源影响力和时间新鲜度驱动，建议关注。
@@ -91,7 +91,7 @@
 ### 8. [生态环境部党组书记孙金龙赴内蒙古调研生态环境保护工作 - 新浪财经](https://news.google.com/rss/articles/CBMieEFVX3lxTE13c0NCcE5NYWd6Q01qOG9DSGdMY0t5dk0zSE5ZeXE5dXN2Zkk5VXZlNGhfUGh6MHV5dnVJTkdMUm14WTQ4T0t5R1g0aGJ2aThQS3dGN0tOR1o3aGxfN081T1JlV1NkM0o2cGhrZXpFeWdOeVd2XzNVbA?oc=5)
 
 - **来源**：Google News 环境保护
-- **热度**：16.95
+- **热度**：16.93
 - **发布时间**：2026-08-22T09:45:00+00:00
 
 > 生态环境部党组书记孙金龙赴内蒙古调研生态环境保护工作 新浪财经
@@ -103,7 +103,7 @@
 ### 9. [生态环境部部长黄润秋赴湖南省调研生态环境保护工作 - 中华人民共和国生态环境部](https://news.google.com/rss/articles/CBMidkFVX3lxTE9CTXl3NHlJeEVvYjdadFdPQzc2dXVBU096N0lsY1d5cTliSjZZam5tRGhTSHdTM0hrc01CQm5FT0xVa2NYZ2EwTEFIb3JqbTdTZHdNWHdkc2dqdzdSUTlFZ2RXVVRHak0tV0VTVTJGOWFOR0NOeUE?oc=5)
 
 - **来源**：Google News 环境保护
-- **热度**：16.06
+- **热度**：16.04
 - **发布时间**：2026-08-22T06:40:47+00:00
 
 > 生态环境部部长黄润秋赴湖南省调研生态环境保护工作 中华人民共和国生态环境部
@@ -115,7 +115,7 @@
 ### 10. [Welsh county becomes global hotspot for carbon emissions after wildfires](https://www.bbc.co.uk/news/articles/cp9e9rg255vo?at_medium=RSS&at_campaign=rss)
 
 - **来源**：BBC 科学与环境
-- **热度**：16.02
+- **热度**：16.0
 - **发布时间**：2026-08-22T11:31:09+00:00
 
 > The smell of burning from the Blaenavon wildfire was reported 30 miles away in Cardiff.

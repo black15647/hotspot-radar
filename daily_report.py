@@ -149,6 +149,31 @@ def ensure_data_dir():
     os.makedirs(os.path.join(DATA_DIR, "archive"), exist_ok=True)
 
 
+def safe_json_dump(data, path, ensure_ascii=False, indent=2):
+    """
+    安全写入 JSON 文件：
+    1. 使用 json.dump 序列化（自动转义特殊字符）
+    2. 写入后重新读取验证合法性
+    3. 验证失败时抛出异常，避免生成损坏的 JSON
+    """
+    with open(path, "w", encoding="utf-8") as f:
+        json.dump(data, f, ensure_ascii=ensure_ascii, indent=indent)
+    # 写入后验证
+    try:
+        with open(path, "r", encoding="utf-8") as f:
+            json.load(f)
+    except json.JSONDecodeError as e:
+        print(f"[警告] JSON 验证失败 {path}: {e}")
+        raise
+
+
+def sanitize_str(value, default=""):
+    """确保值为字符串，None 转为默认值"""
+    if value is None:
+        return default
+    return str(value)
+
+
 def load_config():
     """读取配置文件，不存在则创建默认配置"""
     if not os.path.exists(CONFIG_PATH):
@@ -626,8 +651,7 @@ def generate_pending_terms(items, config):
     if not JIEBA_AVAILABLE:
         print("[跳过] jieba 未安装，跳过分词提取")
         path = os.path.join(DATA_DIR, "pending_terms.json")
-        with open(path, "w", encoding="utf-8") as f:
-            json.dump([], f, ensure_ascii=False, indent=2)
+        safe_json_dump([], path)
         return []
 
     # 加载已有知识库词条
@@ -684,15 +708,14 @@ def generate_pending_terms(items, config):
     for term, count in term_count.most_common():
         if count >= 2:
             pending.append({
-                "term": term,
-                "count": count,
-                "contexts": term_contexts[term],
+                "term": sanitize_str(term),
+                "count": int(count),
+                "contexts": [sanitize_str(ctx) for ctx in term_contexts[term]],
             })
 
     # 写入文件
     path = os.path.join(DATA_DIR, "pending_terms.json")
-    with open(path, "w", encoding="utf-8") as f:
-        json.dump(pending, f, ensure_ascii=False, indent=2)
+    safe_json_dump(pending, path)
     print(f"[生成] {path}（候选词 {len(pending)} 个）")
     return pending
 
@@ -720,35 +743,34 @@ def generate_latest_json(items, config):
     else:
         summary = f"今日共聚合{len(items)}条资讯。"
 
-    # 构建条目列表（移除内部字段）
+    # 构建条目列表（移除内部字段，确保所有值为可序列化的基本类型）
     output_items = []
     for item in items:
         # 生成分析
         analysis = generate_analysis(item, config)
         item["analysis"] = analysis
         output_items.append({
-            "title": item.get("title", ""),
-            "link": item.get("link", ""),
-            "source": item.get("source", ""),
-            "published": item.get("published", ""),
-            "hotness": item.get("hotness", 0),
-            "summary": item.get("summary", ""),
-            "analysis": analysis,
-            "matched_keywords": item.get("matched_keywords", []),
+            "title": sanitize_str(item.get("title")),
+            "link": sanitize_str(item.get("link")),
+            "source": sanitize_str(item.get("source")),
+            "published": sanitize_str(item.get("published")),
+            "hotness": float(item.get("hotness", 0)),
+            "summary": sanitize_str(item.get("summary")),
+            "analysis": sanitize_str(analysis),
+            "matched_keywords": [sanitize_str(kw) for kw in item.get("matched_keywords", [])],
         })
 
     data = {
         "report_date": datetime.now(timezone.utc).strftime("%Y-%m-%d"),
-        "site_name": site_name,
+        "site_name": sanitize_str(site_name),
         "total_items": len(output_items),
         "items": output_items,
         "keyword_analysis": top_keywords,
-        "hot_summary": summary,
+        "hot_summary": sanitize_str(summary),
     }
 
     path = os.path.join(DATA_DIR, "latest.json")
-    with open(path, "w", encoding="utf-8") as f:
-        json.dump(data, f, ensure_ascii=False, indent=2)
+    safe_json_dump(data, path)
     print(f"[生成] {path}（{len(output_items)} 条）")
     return data
 
@@ -766,26 +788,26 @@ def generate_daily_snapshot(items, config):
     output_items = []
     for item in top10:
         output_items.append({
-            "title": item.get("title", ""),
-            "link": item.get("link", ""),
-            "source": item.get("source", ""),
-            "published": item.get("published", ""),
-            "hotness": item.get("hotness", 0),
-            "summary": item.get("summary", ""),
-            "matched_keywords": item.get("matched_keywords", []),
+            "title": sanitize_str(item.get("title")),
+            "link": sanitize_str(item.get("link")),
+            "source": sanitize_str(item.get("source")),
+            "published": sanitize_str(item.get("published")),
+            "hotness": float(item.get("hotness", 0)),
+            "summary": sanitize_str(item.get("summary")),
+            "analysis": sanitize_str(item.get("analysis", "")),
+            "matched_keywords": [sanitize_str(kw) for kw in item.get("matched_keywords", [])],
         })
 
     data = {
         "report_date": today,
-        "site_name": site_name,
+        "site_name": sanitize_str(site_name),
         "total_items": len(output_items),
         "items": output_items,
     }
 
     daily_dir = os.path.join(DATA_DIR, "daily")
     path = os.path.join(daily_dir, f"{today}.json")
-    with open(path, "w", encoding="utf-8") as f:
-        json.dump(data, f, ensure_ascii=False, indent=2)
+    safe_json_dump(data, path)
     print(f"[生成] {path}（Top {len(output_items)}）")
     return data
 
@@ -808,7 +830,7 @@ def generate_monthly_archive(items, config):
     today_record = {
         "date": today,
         "total_items": len(items),
-        "keywords": top5,
+        "keywords": [sanitize_str(kw) for kw in top5],
     }
 
     archive_dir = os.path.join(DATA_DIR, "archive")
@@ -832,8 +854,7 @@ def generate_monthly_archive(items, config):
     # 按日期排序
     archive_data.sort(key=lambda x: x.get("date", ""))
 
-    with open(path, "w", encoding="utf-8") as f:
-        json.dump(archive_data, f, ensure_ascii=False, indent=2)
+    safe_json_dump(archive_data, path)
     print(f"[更新] {path}（本月共 {len(archive_data)} 天记录）")
     return archive_data
 
@@ -908,8 +929,7 @@ def load_history():
 def save_history(history):
     """保存历史记录"""
     path = os.path.join(DATA_DIR, "history.json")
-    with open(path, "w", encoding="utf-8") as f:
-        json.dump(history, f, ensure_ascii=False, indent=2)
+    safe_json_dump(history, path)
     print(f"[更新] {path}（共 {len(history)} 条记录）")
 
 
@@ -999,18 +1019,18 @@ def generate_personal_latest(items, config):
     # 过滤出匹配用户关键词的条目
     personal_items = []
     for item in items:
-        text = item.get("title", "") + " " + item.get("summary", "")
+        text = sanitize_str(item.get("title")) + " " + sanitize_str(item.get("summary"))
         matched = match_keywords(text, user_keywords)
         if matched:
             personal_item = {
-                "title": item.get("title", ""),
-                "link": item.get("link", ""),
-                "source": item.get("source", ""),
-                "published": item.get("published", ""),
-                "hotness": item.get("hotness", 0),
-                "summary": item.get("summary", ""),
-                "analysis": item.get("analysis", generate_analysis(item, config)),
-                "matched_user_keywords": matched,
+                "title": sanitize_str(item.get("title")),
+                "link": sanitize_str(item.get("link")),
+                "source": sanitize_str(item.get("source")),
+                "published": sanitize_str(item.get("published")),
+                "hotness": float(item.get("hotness", 0)),
+                "summary": sanitize_str(item.get("summary")),
+                "analysis": sanitize_str(item.get("analysis", generate_analysis(item, config))),
+                "matched_user_keywords": [sanitize_str(kw) for kw in matched],
             }
             personal_items.append(personal_item)
 
@@ -1018,14 +1038,13 @@ def generate_personal_latest(items, config):
 
     data = {
         "report_date": datetime.now(timezone.utc).strftime("%Y-%m-%d"),
-        "user_keywords": user_keywords,
+        "user_keywords": [sanitize_str(kw) for kw in user_keywords],
         "total_items": len(personal_items),
         "items": personal_items,
     }
 
     path = os.path.join(DATA_DIR, "personal_latest.json")
-    with open(path, "w", encoding="utf-8") as f:
-        json.dump(data, f, ensure_ascii=False, indent=2)
+    safe_json_dump(data, path)
     print(f"[生成] {path}（个性化 {len(personal_items)} 条）")
     return data
 

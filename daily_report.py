@@ -156,6 +156,8 @@ def safe_json_dump(data, path, ensure_ascii=False, indent=2):
     2. 写入后重新读取验证合法性
     3. 验证失败时抛出异常，避免生成损坏的 JSON
     """
+    # 确保目录存在
+    os.makedirs(os.path.dirname(path), exist_ok=True)
     with open(path, "w", encoding="utf-8") as f:
         json.dump(data, f, ensure_ascii=ensure_ascii, indent=indent)
     # 写入后验证

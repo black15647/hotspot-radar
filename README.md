@@ -386,22 +386,11 @@ hotspot-radar/
 
 ---
 
-## 🖼️ 效果展示
-
-<!-- 效果展示占位符 -->
-<!-- 部署后可在此处替换为实际截图 -->
-
-![首页预览](https://placehold.co/800x450?text=环境学子雷达+首页预览)
-
-*上图为占位符，部署后请替换为实际截图。*
-
----
-
 ## 📄 License
 
 [MIT License](LICENSE)
 
-Copyright (c) 2024 环境学子雷达
+Copyright (c) 2026 环境学子雷达
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

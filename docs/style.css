@@ -3341,3 +3341,95 @@ body.dark .keyword-detail-hotspot-item {
         font-size: 1.1rem;
     }
 }
+
+/* ============================================================
+   v5.2 每日一词：左侧固定悬浮卡片（不占布局宽度，主内容居中）
+   ============================================================ */
+
+/* 主内容区域居中 */
+.main-container {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* 每日一词悬浮卡片 */
+.daily-word-floating {
+    position: fixed;
+    left: 16px;
+    top: 80px;
+    width: 260px;
+    z-index: 100;
+    max-height: calc(100vh - 100px);
+    overflow-y: auto;
+}
+
+.daily-word-floating .daily-word-card {
+    padding: 16px;
+}
+
+.daily-word-floating .daily-word-header {
+    margin-bottom: 12px;
+}
+
+.daily-word-floating .daily-word-term {
+    font-size: 1.15rem;
+    margin-bottom: 8px;
+}
+
+.daily-word-floating .daily-word-definition {
+    font-size: 0.85rem;
+    line-height: 1.6;
+    display: -webkit-box;
+    -webkit-line-clamp: 4;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    cursor: pointer;
+    margin-bottom: 10px;
+    transition: all 0.2s ease;
+}
+
+.daily-word-floating .daily-word-definition.expanded {
+    -webkit-line-clamp: unset;
+    display: block;
+}
+
+.daily-word-floating .daily-word-category {
+    display: inline-block;
+    margin-bottom: 12px;
+    font-size: 0.75rem;
+}
+
+.daily-word-floating .daily-word-refresh {
+    width: 100%;
+    padding: 8px;
+    font-size: 0.82rem;
+}
+
+/* 悬浮卡片滚动条样式 */
+.daily-word-floating::-webkit-scrollbar {
+    width: 4px;
+}
+.daily-word-floating::-webkit-scrollbar-thumb {
+    background: var(--primary-color);
+    border-radius: 2px;
+    opacity: 0.5;
+}
+
+/* 平板和移动端：隐藏悬浮卡片 */
+@media (max-width: 1023px) {
+    .daily-word-floating {
+        display: none !important;
+    }
+    .main-container {
+        max-width: 100%;
+        padding: 0 16px;
+    }
+}
+
+/* 超宽屏：悬浮卡片与主内容保持间距 */
+@media (min-width: 1400px) {
+    .daily-word-floating {
+        left: calc(50% - 700px);
+    }
+}

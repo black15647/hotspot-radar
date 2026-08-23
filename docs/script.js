@@ -23,6 +23,11 @@
         learningData: [],
         timelineChart: null,
         currentTimelineKeyword: null,
+        // v5.0 新增
+        followedKeywords: [],
+        sourceHealthData: null,
+        keywordDetailChart: null,
+        currentDetailKeyword: null,
     };
 
     // 默认主题配置
@@ -142,6 +147,28 @@
         els.timelineLoadBtn = document.getElementById('timelineLoadBtn');
         els.timelineChart = document.getElementById('timelineChart');
         els.timelineInfo = document.getElementById('timelineInfo');
+        // v5.0 新增
+        els.backToTop = document.getElementById('backToTop');
+        els.shareSiteBtn = document.getElementById('shareSiteBtn');
+        els.sourceHealthBtn = document.getElementById('sourceHealthBtn');
+        els.sourceHealthModal = document.getElementById('sourceHealthModal');
+        els.sourceHealthOverlay = document.getElementById('sourceHealthOverlay');
+        els.sourceHealthClose = document.getElementById('sourceHealthClose');
+        els.sourceHealthSummary = document.getElementById('sourceHealthSummary');
+        els.sourceHealthList = document.getElementById('sourceHealthList');
+        els.keywordDetailModal = document.getElementById('keywordDetailModal');
+        els.keywordDetailOverlay = document.getElementById('keywordDetailOverlay');
+        els.keywordDetailClose = document.getElementById('keywordDetailClose');
+        els.keywordDetailTitle = document.getElementById('keywordDetailTitle');
+        els.keywordDetailGlossary = document.getElementById('keywordDetailGlossary');
+        els.keywordDetailHotspots = document.getElementById('keywordDetailHotspots');
+        els.keywordDetailChart = document.getElementById('keywordDetailChart');
+        els.followKeywordBtn = document.getElementById('followKeywordBtn');
+        els.featuredSection = document.getElementById('featuredSection');
+        els.featuredList = document.getElementById('featuredList');
+        els.textColorPicker = document.getElementById('textColorPicker');
+        els.fontFamilySelect = document.getElementById('fontFamilySelect');
+        els.mobileBottomNav = document.getElementById('mobileBottomNav');
     }
 
     /**
@@ -287,6 +314,30 @@
         on(els.timelineClose, 'click', () => closeModal(els.timelineModal));
         on(els.timelineLoadBtn, 'click', loadTimelineData);
 
+        // v5.0 新增事件
+        // 回到顶部
+        on(els.backToTop, 'click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+        window.addEventListener('scroll', handleScroll);
+        // 分享网站
+        on(els.shareSiteBtn, 'click', shareSite);
+        // 源健康度
+        on(els.sourceHealthBtn, 'click', openSourceHealthModal);
+        on(els.sourceHealthOverlay, 'click', () => closeModal(els.sourceHealthModal));
+        on(els.sourceHealthClose, 'click', () => closeModal(els.sourceHealthModal));
+        // 关键词详情
+        on(els.keywordDetailOverlay, 'click', () => closeModal(els.keywordDetailModal));
+        on(els.keywordDetailClose, 'click', () => closeModal(els.keywordDetailModal));
+        on(els.followKeywordBtn, 'click', toggleFollowKeyword);
+        // 主题定制新增
+        on(els.textColorPicker, 'input', () => { saveTheme(); applyTheme(getCurrentTheme()); });
+        on(els.fontFamilySelect, 'change', () => { saveTheme(); applyTheme(getCurrentTheme()); });
+        // 移动端底部导航
+        if (els.mobileBottomNav) {
+            els.mobileBottomNav.querySelectorAll('.mobile-nav-item').forEach((btn) => {
+                btn.addEventListener('click', () => handleMobileNav(btn.dataset.target));
+            });
+        }
+
         // ESC 关闭模态框
         document.addEventListener('keydown', (e) => {
             if (e.key === 'Escape') {
@@ -348,6 +399,10 @@
             els.loading.style.display = 'none';
             renderAll();
             initDailyWord();
+            // v5.0 新功能
+            loadFollowedKeywords();
+            renderFeatured();
+            renderFollowedKeywordsBar();
         } catch (err) {
             console.error('数据加载失败：', err);
             els.loading.style.display = 'none';
@@ -582,7 +637,7 @@
                 } else {
                     tag.addEventListener('click', (e) => {
                         e.stopPropagation();
-                        openKeywordChart(kw);
+                        openKeywordDetail(kw);
                     });
                 }
                 tagsEl.appendChild(tag);
@@ -835,7 +890,7 @@
             tag.style.color = `rgba(5, 150, 105, ${opacity})`;
             tag.style.borderColor = `rgba(16, 185, 129, ${0.2 + ratio * 0.3})`;
 
-            tag.addEventListener('click', () => openKeywordChart(kw.keyword));
+            tag.addEventListener('click', () => openKeywordDetail(kw.keyword));
             els.tagCloud.appendChild(tag);
         });
     }
@@ -1165,6 +1220,20 @@
             els.fontSizeSlider.value = theme.fontSize;
             els.fontSizeValue.textContent = theme.fontSize;
         }
+        if (theme.textColor) {
+            setCSSVar('--text-color', theme.textColor);
+            if (els.textColorPicker) els.textColorPicker.value = theme.textColor;
+        }
+        if (theme.fontFamily) {
+            const fontMap = {
+                'system': '-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif',
+                'sans-serif': 'Arial, Helvetica, sans-serif',
+                'serif': 'Georgia, "Times New Roman", serif',
+                'monospace': '"Courier New", Courier, monospace',
+            };
+            document.body.style.fontFamily = fontMap[theme.fontFamily] || fontMap['system'];
+            if (els.fontFamilySelect) els.fontFamilySelect.value = theme.fontFamily;
+        }
         if (theme.dark) {
             document.body.classList.add('dark');
             els.themeToggle.textContent = '☀️';
@@ -1178,6 +1247,8 @@
             borderRadius: parseInt(els.radiusSlider.value),
             cardPadding: parseInt(document.querySelector('input[name="density"]:checked').value),
             fontSize: parseInt(els.fontSizeSlider.value),
+            textColor: els.textColorPicker ? els.textColorPicker.value : '#111827',
+            fontFamily: els.fontFamilySelect ? els.fontFamilySelect.value : 'system',
             dark: document.body.classList.contains('dark'),
         };
         try {
@@ -1954,6 +2025,398 @@
             </div>
         `;
     }
+
+    // ============================================================
+    // v5.0 新增功能
+    // ============================================================
+
+    // ---------- 回到顶部 ----------
+    function handleScroll() {
+        if (els.backToTop) {
+            if (window.scrollY > 300) {
+                els.backToTop.classList.add('visible');
+            } else {
+                els.backToTop.classList.remove('visible');
+            }
+        }
+    }
+
+    // ---------- 分享网站 ----------
+    function shareSite() {
+        const shareData = {
+            title: '环境学子雷达',
+            text: '面向环境专业学生的免费开源热点聚合与学习平台',
+            url: window.location.href,
+        };
+        if (navigator.share) {
+            navigator.share(shareData).catch(() => {});
+        } else {
+            copyToClipboard(window.location.href);
+            showToast('网站链接已复制，快去分享吧！');
+        }
+    }
+
+    // ---------- 源健康度 ----------
+    function openSourceHealthModal() {
+        if (!els.sourceHealthModal) return;
+        openModal(els.sourceHealthModal);
+        loadSourceHealth();
+    }
+
+    async function loadSourceHealth() {
+        if (!els.sourceHealthList) return;
+        els.sourceHealthList.innerHTML = '<div class="loading-text">加载中...</div>';
+        try {
+            const res = await fetch('data/source_health.json');
+            if (!res.ok) throw new Error('HTTP ' + res.status);
+            state.sourceHealthData = await res.json();
+            renderSourceHealth();
+        } catch (err) {
+            console.error('源健康度加载失败:', err);
+            els.sourceHealthList.innerHTML = '<div class="empty-state"><div class="empty-state-icon">📡</div><p class="empty-state-text">暂无源健康度数据</p></div>';
+        }
+    }
+
+    function renderSourceHealth() {
+        if (!els.sourceHealthList || !state.sourceHealthData) return;
+        const data = state.sourceHealthData;
+        // 渲染摘要
+        if (els.sourceHealthSummary) {
+            els.sourceHealthSummary.innerHTML = `
+                <div class="source-health-stat">
+                    <div class="source-health-stat-value">${data.total_sources || 0}</div>
+                    <div class="source-health-stat-label">总源数</div>
+                </div>
+                <div class="source-health-stat">
+                    <div class="source-health-stat-value success">${data.success_count || 0}</div>
+                    <div class="source-health-stat-label">成功</div>
+                </div>
+                <div class="source-health-stat">
+                    <div class="source-health-stat-value failed">${data.failed_count || 0}</div>
+                    <div class="source-health-stat-label">失败</div>
+                </div>
+                <div class="source-health-stat">
+                    <div class="source-health-stat-value critical">${data.critical_count || 0}</div>
+                    <div class="source-health-stat-label">严重</div>
+                </div>
+            `;
+        }
+        // 渲染列表
+        const sources = data.sources || [];
+        const frag = document.createDocumentFragment();
+        sources.forEach((src) => {
+            const item = document.createElement('div');
+            const statusClass = src.critical ? 'critical' : (src.success ? '' : 'failed');
+            item.className = 'source-health-item ' + statusClass;
+            const statusIcon = src.success ? '✅' : '❌';
+            const criticalBadge = src.critical ? '<span class="source-health-badge critical">连续失败</span>' : '';
+            item.innerHTML = `
+                <span class="source-health-status">${statusIcon}</span>
+                <div class="source-health-info">
+                    <div class="source-health-name">${escapeHtml(src.name || '未知源')}</div>
+                    <div class="source-health-meta">${src.elapsed_seconds || 0}s · ${src.item_count || 0} 条 · ${src.last_check ? new Date(src.last_check).toLocaleString('zh-CN') : '未知'}</div>
+                    ${src.error ? `<div class="source-health-error">${escapeHtml(src.error)}</div>` : ''}
+                </div>
+                ${criticalBadge}
+            `;
+            frag.appendChild(item);
+        });
+        els.sourceHealthList.innerHTML = '';
+        els.sourceHealthList.appendChild(frag);
+    }
+
+    // ---------- 关键词详情 ----------
+    function openKeywordDetail(keyword) {
+        if (!els.keywordDetailModal) return;
+        state.currentDetailKeyword = keyword;
+        if (els.keywordDetailTitle) els.keywordDetailTitle.textContent = '🔍 ' + keyword;
+        // 更新关注按钮状态
+        updateFollowButtonState();
+        openModal(els.keywordDetailModal);
+        renderKeywordDetail(keyword);
+    }
+
+    function renderKeywordDetail(keyword) {
+        // 知识库解释
+        if (els.keywordDetailGlossary) {
+            const term = state.glossaryMap[keyword];
+            if (term) {
+                els.keywordDetailGlossary.innerHTML = `
+                    <span class="glossary-category">${escapeHtml(term.category || '')}</span>
+                    <div class="glossary-def">${escapeHtml(term.definition || '')}</div>
+                `;
+            } else {
+                els.keywordDetailGlossary.innerHTML = `
+                    <p class="text-muted">暂无解释，可<a href="https://github.com/你的用户名/你的仓库名/issues/new?title=建议收录词条：${encodeURIComponent(keyword)}&body=请解释这个环境专业术语：" target="_blank" class="empty-state-link">提交收录</a></p>
+                `;
+            }
+        }
+        // 今日相关热点
+        if (els.keywordDetailHotspots && state.latestData) {
+            const related = (state.latestData.items || []).filter((item) => {
+                const text = (item.title || '') + (item.summary || '');
+                return text.toLowerCase().includes(keyword.toLowerCase());
+            }).slice(0, 5);
+            if (related.length === 0) {
+                els.keywordDetailHotspots.innerHTML = '<p class="text-muted">今日暂无相关热点</p>';
+            } else {
+                const frag = document.createDocumentFragment();
+                related.forEach((item) => {
+                    const div = document.createElement('div');
+                    div.className = 'keyword-detail-hotspot-item';
+                    div.innerHTML = `
+                        <div class="keyword-detail-hotspot-title">${escapeHtml(item.title || '')}</div>
+                        <div class="keyword-detail-hotspot-meta">
+                            <span>${escapeHtml(item.source || '')}</span>
+                            <span>热度 ${Math.round(item.score || 0)}</span>
+                        </div>
+                    `;
+                    frag.appendChild(div);
+                });
+                els.keywordDetailHotspots.innerHTML = '';
+                els.keywordDetailHotspots.appendChild(frag);
+            }
+        }
+        // 365天趋势图
+        renderKeywordDetailChart(keyword);
+    }
+
+    function renderKeywordDetailChart(keyword) {
+        if (!els.keywordDetailChart) return;
+        const ctx = els.keywordDetailChart.getContext('2d');
+        if (state.keywordDetailChart) state.keywordDetailChart.destroy();
+        // 从 historyData 提取数据
+        const data = [];
+        if (Array.isArray(state.historyData)) {
+            state.historyData.forEach((h) => {
+                if (h.date && h.keyword_counts) {
+                    const count = h.keyword_counts[keyword] || 0;
+                    if (count > 0) data.push({ date: h.date, count: count });
+                }
+            });
+        }
+        data.sort((a, b) => a.date.localeCompare(b.date));
+        const labels = data.map((d) => d.date);
+        const counts = data.map((d) => d.count);
+        state.keywordDetailChart = new Chart(ctx, {
+            type: 'line',
+            data: {
+                labels: labels,
+                datasets: [{
+                    label: keyword + ' 出现次数',
+                    data: counts,
+                    borderColor: '#10B981',
+                    backgroundColor: 'rgba(16, 185, 129, 0.1)',
+                    fill: true,
+                    tension: 0.3,
+                }],
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: { legend: { display: true, position: 'top' } },
+                scales: {
+                    x: { ticks: { maxRotation: 45, minRotation: 45, font: { size: 10 } } },
+                    y: { beginAtZero: true, ticks: { stepSize: 1 } },
+                },
+            },
+        });
+    }
+
+    // ---------- 关注关键词 ----------
+    function loadFollowedKeywords() {
+        try {
+            const saved = localStorage.getItem('followed_keywords');
+            state.followedKeywords = saved ? JSON.parse(saved) : [];
+        } catch (e) {
+            state.followedKeywords = [];
+        }
+    }
+
+    function saveFollowedKeywords() {
+        try {
+            localStorage.setItem('followed_keywords', JSON.stringify(state.followedKeywords));
+        } catch (e) {}
+    }
+
+    function toggleFollowKeyword() {
+        const kw = state.currentDetailKeyword;
+        if (!kw) return;
+        const idx = state.followedKeywords.indexOf(kw);
+        if (idx >= 0) {
+            state.followedKeywords.splice(idx, 1);
+            showToast('已取消关注：' + kw);
+        } else {
+            state.followedKeywords.push(kw);
+            showToast('已关注：' + kw);
+        }
+        saveFollowedKeywords();
+        updateFollowButtonState();
+        renderFollowedKeywordsBar();
+    }
+
+    function updateFollowButtonState() {
+        if (!els.followKeywordBtn) return;
+        const kw = state.currentDetailKeyword;
+        const followed = state.followedKeywords.includes(kw);
+        els.followKeywordBtn.textContent = followed ? '⭐ 已关注（点击取消）' : '⭐ 关注这个词';
+        els.followKeywordBtn.classList.toggle('followed', followed);
+    }
+
+    function renderFollowedKeywordsBar() {
+        // 在今日热点区域顶部显示已关注关键词标签
+        if (!els.cardList || state.followedKeywords.length === 0) return;
+        // 检查是否已存在
+        let bar = document.getElementById('followedKeywordsBar');
+        if (!bar) {
+            bar = document.createElement('div');
+            bar.id = 'followedKeywordsBar';
+            bar.className = 'followed-keywords-bar';
+            els.cardList.parentNode.insertBefore(bar, els.cardList);
+        }
+        bar.innerHTML = '<span class="followed-keywords-label">⭐ 已关注：</span>' +
+            state.followedKeywords.map((kw) =>
+                `<span class="followed-keyword-tag" data-kw="${escapeHtml(kw)}">${escapeHtml(kw)} <span class="remove">×</span></span>`
+            ).join('');
+        // 绑定点击事件
+        bar.querySelectorAll('.followed-keyword-tag').forEach((tag) => {
+            tag.addEventListener('click', () => {
+                const kw = tag.dataset.kw;
+                if (els.searchInput) {
+                    els.searchInput.value = kw;
+                    els.searchInput.dispatchEvent(new Event('input'));
+                }
+            });
+        });
+    }
+
+    // ---------- 今日焦点 ----------
+    function renderFeatured() {
+        if (!els.featuredSection || !els.featuredList || !state.latestData) return;
+        const items = state.latestData.items || [];
+        if (items.length === 0) {
+            els.featuredSection.style.display = 'none';
+            return;
+        }
+        // 取热度前2条
+        const top2 = items.slice(0, 2);
+        const frag = document.createDocumentFragment();
+        top2.forEach((item, idx) => {
+            const card = document.createElement('div');
+            card.className = 'featured-card';
+            card.innerHTML = `
+                <div class="featured-title">${escapeHtml(item.title || '')}</div>
+                <div class="featured-source">${escapeHtml(item.source || '')}</div>
+                <div class="featured-analysis">${escapeHtml(item.analysis || '该条目涉及环境领域话题，建议关注。')}</div>
+            `;
+            card.addEventListener('click', () => {
+                // 滚动到对应卡片并展开
+                const cards = els.cardList.querySelectorAll('.card');
+                if (cards[idx]) {
+                    cards[idx].scrollIntoView({ behavior: 'smooth', block: 'center' });
+                }
+            });
+            frag.appendChild(card);
+        });
+        els.featuredList.innerHTML = '';
+        els.featuredList.appendChild(frag);
+        els.featuredSection.style.display = 'block';
+    }
+
+    // ---------- 移动端底部导航 ----------
+    function handleMobileNav(target) {
+        // 更新激活状态
+        if (els.mobileBottomNav) {
+            els.mobileBottomNav.querySelectorAll('.mobile-nav-item').forEach((btn) => {
+                btn.classList.toggle('active', btn.dataset.target === target);
+            });
+        }
+        switch (target) {
+            case 'hotspot':
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+                break;
+            case 'glossary':
+                if (els.glossaryBtn) els.glossaryBtn.click();
+                break;
+            case 'history':
+                if (els.historyBtn) els.historyBtn.click();
+                break;
+            case 'saved':
+                if (els.savedBtn) els.savedBtn.click();
+                break;
+        }
+    }
+
+    // ---------- 获取当前主题 ----------
+    function getCurrentTheme() {
+        return {
+            primaryColor: els.primaryColorPicker.value,
+            bgColor: els.bgColorPicker.value,
+            textColor: els.textColorPicker ? els.textColorPicker.value : '#111827',
+            fontFamily: els.fontFamilySelect ? els.fontFamilySelect.value : 'system',
+            borderRadius: parseInt(els.radiusSlider.value),
+            cardPadding: parseInt(document.querySelector('input[name="density"]:checked').value),
+            fontSize: parseInt(els.fontSizeSlider.value),
+            dark: document.body.classList.contains('dark'),
+        };
+    }
+
+    // ---------- 为什么是热点 ----------
+    function generateWhyHot(item) {
+        const reasons = [];
+        const score = item.score || item.hotness || 0;
+        const source = item.source || '';
+        const keywords = item.matched_keywords || item.keywords || [];
+        const published = item.published || '';
+        // 来源权重
+        if (source.includes('Nature') || source.includes('Water Research')) {
+            reasons.push('来源权威性高（' + source + '）');
+        } else if (source.includes('Google News')) {
+            reasons.push('来源为聚合新闻（' + source + '）');
+        }
+        // 关键词匹配
+        if (keywords.length > 0) {
+            reasons.push('匹配 ' + keywords.length + ' 个环境专业关键词（' + keywords.slice(0, 3).join('、') + '）');
+        }
+        // 时间新鲜度
+        if (published) {
+            try {
+                const pubDate = new Date(published);
+                const hoursAgo = (Date.now() - pubDate.getTime()) / 3600000;
+                if (hoursAgo < 24) {
+                    reasons.push('发布时间新鲜（约' + Math.round(hoursAgo) + '小时前）');
+                }
+            } catch (e) {}
+        }
+        // 热度分数
+        let level = '中等热度';
+        if (score >= 20) level = '高热度';
+        else if (score < 12) level = '一般热度';
+        const kw = keywords.length > 0 ? '#' + keywords[0] + ' ' : '';
+        return kw + '近24小时' + level + '（' + Math.round(score) + '分），主要因为：' +
+            (reasons.length > 0 ? reasons.map((r, i) => (i + 1) + '. ' + r).join('；') : '综合因素驱动') + '。';
+    }
+
+    // ---------- 重写关键词标签点击行为（打开详情而非趋势图） ----------
+    // 在 renderCards 中绑定的关键词标签点击事件会调用 openKeywordDetail
+    // 这里保留原有的 openKeywordChart 函数，但关键词标签默认打开详情
+
+    // ---------- 初始化 v5.0 功能 ----------
+    function initV5() {
+        loadFollowedKeywords();
+        // 在数据加载完成后渲染今日焦点和关注关键词
+        const origRenderAll = renderAll;
+        // 重写 renderAll 以包含新功能
+        window._renderAllV5 = function() {
+            origRenderAll();
+            renderFeatured();
+            renderFollowedKeywordsBar();
+        };
+    }
+
+    // 在 init 中调用 initV5
+    const _origInit = init;
+    // 注意：init 已经定义，我们通过在 loadData 完成后调用新功能来实现
 
     // ============================================================
     // 启动

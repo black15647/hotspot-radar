@@ -4,8 +4,19 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>环境学子雷达</title>
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
     <link rel="stylesheet" href="style.css">
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <!-- 百度统计（请将 BAIDU_TONGJI_ID 替换为你的真实统计 ID） -->
+    <script>
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?BAIDU_TONGJI_ID";
+      var s = document.getElementsByTagName("script")[0]; 
+      s.parentNode.insertBefore(hm, s);
+    })();
+    </script>
 </head>
 <body>
     <!-- 顶部导航 -->
@@ -26,6 +37,8 @@
                 <button class="icon-btn glossary-btn" id="glossaryBtn" title="环境知识库">📖</button>
                 <button class="icon-btn learning-btn" id="learningBtn" title="学习路径">🧭</button>
                 <button class="icon-btn saved-btn" id="savedBtn" title="我的收藏">⭐</button>
+                <button class="icon-btn source-health-btn" id="sourceHealthBtn" title="源健康度">📡</button>
+                <button class="icon-btn share-site-btn" id="shareSiteBtn" title="分享网站">📤</button>
             </div>
         </div>
     </header>
@@ -56,6 +69,16 @@
             </div>
         </section>
 
+        <!-- 今日焦点 -->
+        <section class="featured-section" id="featuredSection" style="display:none;">
+            <div class="section-header">
+                <h2 class="section-title">⭐ 今日焦点</h2>
+            </div>
+            <div class="featured-list" id="featuredList">
+                <!-- 焦点卡片由 JS 动态渲染 -->
+            </div>
+        </section>
+
         <!-- 今日热点 TOP10 -->
         <section class="hotspot-section">
             <div class="section-header">
@@ -63,7 +86,34 @@
                 <span class="section-subtitle" id="itemCount"></span>
             </div>
             <div class="card-list" id="cardList">
-                <!-- 卡片由 JS 动态渲染 -->
+                <!-- 骨架屏占位卡片 -->
+                <div class="skeleton-card">
+                    <div class="skeleton-rank"></div>
+                    <div class="skeleton-body">
+                        <div class="skeleton-title"></div>
+                        <div class="skeleton-meta"></div>
+                        <div class="skeleton-summary"></div>
+                        <div class="skeleton-summary short"></div>
+                    </div>
+                </div>
+                <div class="skeleton-card">
+                    <div class="skeleton-rank"></div>
+                    <div class="skeleton-body">
+                        <div class="skeleton-title"></div>
+                        <div class="skeleton-meta"></div>
+                        <div class="skeleton-summary"></div>
+                        <div class="skeleton-summary short"></div>
+                    </div>
+                </div>
+                <div class="skeleton-card">
+                    <div class="skeleton-rank"></div>
+                    <div class="skeleton-body">
+                        <div class="skeleton-title"></div>
+                        <div class="skeleton-meta"></div>
+                        <div class="skeleton-summary"></div>
+                        <div class="skeleton-summary short"></div>
+                    </div>
+                </div>
             </div>
             <div class="load-more-container" id="loadMoreContainer" style="display:none;">
                 <button class="load-more-btn" id="loadMoreBtn">查看全部（共 0 条）</button>
@@ -128,6 +178,10 @@
                 <input type="color" id="bgColorPicker" value="#F9FAFB">
             </div>
             <div class="setting-group">
+                <label class="setting-label">文字颜色</label>
+                <input type="color" id="textColorPicker" value="#111827">
+            </div>
+            <div class="setting-group">
                 <label class="setting-label">圆角大小：<span id="radiusValue">12</span>px</label>
                 <input type="range" id="radiusSlider" min="0" max="20" value="12">
             </div>
@@ -148,6 +202,15 @@
             <div class="setting-group">
                 <label class="setting-label">字体大小：<span id="fontSizeValue">16</span>px</label>
                 <input type="range" id="fontSizeSlider" min="14" max="18" value="16">
+            </div>
+            <div class="setting-group">
+                <label class="setting-label">字体选择</label>
+                <select id="fontFamilySelect" class="font-select">
+                    <option value="system">系统默认</option>
+                    <option value="sans-serif">无衬线</option>
+                    <option value="serif">衬线</option>
+                    <option value="monospace">等宽</option>
+                </select>
             </div>
             <button class="reset-btn" id="resetThemeBtn">恢复默认</button>
         </div>
@@ -356,6 +419,78 @@
                 </div>
                 <div class="timeline-info" id="timelineInfo">
                     <p class="timeline-hint">选择关键词后点击"加载时间线"查看热度变化趋势</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 回到顶部按钮 -->
+    <button class="back-to-top" id="backToTop" title="回到顶部">↑</button>
+
+    <!-- 移动端底部导航栏 -->
+    <nav class="mobile-bottom-nav" id="mobileBottomNav">
+        <button class="mobile-nav-item active" data-target="hotspot">
+            <span class="mobile-nav-icon">🔥</span>
+            <span class="mobile-nav-label">热点</span>
+        </button>
+        <button class="mobile-nav-item" data-target="glossary">
+            <span class="mobile-nav-icon">📖</span>
+            <span class="mobile-nav-label">知识库</span>
+        </button>
+        <button class="mobile-nav-item" data-target="history">
+            <span class="mobile-nav-icon">📅</span>
+            <span class="mobile-nav-label">历史</span>
+        </button>
+        <button class="mobile-nav-item" data-target="saved">
+            <span class="mobile-nav-icon">⭐</span>
+            <span class="mobile-nav-label">收藏</span>
+        </button>
+    </nav>
+
+    <!-- 源健康度模态框 -->
+    <div class="modal" id="sourceHealthModal">
+        <div class="modal-overlay" id="sourceHealthOverlay"></div>
+        <div class="modal-content modal-large">
+            <div class="modal-header">
+                <h3>📡 RSS 源健康度</h3>
+                <button class="modal-close" id="sourceHealthClose">✕</button>
+            </div>
+            <div class="modal-body">
+                <div class="source-health-summary" id="sourceHealthSummary"></div>
+                <div class="source-health-list" id="sourceHealthList">
+                    <div class="loading-text">加载中...</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 关键词详情模态框 -->
+    <div class="modal" id="keywordDetailModal">
+        <div class="modal-overlay" id="keywordDetailOverlay"></div>
+        <div class="modal-content modal-large">
+            <div class="modal-header">
+                <h3 id="keywordDetailTitle">关键词详情</h3>
+                <button class="modal-close" id="keywordDetailClose">✕</button>
+            </div>
+            <div class="modal-body">
+                <div class="keyword-detail-actions">
+                    <button class="btn-primary" id="followKeywordBtn">⭐ 关注这个词</button>
+                </div>
+                <div class="keyword-detail-section">
+                    <h4>📚 知识库解释</h4>
+                    <div class="keyword-detail-glossary" id="keywordDetailGlossary">
+                        <p class="text-muted">暂无解释</p>
+                    </div>
+                </div>
+                <div class="keyword-detail-section">
+                    <h4>🔥 今日相关热点</h4>
+                    <div class="keyword-detail-hotspots" id="keywordDetailHotspots"></div>
+                </div>
+                <div class="keyword-detail-section">
+                    <h4>📈 365天热度趋势</h4>
+                    <div class="keyword-detail-chart-container">
+                        <canvas id="keywordDetailChart"></canvas>
+                    </div>
                 </div>
             </div>
         </div>

@@ -795,6 +795,141 @@ def generate_source_health(source_health):
     return critical_sources
 
 
+def generate_personal_knowledge():
+    """
+    生成/追加个人知识库 personal_knowledge.md
+    - 读取 latest.json 获取关键词和 Top10 热点
+    - 读取 pending_terms.json 获取候选新词
+    - 追加到根目录 personal_knowledge.md
+    - 如果当天已存在则替换当天内容，避免重复
+    """
+    knowledge_path = os.path.join(os.path.dirname(os.path.abspath(__file__)), "personal_knowledge.md")
+    today = datetime.now(timezone.utc).strftime("%Y-%m-%d")
+
+    # 读取 latest.json
+    latest_path = os.path.join(DATA_DIR, "latest.json")
+    latest_data = {}
+    if os.path.exists(latest_path):
+        try:
+            with open(latest_path, "r", encoding="utf-8") as f:
+                latest_data = json.load(f)
+        except Exception as e:
+            print(f"[个人知识库] 读取 latest.json 失败：{e}")
+            return
+
+    # 读取 pending_terms.json
+    pending_path = os.path.join(DATA_DIR, "pending_terms.json")
+    pending_terms = []
+    if os.path.exists(pending_path):
+        try:
+            with open(pending_path, "r", encoding="utf-8") as f:
+                pending_terms = json.load(f)
+        except Exception:
+            pending_terms = []
+
+    # 生成当天内容
+    content_lines = []
+    content_lines.append(f"## {today}")
+    content_lines.append("")
+
+    # 今日高频关键词
+    keywords = latest_data.get("keywords", [])
+    if keywords:
+        top5_keywords = keywords[:5]
+        keyword_tags = " ".join([f"`#{kw.get('keyword', kw) if isinstance(kw, dict) else kw}`" for kw in top5_keywords])
+        content_lines.append(f"**今日高频关键词**：{keyword_tags}")
+        content_lines.append("")
+
+    # 今日 Top10 热点
+    items = latest_data.get("items", [])
+    if items:
+        content_lines.append("**今日 Top10 热点**")
+        content_lines.append("")
+        for idx, item in enumerate(items[:10], 1):
+            title = item.get("title", "无标题")
+            source = item.get("source", "未知来源")
+            score = item.get("score", item.get("hotness", 0))
+            summary = item.get("summary", "")
+            analysis = item.get("analysis", "")
+            link = item.get("link", "")
+
+            content_lines.append(f"### {idx}. {title}")
+            content_lines.append(f"- **来源**：{source}")
+            content_lines.append(f"- **热度**：{round(score, 1) if isinstance(score, (int, float)) else score}")
+            if link:
+                content_lines.append(f"- **链接**：{link}")
+            if summary:
+                content_lines.append(f"- **摘要**：{summary}")
+            if analysis:
+                content_lines.append(f"- **分析**：{analysis}")
+            content_lines.append("")
+
+    # 今日候选新词
+    if pending_terms:
+        content_lines.append("**今日自动提取候选新词**")
+        content_lines.append("")
+        for term in pending_terms:
+            if isinstance(term, dict):
+                term_name = term.get("term", "")
+                count = term.get("count", 0)
+                contexts = term.get("contexts", [])
+                content_lines.append(f"- **{term_name}**（出现 {count} 次）")
+                if contexts:
+                    for ctx in contexts[:3]:
+                        content_lines.append(f"  - 上下文：{ctx}")
+            else:
+                content_lines.append(f"- {term}")
+        content_lines.append("")
+
+    content_lines.append("---")
+    content_lines.append("")
+    day_content = "\n".join(content_lines)
+
+    # 读取现有文件内容
+    existing_content = ""
+    if os.path.exists(knowledge_path):
+        try:
+            with open(knowledge_path, "r", encoding="utf-8") as f:
+                existing_content = f.read()
+        except Exception:
+            existing_content = ""
+
+    # 检查当天是否已存在
+    day_header = f"## {today}"
+    if day_header in existing_content:
+        # 替换当天内容：找到当天标题到下一个 ## 标题或文件末尾
+        import re
+        # 匹配从当天 ## 标题到下一个 ## 标题（非贪婪）
+        pattern = re.compile(
+            r'## ' + re.escape(today) + r'.*?(?=\n## \d{4}-\d{2}-\d{2}|\Z)',
+            re.DOTALL
+        )
+        if pattern.search(existing_content):
+            existing_content = pattern.sub(day_content.rstrip() + "\n\n", existing_content)
+            print(f"[个人知识库] 已替换 {today} 的内容")
+        else:
+            existing_content += "\n" + day_content
+            print(f"[个人知识库] 已追加 {today} 的内容")
+    else:
+        # 文件不存在或当天不存在，追加
+        if not existing_content:
+            # 新建文件，写入头部说明
+            header = "# 个人知识库\n\n"
+            header += "> 本文件由 daily_report.py 自动生成，记录每日环境领域热点、关键词和候选新词。\n\n"
+            header += "---\n\n"
+            existing_content = header
+        existing_content += day_content
+        print(f"[个人知识库] 已追加 {today} 的内容")
+
+    # 写入文件
+    try:
+        with open(knowledge_path, "w", encoding="utf-8") as f:
+            f.write(existing_content)
+        print(f"[个人知识库] 已保存至 {knowledge_path}")
+    except Exception as e:
+        print(f"[个人知识库] 写入失败：{e}")
+
+
 def generate_latest_json(items, config):
     """生成 data/latest.json"""
     site_name = config.get("site_name", "环境学子雷达")
@@ -1267,6 +1402,11 @@ def main():
     print()
     print("--- 第七步：邮件推送 ---")
     send_email(config, report_path, critical_sources)
+
+    # 12. 生成个人知识库
+    print()
+    print("--- 第八步：生成个人知识库 ---")
+    generate_personal_knowledge()
 
     print()
     print("=" * 60)

@@ -11,6 +11,7 @@ import json
 import csv
 import math
 import re
+import time
 import smtplib
 from email.mime.text import MIMEText
 from email.header import Header
@@ -434,49 +435,70 @@ def get_source_weight(source_name, source_weights):
 # ============================================================
 
 def fetch_all_feeds(config, max_items_per_source):
-    """抓取所有 RSS 源，返回条目列表"""
+    """
+    抓取所有 RSS 源，返回 (条目列表, 源健康度列表)
+    每个源健康度记录：名称、URL、抓取时间、成功/失败、耗时、获取条数、错误信息
+    """
     rss_feeds = config.get("rss_feeds", {})
     all_items = []
+    source_health = []
 
     for source_name, url in rss_feeds.items():
+        start_time = time.time()
+        fetch_time = datetime.now(timezone.utc).isoformat()
+        success = False
+        count = 0
+        error_msg = ""
+
         try:
             print(f"[抓取] {source_name} ...")
             feed = feedparser.parse(url)
 
             if feed.bozo and not feed.entries:
-                print(f"  [警告] 解析失败：{feed.bozo_exception}")
-                continue
+                error_msg = f"解析失败：{feed.bozo_exception}"
+                print(f"  [警告] {error_msg}")
+            else:
+                entries = feed.entries[:max_items_per_source]
 
-            entries = feed.entries[:max_items_per_source]
-            count = 0
+                for entry in entries:
+                    title = getattr(entry, "title", "").strip()
+                    link = getattr(entry, "link", "").strip()
 
-            for entry in entries:
-                title = getattr(entry, "title", "").strip()
-                link = getattr(entry, "link", "").strip()
+                    if not title:
+                        continue
 
-                if not title:
-                    continue
+                    published = parse_published_time(entry)
+                    summary = extract_summary(entry)
 
-                published = parse_published_time(entry)
-                summary = extract_summary(entry)
+                    all_items.append({
+                        "title": title,
+                        "link": link,
+                        "source": source_name,
+                        "published": published.isoformat() if published else None,
+                        "published_dt": published,
+                        "summary": summary,
+                    })
+                    count += 1
 
-                all_items.append({
-                    "title": title,
-                    "link": link,
-                    "source": source_name,
-                    "published": published.isoformat() if published else None,
-                    "published_dt": published,
-                    "summary": summary,
-                })
-                count += 1
-
-            print(f"  [成功] 获取 {count} 条")
+                success = True
+                print(f"  [成功] 获取 {count} 条")
 
         except Exception as e:
+            error_msg = str(e)
             print(f"  [错误] 抓取失败，跳过：{e}")
-            continue
 
-    return all_items
+        elapsed = round(time.time() - start_time, 2)
+        source_health.append({
+            "name": source_name,
+            "url": url,
+            "last_check": fetch_time,
+            "success": success,
+            "elapsed_seconds": elapsed,
+            "item_count": count,
+            "error": error_msg if not success else "",
+        })
+
+    return all_items, source_health
 
 
 def deduplicate_items(items):
@@ -723,6 +745,55 @@ def generate_pending_terms(items, config):
 # ============================================================
 # 输出生成
 # ============================================================
+
+def generate_source_health(source_health):
+    """
+    生成 docs/data/source_health.json
+    - 读取上次的源健康状态
+    - 对比本次和上次，连续两次失败的源标记为 critical: true
+    - 返回 critical 源列表，用于邮件通知
+    """
+    health_path = os.path.join(DATA_DIR, "source_health.json")
+
+    # 读取上次状态
+    last_health = {}
+    if os.path.exists(health_path):
+        try:
+            with open(health_path, "r", encoding="utf-8") as f:
+                old_data = json.load(f)
+                if isinstance(old_data, list):
+                    for item in old_data:
+                        if item.get("name"):
+                            last_health[item["name"]] = item
+        except Exception:
+            last_health = {}
+
+    # 处理本次状态，标记连续失败
+    critical_sources = []
+    for src in source_health:
+        name = src.get("name", "")
+        last_success = last_health.get(name, {}).get("success", True)
+        current_success = src.get("success", False)
+        # 连续两次失败（上次失败且本次也失败）
+        if not last_success and not current_success:
+            src["critical"] = True
+            critical_sources.append(src)
+        else:
+            src["critical"] = False
+
+    # 写入文件
+    output = {
+        "last_update": datetime.now(timezone.utc).isoformat(),
+        "total_sources": len(source_health),
+        "success_count": sum(1 for s in source_health if s.get("success")),
+        "failed_count": sum(1 for s in source_health if not s.get("success")),
+        "critical_count": len(critical_sources),
+        "sources": source_health,
+    }
+    safe_json_dump(output, health_path)
+    print(f"[源健康] 成功 {output['success_count']}/{output['total_sources']}，失败 {output['failed_count']}，严重 {output['critical_count']}")
+    return critical_sources
+
 
 def generate_latest_json(items, config):
     """生成 data/latest.json"""
@@ -1046,8 +1117,10 @@ def generate_personal_latest(items, config):
     return data
 
 
-def send_email(config, report_path):
-    """发送邮件给站长个人"""
+def send_email(config, report_path, critical_sources=None):
+    """发送邮件给站长个人，如有连续失败的源则在正文顶部附加警告"""
+    if critical_sources is None:
+        critical_sources = []
     email_config = config.get("email_config", {})
     receiver = email_config.get("receiver", "")
 
@@ -1067,6 +1140,16 @@ def send_email(config, report_path):
     try:
         with open(report_path, "r", encoding="utf-8") as f:
             content = f.read()
+
+        # 如有连续失败的源，在正文顶部附加警告
+        if critical_sources:
+            warning = "⚠️ 以下 RSS 源连续两次失败，请及时检查和处理：\n"
+            for src in critical_sources:
+                name = src.get("name", "未知源")
+                error = src.get("error", "未知错误")
+                warning += f"  - {name}：{error}\n"
+            warning += "\n" + "=" * 50 + "\n\n"
+            content = warning + content
 
         site_name = config.get("site_name", "环境学子雷达")
         today = datetime.now(timezone.utc).strftime("%Y-%m-%d")
@@ -1131,7 +1214,7 @@ def main():
 
     # 1. 抓取所有源
     print("--- 第一步：抓取 RSS 源 ---")
-    all_items = fetch_all_feeds(config, max_items_per_source)
+    all_items, source_health = fetch_all_feeds(config, max_items_per_source)
     print(f"[统计] 共抓取 {len(all_items)} 条")
     print()
 
@@ -1166,6 +1249,7 @@ def main():
     generate_daily_snapshot(all_items, config)
     generate_monthly_archive(all_items, config)
     generate_pending_terms(all_items, config)
+    critical_sources = generate_source_health(source_health)
 
     # 7. 生成 daily_report.md
     report_path = generate_daily_report_md(all_items, config)
@@ -1182,7 +1266,7 @@ def main():
     # 11. 发送邮件（如果配置了）
     print()
     print("--- 第七步：邮件推送 ---")
-    send_email(config, report_path)
+    send_email(config, report_path, critical_sources)
 
     print()
     print("=" * 60)

@@ -1780,7 +1780,18 @@
         if (state.dailyWordHistory.length > 20) state.dailyWordHistory.shift();
 
         if (els.dailyWordTerm) els.dailyWordTerm.textContent = term.term;
-        if (els.dailyWordDefinition) els.dailyWordDefinition.textContent = term.definition;
+        if (els.dailyWordDefinition) {
+            els.dailyWordDefinition.textContent = term.definition;
+            // 重置展开状态
+            els.dailyWordDefinition.classList.remove('expanded');
+            // 绑定点击展开/收起事件（只绑定一次）
+            if (!els.dailyWordDefinition.dataset.bound) {
+                els.dailyWordDefinition.dataset.bound = 'true';
+                els.dailyWordDefinition.addEventListener('click', () => {
+                    els.dailyWordDefinition.classList.toggle('expanded');
+                });
+            }
+        }
         if (els.dailyWordCategory) els.dailyWordCategory.textContent = term.category || '';
     }
 

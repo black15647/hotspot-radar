@@ -3246,3 +3246,98 @@ body.dark .term-related-item,
 body.dark .keyword-detail-hotspot-item {
     background-color: var(--card-bg);
 }
+
+/* ============================================================
+   v5.1 侧边栏布局（每日一词移到左侧）
+   ============================================================ */
+
+.content-layout {
+    display: flex;
+    gap: 24px;
+    align-items: flex-start;
+}
+
+.sidebar {
+    width: 280px;
+    flex-shrink: 0;
+    position: sticky;
+    top: 20px;
+}
+
+.main-content {
+    flex: 1;
+    min-width: 0;
+}
+
+/* 侧边栏中的每日一词卡片样式调整 */
+.sidebar .daily-word-section {
+    margin-bottom: 0;
+}
+
+.sidebar .daily-word-card {
+    padding: 16px;
+}
+
+.sidebar .daily-word-header {
+    margin-bottom: 12px;
+    flex-wrap: wrap;
+}
+
+.sidebar .daily-word-term {
+    font-size: 1.2rem;
+    margin-bottom: 8px;
+}
+
+.sidebar .daily-word-definition {
+    font-size: 0.88rem;
+    line-height: 1.6;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    cursor: pointer;
+    margin-bottom: 10px;
+    transition: all 0.2s ease;
+}
+
+.sidebar .daily-word-definition.expanded {
+    -webkit-line-clamp: unset;
+    display: block;
+}
+
+.sidebar .daily-word-category {
+    display: inline-block;
+    margin-bottom: 12px;
+}
+
+.sidebar .daily-word-refresh {
+    width: 100%;
+    margin-top: 8px;
+    padding: 8px;
+    font-size: 0.82rem;
+}
+
+/* 响应式：平板和移动端隐藏侧边栏，每日一词移到主内容顶部 */
+@media (max-width: 1023px) {
+    .content-layout {
+        flex-direction: column;
+        gap: 16px;
+    }
+    .sidebar {
+        width: 100%;
+        position: static;
+        order: -1; /* 侧边栏在主内容上方 */
+    }
+    .sidebar .daily-word-definition {
+        -webkit-line-clamp: 2;
+    }
+}
+
+@media (max-width: 640px) {
+    .sidebar .daily-word-card {
+        padding: 14px;
+    }
+    .sidebar .daily-word-term {
+        font-size: 1.1rem;
+    }
+}

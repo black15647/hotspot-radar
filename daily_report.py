@@ -948,16 +948,47 @@ def extract_article_text(url, api_config):
     优先使用 readability + html2text 本地提取
     失败则使用 Jina Reader 兜底
     全部失败返回 None
+    优化：更真实的请求头、特定域名降级、减少日志刷屏
     """
     if not api_config["reader_enabled"] or not REQUESTS_AVAILABLE:
         return None
 
+    # 提取域名，用于判断是否为反爬严格的域名
+    try:
+        from urllib.parse import urlparse
+        domain = urlparse(url).netloc.lower()
+    except Exception:
+        domain = ""
+
+    # 对已知反爬严格的域名，如果没有配置 Jina key，直接跳过本地提取
+    has_jina = bool(api_config.get("jina_key"))
+    is_strict = any(sd in domain for sd in STRICT_DOMAINS)
+    if is_strict and not has_jina:
+        if domain not in FAILED_DOMAINS:
+            FAILED_DOMAINS.add(domain)
+            print(f"[原文提取] 跳过反爬严格域名：{domain}")
+        return None
+
+    # 更真实的请求头
+    headers = {
+        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36",
+        "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,*/*;q=0.8",
+        "Accept-Language": "zh-CN,zh;q=0.9,en;q=0.8",
+        "Accept-Encoding": "gzip, deflate, br",
+        "Connection": "keep-alive",
+        "Upgrade-Insecure-Requests": "1",
+    }
+
     # 第一步：本地提取
     if api_config["local_extraction"] and READABILITY_AVAILABLE and HTML2TEXT_AVAILABLE:
         try:
-            resp = requests.get(url, timeout=15, headers={
-                "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36"
-            })
+            resp = requests.get(url, timeout=15, headers=headers)
+            # 对 403、401、405 等错误，直接返回 None，不再重试
+            if resp.status_code in (401, 403, 405):
+                if domain not in FAILED_DOMAINS:
+                    FAILED_DOMAINS.add(domain)
+                    print(f"[原文提取] 跳过：{resp.status_code} Forbidden ({domain})")
+                return None
             resp.raise_for_status()
             doc = Document(resp.text)
             summary_html = doc.summary()
@@ -967,8 +998,15 @@ def extract_article_text(url, api_config):
             text = h.handle(summary_html).strip()
             if len(text) >= 50:
                 return text[:5000]
+        except requests.exceptions.HTTPError as e:
+            status_code = e.response.status_code if e.response is not None else "unknown"
+            if domain not in FAILED_DOMAINS:
+                FAILED_DOMAINS.add(domain)
+                print(f"[原文提取] HTTP错误 {status_code} ({domain})")
         except Exception as e:
-            print(f"[原文提取] 本地提取失败: {str(e)[:60]}")
+            if domain not in FAILED_DOMAINS:
+                FAILED_DOMAINS.add(domain)
+                print(f"[原文提取] 本地提取失败: {str(e)[:50]} ({domain})")
 
     # 第二步：Jina Reader 兜底
     if api_config["jina_key"]:
@@ -982,7 +1020,9 @@ def extract_article_text(url, api_config):
             if len(text) >= 50:
                 return text[:5000]
         except Exception as e:
-            print(f"[原文提取] Jina 提取失败: {str(e)[:60]}")
+            if domain not in FAILED_DOMAINS:
+                FAILED_DOMAINS.add(domain)
+                print(f"[原文提取] Jina 提取失败: {str(e)[:50]} ({domain})")
 
     return None
 
@@ -990,6 +1030,11 @@ def extract_article_text(url, api_config):
 # 智谱 API 连续失败计数器（连续失败5次后停止AI调用）
 ZHIPU_CONSECUTIVE_FAILURES = 0
 ZHIPU_MAX_CONSECUTIVE_FAILURES = 5
+
+# 原文提取失败域名集合（避免重复打印相同错误）
+FAILED_DOMAINS = set()
+# 已知反爬严格的域名，没有 Jina key 时直接跳过
+STRICT_DOMAINS = ["sciencedirect.com", "acs.org", "nature.com", "pnas.org", "iopscience.iop.org"]
 
 
 def call_zhipu_api(prompt, api_config, max_tokens=None):
@@ -1218,6 +1263,7 @@ def generate_ai_keywords(items, api_config):
 def generate_topic_tags(item, api_config):
     """
     为单条热点生成 1-3 个具体话题标签
+    优先使用"标题+原文"，原文获取失败则仅使用标题
     失败返回空数组
     """
     if not api_config["summary_enabled"]:
@@ -1228,17 +1274,37 @@ def generate_topic_tags(item, api_config):
     if not title:
         return []
 
-    prompt = f"""你是一个环境领域标签专家。请为以下新闻提取1-3个具体的关键词或短语作为话题标签。
+    # 尝试获取原文，用于生成更准确的标签
+    article_text = ""
+    link = item.get("link", "")
+    if link and api_config.get("reader_enabled", True):
+        try:
+            extracted = extract_article_text(link, api_config)
+            if extracted:
+                article_text = extracted[:500]
+        except Exception:
+            pass
 
-要求：
-1. 标签要具体、贴近内容，与环境领域相关
-2. 避免"环境领域""环境保护"这种泛化标签
-3. 直接返回 JSON 数组，格式：["气候韧性", "微塑料污染"]，不要解释
+    # 构建输入内容
+    if article_text:
+        content_text = f"标题：{title}\n原文：{article_text}"
+    elif summary and len(summary) > 10:
+        content_text = f"标题：{title}\n摘要：{summary[:300]}"
+    else:
+        content_text = f"标题：{title}"
 
-标题：{title}
-摘要：{summary[:300] if summary else '无'}"""
+    prompt = f"""你是一个环境领域话题标签提取助手。请从以下新闻标题和摘要中提取 1-3 个最具体、最能概括内容的关键词或短语。
 
-    result = call_zhipu_api(prompt, api_config, max_tokens=100)
+严格要求：
+1. 标签必须具体、贴近内容，禁止使用宽泛词
+2. 禁止返回以下宽泛词：环境、污染、保护、气候变化、环保、生态、可持续发展、环境领域、环境保护、环境问题
+3. 优先提取具体的事件、地点、物质、技术、政策名称
+4. 直接返回 JSON 数组，格式：["标签1","标签2"]，不要解释
+5. 如果无法确定具体标签，返回空数组 []
+
+{content_text}"""
+
+    result = call_zhipu_api(prompt, api_config, max_tokens=80)
     if not result:
         return []
 
@@ -1255,10 +1321,63 @@ def generate_topic_tags(item, api_config):
             result = result[start:end+1]
         tags = json.loads(result)
         if isinstance(tags, list):
-            return [str(t).strip() for t in tags if t and len(str(t).strip()) >= 2][:3]
+            # 过滤宽泛词
+            banned = {"环境", "污染", "保护", "气候变化", "环保", "生态", "可持续发展", "环境领域", "环境保护", "环境问题", "环境科学", "环境工程"}
+            clean_tags = [str(t).strip() for t in tags if t and len(str(t).strip()) >= 2 and str(t).strip() not in banned]
+            return clean_tags[:3]
     except Exception:
         pass
     return []
+
+
+def extract_tags_from_title(title):
+    """
+    从标题中提取话题标签作为降级方案
+    优先提取最长的连续中文字符串或包含已知关键词的词组
+    失败返回 ["环境动态"]
+    """
+    if not title or len(title) < 4:
+        return ["环境动态"]
+
+    # 已知环境领域关键词（具体词）
+    specific_keywords = [
+        "碳中和", "碳达峰", "碳关税", "碳交易", "碳汇", "碳排放",
+        "微塑料", "新污染物", "重金属", "PM2.5", "VOCs", "臭氧",
+        "水污染", "大气污染", "土壤污染", "噪声污染", "光污染",
+        "生物多样性", "生态修复", "生态系统", "湿地", "荒漠化", "红树林",
+        "可再生能源", "清洁能源", "新能源", "光伏", "风电", "氢能",
+        "循环经济", "绿色金融", "环保督察", "环评", "垃圾分类",
+        "塑料污染", "海洋保护", "富营养化", "酸雨", "臭氧层",
+        "水处理", "污水处理", "土壤修复", "固废处理", "环境监测",
+        "光催化", "吸附", "膜分离", "高级氧化", "生物降解",
+        "联合国", "COP", "巴黎协定", "京都议定书", "蒙特利尔议定书",
+        "生态环境部", "环保部", "国家发改委", "国务院",
+    ]
+
+    # 从标题中匹配具体关键词
+    matched = []
+    for kw in specific_keywords:
+        if kw in title:
+            matched.append(kw)
+
+    if matched:
+        # 取前3个匹配的关键词
+        return matched[:3]
+
+    # 提取最长的连续中文字符串（长度>=4）
+    import re
+    chinese_segments = re.findall(r'[\u4e00-\u9fa5]{4,}', title)
+    if chinese_segments:
+        # 取最长的一段
+        longest = max(chinese_segments, key=len)
+        if len(longest) <= 15:
+            return [longest]
+        else:
+            # 太长则取前10个字符
+            return [longest[:10]]
+
+    # 兜底
+    return ["环境动态"]
 
 
 def generate_batch_summaries(items, api_config):
@@ -1537,7 +1656,7 @@ def enhance_analysis_with_tags(item):
     else:
         # 回退到匹配的关键词
         matched = item.get("matched_keywords", [])
-        topic = matched[0] if matched else "环境领域"
+        topic = matched[0] if matched else "环境动态"
 
     # 热度构成分析
     parts = []
@@ -2218,24 +2337,39 @@ def main():
     # 6. 生成 latest.json
     print("--- 第六步：生成输出文件 ---")
 
-    # AI 处理：批量摘要生成、批量话题标签、关键词提取、近7天总结
+    # AI 处理：批量摘要生成、逐条话题标签、关键词提取、近7天总结
     api_config = get_api_config(config)
     if api_config["summary_enabled"]:
-        print("[AI] 智谱 GLM 已启用，开始批量生成 AI 摘要和话题标签...")
+        print("[AI] 智谱 GLM 已启用，开始生成 AI 摘要和话题标签...")
         # 批量生成摘要（一次API调用，处理所有需要摘要的条目）
         all_items = generate_batch_summaries(all_items, api_config)
-        # 批量生成话题标签（一次API调用，处理前10条）
-        all_items = generate_batch_topic_tags(all_items, api_config)
+        # 逐条生成话题标签（只对前10条调用AI，其余使用标题提取规则）
+        tag_success = 0
+        for i, item in enumerate(all_items[:10]):
+            try:
+                tags = generate_topic_tags(item, api_config)
+                if tags:
+                    item["topic_tags"] = tags
+                    tag_success += 1
+                else:
+                    # AI 返回空，使用标题提取规则
+                    item["topic_tags"] = extract_tags_from_title(item.get("title", ""))
+            except Exception as e:
+                print(f"[AI] 条目 {i+1} 标签生成失败: {str(e)[:40]}")
+                item["topic_tags"] = extract_tags_from_title(item.get("title", ""))
+        # 其余条目使用标题提取规则
+        for item in all_items[10:]:
+            item["topic_tags"] = extract_tags_from_title(item.get("title", ""))
+        print(f"[AI] 话题标签生成完成：AI成功 {tag_success}/10 条，其余使用标题提取规则")
         # AI 关键词提取（只调用一次，输入 Top 20 条标题和摘要）
         ai_keywords = generate_ai_keywords(all_items, api_config)
         if ai_keywords:
             config["_ai_keywords"] = ai_keywords
             print(f"[AI] 提取到 {len(ai_keywords)} 个环境领域关键词")
-        print("[AI] 批量处理完成，每天最多调用3次API（摘要+标签+关键词）")
     else:
         print("[AI] 智谱 GLM 未启用，使用规则生成摘要和关键词")
         for item in all_items:
-            item["topic_tags"] = []
+            item["topic_tags"] = extract_tags_from_title(item.get("title", ""))
 
     # 生成近7天热度总结
     weekly_summary = generate_weekly_summary(api_config)

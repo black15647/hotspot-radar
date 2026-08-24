@@ -8,7 +8,6 @@ site_name: "环境学子雷达"
 
 # ---------- 必填：RSS 源列表 ----------
 # 键为来源名称，值为 RSS 地址
-# 官方稳定源优先，RSSHub 代理源放在最后（公共实例可能不稳定）
 rss_feeds:
   # Google News 系列（稳定）
   "Google News 环境保护": "https://news.google.com/rss/search?q=环境保护&hl=zh-CN&gl=CN&ceid=CN:zh-Hans"
@@ -22,24 +21,19 @@ rss_feeds:
   "The Guardian Environment": "https://www.theguardian.com/environment/rss"
   "Yale Environment 360": "https://e360.yale.edu/feed.xml"
   "BBC 科学与环境": "http://feeds.bbci.co.uk/news/science_and_environment/rss.xml"
-  # 顶刊官方源（稳定，替换原失效的 RSSHub 源）
+  # 顶刊官方源
   "Nature": "https://www.nature.com/nature.rss"
   "Nature Sustainability": "https://www.nature.com/natsustain.rss"
-  "Environmental Science & Technology (ES&T)": "https://pubs.acs.org/action/showFeed?type=etoc&feed=rss&jc=esthag"
+  "Science": "https://www.science.org/rss/current.xml"
+  "PNAS 环境科学": "https://www.pnas.org/rss/Environmental_Sciences.xml"
+  "Environmental Research Letters": "https://iopscience.iop.org/journal/rss/1748-9326"
   "Water Research": "https://rss.sciencedirect.com/publication/science/00431354"
   "ScienceDaily 环境科学": "https://www.sciencedaily.com/rss/earth_climate/environmental_science.xml"
-  # 高校与学术机构（稳定）
-  "MIT Civil & Environmental Engineering": "https://news.mit.edu/topic/mitcivil-and-environmental-engineering-rss.xml"
+  # 学术机构与国际组织
   "arXiv Environmental Engineering": "https://rss.arxiv.org/rss/cs.CE"
-  # 国内官方源（稳定）
-  "生态环境部新闻发布": "https://www.mee.gov.cn/ywdt/sgb/rss.xml"
-  "中国环境监测总站": "https://www.cnemc.cn/rss/"
-  # RSSHub 代理源（放在最后，公共实例可能不稳定）
-  "清华大学环境学院通知": "https://rsshub.app/tsinghua/env/notice"
-  "北京大学环境学院通知": "https://rsshub.app/pku/env/notice"
-  "应届生求职-环境类": "https://rsshub.app/yingjiesheng/category/环境"
-  "生态环境部招聘": "https://rsshub.app/mee/recruitment"
-  "研招网通知": "https://rsshub.app/chsi/notice"
+  "IISD SDG": "https://sdg.iisd.org/feed/"
+  "Berkeley Earth": "https://berkeleyearth.org/feed/"
+  "Adaptation Fund": "https://www.adaptation-fund.org/feed/"
 
 # ---------- 可选：关键词列表 ----------
 # 用于热度计算和标签云，覆盖环境专业核心概念和学生关注点
@@ -90,12 +84,14 @@ weights:
     # 顶刊来源权重 2.0
     "Nature": 2.0
     "Nature Sustainability": 2.0
-    "Environmental Science & Technology (ES&T)": 2.0
+    "Science": 2.0
+    "PNAS 环境科学": 2.0
+    "Environmental Research Letters": 2.0
     "Water Research": 2.0
-    # 科技新闻来源权重 1.8
+    # 科技新闻/科研机构来源权重 1.8
     "ScienceDaily 环境科学": 1.8
-    "生态环境部新闻发布": 1.8
-    "中国环境监测总站": 1.8
+    "IISD SDG": 1.8
+    "Berkeley Earth": 1.8
     # Google News 来源权重 1.5
     "Google News 环境保护": 1.5
     "Google News 气候变化": 1.5
@@ -110,16 +106,25 @@ weights:
     # 普通来源权重 1.0
     "The Guardian Environment": 1.0
     "BBC 科学与环境": 1.0
-    "MIT Civil & Environmental Engineering": 1.0
-    "清华大学环境学院通知": 1.0
-    "北京大学环境学院通知": 1.0
-    "生态环境部招聘": 1.0
-    "研招网通知": 1.0
-    # 求职类来源权重 0.8
-    "应届生求职-环境类": 0.8
+    "Adaptation Fund": 1.0
     # 其他未列出的来源默认权重 1.0
   time_decay: 0.8        # 时间衰减系数
   keyword_bonus: 2.0     # 每个匹配关键词的加分
+
+# ---------- 可选：AI 摘要生成配置 ----------
+summary_api:
+  enabled: false
+  api_key: ""
+  model: "glm-4.7-flash"
+  base_url: "https://open.bigmodel.cn/api/paas/v4/"
+  max_tokens: 150
+
+# ---------- 可选：原文提取配置 ----------
+reader_api:
+  enabled: true
+  local_extraction: true
+  jina_api_key: ""
+  jina_base_url: "https://r.jina.ai/"
 
 # ---------- 可选：邮件推送配置 ----------
 # 仅推送给站长个人；receiver 为空则不发送邮件

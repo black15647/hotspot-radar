@@ -18,6 +18,25 @@ from email.header import Header
 from datetime import datetime, timedelta, timezone
 from collections import Counter, defaultdict
 
+# 可选依赖：用于原文提取和 AI 摘要
+try:
+    import requests
+    REQUESTS_AVAILABLE = True
+except ImportError:
+    REQUESTS_AVAILABLE = False
+
+try:
+    from readability import Document
+    READABILITY_AVAILABLE = True
+except ImportError:
+    READABILITY_AVAILABLE = False
+
+try:
+    import html2text
+    HTML2TEXT_AVAILABLE = True
+except ImportError:
+    HTML2TEXT_AVAILABLE = False
+
 try:
     import feedparser
 except ImportError:
@@ -727,6 +746,15 @@ def calculate_hotness(items, config):
         item["hotness"] = round(score, 2)
         item["source_weight"] = source_weight
         item["aggregation_bonus"] = round(aggregation_bonus, 2)
+        # 热度分数明细（用于前端点击展示）
+        item["score_breakdown"] = {
+            "base": 5.0,
+            "source_score": round(source_weight * 3, 2),
+            "keyword_score": round(len(matched) * keyword_bonus, 2),
+            "time_score": round(time_score, 2),
+            "topic_bonus": round(aggregation_bonus, 2),
+            "total": round(score, 2),
+        }
 
     return items
 
@@ -888,6 +916,326 @@ def generate_pending_terms(items, config):
     safe_json_dump(pending, path)
     print(f"[生成] {path}（候选词 {len(pending)} 个）")
     return pending
+
+
+# ============================================================
+# AI 功能：原文提取、智谱 GLM 摘要、关键词提取
+# ============================================================
+
+def get_api_config(config):
+    """获取 API 配置，环境变量优先覆盖 config.yaml"""
+    summary_api = config.get("summary_api", {})
+    reader_api = config.get("reader_api", {})
+    # 环境变量覆盖
+    zhipu_key = os.environ.get("ZHIPU_API_KEY", summary_api.get("api_key", ""))
+    jina_key = os.environ.get("JINA_API_KEY", reader_api.get("jina_api_key", ""))
+    return {
+        "summary_enabled": summary_api.get("enabled", False) and bool(zhipu_key),
+        "zhipu_key": zhipu_key,
+        "model": summary_api.get("model", "glm-4.7-flash"),
+        "base_url": summary_api.get("base_url", "https://open.bigmodel.cn/api/paas/v4/"),
+        "max_tokens": summary_api.get("max_tokens", 150),
+        "reader_enabled": reader_api.get("enabled", True),
+        "local_extraction": reader_api.get("local_extraction", True),
+        "jina_key": jina_key,
+        "jina_base_url": reader_api.get("jina_base_url", "https://r.jina.ai/"),
+    }
+
+
+def extract_article_text(url, api_config):
+    """
+    提取文章正文纯文本
+    优先使用 readability + html2text 本地提取
+    失败则使用 Jina Reader 兜底
+    全部失败返回 None
+    """
+    if not api_config["reader_enabled"] or not REQUESTS_AVAILABLE:
+        return None
+
+    # 第一步：本地提取
+    if api_config["local_extraction"] and READABILITY_AVAILABLE and HTML2TEXT_AVAILABLE:
+        try:
+            resp = requests.get(url, timeout=15, headers={
+                "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36"
+            })
+            resp.raise_for_status()
+            doc = Document(resp.text)
+            summary_html = doc.summary()
+            h = html2text.HTML2Text()
+            h.ignore_links = True
+            h.ignore_images = True
+            text = h.handle(summary_html).strip()
+            if len(text) >= 50:
+                return text[:5000]
+        except Exception as e:
+            print(f"[原文提取] 本地提取失败: {str(e)[:60]}")
+
+    # 第二步：Jina Reader 兜底
+    if api_config["jina_key"]:
+        try:
+            jina_url = api_config["jina_base_url"] + url
+            resp = requests.get(jina_url, timeout=20, headers={
+                "Authorization": f"Bearer {api_config['jina_key']}"
+            })
+            resp.raise_for_status()
+            text = resp.text.strip()
+            if len(text) >= 50:
+                return text[:5000]
+        except Exception as e:
+            print(f"[原文提取] Jina 提取失败: {str(e)[:60]}")
+
+    return None
+
+
+def call_zhipu_api(prompt, api_config, max_tokens=None):
+    """调用智谱 GLM API（OpenAI 兼容格式），返回生成的文本，失败返回 None"""
+    if not api_config["summary_enabled"] or not api_config["zhipu_key"]:
+        return None
+    if not REQUESTS_AVAILABLE:
+        return None
+
+    try:
+        url = api_config["base_url"].rstrip("/") + "/chat/completions"
+        headers = {
+            "Authorization": f"Bearer {api_config['zhipu_key']}",
+            "Content-Type": "application/json",
+        }
+        data = {
+            "model": api_config["model"],
+            "messages": [{"role": "user", "content": prompt}],
+            "max_tokens": max_tokens or api_config["max_tokens"],
+            "temperature": 0.3,
+        }
+        resp = requests.post(url, headers=headers, json=data, timeout=30)
+        resp.raise_for_status()
+        result = resp.json()
+        return result["choices"][0]["message"]["content"].strip()
+    except Exception as e:
+        print(f"[智谱API] 调用失败: {str(e)[:80]}")
+        return None
+
+
+def generate_ai_summary(item, api_config):
+    """
+    为单条热点生成 AI 摘要
+    摘要为空或与标题相同时才生成
+    优先基于原文，失败则基于标题
+    """
+    title = item.get("title", "")
+    summary = item.get("summary", "")
+    # 摘要非空且不等于标题，跳过
+    if summary and summary != title and len(summary) > 20:
+        return summary
+
+    if not api_config["summary_enabled"]:
+        return summary
+
+    link = item.get("link", "")
+    article_text = None
+    if link:
+        article_text = extract_article_text(link, api_config)
+
+    if article_text:
+        prompt = f"你是一个环境领域摘要助手。请根据以下文章内容，生成一句不超过50字的中文摘要，直接输出摘要，不要解释。\n\n文章内容：{article_text[:3000]}"
+    else:
+        prompt = f"你是一个环境领域摘要助手。请根据以下新闻标题，推测并生成一句不超过50字的中文摘要，直接输出摘要，不要解释。\n\n标题：{title}"
+
+    result = call_zhipu_api(prompt, api_config, max_tokens=100)
+    if result:
+        # 清理可能的引号
+        result = result.strip('"').strip("'").strip()
+        return result
+    return summary
+
+
+def generate_weekly_summary(api_config):
+    """
+    生成近7天热度总结
+    优先使用 AI 生成，失败则使用规则生成
+    写入 latest.json 的 weekly_summary 字段
+    """
+    history_path = os.path.join(DATA_DIR, "history.json")
+    if not os.path.exists(history_path):
+        return ""
+
+    try:
+        with open(history_path, "r", encoding="utf-8") as f:
+            history = json.load(f)
+    except Exception:
+        return ""
+
+    if not isinstance(history, list) or len(history) == 0:
+        return ""
+
+    # 取最近7天
+    recent = history[-7:]
+    all_keywords = Counter()
+    total_items = 0
+    for day in recent:
+        kws = day.get("keywords", [])
+        for kw in kws:
+            if isinstance(kw, dict):
+                all_keywords[kw.get("keyword", "")] += kw.get("count", 1)
+            else:
+                all_keywords[str(kw)] += 1
+        total_items += day.get("total_items", 0)
+
+    top_keywords = [kw for kw, _ in all_keywords.most_common(5)]
+
+    # AI 生成
+    if api_config["summary_enabled"] and top_keywords:
+        prompt = f"你是一个环境领域分析助手。请根据以下近7天热点关键词，生成一段不超过80字的中文总结，直接输出总结，不要解释。\n\n关键词：{', '.join(top_keywords)}\n总条目数：{total_items}"
+        result = call_zhipu_api(prompt, api_config, max_tokens=120)
+        if result:
+            return result.strip('"').strip("'").strip()
+
+    # 规则生成（降级）
+    if top_keywords:
+        return f"近7天热点集中在：{'、'.join(top_keywords[:3])}，共收录{total_items}条环境领域资讯。"
+    return ""
+
+
+def generate_ai_keywords(items, api_config):
+    """
+    使用 AI 从热点条目中提取环境领域相关热门关键词
+    返回关键词列表 [{term, count}]，失败返回 None
+    """
+    if not api_config["summary_enabled"] or not items:
+        return None
+
+    # 取 Top 20 条以减少 token
+    top_items = items[:20]
+    text_parts = []
+    for item in top_items:
+        title = item.get("title", "")
+        summary = item.get("summary", "")
+        if title:
+            text_parts.append(f"标题：{title}")
+        if summary and len(summary) > 10:
+            text_parts.append(f"摘要：{summary[:200]}")
+    combined_text = "\n".join(text_parts)
+
+    prompt = f"""你是一个环境领域关键词提取专家。请从以下新闻标题和摘要中提取与环境领域相关的热门关键词。
+
+要求：
+1. 关键词必须与环境领域相关（气候、生态、污染、能源、可持续发展、环境政策、环境健康、技术方法等）
+2. 关键词要具体、多样，避免过于宽泛的词（如"环境""污染""保护"），除非原文特别强调
+3. 关键词要贴近原文内容，从标题和摘要中提炼，不要凭空生成
+4. 如果原文内容与环境领域无关，可返回空数组
+5. 直接返回 JSON 数组，格式：[{{"term": "碳中和", "count": 5}}]，不要解释
+
+新闻内容：
+{combined_text[:4000]}"""
+
+    result = call_zhipu_api(prompt, api_config, max_tokens=500)
+    if not result:
+        return None
+
+    # 解析 JSON
+    try:
+        # 去除可能的 markdown 代码块标记
+        result = result.strip()
+        if result.startswith("```"):
+            result = result.split("\n", 1)[-1]
+            if result.endswith("```"):
+                result = result[:-3]
+        result = result.strip()
+        # 找到第一个 [ 和最后一个 ]
+        start = result.find("[")
+        end = result.rfind("]")
+        if start >= 0 and end > start:
+            result = result[start:end+1]
+        keywords = json.loads(result)
+        if isinstance(keywords, list):
+            # 验证格式
+            valid = []
+            for kw in keywords:
+                if isinstance(kw, dict) and kw.get("term"):
+                    valid.append({
+                        "term": str(kw["term"]),
+                        "count": int(kw.get("count", 1)),
+                    })
+            if valid:
+                return valid
+    except Exception as e:
+        print(f"[AI关键词] 解析失败: {str(e)[:60]}")
+    return None
+
+
+def generate_topic_tags(item, api_config):
+    """
+    为单条热点生成 1-3 个具体话题标签
+    失败返回空数组
+    """
+    if not api_config["summary_enabled"]:
+        return []
+
+    title = item.get("title", "")
+    summary = item.get("summary", "")
+    if not title:
+        return []
+
+    prompt = f"""你是一个环境领域标签专家。请为以下新闻提取1-3个具体的关键词或短语作为话题标签。
+
+要求：
+1. 标签要具体、贴近内容，与环境领域相关
+2. 避免"环境领域""环境保护"这种泛化标签
+3. 直接返回 JSON 数组，格式：["气候韧性", "微塑料污染"]，不要解释
+
+标题：{title}
+摘要：{summary[:300] if summary else '无'}"""
+
+    result = call_zhipu_api(prompt, api_config, max_tokens=100)
+    if not result:
+        return []
+
+    try:
+        result = result.strip()
+        if result.startswith("```"):
+            result = result.split("\n", 1)[-1]
+            if result.endswith("```"):
+                result = result[:-3]
+        result = result.strip()
+        start = result.find("[")
+        end = result.rfind("]")
+        if start >= 0 and end > start:
+            result = result[start:end+1]
+        tags = json.loads(result)
+        if isinstance(tags, list):
+            return [str(t).strip() for t in tags if t and len(str(t).strip()) >= 2][:3]
+    except Exception:
+        pass
+    return []
+
+
+def enhance_analysis_with_tags(item):
+    """根据 topic_tags 优化 analysis 字段"""
+    topic_tags = item.get("topic_tags", [])
+    if topic_tags:
+        topic = topic_tags[0]
+    else:
+        # 回退到匹配的关键词
+        matched = item.get("matched_keywords", [])
+        topic = matched[0] if matched else "环境领域"
+
+    # 热度构成分析
+    parts = []
+    source_weight = item.get("source_weight", 1.0)
+    if source_weight >= 2.0:
+        parts.append("来源权威性")
+    published_dt = item.get("published_dt")
+    if published_dt:
+        hours_ago = (datetime.now(timezone.utc) - published_dt).total_seconds() / 3600
+        if hours_ago <= 24:
+            parts.append("时间新鲜度")
+    matched = item.get("matched_keywords", [])
+    if len(matched) >= 2:
+        parts.append("主题热度")
+    if not parts:
+        parts.append("综合因素")
+
+    drive_text = "和".join(parts)
+    return f"该条目涉及【{topic}】话题，热度主要由{drive_text}驱动，建议关注。"
 
 
 # ============================================================
@@ -1078,17 +1426,29 @@ def generate_personal_knowledge():
         print(f"[个人知识库] 写入失败：{e}")
 
 
-def generate_latest_json(items, config):
+def generate_latest_json(items, config, weekly_summary=""):
     """生成 data/latest.json"""
     site_name = config.get("site_name", "环境学子雷达")
     keywords = config.get("keywords", DEFAULT_KEYWORDS)
 
-    # 关键词分析（前10）
+    # 关键词分析（前10）- 基于配置关键词统计
     all_keywords = []
     for item in items:
         all_keywords.extend(item.get("matched_keywords", []))
     keyword_counter = Counter(all_keywords)
     top_keywords = [{"keyword": kw, "count": cnt} for kw, cnt in keyword_counter.most_common(10)]
+
+    # 如果有 AI 提取的关键词，合并（优先 AI 结果，去重）
+    ai_keywords = config.get("_ai_keywords", [])
+    if ai_keywords:
+        existing_terms = set(k["keyword"] for k in top_keywords)
+        for ak in ai_keywords:
+            term = ak.get("term", "")
+            if term and term not in existing_terms:
+                top_keywords.append({"keyword": term, "count": ak.get("count", 1)})
+                existing_terms.add(term)
+        top_keywords.sort(key=lambda x: x["count"], reverse=True)
+        top_keywords = top_keywords[:10]
 
     # 热点总结
     if top_keywords:
@@ -1100,8 +1460,8 @@ def generate_latest_json(items, config):
     # 构建条目列表（移除内部字段，确保所有值为可序列化的基本类型）
     output_items = []
     for item in items:
-        # 生成分析
-        analysis = generate_analysis(item, config)
+        # 生成分析（优先使用 topic_tags 优化）
+        analysis = enhance_analysis_with_tags(item)
         item["analysis"] = analysis
         output_items.append({
             "title": sanitize_str(item.get("title")),
@@ -1109,18 +1469,26 @@ def generate_latest_json(items, config):
             "source": sanitize_str(item.get("source")),
             "published": sanitize_str(item.get("published")),
             "hotness": float(item.get("hotness", 0)),
+            "score": float(item.get("hotness", 0)),
+            "score_breakdown": item.get("score_breakdown", {}),
             "summary": sanitize_str(item.get("summary")),
             "analysis": sanitize_str(analysis),
+            "topic_tags": item.get("topic_tags", []),
             "matched_keywords": [sanitize_str(kw) for kw in item.get("matched_keywords", [])],
+            "keywords": [sanitize_str(kw) for kw in item.get("matched_keywords", [])],
         })
 
     data = {
         "report_date": datetime.now(timezone.utc).strftime("%Y-%m-%d"),
+        "date": datetime.now(timezone.utc).strftime("%Y-%m-%d"),
         "site_name": sanitize_str(site_name),
         "total_items": len(output_items),
         "items": output_items,
         "keyword_analysis": top_keywords,
+        "keywords": top_keywords,
         "hot_summary": sanitize_str(summary),
+        "summary": sanitize_str(summary),
+        "weekly_summary": sanitize_str(weekly_summary),
     }
 
     path = os.path.join(DATA_DIR, "latest.json")
@@ -1528,7 +1896,40 @@ def main():
 
     # 6. 生成 latest.json
     print("--- 第六步：生成输出文件 ---")
-    latest_data = generate_latest_json(all_items, config)
+
+    # AI 处理：摘要生成、话题标签、关键词提取、近7天总结
+    api_config = get_api_config(config)
+    if api_config["summary_enabled"]:
+        print("[AI] 智谱 GLM 已启用，开始生成 AI 摘要和关键词...")
+        # 为每条热点生成 AI 摘要和话题标签（只处理前20条以节省时间）
+        for i, item in enumerate(all_items[:20]):
+            try:
+                new_summary = generate_ai_summary(item, api_config)
+                if new_summary:
+                    item["summary"] = new_summary
+                item["topic_tags"] = generate_topic_tags(item, api_config)
+            except Exception as e:
+                print(f"[AI] 条目 {i+1} 处理失败: {str(e)[:50]}")
+                item["topic_tags"] = []
+        # 为剩余条目设置空 topic_tags
+        for item in all_items[20:]:
+            item["topic_tags"] = []
+        # AI 关键词提取
+        ai_keywords = generate_ai_keywords(all_items, api_config)
+        if ai_keywords:
+            config["_ai_keywords"] = ai_keywords
+            print(f"[AI] 提取到 {len(ai_keywords)} 个环境领域关键词")
+    else:
+        print("[AI] 智谱 GLM 未启用，使用规则生成摘要和关键词")
+        for item in all_items:
+            item["topic_tags"] = []
+
+    # 生成近7天热度总结
+    weekly_summary = generate_weekly_summary(api_config)
+    if weekly_summary:
+        print(f"[AI] 近7天总结: {weekly_summary[:60]}...")
+
+    latest_data = generate_latest_json(all_items, config, weekly_summary=weekly_summary)
     generate_daily_snapshot(all_items, config)
     generate_monthly_archive(all_items, config)
     generate_pending_terms(all_items, config)

@@ -39,6 +39,16 @@
 - **30天热点时间线**：支持7/14/30天时间范围切换，展示每日热门关键词变化，点击日期查看相关热点
 - **"为什么是热点"一键生成**：每条热点可生成自然语言解释，说明热度驱动因素（来源/关键词/时间）
 - **知识库词条关联热点**：查看词条释义时同时显示相关热点列表，桌面端左右布局，移动端上下布局
+
+### v6.0 新增功能
+
+- **热度分数明细**：点击热点卡片的热度分数，弹出明细弹窗，展示基础分、来源权重分、关键词匹配分、时间新鲜度分、主题聚合加分和总分
+- **基于原文的 AI 摘要生成**：当条目摘要为空或不完整时，自动提取原文正文（readability-lxml + html2text 本地提取，Jina Reader 兜底），调用智谱 GLM 生成不超过50字的中文摘要
+- **近7天热度总结**：AI 生成近7天热点趋势总结，展示在左侧悬浮卡片，API 不可用时自动降级为规则总结
+- **AI 热门关键词提取**：调用智谱 GLM 从热点条目中提取环境领域相关的具体关键词，避免泛化标签，合并到关键词统计和标签云
+- **话题标签 topic_tags**：为每条热点生成1-3个具体话题标签，用于优化 analysis 分析字段，让分析更贴近内容
+- **个人知识库自动记录**：每次运行自动将当天热点数据（高频关键词、Top10热点、候选新词）追加到 `personal_knowledge.md`，重复运行自动替换当天内容
+- **RSS 源更新优化**：删除失效源，新增验证通过的稳定源（Science、PNAS环境科学、Environmental Research Letters、IISD SDG、Berkeley Earth、Adaptation Fund等），最终22个源
 - **快速分享网站**：导航栏增加分享网站按钮，移动端调起系统分享，桌面端复制链接
 - **移动端底部导航栏**：宽度小于640px时显示固定底部Tab（热点/知识库/历史/收藏）
 - **回到顶部按钮**：滚动超过300px时显示，点击平滑回到顶部
@@ -108,6 +118,15 @@ rss_feeds:
 | `email_config.sender` | string | 空 | 发件人邮箱 |
 | `email_config.password` | string | 空 | 发件人授权码 |
 | `email_config.receiver` | string | 空 | 收件人邮箱（站长个人），为空则不发送 |
+| `summary_api.enabled` | bool | false | 是否启用 AI 摘要生成和关键词提取 |
+| `summary_api.api_key` | string | 空 | 智谱 GLM API Key（也可通过环境变量 ZHIPU_API_KEY 设置） |
+| `summary_api.model` | string | glm-4.7-flash | 智谱模型名称 |
+| `summary_api.base_url` | string | https://open.bigmodel.cn/api/paas/v4/ | API 基础地址 |
+| `summary_api.max_tokens` | int | 150 | 生成摘要的最大 token 数 |
+| `reader_api.enabled` | bool | true | 是否启用原文提取 |
+| `reader_api.local_extraction` | bool | true | 是否使用 readability-lxml + html2text 本地提取 |
+| `reader_api.jina_api_key` | string | 空 | Jina Reader API Key（也可通过环境变量 JINA_API_KEY 设置） |
+| `reader_api.jina_base_url` | string | https://r.jina.ai/ | Jina Reader 基础地址 |
 | `max_items_per_source` | int | 5 | 每个源最大抓取条数（冷启动自动设为 10） |
 | `max_total_items` | int | 50 | 总条目上限 |
 
@@ -213,10 +232,31 @@ rss_feeds:
 ### 安装依赖
 
 ```bash
-pip install feedparser pyyaml jieba
+pip install feedparser pyyaml jieba readability-lxml html2text requests
 ```
 
-> jieba 为可选依赖，未安装时新词提取功能会自动跳过，不影响其他功能。
+> jieba、readability-lxml、html2text 为可选依赖，未安装时对应功能会自动跳过，不影响其他功能。
+
+### GitHub Secrets 配置（启用 AI 功能）
+
+如果需要启用 AI 摘要生成和关键词提取功能，需要在 GitHub 仓库中配置以下 Secrets：
+
+1. 进入仓库 Settings → Secrets and variables → Actions
+2. 点击 "New repository secret"
+3. 添加以下 Secrets：
+   - `ZHIPU_API_KEY`：智谱 GLM API Key（在 https://open.bigmodel.cn 注册获取）
+   - `JINA_API_KEY`：Jina Reader API Key（在 https://jina.ai 注册获取，可选，用于原文提取兜底）
+
+配置后，GitHub Actions 运行时会自动注入这些环境变量。也可以在本地通过环境变量设置：
+
+```bash
+# Windows PowerShell
+$env:ZHIPU_API_KEY="your_api_key"
+$env:JINA_API_KEY="your_api_key"
+python daily_report.py
+```
+
+> 未配置 API Key 时，AI 功能自动禁用，系统使用规则生成摘要和关键词，不影响正常运行。
 
 ### 本地运行数据生成
 
@@ -314,7 +354,18 @@ hotspot-radar/
 
 ## 📝 更新日志
 
-### v5.0（最新）
+### v6.0（最新）
+
+- ✨ 新增**热度分数明细**：点击热度分数弹出明细弹窗，展示各项得分和总分
+- ✨ 新增**基于原文的 AI 摘要生成**：readability-lxml + html2text 本地提取，Jina Reader 兜底，智谱 GLM 生成摘要
+- ✨ 新增**近7天热度总结**：AI 生成趋势总结，左侧悬浮卡片展示，自动降级为规则总结
+- ✨ 新增**AI 热门关键词提取**：智谱 GLM 提取环境领域具体关键词，避免泛化标签
+- ✨ 新增**话题标签 topic_tags**：每条热点生成1-3个具体标签，优化 analysis 分析
+- ✨ 新增**个人知识库自动记录**：每日热点自动追加到 personal_knowledge.md
+- 🔧 优化**RSS 源**：删除失效源，新增 Science、PNAS、ERL、IISD、Berkeley Earth、Adaptation Fund 等稳定源
+- 🔧 优化**GitHub Actions**：增加 readability-lxml、html2text、requests 依赖，注入 ZHIPU_API_KEY、JINA_API_KEY 环境变量，提交 personal_knowledge.md
+
+### v5.0
 
 - ✨ 新增**主题定制增强**：文字颜色选择器、字体选择（系统默认/无衬线/衬线/等宽）
 - ✨ 新增**今日焦点模块**：醒目展示热度最高的 1-2 条热点
@@ -383,6 +434,17 @@ hotspot-radar/
 - ✨ 15+ 权威 RSS 源聚合
 - ✨ 透明热度算法
 - ✨ GitHub Pages 部署 + GitHub Actions 自动更新
+
+---
+
+## 🖼️ 效果展示
+
+<!-- 效果展示占位符 -->
+<!-- 部署后可在此处替换为实际截图 -->
+
+![首页预览](https://placehold.co/800x450?text=环境学子雷达+首页预览)
+
+*上图为占位符，部署后请替换为实际截图。*
 
 ---
 

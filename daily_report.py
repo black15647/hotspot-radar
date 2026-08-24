@@ -1267,6 +1267,7 @@ def generate_batch_summaries(items, api_config):
     返回修改后的 items 列表（原地修改）
     每天最多调用1次 API，而不是每条调用一次
     """
+    global ZHIPU_CONSECUTIVE_FAILURES
     if not api_config["summary_enabled"] or not api_config["zhipu_key"]:
         return items
     if not REQUESTS_AVAILABLE:
@@ -1396,6 +1397,7 @@ def generate_batch_topic_tags(items, api_config):
     返回修改后的 items 列表（原地修改）
     每天最多调用1次 API
     """
+    global ZHIPU_CONSECUTIVE_FAILURES
     if not api_config["summary_enabled"] or not api_config["zhipu_key"]:
         for item in items:
             item["topic_tags"] = []

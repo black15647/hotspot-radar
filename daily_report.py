@@ -987,32 +987,85 @@ def extract_article_text(url, api_config):
     return None
 
 
+# 智谱 API 连续失败计数器（连续失败5次后停止AI调用）
+ZHIPU_CONSECUTIVE_FAILURES = 0
+ZHIPU_MAX_CONSECUTIVE_FAILURES = 5
+
+
 def call_zhipu_api(prompt, api_config, max_tokens=None):
-    """调用智谱 GLM API（OpenAI 兼容格式），返回生成的文本，失败返回 None"""
+    """
+    调用智谱 GLM API（OpenAI 兼容格式），返回生成的文本，失败返回 None
+    增加重试机制：429或超时后等待重试，最多3次，等待时间递增3/6/10秒
+    连续失败5次后停止AI调用
+    """
+    global ZHIPU_CONSECUTIVE_FAILURES
+
     if not api_config["summary_enabled"] or not api_config["zhipu_key"]:
         return None
     if not REQUESTS_AVAILABLE:
         return None
-
-    try:
-        url = api_config["base_url"].rstrip("/") + "/chat/completions"
-        headers = {
-            "Authorization": f"Bearer {api_config['zhipu_key']}",
-            "Content-Type": "application/json",
-        }
-        data = {
-            "model": api_config["model"],
-            "messages": [{"role": "user", "content": prompt}],
-            "max_tokens": max_tokens or api_config["max_tokens"],
-            "temperature": 0.3,
-        }
-        resp = requests.post(url, headers=headers, json=data, timeout=30)
-        resp.raise_for_status()
-        result = resp.json()
-        return result["choices"][0]["message"]["content"].strip()
-    except Exception as e:
-        print(f"[智谱API] 调用失败: {str(e)[:80]}")
+    # 连续失败超过阈值，停止调用
+    if ZHIPU_CONSECUTIVE_FAILURES >= ZHIPU_MAX_CONSECUTIVE_FAILURES:
         return None
+
+    url = api_config["base_url"].rstrip("/") + "/chat/completions"
+    headers = {
+        "Authorization": f"Bearer {api_config['zhipu_key']}",
+        "Content-Type": "application/json",
+    }
+    data = {
+        "model": api_config["model"],
+        "messages": [{"role": "user", "content": prompt}],
+        "max_tokens": max_tokens or api_config["max_tokens"],
+        "temperature": 0.3,
+    }
+
+    # 重试机制：最多3次，等待时间递增3/6/10秒
+    retry_delays = [3, 6, 10]
+    for attempt in range(3):
+        try:
+            # 超时设置：摘要类15秒，关键词类20秒
+            timeout = 15 if (max_tokens or api_config["max_tokens"]) <= 150 else 20
+            resp = requests.post(url, headers=headers, json=data, timeout=timeout)
+            resp.raise_for_status()
+            result = resp.json()
+            content = result["choices"][0]["message"]["content"].strip()
+            # 调用成功，重置连续失败计数
+            ZHIPU_CONSECUTIVE_FAILURES = 0
+            return content
+        except requests.exceptions.HTTPError as e:
+            status_code = e.response.status_code if e.response is not None else "unknown"
+            # 429 限流，需要重试
+            if status_code == 429 and attempt < 2:
+                wait_time = retry_delays[attempt]
+                print(f"[智谱API] 429限流，第{attempt+1}次重试，等待{wait_time}秒...")
+                time.sleep(wait_time)
+                continue
+            # 其他HTTP错误，不重试
+            print(f"[智谱API] HTTP错误 {status_code}")
+            ZHIPU_CONSECUTIVE_FAILURES += 1
+            return None
+        except requests.exceptions.Timeout:
+            if attempt < 2:
+                wait_time = retry_delays[attempt]
+                print(f"[智谱API] 请求超时，第{attempt+1}次重试，等待{wait_time}秒...")
+                time.sleep(wait_time)
+                continue
+            print(f"[智谱API] 请求超时（已重试3次）")
+            ZHIPU_CONSECUTIVE_FAILURES += 1
+            return None
+        except requests.exceptions.RequestException as e:
+            print(f"[智谱API] 网络错误: {str(e)[:50]}")
+            ZHIPU_CONSECUTIVE_FAILURES += 1
+            return None
+        except Exception as e:
+            print(f"[智谱API] 未知错误: {str(e)[:50]}")
+            ZHIPU_CONSECUTIVE_FAILURES += 1
+            return None
+
+    # 所有重试都失败
+    ZHIPU_CONSECUTIVE_FAILURES += 1
+    return None
 
 
 def generate_ai_summary(item, api_config):
@@ -1127,7 +1180,7 @@ def generate_ai_keywords(items, api_config):
 新闻内容：
 {combined_text[:4000]}"""
 
-    result = call_zhipu_api(prompt, api_config, max_tokens=500)
+    result = call_zhipu_api(prompt, api_config, max_tokens=300)
     if not result:
         return None
 
@@ -1901,20 +1954,29 @@ def main():
     api_config = get_api_config(config)
     if api_config["summary_enabled"]:
         print("[AI] 智谱 GLM 已启用，开始生成 AI 摘要和关键词...")
-        # 为每条热点生成 AI 摘要和话题标签（只处理前20条以节省时间）
-        for i, item in enumerate(all_items[:20]):
+        # 只处理热度前10条，且只对摘要为空或与标题相同的条目调用摘要生成
+        # 所有前10条都生成 topic_tags
+        ai_processed = 0
+        for i, item in enumerate(all_items[:10]):
             try:
-                new_summary = generate_ai_summary(item, api_config)
-                if new_summary:
-                    item["summary"] = new_summary
+                # 摘要生成：只在摘要为空或与标题相同时调用
+                current_summary = item.get("summary", "")
+                title = item.get("title", "")
+                if not current_summary or current_summary == title or len(current_summary) < 20:
+                    new_summary = generate_ai_summary(item, api_config)
+                    if new_summary:
+                        item["summary"] = new_summary
+                        ai_processed += 1
+                # topic_tags：所有前10条都生成
                 item["topic_tags"] = generate_topic_tags(item, api_config)
             except Exception as e:
                 print(f"[AI] 条目 {i+1} 处理失败: {str(e)[:50]}")
                 item["topic_tags"] = []
         # 为剩余条目设置空 topic_tags
-        for item in all_items[20:]:
+        for item in all_items[10:]:
             item["topic_tags"] = []
-        # AI 关键词提取
+        print(f"[AI] 共处理 {ai_processed} 条摘要、10 条话题标签")
+        # AI 关键词提取（只调用一次，输入 Top 20 条标题和摘要）
         ai_keywords = generate_ai_keywords(all_items, api_config)
         if ai_keywords:
             config["_ai_keywords"] = ai_keywords

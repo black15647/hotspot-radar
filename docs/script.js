@@ -943,7 +943,10 @@
         const recent7 = historyData.slice(0, 7).reverse();
 
         const labels = recent7.map((h) => h.date ? h.date.slice(5) : '');
-        const data = recent7.map((h) => h.total_items || 0);
+
+        // 从 latest.json 中读取 weekly_keywords（前3个高频词）
+        const weeklyKeywords = (state.latestData && state.latestData.weekly_keywords) || [];
+        const topKeywords = weeklyKeywords.slice(0, 3).map(kw => kw.term || kw.keyword);
 
         if (state.trendChart) {
             state.trendChart.destroy();
@@ -953,31 +956,78 @@
         const textColor = isDark ? '#94A3B8' : '#6B7280';
         const gridColor = isDark ? 'rgba(148, 163, 184, 0.1)' : 'rgba(107, 114, 128, 0.1)';
 
+        // 如果没有高频词数据，显示资讯条数
+        let datasets = [];
+        const colors = ['#10B981', '#3B82F6', '#F59E0B', '#EF4444', '#8B5CF6'];
+
+        if (topKeywords.length > 0) {
+            // 为每个高频词统计近7天出现次数
+            topKeywords.forEach((keyword, idx) => {
+                const color = colors[idx % colors.length];
+                const data = recent7.map((day) => {
+                    const dayKeywords = day.keywords || [];
+                    let count = 0;
+                    dayKeywords.forEach(kw => {
+                        const term = kw.term || kw.keyword || kw;
+                        if (term === keyword) {
+                            count = kw.count || 1;
+                        }
+                    });
+                    return count;
+                });
+                datasets.push({
+                    label: keyword,
+                    data: data,
+                    borderColor: color,
+                    backgroundColor: color + '20',
+                    borderWidth: 2,
+                    fill: false,
+                    tension: 0.4,
+                    pointBackgroundColor: color,
+                    pointBorderColor: '#fff',
+                    pointBorderWidth: 2,
+                    pointRadius: 4,
+                    pointHoverRadius: 6,
+                });
+            });
+        } else {
+            // 没有高频词，显示资讯条数
+            const data = recent7.map((h) => h.total_items || 0);
+            datasets.push({
+                label: '资讯条数',
+                data: data,
+                borderColor: '#10B981',
+                backgroundColor: 'rgba(16, 185, 129, 0.15)',
+                borderWidth: 2,
+                fill: true,
+                tension: 0.4,
+                pointBackgroundColor: '#10B981',
+                pointBorderColor: '#fff',
+                pointBorderWidth: 2,
+                pointRadius: 5,
+                pointHoverRadius: 7,
+            });
+        }
+
         state.trendChart = new Chart(ctx, {
             type: 'line',
             data: {
                 labels: labels,
-                datasets: [{
-                    label: '资讯条数',
-                    data: data,
-                    borderColor: '#10B981',
-                    backgroundColor: 'rgba(16, 185, 129, 0.15)',
-                    borderWidth: 2,
-                    fill: true,
-                    tension: 0.4,
-                    pointBackgroundColor: '#10B981',
-                    pointBorderColor: '#fff',
-                    pointBorderWidth: 2,
-                    pointRadius: 5,
-                    pointHoverRadius: 7,
-                }],
+                datasets: datasets,
             },
             options: {
                 responsive: true,
                 maintainAspectRatio: false,
                 plugins: {
                     legend: {
-                        display: false,
+                        display: topKeywords.length > 0,
+                        position: 'top',
+                        labels: {
+                            color: textColor,
+                            font: { size: 12 },
+                            usePointStyle: true,
+                            padding: 15,
+                        },
                     },
                     tooltip: {
                         backgroundColor: isDark ? '#1E293B' : '#1F2937',

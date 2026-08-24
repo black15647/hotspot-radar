@@ -189,6 +189,25 @@
     }
 
     function bindEvents() {
+        // 通用模态框关闭：所有带 data-close-modal 属性的元素（关闭按钮、遮罩层）
+        document.querySelectorAll('[data-close-modal]').forEach((el) => {
+            el.addEventListener('click', (e) => {
+                e.stopPropagation();
+                const modal = el.closest('.modal');
+                if (modal) {
+                    closeModal(modal);
+                }
+            });
+        });
+
+        // ESC 键关闭所有模态框
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') {
+                closeAllModals();
+                closeCustomizePanel();
+            }
+        });
+
         // 搜索
         on(els.searchInput, 'input', handleSearch);
 

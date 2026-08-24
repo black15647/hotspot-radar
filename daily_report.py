@@ -1261,6 +1261,272 @@ def generate_topic_tags(item, api_config):
     return []
 
 
+def generate_batch_summaries(items, api_config):
+    """
+    批量生成摘要：将所有需要摘要的条目合并成一次 API 请求
+    返回修改后的 items 列表（原地修改）
+    每天最多调用1次 API，而不是每条调用一次
+    """
+    if not api_config["summary_enabled"] or not api_config["zhipu_key"]:
+        return items
+    if not REQUESTS_AVAILABLE:
+        return items
+    if ZHIPU_CONSECUTIVE_FAILURES >= ZHIPU_MAX_CONSECUTIVE_FAILURES:
+        return items
+
+    # 筛选需要生成摘要的条目（摘要为空、与标题相同、或长度<20）
+    need_summary = []
+    for idx, item in enumerate(items):
+        summary = item.get("summary", "")
+        title = item.get("title", "")
+        if not summary or summary == title or len(summary) < 20:
+            need_summary.append((idx, item))
+
+    if not need_summary:
+        print("[AI] 所有条目已有摘要，跳过批量摘要生成")
+        return items
+
+    # 构建 prompt
+    news_list = []
+    for local_idx, (orig_idx, item) in enumerate(need_summary):
+        title = item.get("title", "无标题")
+        link = item.get("link", "")
+        # 尝试获取原文（只取前500字以控制 token）
+        article_text = ""
+        if link and api_config.get("reader_enabled", True):
+            try:
+                extracted = extract_article_text(link, api_config)
+                if extracted:
+                    article_text = extracted[:500]
+            except Exception:
+                pass
+        if article_text:
+            news_list.append(f"{local_idx}. 标题：{title}\n内容：{article_text}")
+        else:
+            news_list.append(f"{local_idx}. 标题：{title}")
+
+    prompt = f"""你是一个环境领域摘要助手。请为以下每条新闻生成一句不超过50字的中文摘要，直接返回JSON数组，格式：[{{"id":0,"summary":"..."}},{{"id":1,"summary":"..."}}]，不要解释。
+
+新闻列表：
+{chr(10).join(news_list)}"""
+
+    # 批量请求，重试1-2次，等待5秒、10秒，超时20秒
+    retry_delays = [5, 10]
+    result_text = None
+    for attempt in range(2):
+        try:
+            url = api_config["base_url"].rstrip("/") + "/chat/completions"
+            headers = {
+                "Authorization": f"Bearer {api_config['zhipu_key']}",
+                "Content-Type": "application/json",
+            }
+            data = {
+                "model": api_config["model"],
+                "messages": [{"role": "user", "content": prompt}],
+                "max_tokens": 800,
+                "temperature": 0.3,
+            }
+            resp = requests.post(url, headers=headers, json=data, timeout=20)
+            resp.raise_for_status()
+            result = resp.json()
+            result_text = result["choices"][0]["message"]["content"].strip()
+            ZHIPU_CONSECUTIVE_FAILURES = 0
+            break
+        except requests.exceptions.HTTPError as e:
+            status_code = e.response.status_code if e.response is not None else "unknown"
+            if status_code == 429 and attempt < 1:
+                wait_time = retry_delays[attempt]
+                print(f"[AI批量摘要] 429限流，第{attempt+1}次重试，等待{wait_time}秒...")
+                time.sleep(wait_time)
+                continue
+            print(f"[AI批量摘要] HTTP错误 {status_code}")
+            ZHIPU_CONSECUTIVE_FAILURES += 1
+            return items
+        except requests.exceptions.Timeout:
+            if attempt < 1:
+                wait_time = retry_delays[attempt]
+                print(f"[AI批量摘要] 请求超时，第{attempt+1}次重试，等待{wait_time}秒...")
+                time.sleep(wait_time)
+                continue
+            print("[AI批量摘要] 请求超时（已重试）")
+            ZHIPU_CONSECUTIVE_FAILURES += 1
+            return items
+        except Exception as e:
+            print(f"[AI批量摘要] 调用失败: {str(e)[:60]}")
+            ZHIPU_CONSECUTIVE_FAILURES += 1
+            return items
+
+    if not result_text:
+        return items
+
+    # 解析返回的 JSON
+    try:
+        result_text = result_text.strip()
+        if result_text.startswith("```"):
+            result_text = result_text.split("\n", 1)[-1]
+            if result_text.endswith("```"):
+                result_text = result_text[:-3]
+        result_text = result_text.strip()
+        start = result_text.find("[")
+        end = result_text.rfind("]")
+        if start >= 0 and end > start:
+            result_text = result_text[start:end+1]
+        summaries = json.loads(result_text)
+        if isinstance(summaries, list):
+            count = 0
+            for s in summaries:
+                if isinstance(s, dict) and "id" in s and "summary" in s:
+                    local_idx = int(s["id"])
+                    if 0 <= local_idx < len(need_summary):
+                        orig_idx, item = need_summary[local_idx]
+                        new_summary = str(s["summary"]).strip().strip('"').strip("'")
+                        if new_summary:
+                            item["summary"] = new_summary
+                            count += 1
+            print(f"[AI批量摘要] 成功生成 {count}/{len(need_summary)} 条摘要")
+    except Exception as e:
+        print(f"[AI批量摘要] 解析返回结果失败: {str(e)[:50]}")
+
+    return items
+
+
+def generate_batch_topic_tags(items, api_config):
+    """
+    批量生成话题标签：将所有条目合并成一次 API 请求
+    返回修改后的 items 列表（原地修改）
+    每天最多调用1次 API
+    """
+    if not api_config["summary_enabled"] or not api_config["zhipu_key"]:
+        for item in items:
+            item["topic_tags"] = []
+        return items
+    if not REQUESTS_AVAILABLE:
+        for item in items:
+            item["topic_tags"] = []
+        return items
+    if ZHIPU_CONSECUTIVE_FAILURES >= ZHIPU_MAX_CONSECUTIVE_FAILURES:
+        for item in items:
+            item["topic_tags"] = []
+        return items
+
+    # 只处理前10条
+    target_items = items[:10]
+    if not target_items:
+        return items
+
+    # 构建 prompt
+    news_list = []
+    for idx, item in enumerate(target_items):
+        title = item.get("title", "无标题")
+        summary = item.get("summary", "")
+        if summary and len(summary) > 10:
+            news_list.append(f"{idx}. 标题：{title}\n摘要：{summary[:200]}")
+        else:
+            news_list.append(f"{idx}. 标题：{title}")
+
+    prompt = f"""你是一个环境领域标签专家。请为以下每条新闻提取1-3个具体的关键词或短语作为话题标签，要求标签具体、贴近内容、与环境领域相关，避免"环境领域""环境保护"这种泛化标签。直接返回JSON数组，格式：[{{"id":0,"tags":["气候韧性","微塑料污染"]}},{{"id":1,"tags":["碳关税"]}}]，不要解释。
+
+新闻列表：
+{chr(10).join(news_list)}"""
+
+    # 批量请求，重试1-2次，等待5秒、10秒，超时20秒
+    retry_delays = [5, 10]
+    result_text = None
+    for attempt in range(2):
+        try:
+            url = api_config["base_url"].rstrip("/") + "/chat/completions"
+            headers = {
+                "Authorization": f"Bearer {api_config['zhipu_key']}",
+                "Content-Type": "application/json",
+            }
+            data = {
+                "model": api_config["model"],
+                "messages": [{"role": "user", "content": prompt}],
+                "max_tokens": 600,
+                "temperature": 0.3,
+            }
+            resp = requests.post(url, headers=headers, json=data, timeout=20)
+            resp.raise_for_status()
+            result = resp.json()
+            result_text = result["choices"][0]["message"]["content"].strip()
+            ZHIPU_CONSECUTIVE_FAILURES = 0
+            break
+        except requests.exceptions.HTTPError as e:
+            status_code = e.response.status_code if e.response is not None else "unknown"
+            if status_code == 429 and attempt < 1:
+                wait_time = retry_delays[attempt]
+                print(f"[AI批量标签] 429限流，第{attempt+1}次重试，等待{wait_time}秒...")
+                time.sleep(wait_time)
+                continue
+            print(f"[AI批量标签] HTTP错误 {status_code}")
+            ZHIPU_CONSECUTIVE_FAILURES += 1
+            for item in items:
+                item["topic_tags"] = []
+            return items
+        except requests.exceptions.Timeout:
+            if attempt < 1:
+                wait_time = retry_delays[attempt]
+                print(f"[AI批量标签] 请求超时，第{attempt+1}次重试，等待{wait_time}秒...")
+                time.sleep(wait_time)
+                continue
+            print("[AI批量标签] 请求超时（已重试）")
+            ZHIPU_CONSECUTIVE_FAILURES += 1
+            for item in items:
+                item["topic_tags"] = []
+            return items
+        except Exception as e:
+            print(f"[AI批量标签] 调用失败: {str(e)[:60]}")
+            ZHIPU_CONSECUTIVE_FAILURES += 1
+            for item in items:
+                item["topic_tags"] = []
+            return items
+
+    if not result_text:
+        for item in items:
+            item["topic_tags"] = []
+        return items
+
+    # 解析返回的 JSON
+    try:
+        result_text = result_text.strip()
+        if result_text.startswith("```"):
+            result_text = result_text.split("\n", 1)[-1]
+            if result_text.endswith("```"):
+                result_text = result_text[:-3]
+        result_text = result_text.strip()
+        start = result_text.find("[")
+        end = result_text.rfind("]")
+        if start >= 0 and end > start:
+            result_text = result_text[start:end+1]
+        tags_list = json.loads(result_text)
+        if isinstance(tags_list, list):
+            count = 0
+            for t in tags_list:
+                if isinstance(t, dict) and "id" in t and "tags" in t:
+                    idx = int(t["id"])
+                    if 0 <= idx < len(target_items):
+                        tags = t["tags"]
+                        if isinstance(tags, list):
+                            clean_tags = [str(tag).strip() for tag in tags if tag and len(str(tag).strip()) >= 2][:3]
+                            target_items[idx]["topic_tags"] = clean_tags
+                            count += 1
+            # 为没有返回标签的条目设置空数组
+            for item in target_items:
+                if "topic_tags" not in item:
+                    item["topic_tags"] = []
+            print(f"[AI批量标签] 成功生成 {count}/{len(target_items)} 条话题标签")
+    except Exception as e:
+        print(f"[AI批量标签] 解析返回结果失败: {str(e)[:50]}")
+        for item in items:
+            item["topic_tags"] = []
+
+    # 为剩余条目设置空 topic_tags
+    for item in items[10:]:
+        item["topic_tags"] = []
+
+    return items
+
+
 def enhance_analysis_with_tags(item):
     """根据 topic_tags 优化 analysis 字段"""
     topic_tags = item.get("topic_tags", [])
@@ -1950,37 +2216,20 @@ def main():
     # 6. 生成 latest.json
     print("--- 第六步：生成输出文件 ---")
 
-    # AI 处理：摘要生成、话题标签、关键词提取、近7天总结
+    # AI 处理：批量摘要生成、批量话题标签、关键词提取、近7天总结
     api_config = get_api_config(config)
     if api_config["summary_enabled"]:
-        print("[AI] 智谱 GLM 已启用，开始生成 AI 摘要和关键词...")
-        # 只处理热度前10条，且只对摘要为空或与标题相同的条目调用摘要生成
-        # 所有前10条都生成 topic_tags
-        ai_processed = 0
-        for i, item in enumerate(all_items[:10]):
-            try:
-                # 摘要生成：只在摘要为空或与标题相同时调用
-                current_summary = item.get("summary", "")
-                title = item.get("title", "")
-                if not current_summary or current_summary == title or len(current_summary) < 20:
-                    new_summary = generate_ai_summary(item, api_config)
-                    if new_summary:
-                        item["summary"] = new_summary
-                        ai_processed += 1
-                # topic_tags：所有前10条都生成
-                item["topic_tags"] = generate_topic_tags(item, api_config)
-            except Exception as e:
-                print(f"[AI] 条目 {i+1} 处理失败: {str(e)[:50]}")
-                item["topic_tags"] = []
-        # 为剩余条目设置空 topic_tags
-        for item in all_items[10:]:
-            item["topic_tags"] = []
-        print(f"[AI] 共处理 {ai_processed} 条摘要、10 条话题标签")
+        print("[AI] 智谱 GLM 已启用，开始批量生成 AI 摘要和话题标签...")
+        # 批量生成摘要（一次API调用，处理所有需要摘要的条目）
+        all_items = generate_batch_summaries(all_items, api_config)
+        # 批量生成话题标签（一次API调用，处理前10条）
+        all_items = generate_batch_topic_tags(all_items, api_config)
         # AI 关键词提取（只调用一次，输入 Top 20 条标题和摘要）
         ai_keywords = generate_ai_keywords(all_items, api_config)
         if ai_keywords:
             config["_ai_keywords"] = ai_keywords
             print(f"[AI] 提取到 {len(ai_keywords)} 个环境领域关键词")
+        print("[AI] 批量处理完成，每天最多调用3次API（摘要+标签+关键词）")
     else:
         print("[AI] 智谱 GLM 未启用，使用规则生成摘要和关键词")
         for item in all_items:

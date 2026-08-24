@@ -169,6 +169,14 @@
         els.textColorPicker = document.getElementById('textColorPicker');
         els.fontFamilySelect = document.getElementById('fontFamilySelect');
         els.mobileBottomNav = document.getElementById('mobileBottomNav');
+        // v6.0 热度明细
+        els.scoreBreakdownModal = document.getElementById('scoreBreakdownModal');
+        els.scoreBreakdownTitle = document.getElementById('scoreBreakdownTitle');
+        els.scoreBreakdownList = document.getElementById('scoreBreakdownList');
+        els.scoreBreakdownTotal = document.getElementById('scoreBreakdownTotal');
+        // v6.0 近7天总结
+        els.weeklySummarySection = document.getElementById('weeklySummarySection');
+        els.weeklySummaryText = document.getElementById('weeklySummaryText');
     }
 
     /**
@@ -403,6 +411,8 @@
             loadFollowedKeywords();
             renderFeatured();
             renderFollowedKeywordsBar();
+            // v6.0 近7天热度总结
+            loadWeeklySummary(state.latestData);
         } catch (err) {
             console.error('数据加载失败：', err);
             els.loading.style.display = 'none';
@@ -548,8 +558,13 @@
         let hotnessClass = 'hotness-low';
         if (hotness >= 20) hotnessClass = 'hotness-high';
         else if (hotness >= 12) hotnessClass = 'hotness-medium';
-        hotnessEl.className = `hotness-badge ${hotnessClass}`;
+        hotnessEl.className = `hotness-badge hotness-score ${hotnessClass}`;
         hotnessEl.innerHTML = `🔥 ${hotness}`;
+        hotnessEl.title = '点击查看热度明细';
+        hotnessEl.addEventListener('click', (e) => {
+            e.stopPropagation();
+            openScoreBreakdown(item);
+        });
         meta.appendChild(hotnessEl);
 
         card.appendChild(meta);
@@ -2428,6 +2443,67 @@
     // 在 init 中调用 initV5
     const _origInit = init;
     // 注意：init 已经定义，我们通过在 loadData 完成后调用新功能来实现
+
+    // ============================================================
+    // v6.0 热度分数明细
+    // ============================================================
+    function openScoreBreakdown(item) {
+        if (!els.scoreBreakdownModal) return;
+        const title = item.title || '未知标题';
+        const breakdown = item.score_breakdown || null;
+
+        if (els.scoreBreakdownTitle) {
+            els.scoreBreakdownTitle.textContent = title.length > 40 ? title.substring(0, 40) + '...' : title;
+        }
+
+        const listEl = els.scoreBreakdownList;
+        if (listEl) {
+            listEl.innerHTML = '';
+            if (breakdown && typeof breakdown === 'object') {
+                const labels = {
+                    base: '基础分',
+                    source_score: '来源权重分',
+                    keyword_score: '关键词匹配分',
+                    time_score: '时间新鲜度分',
+                    topic_bonus: '主题聚合加分',
+                    total: '总分'
+                };
+                for (const [key, value] of Object.entries(breakdown)) {
+                    if (key === 'total') continue;
+                    const itemEl = document.createElement('div');
+                    itemEl.className = 'score-breakdown-item';
+                    itemEl.innerHTML = `<span class="score-breakdown-item-label">${labels[key] || key}</span><span class="score-breakdown-item-value">+${Number(value).toFixed(1)}</span>`;
+                    listEl.appendChild(itemEl);
+                }
+            } else if (typeof breakdown === 'string') {
+                listEl.innerHTML = `<div class="score-breakdown-item"><span class="score-breakdown-item-label">${breakdown}</span></div>`;
+            } else {
+                listEl.innerHTML = `<div class="score-breakdown-item"><span class="score-breakdown-item-label">暂无明细数据</span></div>`;
+            }
+        }
+
+        if (els.scoreBreakdownTotal) {
+            const total = breakdown && breakdown.total ? breakdown.total : (item.hotness || item.score || 0);
+            els.scoreBreakdownTotal.innerHTML = `<span>总分</span><span>${Number(total).toFixed(1)}</span>`;
+        }
+
+        openModal(els.scoreBreakdownModal);
+    }
+
+    // ============================================================
+    // v6.0 近7天热度总结
+    // ============================================================
+    function loadWeeklySummary(data) {
+        const weeklySummary = data.weekly_summary || data.weeklySummary || '';
+        if (!els.weeklySummarySection || !els.weeklySummaryText) return;
+
+        if (weeklySummary && weeklySummary.trim()) {
+            els.weeklySummaryText.textContent = weeklySummary;
+            els.weeklySummarySection.style.display = 'block';
+        } else {
+            els.weeklySummarySection.style.display = 'none';
+        }
+    }
 
     // ============================================================
     // 启动

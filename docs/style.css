@@ -3433,3 +3433,141 @@ body.dark .keyword-detail-hotspot-item {
         left: calc(50% - 700px);
     }
 }
+
+/* ============================================================
+   v6.0 近7天热度总结悬浮卡片
+   ============================================================ */
+.weekly-summary-floating {
+    position: fixed;
+    left: 16px;
+    top: 360px;
+    width: 260px;
+    z-index: 100;
+    max-height: calc(100vh - 380px);
+    overflow-y: auto;
+}
+
+.weekly-summary-card {
+    background-color: var(--card-bg);
+    border-radius: var(--border-radius);
+    padding: 16px;
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
+    border: 1px solid rgba(0, 0, 0, 0.05);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.weekly-summary-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.12);
+}
+
+.weekly-summary-header {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 12px;
+}
+
+.weekly-summary-icon {
+    font-size: 1.1rem;
+}
+
+.weekly-summary-label {
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: var(--text-color);
+}
+
+.weekly-summary-text {
+    font-size: 0.82rem;
+    line-height: 1.6;
+    color: var(--text-color);
+    opacity: 0.85;
+    margin: 0;
+}
+
+@media (max-width: 1023px) {
+    .weekly-summary-floating {
+        display: none !important;
+    }
+}
+
+@media (min-width: 1400px) {
+    .weekly-summary-floating {
+        left: calc(50% - 700px);
+    }
+}
+
+/* ============================================================
+   v6.0 热度分数明细模态框
+   ============================================================ */
+.score-breakdown-content {
+    max-width: 420px;
+}
+
+.score-breakdown-title {
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: var(--text-color);
+    margin-bottom: 16px;
+    padding-bottom: 12px;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+}
+
+.score-breakdown-list {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-bottom: 16px;
+}
+
+.score-breakdown-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 8px 12px;
+    background-color: rgba(0, 0, 0, 0.03);
+    border-radius: 8px;
+    font-size: 0.88rem;
+}
+
+body.dark .score-breakdown-item {
+    background-color: rgba(255, 255, 255, 0.05);
+}
+
+.score-breakdown-item-label {
+    color: var(--text-color);
+    opacity: 0.8;
+}
+
+.score-breakdown-item-value {
+    font-weight: 600;
+    color: var(--primary-color);
+}
+
+.score-breakdown-total {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px;
+    background: linear-gradient(135deg, var(--primary-color), #059669);
+    border-radius: 8px;
+    color: white;
+    font-weight: 700;
+    font-size: 1rem;
+}
+
+/* 热度分数可点击样式 */
+.hotness-score {
+    cursor: pointer;
+    transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.hotness-score:hover {
+    transform: scale(1.05);
+    box-shadow: 0 2px 8px rgba(16, 185, 129, 0.3);
+}
+
+.hotness-score:active {
+    transform: scale(0.95);
+}

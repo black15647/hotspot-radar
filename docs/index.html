@@ -7,7 +7,7 @@
     <link rel="icon" type="image/svg+xml" href="favicon.svg">
     <link rel="stylesheet" href="style.css">
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    <-- 百度统计 -->
+     <-- 百度统计 -->
    <script>
 var _hmt = _hmt || [];
 (function() {
@@ -139,6 +139,17 @@ var _hmt = _hmt || [];
                 <span class="daily-word-category" id="dailyWordCategory"></span>
             </div>
             <button class="daily-word-refresh" id="dailyWordRefresh" title="换一个">🔄 换一个</button>
+        </div>
+    </section>
+
+    <!-- 近7天热度总结：左侧固定悬浮卡片（桌面端显示，移动端隐藏） -->
+    <section class="weekly-summary-floating" id="weeklySummarySection" style="display:none;">
+        <div class="weekly-summary-card">
+            <div class="weekly-summary-header">
+                <span class="weekly-summary-icon">📊</span>
+                <span class="weekly-summary-label">近7天热度总结</span>
+            </div>
+            <p class="weekly-summary-text" id="weeklySummaryText">加载中...</p>
         </div>
     </section>
 
@@ -420,6 +431,22 @@ var _hmt = _hmt || [];
                 <div class="timeline-info" id="timelineInfo">
                     <p class="timeline-hint">选择关键词后点击"加载时间线"查看热度变化趋势</p>
                 </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 热度明细模态框 -->
+    <div class="modal" id="scoreBreakdownModal">
+        <div class="modal-overlay" data-close-modal></div>
+        <div class="modal-content score-breakdown-content">
+            <div class="modal-header">
+                <h3 class="modal-title">🔥 热度分数明细</h3>
+                <button class="modal-close" data-close-modal>&times;</button>
+            </div>
+            <div class="modal-body">
+                <div class="score-breakdown-title" id="scoreBreakdownTitle"></div>
+                <div class="score-breakdown-list" id="scoreBreakdownList"></div>
+                <div class="score-breakdown-total" id="scoreBreakdownTotal"></div>
             </div>
         </div>
     </div>

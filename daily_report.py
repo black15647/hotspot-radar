@@ -1036,6 +1036,140 @@ FAILED_DOMAINS = set()
 # 已知反爬严格的域名，没有 Jina key 时直接跳过
 STRICT_DOMAINS = ["sciencedirect.com", "acs.org", "nature.com", "pnas.org", "iopscience.iop.org"]
 
+# ============================================================
+# 英文翻译功能（本地词表 + MyMemory 免费 API）
+# ============================================================
+
+# 内置环境专业英文-中文词表（基础版）
+BUILTIN_EN_ZH_GLOSSARY = {
+    "climate resilience": "气候韧性",
+    "carbon tariff": "碳关税",
+    "carbon border adjustment": "碳边境调节",
+    "microplastics": "微塑料",
+    "emerging contaminants": "新污染物",
+    "heavy metals": "重金属",
+    "biodiversity": "生物多样性",
+    "ecological restoration": "生态修复",
+    "ecosystem": "生态系统",
+    "renewable energy": "可再生能源",
+    "clean energy": "清洁能源",
+    "circular economy": "循环经济",
+    "green finance": "绿色金融",
+    "environmental impact assessment": "环境影响评价",
+    "waste classification": "垃圾分类",
+    "plastic pollution": "塑料污染",
+    "marine conservation": "海洋保护",
+    "wetland conservation": "湿地保护",
+    "desertification": "荒漠化",
+    "ozone layer": "臭氧层",
+    "acid rain": "酸雨",
+    "eutrophication": "富营养化",
+    "photocatalysis": "光催化",
+    "adsorption": "吸附",
+    "membrane separation": "膜分离",
+    "advanced oxidation": "高级氧化",
+    "water treatment": "水处理",
+    "sewage treatment": "污水处理",
+    "soil remediation": "土壤修复",
+    "solid waste treatment": "固废处理",
+    "environmental monitoring": "环境监测",
+    "remote sensing": "遥感",
+    "life cycle assessment": "生命周期评价",
+    "carbon footprint": "碳足迹",
+    "carbon neutrality": "碳中和",
+    "carbon peak": "碳达峰",
+    "carbon emission": "碳排放",
+    "carbon sink": "碳汇",
+    "carbon trading": "碳交易",
+    "greenhouse gas": "温室气体",
+    "global warming": "全球变暖",
+    "climate change": "气候变化",
+    "new energy": "新能源",
+    "new energy vehicle": "新能源汽车",
+    "water pollution": "水污染",
+    "air pollution": "大气污染",
+    "soil pollution": "土壤污染",
+    "pm2.5": "PM2.5",
+    "volatile organic compounds": "挥发性有机物",
+    "environmental protection": "环境保护",
+    "environmental inspection": "环保督察",
+    "sustainable development": "可持续发展",
+    "environmental health": "环境健康",
+    "environmental science": "环境科学",
+    "environmental engineering": "环境工程",
+    "ecology": "生态学",
+    "cop": "联合国气候变化大会",
+    "paris agreement": "巴黎协定",
+    "kyoto protocol": "京都议定书",
+    "montreal protocol": "蒙特利尔议定书",
+    "united nations": "联合国",
+    "world health organization": "世界卫生组织",
+    "intergovernmental panel on climate change": "政府间气候变化专门委员会",
+}
+
+
+def is_chinese(text):
+    """判断文本是否主要为中文（中文字符占比超过30%）"""
+    if not text:
+        return True
+    chinese_chars = sum(1 for c in text if '\u4e00' <= c <= '\u9fff')
+    total_chars = len(text.strip())
+    if total_chars == 0:
+        return True
+    return (chinese_chars / total_chars) > 0.3
+
+
+def translate_en_to_zh(text):
+    """
+    将英文文本翻译为中文
+    - 中文或为空直接返回
+    - 优先使用本地环境专业词表匹配
+    - 本地词表无法匹配时，调用 MyMemory 免费翻译 API
+    - 翻译失败保留英文原文
+    """
+    if not text or not text.strip():
+        return text
+    if is_chinese(text):
+        return text
+
+    text_lower = text.lower().strip()
+
+    # 第一步：尝试本地词表精确匹配（整个文本）
+    if text_lower in BUILTIN_EN_ZH_GLOSSARY:
+        return BUILTIN_EN_ZH_GLOSSARY[text_lower]
+
+    # 尝试读取外部词表文件（如果存在）
+    external_glossary = {}
+    glossary_path = os.path.join(DATA_DIR, "en_zh_glossary.json")
+    if os.path.exists(glossary_path):
+        try:
+            with open(glossary_path, "r", encoding="utf-8") as f:
+                external_glossary = json.load(f)
+            if text_lower in external_glossary:
+                return external_glossary[text_lower]
+        except Exception:
+            pass
+
+    # 第二步：调用 MyMemory 免费翻译 API
+    if not REQUESTS_AVAILABLE:
+        return text
+
+    try:
+        import urllib.parse
+        encoded_text = urllib.parse.quote(text[:500])
+        api_url = f"https://api.mymemory.translated.net/get?q={encoded_text}&langpair=en|zh-CN"
+        resp = requests.get(api_url, timeout=10)
+        resp.raise_for_status()
+        result = resp.json()
+        translated = result.get("responseData", {}).get("translatedText", "")
+        if translated and translated.strip() and translated != text:
+            return translated.strip()
+    except Exception as e:
+        # 翻译失败静默处理，保留原文
+        pass
+
+    return text
+
 
 def call_zhipu_api(prompt, api_config, max_tokens=None):
     """
@@ -1146,50 +1280,101 @@ def generate_ai_summary(item, api_config):
     return summary
 
 
-def generate_weekly_summary(api_config):
+def calculate_weekly_keywords():
+    """
+    统计近7天实际高频词
+    从每日快照文件（docs/data/daily/YYYY-MM-DD.json）中提取 topic_tags
+    也从 history.json 中提取关键词作为补充
+    返回 [{term, count}, ...]，按出现次数降序排列，取前10个
+    """
+    from datetime import datetime, timedelta
+    keyword_counter = Counter()
+
+    # 方法一：从最近7天的每日快照文件中提取 topic_tags
+    today = datetime.now().date()
+    for i in range(7):
+        date = today - timedelta(days=i)
+        date_str = date.strftime("%Y-%m-%d")
+        daily_path = os.path.join(DATA_DIR, "daily", f"{date_str}.json")
+        if os.path.exists(daily_path):
+            try:
+                with open(daily_path, "r", encoding="utf-8") as f:
+                    daily_data = json.load(f)
+                items = daily_data.get("items", [])
+                for item in items:
+                    tags = item.get("topic_tags", [])
+                    for tag in tags:
+                        if tag and len(str(tag).strip()) >= 2:
+                            keyword_counter[str(tag).strip()] += 1
+                    # 也从 matched_keywords 中提取
+                    matched = item.get("matched_keywords", [])
+                    for kw in matched:
+                        if kw and len(str(kw).strip()) >= 2:
+                            keyword_counter[str(kw).strip()] += 1
+            except Exception:
+                continue
+
+    # 方法二：从 history.json 中提取关键词作为补充
+    history_path = os.path.join(DATA_DIR, "history.json")
+    if os.path.exists(history_path):
+        try:
+            with open(history_path, "r", encoding="utf-8") as f:
+                history = json.load(f)
+            if isinstance(history, list):
+                recent = history[-7:]
+                for day in recent:
+                    kws = day.get("keywords", [])
+                    for kw in kws:
+                        if isinstance(kw, dict):
+                            term = kw.get("keyword", "") or kw.get("term", "")
+                            count = kw.get("count", 1)
+                        else:
+                            term = str(kw)
+                            count = 1
+                        if term and len(term.strip()) >= 2:
+                            keyword_counter[term.strip()] += count
+        except Exception:
+            pass
+
+    # 过滤宽泛词
+    banned = {"环境", "污染", "保护", "气候变化", "环保", "生态", "可持续发展", "环境领域", "环境保护", "环境问题", "环境科学", "环境工程", "环境动态"}
+    for banned_word in banned:
+        if banned_word in keyword_counter:
+            del keyword_counter[banned_word]
+
+    # 取前10个
+    top_keywords = [{"term": term, "count": count} for term, count in keyword_counter.most_common(10)]
+    return top_keywords
+
+
+def generate_weekly_summary(api_config, weekly_keywords=None):
     """
     生成近7天热度总结
     优先使用 AI 生成，失败则使用规则生成
+    基于实际高频词（weekly_keywords）生成，而不是预设宽泛词
     写入 latest.json 的 weekly_summary 字段
     """
-    history_path = os.path.join(DATA_DIR, "history.json")
-    if not os.path.exists(history_path):
+    # 如果没有传入 weekly_keywords，则计算
+    if weekly_keywords is None:
+        weekly_keywords = calculate_weekly_keywords()
+
+    if not weekly_keywords:
         return ""
 
-    try:
-        with open(history_path, "r", encoding="utf-8") as f:
-            history = json.load(f)
-    except Exception:
-        return ""
-
-    if not isinstance(history, list) or len(history) == 0:
-        return ""
-
-    # 取最近7天
-    recent = history[-7:]
-    all_keywords = Counter()
-    total_items = 0
-    for day in recent:
-        kws = day.get("keywords", [])
-        for kw in kws:
-            if isinstance(kw, dict):
-                all_keywords[kw.get("keyword", "")] += kw.get("count", 1)
-            else:
-                all_keywords[str(kw)] += 1
-        total_items += day.get("total_items", 0)
-
-    top_keywords = [kw for kw, _ in all_keywords.most_common(5)]
+    # 提取前5个高频词
+    top_terms = [kw["term"] for kw in weekly_keywords[:5]]
+    total_count = sum(kw["count"] for kw in weekly_keywords)
 
     # AI 生成
-    if api_config["summary_enabled"] and top_keywords:
-        prompt = f"你是一个环境领域分析助手。请根据以下近7天热点关键词，生成一段不超过80字的中文总结，直接输出总结，不要解释。\n\n关键词：{', '.join(top_keywords)}\n总条目数：{total_items}"
+    if api_config["summary_enabled"] and top_terms:
+        prompt = f"你是一个环境领域分析助手。请根据以下近7天环境领域高频关键词，生成一段不超过80字的中文总结，直接输出总结，不要解释。\n\n高频关键词：{', '.join(top_terms)}\n关键词总出现次数：{total_count}"
         result = call_zhipu_api(prompt, api_config, max_tokens=120)
         if result:
             return result.strip('"').strip("'").strip()
 
     # 规则生成（降级）
-    if top_keywords:
-        return f"近7天热点集中在：{'、'.join(top_keywords[:3])}，共收录{total_items}条环境领域资讯。"
+    if top_terms:
+        return f"近7天环境领域热点集中在：{'、'.join(top_terms[:3])}，关键词累计出现{total_count}次。"
     return ""
 
 
@@ -1535,17 +1720,27 @@ def generate_batch_topic_tags(items, api_config):
     if not target_items:
         return items
 
-    # 构建 prompt
+    # 构建 prompt（先翻译英文内容为中文）
     news_list = []
     for idx, item in enumerate(target_items):
         title = item.get("title", "无标题")
         summary = item.get("summary", "")
-        if summary and len(summary) > 10:
-            news_list.append(f"{idx}. 标题：{title}\n摘要：{summary[:200]}")
+        # 翻译英文标题和摘要
+        title_zh = translate_en_to_zh(title)
+        summary_zh = translate_en_to_zh(summary[:200]) if summary else ""
+        if summary_zh and len(summary_zh) > 10:
+            news_list.append(f"{idx}. 标题：{title_zh}\n摘要：{summary_zh[:200]}")
         else:
-            news_list.append(f"{idx}. 标题：{title}")
+            news_list.append(f"{idx}. 标题：{title_zh}")
 
-    prompt = f"""你是一个环境领域标签专家。请为以下每条新闻提取1-3个具体的关键词或短语作为话题标签，要求标签具体、贴近内容、与环境领域相关，避免"环境领域""环境保护"这种泛化标签。直接返回JSON数组，格式：[{{"id":0,"tags":["气候韧性","微塑料污染"]}},{{"id":1,"tags":["碳关税"]}}]，不要解释。
+    prompt = f"""你是一个环境领域标签专家。请为以下每条新闻提取1-3个具体的中文关键词或短语作为话题标签。
+
+严格要求：
+1. 标签必须具体、贴近内容，与环境领域相关
+2. 禁止返回宽泛词：环境、污染、保护、气候变化、环保、生态、可持续发展、环境领域、环境保护、环境问题
+3. 如果看到英文内容，已翻译为中文，请基于中文内容提取
+4. 优先提取具体的事件、地点、物质、技术、政策名称
+5. 直接返回JSON数组，格式：[{{"id":0,"tags":["气候韧性","微塑料污染"]}},{{"id":1,"tags":["碳关税"]}}]，不要解释
 
 新闻列表：
 {chr(10).join(news_list)}"""
@@ -1866,7 +2061,7 @@ def generate_personal_knowledge():
         print(f"[个人知识库] 写入失败：{e}")
 
 
-def generate_latest_json(items, config, weekly_summary=""):
+def generate_latest_json(items, config, weekly_summary="", weekly_keywords=None):
     """生成 data/latest.json"""
     site_name = config.get("site_name", "环境学子雷达")
     keywords = config.get("keywords", DEFAULT_KEYWORDS)
@@ -1929,6 +2124,7 @@ def generate_latest_json(items, config, weekly_summary=""):
         "hot_summary": sanitize_str(summary),
         "summary": sanitize_str(summary),
         "weekly_summary": sanitize_str(weekly_summary),
+        "weekly_keywords": weekly_keywords if weekly_keywords is not None else [],
     }
 
     path = os.path.join(DATA_DIR, "latest.json")
@@ -2337,46 +2533,38 @@ def main():
     # 6. 生成 latest.json
     print("--- 第六步：生成输出文件 ---")
 
-    # AI 处理：批量摘要生成、逐条话题标签、关键词提取、近7天总结
+    # AI 处理：批量摘要生成、批量话题标签、关键词提取、近7天总结
     api_config = get_api_config(config)
     if api_config["summary_enabled"]:
-        print("[AI] 智谱 GLM 已启用，开始生成 AI 摘要和话题标签...")
+        print("[AI] 智谱 GLM 已启用，开始批量生成 AI 摘要和话题标签...")
         # 批量生成摘要（一次API调用，处理所有需要摘要的条目）
         all_items = generate_batch_summaries(all_items, api_config)
-        # 逐条生成话题标签（只对前10条调用AI，其余使用标题提取规则）
-        tag_success = 0
-        for i, item in enumerate(all_items[:10]):
-            try:
-                tags = generate_topic_tags(item, api_config)
-                if tags:
-                    item["topic_tags"] = tags
-                    tag_success += 1
-                else:
-                    # AI 返回空，使用标题提取规则
-                    item["topic_tags"] = extract_tags_from_title(item.get("title", ""))
-            except Exception as e:
-                print(f"[AI] 条目 {i+1} 标签生成失败: {str(e)[:40]}")
+        # 批量生成话题标签（一次API调用，处理前10条，英文内容先翻译）
+        all_items = generate_batch_topic_tags(all_items, api_config)
+        # 为没有 topic_tags 的条目使用标题提取规则降级
+        for item in all_items:
+            if not item.get("topic_tags"):
                 item["topic_tags"] = extract_tags_from_title(item.get("title", ""))
-        # 其余条目使用标题提取规则
-        for item in all_items[10:]:
-            item["topic_tags"] = extract_tags_from_title(item.get("title", ""))
-        print(f"[AI] 话题标签生成完成：AI成功 {tag_success}/10 条，其余使用标题提取规则")
         # AI 关键词提取（只调用一次，输入 Top 20 条标题和摘要）
         ai_keywords = generate_ai_keywords(all_items, api_config)
         if ai_keywords:
             config["_ai_keywords"] = ai_keywords
             print(f"[AI] 提取到 {len(ai_keywords)} 个环境领域关键词")
+        print("[AI] 批量处理完成，每天最多调用3次API（摘要+标签+关键词）")
     else:
         print("[AI] 智谱 GLM 未启用，使用规则生成摘要和关键词")
         for item in all_items:
             item["topic_tags"] = extract_tags_from_title(item.get("title", ""))
 
-    # 生成近7天热度总结
-    weekly_summary = generate_weekly_summary(api_config)
+    # 生成近7天热度总结（基于实际高频词）
+    weekly_keywords = calculate_weekly_keywords()
+    if weekly_keywords:
+        print(f"[统计] 近7天高频词：{', '.join(kw['term'] for kw in weekly_keywords[:5])}")
+    weekly_summary = generate_weekly_summary(api_config, weekly_keywords=weekly_keywords)
     if weekly_summary:
         print(f"[AI] 近7天总结: {weekly_summary[:60]}...")
 
-    latest_data = generate_latest_json(all_items, config, weekly_summary=weekly_summary)
+    latest_data = generate_latest_json(all_items, config, weekly_summary=weekly_summary, weekly_keywords=weekly_keywords)
     generate_daily_snapshot(all_items, config)
     generate_monthly_archive(all_items, config)
     generate_pending_terms(all_items, config)

@@ -146,3 +146,165 @@
 
 ---
 
+## 2026-08-25
+
+**今日高频关键词**：`#气候变化` `#考研` `#环评`
+
+**今日 Top10 热点**
+
+### 1. 2026河南靠谱考研机构盘点：5个硬指标全达标的名单 - 中华网科技频道
+- **来源**：Google News 环境考研
+- **热度**：22.7
+- **链接**：https://news.google.com/rss/articles/CBMibkFVX3lxTFB0aHVWVGcyQ3Y3cW5qc2tJc0NFUHNwbmpVRFdOYkdXbmdpWmFNVl9sN1VZNkJHdG5NZFZkZDFCaVpJSG56RWMxR0NHbm5XSUNoV2E4Ti1uNHhaUEFfSDZaejY1aWJrM0dKY0FaaGlB?oc=5
+- **摘要**：2026河南靠谱考研机构盘点：5个硬指标全达标的名单 中华网科技频道
+- **分析**：该条目涉及【河南靠谱考研机构盘点】话题，热度主要由时间新鲜度驱动，建议关注。
+
+### 2. 学习生态环境法典 推进政策环评工作 - 手机新浪网
+- **来源**：Google News 生态环境
+- **热度**：22.3
+- **链接**：https://news.google.com/rss/articles/CBMif0FVX3lxTE5RTGMxMFJaeU52MFBkcFhYeUtSWmNSSkxYZXZUY0FxQk9rSlpvdG9Ja29SZ3V5eWl5UjA2Y0hlRXM1UWZIa0RwWUJjQUZ6Und5WVpQTXllbWZyclBVUVBOZ3hwMndOSHgwYjRlODhUMW9VbU8xTWg1aHRwLUg3UnM?oc=5
+- **分析**：该条目涉及【环评】话题，热度主要由时间新鲜度驱动，建议关注。
+
+### 3. 外媒称中国正考虑申办2028年联合国气候变化大会，外交部：暂不掌握有关情况 - 新浪财经
+- **来源**：Google News 气候变化
+- **热度**：22.1
+- **链接**：https://news.google.com/rss/articles/CBMieEFVX3lxTE93UF93NDlKOFNycDAwTUVqMEdxaEUtMDZfME1xaWZVcUFKRWQxa2pMME5qc3F4T2dQcVAwZ1lNTDRWZkttNXNnLVhOOG9ic2dCVmhxdE9ldTJRbW9jMGpqQnZ6bjFhc0ZnQkZYMjlBU2FFR0J2SkZRVA?oc=5
+- **摘要**：外媒称中国正考虑申办2028年联合国气候变化大会，外交部：暂不掌握有关情况 新浪财经
+- **分析**：该条目涉及【联合国】话题，热度主要由时间新鲜度驱动，建议关注。
+
+### 4. 中方将支持参与联合国气候变化大会 - 新浪财经
+- **来源**：Google News 气候变化
+- **热度**：22.0
+- **链接**：https://news.google.com/rss/articles/CBMiS0FVX3lxTFBFcHhJSXZWeHlvdDI0Si1pdjhZNTJVZGdfV0w5MGJUZjNxaEdySDV2dXJvTEFVbnZQeUFWTXozQ2ZINENpS095dW83MA?oc=5
+- **分析**：该条目涉及【联合国】话题，热度主要由时间新鲜度驱动，建议关注。
+
+### 5. 听鉴世界丨气候变化叠加政策失误 匈牙利遭遇干旱危机 - 搜狐网
+- **来源**：Google News 气候变化
+- **热度**：21.8
+- **链接**：https://news.google.com/rss/articles/CBMiiwFBVV95cUxQT2V5X3h2eVhtQXROZWhNVzVKT0d1dk8xVTBvZTdWc1VSejY1d24tZjg0dEtlaS1xSU9IQnZndXQ2Mi1lMGdnNEptZVNCT1JhcXJHM0JQX2h0d3U5dWhkMXVrcDFTUG1CaUY4X3piV3NoUUl6Ym4tYU5rZm44Q0UyS3oyTTRHaUNLSFAw?oc=5
+- **分析**：该条目涉及【听鉴世界丨气候变化叠加政策失误】话题，热度主要由时间新鲜度驱动，建议关注。
+
+### 6. 马坊镇强化工地夜间巡查监管 筑牢扬尘污染防控防线 - 首都文明网
+- **来源**：Google News 环境污染
+- **热度**：19.4
+- **链接**：https://news.google.com/rss/articles/CBMiW0FVX3lxTE5KU1pKRjNjWGg1UUtkaUxmeW5sdEVqbzJUNkhoMDBPVkQySng1WDBvNGd2UEFCWDExYWp6czVEbmZONkxtT0dQektmNldyUk9BZlRSUVprdXVadG8?oc=5
+- **摘要**：马坊镇强化工地夜间巡查监管 筑牢扬尘污染防控防线 首都文明网
+- **分析**：该条目涉及【马坊镇强化工地夜间巡查监管】话题，热度主要由时间新鲜度驱动，建议关注。
+
+### 7. 三度深入川藏线， 杜邦公司携手安姆科践行减塑降碳守护高原生态 - 美通社
+- **来源**：Google News 环境保护
+- **热度**：19.2
+- **链接**：https://news.google.com/rss/articles/CBMiV0FVX3lxTE9wbk12OUZ4Q0ZVbC1jT1ZzV1loeENGaUU0U1JnNDVCdzRnQVljYjd5MmlDWVlrV1JjTEota1lfTzgxd3lHcXZDXzdZdmFZMEE2bW9NcGNjQQ?oc=5
+- **摘要**：三度深入川藏线， 杜邦公司携手安姆科践行减塑降碳守护高原生态 美通社
+- **分析**：该条目涉及【杜邦公司携手安姆科践】话题，热度主要由时间新鲜度驱动，建议关注。
+
+### 8. 重庆“十五五”规划：持续推进“千乡万村驭风行动”和分布式光伏建设 - gdshe.org
+- **来源**：Google News 环境污染
+- **热度**：19.1
+- **链接**：https://news.google.com/rss/articles/CBMiUkFVX3lxTE00RmxIblNUcFV1b3V5VmpWQU5QNWtrMXFjS2N1V19hZnkxZWVacklxRDZ3U2FaTjVaMWU0Wl94UUtfX0J6YlgwWEJHMjZyazdwZXc?oc=5
+- **摘要**：重庆“十五五”规划：持续推进“千乡万村驭风行动”和分布式光伏建设 gdshe.org
+- **分析**：该条目涉及【光伏】话题，热度主要由时间新鲜度驱动，建议关注。
+
+### 9. 焦作修改6部、新乡修改4部 河南多地环保法规集中“换挡” - 手机新浪网
+- **来源**：Google News 环境保护
+- **热度**：18.4
+- **链接**：https://news.google.com/rss/articles/CBMi3gFBVV95cUxQWnBocTRuMTJQYjdXam42TTZDZkoyeGhlbGZrT2Z5dzF1d3JLV1NCV24tbzFlR2JRSFV4VjlIakROQlQ4YzJVVXRSWkFVWTQzLWhfamRubEM4Y0I1cXpRNlpieXp2c3VOZzF6bldITGdxelRlWlB5OHRkY093OU1aaVdfajZFUjdhWmM2RWVZZ0Y0alhoRGp4VlNUUVlOZHNpTVpCVldhVGFHbGp5a0lxaDBTcW5idGJGTm1hNVV0M2VSZ2dDRE5saGYxaU1TblVrUzBUWEFOeDlWSGc0N1E?oc=5
+- **摘要**：焦作修改6部、新乡修改4部 河南多地环保法规集中“换挡” 手机新浪网
+- **分析**：该条目涉及【河南多地环保法规集中】话题，热度主要由时间新鲜度驱动，建议关注。
+
+### 10. 深耕生态普法阵地，守护宜居家园底色 - 手机新浪网
+- **来源**：Google News 环境保护
+- **热度**：18.1
+- **链接**：https://news.google.com/rss/articles/CBMickFVX3lxTFBQUTZ0VlR1blZRWWY5UzZwNDBCRjhvRm9QMk1GWEZyVTliN3g0T0FDWmNhTXRWZjJwOTJOZk5TWFFrZWthZlZBdF91eEFVT2Y0NFV1UmtXcHpTbFVyVjFocDhLX0plWV9NR1RwQURuWDlkdw?oc=5
+- **分析**：该条目涉及【深耕生态普法阵地】话题，热度主要由时间新鲜度驱动，建议关注。
+
+**今日自动提取候选新词**
+
+- **生态环境**（出现 4 次）
+  - 上下文：学习生态环境法典 推进政策环评工作 - 手机新浪网
+  - 上下文：生态环境部召开部常务会议 - 中华人民共和国生态环境部
+  - 上下文：济南历下区强化生态环境与应急消防联动协作 - 搜狐网
+- **手机**（出现 3 次）
+  - 上下文：学习生态环境法典 推进政策环评工作 - 手机新浪网
+  - 上下文：焦作修改6部、新乡修改4部 河南多地环保法规集中“换挡” - 手机新浪网
+  - 上下文：深耕生态普法阵地，守护宜居家园底色 - 手机新浪网
+- **新浪网**（出现 3 次）
+  - 上下文：学习生态环境法典 推进政策环评工作 - 手机新浪网
+  - 上下文：焦作修改6部、新乡修改4部 河南多地环保法规集中“换挡” - 手机新浪网
+  - 上下文：深耕生态普法阵地，守护宜居家园底色 - 手机新浪网
+- **Nevada**（出现 3 次）
+  - 上下文：Fast-moving Hawk wildfire is about 27% contained in Reno, Nevada, officials say
+  - 上下文：Nevada files lawsuit challenging federal plan for Colorado River revival
+  - 上下文：Fast-moving wildfire in Reno, Nevada, forces thousands to evacuate homes
+- **water**（出现 3 次）
+  - 上下文：Making waves: Rethinking membrane technologies for water remediation from a full-chain application perspective
+  - 上下文：Climate change, water quality, and water diversion are associated with the shifts of aquatic vegetation structure and phenology in five temperate regulating lakes of eastern China
+  - 上下文：Improved community resilience through multi-stakeholder collaboration: identifying and mitigating impacts of municipal water infrastructure degradation in an urban watershed
+- **河南**（出现 2 次）
+  - 上下文：2026河南靠谱考研机构盘点：5个硬指标全达标的名单 - 中华网科技频道
+  - 上下文：焦作修改6部、新乡修改4部 河南多地环保法规集中“换挡” - 手机新浪网
+- **法典**（出现 2 次）
+  - 上下文：学习生态环境法典 推进政策环评工作 - 手机新浪网
+  - 上下文：400余位各界代表齐聚重庆 研讨生态环境法典实施路径 - 光明网
+- **政策**（出现 2 次）
+  - 上下文：学习生态环境法典 推进政策环评工作 - 手机新浪网
+  - 上下文：听鉴世界丨气候变化叠加政策失误 匈牙利遭遇干旱危机 - 搜狐网
+- **联合国**（出现 2 次）
+  - 上下文：外媒称中国正考虑申办2028年联合国气候变化大会，外交部：暂不掌握有关情况 - 新浪财经
+  - 上下文：中方将支持参与联合国气候变化大会 - 新浪财经
+- **大会**（出现 2 次）
+  - 上下文：外媒称中国正考虑申办2028年联合国气候变化大会，外交部：暂不掌握有关情况 - 新浪财经
+  - 上下文：中方将支持参与联合国气候变化大会 - 新浪财经
+- **财经**（出现 2 次）
+  - 上下文：外媒称中国正考虑申办2028年联合国气候变化大会，外交部：暂不掌握有关情况 - 新浪财经
+  - 上下文：中方将支持参与联合国气候变化大会 - 新浪财经
+- **强化**（出现 2 次）
+  - 上下文：马坊镇强化工地夜间巡查监管 筑牢扬尘污染防控防线 - 首都文明网
+  - 上下文：济南历下区强化生态环境与应急消防联动协作 - 搜狐网
+- **守护**（出现 2 次）
+  - 上下文：三度深入川藏线， 杜邦公司携手安姆科践行减塑降碳守护高原生态 - 美通社
+  - 上下文：深耕生态普法阵地，守护宜居家园底色 - 手机新浪网
+- **生态**（出现 2 次）
+  - 上下文：三度深入川藏线， 杜邦公司携手安姆科践行减塑降碳守护高原生态 - 美通社
+  - 上下文：深耕生态普法阵地，守护宜居家园底色 - 手机新浪网
+- **重庆**（出现 2 次）
+  - 上下文：重庆“十五五”规划：持续推进“千乡万村驭风行动”和分布式光伏建设 - gdshe.org
+  - 上下文：400余位各界代表齐聚重庆 研讨生态环境法典实施路径 - 光明网
+- **Fast**（出现 2 次）
+  - 上下文：Fast-moving Hawk wildfire is about 27% contained in Reno, Nevada, officials say
+  - 上下文：Fast-moving wildfire in Reno, Nevada, forces thousands to evacuate homes
+- **moving**（出现 2 次）
+  - 上下文：Fast-moving Hawk wildfire is about 27% contained in Reno, Nevada, officials say
+  - 上下文：Fast-moving wildfire in Reno, Nevada, forces thousands to evacuate homes
+- **wildfire**（出现 2 次）
+  - 上下文：Fast-moving Hawk wildfire is about 27% contained in Reno, Nevada, officials say
+  - 上下文：Fast-moving wildfire in Reno, Nevada, forces thousands to evacuate homes
+- **Reno**（出现 2 次）
+  - 上下文：Fast-moving Hawk wildfire is about 27% contained in Reno, Nevada, officials say
+  - 上下文：Fast-moving wildfire in Reno, Nevada, forces thousands to evacuate homes
+- **French**（出现 2 次）
+  - 上下文：Tornado tears through French village leaving dozens injured
+  - 上下文：French tourist dies in California’s Death Valley after being stranded in heat
+- **degradation**（出现 2 次）
+  - 上下文：Harnessing electromagnetic induction to power nanobiohybrids for efficient degradation of organic pollutants
+  - 上下文：Improved community resilience through multi-stakeholder collaboration: identifying and mitigating impacts of municipal water infrastructure degradation in an urban watershed
+- **organic**（出现 2 次）
+  - 上下文：Harnessing electromagnetic induction to power nanobiohybrids for efficient degradation of organic pollutants
+  - 上下文：Isotopic and genomic interrogation unravels the sustaining mechanism of nitrate-dependent Fe(II) oxidation via organic carbon-driven internal iron cycle
+- **carbon**（出现 2 次）
+  - 上下文：Overflow metabolism drives high-rate carbon, nitrogen and phosphorus sequestration in an enriched aerobic microbial community
+  - 上下文：Isotopic and genomic interrogation unravels the sustaining mechanism of nitrate-dependent Fe(II) oxidation via organic carbon-driven internal iron cycle
+- **community**（出现 2 次）
+  - 上下文：Overflow metabolism drives high-rate carbon, nitrogen and phosphorus sequestration in an enriched aerobic microbial community
+  - 上下文：Improved community resilience through multi-stakeholder collaboration: identifying and mitigating impacts of municipal water infrastructure degradation in an urban watershed
+- **World**（出现 2 次）
+  - 上下文：World's oceans hit highest temperature on record as El Niño grows
+  - 上下文：One of the World's ‘Most Wanted’ Lost Fish Is Rediscovered
+- **record**（出现 2 次）
+  - 上下文：World's oceans hit highest temperature on record as El Niño grows
+  - 上下文：Billion-dollar machine aims to set a fusion-energy record — and study nuclear weapons
+- **Informed**（出现 2 次）
+  - 上下文：An Imaging-Informed Reaction-Diffusion Model of Infarct Growth
+  - 上下文：Techno-Economic Analysis of Repurposing Abandoned Oil Wells for Geothermal Energy Extraction Using Physics-Informed Neural Networks
+
+---

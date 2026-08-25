@@ -19,7 +19,7 @@
 - **自动提取新词**：使用 jieba 分词从每日热点中提取候选新词，生成 `pending_terms.json` 供知识库维护
 - **个性化过滤**：支持自定义用户关键词，生成专属热点列表
 - **我的收藏**：收藏感兴趣的热点，按热度排序展示，数据保存在本地浏览器
-- **AI 智能摘要**：基于英伟达 NIM (z-ai/glm-5.2) 批量生成热点摘要，支持原文提取和 Jina Reader 兜底
+- **AI 智能摘要**：基于英伟达 NIM (deepseek-ai/deepseek-v4-flash-0731) 批量生成热点摘要，支持原文提取和 Jina Reader 兜底
 - **英文内容翻译**：内置环境专业英中词表 + MyMemory 免费翻译 API，英文热点也能生成中文关键词
 - **近 7 天热词统计**：从每日快照中统计实际高频词，写入 `weekly_keywords` 字段，趋势图联动展示
 - **近 7 天热度总结**：基于实际高频词 AI 生成总结，失败自动降级为规则总结
@@ -62,7 +62,7 @@
 ### v6.0 新增功能
 
 - **热度分数明细**：点击热点卡片的热度分数，弹出明细弹窗，展示基础分、来源权重分、关键词匹配分、时间新鲜度分、主题聚合加分和总分
-- **基于原文的 AI 摘要生成**：当条目摘要为空或不完整时，自动提取原文正文（readability-lxml + html2text 本地提取，Jina Reader 兜底），调用英伟达 NIM (z-ai/glm-5.2) 生成不超过50字的中文摘要
+- **基于原文的 AI 摘要生成**：当条目摘要为空或不完整时，自动提取原文正文（readability-lxml + html2text 本地提取，Jina Reader 兜底），调用英伟达 NIM (deepseek-ai/deepseek-v4-flash-0731) 生成不超过50字的中文摘要
 - **近7天热度总结**：AI 生成近7天热点趋势总结，展示在左侧悬浮卡片，API 不可用时自动降级为规则总结
 - **AI 热门关键词提取**：调用英伟达 NIM 从热点条目中提取环境领域相关的具体关键词，避免泛化标签，合并到关键词统计和标签云
 - **话题标签 topic_tags**：为每条热点生成1-3个具体话题标签，用于优化 analysis 分析字段，让分析更贴近内容
@@ -139,7 +139,7 @@ rss_feeds:
 | `email_config.receiver` | string | 空 | 收件人邮箱（站长个人），为空则不发送 |
 | `summary_api.enabled` | bool | false | 是否启用 AI 摘要生成和关键词提取 |
 | `summary_api.api_key` | string | 空 | 英伟达 NIM API Key（也可通过环境变量 NVIDIA_API_KEY 设置，在 https://build.nvidia.com 注册获取） |
-| `summary_api.model` | string | z-ai/glm-5.2 | 英伟达 NIM 模型名称 |
+| `summary_api.model` | string | deepseek-ai/deepseek-v4-flash-0731 | 英伟达 NIM 模型名称 |
 | `summary_api.base_url` | string | https://integrate.api.nvidia.com/v1/ | API 基础地址 |
 | `summary_api.max_tokens` | int | 150 | 生成摘要的最大 token 数 |
 | `reader_api.enabled` | bool | true | 是否启用原文提取 |
@@ -373,9 +373,16 @@ hotspot-radar/
 
 ## 📝 更新日志
 
-### v7.1（最新）
+### v7.2（最新）
 
-- 🔄 **AI 模型切换为英伟达 NIM**：从智谱 GLM 切换为英伟达 NIM (`z-ai/glm-5.2`)，API 地址为 `https://integrate.api.nvidia.com/v1/`
+- 🔄 **AI 模型升级为 DeepSeek V4 Flash**：从 `z-ai/glm-5.2` 升级为 `deepseek-ai/deepseek-v4-flash-0731`，仍通过英伟达 NIM 平台调用（`https://integrate.api.nvidia.com/v1/`）
+- ✨ **模型优势**：DeepSeek V4 Flash 推理速度更快、上下文理解更强、中文生成质量更优，适合热点摘要和话题标签生成场景
+- 🔧 **配置无缝切换**：仅需修改 `config.yaml` 中的 `model` 字段，API Key、base_url、调用逻辑均保持不变
+- ✅ **所有功能保持不变**：批量摘要、逐条话题标签、关键词提取、近7天总结、英文翻译、重试降级、个人知识库等功能完整保留
+
+### v7.1
+
+- 🔄 **AI 模型切换为英伟达 NIM**：从智谱 GLM 切换为英伟达 NIM (`deepseek-ai/deepseek-v4-flash-0731`)，API 地址为 `https://integrate.api.nvidia.com/v1/`
 - 🚀 **调用次数放宽**：英伟达免费层有 40 RPM 额度，每天调用 20-30 次完全没问题，不再限制为每天 3 次
 - ✨ **话题标签改为逐条生成**：对 Top 10 条热点逐条调用 AI 生成话题标签，标签更准确、更贴合内容（串行执行，不并发）
 - 🔧 **环境变量更新**：从 `ZHIPU_API_KEY` 改为 `NVIDIA_API_KEY`，GitHub Secrets 同步更新
@@ -387,7 +394,7 @@ hotspot-radar/
 - ✨ 新增**英文内容翻译功能**：内置 70+ 环境专业英中词表 + MyMemory 免费翻译 API，英文热点也能生成中文关键词
 - ✨ 新增**近 7 天热词统计**：从每日快照中统计实际高频词，写入 `weekly_keywords` 字段，前端趋势图联动展示
 - ✨ 优化**近 7 天热度总结**：基于实际高频词 AI 生成总结，失败自动降级为规则总结，不再使用预设宽泛词
-- 🔧 修复**AI 模型切换为英伟达 NIM**：从智谱 GLM 切换为英伟达 NIM (z-ai/glm-5.2)，免费层 40 RPM 额度充足，调用次数已放宽（逐条生成话题标签 + 批量摘要 + 关键词提取），不再有 429 限流困扰
+- 🔧 修复**AI 模型切换为英伟达 NIM**：从智谱 GLM 切换为英伟达 NIM (deepseek-ai/deepseek-v4-flash-0731)，免费层 40 RPM 额度充足，调用次数已放宽（逐条生成话题标签 + 批量摘要 + 关键词提取），不再有 429 限流困扰
 - 🔧 优化**批量话题标签生成**：英文内容先翻译为中文再提取，禁止返回宽泛词，优先提取具体事件、地点、物质、技术、政策名称
 - 🔧 优化**原文提取**：更真实的请求头、特定反爬域名自动跳过、失败域名去重日志，减少 403 错误和日志刷屏
 - 🔧 优化**话题标签降级**：AI 失败时从标题提取具体关键词，兜底为"环境动态"而非"环境领域"

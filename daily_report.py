@@ -932,7 +932,7 @@ def get_api_config(config):
     return {
         "summary_enabled": summary_api.get("enabled", False) and bool(nvidia_key),
         "api_key": nvidia_key,
-        "model": summary_api.get("model", "z-ai/glm-5.2"),
+        "model": summary_api.get("model", "deepseek-ai/deepseek-v4-flash-0731"),
         "base_url": summary_api.get("base_url", "https://integrate.api.nvidia.com/v1/"),
         "max_tokens": summary_api.get("max_tokens", 150),
         "reader_enabled": reader_api.get("enabled", True),

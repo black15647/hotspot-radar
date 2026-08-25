@@ -113,16 +113,16 @@ weights:
 
 # ---------- 可选：AI 摘要生成配置 ----------
 summary_api:
-  enabled: True
+  enabled: false
   api_key: ""
-  model: "z-ai/glm-5.2"
+  model: "deepseek-ai/deepseek-v4-flash-0731"
   base_url: "https://integrate.api.nvidia.com/v1/"
   max_tokens: 150
 
 # ---------- 可选：原文提取配置 ----------
 reader_api:
-  enabled: True
-  local_extraction: True
+  enabled: true
+  local_extraction: true
   jina_api_key: ""
   jina_base_url: "https://r.jina.ai/"
 

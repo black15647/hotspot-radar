@@ -1,4 +1,4 @@
-/* ============================================================
+﻿/* ============================================================
    环境学子雷达 - 前端脚本
    ============================================================ */
 
@@ -51,6 +51,8 @@
         loadTheme();
         loadSavedHotspots();
         bindEvents();
+        bindSchoolsEvents();
+        bindWindowEvents();
         loadData();
     }
 
@@ -2574,7 +2576,214 @@
         }
     }
 
+    
+
     // ============================================================
+    // 考研院校分析模块
+    // ============================================================
+    let schoolsData = [];
+    let filteredSchools = [];
+
+    // 加载学校数据
+    async function loadSchoolsData() {
+        try {
+            const response = await fetch('data/schools.json');
+            if (!response.ok) throw new Error('加载失败');
+            schoolsData = await response.json();
+            filteredSchools = [...schoolsData];
+            return true;
+        } catch (err) {
+            console.error('加载院校数据失败:', err);
+            document.getElementById('schoolsList').innerHTML = '<div class="schools-empty">院校数据加载失败，请稍后重试</div>';
+            return false;
+        }
+    }
+
+    // 获取难度等级
+    function getDifficultyLevel(score) {
+        if (score >= 80) return 'high';
+        if (score >= 65) return 'medium-high';
+        if (score >= 50) return 'medium';
+        if (score >= 35) return 'low';
+        return 'easy';
+    }
+
+    // 获取难度等级文字
+    function getDifficultyText(score) {
+        if (score >= 80) return '高难度';
+        if (score >= 65) return '中高难度';
+        if (score >= 50) return '中等难度';
+        if (score >= 35) return '低难度';
+        return '容易';
+    }
+
+    // 筛选学校
+    function filterSchools() {
+        const levelFilter = document.getElementById('schoolsLevelFilter').value;
+        const difficultyFilter = document.getElementById('schoolsDifficultyFilter').value;
+        const searchText = document.getElementById('schoolsSearch').value.toLowerCase();
+
+        filteredSchools = schoolsData.filter(school => {
+            // 层次筛选
+            if (levelFilter !== 'all') {
+                if (levelFilter === '985' && !school.level.includes('985')) return false;
+                if (levelFilter === '211' && !school.level.includes('211')) return false;
+                if (levelFilter === '双一流' && !school.level.includes('双一流')) return false;
+                if (levelFilter === '普通' && (school.level.includes('985') || school.level.includes('211') || school.level.includes('双一流'))) return false;
+            }
+            // 难度筛选
+            if (difficultyFilter !== 'all') {
+                const level = getDifficultyLevel(school.difficulty_index);
+                if (level !== difficultyFilter) return false;
+            }
+            // 搜索
+            if (searchText && !school.name.toLowerCase().includes(searchText)) return false;
+            return true;
+        });
+
+        sortSchools();
+        renderSchoolsList();
+    }
+
+    // 排序学校
+    function sortSchools() {
+        const sortBy = document.getElementById('schoolsSortBy').value;
+        switch (sortBy) {
+            case 'difficulty-desc':
+                filteredSchools.sort((a, b) => b.difficulty_index - a.difficulty_index);
+                break;
+            case 'difficulty-asc':
+                filteredSchools.sort((a, b) => a.difficulty_index - b.difficulty_index);
+                break;
+            case 'name-asc':
+                filteredSchools.sort((a, b) => a.name.localeCompare(b.name, 'zh-CN'));
+                break;
+        }
+    }
+
+    // 渲染学校列表
+    function renderSchoolsList() {
+        const listEl = document.getElementById('schoolsList');
+        const statsEl = document.getElementById('schoolsStats');
+
+        if (filteredSchools.length === 0) {
+            listEl.innerHTML = '<div class="schools-empty">没有符合条件的院校</div>';
+            statsEl.textContent = '';
+            return;
+        }
+
+        // 统计信息
+        const avgDifficulty = (filteredSchools.reduce((sum, s) => sum + s.difficulty_index, 0) / filteredSchools.length).toFixed(1);
+        const highCount = filteredSchools.filter(s => s.difficulty_index >= 80).length;
+        const easyCount = filteredSchools.filter(s => s.difficulty_index < 35).length;
+        statsEl.innerHTML = `共 <strong>${filteredSchools.length}</strong> 所院校 | 平均难度指数 <strong>${avgDifficulty}</strong> | 高难度 <strong>${highCount}</strong> 所 | 容易 <strong>${easyCount}</strong> 所`;
+
+        // 渲染卡片
+        const html = filteredSchools.map((school, index) => {
+            const diffLevel = getDifficultyLevel(school.difficulty_index);
+            const levelClass = school.level.includes('985') ? 'level-985' :
+                              school.level.includes('211') ? 'level-211' :
+                              school.level.includes('双一流') ? 'level-双一流' : '';
+            return `
+                <div class="school-card" data-index="${index}">
+                    <div class="school-card-header">
+                        <h4 class="school-name">${school.name}</h4>
+                        <span class="difficulty-badge difficulty-${diffLevel}" title="${getDifficultyText(school.difficulty_index)}">${school.difficulty_index}</span>
+                    </div>
+                    <div class="school-info-row">
+                        <span class="school-tag ${levelClass}">${school.level}</span>
+                        <span class="school-tag">学科评估：${school.discipline}</span>
+                    </div>
+                    <div class="school-directions"><strong>专业方向：</strong>${school.directions.join('、')}</div>
+                    <div class="school-exam"><strong>初试科目：</strong>${school.exam_subjects.substring(0, 80)}${school.exam_subjects.length > 80 ? '...' : ''}</div>
+                    <div class="school-score-line"><strong>近年复试线：</strong>${school.score_lines}</div>
+                    <div class="school-expand-hint">点击查看完整信息 ▼</div>
+                    <div class="school-detail">
+                        <div class="school-detail-section">
+                            <div class="school-detail-title">📚 参考书目</div>
+                            <div class="school-detail-content">${school.books}</div>
+                        </div>
+                        <div class="school-detail-section">
+                            <div class="school-detail-title">📝 复试内容</div>
+                            <div class="school-detail-content">${school.retest}</div>
+                        </div>
+                        <div class="school-detail-section">
+                            <div class="school-detail-title">📊 招生人数</div>
+                            <div class="school-detail-content">${school.enrollment}</div>
+                        </div>
+                        <div class="school-detail-section">
+                            <div class="school-detail-title">🏷️ 院校标签</div>
+                            <div class="school-detail-content">${school.tags.map(t => `<span class="school-tag">${t}</span>`).join(' ')}</div>
+                        </div>
+                    </div>
+                </div>
+            `;
+        }).join('');
+
+        listEl.innerHTML = html;
+
+        // 绑定卡片点击事件
+        listEl.querySelectorAll('.school-card').forEach(card => {
+            card.addEventListener('click', () => {
+                card.classList.toggle('expanded');
+                const hint = card.querySelector('.school-expand-hint');
+                if (card.classList.contains('expanded')) {
+                    hint.textContent = '点击收起 ▲';
+                } else {
+                    hint.textContent = '点击查看完整信息 ▼';
+                }
+            });
+        });
+    }
+
+    // 打开考研院校模态框
+    async function openSchoolsModal() {
+        document.getElementById('schoolsModal').classList.add('active');
+        document.body.style.overflow = 'hidden';
+        if (schoolsData.length === 0) {
+            document.getElementById('schoolsList').innerHTML = '<div class="loading-text">加载中...</div>';
+            await loadSchoolsData();
+            if (schoolsData.length > 0) {
+                filterSchools();
+            }
+        } else {
+            filterSchools();
+        }
+    }
+
+    // 关闭考研院校模态框
+    function closeSchoolsModal() {
+        document.getElementById('schoolsModal').classList.remove('active');
+        document.body.style.overflow = '';
+    }
+
+    // 绑定考研院校事件
+    function bindSchoolsEvents() {
+        const schoolsBtn = document.getElementById('schoolsBtn');
+        if (schoolsBtn) {
+            schoolsBtn.addEventListener('click', openSchoolsModal);
+        }
+        const schoolsClose = document.getElementById('schoolsClose');
+        if (schoolsClose) {
+            schoolsClose.addEventListener('click', closeSchoolsModal);
+        }
+        const schoolsOverlay = document.getElementById('schoolsOverlay');
+        if (schoolsOverlay) {
+            schoolsOverlay.addEventListener('click', closeSchoolsModal);
+        }
+        // 筛选事件
+        const levelFilter = document.getElementById('schoolsLevelFilter');
+        if (levelFilter) levelFilter.addEventListener('change', filterSchools);
+        const difficultyFilter = document.getElementById('schoolsDifficultyFilter');
+        if (difficultyFilter) difficultyFilter.addEventListener('change', filterSchools);
+        const sortBy = document.getElementById('schoolsSortBy');
+        if (sortBy) sortBy.addEventListener('change', filterSchools);
+        const schoolsSearch = document.getElementById('schoolsSearch');
+        if (schoolsSearch) schoolsSearch.addEventListener('input', filterSchools);
+    }
+
+
+// ============================================================
     // 启动
     // ============================================================
     if (document.readyState === 'loading') {
@@ -2582,4 +2791,196 @@
     } else {
         init();
     }
+
+    // ============================================================
+    // 双窗口切换逻辑
+    // ============================================================
+    let currentWindow = 'hotspot';
+    let schoolsDataPage = [];
+    let filteredSchoolsPage = [];
+    let schoolsLoaded = false;
+
+    // 切换窗口
+    function switchWindow(windowName) {
+        currentWindow = windowName;
+        // 更新标签状态
+        document.querySelectorAll('.window-tab').forEach(tab => {
+            if (tab.dataset.window === windowName) {
+                tab.classList.add('active');
+            } else {
+                tab.classList.remove('active');
+            }
+        });
+        // 更新面板显示
+        document.querySelectorAll('.window-pane').forEach(pane => {
+            pane.classList.remove('active');
+        });
+        if (windowName === 'hotspot') {
+            document.getElementById('hotspotWindow').classList.add('active');
+        } else if (windowName === 'schools') {
+            document.getElementById('schoolsWindow').classList.add('active');
+            // 首次进入高校考研窗口时加载数据
+            if (!schoolsLoaded) {
+                loadSchoolsDataPage();
+            }
+        }
+    }
+
+    // 加载学校数据（页面版）
+    async function loadSchoolsDataPage() {
+        try {
+            const response = await fetch('data/schools.json');
+            if (!response.ok) throw new Error('加载失败');
+            schoolsDataPage = await response.json();
+            filteredSchoolsPage = [...schoolsDataPage];
+            schoolsLoaded = true;
+            filterSchoolsPage();
+            return true;
+        } catch (err) {
+            console.error('加载院校数据失败:', err);
+            document.getElementById('schoolsList2').innerHTML = '<div class="schools-empty">院校数据加载失败，请稍后重试</div>';
+            return false;
+        }
+    }
+
+    // 筛选学校（页面版）
+    function filterSchoolsPage() {
+        const levelFilter = document.getElementById('schoolsLevelFilter2');
+        const difficultyFilter = document.getElementById('schoolsDifficultyFilter2');
+        const searchText = document.getElementById('schoolsSearch2');
+        
+        if (!levelFilter || !difficultyFilter || !searchText) return;
+
+        const levelVal = levelFilter.value;
+        const diffVal = difficultyFilter.value;
+        const searchVal = searchText.value.toLowerCase();
+
+        filteredSchoolsPage = schoolsDataPage.filter(school => {
+            if (levelVal !== 'all') {
+                if (levelVal === '985' && !school.level.includes('985')) return false;
+                if (levelVal === '211' && !school.level.includes('211')) return false;
+                if (levelVal === '双一流' && !school.level.includes('双一流')) return false;
+                if (levelVal === '普通' && (school.level.includes('985') || school.level.includes('211') || school.level.includes('双一流'))) return false;
+            }
+            if (diffVal !== 'all') {
+                const level = getDifficultyLevel(school.difficulty_index);
+                if (level !== diffVal) return false;
+            }
+            if (searchVal && !school.name.toLowerCase().includes(searchVal)) return false;
+            return true;
+        });
+
+        sortSchoolsPage();
+        renderSchoolsListPage();
+    }
+
+    // 排序学校（页面版）
+    function sortSchoolsPage() {
+        const sortBy = document.getElementById('schoolsSortBy2');
+        if (!sortBy) return;
+        switch (sortBy.value) {
+            case 'difficulty-desc':
+                filteredSchoolsPage.sort((a, b) => b.difficulty_index - a.difficulty_index);
+                break;
+            case 'difficulty-asc':
+                filteredSchoolsPage.sort((a, b) => a.difficulty_index - b.difficulty_index);
+                break;
+            case 'name-asc':
+                filteredSchoolsPage.sort((a, b) => a.name.localeCompare(b.name, 'zh-CN'));
+                break;
+        }
+    }
+
+    // 渲染学校列表（页面版）
+    function renderSchoolsListPage() {
+        const listEl = document.getElementById('schoolsList2');
+        const statsEl = document.getElementById('schoolsStats2');
+        if (!listEl || !statsEl) return;
+
+        if (filteredSchoolsPage.length === 0) {
+            listEl.innerHTML = '<div class="schools-empty">没有符合条件的院校</div>';
+            statsEl.textContent = '';
+            return;
+        }
+
+        const avgDifficulty = (filteredSchoolsPage.reduce((sum, s) => sum + s.difficulty_index, 0) / filteredSchoolsPage.length).toFixed(1);
+        const highCount = filteredSchoolsPage.filter(s => s.difficulty_index >= 80).length;
+        const easyCount = filteredSchoolsPage.filter(s => s.difficulty_index < 35).length;
+        statsEl.innerHTML = '共 <strong>' + filteredSchoolsPage.length + '</strong> 所院校 | 平均难度指数 <strong>' + avgDifficulty + '</strong> | 高难度 <strong>' + highCount + '</strong> 所 | 容易 <strong>' + easyCount + '</strong> 所';
+
+        const html = filteredSchoolsPage.map((school, index) => {
+            const diffLevel = getDifficultyLevel(school.difficulty_index);
+            const levelClass = school.level.includes('985') ? 'level-985' :
+                              school.level.includes('211') ? 'level-211' :
+                              school.level.includes('双一流') ? 'level-双一流' : '';
+            return '' +
+                '<div class="school-card" data-index="' + index + '">' +
+                    '<div class="school-card-header">' +
+                        '<h4 class="school-name">' + school.name + '</h4>' +
+                        '<span class="difficulty-badge difficulty-' + diffLevel + '" title="' + getDifficultyText(school.difficulty_index) + '">' + school.difficulty_index + '</span>' +
+                    '</div>' +
+                    '<div class="school-info-row">' +
+                        '<span class="school-tag ' + levelClass + '">' + school.level + '</span>' +
+                        '<span class="school-tag">学科评估：' + school.discipline + '</span>' +
+                    '</div>' +
+                    '<div class="school-directions"><strong>专业方向：</strong>' + school.directions.join('、') + '</div>' +
+                    '<div class="school-exam"><strong>初试科目：</strong>' + school.exam_subjects.substring(0, 80) + (school.exam_subjects.length > 80 ? '...' : '') + '</div>' +
+                    '<div class="school-score-line"><strong>近年复试线：</strong>' + school.score_lines + '</div>' +
+                    '<div class="school-expand-hint">点击查看完整信息 ▼</div>' +
+                    '<div class="school-detail">' +
+                        '<div class="school-detail-section"><div class="school-detail-title">📚 参考书目</div><div class="school-detail-content">' + school.books + '</div></div>' +
+                        '<div class="school-detail-section"><div class="school-detail-title">📝 复试内容</div><div class="school-detail-content">' + school.retest + '</div></div>' +
+                        '<div class="school-detail-section"><div class="school-detail-title">📊 招生人数</div><div class="school-detail-content">' + school.enrollment + '</div></div>' +
+                        '<div class="school-detail-section"><div class="school-detail-title">🏷️ 院校标签</div><div class="school-detail-content">' + school.tags.map(t => '<span class="school-tag">' + t + '</span>').join(' ') + '</div></div>' +
+                        '<div class="school-detail-section"><div class="school-detail-title">📅 数据更新日期</div><div class="school-detail-content">' + (school.last_updated || '未知') + '</div></div>' +
+                    '</div>' +
+                '</div>';
+        }).join('');
+
+        listEl.innerHTML = html;
+
+        listEl.querySelectorAll('.school-card').forEach(card => {
+            card.addEventListener('click', () => {
+                card.classList.toggle('expanded');
+                const hint = card.querySelector('.school-expand-hint');
+                if (card.classList.contains('expanded')) {
+                    hint.textContent = '点击收起 ▲';
+                } else {
+                    hint.textContent = '点击查看完整信息 ▼';
+                }
+            });
+        });
+    }
+
+    // 绑定双窗口事件
+    function bindWindowEvents() {
+        // 窗口切换标签
+        document.querySelectorAll('.window-tab').forEach(tab => {
+            tab.addEventListener('click', () => {
+                switchWindow(tab.dataset.window);
+            });
+        });
+
+        // 省份卡片点击
+        document.querySelectorAll('.province-card').forEach(card => {
+            card.addEventListener('click', () => {
+                if (card.classList.contains('disabled')) {
+                    return;
+                }
+                document.querySelectorAll('.province-card').forEach(c => c.classList.remove('active'));
+                card.classList.add('active');
+            });
+        });
+
+        // 高校考研页面筛选事件
+        const levelFilter2 = document.getElementById('schoolsLevelFilter2');
+        if (levelFilter2) levelFilter2.addEventListener('change', filterSchoolsPage);
+        const difficultyFilter2 = document.getElementById('schoolsDifficultyFilter2');
+        if (difficultyFilter2) difficultyFilter2.addEventListener('change', filterSchoolsPage);
+        const sortBy2 = document.getElementById('schoolsSortBy2');
+        if (sortBy2) sortBy2.addEventListener('change', filterSchoolsPage);
+        const schoolsSearch2 = document.getElementById('schoolsSearch2');
+        if (schoolsSearch2) schoolsSearch2.addEventListener('input', filterSchoolsPage);
+    }
+
 })();

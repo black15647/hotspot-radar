@@ -3571,3 +3571,441 @@ body.dark .score-breakdown-item {
 .hotness-score:active {
     transform: scale(0.95);
 }
+
+/* ============================================================
+   考研院校分析模块样式
+   ============================================================ */
+
+/* 模态框超大尺寸 */
+.modal-xlarge {
+    max-width: 1200px;
+    width: 95%;
+    max-height: 90vh;
+}
+
+/* 筛选区 */
+.schools-filters {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+    padding: 16px;
+    background: var(--card-bg);
+    border-radius: var(--border-radius);
+    margin-bottom: 16px;
+    border: 1px solid var(--border-color);
+}
+
+.filter-group {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    flex: 1;
+    min-width: 140px;
+}
+
+.filter-group label {
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--text-color);
+    opacity: 0.8;
+}
+
+.filter-group select,
+.filter-group input {
+    padding: 8px 12px;
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    background: var(--bg-color);
+    color: var(--text-color);
+    font-size: 0.9rem;
+    transition: border-color 0.2s ease;
+}
+
+.filter-group select:focus,
+.filter-group input:focus {
+    outline: none;
+    border-color: var(--primary-color);
+}
+
+/* 学校统计 */
+.schools-stats {
+    padding: 12px 16px;
+    background: linear-gradient(135deg, rgba(16, 185, 129, 0.1), rgba(59, 130, 246, 0.1));
+    border-radius: var(--border-radius);
+    margin-bottom: 16px;
+    font-size: 0.9rem;
+    color: var(--text-color);
+}
+
+/* 学校卡片列表 */
+.schools-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+    gap: 16px;
+}
+
+/* 学校卡片 */
+.school-card {
+    background: var(--card-bg);
+    border-radius: var(--border-radius);
+    padding: var(--card-padding);
+    border: 1px solid var(--border-color);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    cursor: pointer;
+}
+
+.school-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+}
+
+.school-card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 12px;
+    gap: 12px;
+}
+
+.school-name {
+    font-size: 1.15rem;
+    font-weight: 700;
+    color: var(--text-color);
+    margin: 0;
+}
+
+/* 难度指数标签 */
+.difficulty-badge {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 48px;
+    height: 28px;
+    padding: 0 10px;
+    border-radius: 14px;
+    font-size: 0.8rem;
+    font-weight: 700;
+    color: white;
+    flex-shrink: 0;
+}
+
+.difficulty-high {
+    background: linear-gradient(135deg, #EF4444, #DC2626);
+}
+
+.difficulty-medium-high {
+    background: linear-gradient(135deg, #F97316, #EA580C);
+}
+
+.difficulty-medium {
+    background: linear-gradient(135deg, #EAB308, #CA8A04);
+}
+
+.difficulty-low {
+    background: linear-gradient(135deg, #22C55E, #16A34A);
+}
+
+.difficulty-easy {
+    background: linear-gradient(135deg, #3B82F6, #2563EB);
+}
+
+/* 学校信息行 */
+.school-info-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-bottom: 10px;
+}
+
+.school-tag {
+    display: inline-block;
+    padding: 3px 10px;
+    background: rgba(16, 185, 129, 0.12);
+    color: var(--primary-color);
+    border-radius: 12px;
+    font-size: 0.75rem;
+    font-weight: 600;
+}
+
+.school-tag.level-985 {
+    background: rgba(239, 68, 68, 0.12);
+    color: #EF4444;
+}
+
+.school-tag.level-211 {
+    background: rgba(249, 115, 22, 0.12);
+    color: #F97316;
+}
+
+.school-tag.level-双一流 {
+    background: rgba(59, 130, 246, 0.12);
+    color: #3B82F6;
+}
+
+.school-discipline {
+    font-size: 0.85rem;
+    color: var(--text-color);
+    opacity: 0.7;
+    margin-bottom: 8px;
+}
+
+.school-directions {
+    font-size: 0.85rem;
+    color: var(--text-color);
+    margin-bottom: 8px;
+    line-height: 1.5;
+}
+
+.school-exam {
+    font-size: 0.82rem;
+    color: var(--text-color);
+    opacity: 0.8;
+    margin-bottom: 8px;
+    line-height: 1.5;
+}
+
+.school-score-line {
+    font-size: 0.82rem;
+    color: var(--text-color);
+    opacity: 0.8;
+    margin-bottom: 8px;
+}
+
+.school-expand-hint {
+    font-size: 0.8rem;
+    color: var(--primary-color);
+    font-weight: 600;
+    margin-top: 8px;
+}
+
+/* 学校详情展开 */
+.school-detail {
+    display: none;
+    margin-top: 16px;
+    padding-top: 16px;
+    border-top: 1px solid var(--border-color);
+}
+
+.school-card.expanded .school-detail {
+    display: block;
+}
+
+.school-detail-section {
+    margin-bottom: 14px;
+}
+
+.school-detail-title {
+    font-size: 0.9rem;
+    font-weight: 700;
+    color: var(--primary-color);
+    margin-bottom: 6px;
+}
+
+.school-detail-content {
+    font-size: 0.85rem;
+    color: var(--text-color);
+    line-height: 1.6;
+}
+
+/* 空状态 */
+.schools-empty {
+    text-align: center;
+    padding: 40px;
+    color: var(--text-color);
+    opacity: 0.6;
+}
+
+/* 移动端适配 */
+@media (max-width: 768px) {
+    .schools-list {
+        grid-template-columns: 1fr;
+    }
+
+    .schools-filters {
+        flex-direction: column;
+    }
+
+    .filter-group {
+        min-width: 100%;
+    }
+
+    .modal-xlarge {
+        width: 100%;
+        max-height: 95vh;
+    }
+}
+
+/* ============================================================
+   双窗口结构样式
+   ============================================================ */
+
+/* 窗口切换标签 */
+.window-tabs {
+    display: flex;
+    gap: 4px;
+    margin-left: 20px;
+    background: rgba(0, 0, 0, 0.05);
+    border-radius: 8px;
+    padding: 3px;
+}
+
+body.dark .window-tabs {
+    background: rgba(255, 255, 255, 0.08);
+}
+
+.window-tab {
+    padding: 6px 14px;
+    border: none;
+    background: transparent;
+    color: var(--text-color);
+    font-size: 0.9rem;
+    font-weight: 500;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    white-space: nowrap;
+}
+
+.window-tab:hover {
+    background: rgba(16, 185, 129, 0.1);
+}
+
+.window-tab.active {
+    background: var(--primary-color);
+    color: white;
+    box-shadow: 0 2px 8px rgba(16, 185, 129, 0.3);
+}
+
+/* 窗口面板 */
+.window-pane {
+    display: none;
+    animation: fadeIn 0.3s ease;
+}
+
+.window-pane.active {
+    display: block;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* 高校考研页面 */
+.schools-page {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px 0;
+}
+
+.schools-page-header {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.schools-page-header h2 {
+    font-size: 1.8rem;
+    color: var(--text-color);
+    margin-bottom: 8px;
+}
+
+.schools-page-header p {
+    color: var(--text-color);
+    opacity: 0.7;
+    font-size: 1rem;
+}
+
+/* 省份选择器 */
+.province-selector {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    gap: 12px;
+    margin-bottom: 30px;
+}
+
+.province-card {
+    background: var(--card-bg);
+    border: 2px solid var(--border-color);
+    border-radius: var(--border-radius);
+    padding: 16px;
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.province-card:hover:not(.disabled) {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.1);
+    border-color: var(--primary-color);
+}
+
+.province-card.active {
+    border-color: var(--primary-color);
+    background: linear-gradient(135deg, rgba(16, 185, 129, 0.1), rgba(59, 130, 246, 0.1));
+}
+
+.province-card.disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+.province-name {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--text-color);
+    margin-bottom: 6px;
+}
+
+.province-count {
+    font-size: 0.85rem;
+    color: var(--primary-color);
+    font-weight: 600;
+    margin-bottom: 4px;
+}
+
+.province-status {
+    font-size: 0.75rem;
+    color: var(--text-color);
+    opacity: 0.6;
+}
+
+.province-card.disabled .province-status {
+    color: #9CA3AF;
+}
+
+/* 省份详情区 */
+.province-detail {
+    display: block;
+}
+
+/* 移动端适配 */
+@media (max-width: 768px) {
+    .window-tabs {
+        margin-left: 10px;
+        gap: 2px;
+    }
+
+    .window-tab {
+        padding: 5px 10px;
+        font-size: 0.8rem;
+    }
+
+    .province-selector {
+        grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+        gap: 8px;
+    }
+
+    .province-card {
+        padding: 12px;
+    }
+
+    .schools-page-header h2 {
+        font-size: 1.4rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .window-tabs {
+        display: none;
+    }
+}

@@ -113,7 +113,7 @@ weights:
 
 # ---------- 可选：AI 摘要生成配置 ----------
 summary_api:
-  enabled: false
+  enabled: True
   api_key: ""
   model: "deepseek-ai/deepseek-v4-flash-0731"
   base_url: "https://integrate.api.nvidia.com/v1/"
@@ -121,8 +121,8 @@ summary_api:
 
 # ---------- 可选：原文提取配置 ----------
 reader_api:
-  enabled: true
-  local_extraction: true
+  enabled: True
+  local_extraction: True
   jina_api_key: ""
   jina_base_url: "https://r.jina.ai/"
 

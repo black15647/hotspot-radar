@@ -19,7 +19,7 @@
 - **自动提取新词**：使用 jieba 分词从每日热点中提取候选新词，生成 `pending_terms.json` 供知识库维护
 - **个性化过滤**：支持自定义用户关键词，生成专属热点列表
 - **我的收藏**：收藏感兴趣的热点，按热度排序展示，数据保存在本地浏览器
-- **AI 智能摘要**：基于智谱 GLM 批量生成热点摘要，支持原文提取和 Jina Reader 兜底
+- **AI 智能摘要**：基于英伟达 NIM (z-ai/glm-5.2) 批量生成热点摘要，支持原文提取和 Jina Reader 兜底
 - **英文内容翻译**：内置环境专业英中词表 + MyMemory 免费翻译 API，英文热点也能生成中文关键词
 - **近 7 天热词统计**：从每日快照中统计实际高频词，写入 `weekly_keywords` 字段，趋势图联动展示
 - **近 7 天热度总结**：基于实际高频词 AI 生成总结，失败自动降级为规则总结
@@ -62,9 +62,9 @@
 ### v6.0 新增功能
 
 - **热度分数明细**：点击热点卡片的热度分数，弹出明细弹窗，展示基础分、来源权重分、关键词匹配分、时间新鲜度分、主题聚合加分和总分
-- **基于原文的 AI 摘要生成**：当条目摘要为空或不完整时，自动提取原文正文（readability-lxml + html2text 本地提取，Jina Reader 兜底），调用智谱 GLM 生成不超过50字的中文摘要
+- **基于原文的 AI 摘要生成**：当条目摘要为空或不完整时，自动提取原文正文（readability-lxml + html2text 本地提取，Jina Reader 兜底），调用英伟达 NIM (z-ai/glm-5.2) 生成不超过50字的中文摘要
 - **近7天热度总结**：AI 生成近7天热点趋势总结，展示在左侧悬浮卡片，API 不可用时自动降级为规则总结
-- **AI 热门关键词提取**：调用智谱 GLM 从热点条目中提取环境领域相关的具体关键词，避免泛化标签，合并到关键词统计和标签云
+- **AI 热门关键词提取**：调用英伟达 NIM 从热点条目中提取环境领域相关的具体关键词，避免泛化标签，合并到关键词统计和标签云
 - **话题标签 topic_tags**：为每条热点生成1-3个具体话题标签，用于优化 analysis 分析字段，让分析更贴近内容
 - **个人知识库自动记录**：每次运行自动将当天热点数据（高频关键词、Top10热点、候选新词）追加到 `personal_knowledge.md`，重复运行自动替换当天内容
 - **RSS 源更新优化**：删除失效源，新增验证通过的稳定源（Science、PNAS环境科学、Environmental Research Letters、IISD SDG、Berkeley Earth、Adaptation Fund等），最终22个源
@@ -138,9 +138,9 @@ rss_feeds:
 | `email_config.password` | string | 空 | 发件人授权码 |
 | `email_config.receiver` | string | 空 | 收件人邮箱（站长个人），为空则不发送 |
 | `summary_api.enabled` | bool | false | 是否启用 AI 摘要生成和关键词提取 |
-| `summary_api.api_key` | string | 空 | 智谱 GLM API Key（也可通过环境变量 ZHIPU_API_KEY 设置） |
-| `summary_api.model` | string | glm-4.7-flash | 智谱模型名称 |
-| `summary_api.base_url` | string | https://open.bigmodel.cn/api/paas/v4/ | API 基础地址 |
+| `summary_api.api_key` | string | 空 | 英伟达 NIM API Key（也可通过环境变量 NVIDIA_API_KEY 设置，在 https://build.nvidia.com 注册获取） |
+| `summary_api.model` | string | z-ai/glm-5.2 | 英伟达 NIM 模型名称 |
+| `summary_api.base_url` | string | https://integrate.api.nvidia.com/v1/ | API 基础地址 |
 | `summary_api.max_tokens` | int | 150 | 生成摘要的最大 token 数 |
 | `reader_api.enabled` | bool | true | 是否启用原文提取 |
 | `reader_api.local_extraction` | bool | true | 是否使用 readability-lxml + html2text 本地提取 |
@@ -263,14 +263,14 @@ pip install feedparser pyyaml jieba readability-lxml html2text requests
 1. 进入仓库 Settings → Secrets and variables → Actions
 2. 点击 "New repository secret"
 3. 添加以下 Secrets：
-   - `ZHIPU_API_KEY`：智谱 GLM API Key（在 https://open.bigmodel.cn 注册获取）
+   - `NVIDIA_API_KEY`：英伟达 NIM API Key（在 https://build.nvidia.com 注册获取，免费层有 40 RPM 额度）
    - `JINA_API_KEY`：Jina Reader API Key（在 https://jina.ai 注册获取，可选，用于原文提取兜底）
 
 配置后，GitHub Actions 运行时会自动注入这些环境变量。也可以在本地通过环境变量设置：
 
 ```bash
 # Windows PowerShell
-$env:ZHIPU_API_KEY="your_api_key"
+$env:NVIDIA_API_KEY="your_api_key"
 $env:JINA_API_KEY="your_api_key"
 python daily_report.py
 ```
@@ -373,12 +373,21 @@ hotspot-radar/
 
 ## 📝 更新日志
 
-### v7.0（最新）
+### v7.1（最新）
+
+- 🔄 **AI 模型切换为英伟达 NIM**：从智谱 GLM 切换为英伟达 NIM (`z-ai/glm-5.2`)，API 地址为 `https://integrate.api.nvidia.com/v1/`
+- 🚀 **调用次数放宽**：英伟达免费层有 40 RPM 额度，每天调用 20-30 次完全没问题，不再限制为每天 3 次
+- ✨ **话题标签改为逐条生成**：对 Top 10 条热点逐条调用 AI 生成话题标签，标签更准确、更贴合内容（串行执行，不并发）
+- 🔧 **环境变量更新**：从 `ZHIPU_API_KEY` 改为 `NVIDIA_API_KEY`，GitHub Secrets 同步更新
+- 🔧 **重试退避策略保留**：429/超时重试 3 次，等待 5/10/15 秒，失败自动降级为规则生成
+- 📚 **所有功能保持不变**：RSS 抓取、热度计算、源健康度、个人知识库、英文翻译、近7天总结、批量摘要、关键词提取等功能完整保留
+
+### v7.0
 
 - ✨ 新增**英文内容翻译功能**：内置 70+ 环境专业英中词表 + MyMemory 免费翻译 API，英文热点也能生成中文关键词
 - ✨ 新增**近 7 天热词统计**：从每日快照中统计实际高频词，写入 `weekly_keywords` 字段，前端趋势图联动展示
 - ✨ 优化**近 7 天热度总结**：基于实际高频词 AI 生成总结，失败自动降级为规则总结，不再使用预设宽泛词
-- 🔧 修复**智谱 API 429 限流**：所有 AI 处理合并为批量请求，每天最多 3 次 API 调用（批量摘要 + 批量标签 + 关键词提取），大幅降低限流风险
+- 🔧 修复**AI 模型切换为英伟达 NIM**：从智谱 GLM 切换为英伟达 NIM (z-ai/glm-5.2)，免费层 40 RPM 额度充足，调用次数已放宽（逐条生成话题标签 + 批量摘要 + 关键词提取），不再有 429 限流困扰
 - 🔧 优化**批量话题标签生成**：英文内容先翻译为中文再提取，禁止返回宽泛词，优先提取具体事件、地点、物质、技术、政策名称
 - 🔧 优化**原文提取**：更真实的请求头、特定反爬域名自动跳过、失败域名去重日志，减少 403 错误和日志刷屏
 - 🔧 优化**话题标签降级**：AI 失败时从标题提取具体关键词，兜底为"环境动态"而非"环境领域"
@@ -387,13 +396,13 @@ hotspot-radar/
 ### v6.0
 
 - ✨ 新增**热度分数明细**：点击热度分数弹出明细弹窗，展示各项得分和总分
-- ✨ 新增**基于原文的 AI 摘要生成**：readability-lxml + html2text 本地提取，Jina Reader 兜底，智谱 GLM 生成摘要
+- ✨ 新增**基于原文的 AI 摘要生成**：readability-lxml + html2text 本地提取，Jina Reader 兜底，英伟达 NIM 生成摘要
 - ✨ 新增**近7天热度总结**：AI 生成趋势总结，左侧悬浮卡片展示，自动降级为规则总结
-- ✨ 新增**AI 热门关键词提取**：智谱 GLM 提取环境领域具体关键词，避免泛化标签
+- ✨ 新增**AI 热门关键词提取**：英伟达 NIM 提取环境领域具体关键词，避免泛化标签
 - ✨ 新增**话题标签 topic_tags**：每条热点生成1-3个具体标签，优化 analysis 分析
 - ✨ 新增**个人知识库自动记录**：每日热点自动追加到 personal_knowledge.md
 - 🔧 优化**RSS 源**：删除失效源，新增 Science、PNAS、ERL、IISD、Berkeley Earth、Adaptation Fund 等稳定源
-- 🔧 优化**GitHub Actions**：增加 readability-lxml、html2text、requests 依赖，注入 ZHIPU_API_KEY、JINA_API_KEY 环境变量，提交 personal_knowledge.md
+- 🔧 优化**GitHub Actions**：增加 readability-lxml、html2text、requests 依赖，注入 NVIDIA_API_KEY、JINA_API_KEY 环境变量，提交 personal_knowledge.md
 
 ### v5.0
 

@@ -919,21 +919,21 @@ def generate_pending_terms(items, config):
 
 
 # ============================================================
-# AI 功能：原文提取、智谱 GLM 摘要、关键词提取
+# AI 功能：原文提取、英伟达 NIM 摘要、关键词提取
 # ============================================================
 
 def get_api_config(config):
     """获取 API 配置，环境变量优先覆盖 config.yaml"""
     summary_api = config.get("summary_api", {})
     reader_api = config.get("reader_api", {})
-    # 环境变量覆盖
-    zhipu_key = os.environ.get("ZHIPU_API_KEY", summary_api.get("api_key", ""))
+    # 环境变量覆盖（NVIDIA_API_KEY 优先，回退到 summary_api.api_key）
+    nvidia_key = os.environ.get("NVIDIA_API_KEY", summary_api.get("api_key", ""))
     jina_key = os.environ.get("JINA_API_KEY", reader_api.get("jina_api_key", ""))
     return {
-        "summary_enabled": summary_api.get("enabled", False) and bool(zhipu_key),
-        "zhipu_key": zhipu_key,
-        "model": summary_api.get("model", "glm-4.7-flash"),
-        "base_url": summary_api.get("base_url", "https://open.bigmodel.cn/api/paas/v4/"),
+        "summary_enabled": summary_api.get("enabled", False) and bool(nvidia_key),
+        "api_key": nvidia_key,
+        "model": summary_api.get("model", "z-ai/glm-5.2"),
+        "base_url": summary_api.get("base_url", "https://integrate.api.nvidia.com/v1/"),
         "max_tokens": summary_api.get("max_tokens", 150),
         "reader_enabled": reader_api.get("enabled", True),
         "local_extraction": reader_api.get("local_extraction", True),
@@ -1027,9 +1027,9 @@ def extract_article_text(url, api_config):
     return None
 
 
-# 智谱 API 连续失败计数器（连续失败5次后停止AI调用）
-ZHIPU_CONSECUTIVE_FAILURES = 0
-ZHIPU_MAX_CONSECUTIVE_FAILURES = 5
+# 英伟达 NIM API 连续失败计数器（连续失败5次后停止AI调用）
+NVIDIA_CONSECUTIVE_FAILURES = 0
+NVIDIA_MAX_CONSECUTIVE_FAILURES = 5
 
 # 原文提取失败域名集合（避免重复打印相同错误）
 FAILED_DOMAINS = set()
@@ -1171,25 +1171,25 @@ def translate_en_to_zh(text):
     return text
 
 
-def call_zhipu_api(prompt, api_config, max_tokens=None):
+def call_nvidia_api(prompt, api_config, max_tokens=None):
     """
-    调用智谱 GLM API（OpenAI 兼容格式），返回生成的文本，失败返回 None
+    调用英伟达 NIM API（OpenAI 兼容格式），返回生成的文本，失败返回 None
     增加重试机制：429或超时后等待重试，最多3次，等待时间递增3/6/10秒
     连续失败5次后停止AI调用
     """
-    global ZHIPU_CONSECUTIVE_FAILURES
+    global NVIDIA_CONSECUTIVE_FAILURES
 
-    if not api_config["summary_enabled"] or not api_config["zhipu_key"]:
+    if not api_config["summary_enabled"] or not api_config["api_key"]:
         return None
     if not REQUESTS_AVAILABLE:
         return None
     # 连续失败超过阈值，停止调用
-    if ZHIPU_CONSECUTIVE_FAILURES >= ZHIPU_MAX_CONSECUTIVE_FAILURES:
+    if NVIDIA_CONSECUTIVE_FAILURES >= NVIDIA_MAX_CONSECUTIVE_FAILURES:
         return None
 
     url = api_config["base_url"].rstrip("/") + "/chat/completions"
     headers = {
-        "Authorization": f"Bearer {api_config['zhipu_key']}",
+        "Authorization": f"Bearer {api_config['api_key']}",
         "Content-Type": "application/json",
     }
     data = {
@@ -1210,40 +1210,40 @@ def call_zhipu_api(prompt, api_config, max_tokens=None):
             result = resp.json()
             content = result["choices"][0]["message"]["content"].strip()
             # 调用成功，重置连续失败计数
-            ZHIPU_CONSECUTIVE_FAILURES = 0
+            NVIDIA_CONSECUTIVE_FAILURES = 0
             return content
         except requests.exceptions.HTTPError as e:
             status_code = e.response.status_code if e.response is not None else "unknown"
             # 429 限流，需要重试
             if status_code == 429 and attempt < 2:
                 wait_time = retry_delays[attempt]
-                print(f"[智谱API] 429限流，第{attempt+1}次重试，等待{wait_time}秒...")
+                print(f"[英伟达 NIMAPI] 429限流，第{attempt+1}次重试，等待{wait_time}秒...")
                 time.sleep(wait_time)
                 continue
             # 其他HTTP错误，不重试
-            print(f"[智谱API] HTTP错误 {status_code}")
-            ZHIPU_CONSECUTIVE_FAILURES += 1
+            print(f"[英伟达 NIMAPI] HTTP错误 {status_code}")
+            NVIDIA_CONSECUTIVE_FAILURES += 1
             return None
         except requests.exceptions.Timeout:
             if attempt < 2:
                 wait_time = retry_delays[attempt]
-                print(f"[智谱API] 请求超时，第{attempt+1}次重试，等待{wait_time}秒...")
+                print(f"[英伟达 NIMAPI] 请求超时，第{attempt+1}次重试，等待{wait_time}秒...")
                 time.sleep(wait_time)
                 continue
-            print(f"[智谱API] 请求超时（已重试3次）")
-            ZHIPU_CONSECUTIVE_FAILURES += 1
+            print(f"[英伟达 NIMAPI] 请求超时（已重试3次）")
+            NVIDIA_CONSECUTIVE_FAILURES += 1
             return None
         except requests.exceptions.RequestException as e:
-            print(f"[智谱API] 网络错误: {str(e)[:50]}")
-            ZHIPU_CONSECUTIVE_FAILURES += 1
+            print(f"[英伟达 NIMAPI] 网络错误: {str(e)[:50]}")
+            NVIDIA_CONSECUTIVE_FAILURES += 1
             return None
         except Exception as e:
-            print(f"[智谱API] 未知错误: {str(e)[:50]}")
-            ZHIPU_CONSECUTIVE_FAILURES += 1
+            print(f"[英伟达 NIMAPI] 未知错误: {str(e)[:50]}")
+            NVIDIA_CONSECUTIVE_FAILURES += 1
             return None
 
     # 所有重试都失败
-    ZHIPU_CONSECUTIVE_FAILURES += 1
+    NVIDIA_CONSECUTIVE_FAILURES += 1
     return None
 
 
@@ -1272,7 +1272,7 @@ def generate_ai_summary(item, api_config):
     else:
         prompt = f"你是一个环境领域摘要助手。请根据以下新闻标题，推测并生成一句不超过50字的中文摘要，直接输出摘要，不要解释。\n\n标题：{title}"
 
-    result = call_zhipu_api(prompt, api_config, max_tokens=100)
+    result = call_nvidia_api(prompt, api_config, max_tokens=100)
     if result:
         # 清理可能的引号
         result = result.strip('"').strip("'").strip()
@@ -1368,7 +1368,7 @@ def generate_weekly_summary(api_config, weekly_keywords=None):
     # AI 生成
     if api_config["summary_enabled"] and top_terms:
         prompt = f"你是一个环境领域分析助手。请根据以下近7天环境领域高频关键词，生成一段不超过80字的中文总结，直接输出总结，不要解释。\n\n高频关键词：{', '.join(top_terms)}\n关键词总出现次数：{total_count}"
-        result = call_zhipu_api(prompt, api_config, max_tokens=120)
+        result = call_nvidia_api(prompt, api_config, max_tokens=120)
         if result:
             return result.strip('"').strip("'").strip()
 
@@ -1410,7 +1410,7 @@ def generate_ai_keywords(items, api_config):
 新闻内容：
 {combined_text[:4000]}"""
 
-    result = call_zhipu_api(prompt, api_config, max_tokens=300)
+    result = call_nvidia_api(prompt, api_config, max_tokens=300)
     if not result:
         return None
 
@@ -1489,7 +1489,7 @@ def generate_topic_tags(item, api_config):
 
 {content_text}"""
 
-    result = call_zhipu_api(prompt, api_config, max_tokens=80)
+    result = call_nvidia_api(prompt, api_config, max_tokens=80)
     if not result:
         return []
 
@@ -1571,12 +1571,12 @@ def generate_batch_summaries(items, api_config):
     返回修改后的 items 列表（原地修改）
     每天最多调用1次 API，而不是每条调用一次
     """
-    global ZHIPU_CONSECUTIVE_FAILURES
-    if not api_config["summary_enabled"] or not api_config["zhipu_key"]:
+    global NVIDIA_CONSECUTIVE_FAILURES
+    if not api_config["summary_enabled"] or not api_config["api_key"]:
         return items
     if not REQUESTS_AVAILABLE:
         return items
-    if ZHIPU_CONSECUTIVE_FAILURES >= ZHIPU_MAX_CONSECUTIVE_FAILURES:
+    if NVIDIA_CONSECUTIVE_FAILURES >= NVIDIA_MAX_CONSECUTIVE_FAILURES:
         return items
 
     # 筛选需要生成摘要的条目（摘要为空、与标题相同、或长度<20）
@@ -1622,7 +1622,7 @@ def generate_batch_summaries(items, api_config):
         try:
             url = api_config["base_url"].rstrip("/") + "/chat/completions"
             headers = {
-                "Authorization": f"Bearer {api_config['zhipu_key']}",
+                "Authorization": f"Bearer {api_config['api_key']}",
                 "Content-Type": "application/json",
             }
             data = {
@@ -1635,7 +1635,7 @@ def generate_batch_summaries(items, api_config):
             resp.raise_for_status()
             result = resp.json()
             result_text = result["choices"][0]["message"]["content"].strip()
-            ZHIPU_CONSECUTIVE_FAILURES = 0
+            NVIDIA_CONSECUTIVE_FAILURES = 0
             break
         except requests.exceptions.HTTPError as e:
             status_code = e.response.status_code if e.response is not None else "unknown"
@@ -1645,7 +1645,7 @@ def generate_batch_summaries(items, api_config):
                 time.sleep(wait_time)
                 continue
             print(f"[AI批量摘要] HTTP错误 {status_code}")
-            ZHIPU_CONSECUTIVE_FAILURES += 1
+            NVIDIA_CONSECUTIVE_FAILURES += 1
             return items
         except requests.exceptions.Timeout:
             if attempt < 1:
@@ -1654,11 +1654,11 @@ def generate_batch_summaries(items, api_config):
                 time.sleep(wait_time)
                 continue
             print("[AI批量摘要] 请求超时（已重试）")
-            ZHIPU_CONSECUTIVE_FAILURES += 1
+            NVIDIA_CONSECUTIVE_FAILURES += 1
             return items
         except Exception as e:
             print(f"[AI批量摘要] 调用失败: {str(e)[:60]}")
-            ZHIPU_CONSECUTIVE_FAILURES += 1
+            NVIDIA_CONSECUTIVE_FAILURES += 1
             return items
 
     if not result_text:
@@ -1701,8 +1701,8 @@ def generate_batch_topic_tags(items, api_config):
     返回修改后的 items 列表（原地修改）
     每天最多调用1次 API
     """
-    global ZHIPU_CONSECUTIVE_FAILURES
-    if not api_config["summary_enabled"] or not api_config["zhipu_key"]:
+    global NVIDIA_CONSECUTIVE_FAILURES
+    if not api_config["summary_enabled"] or not api_config["api_key"]:
         for item in items:
             item["topic_tags"] = []
         return items
@@ -1710,7 +1710,7 @@ def generate_batch_topic_tags(items, api_config):
         for item in items:
             item["topic_tags"] = []
         return items
-    if ZHIPU_CONSECUTIVE_FAILURES >= ZHIPU_MAX_CONSECUTIVE_FAILURES:
+    if NVIDIA_CONSECUTIVE_FAILURES >= NVIDIA_MAX_CONSECUTIVE_FAILURES:
         for item in items:
             item["topic_tags"] = []
         return items
@@ -1752,7 +1752,7 @@ def generate_batch_topic_tags(items, api_config):
         try:
             url = api_config["base_url"].rstrip("/") + "/chat/completions"
             headers = {
-                "Authorization": f"Bearer {api_config['zhipu_key']}",
+                "Authorization": f"Bearer {api_config['api_key']}",
                 "Content-Type": "application/json",
             }
             data = {
@@ -1765,7 +1765,7 @@ def generate_batch_topic_tags(items, api_config):
             resp.raise_for_status()
             result = resp.json()
             result_text = result["choices"][0]["message"]["content"].strip()
-            ZHIPU_CONSECUTIVE_FAILURES = 0
+            NVIDIA_CONSECUTIVE_FAILURES = 0
             break
         except requests.exceptions.HTTPError as e:
             status_code = e.response.status_code if e.response is not None else "unknown"
@@ -1775,7 +1775,7 @@ def generate_batch_topic_tags(items, api_config):
                 time.sleep(wait_time)
                 continue
             print(f"[AI批量标签] HTTP错误 {status_code}")
-            ZHIPU_CONSECUTIVE_FAILURES += 1
+            NVIDIA_CONSECUTIVE_FAILURES += 1
             for item in items:
                 item["topic_tags"] = []
             return items
@@ -1786,13 +1786,13 @@ def generate_batch_topic_tags(items, api_config):
                 time.sleep(wait_time)
                 continue
             print("[AI批量标签] 请求超时（已重试）")
-            ZHIPU_CONSECUTIVE_FAILURES += 1
+            NVIDIA_CONSECUTIVE_FAILURES += 1
             for item in items:
                 item["topic_tags"] = []
             return items
         except Exception as e:
             print(f"[AI批量标签] 调用失败: {str(e)[:60]}")
-            ZHIPU_CONSECUTIVE_FAILURES += 1
+            NVIDIA_CONSECUTIVE_FAILURES += 1
             for item in items:
                 item["topic_tags"] = []
             return items
@@ -2533,26 +2533,38 @@ def main():
     # 6. 生成 latest.json
     print("--- 第六步：生成输出文件 ---")
 
-    # AI 处理：批量摘要生成、批量话题标签、关键词提取、近7天总结
+    # AI 处理：批量摘要生成、逐条话题标签、关键词提取、近7天总结
     api_config = get_api_config(config)
     if api_config["summary_enabled"]:
-        print("[AI] 智谱 GLM 已启用，开始批量生成 AI 摘要和话题标签...")
+        print("[AI] 英伟达 NIM 已启用，开始生成 AI 摘要和话题标签...")
         # 批量生成摘要（一次API调用，处理所有需要摘要的条目）
         all_items = generate_batch_summaries(all_items, api_config)
-        # 批量生成话题标签（一次API调用，处理前10条，英文内容先翻译）
-        all_items = generate_batch_topic_tags(all_items, api_config)
-        # 为没有 topic_tags 的条目使用标题提取规则降级
-        for item in all_items:
-            if not item.get("topic_tags"):
+        # 逐条生成话题标签（对 Top 10 条逐条调用，串行执行，英伟达免费层 40 RPM 完全够用）
+        tag_success = 0
+        for i, item in enumerate(all_items[:10]):
+            try:
+                tags = generate_topic_tags(item, api_config)
+                if tags:
+                    item["topic_tags"] = tags
+                    tag_success += 1
+                else:
+                    # AI 返回空，使用标题提取规则
+                    item["topic_tags"] = extract_tags_from_title(item.get("title", ""))
+            except Exception as e:
+                print(f"[AI] 条目 {i+1} 标签生成失败: {str(e)[:40]}")
                 item["topic_tags"] = extract_tags_from_title(item.get("title", ""))
+        # 其余条目使用标题提取规则
+        for item in all_items[10:]:
+            item["topic_tags"] = extract_tags_from_title(item.get("title", ""))
+        print(f"[AI] 话题标签生成完成：AI成功 {tag_success}/10 条，其余使用标题提取规则")
         # AI 关键词提取（只调用一次，输入 Top 20 条标题和摘要）
         ai_keywords = generate_ai_keywords(all_items, api_config)
         if ai_keywords:
             config["_ai_keywords"] = ai_keywords
             print(f"[AI] 提取到 {len(ai_keywords)} 个环境领域关键词")
-        print("[AI] 批量处理完成，每天最多调用3次API（摘要+标签+关键词）")
+        print("[AI] 处理完成（批量摘要 + 逐条标签 + 关键词提取，英伟达免费层额度充足）")
     else:
-        print("[AI] 智谱 GLM 未启用，使用规则生成摘要和关键词")
+        print("[AI] 英伟达 NIM 未启用，使用规则生成摘要和关键词")
         for item in all_items:
             item["topic_tags"] = extract_tags_from_title(item.get("title", ""))
 

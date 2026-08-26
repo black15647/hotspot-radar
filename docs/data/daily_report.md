@@ -1,7 +1,9 @@
 # 环境学子雷达 - 每日热点报告
 
 **日期**：2026-08-26
-**总条目数**：50
+**总条目数**：6
+
+**近7天见解**：近7天热点主要集中在考研、大气污染、竞赛等方向，关键词累计出现16次，整体呈现持续关注态势，建议重点关注考研、大气污染相关进展。
 
 ---
 
@@ -10,120 +12,65 @@
 ### 1. [Environment International：气候变化下高温、花粉与空气污染对过敏性鼻炎和哮喘的协同影响-MedSci.cn - 梅斯医学 MedSci](https://news.google.com/rss/articles/CBMibkFVX3lxTE9sYkthZEV5Z0g0OGV6Nm5nb1NDR0N5MS1wcHJ0eG9fWHNxWFZVZjc2Q2NoY0VhVjBjME1STWg4a2hxYTVGeXpRRUhNLUJkQnMxby1fMk10YzRwaVEtcF93NUs3Uko3WkdWZVdQQUdn?oc=5)
 
 - **来源**：Google News 环境污染
-- **热度**：21.67
+- **热度**：21.06
 - **发布时间**：2026-08-26T00:53:36+00:00
 - **关键词**：气候变化
 
-> Environment International：气候变化下高温、花粉与空气污染对过敏性鼻炎和哮喘的协同影响-MedSci.cn 梅斯医学 MedSci
-
-**📊 分析**：该条目涉及【花粉与空气污染对过敏】话题，热度主要由时间新鲜度驱动，建议关注。
+**📊 分析**：该条目涉及【花粉与空气污染对过敏】话题，因来源较权威且与近期热点主题相关，热度上升。
 
 ---
 
 ### 2. [8月25日，吉林省生态环境厅举行新闻发布会，对外集中发布了吉林省大气污染防治工作进展及成效 - 凤凰网](https://news.google.com/rss/articles/CBMiSkFVX3lxTFAtZnpDV3BOTHgxRENmdEZ3cnotb25FSDJVLVRCTXlSX3ZWSzhlMW1xRUdYamhsSmtQcU1YVU5XY1hXZGhWdjZQUlZn?oc=5)
 
 - **来源**：Google News 生态环境
-- **热度**：20.48
+- **热度**：19.79
 - **发布时间**：2026-08-26T03:50:50+00:00
 - **关键词**：大气污染
 
-> 8月25日，吉林省生态环境厅举行新闻发布会，对外集中发布了吉林省大气污染防治工作进展及成效 凤凰网
-
-**📊 分析**：该条目涉及【大气污染】话题，热度主要由时间新鲜度驱动，建议关注。
+**📊 分析**：该条目涉及【大气污染】话题，因来源较权威且发布时间较新，热度上升。
 
 ---
 
-### 3. [从1到25000，柯大侠的江湖之路- 湖北日报新闻客户端 - 湖北日报传媒集团](https://news.google.com/rss/articles/CBMiWEFVX3lxTE1zWHlHalNWbFc5dURrWTVEOF96V3BqZ0RwTUE0cGw3WlNGQ0p3c3N2bmJxNEZfS0EycVJrV2g3NDFfcVV1X2FmS3k2bThENnRCRVJxaWY1LVk?oc=5)
+### 3. [聚苯乙烯-微塑料衍生的溶解有机物转化为胶体和微粒：微生物活性和紫外线照射的作用](https://www.sciencedirect.com/science/article/pii/S0043135426014557?dgcid=rss_sd_all)
 
-- **来源**：Google News 环境保护
-- **热度**：19.35
-- **发布时间**：2026-08-26T12:06:44+00:00
+- **来源**：Water Research
+- **热度**：18.68
+- **发布时间**：2026-08-25T14:59:28.928198+00:00
+- **关键词**：微塑料
 
-> 从1到25000，柯大侠的江湖之路- 湖北日报新闻客户端 湖北日报传媒集团
-
-**📊 分析**：该条目涉及【湖北日报新闻客户端】话题，热度主要由时间新鲜度驱动，建议关注。
+**📊 分析**：该条目涉及【微塑料】话题，因来源权威性高且与近期热点主题相关，热度上升。
 
 ---
 
 ### 4. [陕西科技大学环境学院沙桐副教授课题组在气候变化与空气污染研究方面取得新进展 - 搜狐网](https://news.google.com/rss/articles/CBMijAFBVV95cUxOTGdXem43WXhnOU85aWMzRkVpdkwtOHZPLWRwaVFHbnNKUFFvVTFUR0VLWXZIYnFHV3ltRHV6Sy1xdWlUUXR4QW10RzBsSW1FM05fRXBXT1JaLTFyV3M5VXIzQXhaUEwzcXdJQWVXN1prblZ3MnY2dVNEWWFQMWk1ODJkMmJvV0hpNXpGcQ?oc=5)
 
 - **来源**：Google News 气候变化
-- **热度**：18.88
+- **热度**：18.54
 - **发布时间**：2026-08-25T10:26:28+00:00
 - **关键词**：气候变化
 
-> 陕西科技大学环境学院沙桐副教授课题组在气候变化与空气污染研究方面取得新进展 搜狐网
-
-**📊 分析**：该条目涉及【陕西科技大学环境学院】话题，热度主要由综合因素驱动，建议关注。
+**📊 分析**：该条目涉及【陕西科技大学环境学院】话题，因来源较权威且与近期热点主题相关，热度上升。
 
 ---
 
-### 5. [《潮线之后 —— 海南气候迁徙档案》：以人文档案定格气候里的故乡变迁 - 中华网](https://news.google.com/rss/articles/CBMiXkFVX3lxTFBfa1ZQRGN1VDVWT1gzTUNGTDNxODdfdTFJYXBlWTctM1R1b04wUHF3SEQwTUN5WkZmcTRiNzNrYTQyQTFDMW1lNk84a2pxblVDbnlBbC1lRDMwYkN4a0E?oc=5)
+### 5. [中国核电举办2026年生态环境知识竞赛决赛 - 深圳核博会](https://news.google.com/rss/articles/CBMiUkFVX3lxTE5fZ3VCanBidzgxdmVWcUVaWG1COGNZdzdVOS1qVThuT0E4MTZBdVBidGkzM1ZHNmRnUGxaUkhnakhUUnlLT2xpM3NPNTZaYXRYTGc?oc=5)
 
-- **来源**：Google News 气候变化
-- **热度**：18.53
-- **发布时间**：2026-08-26T10:02:24+00:00
+- **来源**：Google News 环境竞赛
+- **热度**：15.77
+- **发布时间**：2026-08-25T03:27:00+00:00
+- **关键词**：竞赛
 
-> 《潮线之后 —— 海南气候迁徙档案》：以人文档案定格气候里的故乡变迁 中华网
-
-**📊 分析**：该条目涉及【以人文档案定格气候里的故乡变迁】话题，热度主要由时间新鲜度驱动，建议关注。
-
----
-
-### 6. [【举报】一省对岩溶洞穴污染及非法处置固废违法线索实行有奖举报 - 搜狐网](https://news.google.com/rss/articles/CBMijAFBVV95cUxOSkw4Q19tMW5oYzJ0RW9aalV3TDZCbEk0V3hOMFh1VHdNNTZaTllCdThxV1gwaXhPMnhERTlVTTRtTFFZbXlXdFlyMWVXcUk1WWJ6X2dwaF9pX1JrY3otM1ZjUFBsY0tsX2V3SUMtQ3ozTUhSUkNseFdWY2ZudjJqR3g1Rmt5Sk0tRGZrOQ?oc=5)
-
-- **来源**：Google News 环境污染
-- **热度**：18.51
-- **发布时间**：2026-08-26T09:58:54+00:00
-
-> 【举报】一省对岩溶洞穴污染及非法处置固废违法线索实行有奖举报 搜狐网
-
-**📊 分析**：该条目涉及【一省对岩溶洞穴污染及】话题，热度主要由时间新鲜度驱动，建议关注。
+**📊 分析**：该条目涉及【年生态环境知识竞赛决赛】话题，因来源较权威且与近期热点主题相关，热度上升。
 
 ---
 
-### 7. [满眼赣鄱蓝！江西优良空气持续“刷屏” - 新浪网](https://news.google.com/rss/articles/CBMi2AFBVV95cUxPOGxEV0Q2aXZ2bzhaUDltOTFPSi1Damo1WXhlc0RRNXIxbktncTZMQzJhMFlLZ2VOT1J3dW5vN2F3MTZpWWdkRTdSb0FmRUFmZW1nVl9abkdNOVl5SlVGODgybHQyeTctenhxWEM4OFJWM2VmbS04Tmd6WUNjUzk2eUt1amlWalFZUWpBNkZMVHA2eFF4VFBuanNHVkZDWHpQbmRVLWhlZ1lJeGpoeDFKcnJadU1aWF9lMGJPVlI1Q3RZRm1PclYxQ1Z4Z0lOLTBEek5vajFlVlo?oc=5)
+### 6. [2026河南靠谱考研机构盘点：5个硬指标全达标的名单 - 中华网科技频道](https://news.google.com/rss/articles/CBMibkFVX3lxTFB0aHVWVGcyQ3Y3cW5qc2tJc0NFUHNwbmpVRFdOYkdXbmdpWmFNVl9sN1VZNkJHdG5NZFZkZDFCaVpJSG56RWMxR0NHbm5XSUNoV2E4Ti1uNHhaUEFfSDZaejY1aWJrM0dKY0FaaGlB?oc=5)
 
-- **来源**：Google News 环境污染
-- **热度**：18.18
-- **发布时间**：2026-08-26T09:05:02+00:00
+- **来源**：Google News 环境考研
+- **热度**：15.57
+- **发布时间**：2026-08-25T01:09:33+00:00
+- **关键词**：考研
 
-**📊 分析**：该条目涉及【江西优良空气持续】话题，热度主要由时间新鲜度驱动，建议关注。
-
----
-
-### 8. [‘You can taste the ash’: surviving in America’s wildfire smoke capital](https://www.theguardian.com/us-news/ng-interactive/2026/aug/26/oregon-wildfire-smoke-deaths)
-
-- **来源**：The Guardian Environment
-- **热度**：17.8
-- **发布时间**：2026-08-26T12:00:11+00:00
-
-> A magical corner of Oregon has the highest US rate of wildfire smoke deaths. How do residents live with the haze – and grief?Driving into the county, you can’t miss the sign.“IT’S THE CLIMATE”. Continue reading...
-
-**📊 分析**：该条目涉及【环境动态】话题，热度主要由时间新鲜度驱动，建议关注。
-
----
-
-### 9. [Groups sue Trump’s EPA over fast-track approval of toxic datacenter chemicals](https://www.theguardian.com/us-news/2026/aug/26/trump-epa-datacenter-forever-chemicals)
-
-- **来源**：The Guardian Environment
-- **热度**：17.4
-- **发布时间**：2026-08-26T11:00:12+00:00
-
-> Exposure to two compounds approved can result in ‘sudden death’ and range of other serious health risks, lawsuit warnsThe Trump administration has approved two new datacenter chemicals to which exposure can result in “sudden death” and a range of other serious health risks, like cancer, eye corrosion, neurological damage and reproductive harm, a new lawsuit warns.The two compounds approved by the Environmental Protection Agency (EPA) for import and immediate use in facilities across the US are photoacid generators that also appear to be Pfas “forever chemicals”, though it is unclear because much of the EPA documents are redacted. Some Pfas are commonly used in the production of semiconductors. Continue reading...
-
-**📊 分析**：该条目涉及【环境动态】话题，热度主要由时间新鲜度驱动，建议关注。
-
----
-
-### 10. [守好这片山水，再苦再累都值得——记长白山保护开发区生态环境局池西区分局环保科科员玄洪美 - 新浪财经](https://news.google.com/rss/articles/CBMieEFVX3lxTE0zSVZpSTNyTWJudVYxLXdrWkk1cGx5U0dzZGtwcmhES2hMLVhwR3NBalItZURrRzhiRFk4Wjd2SExVbXVMRzJWR005Q1hTVUZxa3FwaWNiYnZaMGVZM3k3NVdaLXFRbjYyZllWYTVNQ1ZXZmZIQW05Mg?oc=5)
-
-- **来源**：Google News 生态环境
-- **热度**：17.14
-- **发布时间**：2026-08-26T06:01:00+00:00
-
-> 守好这片山水，再苦再累都值得——记长白山保护开发区生态环境局池西区分局环保科科员玄洪美 新浪财经
-
-**📊 分析**：该条目涉及【记长白山保护开发区生】话题，热度主要由时间新鲜度驱动，建议关注。
+**📊 分析**：该条目涉及【河南靠谱考研机构盘点】话题，因来源较权威且与近期热点主题相关，热度上升。
 
 ---

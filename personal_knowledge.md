@@ -310,3 +310,166 @@
 
 ---
 
+## 2026-08-26
+
+**今日高频关键词**：`#气候变化` `#碳排放` `#竞赛` `#考研`
+
+**今日 Top10 热点**
+
+### 1. Environment International：气候变化下高温、花粉与空气污染对过敏性鼻炎和哮喘的协同影响-MedSci.cn - 梅斯医学 MedSci
+- **来源**：Google News 环境污染
+- **热度**：28.4
+- **链接**：https://news.google.com/rss/articles/CBMibkFVX3lxTE9sYkthZEV5Z0g0OGV6Nm5nb1NDR0N5MS1wcHJ0eG9fWHNxWFZVZjc2Q2NoY0VhVjBjME1STWg4a2hxYTVGeXpRRUhNLUJkQnMxby1fMk10YzRwaVEtcF93NUs3Uko3WkdWZVdQQUdn?oc=5
+- **摘要**：Environment International：气候变化下高温、花粉与空气污染对过敏性鼻炎和哮喘的协同影响-MedSci.cn 梅斯医学 MedSci
+- **分析**：该条目涉及【高温花粉协同效应】话题，热度主要由时间新鲜度驱动，建议关注。
+
+### 2. 陕西科技大学环境学院沙桐副教授课题组在气候变化与空气污染研究方面取得新进展 - 搜狐网
+- **来源**：Google News 气候变化
+- **热度**：24.4
+- **链接**：https://news.google.com/rss/articles/CBMijAFBVV95cUxOTGdXem43WXhnOU85aWMzRkVpdkwtOHZPLWRwaVFHbnNKUFFvVTFUR0VLWXZIYnFHV3ltRHV6Sy1xdWlUUXR4QW10RzBsSW1FM05fRXBXT1JaLTFyV3M5VXIzQXhaUEwzcXdJQWVXN1prblZ3MnY2dVNEWWFQMWk1ODJkMmJvV0hpNXpGcQ?oc=5
+- **摘要**：陕西科技大学环境学院沙桐副教授课题组在气候变化与空气污染研究方面取得新进展 搜狐网
+- **分析**：该条目涉及【沙桐课题组】话题，热度主要由时间新鲜度驱动，建议关注。
+
+### 3. 广东首例碳交易纠纷案判了！法院：不侵权_碳排放交易网——全球领先的碳市场门户中文网站 - 中国碳排放交易网
+- **来源**：Google News 环境污染
+- **热度**：23.1
+- **链接**：https://news.google.com/rss/articles/CBMiZ0FVX3lxTE1icVg1NVZ0Tlo1LXlDUkFOQnZvTzdWZWRpMzBPdmpjSV8xVV9Ja1RSb0VRZk5QVGpaX0VCUzhRRmRQTW1ZMEE1S0duVXB4RlR5a1p5NXlKTUdXdk9adkFQV0F6ZlJiS3M?oc=5
+- **摘要**：广东首例碳交易纠纷案判了！法院：不侵权_碳排放交易网——全球领先的碳市场门户中文网站 中国碳排放交易网
+- **分析**：该条目涉及【广东首例碳交易纠纷案】话题，热度主要由时间新鲜度驱动，建议关注。
+
+### 4. 中方将支持参与联合国气候变化大会 - 新浪财经
+- **来源**：Google News 气候变化
+- **热度**：21.1
+- **链接**：https://news.google.com/rss/articles/CBMiS0FVX3lxTFBFcHhJSXZWeHlvdDI0Si1pdjhZNTJVZGdfV0w5MGJUZjNxaEdySDV2dXJvTEFVbnZQeUFWTXozQ2ZINENpS095dW83MA?oc=5
+- **摘要**：中方宣布将支持并参与联合国气候变化大会。
+- **分析**：该条目涉及【联合国气候变化大会】话题，热度主要由综合因素驱动，建议关注。
+
+### 5. 听鉴世界丨气候变化叠加政策失误 匈牙利遭遇干旱危机 - 搜狐网
+- **来源**：Google News 气候变化
+- **热度**：21.1
+- **链接**：https://news.google.com/rss/articles/CBMiiAFBVV95cUxQemVWSy02RVB2Uzh0YUJpRWUyeXZHUE02NkRsbVo0M3dJc0pqc0F5eGY4Q2tISS16bko4VTVGVDZkZHVjclIyODFVNHlPdjFwR1pjOVJFS1MtQUY5UUtqMEtTVFI0QUxvQTQ0bFp3bTdtQkYyOWI1NnZZZUhMQlNPVy1PU1ZiWlZZ?oc=5
+- **摘要**：气候变化叠加政策失误，匈牙利遭遇严重干旱危机。
+- **分析**：该条目涉及【匈牙利干旱】话题，热度主要由综合因素驱动，建议关注。
+
+### 6. 以练促检强本领 精准质控守碧水 - 新浪财经
+- **来源**：Google News 生态环境
+- **热度**：19.4
+- **链接**：https://news.google.com/rss/articles/CBMieEFVX3lxTE5JWGdoa29NeWR2dzFtYVNuTm1BcXp3UFRsaFJZQzA3a3pqUjNURXlacDg4RUtoZHhNVWxVWDQ0bXZlV0Y4TEFSSW5IN0lUc1JGVXJCVmRHVzQ4QXN1MHVhcm5xUENnaVUzOUhaS2J3Q1VFTnJWSDFXOQ?oc=5
+- **摘要**：开展水质监测演练，提升精准质控能力，守护碧水。
+- **分析**：该条目涉及【水质监测演练】话题，热度主要由时间新鲜度驱动，建议关注。
+
+### 7. 降碳减污扩绿增长协同推进，青海生态环保 “十五五” 明确九大重点任务 - 中国水网
+- **来源**：Google News 环境保护
+- **热度**：19.1
+- **链接**：https://news.google.com/rss/articles/CBMiVEFVX3lxTE9LRjBKSVI1R2NHMjc3MU5qbTVmaDVZaUVNUnUxckh3OV83VWhiX2ZVUHh5a0pic1R5M0xRSG8yNjNRdWZzanB3V2o2ekNrOEVyQ0loeA?oc=5
+- **摘要**：降碳减污扩绿增长协同推进，青海生态环保 “十五五” 明确九大重点任务 中国水网
+- **分析**：该条目涉及【青海十五五规划】话题，热度主要由时间新鲜度驱动，建议关注。
+
+### 8. 上饶市广信区一养猪场乱排污染水源被举报 区生态环境局：已立案 - 凤凰网江西
+- **来源**：Google News 环境污染
+- **热度**：18.8
+- **链接**：https://news.google.com/rss/articles/CBMiSkFVX3lxTE9oeVVqb1JMcW9lalU2U2t5VDE5N2EzTFZEdnlTUmNrMjhsNTRaWFhjMlczem5kVm5BTDMwb091UkJFSDUzYXFSQ0JR?oc=5
+- **摘要**：上饶市广信区一养猪场乱排污染水源被举报 区生态环境局：已立案 凤凰网江西
+- **分析**：该条目涉及【养猪场乱排】话题，热度主要由时间新鲜度驱动，建议关注。
+
+### 9. 无人机、无人船、热成像……抚州环境执法不靠人海靠什么？ - 凤凰网江西
+- **来源**：Google News 环境保护
+- **热度**：17.6
+- **链接**：https://news.google.com/rss/articles/CBMiSkFVX3lxTFBrSTRORG04ek9veDM4VE1MRm15ZC04d3kwcXhaVGwySzZKWnkxUWtRNlFvV2lsN09SWHdvZEI3M08yWlMzbzE1WkZ3?oc=5
+- **摘要**：无人机、无人船、热成像……抚州环境执法不靠人海靠什么？ 凤凰网江西
+- **分析**：该条目涉及【抚州环境执法】话题，热度主要由时间新鲜度驱动，建议关注。
+
+### 10. 青企故事荟 | 中博华科：体检医生”为园区环境“把脉开方” - 青岛日报
+- **来源**：Google News 环境污染
+- **热度**：17.6
+- **链接**：https://news.google.com/rss/articles/CBMiWEFVX3lxTE1Yd2hCd25VTnRiRjhWX21rNTBvUk91SnI2YTZLWTB2Vncwb0RNdW5PYTFTUkN1Ym0xOXJ3YXRjYXdQb043WUZ6eDhyX0dkd0RzSlh3RlVfMkE?oc=5
+- **摘要**：青企故事荟 | 中博华科：体检医生”为园区环境“把脉开方” 青岛日报
+- **分析**：该条目涉及【中博华科】话题，热度主要由时间新鲜度驱动，建议关注。
+
+**今日自动提取候选新词**
+
+- **生态环境**（出现 6 次）
+  - 上下文：上饶市广信区一养猪场乱排污染水源被举报 区生态环境局：已立案 - 凤凰网江西
+  - 上下文：中国核电举办2026年生态环境知识竞赛决赛 - 深圳核博会
+  - 上下文：中央组织部负责人就修订颁布《党政领导干部生态环境损害责任追究办法》答记者问 - 新京报
+- **中国**（出现 3 次）
+  - 上下文：广东首例碳交易纠纷案判了！法院：不侵权_碳排放交易网——全球领先的碳市场门户中文网站 - 中国碳排放交易网
+  - 上下文：降碳减污扩绿增长协同推进，青海生态环保 “十五五” 明确九大重点任务 - 中国水网
+  - 上下文：中国核电举办2026年生态环境知识竞赛决赛 - 深圳核博会
+- **财经**（出现 3 次）
+  - 上下文：中方将支持参与联合国气候变化大会 - 新浪财经
+  - 上下文：以练促检强本领 精准质控守碧水 - 新浪财经
+  - 上下文：《生态环境法典》落地 破解餐饮油烟扰民难题 - 新浪财经
+- **Language**（出现 3 次）
+  - 上下文：GenomeHarness: Harnessing Al Agents for Reliable Adaptation of Genome Language Models
+  - 上下文：SoulGard-VL-2B: A Vision-Language Model for Edge-Based Feline Behavior Understanding
+  - 上下文：Data-Driven Dynamic Algorithm Dispatch with Large Language Models
+- **Models**（出现 3 次）
+  - 上下文：GenomeHarness: Harnessing Al Agents for Reliable Adaptation of Genome Language Models
+  - 上下文：Frontiers in FinTech: Multimodal Foundation Models for Financial Reporting and Decision Science
+  - 上下文：Data-Driven Dynamic Algorithm Dispatch with Large Language Models
+- **空气污染**（出现 2 次）
+  - 上下文：Environment International：气候变化下高温、花粉与空气污染对过敏性鼻炎和哮喘的协同影响-MedSci.cn - 梅斯医学 MedSci
+  - 上下文：陕西科技大学环境学院沙桐副教授课题组在气候变化与空气污染研究方面取得新进展 - 搜狐网
+- **协同**（出现 2 次）
+  - 上下文：Environment International：气候变化下高温、花粉与空气污染对过敏性鼻炎和哮喘的协同影响-MedSci.cn - 梅斯医学 MedSci
+  - 上下文：降碳减污扩绿增长协同推进，青海生态环保 “十五五” 明确九大重点任务 - 中国水网
+- **全球**（出现 2 次）
+  - 上下文：广东首例碳交易纠纷案判了！法院：不侵权_碳排放交易网——全球领先的碳市场门户中文网站 - 中国碳排放交易网
+  - 上下文：听鉴世界｜欧盟气候机构：全球日均海表温度创新高 - 搜狐网
+- **听鉴**（出现 2 次）
+  - 上下文：听鉴世界丨气候变化叠加政策失误 匈牙利遭遇干旱危机 - 搜狐网
+  - 上下文：听鉴世界｜欧盟气候机构：全球日均海表温度创新高 - 搜狐网
+- **世界**（出现 2 次）
+  - 上下文：听鉴世界丨气候变化叠加政策失误 匈牙利遭遇干旱危机 - 搜狐网
+  - 上下文：听鉴世界｜欧盟气候机构：全球日均海表温度创新高 - 搜狐网
+- **江西**（出现 2 次）
+  - 上下文：上饶市广信区一养猪场乱排污染水源被举报 区生态环境局：已立案 - 凤凰网江西
+  - 上下文：无人机、无人船、热成像……抚州环境执法不靠人海靠什么？ - 凤凰网江西
+- **inside**（出现 2 次）
+  - 上下文：Forces deep inside Earth helped Antarctica freeze before the Arctic
+  - 上下文：‘Environmental violence’: inside the fight to save indigenous land from becoming a nuclear dumping ground
+- **power**（出现 2 次）
+  - 上下文：Firms scramble for battery power in Spain and Portugal
+  - 上下文：Harnessing electromagnetic induction to power nanobiohybrids for efficient degradation of organic pollutants
+- **land**（出现 2 次）
+  - 上下文：Does 'rewilded' land need better wildfire prevention measures?
+  - 上下文：‘Environmental violence’: inside the fight to save indigenous land from becoming a nuclear dumping ground
+- **waste**（出现 2 次）
+  - 上下文：Toxic waste sites exposed in Michael Sheen documentary 'tip of the iceberg'
+  - 上下文：Atomic catalyst unlocks the hidden value of plant waste
+- **value**（出现 2 次）
+  - 上下文：Atomic catalyst unlocks the hidden value of plant waste
+  - 上下文：Inter-regional trade reshapes resource burdens and value capture in a dryland production system
+- **framework**（出现 2 次）
+  - 上下文：An interpretable grid-resolution machine learning framework for predicting biofilm detachment
+  - 上下文：A variational framework for bond-based peridynamics with spatially varying horizons and its asynchronous time integration
+- **Harnessing**（出现 2 次）
+  - 上下文：Harnessing electromagnetic induction to power nanobiohybrids for efficient degradation of organic pollutants
+  - 上下文：GenomeHarness: Harnessing Al Agents for Reliable Adaptation of Genome Language Models
+- **carbon**（出现 2 次）
+  - 上下文：Overflow metabolism drives high-rate carbon, nitrogen and phosphorus sequestration in an enriched aerobic microbial community
+  - 上下文：Maximizing electrochemical carbon dioxide reduction to achieve closed-loop reactive capture
+- **党政领导**（出现 2 次）
+  - 上下文：中央组织部负责人就修订颁布《党政领导干部生态环境损害责任追究办法》答记者问 - 新京报
+  - 上下文：受权发布丨中共中央办公厅 国务院办公厅印发《党政领导干部生态环境损害责任追究办法》 - 新华网
+- **干部**（出现 2 次）
+  - 上下文：中央组织部负责人就修订颁布《党政领导干部生态环境损害责任追究办法》答记者问 - 新京报
+  - 上下文：受权发布丨中共中央办公厅 国务院办公厅印发《党政领导干部生态环境损害责任追究办法》 - 新华网
+- **损害**（出现 2 次）
+  - 上下文：中央组织部负责人就修订颁布《党政领导干部生态环境损害责任追究办法》答记者问 - 新京报
+  - 上下文：受权发布丨中共中央办公厅 国务院办公厅印发《党政领导干部生态环境损害责任追究办法》 - 新华网
+- **责任**（出现 2 次）
+  - 上下文：中央组织部负责人就修订颁布《党政领导干部生态环境损害责任追究办法》答记者问 - 新京报
+  - 上下文：受权发布丨中共中央办公厅 国务院办公厅印发《党政领导干部生态环境损害责任追究办法》 - 新华网
+- **追究**（出现 2 次）
+  - 上下文：中央组织部负责人就修订颁布《党政领导干部生态环境损害责任追究办法》答记者问 - 新京报
+  - 上下文：受权发布丨中共中央办公厅 国务院办公厅印发《党政领导干部生态环境损害责任追究办法》 - 新华网
+- **capture**（出现 2 次）
+  - 上下文：Maximizing electrochemical carbon dioxide reduction to achieve closed-loop reactive capture
+  - 上下文：Inter-regional trade reshapes resource burdens and value capture in a dryland production system
+- **法典**（出现 2 次）
+  - 上下文：《生态环境法典》落地 破解餐饮油烟扰民难题 - 新浪财经
+  - 上下文：400余位各界代表齐聚重庆 研讨生态环境法典实施路径 - 光明网
+
+---

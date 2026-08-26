@@ -1,16 +1,16 @@
 {
-  "last_update": "2026-08-26T12:07:12.332133+00:00",
+  "last_update": "2026-08-26T12:28:49.122749+00:00",
   "total_sources": 21,
-  "success_count": 21,
-  "failed_count": 0,
+  "success_count": 20,
+  "failed_count": 1,
   "critical_count": 0,
   "sources": [
     {
       "name": "Google News 环境保护",
       "url": "https://news.google.com/rss/search?q=环境保护&hl=zh-CN&gl=CN&ceid=CN:zh-Hans",
-      "last_check": "2026-08-26T12:06:59.162868+00:00",
+      "last_check": "2026-08-26T12:28:34.366437+00:00",
       "success": true,
-      "elapsed_seconds": 0.51,
+      "elapsed_seconds": 0.54,
       "item_count": 5,
       "error": "",
       "critical": false
@@ -18,9 +18,9 @@
     {
       "name": "Google News 气候变化",
       "url": "https://news.google.com/rss/search?q=气候变化&hl=zh-CN&gl=CN&ceid=CN:zh-Hans",
-      "last_check": "2026-08-26T12:06:59.673037+00:00",
+      "last_check": "2026-08-26T12:28:34.909587+00:00",
       "success": true,
-      "elapsed_seconds": 0.51,
+      "elapsed_seconds": 0.6,
       "item_count": 5,
       "error": "",
       "critical": false
@@ -28,9 +28,9 @@
     {
       "name": "Google News 生态环境",
       "url": "https://news.google.com/rss/search?q=生态环境&hl=zh-CN&gl=CN&ceid=CN:zh-Hans",
-      "last_check": "2026-08-26T12:07:00.183690+00:00",
+      "last_check": "2026-08-26T12:28:35.504645+00:00",
       "success": true,
-      "elapsed_seconds": 0.51,
+      "elapsed_seconds": 0.59,
       "item_count": 5,
       "error": "",
       "critical": false
@@ -38,9 +38,9 @@
     {
       "name": "Google News 环境污染",
       "url": "https://news.google.com/rss/search?q=环境污染&hl=zh-CN&gl=CN&ceid=CN:zh-Hans",
-      "last_check": "2026-08-26T12:07:00.692176+00:00",
+      "last_check": "2026-08-26T12:28:36.095056+00:00",
       "success": true,
-      "elapsed_seconds": 0.51,
+      "elapsed_seconds": 0.68,
       "item_count": 5,
       "error": "",
       "critical": false
@@ -48,9 +48,9 @@
     {
       "name": "Google News 环保招聘",
       "url": "https://news.google.com/rss/search?q=环保招聘&hl=zh-CN&gl=CN&ceid=CN:zh-Hans",
-      "last_check": "2026-08-26T12:07:01.200746+00:00",
+      "last_check": "2026-08-26T12:28:36.771997+00:00",
       "success": true,
-      "elapsed_seconds": 0.41,
+      "elapsed_seconds": 0.48,
       "item_count": 5,
       "error": "",
       "critical": false
@@ -58,9 +58,9 @@
     {
       "name": "Google News 环境考研",
       "url": "https://news.google.com/rss/search?q=环境考研&hl=zh-CN&gl=CN&ceid=CN:zh-Hans",
-      "last_check": "2026-08-26T12:07:01.612200+00:00",
+      "last_check": "2026-08-26T12:28:37.248653+00:00",
       "success": true,
-      "elapsed_seconds": 0.35,
+      "elapsed_seconds": 0.45,
       "item_count": 5,
       "error": "",
       "critical": false
@@ -68,9 +68,9 @@
     {
       "name": "Google News 环境竞赛",
       "url": "https://news.google.com/rss/search?q=环境竞赛&hl=zh-CN&gl=CN&ceid=CN:zh-Hans",
-      "last_check": "2026-08-26T12:07:01.965413+00:00",
+      "last_check": "2026-08-26T12:28:37.696050+00:00",
       "success": true,
-      "elapsed_seconds": 0.34,
+      "elapsed_seconds": 0.47,
       "item_count": 5,
       "error": "",
       "critical": false
@@ -78,7 +78,7 @@
     {
       "name": "The Guardian Environment",
       "url": "https://www.theguardian.com/environment/rss",
-      "last_check": "2026-08-26T12:07:02.309503+00:00",
+      "last_check": "2026-08-26T12:28:38.168935+00:00",
       "success": true,
       "elapsed_seconds": 0.35,
       "item_count": 5,
@@ -88,9 +88,9 @@
     {
       "name": "Yale Environment 360",
       "url": "https://e360.yale.edu/feed.xml",
-      "last_check": "2026-08-26T12:07:02.664202+00:00",
+      "last_check": "2026-08-26T12:28:38.517001+00:00",
       "success": true,
-      "elapsed_seconds": 0.5,
+      "elapsed_seconds": 0.21,
       "item_count": 5,
       "error": "",
       "critical": false
@@ -98,9 +98,9 @@
     {
       "name": "BBC 科学与环境",
       "url": "http://feeds.bbci.co.uk/news/science_and_environment/rss.xml",
-      "last_check": "2026-08-26T12:07:03.167407+00:00",
+      "last_check": "2026-08-26T12:28:38.724824+00:00",
       "success": true,
-      "elapsed_seconds": 0.26,
+      "elapsed_seconds": 0.29,
       "item_count": 5,
       "error": "",
       "critical": false
@@ -108,9 +108,9 @@
     {
       "name": "Nature",
       "url": "https://www.nature.com/nature.rss",
-      "last_check": "2026-08-26T12:07:03.425371+00:00",
+      "last_check": "2026-08-26T12:28:39.014106+00:00",
       "success": true,
-      "elapsed_seconds": 0.23,
+      "elapsed_seconds": 0.34,
       "item_count": 5,
       "error": "",
       "critical": false
@@ -118,19 +118,19 @@
     {
       "name": "Nature Sustainability",
       "url": "https://www.nature.com/natsustain.rss",
-      "last_check": "2026-08-26T12:07:03.651642+00:00",
-      "success": true,
-      "elapsed_seconds": 0.06,
-      "item_count": 5,
-      "error": "",
+      "last_check": "2026-08-26T12:28:39.349810+00:00",
+      "success": false,
+      "elapsed_seconds": 0.07,
+      "item_count": 0,
+      "error": "解析失败：<unknown>:15:4: not well-formed (invalid token)",
       "critical": false
     },
     {
       "name": "Science",
       "url": "https://www.science.org/rss/current.xml",
-      "last_check": "2026-08-26T12:07:03.713223+00:00",
+      "last_check": "2026-08-26T12:28:39.416586+00:00",
       "success": true,
-      "elapsed_seconds": 1.04,
+      "elapsed_seconds": 0.77,
       "item_count": 5,
       "error": "",
       "critical": false
@@ -138,9 +138,9 @@
     {
       "name": "PNAS 环境科学",
       "url": "https://www.pnas.org/rss/Environmental_Sciences.xml",
-      "last_check": "2026-08-26T12:07:04.754252+00:00",
+      "last_check": "2026-08-26T12:28:40.191216+00:00",
       "success": true,
-      "elapsed_seconds": 0.43,
+      "elapsed_seconds": 2.26,
       "item_count": 5,
       "error": "",
       "critical": false
@@ -148,9 +148,9 @@
     {
       "name": "Environmental Research Letters",
       "url": "https://iopscience.iop.org/journal/rss/1748-9326",
-      "last_check": "2026-08-26T12:07:05.183167+00:00",
+      "last_check": "2026-08-26T12:28:42.452760+00:00",
       "success": true,
-      "elapsed_seconds": 0.9,
+      "elapsed_seconds": 0.58,
       "item_count": 5,
       "error": "",
       "critical": false
@@ -158,9 +158,9 @@
     {
       "name": "Water Research",
       "url": "https://rss.sciencedirect.com/publication/science/00431354",
-      "last_check": "2026-08-26T12:07:06.085005+00:00",
+      "last_check": "2026-08-26T12:28:43.037698+00:00",
       "success": true,
-      "elapsed_seconds": 0.12,
+      "elapsed_seconds": 0.18,
       "item_count": 5,
       "error": "",
       "critical": false
@@ -168,9 +168,9 @@
     {
       "name": "ScienceDaily 环境科学",
       "url": "https://www.sciencedaily.com/rss/earth_climate/environmental_science.xml",
-      "last_check": "2026-08-26T12:07:06.205350+00:00",
+      "last_check": "2026-08-26T12:28:43.216599+00:00",
       "success": true,
-      "elapsed_seconds": 0.34,
+      "elapsed_seconds": 0.33,
       "item_count": 5,
       "error": "",
       "critical": false
@@ -178,9 +178,9 @@
     {
       "name": "arXiv Environmental Engineering",
       "url": "https://rss.arxiv.org/rss/cs.CE",
-      "last_check": "2026-08-26T12:07:06.549879+00:00",
+      "last_check": "2026-08-26T12:28:43.550744+00:00",
       "success": true,
-      "elapsed_seconds": 0.26,
+      "elapsed_seconds": 0.18,
       "item_count": 5,
       "error": "",
       "critical": false
@@ -188,9 +188,9 @@
     {
       "name": "IISD SDG",
       "url": "https://sdg.iisd.org/feed/",
-      "last_check": "2026-08-26T12:07:06.809409+00:00",
+      "last_check": "2026-08-26T12:28:43.733294+00:00",
       "success": true,
-      "elapsed_seconds": 0.52,
+      "elapsed_seconds": 0.32,
       "item_count": 1,
       "error": "",
       "critical": false
@@ -198,9 +198,9 @@
     {
       "name": "Berkeley Earth",
       "url": "https://berkeleyearth.org/feed/",
-      "last_check": "2026-08-26T12:07:07.328814+00:00",
+      "last_check": "2026-08-26T12:28:44.053006+00:00",
       "success": true,
-      "elapsed_seconds": 0.34,
+      "elapsed_seconds": 0.35,
       "item_count": 5,
       "error": "",
       "critical": false
@@ -208,9 +208,9 @@
     {
       "name": "Adaptation Fund",
       "url": "https://www.adaptation-fund.org/feed/",
-      "last_check": "2026-08-26T12:07:07.664636+00:00",
+      "last_check": "2026-08-26T12:28:44.399137+00:00",
       "success": true,
-      "elapsed_seconds": 1.3,
+      "elapsed_seconds": 1.11,
       "item_count": 5,
       "error": "",
       "critical": false

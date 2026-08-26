@@ -318,71 +318,72 @@
 
 ### 1. Environment International：气候变化下高温、花粉与空气污染对过敏性鼻炎和哮喘的协同影响-MedSci.cn - 梅斯医学 MedSci
 - **来源**：Google News 环境污染
-- **热度**：21.8
+- **热度**：21.7
 - **链接**：https://news.google.com/rss/articles/CBMibkFVX3lxTE9sYkthZEV5Z0g0OGV6Nm5nb1NDR0N5MS1wcHJ0eG9fWHNxWFZVZjc2Q2NoY0VhVjBjME1STWg4a2hxYTVGeXpRRUhNLUJkQnMxby1fMk10YzRwaVEtcF93NUs3Uko3WkdWZVdQQUdn?oc=5
 - **摘要**：Environment International：气候变化下高温、花粉与空气污染对过敏性鼻炎和哮喘的协同影响-MedSci.cn 梅斯医学 MedSci
 - **分析**：该条目涉及【花粉与空气污染对过敏】话题，热度主要由时间新鲜度驱动，建议关注。
 
 ### 2. 8月25日，吉林省生态环境厅举行新闻发布会，对外集中发布了吉林省大气污染防治工作进展及成效 - 凤凰网
 - **来源**：Google News 生态环境
-- **热度**：20.6
+- **热度**：20.5
 - **链接**：https://news.google.com/rss/articles/CBMiSkFVX3lxTFAtZnpDV3BOTHgxRENmdEZ3cnotb25FSDJVLVRCTXlSX3ZWSzhlMW1xRUdYamhsSmtQcU1YVU5XY1hXZGhWdjZQUlZn?oc=5
 - **摘要**：8月25日，吉林省生态环境厅举行新闻发布会，对外集中发布了吉林省大气污染防治工作进展及成效 凤凰网
 - **分析**：该条目涉及【大气污染】话题，热度主要由时间新鲜度驱动，建议关注。
 
-### 3. 陕西科技大学环境学院沙桐副教授课题组在气候变化与空气污染研究方面取得新进展 - 搜狐网
+### 3. 从1到25000，柯大侠的江湖之路- 湖北日报新闻客户端 - 湖北日报传媒集团
+- **来源**：Google News 环境保护
+- **热度**：19.4
+- **链接**：https://news.google.com/rss/articles/CBMiWEFVX3lxTE1zWHlHalNWbFc5dURrWTVEOF96V3BqZ0RwTUE0cGw3WlNGQ0p3c3N2bmJxNEZfS0EycVJrV2g3NDFfcVV1X2FmS3k2bThENnRCRVJxaWY1LVk?oc=5
+- **摘要**：从1到25000，柯大侠的江湖之路- 湖北日报新闻客户端 湖北日报传媒集团
+- **分析**：该条目涉及【湖北日报新闻客户端】话题，热度主要由时间新鲜度驱动，建议关注。
+
+### 4. 陕西科技大学环境学院沙桐副教授课题组在气候变化与空气污染研究方面取得新进展 - 搜狐网
 - **来源**：Google News 气候变化
 - **热度**：18.9
 - **链接**：https://news.google.com/rss/articles/CBMijAFBVV95cUxOTGdXem43WXhnOU85aWMzRkVpdkwtOHZPLWRwaVFHbnNKUFFvVTFUR0VLWXZIYnFHV3ltRHV6Sy1xdWlUUXR4QW10RzBsSW1FM05fRXBXT1JaLTFyV3M5VXIzQXhaUEwzcXdJQWVXN1prblZ3MnY2dVNEWWFQMWk1ODJkMmJvV0hpNXpGcQ?oc=5
 - **摘要**：陕西科技大学环境学院沙桐副教授课题组在气候变化与空气污染研究方面取得新进展 搜狐网
 - **分析**：该条目涉及【陕西科技大学环境学院】话题，热度主要由综合因素驱动，建议关注。
 
-### 4. 《潮线之后 —— 海南气候迁徙档案》：以人文档案定格气候里的故乡变迁 - 中华网
+### 5. 《潮线之后 —— 海南气候迁徙档案》：以人文档案定格气候里的故乡变迁 - 中华网
 - **来源**：Google News 气候变化
-- **热度**：18.7
+- **热度**：18.5
 - **链接**：https://news.google.com/rss/articles/CBMiXkFVX3lxTFBfa1ZQRGN1VDVWT1gzTUNGTDNxODdfdTFJYXBlWTctM1R1b04wUHF3SEQwTUN5WkZmcTRiNzNrYTQyQTFDMW1lNk84a2pxblVDbnlBbC1lRDMwYkN4a0E?oc=5
 - **摘要**：《潮线之后 —— 海南气候迁徙档案》：以人文档案定格气候里的故乡变迁 中华网
 - **分析**：该条目涉及【以人文档案定格气候里的故乡变迁】话题，热度主要由时间新鲜度驱动，建议关注。
 
-### 5. 【举报】一省对岩溶洞穴污染及非法处置固废违法线索实行有奖举报 - 搜狐网
+### 6. 【举报】一省对岩溶洞穴污染及非法处置固废违法线索实行有奖举报 - 搜狐网
 - **来源**：Google News 环境污染
-- **热度**：18.6
+- **热度**：18.5
 - **链接**：https://news.google.com/rss/articles/CBMijAFBVV95cUxOSkw4Q19tMW5oYzJ0RW9aalV3TDZCbEk0V3hOMFh1VHdNNTZaTllCdThxV1gwaXhPMnhERTlVTTRtTFFZbXlXdFlyMWVXcUk1WWJ6X2dwaF9pX1JrY3otM1ZjUFBsY0tsX2V3SUMtQ3ozTUhSUkNseFdWY2ZudjJqR3g1Rmt5Sk0tRGZrOQ?oc=5
 - **摘要**：【举报】一省对岩溶洞穴污染及非法处置固废违法线索实行有奖举报 搜狐网
 - **分析**：该条目涉及【一省对岩溶洞穴污染及】话题，热度主要由时间新鲜度驱动，建议关注。
 
-### 6. 满眼赣鄱蓝！江西优良空气持续“刷屏” - 新浪网
+### 7. 满眼赣鄱蓝！江西优良空气持续“刷屏” - 新浪网
 - **来源**：Google News 环境污染
-- **热度**：18.3
+- **热度**：18.2
 - **链接**：https://news.google.com/rss/articles/CBMi2AFBVV95cUxPOGxEV0Q2aXZ2bzhaUDltOTFPSi1Damo1WXhlc0RRNXIxbktncTZMQzJhMFlLZ2VOT1J3dW5vN2F3MTZpWWdkRTdSb0FmRUFmZW1nVl9abkdNOVl5SlVGODgybHQyeTctenhxWEM4OFJWM2VmbS04Tmd6WUNjUzk2eUt1amlWalFZUWpBNkZMVHA2eFF4VFBuanNHVkZDWHpQbmRVLWhlZ1lJeGpoeDFKcnJadU1aWF9lMGJPVlI1Q3RZRm1PclYxQ1Z4Z0lOLTBEek5vajFlVlo?oc=5
 - **分析**：该条目涉及【江西优良空气持续】话题，热度主要由时间新鲜度驱动，建议关注。
 
-### 7. Groups sue Trump’s EPA over fast-track approval of toxic datacenter chemicals
+### 8. ‘You can taste the ash’: surviving in America’s wildfire smoke capital
 - **来源**：The Guardian Environment
-- **热度**：17.6
+- **热度**：17.8
+- **链接**：https://www.theguardian.com/us-news/ng-interactive/2026/aug/26/oregon-wildfire-smoke-deaths
+- **摘要**：A magical corner of Oregon has the highest US rate of wildfire smoke deaths. How do residents live with the haze – and grief?Driving into the county, you can’t miss the sign.“IT’S THE CLIMATE”. Continue reading...
+- **分析**：该条目涉及【环境动态】话题，热度主要由时间新鲜度驱动，建议关注。
+
+### 9. Groups sue Trump’s EPA over fast-track approval of toxic datacenter chemicals
+- **来源**：The Guardian Environment
+- **热度**：17.4
 - **链接**：https://www.theguardian.com/us-news/2026/aug/26/trump-epa-datacenter-forever-chemicals
 - **摘要**：Exposure to two compounds approved can result in ‘sudden death’ and range of other serious health risks, lawsuit warnsThe Trump administration has approved two new datacenter chemicals to which exposure can result in “sudden death” and a range of other serious health risks, like cancer, eye corrosion, neurological damage and reproductive harm, a new lawsuit warns.The two compounds approved by the Environmental Protection Agency (EPA) for import and immediate use in facilities across the US are photoacid generators that also appear to be Pfas “forever chemicals”, though it is unclear because much of the EPA documents are redacted. Some Pfas are commonly used in the production of semiconductors. Continue reading...
 - **分析**：该条目涉及【环境动态】话题，热度主要由时间新鲜度驱动，建议关注。
 
-### 8. 向失职失责“亮剑”为美丽中国“护航” - 新浪网
-- **来源**：Google News 环境保护
-- **热度**：17.5
-- **链接**：https://news.google.com/rss/articles/CBMieEFVX3lxTE1TWUwzbllNNU1udzd0WFBOa1J5bk9pYXQ3aGJzVFpHRVlOMHpMZm95ODdVRWg1cjNGQ1pvdDN5Um54RVBKa1BGdWFSbmZoZkp2T1NiWXFaMkFKQ3JOazltNjNkVUZXLTA5V0Y1ZFE5eGEzSjRUU1ZoMA?oc=5
-- **分析**：该条目涉及【向失职失责】话题，热度主要由时间新鲜度驱动，建议关注。
-
-### 9. 守好这片山水，再苦再累都值得——记长白山保护开发区生态环境局池西区分局环保科科员玄洪美 - 新浪财经
+### 10. 守好这片山水，再苦再累都值得——记长白山保护开发区生态环境局池西区分局环保科科员玄洪美 - 新浪财经
 - **来源**：Google News 生态环境
-- **热度**：17.2
+- **热度**：17.1
 - **链接**：https://news.google.com/rss/articles/CBMieEFVX3lxTE0zSVZpSTNyTWJudVYxLXdrWkk1cGx5U0dzZGtwcmhES2hMLVhwR3NBalItZURrRzhiRFk4Wjd2SExVbXVMRzJWR005Q1hTVUZxa3FwaWNiYnZaMGVZM3k3NVdaLXFRbjYyZllWYTVNQ1ZXZmZIQW05Mg?oc=5
 - **摘要**：守好这片山水，再苦再累都值得——记长白山保护开发区生态环境局池西区分局环保科科员玄洪美 新浪财经
 - **分析**：该条目涉及【记长白山保护开发区生】话题，热度主要由时间新鲜度驱动，建议关注。
-
-### 10. ‘132F’: meet the man calling out NYC’s infernally hot subway stations
-- **来源**：The Guardian Environment
-- **热度**：17.2
-- **链接**：https://www.theguardian.com/us-news/2026/aug/26/new-york-subway-extreme-heat
-- **摘要**：Jack Klein takes heat readings, gives fans to overheated passengers and lugs big jugs of water into the stationsOn a recent August day in the subterranean furnace of New York City’s subway, one bearded, curly haired man was studying his phone for different reasons than the other wilting passengers – to track the soaring temperatures and ponder how underground train stations can cool down in an era of climate crisis.Jack Klein, a 31-year-old construction site manager, has in the past two years taken it upon himself to become a sort of guerrilla subway heat operative, sticking teardrop-shaped thermometers to steel beams in seven of the hottest Manhattan stations and posting social media videos of the hades-like summer temperatures that commuters have to endure. Continue reading...
-- **分析**：该条目涉及【环境动态】话题，热度主要由时间新鲜度驱动，建议关注。
 
 **今日自动提取候选新词**
 
@@ -390,18 +391,10 @@
   - 上下文：8月25日，吉林省生态环境厅举行新闻发布会，对外集中发布了吉林省大气污染防治工作进展及成效 - 凤凰网
   - 上下文：守好这片山水，再苦再累都值得——记长白山保护开发区生态环境局池西区分局环保科科员玄洪美 - 新浪财经
   - 上下文：中办国办印发《党政领导干部生态环境损害责任追究办法》 - epaper.nfnews.com
-- **中国**（出现 4 次）
-  - 上下文：向失职失责“亮剑”为美丽中国“护航” - 新浪网
-  - 上下文：降碳减污扩绿增长协同推进，青海生态环保 “十五五” 明确九大重点任务 - 中国水网
-  - 上下文：中国核电举办2026年生态环境知识竞赛决赛 - 深圳核博会
 - **责任**（出现 4 次）
   - 上下文：中办国办印发《党政领导干部生态环境损害责任追究办法》 - epaper.nfnews.com
   - 上下文：无人机喷洒农药引发环境污染责任纠纷 都昌一莲藕种植户获赔7.8万余元 - 凤凰网江西
   - 上下文：向失职失责“亮剑” 为美丽中国“护航”——中央组织部负责人就修订颁布《党政领导干部生态环境损害责任追究办法》答记者问 - 新华网
-- **新浪网**（出现 3 次）
-  - 上下文：满眼赣鄱蓝！江西优良空气持续“刷屏” - 新浪网
-  - 上下文：向失职失责“亮剑”为美丽中国“护航” - 新浪网
-  - 上下文：以练促检强本领 精准质控守碧水 - 新浪网
 - **党政领导**（出现 3 次）
   - 上下文：中办国办印发《党政领导干部生态环境损害责任追究办法》 - epaper.nfnews.com
   - 上下文：向失职失责“亮剑” 为美丽中国“护航”——中央组织部负责人就修订颁布《党政领导干部生态环境损害责任追究办法》答记者问 - 新华网
@@ -418,10 +411,10 @@
   - 上下文：中办国办印发《党政领导干部生态环境损害责任追究办法》 - epaper.nfnews.com
   - 上下文：向失职失责“亮剑” 为美丽中国“护航”——中央组织部负责人就修订颁布《党政领导干部生态环境损害责任追究办法》答记者问 - 新华网
   - 上下文：受权发布丨中共中央办公厅 国务院办公厅印发《党政领导干部生态环境损害责任追究办法》 - 新华网
-- **carbon**（出现 3 次）
-  - 上下文：From paddy fields to policy: leveraging advanced CH4 measurement and modeling to drive climate action and carbon market transformation
-  - 上下文：Overflow metabolism drives high-rate carbon, nitrogen and phosphorus sequestration in an enriched aerobic microbial community
-  - 上下文：Maximizing electrochemical carbon dioxide reduction to achieve closed-loop reactive capture
+- **中国**（出现 3 次）
+  - 上下文：降碳减污扩绿增长协同推进，青海生态环保 “十五五” 明确九大重点任务 - 中国水网
+  - 上下文：中国核电举办2026年生态环境知识竞赛决赛 - 深圳核博会
+  - 上下文：向失职失责“亮剑” 为美丽中国“护航”——中央组织部负责人就修订颁布《党政领导干部生态环境损害责任追究办法》答记者问 - 新华网
 - **空气污染**（出现 2 次）
   - 上下文：Environment International：气候变化下高温、花粉与空气污染对过敏性鼻炎和哮喘的协同影响-MedSci.cn - 梅斯医学 MedSci
   - 上下文：陕西科技大学环境学院沙桐副教授课题组在气候变化与空气污染研究方面取得新进展 - 搜狐网
@@ -437,21 +430,12 @@
 - **江西**（出现 2 次）
   - 上下文：满眼赣鄱蓝！江西优良空气持续“刷屏” - 新浪网
   - 上下文：无人机喷洒农药引发环境污染责任纠纷 都昌一莲藕种植户获赔7.8万余元 - 凤凰网江西
-- **失职**（出现 2 次）
-  - 上下文：向失职失责“亮剑”为美丽中国“护航” - 新浪网
-  - 上下文：向失职失责“亮剑” 为美丽中国“护航”——中央组织部负责人就修订颁布《党政领导干部生态环境损害责任追究办法》答记者问 - 新华网
-- **失责**（出现 2 次）
-  - 上下文：向失职失责“亮剑”为美丽中国“护航” - 新浪网
-  - 上下文：向失职失责“亮剑” 为美丽中国“护航”——中央组织部负责人就修订颁布《党政领导干部生态环境损害责任追究办法》答记者问 - 新华网
-- **亮剑**（出现 2 次）
-  - 上下文：向失职失责“亮剑”为美丽中国“护航” - 新浪网
-  - 上下文：向失职失责“亮剑” 为美丽中国“护航”——中央组织部负责人就修订颁布《党政领导干部生态环境损害责任追究办法》答记者问 - 新华网
-- **美丽**（出现 2 次）
-  - 上下文：向失职失责“亮剑”为美丽中国“护航” - 新浪网
-  - 上下文：向失职失责“亮剑” 为美丽中国“护航”——中央组织部负责人就修订颁布《党政领导干部生态环境损害责任追究办法》答记者问 - 新华网
-- **护航**（出现 2 次）
-  - 上下文：向失职失责“亮剑”为美丽中国“护航” - 新浪网
-  - 上下文：向失职失责“亮剑” 为美丽中国“护航”——中央组织部负责人就修订颁布《党政领导干部生态环境损害责任追究办法》答记者问 - 新华网
+- **新浪网**（出现 2 次）
+  - 上下文：满眼赣鄱蓝！江西优良空气持续“刷屏” - 新浪网
+  - 上下文：以练促检强本领 精准质控守碧水 - 新浪网
+- **wildfire**（出现 2 次）
+  - 上下文：‘You can taste the ash’: surviving in America’s wildfire smoke capital
+  - 上下文：Fires still burn in charred landscape as focus turns to wildfire prevention
 - **环保**（出现 2 次）
   - 上下文：守好这片山水，再苦再累都值得——记长白山保护开发区生态环境局池西区分局环保科科员玄洪美 - 新浪财经
   - 上下文：降碳减污扩绿增长协同推进，青海生态环保 “十五五” 明确九大重点任务 - 中国水网
@@ -476,15 +460,12 @@
 - **deep**（出现 2 次）
   - 上下文：Using deep learning to predict future threats to Africa’s protected areas from an expansion of tea production
   - 上下文：Forces deep inside Earth helped Antarctica freeze before the Arctic
-- **learning**（出现 2 次）
-  - 上下文：Using deep learning to predict future threats to Africa’s protected areas from an expansion of tea production
-  - 上下文：An interpretable grid-resolution machine learning framework for predicting biofilm detachment
-- **future**（出现 2 次）
-  - 上下文：Using deep learning to predict future threats to Africa’s protected areas from an expansion of tea production
-  - 上下文：The future of peer review requires AI support, not AI bans
 - **waste**（出现 2 次）
   - 上下文：Toxic waste sites exposed in Michael Sheen documentary are 'tip of the iceberg'
   - 上下文：Atomic catalyst unlocks the hidden value of plant waste
+- **全球**（出现 2 次）
+  - 上下文：听鉴世界｜欧盟气候机构：全球日均海表温度创新高 - 搜狐网
+  - 上下文：《海德体育官方网址》Steam愿望单突破35万：独立团队KotaMota Games凭新品节试玩获得全球玩家关注 - womenofchina.com
 
 ---
 

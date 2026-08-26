@@ -6,220 +6,242 @@
     <title>环境学子雷达 - 环境专业学生信息平台</title>
     <meta name="description" content="环境学子雷达，面向环境科学、环境工程、生态学等专业学生的免费热点聚合、知识库与学习平台，每日更新环境新闻、论文、考研招聘信息。">
     <meta name="keywords" content="环境科学,环境工程,环境考研,环境热点,环境知识,环境就业,气候变化,碳中和,水污染,生态保护">
-    <meta name="author" content="环境学子雷达">
-    <meta name="robots" content="index, follow">
-    <!-- Open Graph 标签（社交分享） -->
     <meta property="og:title" content="环境学子雷达" />
     <meta property="og:description" content="面向环境专业学生的免费信息聚合与学习平台" />
     <meta property="og:type" content="website" />
-    <meta property="og:url" content="https://black15647.github.io/hotspot-radar/" />
-    <meta property="og:locale" content="zh_CN" />
+    <meta property="og:url" content="https://你的用户名.github.io/仓库名/" />
     <link rel="icon" type="image/svg+xml" href="favicon.svg">
     <link rel="stylesheet" href="style.css">
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-     <-- 百度统计 -->
-   <script>
-var _hmt = _hmt || [];
-(function() {
-  var hm = document.createElement("script");
-  hm.src = "https://hm.baidu.com/hm.js?a47e3a3732738a643556073b388e7393";
-  var s = document.getElementsByTagName("script")[0]; 
-  s.parentNode.insertBefore(hm, s);
-})();
-</script>
+    <!-- 百度统计（BAIDU_TONGJI_ID 请替换为自己的统计 ID） -->
+    <script>
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?BAIDU_TONGJI_ID";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+    </script>
 </head>
 <body>
-    <!-- 顶部导航 -->
-    <header class="navbar">
-        <div class="nav-container">
-            <div class="nav-brand">
-                <span class="brand-icon">📡</span>
+
+    <!-- ======================= 顶部导航 ======================= -->
+    <header class="topbar">
+        <div class="topbar-inner">
+            <div class="brand">
+                <span class="brand-mark">📡</span>
                 <span class="brand-name">环境学子雷达</span>
-                <div class="window-tabs">
-                    <button class="window-tab active" data-window="hotspot">🔥 热点</button>
-                    <button class="window-tab" data-window="schools">🎓 高校考研</button>
-                </div>
             </div>
-            <div class="nav-actions">
-                <div class="search-box">
-                    <input type="text" id="searchInput" placeholder="搜索热点..." autocomplete="off">
-                    <span class="search-icon">🔍</span>
+
+            <nav class="nav-tabs" role="navigation">
+                <button class="nav-tab is-active" data-window="hotspot">热点</button>
+                <button class="nav-tab" data-window="schools">高校考研</button>
+                <button class="nav-tab" data-window="jobs">就业方向</button>
+                <button class="nav-tab" data-target="glossary">知识库</button>
+                <button class="nav-tab" data-target="saved">收藏</button>
+            </nav>
+
+            <div class="top-actions">
+                <div class="srch-box">
+                    <input type="text" id="searchInput" placeholder="搜索热点、学校、词条..." autocomplete="off">
+                    <span class="srch-icon">🔍</span>
                 </div>
-                <button class="icon-btn" id="themeToggle" title="暗黑模式">🌙</button>
-                <button class="icon-btn" id="customizeBtn" title="主题定制">🎨</button>
-                <button class="icon-btn history-btn" id="historyBtn" title="历史归档">📅</button>
-                <button class="icon-btn glossary-btn" id="glossaryBtn" title="环境知识库">📖</button>
-                <button class="icon-btn learning-btn" id="learningBtn" title="学习路径">🧭</button>
-                <button class="icon-btn schools-btn" id="schoolsBtn" title="考研院校">🎓</button>
-                <button class="icon-btn saved-btn" id="savedBtn" title="我的收藏">⭐</button>
-                <button class="icon-btn source-health-btn" id="sourceHealthBtn" title="源健康度">📡</button>
-                <button class="icon-btn share-site-btn" id="shareSiteBtn" title="分享网站">📤</button>
+                <button class="tool-btn" id="themeToggle" title="暗黑模式">🌙</button>
+                <button class="tool-btn" id="customizeBtn" title="主题定制">🎨</button>
+                <button class="tool-btn" id="historyBtn" title="历史归档">📅</button>
+                <button class="tool-btn" id="glossaryBtn" title="环境知识库">📖</button>
+                <button class="tool-btn" id="learningBtn" title="学习路径">🧭</button>
+                <button class="tool-btn" id="schoolsBtn" title="考研院校">🎓</button>
+                <button class="tool-btn" id="savedBtn" title="我的收藏">⭐</button>
+                <button class="tool-btn" id="sourceHealthBtn" title="源健康度">📡</button>
+                <button class="tool-btn" id="shareSiteBtn" title="分享网站">📤</button>
             </div>
         </div>
     </header>
 
-    <!-- 主区域 -->
-    <main class="main-container">
-        <!-- 热点窗口 -->
-        <div class="window-pane active" id="hotspotWindow">
-        <!-- 热点总结 -->
-        <section class="summary-section" id="summarySection" style="display:none;">
-            <div class="summary-card">
-                <span class="summary-label">📊 今日概览</span>
-                <p class="summary-text" id="summaryText"></p>
-            </div>
-        </section>
+    <!-- ======================= 主区域 ======================= -->
+    <main class="stage">
 
-        <!-- 今日焦点 -->
-        <section class="featured-section" id="featuredSection" style="display:none;">
-            <div class="section-header">
-                <h2 class="section-title">⭐ 今日焦点</h2>
-            </div>
-            <div class="featured-list" id="featuredList">
-                <!-- 焦点卡片由 JS 动态渲染 -->
-            </div>
-        </section>
-
-        <!-- 今日热点 TOP10 -->
-        <section class="hotspot-section">
-            <div class="section-header">
-                <h2 class="section-title">🔥 今日热点</h2>
-                <span class="section-subtitle" id="itemCount"></span>
-            </div>
-            <div class="card-list" id="cardList">
-                <!-- 骨架屏占位卡片 -->
-                <div class="skeleton-card">
-                    <div class="skeleton-rank"></div>
-                    <div class="skeleton-body">
-                        <div class="skeleton-title"></div>
-                        <div class="skeleton-meta"></div>
-                        <div class="skeleton-summary"></div>
-                        <div class="skeleton-summary short"></div>
-                    </div>
+        <!-- ============ 热点窗口 ============ -->
+        <section class="window-pane is-active" id="hotspotWindow">
+            <div class="page-head">
+                <div class="page-head-main">
+                    <h1 class="page-title">今日环境热点</h1>
+                    <p class="page-sub" id="pageDate">每日聚合 · 数据自动更新</p>
                 </div>
-                <div class="skeleton-card">
-                    <div class="skeleton-rank"></div>
-                    <div class="skeleton-body">
-                        <div class="skeleton-title"></div>
-                        <div class="skeleton-meta"></div>
-                        <div class="skeleton-summary"></div>
-                        <div class="skeleton-summary short"></div>
-                    </div>
-                </div>
-                <div class="skeleton-card">
-                    <div class="skeleton-rank"></div>
-                    <div class="skeleton-body">
-                        <div class="skeleton-title"></div>
-                        <div class="skeleton-meta"></div>
-                        <div class="skeleton-summary"></div>
-                        <div class="skeleton-summary short"></div>
-                    </div>
+                <div class="page-head-side">
+                    <a href="#" class="algo-entry" id="algoLink">透明热度算法</a>
+                    <button class="refresh-entry" id="refreshDataBtn">⟳ 刷新数据</button>
                 </div>
             </div>
-            <div class="load-more-container" id="loadMoreContainer" style="display:none;">
-                <button class="load-more-btn" id="loadMoreBtn">查看全部（共 0 条）</button>
+
+            <div class="hotspot-layout">
+                <!-- 左侧主列 -->
+                <div class="hotspot-main">
+                    <section class="overview-card" id="summarySection" style="display:none;">
+                        <span class="overview-label">📊 今日概览</span>
+                        <p class="overview-text" id="summaryText"></p>
+                    </section>
+
+                    <section class="featured-block" id="featuredSection" style="display:none;">
+                        <div class="block-head">
+                            <h2 class="block-title">⭐ 今日焦点</h2>
+                        </div>
+                        <div class="featured-list" id="featuredList"></div>
+                    </section>
+
+                    <section class="hotspot-block">
+                        <div class="block-head">
+                            <h2 class="block-title">今日 Top 10 热点</h2>
+                            <span class="block-note" id="itemCount"></span>
+                        </div>
+                        <div class="card-list" id="cardList">
+                            <div class="skeleton-card"><div class="skeleton-rank"></div><div class="skeleton-body"><div class="skeleton-line w80"></div><div class="skeleton-line w50"></div><div class="skeleton-line w60"></div></div></div>
+                            <div class="skeleton-card"><div class="skeleton-rank"></div><div class="skeleton-body"><div class="skeleton-line w80"></div><div class="skeleton-line w50"></div><div class="skeleton-line w60"></div></div></div>
+                            <div class="skeleton-card"><div class="skeleton-rank"></div><div class="skeleton-body"><div class="skeleton-line w80"></div><div class="skeleton-line w50"></div><div class="skeleton-line w60"></div></div></div>
+                        </div>
+                        <div class="load-more-container" id="loadMoreContainer" style="display:none;">
+                            <button class="load-more-btn" id="loadMoreBtn">查看全部（共 0 条）</button>
+                        </div>
+                    </section>
+
+                    <!-- 近7天热点总结（底部统计卡） -->
+                    <section class="weekly-card" id="weeklySummarySection" style="display:none;">
+                        <div class="weekly-head">
+                            <span class="weekly-title">📊 近 7 天热点总结</span>
+                        </div>
+                        <p class="weekly-text" id="weeklySummaryText">加载中...</p>
+                        <div class="weekly-stats">
+                            <div class="weekly-stat">
+                                <strong class="stat-num" id="statTotal">-</strong>
+                                <span class="stat-label">本周热点总数</span>
+                            </div>
+                            <div class="weekly-stat">
+                                <strong class="stat-num" id="statKeywords">-</strong>
+                                <span class="stat-label">新增关键词</span>
+                            </div>
+                            <div class="weekly-stat">
+                                <strong class="stat-num" id="statPolicy">-</strong>
+                                <span class="stat-label">政策类占比</span>
+                            </div>
+                        </div>
+                    </section>
+                </div>
+
+                <!-- 右侧边栏 -->
+                <aside class="hotspot-sidebar">
+                    <section class="side-card daily-word-card" id="dailyWordSection">
+                        <div class="side-card-head">
+                            <span class="side-card-title">● 每日一词</span>
+                        </div>
+                        <h3 class="word-term" id="dailyWordTerm">加载中...</h3>
+                        <span class="word-cat" id="dailyWordCategory"></span>
+                        <p class="word-def" id="dailyWordDefinition">正在获取今日词条...</p>
+                        <button class="word-refresh" id="dailyWordRefresh">🔄 换一个</button>
+                    </section>
+
+                    <section class="side-card">
+                        <div class="side-card-head">
+                            <span class="side-card-title">每日热门关键词变化</span>
+                            <span class="side-card-badge">近 7 天</span>
+                        </div>
+                        <p class="side-note">本周高频：<span id="trendKeywords"></span></p>
+                        <div class="chart-box">
+                            <canvas id="trendChart"></canvas>
+                        </div>
+                        <div class="card-detail-actions" style="margin-top:12px;">
+                            <button class="proxy-btn" id="timelineBtn" style="width:100%;">📈 查看事件时间线</button>
+                        </div>
+                    </section>
+
+                    <section class="side-card">
+                        <div class="side-card-head">
+                            <span class="side-card-title">关键词标签云</span>
+                            <span class="side-card-hint">点击查看相关热点</span>
+                        </div>
+                        <div class="tag-cloud" id="tagCloud"></div>
+                    </section>
+
+                    <section class="side-card" id="followedBlock" style="display:none;">
+                        <div class="side-card-head">
+                            <span class="side-card-title">我关注的关键词</span>
+                            <button class="side-card-link" id="followedManageBtn">管理 ›</button>
+                        </div>
+                        <div class="followed-list" id="followedKeywordsBar"></div>
+                    </section>
+                </aside>
             </div>
         </section>
 
-        <!-- 近7天趋势图 -->
-        <section class="trend-section">
-            <div class="section-header">
-                <h2 class="section-title">📈 近7天趋势</h2>
-                <button class="timeline-btn" id="timelineBtn" title="查看关键词事件时间线">📊 事件时间线</button>
-            </div>
-            <div class="chart-container">
-                <canvas id="trendChart"></canvas>
-            </div>
-        </section>
-
-        <!-- 关键词标签云 -->
-        <section class="keywords-section">
-            <div class="section-header">
-                <h2 class="section-title">🏷️ 热门关键词</h2>
-            </div>
-            <div class="tag-cloud" id="tagCloud">
-                <!-- 标签由 JS 动态渲染 -->
-            </div>
-        </section>
-        </div>
-        <!-- 高校考研窗口 -->
-        <div class="window-pane" id="schoolsWindow">
+        <!-- ============ 高校考研窗口 ============ -->
+        <section class="window-pane" id="schoolsWindow">
             <div class="schools-page">
-                <div class="schools-page-header">
-                    <h2>🎓 环境专业考研院校分析</h2>
-                    <p>选择省份查看该地区环境类硕士招生院校信息</p>
-                </div>
-                <div class="province-selector">
-                    <div class="province-card active" data-province="guangdong">
-                        <div class="province-name">广东省</div>
-                        <div class="province-count">18 所院校</div>
-                        <div class="province-status">已开放</div>
+                <div class="page-head">
+                    <div class="page-head-main">
+                        <h1 class="page-title">高校考研数据库</h1>
+                        <p class="page-sub">收录 18 所高校环境类专业 · 多维筛选找对方向</p>
                     </div>
-                    <div class="province-card disabled" data-province="jiangsu">
-                        <div class="province-name">江苏省</div>
-                        <div class="province-count">敬请期待</div>
-                        <div class="province-status">未开放</div>
-                    </div>
-                    <div class="province-card disabled" data-province="zhejiang">
-                        <div class="province-name">浙江省</div>
-                        <div class="province-count">敬请期待</div>
-                        <div class="province-status">未开放</div>
-                    </div>
-                    <div class="province-card disabled" data-province="shandong">
-                        <div class="province-name">山东省</div>
-                        <div class="province-count">敬请期待</div>
-                        <div class="province-status">未开放</div>
-                    </div>
-                    <div class="province-card disabled" data-province="hubei">
-                        <div class="province-name">湖北省</div>
-                        <div class="province-count">敬请期待</div>
-                        <div class="province-status">未开放</div>
-                    </div>
-                    <div class="province-card disabled" data-province="sichuan">
-                        <div class="province-name">四川省</div>
-                        <div class="province-count">敬请期待</div>
-                        <div class="province-status">未开放</div>
-                    </div>
-                    <div class="province-card disabled" data-province="shaanxi">
-                        <div class="province-name">陕西省</div>
-                        <div class="province-count">敬请期待</div>
-                        <div class="province-status">未开放</div>
+                    <div class="page-head-side">
+                        <p class="province-status-txt">当前开放：广东省</p>
+                        <p class="province-status-sub">已开放省份 1 / 7 · 其余敬请期待</p>
                     </div>
                 </div>
-                <div class="province-detail" id="guangdongDetail">
+
+                <div class="province-bar">
+                    <span class="province-bar-label">选择省份</span>
+                    <div class="province-selector">
+                        <button class="province-card is-active" data-province="guangdong">
+                            <span class="province-name">广东</span>
+                        </button>
+                        <button class="province-card is-locked" data-province="jiangsu">
+                            <span class="province-name">江苏</span>
+                        </button>
+                        <button class="province-card is-locked" data-province="beijing">
+                            <span class="province-name">北京</span>
+                        </button>
+                        <button class="province-card is-locked" data-province="shanghai">
+                            <span class="province-name">上海</span>
+                        </button>
+                        <button class="province-card is-locked" data-province="zhejiang">
+                            <span class="province-name">浙江</span>
+                        </button>
+                        <button class="province-card is-locked" data-province="hubei">
+                            <span class="province-name">湖北</span>
+                        </button>
+                        <button class="province-card is-locked" data-province="shaanxi">
+                            <span class="province-name">陕西</span>
+                        </button>
+                    </div>
+                </div>
+
+                <div class="schools-panel" id="guangdongDetail">
                     <div class="schools-filters">
-                        <div class="filter-group">
-                            <label>学校层次</label>
+                        <div class="filter-item">
                             <select id="schoolsLevelFilter2">
-                                <option value="all">全部</option>
+                                <option value="all">层次 全部</option>
                                 <option value="985">985</option>
                                 <option value="211">211</option>
                                 <option value="双一流">双一流</option>
                                 <option value="普通">普通</option>
                             </select>
                         </div>
-                        <div class="filter-group">
-                            <label>难度等级</label>
+                        <div class="filter-item">
                             <select id="schoolsDifficultyFilter2">
-                                <option value="all">全部</option>
-                                <option value="high">高难度（80-100）</option>
-                                <option value="medium-high">中高难度（65-80）</option>
-                                <option value="medium">中等难度（50-65）</option>
-                                <option value="low">低难度（35-50）</option>
-                                <option value="easy">容易（<35）</option>
+                                <option value="all">难度 全部</option>
+                                <option value="hard">高难度</option>
+                                <option value="medium">中难度</option>
+                                <option value="easy">低难度</option>
                             </select>
                         </div>
-                        <div class="filter-group">
-                            <label>排序方式</label>
+                        <div class="filter-item">
                             <select id="schoolsSortBy2">
-                                <option value="difficulty-desc">难度从高到低</option>
-                                <option value="difficulty-asc">难度从低到高</option>
-                                <option value="name-asc">学校名称</option>
+                                <option value="desc">排序 难度降序</option>
+                                <option value="asc">排序 难度升序</option>
                             </select>
                         </div>
-                        <div class="filter-group">
-                            <label>搜索学校</label>
-                            <input type="text" id="schoolsSearch2" placeholder="输入学校名称..." autocomplete="off">
+                        <div class="filter-item">
+                            <input type="text" id="schoolsSearch2" placeholder="搜索学校 / 专业..." autocomplete="off">
                         </div>
                     </div>
                     <div class="schools-stats" id="schoolsStats2"></div>
@@ -228,60 +250,72 @@ var _hmt = _hmt || [];
                     </div>
                 </div>
             </div>
-        </div>
+        </section>
+
+        <!-- ============ 就业方向窗口 ============ -->
+        <section class="window-pane" id="jobsWindow">
+            <div class="jobs-page">
+                <div class="page-head">
+                    <div class="page-head-main">
+                        <h1 class="page-title">环保就业方向</h1>
+                        <p class="page-sub">10 大方向 · 从科研到产业的完整就业地图</p>
+                    </div>
+                    <div class="page-head-side">
+                        <div class="jobs-stats">
+                            <span class="jobs-stat-item"><strong>10</strong> 大分类</span>
+                            <span class="jobs-stat-item"><strong>120+</strong> 岗位</span>
+                            <span class="jobs-stat-item"><strong>每日</strong> 聚合招聘与实习资讯</span>
+                        </div>
+                    </div>
+                </div>
+
+                <section class="jobs-block">
+                    <div class="block-head">
+                        <h2 class="block-title">十大就业方向</h2>
+                        <a href="#" class="block-link">查看岗位详情 →</a>
+                    </div>
+                    <div class="jobs-grid" id="jobsGrid">
+                        <div class="loading-text">加载中...</div>
+                    </div>
+                </section>
+
+                <section class="jobs-block">
+                    <div class="block-head">
+                        <h2 class="block-title">最新招聘资讯</h2>
+                        <a href="#" class="block-link">查看更多招聘 →</a>
+                    </div>
+                    <div class="recruit-grid" id="recruitGrid">
+                        <div class="loading-text">加载中...</div>
+                    </div>
+                </section>
+            </div>
+        </section>
     </main>
 
-    <!-- 每日一词：左侧固定悬浮卡片（桌面端显示，移动端隐藏） -->
-    <section class="daily-word-floating" id="dailyWordSection">
-        <div class="daily-word-card">
-            <div class="daily-word-header">
-                <span class="daily-word-icon">📖</span>
-                <span class="daily-word-label">每日一词</span>
-            </div>
-            <div class="daily-word-content">
-                <h3 class="daily-word-term" id="dailyWordTerm">加载中...</h3>
-                <p class="daily-word-definition" id="dailyWordDefinition">正在获取今日词条...</p>
-                <span class="daily-word-category" id="dailyWordCategory"></span>
-            </div>
-            <button class="daily-word-refresh" id="dailyWordRefresh" title="换一个">🔄 换一个</button>
-        </div>
-    </section>
-
-    <!-- 近7天热度总结：左侧固定悬浮卡片（桌面端显示，移动端隐藏） -->
-    <section class="weekly-summary-floating" id="weeklySummarySection" style="display:none;">
-        <div class="weekly-summary-card">
-            <div class="weekly-summary-header">
-                <span class="weekly-summary-icon">📊</span>
-                <span class="weekly-summary-label">近7天热度总结</span>
-            </div>
-            <p class="weekly-summary-text" id="weeklySummaryText">加载中...</p>
-        </div>
-    </section>
-
-    <!-- 底部 -->
+    <!-- ======================= 页脚 ======================= -->
     <footer class="footer">
-        <div class="footer-container">
+        <div class="footer-inner">
+            <div class="footer-brand">
+                <span class="footer-name">环境学子雷达</span>
+                <p class="footer-desc">开源免费 · 数据每日自动更新 · 由 RSS + GitHub Actions 驱动</p>
+            </div>
             <div class="footer-links">
-                <a href="#" class="footer-link" id="algoLink">算法说明</a>
-                <a href="#" class="footer-link" id="aboutLink">关于</a>
-                <a href="https://github.com" target="_blank" rel="noopener" class="footer-link">GitHub</a>
+                <button class="footer-link" id="aboutLink">关于</button>
+                <button class="footer-link" data-open-modal="#glossaryModal">知识库</button>
+                <button class="footer-link" data-open-modal="#savedModal">我的收藏</button>
+                <a class="footer-link" href="https://github.com/black15647/hotspot-radar/issues/new?title=网站反馈&body=请描述你的建议或问题：" target="_blank" rel="noopener">用户反馈</a>
+                <button class="footer-link" id="shareSiteBtn">分享网站</button>
+                <button class="footer-link" id="backToTop">回到顶部</button>
+                <a class="footer-link support-link" href="https://afdian.com/" target="_blank" rel="noopener">☕ 支持作者</a>
             </div>
-            <div class="footer-actions">
-                <a href="https://afdian.com/a/swda15652" target="_blank" rel="noopener" class="support-btn">
-                    ☕ 支持作者
-                </a>
-                <a href="https://github.com/black15647/hotspot-radar/issues/new?title=网站反馈&body=请描述你的建议或问题：" target="_blank" rel="noopener" class="feedback-btn">
-                    💬 反馈
-                </a>
-            </div>
-            <p class="footer-copyright">© 2026 环境学子雷达 · MIT License</p>
         </div>
+        <p class="footer-copyright">© 2026 环境学子雷达 · 开源免费 · MIT License</p>
     </footer>
 
-    <!-- 主题定制面板 -->
-    <div class="customize-panel" id="customizePanel">
-        <div class="panel-header">
-            <h3>🎨 主题定制</h3>
+    <!-- ======================= 主题定制面板 ======================= -->
+    <aside class="customize-panel" id="customizePanel">
+        <div class="panel-head">
+            <span class="panel-title">🎨 主题定制</span>
             <button class="panel-close" id="panelClose">✕</button>
         </div>
         <div class="panel-body">
@@ -291,7 +325,7 @@ var _hmt = _hmt || [];
             </div>
             <div class="setting-group">
                 <label class="setting-label">背景色</label>
-                <input type="color" id="bgColorPicker" value="#F9FAFB">
+                <input type="color" id="bgColorPicker" value="#F5F7FA">
             </div>
             <div class="setting-group">
                 <label class="setting-label">文字颜色</label>
@@ -304,15 +338,9 @@ var _hmt = _hmt || [];
             <div class="setting-group">
                 <label class="setting-label">密度</label>
                 <div class="radio-group">
-                    <label class="radio-label">
-                        <input type="radio" name="density" value="8"> 紧凑
-                    </label>
-                    <label class="radio-label">
-                        <input type="radio" name="density" value="16" checked> 舒适
-                    </label>
-                    <label class="radio-label">
-                        <input type="radio" name="density" value="24"> 宽松
-                    </label>
+                    <label class="radio-label"><input type="radio" name="density" value="8"> 紧凑</label>
+                    <label class="radio-label"><input type="radio" name="density" value="16" checked> 舒适</label>
+                    <label class="radio-label"><input type="radio" name="density" value="24"> 宽松</label>
                 </div>
             </div>
             <div class="setting-group">
@@ -330,106 +358,76 @@ var _hmt = _hmt || [];
             </div>
             <button class="reset-btn" id="resetThemeBtn">恢复默认</button>
         </div>
-    </div>
+    </aside>
     <div class="panel-overlay" id="panelOverlay"></div>
 
-    <!-- 关键词曲线模态框 -->
+    <!-- ======================= 模态框：关键词趋势 ======================= -->
     <div class="modal" id="keywordModal">
         <div class="modal-overlay" id="keywordOverlay"></div>
         <div class="modal-content modal-large">
-            <div class="modal-header">
-                <h3 id="keywordModalTitle">关键词趋势</h3>
+            <div class="modal-head">
+                <h3 class="modal-title" id="keywordModalTitle">关键词趋势</h3>
                 <button class="modal-close" id="keywordClose">✕</button>
             </div>
             <div class="modal-body">
-                <div class="chart-container">
-                    <canvas id="keywordChart"></canvas>
-                </div>
+                <div class="chart-box"><canvas id="keywordChart"></canvas></div>
             </div>
         </div>
     </div>
 
-    <!-- 算法说明模态框 -->
+    <!-- ======================= 模态框：算法说明 ======================= -->
     <div class="modal" id="algoModal">
         <div class="modal-overlay" id="algoOverlay"></div>
         <div class="modal-content">
-            <div class="modal-header">
-                <h3>📐 热度算法说明</h3>
+            <div class="modal-head">
+                <h3 class="modal-title">透明热度算法</h3>
                 <button class="modal-close" id="algoClose">✕</button>
             </div>
             <div class="modal-body">
-                <div class="algo-content">
-                    <h4>热度计算公式</h4>
-                    <p class="formula">热度 = 5 + 来源权重 × 3 + 关键词匹配数 × 关键词加分 + 主题聚合加分 + 10 × e<sup>-小时数/24</sup></p>
-                    <h4>各项说明</h4>
-                    <ul class="algo-list">
-                        <li><strong>基础分</strong>：5 分，保证每条资讯有基础热度。</li>
-                        <li><strong>来源权重</strong>：Nature 系列 2.0，Google News 1.5，其他 1.0。</li>
-                        <li><strong>关键词加分</strong>：每匹配一个环境专业关键词加 2.0 分。</li>
-                        <li><strong>主题聚合加分</strong>：同一关键词在多条资讯中出现时，每条额外加 2 × 包含该关键词的条目数。</li>
-                        <li><strong>时间衰减</strong>：越新的资讯加分越高，10 × e<sup>-小时数/24</sup>。</li>
-                    </ul>
-                    <h4>数据范围</h4>
-                    <p>仅保留最近 48 小时内发布的资讯，每天自动更新。</p>
-                </div>
+                <p class="formula">热度 = 5 + 来源权重 × 3 + 关键词匹配数 × 关键词加分 + 主题聚合加分 + 10 × e<sup>-小时数/24</sup></p>
+                <ul class="algo-list">
+                    <li>基础分 5：每条资讯的保底热度。</li>
+                    <li>来源权重：权威学术源（如 Nature）权重更高，加分更多。</li>
+                    <li>关键词匹配：命中环境领域关键词越多，热度越高。</li>
+                    <li>主题聚合：同一关键词在多个条目中出现，额外加分。</li>
+                    <li>时间衰减：越新的资讯热度越高，24 小时后衰减明显。</li>
+                </ul>
             </div>
         </div>
     </div>
 
-    <!-- 关于模态框 -->
+    <!-- ======================= 模态框：关于 ======================= -->
     <div class="modal" id="aboutModal">
         <div class="modal-overlay" id="aboutOverlay"></div>
         <div class="modal-content">
-            <div class="modal-header">
-                <h3>ℹ️ 关于环境学子雷达</h3>
+            <div class="modal-head">
+                <h3 class="modal-title">关于</h3>
                 <button class="modal-close" id="aboutClose">✕</button>
             </div>
             <div class="modal-body">
-                <div class="about-content">
-                    <p><strong>环境学子雷达</strong>是一个面向环境专业学生的开源热点聚合平台。</p>
-                    <p>我们聚合了 Google News、The Guardian、Yale Environment 360、BBC、Nature、Water Research、ScienceDaily 等 15+ 权威信息源，通过透明的热度算法为你筛选每日最值得关注的环境领域资讯。</p>
-                    <h4>主要功能</h4>
-                    <ul>
-                        <li>每日热点 TOP 榜单</li>
-                        <li>关键词标签云与历史趋势曲线</li>
-                        <li>个性化关键词过滤</li>
-                        <li>主题定制与暗黑模式</li>
-                        <li>一键分享资讯</li>
-                        <li>用户反馈通道</li>
-                    </ul>
-                    <p class="about-note">本项目完全开源免费，采用 MIT 协议。欢迎 Star、Fork 和贡献代码！</p>
-                </div>
+                <p class="about-note">环境学子雷达是一个面向环境专业学生的开源热点聚合平台，数据每日由 GitHub Actions 自动抓取更新。</p>
+                <p class="about-note">本项目完全开源免费，采用 MIT 协议。欢迎 Star、Fork 和贡献代码！</p>
             </div>
         </div>
     </div>
 
-    <!-- 历史归档模态框 -->
+    <!-- ======================= 模态框：历史归档 ======================= -->
     <div class="modal" id="historyModal">
         <div class="modal-overlay" id="historyOverlay"></div>
         <div class="modal-content modal-large">
-            <div class="modal-header">
-                <h3>📅 历史归档</h3>
+            <div class="modal-head">
+                <h3 class="modal-title">📅 历史归档</h3>
                 <button class="modal-close" id="historyClose">✕</button>
             </div>
             <div class="modal-body">
-                <!-- 年月选择区 -->
                 <div class="history-selector">
-                    <div class="selector-group">
-                        <label>年份</label>
-                        <select id="historyYear"></select>
-                    </div>
-                    <div class="selector-group">
-                        <label>月份</label>
-                        <select id="historyMonth"></select>
-                    </div>
+                    <div class="selector-group"><select id="historyYear"></select></div>
+                    <div class="selector-group"><select id="historyMonth"></select></div>
                     <button class="btn-primary" id="historyViewBtn">查看</button>
                 </div>
-                <!-- 日期快速选择区 -->
                 <div class="history-date-picker">
-                    <label>按日期查看：</label>
                     <input type="date" id="historyDateInput">
                 </div>
-                <!-- 内容展示区 -->
                 <div class="history-content" id="historyContent">
                     <div class="history-loading">加载中...</div>
                 </div>
@@ -437,12 +435,12 @@ var _hmt = _hmt || [];
         </div>
     </div>
 
-    <!-- 知识库模态框 -->
+    <!-- ======================= 模态框：环境知识库 ======================= -->
     <div class="modal" id="glossaryModal">
         <div class="modal-overlay" id="glossaryOverlay"></div>
         <div class="modal-content modal-large">
-            <div class="modal-header">
-                <h3>📖 环境知识库</h3>
+            <div class="modal-head">
+                <h3 class="modal-title">📖 环境知识库</h3>
                 <button class="modal-close" id="glossaryClose">✕</button>
             </div>
             <div class="modal-body">
@@ -451,7 +449,7 @@ var _hmt = _hmt || [];
                     <div class="glossary-suggestions" id="glossarySuggestions" style="display:none;"></div>
                 </div>
                 <div class="glossary-recommend" id="glossaryRecommend">
-                    <div class="glossary-recommend-header">
+                    <div class="glossary-recommend-head">
                         <span class="glossary-recommend-title">✨ 推荐词条</span>
                         <button class="glossary-refresh-btn" id="glossaryRefreshBtn">换一批</button>
                     </div>
@@ -463,12 +461,12 @@ var _hmt = _hmt || [];
         </div>
     </div>
 
-    <!-- 术语解释模态框 -->
+    <!-- ======================= 模态框：术语解释 ======================= -->
     <div class="modal" id="termModal">
         <div class="modal-overlay" id="termOverlay"></div>
         <div class="modal-content">
-            <div class="modal-header">
-                <h3 id="termModalTitle">术语解释</h3>
+            <div class="modal-head">
+                <h3 class="modal-title" id="termModalTitle">术语解释</h3>
                 <button class="modal-close" id="termClose">✕</button>
             </div>
             <div class="modal-body">
@@ -484,12 +482,12 @@ var _hmt = _hmt || [];
         </div>
     </div>
 
-    <!-- 收藏榜模态框 -->
+    <!-- ======================= 模态框：我的收藏 ======================= -->
     <div class="modal" id="savedModal">
         <div class="modal-overlay" id="savedOverlay"></div>
         <div class="modal-content modal-large">
-            <div class="modal-header">
-                <h3>⭐ 我的收藏榜</h3>
+            <div class="modal-head">
+                <h3 class="modal-title">⭐ 我的收藏</h3>
                 <button class="modal-close" id="savedClose">✕</button>
             </div>
             <div class="modal-body">
@@ -500,12 +498,12 @@ var _hmt = _hmt || [];
         </div>
     </div>
 
-    <!-- 学习路径模态框 -->
+    <!-- ======================= 模态框：学习路径 ======================= -->
     <div class="modal" id="learningModal">
         <div class="modal-overlay" id="learningOverlay"></div>
         <div class="modal-content modal-large">
-            <div class="modal-header">
-                <h3>🧭 学习路径</h3>
+            <div class="modal-head">
+                <h3 class="modal-title">🧭 学习路径</h3>
                 <button class="modal-close" id="learningClose">✕</button>
             </div>
             <div class="modal-body">
@@ -516,72 +514,37 @@ var _hmt = _hmt || [];
         </div>
     </div>
 
-    <!-- 考研院校模态框 -->
+    <!-- ======================= 模态框：考研院校（大） ======================= -->
     <div class="modal" id="schoolsModal">
         <div class="modal-overlay" id="schoolsOverlay"></div>
         <div class="modal-content modal-xlarge">
-            <div class="modal-header">
-                <h3>🎓 考研院校分析（广东省环境类）</h3>
+            <div class="modal-head">
+                <h3 class="modal-title">🎓 考研院校分析</h3>
                 <button class="modal-close" id="schoolsClose">✕</button>
             </div>
             <div class="modal-body">
-                <!-- 筛选区 -->
                 <div class="schools-filters">
-                    <div class="filter-group">
-                        <label>学校层次</label>
-                        <select id="schoolsLevelFilter">
-                            <option value="all">全部</option>
-                            <option value="985">985</option>
-                            <option value="211">211</option>
-                            <option value="双一流">双一流</option>
-                            <option value="普通">普通</option>
-                        </select>
-                    </div>
-                    <div class="filter-group">
-                        <label>难度等级</label>
-                        <select id="schoolsDifficultyFilter">
-                            <option value="all">全部</option>
-                            <option value="high">高难度（80-100）</option>
-                            <option value="medium-high">中高难度（65-80）</option>
-                            <option value="medium">中等难度（50-65）</option>
-                            <option value="low">低难度（35-50）</option>
-                            <option value="easy">容易（&lt;35）</option>
-                        </select>
-                    </div>
-                    <div class="filter-group">
-                        <label>排序方式</label>
-                        <select id="schoolsSortBy">
-                            <option value="difficulty-desc">难度从高到低</option>
-                            <option value="difficulty-asc">难度从低到高</option>
-                            <option value="name-asc">学校名称</option>
-                        </select>
-                    </div>
-                    <div class="filter-group">
-                        <label>搜索学校</label>
-                        <input type="text" id="schoolsSearch" placeholder="输入学校名称..." autocomplete="off">
-                    </div>
+                    <div class="filter-item"><select id="schoolsLevelFilter"><option value="all">层次 全部</option><option value="985">985</option><option value="211">211</option><option value="双一流">双一流</option><option value="普通">普通</option></select></div>
+                    <div class="filter-item"><select id="schoolsDifficultyFilter"><option value="all">难度 全部</option><option value="hard">高难度</option><option value="medium">中难度</option><option value="easy">低难度</option></select></div>
+                    <div class="filter-item"><select id="schoolsSortBy"><option value="desc">排序 难度降序</option><option value="asc">排序 难度升序</option></select></div>
+                    <div class="filter-item"><input type="text" id="schoolsSearch" placeholder="搜索学校 / 专业..." autocomplete="off"></div>
                 </div>
-                <!-- 学校统计 -->
                 <div class="schools-stats" id="schoolsStats"></div>
-                <!-- 学校卡片列表 -->
-                <div class="schools-list" id="schoolsList">
-                    <div class="loading-text">加载中...</div>
-                </div>
+                <div class="schools-list" id="schoolsList"><div class="loading-text">加载中...</div></div>
             </div>
         </div>
     </div>
 
-    <!-- 事件时间线模态框 -->
+    <!-- ======================= 模态框：事件时间线 ======================= -->
     <div class="modal" id="timelineModal">
         <div class="modal-overlay" id="timelineOverlay"></div>
         <div class="modal-content modal-large">
-            <div class="modal-header">
-                <h3>📊 热点事件时间线</h3>
+            <div class="modal-head">
+                <h3 class="modal-title">📈 事件时间线</h3>
                 <button class="modal-close" id="timelineClose">✕</button>
             </div>
             <div class="modal-body">
                 <div class="timeline-controls">
-                    <label for="timelineKeyword">选择关键词：</label>
                     <select id="timelineKeyword" class="timeline-select"></select>
                     <button class="btn-primary" id="timelineLoadBtn">加载时间线</button>
                 </div>
@@ -595,11 +558,11 @@ var _hmt = _hmt || [];
         </div>
     </div>
 
-    <!-- 热度明细模态框 -->
+    <!-- ======================= 模态框：热度明细 ======================= -->
     <div class="modal" id="scoreBreakdownModal">
         <div class="modal-overlay" data-close-modal></div>
         <div class="modal-content score-breakdown-content">
-            <div class="modal-header">
+            <div class="modal-head">
                 <h3 class="modal-title">🔥 热度分数明细</h3>
                 <button class="modal-close" data-close-modal>&times;</button>
             </div>
@@ -611,52 +574,27 @@ var _hmt = _hmt || [];
         </div>
     </div>
 
-    <!-- 回到顶部按钮 -->
-    <button class="back-to-top" id="backToTop" title="回到顶部">↑</button>
-
-    <!-- 移动端底部导航栏 -->
-    <nav class="mobile-bottom-nav" id="mobileBottomNav">
-        <button class="mobile-nav-item active" data-target="hotspot">
-            <span class="mobile-nav-icon">🔥</span>
-            <span class="mobile-nav-label">热点</span>
-        </button>
-        <button class="mobile-nav-item" data-target="glossary">
-            <span class="mobile-nav-icon">📖</span>
-            <span class="mobile-nav-label">知识库</span>
-        </button>
-        <button class="mobile-nav-item" data-target="history">
-            <span class="mobile-nav-icon">📅</span>
-            <span class="mobile-nav-label">历史</span>
-        </button>
-        <button class="mobile-nav-item" data-target="saved">
-            <span class="mobile-nav-icon">⭐</span>
-            <span class="mobile-nav-label">收藏</span>
-        </button>
-    </nav>
-
-    <!-- 源健康度模态框 -->
+    <!-- ======================= 模态框：源健康度 ======================= -->
     <div class="modal" id="sourceHealthModal">
         <div class="modal-overlay" id="sourceHealthOverlay"></div>
         <div class="modal-content modal-large">
-            <div class="modal-header">
-                <h3>📡 RSS 源健康度</h3>
+            <div class="modal-head">
+                <h3 class="modal-title">📡 源健康度</h3>
                 <button class="modal-close" id="sourceHealthClose">✕</button>
             </div>
             <div class="modal-body">
                 <div class="source-health-summary" id="sourceHealthSummary"></div>
-                <div class="source-health-list" id="sourceHealthList">
-                    <div class="loading-text">加载中...</div>
-                </div>
+                <div class="source-health-list" id="sourceHealthList"><div class="loading-text">加载中...</div></div>
             </div>
         </div>
     </div>
 
-    <!-- 关键词详情模态框 -->
+    <!-- ======================= 模态框：关键词详情 ======================= -->
     <div class="modal" id="keywordDetailModal">
         <div class="modal-overlay" id="keywordDetailOverlay"></div>
         <div class="modal-content modal-large">
-            <div class="modal-header">
-                <h3 id="keywordDetailTitle">关键词详情</h3>
+            <div class="modal-head">
+                <h3 class="modal-title" id="keywordDetailTitle">关键词详情</h3>
                 <button class="modal-close" id="keywordDetailClose">✕</button>
             </div>
             <div class="modal-body">
@@ -664,40 +602,40 @@ var _hmt = _hmt || [];
                     <button class="btn-primary" id="followKeywordBtn">⭐ 关注这个词</button>
                 </div>
                 <div class="keyword-detail-section">
-                    <h4>📚 知识库解释</h4>
-                    <div class="keyword-detail-glossary" id="keywordDetailGlossary">
-                        <p class="text-muted">暂无解释</p>
-                    </div>
+                    <div class="keyword-detail-glossary" id="keywordDetailGlossary"><p class="text-muted">暂无解释</p></div>
                 </div>
                 <div class="keyword-detail-section">
-                    <h4>🔥 今日相关热点</h4>
                     <div class="keyword-detail-hotspots" id="keywordDetailHotspots"></div>
                 </div>
                 <div class="keyword-detail-section">
-                    <h4>📈 365天热度趋势</h4>
-                    <div class="keyword-detail-chart-container">
-                        <canvas id="keywordDetailChart"></canvas>
-                    </div>
+                    <div class="keyword-detail-chart-container"><canvas id="keywordDetailChart"></canvas></div>
                 </div>
             </div>
         </div>
     </div>
 
-    <!-- Toast 提示 -->
+    <!-- ======================= 悬浮控件 ======================= -->
+    <button class="back-to-top" id="backToTop" title="回到顶部">↑</button>
+
+    <nav class="mobile-bottom-nav" id="mobileBottomNav">
+        <button class="mobile-nav-item is-active" data-target="hotspot"><span class="mobile-nav-icon">🔥</span><span class="mobile-nav-label">热点</span></button>
+        <button class="mobile-nav-item" data-target="schools"><span class="mobile-nav-icon">🎓</span><span class="mobile-nav-label">考研</span></button>
+        <button class="mobile-nav-item" data-target="jobs"><span class="mobile-nav-icon">💼</span><span class="mobile-nav-label">就业</span></button>
+        <button class="mobile-nav-item" data-target="glossary"><span class="mobile-nav-icon">📖</span><span class="mobile-nav-label">知识库</span></button>
+        <button class="mobile-nav-item" data-target="saved"><span class="mobile-nav-icon">⭐</span><span class="mobile-nav-label">我的</span></button>
+    </nav>
+
     <div class="toast" id="toast"></div>
 
-    <!-- 加载提示 -->
     <div class="loading" id="loading">
         <div class="loading-spinner"></div>
-        <p>正在加载热点数据...</p>
+        <span class="loading-text">正在加载热点数据...</span>
     </div>
 
-    <!-- 错误提示 -->
     <div class="error-container" id="errorContainer" style="display:none;">
         <div class="error-card">
             <span class="error-icon">⚠️</span>
-            <h3>数据加载失败</h3>
-            <p>无法获取热点数据，请稍后重试或检查网络连接。</p>
+            <p class="error-text">数据加载失败，请检查网络或稍后重试</p>
             <button class="btn-primary" onclick="location.reload()">重新加载</button>
         </div>
     </div>

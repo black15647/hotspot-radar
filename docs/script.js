@@ -1,4 +1,4 @@
-﻿/* ============================================================
+/* ============================================================
    环境学子雷达 - 前端脚本
    ============================================================ */
 
@@ -213,6 +213,31 @@
         // 搜索
         on(els.searchInput, 'input', handleSearch);
 
+        // 刷新数据
+        on(document.getElementById('refreshDataBtn'), 'click', () => {
+            showToast('正在刷新数据...');
+            loadData();
+        });
+
+        // 关注关键词管理（滚动到标签云）
+        on(document.getElementById('followedManageBtn'), 'click', () => {
+            const cloud = document.getElementById('tagCloud');
+            if (cloud) {
+                cloud.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                showToast('点击下方关键词可查看详情或取消关注');
+            }
+        });
+
+        // 页脚 data-open-modal 快捷入口
+        document.querySelectorAll('[data-open-modal]').forEach((el) => {
+            el.addEventListener('click', (e) => {
+                e.preventDefault();
+                const sel = el.getAttribute('data-open-modal');
+                const m = document.querySelector(sel);
+                if (m && typeof openModal === 'function') openModal(m);
+            });
+        });
+
         // 暗黑模式
         on(els.themeToggle, 'click', toggleDarkMode);
 
@@ -222,30 +247,30 @@
         on(els.panelOverlay, 'click', closeCustomizePanel);
 
         on(els.primaryColorPicker, 'input', (e) => {
-            setCSSVar('--primary-color', e.target.value);
+            setCSSVar('--clr-brand', e.target.value);
             saveTheme();
         });
         on(els.bgColorPicker, 'input', (e) => {
-            setCSSVar('--bg-color', e.target.value);
+            setCSSVar('--clr-bg', e.target.value);
             saveTheme();
         });
         on(els.radiusSlider, 'input', (e) => {
             const val = e.target.value;
             if (els.radiusValue) els.radiusValue.textContent = val;
-            setCSSVar('--border-radius', val + 'px');
+            setCSSVar('--r-md', val + 'px');
             saveTheme();
         });
         on(els.fontSizeSlider, 'input', (e) => {
             const val = e.target.value;
             if (els.fontSizeValue) els.fontSizeValue.textContent = val;
-            setCSSVar('--font-size', val + 'px');
+            setCSSVar('--fz-base', val + 'px');
             saveTheme();
         });
 
         // 密度单选
         document.querySelectorAll('input[name="density"]').forEach((radio) => {
             radio.addEventListener('change', (e) => {
-                setCSSVar('--card-padding', e.target.value + 'px');
+                setCSSVar('--sp-card', e.target.value + 'px');
                 saveTheme();
             });
         });
@@ -434,6 +459,8 @@
             renderFollowedKeywordsBar();
             // v6.0 近7天热度总结
             loadWeeklySummary(state.latestData);
+            // 页面元信息（日期 / 趋势关键词 / 统计卡）
+            renderPageMeta();
         } catch (err) {
             console.error('数据加载失败：', err);
             els.loading.style.display = 'none';
@@ -1283,31 +1310,31 @@
 
     function applyTheme(theme) {
         if (theme.primaryColor) {
-            setCSSVar('--primary-color', theme.primaryColor);
+            setCSSVar('--clr-brand', theme.primaryColor);
             els.primaryColorPicker.value = theme.primaryColor;
         }
         if (theme.bgColor) {
-            setCSSVar('--bg-color', theme.bgColor);
+            setCSSVar('--clr-bg', theme.bgColor);
             els.bgColorPicker.value = theme.bgColor;
         }
         if (theme.borderRadius !== undefined) {
-            setCSSVar('--border-radius', theme.borderRadius + 'px');
+            setCSSVar('--r-md', theme.borderRadius + 'px');
             els.radiusSlider.value = theme.borderRadius;
             els.radiusValue.textContent = theme.borderRadius;
         }
         if (theme.cardPadding !== undefined) {
-            setCSSVar('--card-padding', theme.cardPadding + 'px');
+            setCSSVar('--sp-card', theme.cardPadding + 'px');
             document.querySelectorAll('input[name="density"]').forEach((radio) => {
                 radio.checked = parseInt(radio.value) === theme.cardPadding;
             });
         }
         if (theme.fontSize !== undefined) {
-            setCSSVar('--font-size', theme.fontSize + 'px');
+            setCSSVar('--fz-base', theme.fontSize + 'px');
             els.fontSizeSlider.value = theme.fontSize;
             els.fontSizeValue.textContent = theme.fontSize;
         }
         if (theme.textColor) {
-            setCSSVar('--text-color', theme.textColor);
+            setCSSVar('--clr-text', theme.textColor);
             if (els.textColorPicker) els.textColorPicker.value = theme.textColor;
         }
         if (theme.fontFamily) {
@@ -2375,6 +2402,9 @@
             state.followedKeywords.map((kw) =>
                 `<span class="followed-keyword-tag" data-kw="${escapeHtml(kw)}">${escapeHtml(kw)} <span class="remove">×</span></span>`
             ).join('');
+        // 显示外层区块
+        const followedBlock = document.getElementById('followedBlock');
+        if (followedBlock) followedBlock.style.display = 'block';
         // 绑定点击事件
         bar.querySelectorAll('.followed-keyword-tag').forEach((tag) => {
             tag.addEventListener('click', () => {
@@ -2425,11 +2455,20 @@
         // 更新激活状态
         if (els.mobileBottomNav) {
             els.mobileBottomNav.querySelectorAll('.mobile-nav-item').forEach((btn) => {
-                btn.classList.toggle('active', btn.dataset.target === target);
+                btn.classList.toggle('is-active', btn.dataset.target === target);
             });
         }
         switch (target) {
             case 'hotspot':
+                switchWindow('hotspot');
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+                break;
+            case 'schools':
+                switchWindow('schools');
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+                break;
+            case 'jobs':
+                switchWindow('jobs');
                 window.scrollTo({ top: 0, behavior: 'smooth' });
                 break;
             case 'glossary':
@@ -2564,6 +2603,72 @@
     // ============================================================
     // v6.0 近7天热度总结
     // ============================================================
+    // ============================================================
+    // 页面元信息：日期、本周高频关键词、统计卡
+    // ============================================================
+    function renderPageMeta() {
+        // 1) 页面日期
+        const dateEl = document.getElementById('pageDate');
+        if (dateEl) {
+            const now = new Date();
+            const weeks = ['星期日', '星期一', '星期二', '星期三', '星期四', '星期五', '星期六'];
+            let srcCount = 0;
+            if (state.latestData && state.latestData.items) {
+                srcCount = new Set(state.latestData.items.map((it) => it.source).filter(Boolean)).size;
+            }
+            const srcTxt = srcCount > 0 ? ` · 已抓取 ${srcCount} 个 RSS 源` : ' · 每日聚合 · 数据自动更新';
+            dateEl.textContent = `${now.getFullYear()}年${now.getMonth() + 1}月${now.getDate()}日 · ${weeks[now.getDay()]}${srcTxt}`;
+        }
+
+        // 2) 本周高频关键词（取关键词分析前4个）
+        const trendEl = document.getElementById('trendKeywords');
+        if (trendEl) {
+            const kw = (state.latestData && state.latestData.keyword_analysis) || [];
+            if (kw.length > 0) {
+                trendEl.textContent = kw.slice(0, 4).map((k) => k.keyword || k).join(' · ');
+            } else if (state.latestData && state.latestData.keywords) {
+                trendEl.textContent = state.latestData.keywords.slice(0, 4).join(' · ');
+            } else {
+                trendEl.textContent = '暂无足够数据';
+            }
+        }
+
+        // 3) 底部统计卡（近7天）
+        const statTotal = document.getElementById('statTotal');
+        const statKeywords = document.getElementById('statKeywords');
+        const statPolicy = document.getElementById('statPolicy');
+        if (!statTotal) return;
+
+        const hist = state.historyData || [];
+        if (hist.length > 0) {
+            const last7 = hist.slice(-7);
+            const totalItems = last7.reduce((acc, d) => acc + (parseInt(d.total_items) || 0), 0);
+            const kwSet = new Set();
+            last7.forEach((d) => {
+                (d.keywords || []).forEach((k) => kwSet.add(k));
+            });
+            statTotal.textContent = totalItems;
+            statKeywords.textContent = kwSet.size;
+            // 政策类占比：关键词含政策/督察/法规/环评/法规等
+            let policy = 0;
+            kwSet.forEach((k) => {
+                if (/政策|督察|法规|环评|条例|标准|执法/.test(String(k))) policy++;
+            });
+            const ratio = kwSet.size > 0 ? Math.round((policy / kwSet.size) * 100) : 0;
+            statPolicy.textContent = ratio + '%';
+        } else {
+            // 无历史数据：用当日关键词分析估算
+            const kw = (state.latestData && state.latestData.keyword_analysis) || [];
+            statTotal.textContent = (state.latestData && state.latestData.total_items) || 0;
+            statKeywords.textContent = kw.length;
+            let policy = 0;
+            kw.forEach((k) => {
+                if (/政策|督察|法规|环评|条例|标准|执法/.test(String(k.keyword || k))) policy++;
+            });
+            statPolicy.textContent = kw.length > 0 ? Math.round((policy / kw.length) * 100) + '%' : '--';
+        }
+    }
+
     function loadWeeklySummary(data) {
         const weeklySummary = data.weekly_summary || data.weeklySummary || '';
         if (!els.weeklySummarySection || !els.weeklySummaryText) return;
@@ -2792,6 +2897,74 @@
         init();
     }
 
+
+    // ============================================================
+    // 就业方向窗口
+    // ============================================================
+    let jobsRendered = false;
+
+    // 十大就业方向数据
+    const jobDirections = [
+        { name: '环境监测与评价', desc: '环评、监测、第三方检测机构核心岗位', jobs: '环评工程师 · 监测员', demand: '需求高', demandLevel: 'high' },
+        { name: '水处理与给排水', desc: '市政水务、工业废水处理、膜技术方向', jobs: '工艺工程师 · 运维', demand: '需求高', demandLevel: 'high' },
+        { name: '大气治理与气候', desc: '脱硫脱硝、碳减排、气候政策研究', jobs: '大气工程师 · 碳管理', demand: '需求中高', demandLevel: 'medium' },
+        { name: '固废与资源循环', desc: '垃圾分类、危废处置、再生资源利用', jobs: '固废工程师 · 资源化', demand: '需求中', demandLevel: 'low' },
+        { name: '生态修复与保护', desc: '土壤修复、湿地保护、生物多样性', jobs: '修复工程师 · 生态员', demand: '需求中', demandLevel: 'low' },
+        { name: '环境咨询与ESG', desc: 'ESG报告、碳核查、绿色咨询', jobs: 'ESG顾问 · 咨询师', demand: '需求高', demandLevel: 'high' },
+        { name: '环保技术研发', desc: '环保装备、新材料、智慧环保算法', jobs: '研发工程师 · 算法', demand: '需求中高', demandLevel: 'medium' },
+        { name: '环境与公共卫生', desc: '环境健康、毒理、职业健康', jobs: '公卫研究员 · 毒理', demand: '需求中', demandLevel: 'low' },
+        { name: '环境政策与规划', desc: '生态环境规划、政策研究、行政管理', jobs: '规划师 · 公务员', demand: '需求中', demandLevel: 'low' },
+        { name: '绿色金融与碳管理', desc: '碳交易、绿色债券、气候投融资', jobs: '碳交易员 · 分析师', demand: '需求高', demandLevel: 'high' }
+    ];
+
+    // 招聘资讯示例数据
+    const recruitData = [
+        { company: '某环境监测中心', salary: '8-12K', job: '环评工程师', meta: '广州 · 1-3年 · 全职急招' },
+        { company: '某水务集团', salary: '10-15K', job: '水处理工艺工程师', meta: '深圳 · 3-5年 · 国企' },
+        { company: '某碳中和研究院', salary: '12-18K', job: '碳资产管理', meta: '北京 · 经验不限 · 研究岗' },
+        { company: '某环保科技公司', salary: '9-14K', job: 'ESG咨询顾问', meta: '上海 · 1-3年 · 成长快' }
+    ];
+
+    // 需求程度样式
+    function getDemandClass(level) {
+        if (level === 'high') return 'demand-high';
+        if (level === 'medium') return 'demand-medium';
+        return 'demand-low';
+    }
+
+    // 渲染就业方向页面
+    function renderJobsPage() {
+        const grid = document.getElementById('jobsGrid');
+        const recruitGrid = document.getElementById('recruitGrid');
+        if (!grid || !recruitGrid) return;
+
+        // 渲染十大方向卡片
+        grid.innerHTML = jobDirections.map(dir => {
+            return '' +
+                '<div class="job-card">' +
+                    '<h3 class="job-card-title">' + dir.name + '</h3>' +
+                    '<p class="job-card-desc">' + dir.desc + '</p>' +
+                    '<p class="job-card-roles">岗位：' + dir.jobs + '</p>' +
+                    '<span class="job-demand ' + getDemandClass(dir.demandLevel) + '">' + dir.demand + '</span>' +
+                '</div>';
+        }).join('');
+
+        // 渲染招聘资讯
+        recruitGrid.innerHTML = recruitData.map(rec => {
+            return '' +
+                '<div class="recruit-card">' +
+                    '<div class="recruit-card-header">' +
+                        '<span class="recruit-company">' + rec.company + '</span>' +
+                        '<span class="recruit-salary">' + rec.salary + '</span>' +
+                    '</div>' +
+                    '<p class="recruit-job">岗位：' + rec.job + '</p>' +
+                    '<p class="recruit-meta">' + rec.meta + '</p>' +
+                '</div>';
+        }).join('');
+
+        jobsRendered = true;
+    }
+
     // ============================================================
     // 双窗口切换逻辑
     // ============================================================
@@ -2804,24 +2977,30 @@
     function switchWindow(windowName) {
         currentWindow = windowName;
         // 更新标签状态
-        document.querySelectorAll('.window-tab').forEach(tab => {
+        document.querySelectorAll('.nav-tab').forEach(tab => {
             if (tab.dataset.window === windowName) {
-                tab.classList.add('active');
+                tab.classList.add('is-active');
             } else {
-                tab.classList.remove('active');
+                tab.classList.remove('is-active');
             }
         });
         // 更新面板显示
         document.querySelectorAll('.window-pane').forEach(pane => {
-            pane.classList.remove('active');
+            pane.classList.remove('is-active');
         });
         if (windowName === 'hotspot') {
-            document.getElementById('hotspotWindow').classList.add('active');
+            document.getElementById('hotspotWindow').classList.add('is-active');
         } else if (windowName === 'schools') {
-            document.getElementById('schoolsWindow').classList.add('active');
+            document.getElementById('schoolsWindow').classList.add('is-active');
             // 首次进入高校考研窗口时加载数据
             if (!schoolsLoaded) {
                 loadSchoolsDataPage();
+            }
+        } else if (windowName === 'jobs') {
+            document.getElementById('jobsWindow').classList.add('is-active');
+            // 首次进入就业方向窗口时渲染数据
+            if (!jobsRendered) {
+                renderJobsPage();
             }
         }
     }
@@ -2954,21 +3133,45 @@
 
     // 绑定双窗口事件
     function bindWindowEvents() {
-        // 窗口切换标签
-        document.querySelectorAll('.window-tab').forEach(tab => {
+        // 窗口切换标签（data-window 切换窗口，data-target 打开模态框）
+        document.querySelectorAll('.nav-tab').forEach(tab => {
             tab.addEventListener('click', () => {
-                switchWindow(tab.dataset.window);
+                if (tab.dataset.window) {
+                    switchWindow(tab.dataset.window);
+                } else if (tab.dataset.target === 'glossary') {
+                    // 打开知识库模态框
+                    if (typeof openGlossaryModal === 'function') {
+                        openGlossaryModal();
+                    } else {
+                        const gModal = document.getElementById('glossaryModal');
+                        if (gModal) {
+                            gModal.classList.add('active');
+                            document.body.style.overflow = 'hidden';
+                        }
+                    }
+                } else if (tab.dataset.target === 'saved') {
+                    // 打开收藏模态框
+                    if (typeof openSavedModal === 'function') {
+                        openSavedModal();
+                    } else {
+                        const sModal = document.getElementById('savedModal');
+                        if (sModal) {
+                            sModal.classList.add('active');
+                            document.body.style.overflow = 'hidden';
+                        }
+                    }
+                }
             });
         });
 
         // 省份卡片点击
         document.querySelectorAll('.province-card').forEach(card => {
             card.addEventListener('click', () => {
-                if (card.classList.contains('disabled')) {
+                if (card.classList.contains('is-locked')) {
                     return;
                 }
-                document.querySelectorAll('.province-card').forEach(c => c.classList.remove('active'));
-                card.classList.add('active');
+                document.querySelectorAll('.province-card').forEach(c => c.classList.remove('is-active'));
+                card.classList.add('is-active');
             });
         });
 

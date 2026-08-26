@@ -179,6 +179,7 @@
         // v6.0 近7天总结
         els.weeklySummarySection = document.getElementById('weeklySummarySection');
         els.weeklySummaryText = document.getElementById('weeklySummaryText');
+        els.weeklyInsightText = document.getElementById('weeklyInsightText');
     }
 
     /**
@@ -573,10 +574,34 @@
 
         const titleEl = document.createElement('h3');
         titleEl.className = 'card-title clickable';
-        titleEl.textContent = item.title || '无标题';
+        const titleWrap = document.createElement('span');
+        titleWrap.className = 'card-title-text';
+        titleWrap.textContent = item.title || '无标题';
+        titleEl.appendChild(titleWrap);
+        const hasEn = !!(item.title_en || item.summary_en);
+        if (hasEn) {
+            const transMark = document.createElement('span');
+            transMark.className = 'trans-mark';
+            transMark.textContent = '译';
+            transMark.title = '该条为翻译内容';
+            titleEl.appendChild(transMark);
+        }
         titleEl.title = '点击展开摘要';
         titleEl.addEventListener('click', () => toggleCardSummary(card, item));
         header.appendChild(titleEl);
+
+        // 显示原文按钮（英文条目）
+        if (hasEn) {
+            const origBtn = document.createElement('button');
+            origBtn.className = 'card-orig-btn';
+            origBtn.textContent = '显示原文';
+            origBtn.title = '切换显示英文原文';
+            origBtn.addEventListener('click', (e) => {
+                e.stopPropagation();
+                toggleOriginal(card, item, origBtn, titleWrap);
+            });
+            header.appendChild(origBtn);
+        }
 
         const shareBtn = document.createElement('button');
         shareBtn.className = 'share-btn';
@@ -645,6 +670,23 @@
         }
         summaryEl.addEventListener('click', () => toggleCardSummary(card, item));
         card.appendChild(summaryEl);
+        // 摘要为空时，用话题标签/关键词补充信息，方便快速了解内容
+        if (!summaryText) {
+            const tagHints = [];
+            (item.topic_tags || []).forEach(t => { if (t && tagHints.indexOf(t) < 0) tagHints.push(t); });
+            (item.keywords || item.matched_keywords || []).forEach(k => { if (k && tagHints.indexOf(k) < 0) tagHints.push(k); });
+            if (tagHints.length > 0) {
+                const tagsBox = document.createElement('div');
+                tagsBox.className = 'card-tags-hint';
+                tagHints.slice(0, 5).forEach(t => {
+                    const tag = document.createElement('span');
+                    tag.className = 'card-tag-hint';
+                    tag.textContent = t;
+                    tagsBox.appendChild(tag);
+                });
+                card.appendChild(tagsBox);
+            }
+        }
 
         // 分析文字
         const analysisText = item.analysis || '';
@@ -756,6 +798,28 @@
             setTimeout(() => {
                 detailEl.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
             }, 100);
+        }
+    }
+
+    // 切换显示英文原文 / 中文翻译（英文条目）
+    function toggleOriginal(card, item, btn, titleWrap) {
+        const summaryEl = card.querySelector('.card-summary');
+        const detailText = card.querySelector('.card-detail-text');
+        const showing = card.dataset.orig === '1';
+        if (!showing) {
+            // 切换到英文原文
+            if (titleWrap) titleWrap.textContent = item.title_en || item.title || '无标题';
+            if (summaryEl) summaryEl.textContent = item.summary_en || item.summary || '暂无原文摘要';
+            if (detailText) detailText.textContent = item.summary_en || item.summary || '暂无原文内容';
+            btn.textContent = '显示中文';
+            card.dataset.orig = '1';
+        } else {
+            // 切回中文
+            if (titleWrap) titleWrap.textContent = item.title_zh || item.title || '无标题';
+            if (summaryEl) summaryEl.textContent = item.summary_zh || item.summary || '暂无摘要，点击查看详情';
+            if (detailText) detailText.textContent = item.summary_zh || item.summary || '暂无摘要内容，请点击"阅读原文"查看完整内容。';
+            btn.textContent = '显示原文';
+            card.dataset.orig = '0';
         }
     }
 
@@ -2687,13 +2751,27 @@
 
     function loadWeeklySummary(data) {
         const weeklySummary = data.weekly_summary || data.weeklySummary || '';
+        const weeklyInsight = data.weekly_insight || '';
         if (!els.weeklySummarySection || !els.weeklySummaryText) return;
 
-        if (weeklySummary && weeklySummary.trim()) {
-            els.weeklySummaryText.textContent = weeklySummary;
+        const hasInsight = !!(weeklyInsight && weeklyInsight.trim());
+        const hasSummary = !!(weeklySummary && weeklySummary.trim());
+        // 总结或见解任一存在时显示整块
+        if (hasSummary || hasInsight) {
             els.weeklySummarySection.style.display = 'block';
         } else {
             els.weeklySummarySection.style.display = 'none';
+        }
+        els.weeklySummaryText.textContent = weeklySummary || '';
+        // 近7天见解（可选显示）
+        if (els.weeklyInsightText) {
+            if (hasInsight) {
+                els.weeklyInsightText.textContent = weeklyInsight;
+                els.weeklyInsightText.style.display = 'block';
+            } else {
+                els.weeklyInsightText.textContent = '';
+                els.weeklyInsightText.style.display = 'none';
+            }
         }
     }
 

@@ -353,6 +353,36 @@ body.dark .card-rank.rank-other { background: rgba(148, 163, 184, 0.2); color: #
 .card-save-btn:hover { background: var(--clr-warn); color: #fff; }
 .card-save-btn.saved { color: var(--clr-warn); }
 
+/* 翻译标记与"显示原文"按钮 */
+.card-title-text { display: inline; }
+.trans-mark {
+    display: inline-block;
+    margin-left: 6px;
+    padding: 1px 6px;
+    font-size: 11px;
+    font-weight: 600;
+    line-height: 1.5;
+    color: var(--clr-brand-deep);
+    background: var(--clr-brand-soft);
+    border-radius: 4px;
+    vertical-align: 2px;
+    flex-shrink: 0;
+}
+.card-orig-btn {
+    flex-shrink: 0;
+    padding: 3px 10px;
+    font-size: 12px;
+    border-radius: 14px;
+    border: 1px solid var(--clr-border);
+    color: var(--clr-muted);
+    background: var(--clr-card);
+    cursor: pointer;
+    transition: all .15s;
+    margin-top: 2px;
+    white-space: nowrap;
+}
+.card-orig-btn:hover { border-color: var(--clr-brand); color: var(--clr-brand-deep); background: var(--clr-brand-soft); }
+
 .card-meta {
     display: flex;
     align-items: center;
@@ -394,6 +424,22 @@ body.dark .card-rank.rank-other { background: rgba(148, 163, 184, 0.2); color: #
 }
 .card-summary:hover { color: var(--clr-text); }
 .card-summary.empty-summary { color: var(--clr-brand-deep); font-style: italic; }
+
+/* 摘要为空时的话题/关键词提示标签 */
+.card-tags-hint {
+    margin: 2px 0 6px 44px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+}
+.card-tag-hint {
+    font-size: 11.5px;
+    padding: 2px 9px;
+    border-radius: 12px;
+    background: var(--clr-brand-faint);
+    color: var(--clr-brand-deep);
+    border: 1px dashed var(--clr-brand);
+}
 
 .card-analysis {
     margin: 6px 0 6px 44px;
@@ -622,6 +668,18 @@ body.dark .card-rank.rank-other { background: rgba(148, 163, 184, 0.2); color: #
 .weekly-head { margin-bottom: 8px; }
 .weekly-title { font-size: 15px; font-weight: 700; color: var(--clr-brand-deep); }
 .weekly-text { font-size: 14px; color: var(--clr-text); line-height: 1.7; }
+/* 近7天见解（观察式分析） */
+.weekly-insight {
+    margin-top: 10px;
+    padding: 10px 12px;
+    font-size: 13.5px;
+    color: var(--clr-text);
+    background: var(--clr-brand-faint);
+    border-left: 3px solid var(--clr-brand);
+    border-radius: 0 var(--r-sm) var(--r-sm) 0;
+    line-height: 1.7;
+    display: none;
+}
 .weekly-stats {
     display: grid;
     grid-template-columns: repeat(3, 1fr);

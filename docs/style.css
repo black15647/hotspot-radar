@@ -160,18 +160,22 @@ button:active { transform: scale(0.95); transition: transform 0.1s; }
 }
 .srch-box .srch-icon { position: absolute; right: 11px; font-size: 14px; pointer-events: none; }
 
-.tool-btn {
-    width: 36px;
-    height: 36px;
+.icon-btn {
+    width: 34px;
+    height: 34px;
     border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 16px;
+    font-size: 15px;
     color: var(--clr-muted);
-    transition: background .18s, color .18s;
+    border: 1px solid var(--clr-border);
+    background: var(--clr-surface);
+    cursor: pointer;
+    transition: background .18s, color .18s, border-color .18s, transform .12s;
 }
-.tool-btn:hover { background: var(--clr-brand-soft); color: var(--clr-brand-deep); }
+.icon-btn:hover { background: var(--clr-brand-soft); color: var(--clr-brand-deep); border-color: var(--clr-brand); }
+.icon-btn:active { transform: scale(0.92); }
 
 /* ============================================================
    主舞台与页面标题
@@ -680,6 +684,44 @@ body.dark .card-rank.rank-other { background: rgba(148, 163, 184, 0.2); color: #
     min-width: 140px;
 }
 .filter-item select:focus, .filter-item input:focus { border-color: var(--clr-brand); }
+
+/* 筛选按钮组（层次/难度/排序标签） */
+.filter-tags {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    flex-wrap: wrap;
+}
+.filter-label {
+    font-size: 12px;
+    color: var(--clr-muted);
+    margin-right: 2px;
+    white-space: nowrap;
+}
+.school-filter-btn {
+    height: 30px;
+    padding: 0 12px;
+    border: 1px solid var(--clr-border);
+    border-radius: 999px;
+    background: var(--clr-surface);
+    color: var(--clr-text);
+    font-size: 12.5px;
+    cursor: pointer;
+    transition: all 0.15s ease;
+    white-space: nowrap;
+}
+.school-filter-btn:hover {
+    border-color: var(--clr-brand);
+    color: var(--clr-brand-deep);
+    transform: translateY(-1px);
+}
+.school-filter-btn.is-active {
+    background: var(--clr-brand);
+    border-color: var(--clr-brand);
+    color: #fff;
+    font-weight: 600;
+}
+.school-filter-btn:active { transform: scale(0.95); }
 
 .schools-stats {
     font-size: 13px;
@@ -1626,7 +1668,7 @@ body.dark .highlight { background: rgba(245, 158, 11, 0.4); }
         max-height: none;
         overflow: visible;
     }
-    .top-actions .tool-btn:nth-child(n+4) { display: none; }
+    .top-actions .icon-btn:nth-child(n+5) { display: none; }
     .jobs-grid { grid-template-columns: repeat(2, 1fr); }
     .recruit-grid { grid-template-columns: repeat(2, 1fr); }
     .schools-list { grid-template-columns: repeat(2, 1fr); }
@@ -1639,7 +1681,8 @@ body.dark .highlight { background: rgba(245, 158, 11, 0.4); }
     .nav-tab { padding: 6px 12px; font-size: 14px; }
     .srch-box input { width: 120px; }
     .srch-box input:focus { width: 150px; }
-    .top-actions .tool-btn:nth-child(n+3) { display: none; }
+    .top-actions .icon-btn { display: none; }
+    .top-actions #themeToggle { display: flex; }
 
     .stage { padding: 14px 12px 90px; }
     .page-title { font-size: 21px; }

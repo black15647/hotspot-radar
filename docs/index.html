@@ -75,15 +75,11 @@
                     <input type="text" id="searchInput" placeholder="搜索热点、学校、词条..." autocomplete="off">
                     <span class="srch-icon">🔍</span>
                 </div>
-                <button class="tool-btn" id="themeToggle" title="暗黑模式">🌙</button>
-                <button class="tool-btn" id="customizeBtn" title="主题定制">🎨</button>
-                <button class="tool-btn" id="historyBtn" title="历史归档">📅</button>
-                <button class="tool-btn" id="glossaryBtn" title="环境知识库">📖</button>
-                <button class="tool-btn" id="learningBtn" title="学习路径">🧭</button>
-                <button class="tool-btn" id="schoolsBtn" title="考研院校">🎓</button>
-                <button class="tool-btn" id="savedBtn" title="我的收藏">⭐</button>
-                <button class="tool-btn" id="sourceHealthBtn" title="源健康度">📡</button>
-                <button class="tool-btn" id="shareSiteBtn" title="分享网站">📤</button>
+                <button class="icon-btn" id="savedIcon" title="我的收藏">♥</button>
+                <button class="icon-btn" id="reloadIcon" title="刷新数据">⟳</button>
+                <button class="icon-btn" id="themeToggle" title="夜间模式">🌙</button>
+                <button class="icon-btn" id="feedbackIcon" title="用户反馈">💬</button>
+                <button class="icon-btn" id="shareSiteBtn" title="分享网站">↗</button>
             </div>
         </div>
     </header>
@@ -245,28 +241,25 @@
 
                 <div class="schools-panel" id="guangdongDetail">
                     <div class="schools-filters">
-                        <div class="filter-item">
-                            <select id="schoolsLevelFilter2">
-                                <option value="all">层次 全部</option>
-                                <option value="985">985</option>
-                                <option value="211">211</option>
-                                <option value="双一流">双一流</option>
-                                <option value="普通">普通</option>
-                            </select>
+                        <div class="filter-item filter-tags">
+                            <span class="filter-label">层次</span>
+                            <button class="school-filter-btn school-level-btn is-active" data-level="all">全部</button>
+                            <button class="school-filter-btn school-level-btn" data-level="985">985</button>
+                            <button class="school-filter-btn school-level-btn" data-level="211">211</button>
+                            <button class="school-filter-btn school-level-btn" data-level="双一流">双一流</button>
+                            <button class="school-filter-btn school-level-btn" data-level="普通">普通</button>
                         </div>
-                        <div class="filter-item">
-                            <select id="schoolsDifficultyFilter2">
-                                <option value="all">难度 全部</option>
-                                <option value="hard">高难度</option>
-                                <option value="medium">中难度</option>
-                                <option value="easy">低难度</option>
-                            </select>
+                        <div class="filter-item filter-tags">
+                            <span class="filter-label">难度</span>
+                            <button class="school-filter-btn school-diff-btn is-active" data-diff="all">全部</button>
+                            <button class="school-filter-btn school-diff-btn" data-diff="hard">高难度</button>
+                            <button class="school-filter-btn school-diff-btn" data-diff="medium">中难度</button>
+                            <button class="school-filter-btn school-diff-btn" data-diff="easy">低难度</button>
                         </div>
-                        <div class="filter-item">
-                            <select id="schoolsSortBy2">
-                                <option value="desc">排序 难度降序</option>
-                                <option value="asc">排序 难度升序</option>
-                            </select>
+                        <div class="filter-item filter-tags">
+                            <span class="filter-label">排序</span>
+                            <button class="school-filter-btn school-sort-btn is-active" data-sort="desc">难度降序</button>
+                            <button class="school-filter-btn school-sort-btn" data-sort="asc">难度升序</button>
                         </div>
                         <div class="filter-item">
                             <input type="text" id="schoolsSearch2" placeholder="搜索学校 / 专业..." autocomplete="off">
@@ -329,10 +322,11 @@
             </div>
             <div class="footer-links">
                 <button class="footer-link" id="aboutLink">关于</button>
-                <button class="footer-link" data-open-modal="#glossaryModal">知识库</button>
-                <button class="footer-link" data-open-modal="#savedModal">我的收藏</button>
+                <button class="footer-link" id="historyBtn">历史归档</button>
+                <button class="footer-link" id="learningBtn">学习路径</button>
+                <button class="footer-link" id="sourceHealthBtn">源健康度</button>
+                <button class="footer-link" id="customizeBtn">主题定制</button>
                 <a class="footer-link" href="https://github.com/black15647/hotspot-radar/issues/new?title=网站反馈&body=请描述你的建议或问题：" target="_blank" rel="noopener">用户反馈</a>
-                <button class="footer-link" id="shareSiteBtn">分享网站</button>
                 <button class="footer-link" id="backToTop">回到顶部</button>
                 <a class="footer-link support-link" href="https://afdian.com/" target="_blank" rel="noopener">☕ 支持作者</a>
             </div>

@@ -218,6 +218,19 @@
             showToast('正在刷新数据...');
             loadData();
         });
+        // 顶部图标：收藏（设计稿心形）
+        on(document.getElementById('savedIcon'), 'click', () => {
+            if (typeof openSavedModal === 'function') openSavedModal();
+        });
+        // 顶部图标：刷新（设计稿刷新）
+        on(document.getElementById('reloadIcon'), 'click', () => {
+            showToast('正在刷新数据...');
+            loadData();
+        });
+        // 顶部图标：用户反馈（设计稿评论，跳转 GitHub Issues）
+        on(document.getElementById('feedbackIcon'), 'click', () => {
+            window.open('https://github.com/black15647/hotspot-radar/issues/new?title=网站反馈&body=请描述你的建议或问题：', '_blank', 'noopener');
+        });
 
         // 关注关键词管理（滚动到标签云）
         on(document.getElementById('followedManageBtn'), 'click', () => {
@@ -1228,19 +1241,21 @@
         }
     }
 
-    function copyToClipboard(text) {
+    function copyToClipboard(text, message) {
+        const msg = message || '链接已复制！';
         if (navigator.clipboard && navigator.clipboard.writeText) {
             navigator.clipboard.writeText(text).then(() => {
-                showToast('链接已复制！');
+                showToast(msg);
             }).catch(() => {
-                fallbackCopy(text);
+                fallbackCopy(text, msg);
             });
         } else {
-            fallbackCopy(text);
+            fallbackCopy(text, msg);
         }
     }
 
-    function fallbackCopy(text) {
+    function fallbackCopy(text, message) {
+        const msg = message || '链接已复制！';
         const textarea = document.createElement('textarea');
         textarea.value = text;
         textarea.style.position = 'fixed';
@@ -1249,7 +1264,7 @@
         textarea.select();
         try {
             document.execCommand('copy');
-            showToast('链接已复制！');
+            showToast(msg);
         } catch (err) {
             showToast('复制失败，请手动复制');
         }
@@ -2175,8 +2190,7 @@
         if (navigator.share) {
             navigator.share(shareData).catch(() => {});
         } else {
-            copyToClipboard(window.location.href);
-            showToast('网站链接已复制，快去分享吧！');
+            copyToClipboard(window.location.href, '网站链接已复制，快去分享吧！');
         }
     }
 
@@ -2853,27 +2867,39 @@
 
     // 筛选学校（页面版）
     function filterSchoolsPage() {
-        const levelFilter = document.getElementById('schoolsLevelFilter2');
-        const difficultyFilter = document.getElementById('schoolsDifficultyFilter2');
         const searchText = document.getElementById('schoolsSearch2');
-        
-        if (!levelFilter || !difficultyFilter || !searchText) return;
-
-        const levelVal = levelFilter.value;
-        const diffVal = difficultyFilter.value;
+        if (!searchText) return;
         const searchVal = searchText.value.toLowerCase();
+        // 层次多选：收集所有选中的具体层次（不含"全部"）
+        const selLevels = [];
+        document.querySelectorAll('.school-level-btn.is-active').forEach((b) => {
+            const lv = b.dataset.level;
+            if (lv && lv !== 'all') selLevels.push(lv);
+        });
+        // 难度多选：收集所有选中的具体难度（不含"全部"）
+        const selDiffs = [];
+        document.querySelectorAll('.school-diff-btn.is-active').forEach((b) => {
+            const d = b.dataset.diff;
+            if (d && d !== 'all') selDiffs.push(d);
+        });
 
-        filteredSchoolsPage = schoolsDataPage.filter(school => {
-            if (levelVal !== 'all') {
-                if (levelVal === '985' && !school.level.includes('985')) return false;
-                if (levelVal === '211' && !school.level.includes('211')) return false;
-                if (levelVal === '双一流' && !school.level.includes('双一流')) return false;
-                if (levelVal === '普通' && (school.level.includes('985') || school.level.includes('211') || school.level.includes('双一流'))) return false;
+        filteredSchoolsPage = schoolsDataPage.filter((school) => {
+            // 层次筛选（并集）：命中任一选中层次即通过
+            if (selLevels.length > 0) {
+                const ok = selLevels.some((lv) => {
+                    if (lv === '普通') {
+                        return !(school.level.includes('985') || school.level.includes('211') || school.level.includes('双一流'));
+                    }
+                    return school.level.includes(lv);
+                });
+                if (!ok) return false;
             }
-            if (diffVal !== 'all') {
-                const level = getDifficultyLevel(school.difficulty_index);
-                if (level !== diffVal) return false;
+            // 难度筛选（并集）
+            if (selDiffs.length > 0) {
+                const lv = getDifficultyLevel(school.difficulty_index);
+                if (!selDiffs.includes(lv)) return false;
             }
+            // 搜索
             if (searchVal && !school.name.toLowerCase().includes(searchVal)) return false;
             return true;
         });
@@ -2882,21 +2908,11 @@
         renderSchoolsListPage();
     }
 
-    // 排序学校（页面版）
+    // 排序学校（页面版）：难度升序 / 降序按钮
     function sortSchoolsPage() {
-        const sortBy = document.getElementById('schoolsSortBy2');
-        if (!sortBy) return;
-        switch (sortBy.value) {
-            case 'difficulty-desc':
-                filteredSchoolsPage.sort((a, b) => b.difficulty_index - a.difficulty_index);
-                break;
-            case 'difficulty-asc':
-                filteredSchoolsPage.sort((a, b) => a.difficulty_index - b.difficulty_index);
-                break;
-            case 'name-asc':
-                filteredSchoolsPage.sort((a, b) => a.name.localeCompare(b.name, 'zh-CN'));
-                break;
-        }
+        const ascBtn = document.querySelector('.school-sort-btn[data-sort="asc"]');
+        const isAsc = ascBtn && ascBtn.classList.contains('is-active');
+        filteredSchoolsPage.sort((a, b) => (isAsc ? a.difficulty_index - b.difficulty_index : b.difficulty_index - a.difficulty_index));
     }
 
     // 渲染学校列表（页面版）
@@ -3004,13 +3020,40 @@
             });
         });
 
-        // 高校考研页面筛选事件
-        const levelFilter2 = document.getElementById('schoolsLevelFilter2');
-        if (levelFilter2) levelFilter2.addEventListener('change', filterSchoolsPage);
-        const difficultyFilter2 = document.getElementById('schoolsDifficultyFilter2');
-        if (difficultyFilter2) difficultyFilter2.addEventListener('change', filterSchoolsPage);
-        const sortBy2 = document.getElementById('schoolsSortBy2');
-        if (sortBy2) sortBy2.addEventListener('change', filterSchoolsPage);
+        // 高校考研页面筛选事件（层次/难度多选标签 + 排序按钮 + 搜索）
+        function toggleFilterTags(selector, allSelector, activeSel) {
+            document.querySelectorAll(selector).forEach((b) => {
+                b.addEventListener('click', () => {
+                    const v = b.dataset.level || b.dataset.diff;
+                    if (v === 'all') {
+                        // 点击"全部"：清除该组所有选中，仅保留"全部"
+                        document.querySelectorAll(selector).forEach((x) => x.classList.remove('is-active'));
+                        b.classList.add('is-active');
+                    } else {
+                        // 点击具体标签：切换选中
+                        b.classList.toggle('is-active');
+                        // 若选中了具体标签，取消"全部"
+                        document.querySelectorAll(allSelector).forEach((x) => x.classList.remove('is-active'));
+                        // 若没有任何具体标签选中，恢复"全部"
+                        const any = document.querySelectorAll(activeSel).length;
+                        if (any === 0) {
+                            document.querySelectorAll(allSelector).forEach((x) => x.classList.add('is-active'));
+                        }
+                    }
+                    filterSchoolsPage();
+                });
+            });
+        }
+        toggleFilterTags('.school-level-btn', '.school-level-btn[data-level="all"]', '.school-level-btn.is-active:not([data-level="all"])');
+        toggleFilterTags('.school-diff-btn', '.school-diff-btn[data-diff="all"]', '.school-diff-btn.is-active:not([data-diff="all"])');
+        // 排序按钮（单选，点击切换）
+        document.querySelectorAll('.school-sort-btn').forEach((b) => {
+            b.addEventListener('click', () => {
+                document.querySelectorAll('.school-sort-btn').forEach((x) => x.classList.remove('is-active'));
+                b.classList.add('is-active');
+                filterSchoolsPage();
+            });
+        });
         const schoolsSearch2 = document.getElementById('schoolsSearch2');
         if (schoolsSearch2) schoolsSearch2.addEventListener('input', filterSchoolsPage);
     }

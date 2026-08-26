@@ -289,24 +289,37 @@ button:active { transform: scale(0.95); transition: transform 0.1s; }
     box-shadow: var(--sh-md);
 }
 
-.card-header { display: flex; align-items: flex-start; gap: 10px; }
+.card-header { display: flex; align-items: flex-start; gap: 10px; padding-left: 34px; }
 
+/* 排名圆形徽章（左上角） */
 .card-rank {
-    min-width: 34px;
-    height: 34px;
+    position: absolute;
+    top: 12px;
+    left: 12px;
+    width: 26px;
+    height: 26px;
     display: flex;
     align-items: center;
     justify-content: center;
-    border-radius: 9px;
-    font-size: 18px;
+    border-radius: 50%;
+    font-size: 13px;
     font-weight: 800;
-    color: var(--clr-muted);
-    background: var(--clr-bg);
+    color: #fff;
+    background: rgba(107, 114, 128, 0.16);
+    box-shadow: 0 1px 3px rgba(15, 23, 42, 0.2);
     flex-shrink: 0;
+    z-index: 1;
 }
-.card-rank.rank-1 { color: #fff; background: linear-gradient(135deg, #F59E0B, #F97316); }
-.card-rank.rank-2 { color: #fff; background: linear-gradient(135deg, #94A3B8, #64748B); }
-.card-rank.rank-3 { color: #fff; background: linear-gradient(135deg, #D97706, #B45309); }
+/* 前三名：金 / 银 / 铜 */
+.card-rank.rank-1 { background: linear-gradient(135deg, #F59E0B, #F97316); box-shadow: 0 2px 6px rgba(245, 158, 11, 0.45); }
+.card-rank.rank-2 { background: linear-gradient(135deg, #C3CBD6, #8A94A3); box-shadow: 0 2px 6px rgba(148, 163, 184, 0.45); }
+.card-rank.rank-3 { background: linear-gradient(135deg, #D97706, #A16207); box-shadow: 0 2px 6px rgba(217, 119, 6, 0.45); }
+/* 4 名以后：浅灰半透明 */
+.card-rank.rank-other { background: rgba(107, 114, 128, 0.16); color: var(--clr-muted); box-shadow: none; }
+
+/* 暗黑模式适配 */
+body.dark .card-rank { background: rgba(148, 163, 184, 0.22); }
+body.dark .card-rank.rank-other { background: rgba(148, 163, 184, 0.2); color: #CBD5E1; }
 
 .card-title {
     flex: 1;
@@ -1633,8 +1646,9 @@ body.dark .highlight { background: rgba(245, 158, 11, 0.4); }
     .page-head { align-items: flex-start; }
 
     .hotspot-card { padding: 14px; }
-    .card-meta, .card-summary, .card-analysis, .card-tags, .card-detail { margin-left: 0; }
-    .card-header { flex-wrap: wrap; }
+    .card-rank { top: 10px; left: 10px; width: 24px; height: 24px; font-size: 12px; }
+    .card-header { padding-left: 32px; flex-wrap: wrap; }
+    .card-meta, .card-summary, .card-analysis, .card-tags, .card-detail { margin-left: 32px; }
     .card-title { font-size: 15.5px; }
 
     .jobs-grid, .recruit-grid, .schools-list, .glossary-list { grid-template-columns: 1fr; }

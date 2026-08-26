@@ -12,6 +12,34 @@
     <meta property="og:url" content="https://你的用户名.github.io/仓库名/" />
     <link rel="icon" type="image/svg+xml" href="favicon.svg">
     <link rel="stylesheet" href="style.css">
+    <!-- 排名徽章覆盖样式（内联兜底，保证最新样式在任何缓存环境下生效） -->
+    <style>
+    .card-rank {
+        position: absolute !important;
+        top: 12px !important;
+        left: 12px !important;
+        width: 26px !important;
+        height: 26px !important;
+        display: flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+        border-radius: 50% !important;
+        font-size: 13px !important;
+        font-weight: 800 !important;
+        color: #fff !important;
+        background: rgba(107, 114, 128, 0.16) !important;
+        box-shadow: 0 1px 3px rgba(15, 23, 42, 0.2) !important;
+        flex-shrink: 0 !important;
+        z-index: 1 !important;
+    }
+    .card-rank.rank-1 { background: linear-gradient(135deg, #F59E0B, #F97316) !important; }
+    .card-rank.rank-2 { background: linear-gradient(135deg, #C3CBD6, #8A94A3) !important; }
+    .card-rank.rank-3 { background: linear-gradient(135deg, #D97706, #A16207) !important; }
+    .card-rank.rank-other { background: rgba(107, 114, 128, 0.16) !important; color: var(--clr-muted) !important; box-shadow: none !important; }
+    @media (max-width: 640px) {
+        .card-rank { top: 10px !important; left: 10px !important; width: 24px !important; height: 24px !important; font-size: 12px !important; }
+    }
+    </style>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <!-- 百度统计（BAIDU_TONGJI_ID 请替换为自己的统计 ID） -->
     <script>
@@ -510,27 +538,6 @@
                 <div class="learning-list" id="learningList">
                     <div class="loading-text">加载中...</div>
                 </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- ======================= 模态框：考研院校（大） ======================= -->
-    <div class="modal" id="schoolsModal">
-        <div class="modal-overlay" id="schoolsOverlay"></div>
-        <div class="modal-content modal-xlarge">
-            <div class="modal-head">
-                <h3 class="modal-title">🎓 考研院校分析</h3>
-                <button class="modal-close" id="schoolsClose">✕</button>
-            </div>
-            <div class="modal-body">
-                <div class="schools-filters">
-                    <div class="filter-item"><select id="schoolsLevelFilter"><option value="all">层次 全部</option><option value="985">985</option><option value="211">211</option><option value="双一流">双一流</option><option value="普通">普通</option></select></div>
-                    <div class="filter-item"><select id="schoolsDifficultyFilter"><option value="all">难度 全部</option><option value="hard">高难度</option><option value="medium">中难度</option><option value="easy">低难度</option></select></div>
-                    <div class="filter-item"><select id="schoolsSortBy"><option value="desc">排序 难度降序</option><option value="asc">排序 难度升序</option></select></div>
-                    <div class="filter-item"><input type="text" id="schoolsSearch" placeholder="搜索学校 / 专业..." autocomplete="off"></div>
-                </div>
-                <div class="schools-stats" id="schoolsStats"></div>
-                <div class="schools-list" id="schoolsList"><div class="loading-text">加载中...</div></div>
             </div>
         </div>
     </div>

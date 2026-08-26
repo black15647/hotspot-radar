@@ -613,14 +613,40 @@ def fetch_all_feeds(config, max_items_per_source):
                     published = parse_published_time(entry)
                     summary = extract_summary(entry)
 
-                    all_items.append({
+                    # 摘要有效性：去标点后与标题一致，或过短（<20字符），视为无效并置空
+                    if summary:
+                        norm_s = re.sub(r"[\s\W_]+", "", summary)
+                        norm_t = re.sub(r"[\s\W_]+", "", title)
+                        if norm_s == norm_t or len(summary.strip()) < 20:
+                            summary = ""
+
+                    item = {
                         "title": title,
                         "link": link,
                         "source": source_name,
                         "published": published.isoformat() if published else None,
                         "published_dt": published,
                         "summary": summary,
-                    })
+                    }
+
+                    # 英文标题/摘要翻译为中文（本地词表 + MyMemory），保留原文与译文
+                    if title and not is_chinese(title):
+                        title_zh = translate_en_to_zh(title)
+                        if title_zh and title_zh != title and is_chinese(title_zh):
+                            item["title_en"] = title
+                            item["title_zh"] = title_zh
+                            item["title"] = title_zh  # 前端默认显示中文标题
+                    else:
+                        item["title_zh"] = title
+                    if summary and not is_chinese(summary):
+                        summary_zh = translate_en_to_zh(summary)
+                        if summary_zh and summary_zh != summary:
+                            item["summary_en"] = summary
+                            item["summary_zh"] = summary_zh
+                            item["summary"] = summary_zh  # 前端默认显示中文摘要
+                    else:
+                        item["summary_zh"] = summary
+                    all_items.append(item)
                     count += 1
 
                 success = True
@@ -1267,10 +1293,10 @@ def generate_ai_summary(item, api_config):
     if link:
         article_text = extract_article_text(link, api_config)
 
-    if article_text:
-        prompt = f"你是一个环境领域摘要助手。请根据以下文章内容，生成一句不超过50字的中文摘要，直接输出摘要，不要解释。\n\n文章内容：{article_text[:3000]}"
-    else:
-        prompt = f"你是一个环境领域摘要助手。请根据以下新闻标题，推测并生成一句不超过50字的中文摘要，直接输出摘要，不要解释。\n\n标题：{title}"
+    if not article_text:
+        # 无法获取原文，不基于标题猜测，保持摘要为空（避免误导用户）
+        return ""
+    prompt = f"你是一个环境领域摘要助手。请根据以下文章内容，生成一句不超过50字的中文摘要，直接输出摘要，不要解释。\n\n文章内容：{article_text[:3000]}"
 
     result = call_nvidia_api(prompt, api_config, max_tokens=100)
     if result:
@@ -1278,6 +1304,98 @@ def generate_ai_summary(item, api_config):
         result = result.strip('"').strip("'").strip()
         return result
     return summary
+
+
+def _ai_relevance_irrelevant(items, api_config):
+    """
+    批量调用 AI 判断各条新闻标题是否与环境领域相关。
+    返回 AI 明确判为"否"（无关）的索引集合；调用/解析失败返回 None（调用方降级为规则）。
+    只移除明确判为无关的条目，避免误杀。
+    """
+    lines = []
+    for idx, item in enumerate(items):
+        title = item.get("title", "")
+        if title:
+            lines.append(f"{idx}. {title}")
+    if not lines:
+        return None
+    prompt = (
+        "请判断以下新闻标题是否与环境领域相关（包括气候变化、污染治理、生态保护、"
+        "资源能源、环境政策、可持续发展、环境健康、环境技术等）。"
+        "直接返回JSON数组，格式：[{\"id\":0,\"relevant\":\"是\"},{\"id\":1,\"relevant\":\"否\"}]，"
+        "每条只回答\"是\"或\"否\"，不要解释。\n\n"
+        "标题列表：\n" + "\n".join(lines)
+    )
+    result = call_nvidia_api(prompt, api_config, max_tokens=300)
+    if not result:
+        return None
+    try:
+        result = result.strip()
+        if result.startswith("```"):
+            result = result.split("\n", 1)[-1]
+            if result.endswith("```"):
+                result = result[:-3]
+        result = result.strip()
+        start = result.find("[")
+        end = result.rfind("]")
+        if start >= 0 and end > start:
+            result = result[start:end + 1]
+        arr = json.loads(result)
+        if isinstance(arr, list):
+            irrelevant_set = set()
+            for r in arr:
+                if isinstance(r, dict) and "id" in r:
+                    rid = int(r["id"])
+                    rel = str(r.get("relevant", "")).strip()
+                    if rel in ("否", "no", "false", "0"):
+                        irrelevant_set.add(rid)
+            return irrelevant_set
+    except Exception as e:
+        print(f"[相关性过滤] AI 结果解析失败，降级为规则判断: {str(e)[:50]}")
+    return None
+
+
+def filter_environmental_relevance(items, config, api_config):
+    """
+    环境领域相关性过滤：
+    1. 若 AI 可用，批量调用 AI 判断标题相关性，只移除 AI 明确判为"否"的条目
+    2. AI 不可用或调用失败，规则降级：标题包含 config.keywords 任意词 → 相关，否则不相关
+    3. 被过滤条目标记 irrelevant=True 并从候选池移除
+    返回过滤后的条目列表
+    """
+    if not items:
+        return items
+
+    keywords = config.get("keywords", [])
+    ai_ok = api_config["summary_enabled"] and api_config["api_key"] and REQUESTS_AVAILABLE
+
+    irrelevant_set = None
+    if ai_ok and NVIDIA_CONSECUTIVE_FAILURES < NVIDIA_MAX_CONSECUTIVE_FAILURES:
+        irrelevant_set = _ai_relevance_irrelevant(items, api_config)
+
+    kept = []
+    for idx, item in enumerate(items):
+        title = item.get("title", "")
+        if not title:
+            kept.append(item)
+            continue
+        # AI 判断可用：只移除明确判为无关的条目
+        if irrelevant_set is not None:
+            if idx in irrelevant_set:
+                item["irrelevant"] = True
+                print(f"[过滤] 无关内容（AI判断）：{title[:50]}")
+                continue
+            kept.append(item)
+            continue
+        # 规则降级：标题包含任意配置关键词 → 相关；不包含 → 不相关
+        if keywords:
+            matched = match_keywords(title, keywords)
+            if not matched:
+                item["irrelevant"] = True
+                print(f"[过滤] 无关内容（规则降级）：{title[:50]}")
+                continue
+        kept.append(item)
+    return kept
 
 
 def calculate_weekly_keywords():
@@ -1375,6 +1493,41 @@ def generate_weekly_summary(api_config, weekly_keywords=None):
     # 规则生成（降级）
     if top_terms:
         return f"近7天环境领域热点集中在：{'、'.join(top_terms[:3])}，关键词累计出现{total_count}次。"
+    return ""
+
+
+def generate_weekly_insight(api_config, weekly_keywords=None):
+    """
+    基于近7天热点数据生成一段分析见解（2-4句），写入 latest.json 的 weekly_insight 字段
+    优先 AI 生成，失败则使用规则生成
+    """
+    if weekly_keywords is None:
+        weekly_keywords = calculate_weekly_keywords()
+    if not weekly_keywords:
+        return ""
+    top_terms = [kw["term"] for kw in weekly_keywords[:6]]
+    total_count = sum(kw["count"] for kw in weekly_keywords)
+
+    # AI 生成（一次调用）
+    if api_config["summary_enabled"] and top_terms:
+        prompt = (
+            "根据以下近7天环境领域热点数据，写一段简短见解（2-4句），"
+            "分析近期热点趋势和特点，要有观察和总结，不要只罗列关键词。\n\n"
+            f"高频关键词：{', '.join(top_terms)}\n"
+            f"关键词累计出现次数：{total_count}\n"
+            f"平均每天约 {max(1, round(total_count / 7))} 次出现"
+        )
+        result = call_nvidia_api(prompt, api_config, max_tokens=200)
+        if result:
+            return result.strip('"').strip("'").strip()
+
+    # 规则生成（降级）
+    if top_terms:
+        return (
+            f"近7天热点主要集中在{'、'.join(top_terms[:3])}等方向，"
+            f"关键词累计出现{total_count}次，整体呈现持续关注态势，"
+            f"建议重点关注{'、'.join(top_terms[:2])}相关进展。"
+        )
     return ""
 
 
@@ -1518,11 +1671,20 @@ def generate_topic_tags(item, api_config):
 def extract_tags_from_title(title):
     """
     从标题中提取话题标签作为降级方案
-    优先提取最长的连续中文字符串或包含已知关键词的词组
-    失败返回 ["环境动态"]
+    优先匹配环境领域具体关键词，其次提取有意义的中文片段
+    过滤媒体名称、客户端等无意义词；失败返回 ["环境动态"]
     """
     if not title or len(title) < 4:
         return ["环境动态"]
+
+    # 媒体名/无意义词（出现在提取结果中则丢弃该段）
+    media_noise = [
+        "客户端", "新闻网", "日报", "晚报", "电视台", "广播电台", "通讯社",
+        "搜狐", "网易", "腾讯", "新浪", "凤凰", "澎湃", "环球网", "新华网",
+        "人民网", "央视", "中新网", "参考消息", "联合早报", "财新", "界面",
+        "每经", "第一财经", "证券时报", "经济观察", "中国网", "百家号", "头条",
+        "湖北日报", "今日关注", "详情", "全文", "快讯", "重磅", "突发",
+    ]
 
     # 已知环境领域关键词（具体词）
     specific_keywords = [
@@ -1549,12 +1711,17 @@ def extract_tags_from_title(title):
         # 取前3个匹配的关键词
         return matched[:3]
 
-    # 提取最长的连续中文字符串（长度>=4）
+    # 提取较长的连续中文字符串（长度>=4），并过滤媒体名/无意义片段
     import re
     chinese_segments = re.findall(r'[\u4e00-\u9fa5]{4,}', title)
-    if chinese_segments:
+    valid_segments = []
+    for seg in chinese_segments:
+        if any(noise in seg for noise in media_noise):
+            continue
+        valid_segments.append(seg)
+    if valid_segments:
         # 取最长的一段
-        longest = max(chinese_segments, key=len)
+        longest = max(valid_segments, key=len)
         if len(longest) <= 15:
             return [longest]
         else:
@@ -1584,19 +1751,24 @@ def generate_batch_summaries(items, api_config):
     for idx, item in enumerate(items):
         summary = item.get("summary", "")
         title = item.get("title", "")
-        if not summary or summary == title or len(summary) < 20:
+        # 摘要与标题完全相同视为无效，直接置空
+        if summary and summary == title:
+            item["summary"] = ""
+            summary = ""
+            print(f"[摘要] 摘要与标题相同，置空：{title[:40]}")
+        if not summary or len(summary) < 20:
             need_summary.append((idx, item))
 
     if not need_summary:
-        print("[AI] 所有条目已有摘要，跳过批量摘要生成")
+        print("[AI] 所有条目已有有效摘要，跳过批量摘要生成")
         return items
 
-    # 构建 prompt
-    news_list = []
-    for local_idx, (orig_idx, item) in enumerate(need_summary):
+    # 逐条尝试获取原文：只有成功获取到原文（真实内容）的条目才交给 AI 生成摘要
+    # 无法获取原文的条目保持摘要为空，不基于标题猜测（避免误导用户）
+    candidates = []  # (local_idx, orig_idx, item, article_text)
+    for idx, (orig_idx, item) in enumerate(need_summary):
         title = item.get("title", "无标题")
         link = item.get("link", "")
-        # 尝试获取原文（只取前500字以控制 token）
         article_text = ""
         if link and api_config.get("reader_enabled", True):
             try:
@@ -1606,9 +1778,19 @@ def generate_batch_summaries(items, api_config):
             except Exception:
                 pass
         if article_text:
-            news_list.append(f"{local_idx}. 标题：{title}\n内容：{article_text}")
+            candidates.append((len(candidates), orig_idx, item, article_text))
         else:
-            news_list.append(f"{local_idx}. 标题：{title}")
+            print(f"[摘要] 无有效摘要（原文获取失败）：{title[:40]}")
+
+    if not candidates:
+        print("[AI] 未能获取任何原文，跳过批量摘要生成（无摘要条目保持为空）")
+        return items
+
+    # 构建 prompt（仅包含成功获取原文的候选条目）
+    news_list = []
+    for local_idx, (_, item, article_text) in enumerate(candidates):
+        title = item.get("title", "无标题")
+        news_list.append(f"{local_idx}. 标题：{title}\n内容：{article_text}")
 
     prompt = f"""你是一个环境领域摘要助手。请为以下每条新闻生成一句不超过50字的中文摘要，直接返回JSON数组，格式：[{{"id":0,"summary":"..."}},{{"id":1,"summary":"..."}}]，不要解释。
 
@@ -1682,13 +1864,13 @@ def generate_batch_summaries(items, api_config):
             for s in summaries:
                 if isinstance(s, dict) and "id" in s and "summary" in s:
                     local_idx = int(s["id"])
-                    if 0 <= local_idx < len(need_summary):
-                        orig_idx, item = need_summary[local_idx]
+                    if 0 <= local_idx < len(candidates):
+                        _, _, item, _ = candidates[local_idx]
                         new_summary = str(s["summary"]).strip().strip('"').strip("'")
                         if new_summary:
                             item["summary"] = new_summary
                             count += 1
-            print(f"[AI批量摘要] 成功生成 {count}/{len(need_summary)} 条摘要")
+            print(f"[AI批量摘要] 成功生成 {count}/{len(candidates)} 条摘要")
     except Exception as e:
         print(f"[AI批量摘要] 解析返回结果失败: {str(e)[:50]}")
 
@@ -1844,33 +2026,58 @@ def generate_batch_topic_tags(items, api_config):
 
 
 def enhance_analysis_with_tags(item):
-    """根据 topic_tags 优化 analysis 字段"""
+    """
+    根据 topic_tags 与 score_breakdown 生成自然的分析文字
+    - 话题：优先 AI 生成的具体 topic_tags[0]，其次 matched_keywords[0]，兜底"环境动态"
+      （不再从标题机械提取专有名词/媒体名）
+    - 驱动因素：基于 score_breakdown 各分项生成自然解释
+    """
+    # 话题识别
     topic_tags = item.get("topic_tags", [])
     if topic_tags:
         topic = topic_tags[0]
     else:
-        # 回退到匹配的关键词
         matched = item.get("matched_keywords", [])
         topic = matched[0] if matched else "环境动态"
 
-    # 热度构成分析
-    parts = []
-    source_weight = item.get("source_weight", 1.0)
-    if source_weight >= 2.0:
-        parts.append("来源权威性")
-    published_dt = item.get("published_dt")
-    if published_dt:
-        hours_ago = (datetime.now(timezone.utc) - published_dt).total_seconds() / 3600
-        if hours_ago <= 24:
-            parts.append("时间新鲜度")
-    matched = item.get("matched_keywords", [])
-    if len(matched) >= 2:
-        parts.append("主题热度")
-    if not parts:
-        parts.append("综合因素")
+    # 热度驱动因素（基于 score_breakdown，无则用字段近似）
+    sb = item.get("score_breakdown", {})
+    drivers = []
+    if sb:
+        source_score = sb.get("source_score", 0) or 0
+        if source_score >= 6.0:
+            drivers.append("来源权威性高")
+        elif source_score >= 4.0:
+            drivers.append("来源较权威")
+        time_score = sb.get("time_score", 0) or 0
+        if time_score >= 6.0:
+            drivers.append("发布时间较新")
+        keyword_score = sb.get("keyword_score", 0) or 0
+        if keyword_score >= 4.0:
+            drivers.append("主题热度高")
+        topic_bonus = sb.get("topic_bonus", 0) or 0
+        if topic_bonus > 0:
+            drivers.append("与近期热点主题相关")
+    else:
+        source_weight = item.get("source_weight", 1.0)
+        if source_weight >= 2.0:
+            drivers.append("来源权威性高")
+        published_dt = item.get("published_dt")
+        if published_dt:
+            hours_ago = (datetime.now(timezone.utc) - published_dt).total_seconds() / 3600
+            if hours_ago <= 24:
+                drivers.append("发布时间较新")
+        matched = item.get("matched_keywords", [])
+        if len(matched) >= 2:
+            drivers.append("主题热度高")
 
-    drive_text = "和".join(parts)
-    return f"该条目涉及【{topic}】话题，热度主要由{drive_text}驱动，建议关注。"
+    if not drivers:
+        return f"该条目涉及【{topic}】话题，热度受综合因素影响，可留意。"
+    if len(drivers) >= 2:
+        drive_text = "且".join(drivers[:2])
+    else:
+        drive_text = drivers[0]
+    return f"该条目涉及【{topic}】话题，因{drive_text}，热度上升。"
 
 
 # ============================================================
@@ -2061,7 +2268,7 @@ def generate_personal_knowledge():
         print(f"[个人知识库] 写入失败：{e}")
 
 
-def generate_latest_json(items, config, weekly_summary="", weekly_keywords=None):
+def generate_latest_json(items, config, weekly_summary="", weekly_keywords=None, weekly_insight=""):
     """生成 data/latest.json"""
     site_name = config.get("site_name", "环境学子雷达")
     keywords = config.get("keywords", DEFAULT_KEYWORDS)
@@ -2100,6 +2307,10 @@ def generate_latest_json(items, config, weekly_summary="", weekly_keywords=None)
         item["analysis"] = analysis
         output_items.append({
             "title": sanitize_str(item.get("title")),
+            "title_en": sanitize_str(item.get("title_en", "")),
+            "title_zh": sanitize_str(item.get("title_zh", item.get("title", ""))),
+            "summary_en": sanitize_str(item.get("summary_en", "")),
+            "summary_zh": sanitize_str(item.get("summary_zh", item.get("summary", ""))),
             "link": sanitize_str(item.get("link")),
             "source": sanitize_str(item.get("source")),
             "published": sanitize_str(item.get("published")),
@@ -2124,6 +2335,7 @@ def generate_latest_json(items, config, weekly_summary="", weekly_keywords=None)
         "hot_summary": sanitize_str(summary),
         "summary": sanitize_str(summary),
         "weekly_summary": sanitize_str(weekly_summary),
+        "weekly_insight": sanitize_str(weekly_insight),
         "weekly_keywords": weekly_keywords if weekly_keywords is not None else [],
     }
 
@@ -2217,7 +2429,7 @@ def generate_monthly_archive(items, config):
     return archive_data
 
 
-def generate_daily_report_md(items, config):
+def generate_daily_report_md(items, config, weekly_insight=""):
     """生成 data/daily_report.md（仅Top10）"""
     site_name = config.get("site_name", "环境学子雷达")
     today = datetime.now(timezone.utc).strftime("%Y-%m-%d")
@@ -2228,6 +2440,9 @@ def generate_daily_report_md(items, config):
     lines.append(f"**日期**：{today}")
     lines.append(f"**总条目数**：{len(items)}")
     lines.append(f"")
+    if weekly_insight:
+        lines.append(f"**近7天见解**：{weekly_insight}")
+        lines.append(f"")
     lines.append(f"---")
     lines.append(f"")
     lines.append(f"## 🔥 今日热点 TOP 10")
@@ -2466,6 +2681,64 @@ def send_email(config, report_path, critical_sources=None):
 # 主函数
 # ============================================================
 
+def calculate_difficulty(school):
+    """
+    计算考研院校难度指数（0-100）。
+    
+    根据学校层次、学科评估等级、复试线、招生人数等因素估算难度。
+    目前 schools.json 中已手动给定 difficulty_index，前端直接使用。
+    此函数用于后续扩展，可根据字段自动计算难度。
+    
+    参数:
+        school: 学校对象字典，包含 name, level, discipline, score_lines, enrollment 等字段
+    
+    返回:
+        int: 难度指数（0-100）
+    """
+    score = 50  # 基础分
+    
+    # 学校层次加分
+    level = school.get("level", "")
+    if "985" in level:
+        score += 25
+    elif "211" in level:
+        score += 15
+    elif "双一流" in level:
+        score += 10
+    
+    # 学科评估加分
+    discipline = school.get("discipline", "")
+    if discipline == "A+":
+        score += 15
+    elif discipline == "A":
+        score += 12
+    elif discipline == "A-":
+        score += 10
+    elif discipline == "B+":
+        score += 6
+    elif discipline == "B":
+        score += 4
+    elif discipline == "B-":
+        score += 2
+    elif discipline == "C+":
+        score += 1
+    
+    # 复试线加分（高于国家线越多越难）
+    score_lines = school.get("score_lines", "")
+    if "330" in score_lines or "340" in score_lines or "350" in score_lines:
+        score += 10
+    elif "310" in score_lines or "320" in score_lines:
+        score += 5
+    
+    # 招生人数减分（招生越少越难）
+    enrollment = school.get("enrollment", "")
+    if "推免" in enrollment and ("50%" in enrollment or "高" in enrollment):
+        score += 5
+    
+    # 限制在 0-100 范围内
+    score = max(0, min(100, score))
+    return score
+
 def main():
     print("=" * 60)
     print("环境学子雷达 - 每日热点报告生成器")
@@ -2517,6 +2790,13 @@ def main():
     print(f"[统计] 过滤后 {len(all_items)} 条")
     print()
 
+    # 3.5 环境领域相关性过滤（时间过滤后、热度计算前，保证不相关内容不进榜单）
+    print("--- 第三步补充：环境领域相关性过滤 ---")
+    api_config = get_api_config(config)
+    all_items = filter_environmental_relevance(all_items, config, api_config)
+    print(f"[统计] 相关性过滤后 {len(all_items)} 条")
+    print()
+
     # 4. 热度计算
     print("--- 第四步：热度计算 ---")
     all_items = calculate_hotness(all_items, config)
@@ -2534,7 +2814,7 @@ def main():
     print("--- 第六步：生成输出文件 ---")
 
     # AI 处理：批量摘要生成、逐条话题标签、关键词提取、近7天总结
-    api_config = get_api_config(config)
+    # （api_config 已在相关性过滤步骤获取）
     if api_config["summary_enabled"]:
         print("[AI] 英伟达 NIM 已启用，开始生成 AI 摘要和话题标签...")
         # 批量生成摘要（一次API调用，处理所有需要摘要的条目）
@@ -2575,15 +2855,18 @@ def main():
     weekly_summary = generate_weekly_summary(api_config, weekly_keywords=weekly_keywords)
     if weekly_summary:
         print(f"[AI] 近7天总结: {weekly_summary[:60]}...")
+    weekly_insight = generate_weekly_insight(api_config, weekly_keywords=weekly_keywords)
+    if weekly_insight:
+        print(f"[AI] 近7天见解: {weekly_insight[:60]}...")
 
-    latest_data = generate_latest_json(all_items, config, weekly_summary=weekly_summary, weekly_keywords=weekly_keywords)
+    latest_data = generate_latest_json(all_items, config, weekly_summary=weekly_summary, weekly_keywords=weekly_keywords, weekly_insight=weekly_insight)
     generate_daily_snapshot(all_items, config)
     generate_monthly_archive(all_items, config)
     generate_pending_terms(all_items, config)
     critical_sources = generate_source_health(source_health)
 
     # 7. 生成 daily_report.md
-    report_path = generate_daily_report_md(all_items, config)
+    report_path = generate_daily_report_md(all_items, config, weekly_insight=weekly_insight)
 
     # 8. 更新 history.json
     history = update_history(all_items, config, backfill=backfill)
@@ -2612,3 +2895,4 @@ def main():
 
 if __name__ == "__main__":
     main()
+

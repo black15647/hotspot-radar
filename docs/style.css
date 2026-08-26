@@ -134,13 +134,14 @@ button:active { transform: scale(0.95); transition: transform 0.1s; }
 .top-actions {
     display: flex;
     align-items: center;
-    gap: 4px;
+    gap: 6px;
 }
 
 .srch-box {
     position: relative;
     display: flex;
     align-items: center;
+    margin-right: 10px;
 }
 .srch-box input {
     width: 190px;
@@ -636,6 +637,31 @@ body.dark .card-rank.rank-other { background: rgba(148, 163, 184, 0.2); color: #
 .schools-page { max-width: 1000px; margin: 0 auto; }
 .province-status-txt { font-size: 14px; font-weight: 700; color: var(--clr-brand-deep); }
 .province-status-sub { font-size: 12px; color: var(--clr-muted); }
+
+.kaoyan-toolbar {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 16px;
+    flex-wrap: wrap;
+}
+.btn-learning-path {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 8px 18px;
+    border-radius: 20px;
+    font-size: 14px;
+    font-weight: 600;
+    color: #fff;
+    background: var(--clr-brand);
+    border: none;
+    cursor: pointer;
+    transition: background .18s, transform .12s;
+}
+.btn-learning-path:hover { background: var(--clr-brand-deep); transform: translateY(-1px); }
+.btn-learning-path:active { transform: scale(0.96); }
+.kaoyan-toolbar-hint { font-size: 13px; color: var(--clr-muted); }
 
 .province-bar {
     display: flex;
@@ -1683,6 +1709,8 @@ body.dark .highlight { background: rgba(245, 158, 11, 0.4); }
     .srch-box input:focus { width: 150px; }
     .top-actions .icon-btn { display: none; }
     .top-actions #themeToggle { display: flex; }
+    .srch-box { margin-right: 6px; }
+    .kaoyan-toolbar-hint { display: none; }
 
     .stage { padding: 14px 12px 90px; }
     .page-title { font-size: 21px; }

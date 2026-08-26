@@ -470,6 +470,12 @@ body.dark .card-rank.rank-other { background: rgba(148, 163, 184, 0.2); color: #
 .collapse-btn { background: var(--clr-bg); color: var(--clr-muted); }
 .collapse-btn:hover { color: var(--clr-text); }
 
+/* 初始隐藏容器（显示/隐藏由 JS 动态控制） */
+#summarySection, #featuredSection, #loadMoreContainer, #weeklySummarySection, #followedBlock, #glossarySuggestions, #errorContainer { display: none; }
+/* 侧边栏卡片内操作区与时间线按钮布局 */
+.side-card .card-detail-actions { margin-top: 12px; }
+#timelineBtn { width: 100%; }
+
 /* ============================================================
    加载更多 / 骨架屏
    ============================================================ */

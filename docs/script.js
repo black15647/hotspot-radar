@@ -384,6 +384,8 @@
         // v5.0 新增事件
         // 回到顶部
         on(els.backToTop, 'click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+        // 页脚"回到顶部"链接（与悬浮按钮功能相同，避免重复 ID）
+        on(document.getElementById('footerBackToTop'), 'click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
         window.addEventListener('scroll', handleScroll);
         // 分享网站
         on(els.shareSiteBtn, 'click', shareSite);
@@ -2602,7 +2604,7 @@
             } else if (typeof breakdown === 'string') {
                 listEl.innerHTML = `<div class="score-breakdown-item"><span class="score-breakdown-item-label">${breakdown}</span></div>`;
             } else {
-                listEl.innerHTML = `<div class="score-breakdown-item"><span class="score-breakdown-item-label">暂无明细数据</span></div>`;
+                listEl.innerHTML = `<div class="score-breakdown-item"><span class="score-breakdown-item-label">暂无明细数据（该条未包含 score_breakdown 字段，由后端热度算法生成）</span></div>`;
             }
         }
 
@@ -3056,6 +3058,16 @@
         });
         const schoolsSearch2 = document.getElementById('schoolsSearch2');
         if (schoolsSearch2) schoolsSearch2.addEventListener('input', filterSchoolsPage);
+
+        // 就业窗口"查看岗位详情/查看更多招聘"死链接修复：点击平滑滚动到对应区块
+        document.querySelectorAll('.block-link').forEach((link, idx) => {
+            link.addEventListener('click', (e) => {
+                e.preventDefault();
+                const targetId = idx === 0 ? 'jobsGrid' : 'recruitGrid';
+                const el = document.getElementById(targetId);
+                if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            });
+        });
     }
 
 })();

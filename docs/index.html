@@ -75,11 +75,11 @@
                     <input type="text" id="searchInput" placeholder="搜索热点、学校、词条..." autocomplete="off">
                     <span class="srch-icon">🔍</span>
                 </div>
-                <button class="icon-btn" id="savedIcon" title="我的收藏">♥</button>
-                <button class="icon-btn" id="reloadIcon" title="刷新数据">⟳</button>
-                <button class="icon-btn" id="themeToggle" title="夜间模式">🌙</button>
-                <button class="icon-btn" id="feedbackIcon" title="用户反馈">💬</button>
-                <button class="icon-btn" id="shareSiteBtn" title="分享网站">↗</button>
+                <button class="icon-btn" id="savedIcon" title="我的收藏" aria-label="我的收藏">♥</button>
+                <button class="icon-btn" id="reloadIcon" title="刷新数据" aria-label="刷新数据">⟳</button>
+                <button class="icon-btn" id="themeToggle" title="夜间模式" aria-label="切换夜间模式">🌙</button>
+                <button class="icon-btn" id="feedbackIcon" title="用户反馈" aria-label="用户反馈">💬</button>
+                <button class="icon-btn" id="shareSiteBtn" title="分享网站" aria-label="分享网站">↗</button>
             </div>
         </div>
     </header>
@@ -103,12 +103,12 @@
             <div class="hotspot-layout">
                 <!-- 左侧主列 -->
                 <div class="hotspot-main">
-                    <section class="overview-card" id="summarySection" style="display:none;">
+                    <section class="overview-card" id="summarySection">
                         <span class="overview-label">📊 今日概览</span>
                         <p class="overview-text" id="summaryText"></p>
                     </section>
 
-                    <section class="featured-block" id="featuredSection" style="display:none;">
+                    <section class="featured-block" id="featuredSection">
                         <div class="block-head">
                             <h2 class="block-title">⭐ 今日焦点</h2>
                         </div>
@@ -125,13 +125,13 @@
                             <div class="skeleton-card"><div class="skeleton-rank"></div><div class="skeleton-body"><div class="skeleton-line w80"></div><div class="skeleton-line w50"></div><div class="skeleton-line w60"></div></div></div>
                             <div class="skeleton-card"><div class="skeleton-rank"></div><div class="skeleton-body"><div class="skeleton-line w80"></div><div class="skeleton-line w50"></div><div class="skeleton-line w60"></div></div></div>
                         </div>
-                        <div class="load-more-container" id="loadMoreContainer" style="display:none;">
+                        <div class="load-more-container" id="loadMoreContainer">
                             <button class="load-more-btn" id="loadMoreBtn">查看全部（共 0 条）</button>
                         </div>
                     </section>
 
                     <!-- 近7天热点总结（底部统计卡） -->
-                    <section class="weekly-card" id="weeklySummarySection" style="display:none;">
+                    <section class="weekly-card" id="weeklySummarySection">
                         <div class="weekly-head">
                             <span class="weekly-title">📊 近 7 天热点总结</span>
                         </div>
@@ -174,8 +174,8 @@
                         <div class="chart-box">
                             <canvas id="trendChart"></canvas>
                         </div>
-                        <div class="card-detail-actions" style="margin-top:12px;">
-                            <button class="proxy-btn" id="timelineBtn" style="width:100%;">📈 查看事件时间线</button>
+                        <div class="card-detail-actions">
+                            <button class="proxy-btn" id="timelineBtn">📈 查看事件时间线</button>
                         </div>
                     </section>
 
@@ -187,7 +187,7 @@
                         <div class="tag-cloud" id="tagCloud"></div>
                     </section>
 
-                    <section class="side-card" id="followedBlock" style="display:none;">
+                    <section class="side-card" id="followedBlock">
                         <div class="side-card-head">
                             <span class="side-card-title">我关注的关键词</span>
                             <button class="side-card-link" id="followedManageBtn">管理 ›</button>
@@ -331,7 +331,7 @@
                 <button class="footer-link" id="sourceHealthBtn">源健康度</button>
                 <button class="footer-link" id="customizeBtn">主题定制</button>
                 <a class="footer-link" href="https://github.com/black15647/hotspot-radar/issues/new?title=网站反馈&body=请描述你的建议或问题：" target="_blank" rel="noopener">用户反馈</a>
-                <button class="footer-link" id="backToTop">回到顶部</button>
+                <button class="footer-link" id="footerBackToTop">回到顶部</button>
                 <a class="footer-link support-link" href="https://afdian.com/" target="_blank" rel="noopener">☕ 支持作者</a>
             </div>
         </div>
@@ -472,7 +472,7 @@
             <div class="modal-body">
                 <div class="glossary-search-box">
                     <input type="text" id="glossary-search" placeholder="搜索专业名词..." autocomplete="off">
-                    <div class="glossary-suggestions" id="glossarySuggestions" style="display:none;"></div>
+                    <div class="glossary-suggestions" id="glossarySuggestions"></div>
                 </div>
                 <div class="glossary-recommend" id="glossaryRecommend">
                     <div class="glossary-recommend-head">
@@ -637,7 +637,7 @@
         <span class="loading-text">正在加载热点数据...</span>
     </div>
 
-    <div class="error-container" id="errorContainer" style="display:none;">
+    <div class="error-container" id="errorContainer">
         <div class="error-card">
             <span class="error-icon">⚠️</span>
             <p class="error-text">数据加载失败，请检查网络或稍后重试</p>

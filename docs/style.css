@@ -957,6 +957,43 @@ body.dark .card-rank.rank-other { background: rgba(148, 163, 184, 0.2); color: #
 .job-demand.demand-medium { color: var(--clr-warn); background: rgba(245, 158, 11, 0.12); }
 .job-demand.demand-low { color: var(--clr-brand); background: var(--clr-brand-soft); }
 
+/* 就业方向卡片：底部操作行 + 岗位详情展开 */
+.job-card-foot {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 8px;
+    margin-top: 10px;
+    flex-wrap: wrap;
+}
+.job-detail-btn {
+    padding: 4px 11px;
+    font-size: 11.5px;
+    border: 1px solid var(--clr-border);
+    border-radius: 13px;
+    color: var(--clr-brand-deep);
+    background: var(--clr-surface);
+    cursor: pointer;
+    transition: all .15s;
+}
+.job-detail-btn:hover,
+.job-detail-btn.open {
+    border-color: var(--clr-brand);
+    background: var(--clr-brand-soft);
+}
+.job-detail {
+    display: none;
+    margin-top: 10px;
+    padding: 10px 12px;
+    font-size: 12px;
+    line-height: 1.7;
+    color: var(--clr-muted);
+    background: var(--clr-surface);
+    border: 1px solid var(--clr-border);
+    border-radius: var(--radius);
+}
+.job-detail.show { display: block; }
+
 .recruit-grid {
     display: grid;
     grid-template-columns: repeat(4, 1fr);

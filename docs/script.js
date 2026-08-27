@@ -2840,27 +2840,9 @@
     // ============================================================
     let jobsRendered = false;
 
-    // 十大就业方向数据
-    const jobDirections = [
-        { name: '环境监测与评价', desc: '环评、监测、第三方检测机构核心岗位', jobs: '环评工程师 · 监测员', demand: '需求高', demandLevel: 'high' },
-        { name: '水处理与给排水', desc: '市政水务、工业废水处理、膜技术方向', jobs: '工艺工程师 · 运维', demand: '需求高', demandLevel: 'high' },
-        { name: '大气治理与气候', desc: '脱硫脱硝、碳减排、气候政策研究', jobs: '大气工程师 · 碳管理', demand: '需求中高', demandLevel: 'medium' },
-        { name: '固废与资源循环', desc: '垃圾分类、危废处置、再生资源利用', jobs: '固废工程师 · 资源化', demand: '需求中', demandLevel: 'low' },
-        { name: '生态修复与保护', desc: '土壤修复、湿地保护、生物多样性', jobs: '修复工程师 · 生态员', demand: '需求中', demandLevel: 'low' },
-        { name: '环境咨询与ESG', desc: 'ESG报告、碳核查、绿色咨询', jobs: 'ESG顾问 · 咨询师', demand: '需求高', demandLevel: 'high' },
-        { name: '环保技术研发', desc: '环保装备、新材料、智慧环保算法', jobs: '研发工程师 · 算法', demand: '需求中高', demandLevel: 'medium' },
-        { name: '环境与公共卫生', desc: '环境健康、毒理、职业健康', jobs: '公卫研究员 · 毒理', demand: '需求中', demandLevel: 'low' },
-        { name: '环境政策与规划', desc: '生态环境规划、政策研究、行政管理', jobs: '规划师 · 公务员', demand: '需求中', demandLevel: 'low' },
-        { name: '绿色金融与碳管理', desc: '碳交易、绿色债券、气候投融资', jobs: '碳交易员 · 分析师', demand: '需求高', demandLevel: 'high' }
-    ];
-
-    // 招聘资讯示例数据
-    const recruitData = [
-        { company: '某环境监测中心', salary: '8-12K', job: '环评工程师', meta: '广州 · 1-3年 · 全职急招' },
-        { company: '某水务集团', salary: '10-15K', job: '水处理工艺工程师', meta: '深圳 · 3-5年 · 国企' },
-        { company: '某碳中和研究院', salary: '12-18K', job: '碳资产管理', meta: '北京 · 经验不限 · 研究岗' },
-        { company: '某环保科技公司', salary: '9-14K', job: 'ESG咨询顾问', meta: '上海 · 1-3年 · 成长快' }
-    ];
+    // 就业方向数据（从 data/careers.json、data/jobs.json 加载，失败降级为内置示例）
+    let jobDirections = [];
+    let recruitData = [];
 
     // 需求程度样式
     function getDemandClass(level) {
@@ -2868,6 +2850,32 @@
         if (level === 'medium') return 'demand-medium';
         return 'demand-low';
     }
+    function getDemandLevel(demand) {
+        if (!demand) return 'low';
+        if (demand.indexOf('高') >= 0) return 'high';
+        if (demand.indexOf('中') >= 0) return 'medium';
+        return 'low';
+    }
+
+    // 内置示例数据（fetch 失败时兜底）
+    const fallbackDirections = [
+        { name: '环境监测与评价', desc: '环评、监测、第三方检测机构核心岗位', jobs: '环评工程师 · 监测员', demand: '需求高' },
+        { name: '水处理与给排水', desc: '市政水务、工业废水处理、膜技术方向', jobs: '工艺工程师 · 运维', demand: '需求高' },
+        { name: '大气治理与气候', desc: '脱硫脱硝、碳减排、气候政策研究', jobs: '大气工程师 · 碳管理', demand: '需求中高' },
+        { name: '固废与资源循环', desc: '垃圾分类、危废处置、再生资源利用', jobs: '固废工程师 · 资源化', demand: '需求中' },
+        { name: '生态修复与保护', desc: '土壤修复、湿地保护、生物多样性', jobs: '修复工程师 · 生态员', demand: '需求中' },
+        { name: '环境咨询与ESG', desc: 'ESG报告、碳核查、绿色咨询', jobs: 'ESG顾问 · 咨询师', demand: '需求高' },
+        { name: '环保技术研发', desc: '环保装备、新材料、智慧环保算法', jobs: '研发工程师 · 算法', demand: '需求中高' },
+        { name: '环境与公共卫生', desc: '环境健康、毒理、职业健康', jobs: '公卫研究员 · 毒理', demand: '需求中' },
+        { name: '环境政策与规划', desc: '生态环境规划、政策研究、行政管理', jobs: '规划师 · 公务员', demand: '需求中' },
+        { name: '绿色金融与碳管理', desc: '碳交易、绿色债券、气候投融资', jobs: '碳交易员 · 分析师', demand: '需求高' }
+    ];
+    const fallbackRecruit = [
+        { company: '某环境监测中心', salary: '8-12K', job: '环评工程师', meta: '广州 · 1-3年 · 全职急招' },
+        { company: '某水务集团', salary: '10-15K', job: '水处理工艺工程师', meta: '深圳 · 3-5年 · 国企' },
+        { company: '某碳中和研究院', salary: '12-18K', job: '碳资产管理', meta: '北京 · 经验不限 · 研究岗' },
+        { company: '某环保科技公司', salary: '9-14K', job: 'ESG咨询顾问', meta: '上海 · 1-3年 · 成长快' }
+    ];
 
     // 渲染就业方向页面
     function renderJobsPage() {
@@ -2875,31 +2883,83 @@
         const recruitGrid = document.getElementById('recruitGrid');
         if (!grid || !recruitGrid) return;
 
-        // 渲染十大方向卡片
-        grid.innerHTML = jobDirections.map(dir => {
+        // 渲染十大方向卡片（从 careers.json 读取；positions 为数组，detail 可展开）
+        grid.innerHTML = (jobDirections.length ? jobDirections : fallbackDirections).map((dir, i) => {
+            const detailId = 'jobDetail' + i;
+            const title = dir.direction || dir.name || '';
+            const intro = dir.intro || dir.desc || '';
+            const roles = Array.isArray(dir.positions)
+                ? (dir.positions || []).join(' · ')
+                : (dir.jobs || '');
+            const demandText = dir.demand || '';
             return '' +
                 '<div class="job-card">' +
-                    '<h3 class="job-card-title">' + dir.name + '</h3>' +
-                    '<p class="job-card-desc">' + dir.desc + '</p>' +
-                    '<p class="job-card-roles">岗位：' + dir.jobs + '</p>' +
-                    '<span class="job-demand ' + getDemandClass(dir.demandLevel) + '">' + dir.demand + '</span>' +
+                    '<h3 class="job-card-title">' + escapeHtml(title) + '</h3>' +
+                    '<p class="job-card-desc">' + escapeHtml(intro) + '</p>' +
+                    (roles ? '<p class="job-card-roles">岗位：' + escapeHtml(roles) + '</p>' : '') +
+                    '<div class="job-card-foot">' +
+                        '<span class="job-demand ' + getDemandClass(getDemandLevel(demandText)) + '">' + escapeHtml(demandText) + '</span>' +
+                        (dir.detail ? '<button type="button" class="job-detail-btn" data-target="' + detailId + '">查看岗位详情</button>' : '') +
+                    '</div>' +
+                    (dir.detail ? '<div class="job-detail" id="' + detailId + '">' + escapeHtml(dir.detail) + '</div>' : '') +
                 '</div>';
         }).join('');
 
-        // 渲染招聘资讯
-        recruitGrid.innerHTML = recruitData.map(rec => {
+        // 详情展开/收起（同一时间只展开一个）
+        grid.querySelectorAll('.job-detail-btn').forEach((btn) => {
+            btn.addEventListener('click', () => {
+                const target = document.getElementById(btn.getAttribute('data-target'));
+                if (!target) return;
+                const isOpen = target.classList.contains('show');
+                grid.querySelectorAll('.job-detail.show').forEach((d) => d.classList.remove('show'));
+                grid.querySelectorAll('.job-detail-btn.open').forEach((b) => b.classList.remove('open'));
+                if (!isOpen) {
+                    target.classList.add('show');
+                    btn.classList.add('open');
+                }
+            });
+        });
+
+        // 渲染招聘资讯（从 jobs.json 读取；字段 company/salary/position/location/experience/tags）
+        const jobs = recruitData.length ? recruitData : fallbackRecruit;
+        recruitGrid.innerHTML = jobs.map((rec) => {
+            const meta = [rec.location, rec.experience, (rec.tags || []).slice(0, 4).join(' · ')]
+                .filter(Boolean).join(' · ');
             return '' +
                 '<div class="recruit-card">' +
                     '<div class="recruit-card-header">' +
-                        '<span class="recruit-company">' + rec.company + '</span>' +
-                        '<span class="recruit-salary">' + rec.salary + '</span>' +
+                        '<span class="recruit-company">' + escapeHtml(rec.company) + '</span>' +
+                        '<span class="recruit-salary">' + escapeHtml(rec.salary) + '</span>' +
                     '</div>' +
-                    '<p class="recruit-job">岗位：' + rec.job + '</p>' +
-                    '<p class="recruit-meta">' + rec.meta + '</p>' +
+                    '<p class="recruit-job">岗位：' + escapeHtml(rec.position || rec.job) + '</p>' +
+                    '<p class="recruit-meta">' + escapeHtml(meta) + '</p>' +
                 '</div>';
         }).join('');
 
         jobsRendered = true;
+    }
+
+    // 加载就业方向与招聘数据（fetch，失败降级内置示例）
+    function loadJobsData() {
+        Promise.all([
+            fetch('data/careers.json').then((r) => (r.ok ? r.json() : Promise.reject(new Error('careers')))).catch(() => null),
+            fetch('data/jobs.json').then((r) => (r.ok ? r.json() : Promise.reject(new Error('jobs')))).catch(() => null)
+        ]).then(([careers, jobs]) => {
+            if (Array.isArray(careers) && careers.length) {
+                jobDirections = careers;
+            }
+            if (Array.isArray(jobs) && jobs.length) {
+                recruitData = jobs.map((x) => ({
+                    company: x.company,
+                    salary: x.salary,
+                    position: x.position,
+                    location: x.location,
+                    experience: x.experience,
+                    tags: x.tags || []
+                }));
+            }
+            renderJobsPage();
+        });
     }
 
     // ============================================================
@@ -2935,9 +2995,9 @@
             }
         } else if (windowName === 'jobs') {
             document.getElementById('jobsWindow').classList.add('is-active');
-            // 首次进入就业方向窗口时渲染数据
+            // 首次进入就业方向窗口时加载并渲染数据
             if (!jobsRendered) {
-                renderJobsPage();
+                loadJobsData();
             }
         }
     }
@@ -3151,14 +3211,16 @@
         const schoolsSearch2 = document.getElementById('schoolsSearch2');
         if (schoolsSearch2) schoolsSearch2.addEventListener('input', filterSchoolsPage);
 
-        // 就业窗口"查看岗位详情/查看更多招聘"死链接修复：点击平滑滚动到对应区块
-        document.querySelectorAll('.block-link').forEach((link, idx) => {
-            link.addEventListener('click', (e) => {
-                e.preventDefault();
-                const targetId = idx === 0 ? 'jobsGrid' : 'recruitGrid';
-                const el = document.getElementById(targetId);
-                if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
-            });
+        // 就业窗口"查看岗位详情"（仍为 #）点击平滑滚动到对应区块；"查看更多招聘"为真实外链则不拦截
+        document.querySelectorAll('.block-link').forEach((link) => {
+            if (link.getAttribute('href') === '#') {
+                link.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    const targetId = link.textContent.indexOf('招聘') >= 0 ? 'recruitGrid' : 'jobsGrid';
+                    const el = document.getElementById(targetId);
+                    if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                });
+            }
         });
     }
 

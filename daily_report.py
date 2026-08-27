@@ -1251,8 +1251,31 @@ STOP_WORDS_EN = set([
     "than", "then", "there", "here", "where", "when", "what", "which", "who",
     "how", "why", "also", "more", "most", "very", "just", "only", "new",
     "news", "latest", "today", "report", "says", "said", "make", "made",
-    "take", "get", "come", "going", "will", "year", "one", "two", "people",
+    "take", "get", "come", "going", "year", "one", "two", "people",
+    # 补充常见英文停用词（规则关键词提取用）
+    "a", "an", "of", "to", "in", "on", "at", "as", "is", "be", "been",
+    "these", "those", "it", "we", "you", "he", "she", "they", "them",
+    "whom", "whose", "no", "yes", "so", "if", "up", "down", "out", "off",
+    "again", "further", "once", "here", "all", "any", "both", "each", "few",
+    "other", "some", "own", "same", "too", "above", "below", "through",
+    "because", "until", "while", "itself", "himself", "herself", "themselves",
+    "am", "do", "does", "did", "done", "being", "has", "were", "been", "very",
+    "lots", "much", "many", "every", "everyone", "someone", "nobody", "anyone",
+    "something", "anything", "nothing", "everything", "us", "me", "him", "her",
+    "them", "there", "their", "they", "this", "those", "these", "than",
 ])
+
+# 媒体名称黑名单（关键词/标签提取时过滤）
+MEDIA_BLACKLIST = [
+    "搜狐", "凤凰", "新浪", "腾讯", "网易", "新华", "人民网", "央视", "澎湃",
+    "环球", "中国网", "光明网", "中国经济网", "新浪财经", "第一财经", "每经",
+    "界面", "中新网", "参考消息", "联合早报", "财新", "证券时报", "中国证券报",
+    "上海证券报", "经济观察", "21世纪经济报道", "每日经济新闻", "BBC", "CNN",
+    "Reuters", "AFP", "AP", "客户端", "新闻网", "日报", "晚报", "电视台",
+    "广播电台", "通讯社", "百家号", "头条", "抖音", "快手", "公众号", "微博",
+    "微信", "南方都市报", "南方周末", "新京报", "北京日报", "广州日报",
+    "湖北日报", "齐鲁晚报", "澎湃新闻", "央视新闻",
+]
 
 # 中文宽泛词（jieba 关键词提取时过滤）
 WIDE_ZH_WORDS = set([
@@ -1479,12 +1502,12 @@ def call_nvidia_api(prompt, api_config, max_tokens=None):
         "temperature": 0.3,
     }
 
-    # 重试机制：最多3次，等待时间递增3/6/10秒
+    # 重试机制：429 限流重试最多3次（3/6/10秒）；超时/返回空/格式异常重试1次（5秒）
     retry_delays = [3, 6, 10]
     for attempt in range(3):
         try:
-            # 超时设置：摘要类15秒，关键词类20秒
-            timeout = 15 if (max_tokens or api_config["max_tokens"]) <= 150 else 20
+            # 超时设置：统一 30 秒
+            timeout = 30
             resp = requests.post(url, headers=headers, json=data, timeout=timeout)
 
             # 404：主模型无效，打印详细信息并尝试备用模型
@@ -1510,11 +1533,16 @@ def call_nvidia_api(prompt, api_config, max_tokens=None):
             result = resp.json()
             content = _extract_ai_content(result)
             if not content:
-                print("[英伟达 NIMAPI] AI 返回为空或响应格式异常（走规则降级）")
+                # 返回空/格式异常：重试1次（5秒）后仍失败才降级
+                print(f"[英伟达 NIMAPI] AI 返回为空或响应格式异常（{attempt+1}/1 次重试）")
+                if attempt < 1:
+                    time.sleep(5)
+                    continue
                 NVIDIA_CONSECUTIVE_FAILURES += 1
                 return None
             # 调用成功，重置连续失败计数
             NVIDIA_CONSECUTIVE_FAILURES = 0
+            print(f"[英伟达 NIMAPI] 调用成功（模型: {model}，耗时/长度正常）")
             return content
         except requests.exceptions.HTTPError as e:
             status_code = e.response.status_code if e.response is not None else "unknown"
@@ -1532,12 +1560,11 @@ def call_nvidia_api(prompt, api_config, max_tokens=None):
             NVIDIA_CONSECUTIVE_FAILURES += 1
             return None
         except requests.exceptions.Timeout:
-            if attempt < 2:
-                wait_time = retry_delays[attempt]
-                print(f"[英伟达 NIMAPI] 请求超时，第{attempt+1}次重试，等待{wait_time}秒...")
-                time.sleep(wait_time)
+            # 超时：重试1次（5秒）后降级
+            print(f"[英伟达 NIMAPI] 请求超时（{attempt+1}/1 次重试）| URL: {url} | 模型: {model}")
+            if attempt < 1:
+                time.sleep(5)
                 continue
-            print(f"[英伟达 NIMAPI] 请求超时（已重试3次）| URL: {url} | 模型: {model}")
             NVIDIA_CONSECUTIVE_FAILURES += 1
             return None
         except requests.exceptions.RequestException as e:
@@ -1875,7 +1902,7 @@ def generate_ai_keywords(items, api_config):
         if title:
             text_parts.append(f"标题：{title}")
         if summary and len(summary) > 10:
-            text_parts.append(f"摘要：{summary[:200]}")
+            text_parts.append(f"摘要：{summary[:150]}")
     combined_text = "\n".join(text_parts)
 
     prompt = f"""你是一个环境领域关键词提取专家。请从以下新闻标题和摘要中提取与环境领域相关的热门关键词。
@@ -1946,15 +1973,15 @@ def generate_topic_tags(item, api_config):
         try:
             extracted = extract_article_text(link, api_config)
             if extracted:
-                article_text = extracted[:500]
+                article_text = extracted[:150]
         except Exception:
             pass
 
-    # 构建输入内容
+    # 构建输入内容（精简：只发标题和摘要前 150 字）
     if article_text:
-        content_text = f"标题：{title}\n原文：{article_text}"
+        content_text = f"标题：{title}\n原文：{article_text[:150]}"
     elif summary and len(summary) > 10:
-        content_text = f"标题：{title}\n摘要：{summary[:300]}"
+        content_text = f"标题：{title}\n摘要：{summary[:150]}"
     else:
         content_text = f"标题：{title}"
 
@@ -2157,7 +2184,8 @@ def generate_batch_summaries(items, api_config):
             try:
                 extracted = extract_article_text(link, api_config)
                 if extracted:
-                    article_text = extracted[:500]
+                    # 精简 prompt：只发送正文前 150 字，避免过长导致超时
+                    article_text = extracted[:150]
             except Exception:
                 pass
         if article_text:
@@ -2200,11 +2228,20 @@ def generate_batch_summaries(items, api_config):
                 "max_tokens": 800,
                 "temperature": 0.3,
             }
-            resp = requests.post(url, headers=headers, json=data, timeout=20)
+            resp = requests.post(url, headers=headers, json=data, timeout=30)
             resp.raise_for_status()
             result = resp.json()
             result_text = _extract_ai_content(result)
+            if not result_text:
+                # 返回空/格式异常：重试1次（5秒）后仍失败才降级
+                print(f"[AI批量摘要] 返回为空或格式异常（{attempt+1}/1 次重试）")
+                if attempt < 1:
+                    time.sleep(5)
+                    continue
+                NVIDIA_CONSECUTIVE_FAILURES += 1
+                break
             NVIDIA_CONSECUTIVE_FAILURES = 0
+            print("[AI批量摘要] 调用成功")
             break
         except requests.exceptions.HTTPError as e:
             status_code = e.response.status_code if e.response is not None else "unknown"
@@ -2300,11 +2337,11 @@ def generate_batch_topic_tags(items, api_config):
     for idx, item in enumerate(target_items):
         title = item.get("title", "无标题")
         summary = item.get("summary", "")
-        # 翻译英文标题和摘要
+        # 翻译英文标题和摘要（精简：只发标题和摘要前 150 字）
         title_zh = translate_en_to_zh(title)
-        summary_zh = translate_en_to_zh(summary[:200]) if summary else ""
+        summary_zh = translate_en_to_zh(summary[:150]) if summary else ""
         if summary_zh and len(summary_zh) > 10:
-            news_list.append(f"{idx}. 标题：{title_zh}\n摘要：{summary_zh[:200]}")
+            news_list.append(f"{idx}. 标题：{title_zh}\n摘要：{summary_zh[:150]}")
         else:
             news_list.append(f"{idx}. 标题：{title_zh}")
 
@@ -2336,11 +2373,20 @@ def generate_batch_topic_tags(items, api_config):
                 "max_tokens": 600,
                 "temperature": 0.3,
             }
-            resp = requests.post(url, headers=headers, json=data, timeout=20)
+            resp = requests.post(url, headers=headers, json=data, timeout=30)
             resp.raise_for_status()
             result = resp.json()
             result_text = _extract_ai_content(result)
+            if not result_text:
+                # 返回空/格式异常：重试1次（5秒）后仍失败才降级
+                print(f"[AI批量标签] 返回为空或格式异常（{attempt+1}/1 次重试）")
+                if attempt < 1:
+                    time.sleep(5)
+                    continue
+                NVIDIA_CONSECUTIVE_FAILURES += 1
+                break
             NVIDIA_CONSECUTIVE_FAILURES = 0
+            print("[AI批量标签] 调用成功")
             break
         except requests.exceptions.HTTPError as e:
             status_code = e.response.status_code if e.response is not None else "unknown"
@@ -2693,21 +2739,61 @@ def _init_jieba_env():
 def extract_specific_keywords_jieba(items, config):
     """
     使用 jieba 对全部候选条目标题分词，提取具体关键词（AI 不可用时的降级方案）
-    - 过滤停用词、单字词、纯数字、明显无意义词、宽泛词
-    - 提取长度 2-6 字的词语，排除 config.keywords 预设词
+    - 英文标题优先翻译为中文再分词；翻译失败则提取英文专有名词（首字母大写/词表映射）
+    - 中文标题过滤停用词、媒体名、宽泛词、单字、纯数字
+    - 只保留长度 2-6 字的中文名词/动名词短语或英文专有名词
     - 按出现频率降序，取前 10 个
     返回 [{"keyword": term, "count": count}, ...]，失败返回空列表
     """
     if not JIEBA_AVAILABLE or not items:
         return []
     _init_jieba_env()
+    try:
+        import jieba.posseg as pseg
+    except Exception:
+        pseg = None
+    # 需要排除的词性前缀（动词/形容词/副词/介词/连词/助词/代词/数词/量词/时间/方位/语气/叹词/拟声/标点/语素）
+    # 注意：vn（名动词）单独放行，x/j/i（专名/简称/成语）与 n* 一并保留
+    _BAD_POS_PREFIX = ("v", "a", "d", "m", "q", "r", "p", "c", "u", "t", "s", "f", "e", "o", "y", "w", "g")
     preset = set(config.get("keywords", []) or [])
     counter = Counter()
     for item in items:
         title = item.get("title", "")
         if not title:
             continue
-        for w in jieba.cut(title):
+
+        # 英文标题：先翻译成中文；翻译失败则提取英文专有名词
+        if re.search(r"[a-zA-Z]", title):
+            zh = translate_en_to_zh(title)
+            if zh and zh != title and is_chinese(zh):
+                seg_title = zh
+            else:
+                # 翻译失败：提取英文专有名词（长度>=3、非停用词、首字母大写或词表映射）
+                en_words = re.findall(r"[A-Za-z][A-Za-z\-]{2,}", title)
+                seen = set()
+                for w in en_words:
+                    wl = w.lower().strip("-")
+                    if len(wl) < 3 or wl in STOP_WORDS_EN or wl in seen:
+                        continue
+                    seen.add(wl)
+                    mapped = EN_ZH_REVERSE.get(wl)
+                    if mapped:
+                        if (len(mapped) >= 2 and len(mapped) <= 6
+                                and mapped not in preset
+                                and mapped not in STOP_WORDS
+                                and mapped not in WIDE_ZH_WORDS
+                                and not any(m in mapped for m in MEDIA_BLACKLIST)):
+                            counter[mapped] += 1
+                    elif w[0].isupper() or w.isupper():
+                        # 首字母大写的英文专有名词（EPA、ESG、Nature 等）
+                        counter[w] += 1
+                continue
+        else:
+            seg_title = title
+
+        # 中文标题（或翻译后的中文标题）：jieba 分词并过滤
+        words = pseg.cut(seg_title) if pseg else []
+        for w, flag in words:
             w = w.strip()
             if not w:
                 continue
@@ -2718,11 +2804,53 @@ def extract_specific_keywords_jieba(items, config):
             if re.fullmatch(r"[a-zA-Z\-]+", w):
                 if w.lower() in STOP_WORDS_EN:
                     continue
+                # 纯小写英文词（普通名词/动词）不保留，除非全大写专有名词
+                if not (w.isupper() or w[0].isupper()):
+                    continue
             if w in STOP_WORDS or w in WIDE_ZH_WORDS or w in preset:
                 continue
+            if any(m in w for m in MEDIA_BLACKLIST):
+                continue
+            # 词性过滤：vn（名动词）放行；排除动词/形容词/虚词等，保留名词、专名（x）、简称（j）、英文
+            if pseg and flag:
+                if flag != "vn" and flag[0] in _BAD_POS_PREFIX:
+                    continue
             counter[w] += 1
     result = [{"keyword": k, "count": v} for k, v in counter.most_common(10) if v >= 1]
     return result
+
+
+def _clean_keywords(keywords):
+    """
+    最终 keywords 质量清洗：
+    过滤英文停用词、媒体名、单字、纯数字、宽泛词/停用词；保留有意义的具体词
+    返回清洗后的 [{"keyword","count"}]，数量不足 5 时保留实际提取到的词，不填充垃圾词
+    """
+    cleaned = []
+    seen = set()
+    for kw in keywords:
+        if isinstance(kw, dict):
+            term = str(kw.get("keyword", "") or kw.get("term", "")).strip()
+            count = kw.get("count", 1)
+        else:
+            term = str(kw).strip()
+            count = 1
+        if not term or len(term) < 2:
+            continue
+        if term in seen:
+            continue
+        if re.fullmatch(r"[0-9.\-]+", term):
+            continue
+        if re.fullmatch(r"[a-zA-Z\-]+", term):
+            if term.lower() in STOP_WORDS_EN:
+                continue
+        if term in STOP_WORDS or term in WIDE_ZH_WORDS:
+            continue
+        if any(m in term for m in MEDIA_BLACKLIST):
+            continue
+        seen.add(term)
+        cleaned.append({"keyword": term, "count": int(count)})
+    return cleaned
 
 
 def generate_latest_json(items, config, weekly_summary="", weekly_keywords=None, weekly_insight=""):
@@ -2755,6 +2883,10 @@ def generate_latest_json(items, config, weekly_summary="", weekly_keywords=None,
             top_keywords = jieba_kw
         else:
             print(f"[关键词] jieba 未安装或无结果，使用配置关键词匹配统计（前5）：{', '.join(k['keyword'] for k in top_keywords[:5])}")
+
+    # 最终关键词质量清洗：过滤英文停用词、媒体名、单字、纯数字、宽泛词等
+    top_keywords = _clean_keywords(top_keywords)
+    top_keywords = top_keywords[:10]
 
     # 热点总结
     if top_keywords:

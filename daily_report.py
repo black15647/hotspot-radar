@@ -1302,26 +1302,70 @@ def translate_en_to_zh(text):
         except Exception:
             pass
 
-    # 第二步：调用 MyMemory 免费翻译 API
+    # 第二步：调用 MyMemory 免费翻译 API（429 限流时重试，等待 2/5/10 秒，最多重试 3 次）
     if not REQUESTS_AVAILABLE:
         return text
 
-    try:
-        import urllib.parse
-        encoded_text = urllib.parse.quote(text[:500])
-        api_url = f"https://api.mymemory.translated.net/get?q={encoded_text}&langpair=en|zh-CN"
-        resp = requests.get(api_url, timeout=10)
-        resp.raise_for_status()
-        result = resp.json()
-        translated = result.get("responseData", {}).get("translatedText", "")
-        if translated and translated.strip() and translated != text:
-            return translated.strip()
-    except Exception as e:
-        # 翻译失败：保留英文原文，并记录日志（便于排查）
-        print(f"[翻译] MyMemory 翻译失败（保留英文）: {str(e)[:40]}")
-        return text
+    retry_delays = [2, 5, 10]
+    for attempt in range(4):
+        try:
+            import urllib.parse
+            encoded_text = urllib.parse.quote(text[:500])
+            api_url = f"https://api.mymemory.translated.net/get?q={encoded_text}&langpair=en|zh-CN"
+            resp = requests.get(api_url, timeout=10)
+            resp.raise_for_status()
+            result = resp.json()
+            translated = result.get("responseData", {}).get("translatedText", "")
+            if translated and translated.strip() and translated != text:
+                return translated.strip()
+            # 返回空或与原文相同，视为翻译无结果
+            break
+        except requests.exceptions.HTTPError as e:
+            status_code = e.response.status_code if e.response is not None else "unknown"
+            if status_code == 429 and attempt < 3:
+                wait_time = retry_delays[attempt]
+                print(f"[翻译] MyMemory 429限流，第{attempt+1}次重试，等待{wait_time}秒...")
+                time.sleep(wait_time)
+                continue
+            # 重试耗尽或其他 HTTP 错误：保留英文原文
+            print(f"[翻译] MyMemory 翻译失败（保留英文）: HTTP {status_code}")
+            return text
+        except requests.exceptions.Timeout:
+            if attempt < 3:
+                wait_time = retry_delays[attempt]
+                print(f"[翻译] MyMemory 请求超时，第{attempt+1}次重试，等待{wait_time}秒...")
+                time.sleep(wait_time)
+                continue
+            print("[翻译] MyMemory 请求超时（保留英文）")
+            return text
+        except Exception as e:
+            # 翻译失败：保留英文原文，并记录日志（便于排查）
+            print(f"[翻译] MyMemory 翻译失败（保留英文）: {str(e)[:40]}")
+            return text
 
     return text
+
+
+def _extract_ai_content(result):
+    """
+    从英伟达 NIM 响应中安全提取 content 文本
+    缺失 choices/message 或 content 为 None 时返回空字符串，不抛异常
+    """
+    try:
+        if not isinstance(result, dict):
+            return ""
+        choices = result.get("choices") or []
+        if not choices or not isinstance(choices, list):
+            return ""
+        msg = choices[0].get("message") or {}
+        if not isinstance(msg, dict):
+            return ""
+        content = msg.get("content")
+        if content is None:
+            return ""
+        return str(content).strip()
+    except Exception:
+        return ""
 
 
 def call_nvidia_api(prompt, api_config, max_tokens=None):
@@ -1383,7 +1427,11 @@ def call_nvidia_api(prompt, api_config, max_tokens=None):
 
             resp.raise_for_status()
             result = resp.json()
-            content = result["choices"][0]["message"]["content"].strip()
+            content = _extract_ai_content(result)
+            if not content:
+                print("[英伟达 NIMAPI] AI 返回为空或响应格式异常（走规则降级）")
+                NVIDIA_CONSECUTIVE_FAILURES += 1
+                return None
             # 调用成功，重置连续失败计数
             NVIDIA_CONSECUTIVE_FAILURES = 0
             return content
@@ -1931,7 +1979,6 @@ def extract_tags_from_title(title):
         return matched[:3]
 
     # 提取较长的连续中文字符串（长度>=4），并过滤媒体名/无意义片段
-    import re
     chinese_segments = re.findall(r'[\u4e00-\u9fa5]{4,}', title)
     valid_segments = []
     for seg in chinese_segments:
@@ -2075,7 +2122,7 @@ def generate_batch_summaries(items, api_config):
             resp = requests.post(url, headers=headers, json=data, timeout=20)
             resp.raise_for_status()
             result = resp.json()
-            result_text = result["choices"][0]["message"]["content"].strip()
+            result_text = _extract_ai_content(result)
             NVIDIA_CONSECUTIVE_FAILURES = 0
             break
         except requests.exceptions.HTTPError as e:
@@ -2211,7 +2258,7 @@ def generate_batch_topic_tags(items, api_config):
             resp = requests.post(url, headers=headers, json=data, timeout=20)
             resp.raise_for_status()
             result = resp.json()
-            result_text = result["choices"][0]["message"]["content"].strip()
+            result_text = _extract_ai_content(result)
             NVIDIA_CONSECUTIVE_FAILURES = 0
             break
         except requests.exceptions.HTTPError as e:
@@ -2501,7 +2548,6 @@ def generate_personal_knowledge():
     day_header = f"## {today}"
     if day_header in existing_content:
         # 替换当天内容：找到当天标题到下一个 ## 标题或文件末尾
-        import re
         # 匹配从当天 ## 标题到下一个 ## 标题（非贪婪）
         pattern = re.compile(
             r'## ' + re.escape(today) + r'.*?(?=\n## \d{4}-\d{2}-\d{2}|\Z)',

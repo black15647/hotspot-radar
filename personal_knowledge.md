@@ -365,86 +365,94 @@
 
 ## 2026-08-27
 
-**今日高频关键词**：`#生态环境` `#美国` `#甘肃` `#湖南` `#江西`
+**今日高频关键词**：`#美国` `#生态环境` `#财经` `#甘肃` `#办法`
 
 **今日 Top10 热点**
 
 ### 1. A scenario assessment of the global mitigation effort in the light of the 2035 climate finance goal
 - **来源**：Environmental Research Letters
-- **热度**：25.7
+- **热度**：25.4
 - **链接**：https://iopscience.iop.org/article/10.1088/1748-9326/ae9890
-- **摘要**：联合国气候变化框架公约 (UNFCCC) 于 2024 年同意到 2035 年将发展中国家应对气候变化的资金增加到 3000 亿美元。在这项研究中，我们评估了通过工业化地区的碳定价产生的这笔收入可以在多大程度上减少温室气体 (GHG) 排放。我们评估了一种考虑工业化、转型和发展中地区碳价格差异的情景。我们发现，与现有国家减排目标（以截至 2022 年国家确定的贡献为代表）的情景相比，这种情景到 2035 年可减少 16% 的温室气体排放。尽管如此，在实现减排所需的收入方面仍存在相当大的差距，以确保全球变暖比工业化前水平高出 1.5°C 的气候目标。因此，这些结果表明，除了各国在《联合国气候变化框架公约》下商定的气候融资目标之外，还需要采取更大规模的气候缓解行动。此外，我们通过其他情景强调了工业化地区（美国）和发展中地区（中国）主要温室气体排放国碳定价方案中缺失的影响（在减排、碳价格收入和消费损失方面）。
+- **摘要**：联合国气候变化框架公约 (UNFCCC) 于 2024 年同意到 2035 年将发展中国家应对气候变化的资金增加到 3000 亿美元。在这项研究中，我们评估了通过工业化地区的碳定价产生的这笔收入可以在多大程度上减少温室气体 (GHG) 排放。我们评估了一个考虑工业化、转型和发展中地区碳价格差异的情景。我们发现，与现有国家减排目标（以截至 2022 年国家确定的贡献为代表）的情景相比，这种情景到 2035 年可减少 16% 的温室气体排放。尽管如此，在实现减排所需的收入方面仍存在相当大的差距，以确保全球变暖比工业化前水平高出 1.5°C 的气候目标。因此，这些结果表明，除了各国在《联合国气候变化框架公约》下商定的气候融资目标之外，还需要采取更大规模的气候缓解行动。此外，我们通过其他情景强调了工业化地区（美国）和发展中地区（中国）主要温室气体排放国碳定价方案中缺失的影响（在减排、碳价格收入和消费损失方面）。
 - **分析**：该条目涉及【2035气候融资目标】话题，因来源权威性高且发布时间较新，热度上升。
 
 ### 2. Environment International：气候变化下高温、花粉与空气污染对过敏性鼻炎和哮喘的协同影响-MedSci.cn - 梅斯医学 MedSci
 - **来源**：Google News 环境污染
 - **热度**：20.1
 - **链接**：https://news.google.com/rss/articles/CBMibkFVX3lxTE9sYkthZEV5Z0g0OGV6Nm5nb1NDR0N5MS1wcHJ0eG9fWHNxWFZVZjc2Q2NoY0VhVjBjME1STWg4a2hxYTVGeXpRRUhNLUJkQnMxby1fMk10YzRwaVEtcF93NUs3Uko3WkdWZVdQQUdn?oc=5
-- **摘要**：关于「气候变化」的资讯。
+- **摘要**：研究揭示气候变化下高温、花粉和空气污染共同加剧过敏性鼻炎与哮喘风险。
 - **分析**：该条目涉及【花粉与空气污染对过敏】话题，因来源较权威且与近期热点主题相关，热度上升。
 
 ### 3. 甘肃：应对气候变化交出亮眼“成绩单” 生态“含绿量”正加速转化为“含金量”_生态文明看甘肃 - 中国甘肃网
 - **来源**：Google News 气候变化
-- **热度**：20.1
+- **热度**：20.0
 - **链接**：https://news.google.com/rss/articles/CBMia0FVX3lxTE5MU0xMMER5bUh4SFB3VjlpWVBPcFVwUEs4VzA5cVNfNFBFbFNybkJ3VmNvOHlPdXdvWWo2QU9mdEkwUTdhMlFEOWNJdUpyRDJzZjEwTTdLa3VraGlrcEVJWDRaTERFQzVJU1FV?oc=5
-- **摘要**：关于「甘肃」的资讯。
+- **摘要**：甘肃生态改善显著，绿色优势正转化为经济价值，应对气候变化成效突出。
 - **分析**：该条目涉及【应对气候变化交出亮眼】话题，因来源较权威且与近期热点主题相关，热度上升。
 
-### 4. 清华开班！远景以零碳技术伙伴之力共筑全球南方国家能源转型之路 - 凤凰网
+### 4. 《郑州新郑国际机场净空和电磁环境保护管理办法》8月实施 - 中国民航网
+- **来源**：Google News 环境保护
+- **热度**：19.4
+- **链接**：https://news.google.com/rss/articles/CBMibEFVX3lxTE1fV1NDNFZPb2RxS0VGcTRGVmRzRDlxcm9Dejk5UjZOTDJOTWpqamxNSDF2TG13U0ZZek9ORVduT2dMZm14WjIzSE1pR3ZhcFAtSlFxak9fdWt6cWRrZ3ZBMkxLaUw3aTJKSV9fRA?oc=5
+- **摘要**：郑州新郑国际机场将于8月实施净空和电磁环境保护新规，保障飞行安全。
+- **分析**：该条目涉及【郑州新郑国际机场净空】话题，因来源较权威且发布时间较新，热度上升。
+
+### 5. 清华开班！远景以零碳技术伙伴之力共筑全球南方国家能源转型之路 - 凤凰网财经
 - **来源**：Google News 气候变化
-- **热度**：19.2
+- **热度**：18.8
 - **链接**：https://news.google.com/rss/articles/CBMiUEFVX3lxTE1Dazh0cWpmR2JFbkwtVVlhQ3RwS3BleUhJTGtqR3J1UWdHUkxEYllNSGZ3N2FGYzNSSzZBSTNLc0Z5MjBZM1VkdWxHb3dNNmhK?oc=5
-- **摘要**：关于「清华」的资讯。
+- **摘要**：清华举办南南合作研讨班，远景作为零碳技术伙伴助力全球南方能源转型。
 - **分析**：该条目涉及【远景以零碳技术伙伴之】话题，因来源较权威且发布时间较新，热度上升。
 
-### 5. A Hard-Won Rule to Cut Chemical Plant Pollution Is Being Unraveled
+### 6. Michael Sheen hopes 'extraordinary' reaction to toxic waste documentary spurs action
+- **来源**：BBC 科学与环境
+- **热度**：18.0
+- **链接**：https://www.bbc.co.uk/news/articles/c70dwxr321ro?at_medium=RSS&at_campaign=rss
+- **摘要**：在报道辛对化学巨头孟山都公司的调查后，数十人联系了英国广播公司威尔士公司。
+- **分析**：该条目涉及【辛希望对有毒废物纪录片的】话题，因发布时间较新，热度上升。
+
+### 7. A Hard-Won Rule to Cut Chemical Plant Pollution Is Being Unraveled
 - **来源**：Yale Environment 360
-- **热度**：18.3
+- **热度**：17.9
 - **链接**：https://e360.yale.edu/features/hon-rule
 - **摘要**：2024 年，拜登政府颁布了广泛的法规，保护石化厂附近的社区免受空气有毒物质的影响。此后，特朗普政府已向数十家污染设施授予豁免，并正在努力重写期待已久的规则。阅读有关 E360 的更多信息 →
-- **分析**：该条目涉及【化学工厂污染】话题，因发布时间较新，热度上升。
+- **分析**：该条目涉及【来之不易的减少化工厂】话题，因发布时间较新，热度上升。
 
-### 6. Concerns raised over impact of quad bikes on wildlife
+### 8. Dozens of US and Canadian citizens missing after flash flooding in Nepal
 - **来源**：BBC 科学与环境
 - **热度**：17.8
-- **链接**：https://www.bbc.co.uk/news/articles/cvgy3d0j6pgo?at_medium=RSS&at_campaign=rss
-- **摘要**：卡纳莫伊尔的一位居民表示，利斯纳格拉森林的四轮摩托车骑手一直在影响当地的野生动物。
-- **分析**：该条目涉及【quad bikes】话题，因发布时间较新，热度上升。
+- **链接**：https://www.bbc.co.uk/news/articles/cn5dzldq1pzo?at_medium=RSS&at_campaign=rss
+- **摘要**：他们是数百人仍下落不明的人之一，两国当局均表示正在密切关注事态发展。
+- **分析**：该条目涉及【数十名美国和加拿大公民失踪】话题，因发布时间较新，热度上升。
 
-### 7. Midwinter enhancement of synoptic-scale extreme PM2.5 pollution in North China
+### 9. Daily exposure to fine particulate matter from traffic increases cancer mortality risk
+- **来源**：Nature Sustainability
+- **热度**：17.5
+- **链接**：https://www.nature.com/articles/s41893-026-01927-3
+- **摘要**：自然可持续发展，在线发布：2026 年 8 月 26 日； doi:10.1038/s41893-026-01927-3对 920 万癌症死亡的多国分析的证据表明，交通来源的 PM2.5 对短期 PM2.5 相关癌症死亡率负担的影响可能比根据其在 PM2.5 总浓度中所占比例的预期要大得多。
+- **分析**：该条目涉及【每天接触交通中的细颗】话题，因来源权威性高且与近期热点主题相关，热度上升。
+
+### 10. Midwinter enhancement of synoptic-scale extreme PM2.5 pollution in North China
 - **来源**：Environmental Research Letters
-- **热度**：17.7
-- **链接**：https://iopscience.iop.org/article/10.1088/1748-9326/ae9c59
-- **摘要**：华北地区人口稠密，近年来发生了全国最严重的空气污染事件。研究表明，该地区PM2.5平均浓度为134.8 μg m-3，极端空气污染发生在1月份，占冬季所有事件的53%。使用因果推理框架，这些事件可归因于与北太平洋风暴路径（NPST）的仲冬抑制同时发生的环流异常。更具体地说，1月份NPST显着减弱，对应于涡流热通量产生的反气旋异常。这种反气旋异常支持沿北半球中高纬度地区的罗斯贝波列，导致大约 10 天后在东北亚产生强大的反气旋。华北地区空气滞留、通风条件差，空气污染严重。这些发现为定向减排提供了科学指导。
-- **分析**：该条目涉及【PM2.5】话题，因来源权威性高且发布时间较新，热度上升。
-
-### 8. 'The flood took everything': Nepal survivors describe horror of loved ones being swept away
-- **来源**：BBC 科学与环境
 - **热度**：17.4
-- **链接**：https://www.bbc.co.uk/news/articles/cd08z840p8lo?at_medium=RSS&at_campaign=rss
-- **摘要**：一名妇女说，她的父亲、母亲、姐妹和姐妹的孩子在她眼前被带走。
-- **分析**：该条目涉及【尼泊尔山洪】话题，因发布时间较新，热度上升。
-
-### 9. 中广核环保与浙江生态环境集团签署战略合作协议 - 中国水网
-- **来源**：Google News 环境保护
-- **热度**：17.1
-- **链接**：https://news.google.com/rss/articles/CBMiVEFVX3lxTE9UclJhWWVnQmpkUFlWXzh5MElhME84Y20yV1BPejFqLThNa3daT09vMWI5OTdCM2Q3Vm9zd01uUm5rUkpzdGdXUVR0X21jVmVjdWN6Zg?oc=5
-- **摘要**：关于「中广核」的资讯。
-- **分析**：该条目涉及【中广核环保】话题，因来源较权威且发布时间较新，热度上升。
-
-### 10. Moon set to turn red as rare partial lunar eclipse graces UK skies on Friday
-- **来源**：BBC 科学与环境
-- **热度**：16.9
-- **链接**：https://www.bbc.co.uk/weather/articles/c5y4n7y89w7o?at_medium=RSS&at_campaign=rss
-- **摘要**：周五凌晨，月亮可能会发出诡异的红色，但云层可能会破坏英国部分地区的奇观。
-- **分析**：该条目涉及【月偏食】话题，因发布时间较新，热度上升。
+- **链接**：https://iopscience.iop.org/article/10.1088/1748-9326/ae9c59
+- **摘要**：华北地区是人口稠密的地区，近年来发生了一些全国最严重的空气污染事件。研究表明，该地区PM2.5平均浓度为134.8 μg m-3，极端空气污染发生在1月份，占冬季所有事件的53%。使用因果推理框架，这些事件可归因于与北太平洋风暴路径（NPST）的仲冬抑制同时发生的环流异常。更具体地说，1月份NPST显着减弱，对应于涡流热通量产生的反气旋异常。这种反气旋异常支持沿北半球中高纬度地区的罗斯贝波列，导致大约 10 天后在东北亚产生强大的反气旋。华北地区空气滞留、通风条件差，空气污染严重。这些发现为定向减排提供了科学指导。
+- **分析**：该条目涉及【PM2.5】话题，因来源权威性高且发布时间较新，热度上升。
 
 **今日自动提取候选新词**
 
-- **生态环境**（出现 6 次）
+- **生态环境**（出现 5 次）
   - 上下文：中广核环保与浙江生态环境集团签署战略合作协议 - 中国水网
-  - 上下文：8月25日，吉林省生态环境厅举行新闻发布会，对外集中发布了吉林省大气污染防治工作进展及成效 - 凤凰网
-  - 上下文：严重破坏生态环境将终身追责 - 新浪网
+  - 上下文：严重破坏生态环境将终身追责 - 新浪财经
+  - 上下文：上饶市广信区一养猪场乱排污染水源被举报 区生态环境局：已立案 - 凤凰网江西
+- **财经**（出现 4 次）
+  - 上下文：清华开班！远景以零碳技术伙伴之力共筑全球南方国家能源转型之路 - 凤凰网财经
+  - 上下文：全球日均海表温度刷新历史纪录 - 新浪财经
+  - 上下文：严重破坏生态环境将终身追责 - 新浪财经
+- **生态**（出现 3 次）
+  - 上下文：甘肃：应对气候变化交出亮眼“成绩单” 生态“含绿量”正加速转化为“含金量”_生态文明看甘肃 - 中国甘肃网
+  - 上下文：陕西商州区生态文明建设暨秦岭生态环境保护工作会议召开 - 手机网易网
+  - 上下文：金马环保：规范固废处置 护航草原生态 - banyuetan.org
 - **中国**（出现 3 次）
   - 上下文：甘肃：应对气候变化交出亮眼“成绩单” 生态“含绿量”正加速转化为“含金量”_生态文明看甘肃 - 中国甘肃网
   - 上下文：中广核环保与浙江生态环境集团签署战略合作协议 - 中国水网
@@ -453,12 +461,8 @@
   - 上下文：中广核环保与浙江生态环境集团签署战略合作协议 - 中国水网
   - 上下文：金马环保：规范固废处置 护航草原生态 - banyuetan.org
   - 上下文：去哪里做环保志愿？湖南首批10个实践场地来了-湖南频道 - 湖南红网
-- **新浪网**（出现 3 次）
-  - 上下文：全球日均海表温度刷新历史纪录 - 新浪网
-  - 上下文：严重破坏生态环境将终身追责 - 新浪网
-  - 上下文：满眼赣鄱蓝！江西优良空气持续“刷屏” - 新浪网
 - **江西**（出现 3 次）
-  - 上下文：满眼赣鄱蓝！江西优良空气持续“刷屏” - 新浪网
+  - 上下文：满眼赣鄱蓝！江西优良空气持续“刷屏” - 新浪财经
   - 上下文：无人机喷洒农药引发环境污染责任纠纷 都昌一莲藕种植户获赔7.8万余元 - 凤凰网江西
   - 上下文：上饶市广信区一养猪场乱排污染水源被举报 区生态环境局：已立案 - 凤凰网江西
 - **责任**（出现 3 次）
@@ -468,27 +472,24 @@
 - **climate**（出现 2 次）
   - 上下文：A scenario assessment of the global mitigation effort in the light of the 2035 climate finance goal
   - 上下文：US fossil fuel lobbyists also represent hundreds of cities fighting for climate damages
-- **生态**（出现 2 次）
-  - 上下文：甘肃：应对气候变化交出亮眼“成绩单” 生态“含绿量”正加速转化为“含金量”_生态文明看甘肃 - 中国甘肃网
-  - 上下文：金马环保：规范固废处置 护航草原生态 - banyuetan.org
 - **全球**（出现 2 次）
-  - 上下文：清华开班！远景以零碳技术伙伴之力共筑全球南方国家能源转型之路 - 凤凰网
-  - 上下文：全球日均海表温度刷新历史纪录 - 新浪网
+  - 上下文：清华开班！远景以零碳技术伙伴之力共筑全球南方国家能源转型之路 - 凤凰网财经
+  - 上下文：全球日均海表温度刷新历史纪录 - 新浪财经
+- **toxic**（出现 2 次）
+  - 上下文：Michael Sheen hopes 'extraordinary' reaction to toxic waste documentary spurs action
+  - 上下文：Groups sue Trump’s EPA over fast-track approval of toxic datacenter chemicals
+- **waste**（出现 2 次）
+  - 上下文：Michael Sheen hopes 'extraordinary' reaction to toxic waste documentary spurs action
+  - 上下文：Atomic catalyst unlocks the hidden value of plant waste
 - **Unraveled**（出现 2 次）
   - 上下文：A Hard-Won Rule to Cut Chemical Plant Pollution Is Being Unraveled
   - 上下文：Overlooked fluorescence spectra at short excitation wavelengths: Unraveled by uranium-mediated fluorescence quenching in CDOM
 - **Nepal**（出现 2 次）
-  - 上下文：'The flood took everything': Nepal survivors describe horror of loved ones being swept away
   - 上下文：Dozens of US and Canadian citizens missing after flash flooding in Nepal
-- **partial**（出现 2 次）
-  - 上下文：Moon set to turn red as rare partial lunar eclipse graces UK skies on Friday
-  - 上下文：How to watch the partial lunar eclipse from Northern Ireland
-- **lunar**（出现 2 次）
-  - 上下文：Moon set to turn red as rare partial lunar eclipse graces UK skies on Friday
-  - 上下文：How to watch the partial lunar eclipse from Northern Ireland
-- **eclipse**（出现 2 次）
-  - 上下文：Moon set to turn red as rare partial lunar eclipse graces UK skies on Friday
-  - 上下文：How to watch the partial lunar eclipse from Northern Ireland
+  - 上下文：'The flood took everything': Nepal survivors describe horror of loved ones being swept away
+- **matter**（出现 2 次）
+  - 上下文：Daily exposure to fine particulate matter from traffic increases cancer mortality risk
+  - 上下文：Transformation of polystyrene-microplastic-derived dissolved organic matter into colloids and microparticles: Roles of microbial activity and UV irradiation
 - **固废**（出现 2 次）
   - 上下文：金马环保：规范固废处置 护航草原生态 - banyuetan.org
   - 上下文：【举报】一省对岩溶洞穴污染及非法处置固废违法线索实行有奖举报 - 搜狐网

@@ -37,6 +37,13 @@ try:
 except ImportError:
     HTML2TEXT_AVAILABLE = False
 
+# trafilatura 为可选依赖：本地正文提取（正文质量优于 readability）
+try:
+    import trafilatura
+    TRAFILATURA_AVAILABLE = True
+except ImportError:
+    TRAFILATURA_AVAILABLE = False
+
 try:
     import feedparser
 except ImportError:
@@ -964,18 +971,33 @@ def get_api_config(config):
         "max_tokens": summary_api.get("max_tokens", 150),
         "reader_enabled": reader_api.get("enabled", True),
         "local_extraction": reader_api.get("local_extraction", True),
+        "firecrawl_enabled": reader_api.get("firecrawl_enabled", True),
         "jina_key": jina_key,
         "jina_base_url": reader_api.get("jina_base_url", "https://r.jina.ai/"),
     }
 
 
+def _md_to_text(md):
+    """粗略将 Markdown 转为纯文本（去除标题符号、链接、图片、强调等语法）"""
+    if not md:
+        return ""
+    text = re.sub(r'!\[[^\]]*\]\([^)]*\)', '', md)          # 图片
+    text = re.sub(r'\[([^\]]*)\]\([^)]*\)', r'\1', text)     # 链接
+    text = re.sub(r'#{1,6}\s*', '', text)                     # 标题
+    text = re.sub(r'[*_>`~]+', '', text)                      # 强调/代码符号
+    text = re.sub(r'^\s*[-*+]\s+', '', text, flags=re.M)      # 列表项
+    text = re.sub(r'\n{3,}', '\n\n', text)
+    return text.strip()
+
+
 def extract_article_text(url, api_config):
     """
-    提取文章正文纯文本
-    优先使用 readability + html2text 本地提取
-    失败则使用 Jina Reader 兜底
-    全部失败返回 None
-    优化：更真实的请求头、特定域名降级、减少日志刷屏
+    提取文章正文纯文本（多级兜底，任一成功即返回）：
+    1. trafilatura 本地提取（正文 > 200 字符）
+    2. readability + html2text 本地提取（正文 >= 50 字符）
+    3. Firecrawl keyless 兜底（POST api.firecrawl.dev/v1/scrape，正文 > 200 字符）
+    4. Jina Reader 兜底（需要 jina_api_key）
+    全部失败返回 None；所有网络错误、超时均捕获，不中断主流程
     """
     if not api_config["reader_enabled"] or not REQUESTS_AVAILABLE:
         return None
@@ -987,7 +1009,7 @@ def extract_article_text(url, api_config):
     except Exception:
         domain = ""
 
-    # 对已知反爬严格的域名，如果没有配置 Jina key，直接跳过本地提取
+    # 对已知反爬严格的域名，如果没有配置 Jina key，直接跳过所有本地提取
     has_jina = bool(api_config.get("jina_key"))
     is_strict = any(sd in domain for sd in STRICT_DOMAINS)
     if is_strict and not has_jina:
@@ -996,7 +1018,7 @@ def extract_article_text(url, api_config):
             print(f"[原文提取] 跳过反爬严格域名：{domain}")
         return None
 
-    # 更真实的请求头
+    # 更真实的请求头（readability 本地抓取用）
     headers = {
         "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36",
         "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,*/*;q=0.8",
@@ -1006,25 +1028,43 @@ def extract_article_text(url, api_config):
         "Upgrade-Insecure-Requests": "1",
     }
 
-    # 第一步：本地提取
+    # 第一步：trafilatura 本地提取（优先，正文质量高）
+    if TRAFILATURA_AVAILABLE:
+        try:
+            html = trafilatura.fetch_url(url)
+            if html:
+                text = trafilatura.extract(html)
+                if text and len(text.strip()) > 200:
+                    print(f"[原文提取] trafilatura 成功 ({domain})")
+                    return text.strip()[:5000]
+                elif text and len(text.strip()) > 50:
+                    if domain not in FAILED_DOMAINS:
+                        FAILED_DOMAINS.add(domain)
+                        print(f"[原文提取] trafilatura 提取文本过短 ({domain})")
+        except Exception as e:
+            if domain not in FAILED_DOMAINS:
+                FAILED_DOMAINS.add(domain)
+                print(f"[原文提取] trafilatura 失败: {str(e)[:50]} ({domain})")
+
+    # 第二步：readability + html2text 本地提取
     if api_config["local_extraction"] and READABILITY_AVAILABLE and HTML2TEXT_AVAILABLE:
         try:
             resp = requests.get(url, timeout=15, headers=headers)
-            # 对 403、401、405 等错误，直接返回 None，不再重试
+            # 403/401/405 不重试，但继续尝试后续兜底
             if resp.status_code in (401, 403, 405):
                 if domain not in FAILED_DOMAINS:
                     FAILED_DOMAINS.add(domain)
                     print(f"[原文提取] 跳过：{resp.status_code} Forbidden ({domain})")
-                return None
-            resp.raise_for_status()
-            doc = Document(resp.text)
-            summary_html = doc.summary()
-            h = html2text.HTML2Text()
-            h.ignore_links = True
-            h.ignore_images = True
-            text = h.handle(summary_html).strip()
-            if len(text) >= 50:
-                return text[:5000]
+            else:
+                resp.raise_for_status()
+                doc = Document(resp.text)
+                summary_html = doc.summary()
+                h = html2text.HTML2Text()
+                h.ignore_links = True
+                h.ignore_images = True
+                text = h.handle(summary_html).strip()
+                if len(text) >= 50:
+                    return text[:5000]
         except requests.exceptions.HTTPError as e:
             status_code = e.response.status_code if e.response is not None else "unknown"
             if domain not in FAILED_DOMAINS:
@@ -1035,7 +1075,31 @@ def extract_article_text(url, api_config):
                 FAILED_DOMAINS.add(domain)
                 print(f"[原文提取] 本地提取失败: {str(e)[:50]} ({domain})")
 
-    # 第二步：Jina Reader 兜底
+    # 第三步：Firecrawl keyless 兜底
+    if api_config.get("firecrawl_enabled", True):
+        try:
+            resp = requests.post(
+                "https://api.firecrawl.dev/v1/scrape",
+                headers={"Content-Type": "application/json"},
+                json={"url": url},
+                timeout=15,
+            )
+            resp.raise_for_status()
+            data = resp.json()
+            md = ((data.get("data") or {}).get("markdown", "") or "").strip()
+            if len(md) > 200:
+                print(f"[原文提取] Firecrawl 成功 ({domain})")
+                return _md_to_text(md)[:5000]
+            elif md:
+                if domain not in FAILED_DOMAINS:
+                    FAILED_DOMAINS.add(domain)
+                    print(f"[原文提取] Firecrawl 内容过短 ({domain})")
+        except Exception as e:
+            if domain not in FAILED_DOMAINS:
+                FAILED_DOMAINS.add(domain)
+                print(f"[原文提取] Firecrawl 失败: {str(e)[:50]} ({domain})")
+
+    # 第四步：Jina Reader 兜底
     if api_config["jina_key"]:
         try:
             jina_url = api_config["jina_base_url"] + url
@@ -1887,11 +1951,44 @@ def extract_tags_from_title(title):
     return ["环境动态"]
 
 
+def _fallback_rule_summary(title):
+    """
+    规则生成摘要（AI 失败时的最终兜底）：
+    用 jieba 提取标题核心词，生成"关于「核心词」的资讯"
+    保证 summary 非空且与标题不同
+    """
+    core = ""
+    if JIEBA_AVAILABLE and title:
+        try:
+            _init_jieba_env()
+            for w in jieba.cut(title):
+                w = w.strip()
+                if 2 <= len(w) <= 6 and w not in STOP_WORDS and w not in WIDE_ZH_WORDS:
+                    core = w
+                    break
+        except Exception:
+            core = ""
+    if not core:
+        cleaned = re.sub(r'[\s\W_]+', '', title or "")
+        core = cleaned[:6] if cleaned else "环境热点"
+    if not core:
+        core = "环境热点"
+    return f"关于「{core}」的资讯。"
+
+
+def _apply_rule_summaries(candidates):
+    """对候选条目统一回退为规则摘要"""
+    for _, _, item, _ in candidates:
+        item["summary"] = _fallback_rule_summary(item.get("title", ""))
+
+
 def generate_batch_summaries(items, api_config):
     """
     批量生成摘要：将所有需要摘要的条目合并成一次 API 请求
+    - 有原文的条目基于原文生成；无原文的基于标题生成，保证每条都有摘要
+    - AI 调用失败/解析失败时，回退规则生成（jieba 提取核心词）
     返回修改后的 items 列表（原地修改）
-    每天最多调用1次 API，而不是每条调用一次
+    每天最多调用1次 API
     """
     global NVIDIA_CONSECUTIVE_FAILURES
     if not api_config["summary_enabled"] or not api_config["api_key"]:
@@ -1899,6 +1996,10 @@ def generate_batch_summaries(items, api_config):
     if not REQUESTS_AVAILABLE:
         return items
     if NVIDIA_CONSECUTIVE_FAILURES >= NVIDIA_MAX_CONSECUTIVE_FAILURES:
+        # 连续失败：直接规则生成，保证每条都有摘要
+        print("[AI批量摘要] 连续失败次数过多，回退规则生成摘要")
+        _apply_rule_summaries([(i, i, it, "") for i, it in enumerate(items)
+                               if not it.get("summary") or len(it.get("summary", "")) < 20])
         return items
 
     # 筛选需要生成摘要的条目（摘要为空、与标题相同、或长度<20）
@@ -1918,10 +2019,9 @@ def generate_batch_summaries(items, api_config):
         print("[AI] 所有条目已有有效摘要，跳过批量摘要生成")
         return items
 
-    # 逐条尝试获取原文：只有成功获取到原文（真实内容）的条目才交给 AI 生成摘要
-    # 无法获取原文的条目保持摘要为空，不基于标题猜测（避免误导用户）
+    # 逐条尝试获取原文：有原文用原文生成，无原文基于标题生成（保证每条都有摘要）
     candidates = []  # (local_idx, orig_idx, item, article_text)
-    for idx, (orig_idx, item) in enumerate(need_summary):
+    for local_idx, (orig_idx, item) in enumerate(need_summary):
         title = item.get("title", "无标题")
         link = item.get("link", "")
         article_text = ""
@@ -1933,21 +2033,25 @@ def generate_batch_summaries(items, api_config):
             except Exception:
                 pass
         if article_text:
-            candidates.append((len(candidates), orig_idx, item, article_text))
+            print(f"[摘要] 基于原文生成：{title[:40]}")
         else:
-            print(f"[摘要] 无有效摘要（原文获取失败）：{title[:40]}")
+            print(f"[摘要] 无原文，将基于标题生成：{title[:40]}")
+        candidates.append((local_idx, orig_idx, item, article_text))
 
     if not candidates:
-        print("[AI] 未能获取任何原文，跳过批量摘要生成（无摘要条目保持为空）")
         return items
 
-    # 构建 prompt（仅包含成功获取原文的候选条目）
+    # 构建 prompt（每个条目均包含；有原文给内容，无原文注明基于标题）
     news_list = []
-    for local_idx, (_, item, article_text) in enumerate(candidates):
+    for local_idx, (_, _, item, article_text) in enumerate(candidates):
         title = item.get("title", "无标题")
-        news_list.append(f"{local_idx}. 标题：{title}\n内容：{article_text}")
+        if article_text:
+            news_list.append(f"{local_idx}. 标题：{title}\n内容：{article_text}")
+        else:
+            news_list.append(f"{local_idx}. 标题：{title}\n（暂无原文，请基于标题中的关键信息生成摘要，不要直接照抄标题原话）")
 
     prompt = f"""你是一个环境领域摘要助手。请为以下每条新闻生成一句不超过50字的中文摘要，直接返回JSON数组，格式：[{{"id":0,"summary":"..."}},{{"id":1,"summary":"..."}}]，不要解释。
+摘要需包含关键信息，不要直接照抄标题原话。
 
 新闻列表：
 {chr(10).join(news_list)}"""
@@ -1981,53 +2085,59 @@ def generate_batch_summaries(items, api_config):
                 print(f"[AI批量摘要] 429限流，第{attempt+1}次重试，等待{wait_time}秒...")
                 time.sleep(wait_time)
                 continue
-            print(f"[AI批量摘要] HTTP错误 {status_code}")
+            print(f"[AI批量摘要] HTTP错误 {status_code}（将回退规则生成）")
             NVIDIA_CONSECUTIVE_FAILURES += 1
-            return items
+            break
         except requests.exceptions.Timeout:
             if attempt < 1:
                 wait_time = retry_delays[attempt]
                 print(f"[AI批量摘要] 请求超时，第{attempt+1}次重试，等待{wait_time}秒...")
                 time.sleep(wait_time)
                 continue
-            print("[AI批量摘要] 请求超时（已重试）")
+            print("[AI批量摘要] 请求超时（将回退规则生成）")
             NVIDIA_CONSECUTIVE_FAILURES += 1
-            return items
+            break
         except Exception as e:
-            print(f"[AI批量摘要] 调用失败: {str(e)[:60]}")
+            print(f"[AI批量摘要] 调用失败: {str(e)[:60]}（将回退规则生成）")
             NVIDIA_CONSECUTIVE_FAILURES += 1
-            return items
+            break
 
-    if not result_text:
-        return items
-
-    # 解析返回的 JSON
-    try:
-        result_text = result_text.strip()
-        if result_text.startswith("```"):
-            result_text = result_text.split("\n", 1)[-1]
-            if result_text.endswith("```"):
-                result_text = result_text[:-3]
-        result_text = result_text.strip()
-        start = result_text.find("[")
-        end = result_text.rfind("]")
-        if start >= 0 and end > start:
-            result_text = result_text[start:end+1]
-        summaries = json.loads(result_text)
-        if isinstance(summaries, list):
-            count = 0
-            for s in summaries:
-                if isinstance(s, dict) and "id" in s and "summary" in s:
-                    local_idx = int(s["id"])
-                    if 0 <= local_idx < len(candidates):
-                        _, _, item, _ = candidates[local_idx]
-                        new_summary = str(s["summary"]).strip().strip('"').strip("'")
-                        if new_summary:
-                            item["summary"] = new_summary
-                            count += 1
-            print(f"[AI批量摘要] 成功生成 {count}/{len(candidates)} 条摘要")
-    except Exception as e:
-        print(f"[AI批量摘要] 解析返回结果失败: {str(e)[:50]}")
+    # 解析并写回
+    if result_text:
+        try:
+            result_text = result_text.strip()
+            if result_text.startswith("```"):
+                result_text = result_text.split("\n", 1)[-1]
+                if result_text.endswith("```"):
+                    result_text = result_text[:-3]
+            result_text = result_text.strip()
+            start = result_text.find("[")
+            end = result_text.rfind("]")
+            if start >= 0 and end > start:
+                result_text = result_text[start:end+1]
+            summaries = json.loads(result_text)
+            success_ids = set()
+            if isinstance(summaries, list):
+                for s in summaries:
+                    if isinstance(s, dict) and "id" in s and "summary" in s:
+                        local_idx = int(s["id"])
+                        if 0 <= local_idx < len(candidates):
+                            _, _, item, _ = candidates[local_idx]
+                            new_summary = str(s["summary"]).strip().strip('"').strip("'")
+                            title = item.get("title", "")
+                            if new_summary and new_summary != title:
+                                item["summary"] = new_summary
+                                success_ids.add(local_idx)
+            # 未成功生成的条目回退规则
+            for local_idx, (_, _, item, _) in enumerate(candidates):
+                if local_idx not in success_ids:
+                    item["summary"] = _fallback_rule_summary(item.get("title", ""))
+            print(f"[AI批量摘要] 生成摘要 {len(success_ids)}/{len(candidates)} 条，其余回退规则")
+        except Exception as e:
+            print(f"[AI批量摘要] 解析返回结果失败: {str(e)[:50]}（回退规则生成）")
+            _apply_rule_summaries(candidates)
+    else:
+        _apply_rule_summaries(candidates)
 
     return items
 

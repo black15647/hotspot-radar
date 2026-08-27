@@ -579,12 +579,26 @@
         titleWrap.textContent = item.title || '无标题';
         titleEl.appendChild(titleWrap);
         const hasEn = !!(item.title_en || item.summary_en);
-        if (hasEn) {
-            const transMark = document.createElement('span');
-            transMark.className = 'trans-mark';
-            transMark.textContent = '译';
-            transMark.title = '该条为翻译内容';
-            titleEl.appendChild(transMark);
+        const hasZh = !!(item.title_zh && item.title_zh !== item.title);
+        if (hasZh) {
+            // “译”按钮：在英文标题与中文标题之间切换显示
+            const transBtn = document.createElement('button');
+            transBtn.className = 'trans-mark';
+            transBtn.textContent = '译';
+            transBtn.title = '切换中英文标题';
+            transBtn.setAttribute('aria-label', '切换中英文标题');
+            transBtn.addEventListener('click', (e) => {
+                e.stopPropagation();
+                const showingZh = card.dataset.titleZh === '1';
+                if (!showingZh) {
+                    titleWrap.textContent = item.title_zh;
+                    card.dataset.titleZh = '1';
+                } else {
+                    titleWrap.textContent = item.title || '无标题';
+                    card.dataset.titleZh = '0';
+                }
+            });
+            titleEl.appendChild(transBtn);
         }
         titleEl.title = '点击展开摘要';
         titleEl.addEventListener('click', () => toggleCardSummary(card, item));

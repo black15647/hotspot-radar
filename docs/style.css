@@ -367,7 +367,17 @@ body.dark .card-rank.rank-other { background: rgba(148, 163, 184, 0.2); color: #
     border-radius: 4px;
     vertical-align: 2px;
     flex-shrink: 0;
+    border: 1px solid transparent;
+    cursor: pointer;
+    font-family: inherit;
+    transition: background .15s, color .15s, transform .15s, border-color .15s;
 }
+.trans-mark:hover {
+    background: var(--clr-brand);
+    color: #fff;
+    border-color: var(--clr-brand);
+}
+.trans-mark:active { transform: scale(0.92); }
 .card-orig-btn {
     flex-shrink: 0;
     padding: 3px 10px;

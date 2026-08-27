@@ -1,32 +1,34 @@
 {
-  "report_date": "2026-08-26",
-  "date": "2026-08-26",
+  "report_date": "2026-08-27",
+  "date": "2026-08-27",
   "site_name": "环境学子雷达",
-  "total_items": 6,
+  "total_items": 50,
   "items": [
     {
-      "title": "Environment International：气候变化下高温、花粉与空气污染对过敏性鼻炎和哮喘的协同影响-MedSci.cn - 梅斯医学 MedSci",
-      "title_en": "",
-      "title_zh": "Environment International：气候变化下高温、花粉与空气污染对过敏性鼻炎和哮喘的协同影响-MedSci.cn - 梅斯医学 MedSci",
-      "summary_en": "",
-      "summary_zh": "",
-      "link": "https://news.google.com/rss/articles/CBMibkFVX3lxTE9sYkthZEV5Z0g0OGV6Nm5nb1NDR0N5MS1wcHJ0eG9fWHNxWFZVZjc2Q2NoY0VhVjBjME1STWg4a2hxYTVGeXpRRUhNLUJkQnMxby1fMk10YzRwaVEtcF93NUs3Uko3WkdWZVdQQUdn?oc=5",
-      "source": "Google News 环境污染",
-      "published": "2026-08-26T00:53:36+00:00",
-      "hotness": 21.06,
-      "score": 21.06,
+      "title": "解耦干湿热贡献：用于检测区域复合极端热量的基于站的指标",
+      "title_en": "Decoupling dry and wet heat contributions: a station-based index for detecting regional compound heat extremes",
+      "title_zh": "解耦干湿热贡献：用于检测区域复合极端热量的基于站的指标",
+      "summary_en": "Extreme heat events pose increasing risks under climate change. Existing heat-stress indices integrate temperature and humidity within combined metrics, which can limit explicit attribution of their respective contributions during compound heat events. To address this gap, we develop the dynamic weather-climate index (DWCI), a station-based framework that decomposes temperature, moisture-loading, and dry-evaporative-demand anomaly pathways while retaining a single event-detection metric. By introducing a dual-channel humidity-severity term derived from positive dewpoint-temperature and vapor-pressure-deficit anomalies, DWCI captures both wet and dry heat extremes without allowing competing atmospheric pathways to cancel each other out mathematically. Using DWCI together with the k-nearest-neighbor object identification and tracking for extreme events algorithm, we identify 68 417 regional compound heat extremes (RCHEs) globally during 1973–2024. Among 336 documented heat disasters within the observational period, DWCI overlaps 285 events (84.8%) under its current configuration. Because event counts differ across indices, we evaluate detection-budget sensitivity separately and interpret these values as overlap rather than calibrated predictive skill. Applying this decoupled framework reveals that humidity magnitude fraction accounts for 27.6% of the anomaly magnitude on RCHE days globally, peaking in continental climates (43.7%). Station-level trend analysis shows that long-term RCHE amplification is driven primarily by widespread increases in event frequency rather than event-mean intensity. Across six mid-latitude country-event case studies, DWCI anomalies show a positive correlation with weekly mortality anomalies (mean , range: 0.69–0.95), supporting physiological plausibility while not constituting a general health-risk validation. Overall, by separating dry and wet heat pathways, DWCI provides a physically interpretable framework for compound-heat monitoring and attribution.",
+      "summary_zh": "极端高温事件在气候变化下构成越来越大的风险。现有的热应力指数将温度和湿度整合到组合指标中，这可能会限制它们在复合热事件期间各自贡献的明确归因。为了解决这一差距，我们开发了动态天气-气候指数（ DWCI ） ，这是一个基于站的框架，可以分解温度、湿度负荷和干蒸发需求异常路径，同时保留单个事件检测指标。",
+      "link": "https://iopscience.iop.org/article/10.1088/1748-9326/ae9b24",
+      "source": "Environmental Research Letters",
+      "published": "2026-08-25T23:00:00+00:00",
+      "hotness": 21.69,
+      "score": 21.69,
       "score_breakdown": {
         "base": 5.0,
-        "source_score": 4.5,
+        "source_score": 6.0,
         "keyword_score": 2.0,
-        "time_score": 5.56,
-        "topic_bonus": 4.0,
-        "total": 21.06
+        "time_score": 2.69,
+        "topic_bonus": 6.0,
+        "total": 21.69
       },
-      "summary": "",
-      "analysis": "该条目涉及【花粉与空气污染对过敏】话题，因来源较权威且与近期热点主题相关，热度上升。",
+      "summary": "极端高温事件在气候变化下构成越来越大的风险。现有的热应力指数将温度和湿度整合到组合指标中，这可能会限制它们在复合热事件期间各自贡献的明确归因。为了解决这一差距，我们开发了动态天气-气候指数（ DWCI ） ，这是一个基于站的框架，可以分解温度、湿度负荷和干蒸发需求异常路径，同时保留单个事件检测指标。",
+      "analysis": "该条目涉及【动态天气-气候指数】话题，因来源权威性高且与近期热点主题相关，热度上升。",
       "topic_tags": [
-        "花粉与空气污染对过敏"
+        "动态天气-气候指数",
+        "复合极端热量",
+        "干湿热贡献"
       ],
       "matched_keywords": [
         "气候变化"
@@ -36,34 +38,65 @@
       ]
     },
     {
-      "title": "8月25日，吉林省生态环境厅举行新闻发布会，对外集中发布了吉林省大气污染防治工作进展及成效 - 凤凰网",
+      "title": "甘肃：应对气候变化交出亮眼“成绩单” 生态“含绿量”正加速转化为“含金量”_生态文明看甘肃 - 中国甘肃网",
       "title_en": "",
-      "title_zh": "8月25日，吉林省生态环境厅举行新闻发布会，对外集中发布了吉林省大气污染防治工作进展及成效 - 凤凰网",
+      "title_zh": "甘肃：应对气候变化交出亮眼“成绩单” 生态“含绿量”正加速转化为“含金量”_生态文明看甘肃 - 中国甘肃网",
       "summary_en": "",
       "summary_zh": "",
-      "link": "https://news.google.com/rss/articles/CBMiSkFVX3lxTFAtZnpDV3BOTHgxRENmdEZ3cnotb25FSDJVLVRCTXlSX3ZWSzhlMW1xRUdYamhsSmtQcU1YVU5XY1hXZGhWdjZQUlZn?oc=5",
-      "source": "Google News 生态环境",
-      "published": "2026-08-26T03:50:50+00:00",
-      "hotness": 19.79,
-      "score": 19.79,
+      "link": "https://news.google.com/rss/articles/CBMia0FVX3lxTE5MU0xMMER5bUh4SFB3VjlpWVBPcFVwUEs4VzA5cVNfNFBFbFNybkJ3VmNvOHlPdXdvWWo2QU9mdEkwUTdhMlFEOWNJdUpyRDJzZjEwTTdLa3VraGlrcEVJWDRaTERFQzVJU1FV?oc=5",
+      "source": "Google News 气候变化",
+      "published": "2026-08-26T00:38:00+00:00",
+      "hotness": 20.38,
+      "score": 20.38,
       "score_breakdown": {
         "base": 5.0,
         "source_score": 4.5,
         "keyword_score": 2.0,
-        "time_score": 6.29,
-        "topic_bonus": 2.0,
-        "total": 19.79
+        "time_score": 2.88,
+        "topic_bonus": 6.0,
+        "total": 20.38
       },
-      "summary": "",
-      "analysis": "该条目涉及【大气污染】话题，因来源较权威且发布时间较新，热度上升。",
+      "summary": "关于「甘肃」的资讯。",
+      "analysis": "该条目涉及【应对气候变化交出亮眼】话题，因来源较权威且与近期热点主题相关，热度上升。",
       "topic_tags": [
-        "大气污染"
+        "应对气候变化交出亮眼"
       ],
       "matched_keywords": [
-        "大气污染"
+        "气候变化"
       ],
       "keywords": [
-        "大气污染"
+        "气候变化"
+      ]
+    },
+    {
+      "title": "气候变化、照护与性别 - CLACSO",
+      "title_en": "",
+      "title_zh": "气候变化、照护与性别 - CLACSO",
+      "summary_en": "",
+      "summary_zh": "",
+      "link": "https://news.google.com/rss/articles/CBMickFVX3lxTE0xbVhqQUV2QUNQN084cnI0TjFxNXA4S0t0ZUkyNkZ4Vk1oVFlveG9WN2V6ak91cVROWjBBcnNPRGhQazQ3NDhzYnZoYUlxcjZsaDZTblkyOUZpRUh0S29RU1JQMWdQZk9rRWN2b3FqVHoxZw?oc=5",
+      "source": "Google News 气候变化",
+      "published": "2026-08-25T08:31:42+00:00",
+      "hotness": 18.97,
+      "score": 18.97,
+      "score_breakdown": {
+        "base": 5.0,
+        "source_score": 4.5,
+        "keyword_score": 2.0,
+        "time_score": 1.47,
+        "topic_bonus": 6.0,
+        "total": 18.97
+      },
+      "summary": "关于「气候变化」的资讯。",
+      "analysis": "该条目涉及【照护与性别】话题，因来源较权威且与近期热点主题相关，热度上升。",
+      "topic_tags": [
+        "照护与性别"
+      ],
+      "matched_keywords": [
+        "气候变化"
+      ],
+      "keywords": [
+        "气候变化"
       ]
     },
     {
@@ -74,21 +107,23 @@
       "summary_zh": "",
       "link": "https://www.sciencedirect.com/science/article/pii/S0043135426014557?dgcid=rss_sd_all",
       "source": "Water Research",
-      "published": "2026-08-25T14:59:28.928198+00:00",
-      "hotness": 18.68,
-      "score": 18.68,
+      "published": "2026-08-26T06:27:42.826780+00:00",
+      "hotness": 18.67,
+      "score": 18.67,
       "score_breakdown": {
         "base": 5.0,
         "source_score": 6.0,
         "keyword_score": 2.0,
-        "time_score": 3.68,
+        "time_score": 3.67,
         "topic_bonus": 2.0,
-        "total": 18.68
+        "total": 18.67
       },
-      "summary": "",
-      "analysis": "该条目涉及【微塑料】话题，因来源权威性高且与近期热点主题相关，热度上升。",
+      "summary": "关于「聚苯乙烯」的资讯。",
+      "analysis": "该条目涉及【聚苯乙烯】话题，因来源权威性高且与近期热点主题相关，热度上升。",
       "topic_tags": [
-        "微塑料"
+        "聚苯乙烯",
+        "微塑料",
+        "紫外线照射"
       ],
       "matched_keywords": [
         "微塑料"
@@ -98,159 +133,1371 @@
       ]
     },
     {
-      "title": "陕西科技大学环境学院沙桐副教授课题组在气候变化与空气污染研究方面取得新进展 - 搜狐网",
+      "title": "生态环境法典进大宁，携手共筑净美宜居家园 - 新浪财经",
       "title_en": "",
-      "title_zh": "陕西科技大学环境学院沙桐副教授课题组在气候变化与空气污染研究方面取得新进展 - 搜狐网",
+      "title_zh": "生态环境法典进大宁，携手共筑净美宜居家园 - 新浪财经",
       "summary_en": "",
       "summary_zh": "",
-      "link": "https://news.google.com/rss/articles/CBMijAFBVV95cUxOTGdXem43WXhnOU85aWMzRkVpdkwtOHZPLWRwaVFHbnNKUFFvVTFUR0VLWXZIYnFHV3ltRHV6Sy1xdWlUUXR4QW10RzBsSW1FM05fRXBXT1JaLTFyV3M5VXIzQXhaUEwzcXdJQWVXN1prblZ3MnY2dVNEWWFQMWk1ODJkMmJvV0hpNXpGcQ?oc=5",
+      "link": "https://news.google.com/rss/articles/CBMieEFVX3lxTE9HWlVWMG1PQ25PUVJ6bWpibmRZNXNfRU5tUTJWU2R2aVFtR2l1Z3RDSmJpWWZ3czR6TmdySmZnVF9sXzZxMkpfMDktNTRZb0hGdGRGTHZuVnptZzJaWDk2eVl0RG9uaWszbWJsSkYwZDVQZ0RESlpoWA?oc=5",
+      "source": "Google News 生态环境",
+      "published": "2026-08-27T02:42:02+00:00",
+      "hotness": 18.03,
+      "score": 18.03,
+      "score_breakdown": {
+        "base": 5.0,
+        "source_score": 4.5,
+        "keyword_score": 0.0,
+        "time_score": 8.53,
+        "topic_bonus": 0.0,
+        "total": 18.03
+      },
+      "summary": "关于「生态环境」的资讯。",
+      "analysis": "该条目涉及【生态环境法典】话题，因来源较权威且发布时间较新，热度上升。",
+      "topic_tags": [
+        "生态环境法典",
+        "大宁社区"
+      ],
+      "matched_keywords": [],
+      "keywords": []
+    },
+    {
+      "title": "中广核环保与浙江生态环境集团签署战略合作协议 - 中国水网",
+      "title_en": "",
+      "title_zh": "中广核环保与浙江生态环境集团签署战略合作协议 - 中国水网",
+      "summary_en": "",
+      "summary_zh": "",
+      "link": "https://news.google.com/rss/articles/CBMiVEFVX3lxTE9UclJhWWVnQmpkUFlWXzh5MElhME84Y20yV1BPejFqLThNa3daT09vMWI5OTdCM2Q3Vm9zd01uUm5rUkpzdGdXUVR0X21jVmVjdWN6Zg?oc=5",
+      "source": "Google News 环境保护",
+      "published": "2026-08-27T02:18:00+00:00",
+      "hotness": 17.89,
+      "score": 17.89,
+      "score_breakdown": {
+        "base": 5.0,
+        "source_score": 4.5,
+        "keyword_score": 0.0,
+        "time_score": 8.39,
+        "topic_bonus": 0.0,
+        "total": 17.89
+      },
+      "summary": "关于「中广核」的资讯。",
+      "analysis": "该条目涉及【中广核环保与浙江生态】话题，因来源较权威且发布时间较新，热度上升。",
+      "topic_tags": [
+        "中广核环保与浙江生态"
+      ],
+      "matched_keywords": [],
+      "keywords": []
+    },
+    {
+      "title": "月亮将变成红色，因为罕见的部分月食在周五为英国天空增光添彩",
+      "title_en": "Moon set to turn red as rare partial lunar eclipse graces UK skies on Friday",
+      "title_zh": "月亮将变成红色，因为罕见的部分月食在周五为英国天空增光添彩",
+      "summary_en": "The Moon could glow an eerie red in the early hours of Friday but cloud cover may spoil the spectacle for some parts of the UK.",
+      "summary_zh": "周五凌晨，月球可能会发出令人毛骨悚然的红光，但云层覆盖可能会破坏英国部分地区的景观。",
+      "link": "https://www.bbc.co.uk/weather/articles/c5y4n7y89w7o?at_medium=RSS&at_campaign=rss",
+      "source": "BBC 科学与环境",
+      "published": "2026-08-27T06:03:15+00:00",
+      "hotness": 17.81,
+      "score": 17.81,
+      "score_breakdown": {
+        "base": 5.0,
+        "source_score": 3.0,
+        "keyword_score": 0.0,
+        "time_score": 9.81,
+        "topic_bonus": 0.0,
+        "total": 17.81
+      },
+      "summary": "周五凌晨，月球可能会发出令人毛骨悚然的红光，但云层覆盖可能会破坏英国部分地区的景观。",
+      "analysis": "该条目涉及【因为罕见的部分月食在】话题，因发布时间较新，热度上升。",
+      "topic_tags": [
+        "因为罕见的部分月食在"
+      ],
+      "matched_keywords": [],
+      "keywords": []
+    },
+    {
+      "title": "FABRICA: Agentic CUDA-to-CSL Translation and Optimization for Wafer-Scale Systems",
+      "title_en": "",
+      "title_zh": "FABRICA: Agentic CUDA-to-CSL Translation and Optimization for Wafer-Scale Systems",
+      "summary_en": "",
+      "summary_zh": "arXiv:2608.25124v1 Announce Type: new Abstract: Porting GPU kernels across architectures requires architectural remapping, not syntax substitution. CUDA encodes decomposition, locality, and synchronization through threads, blocks, and memory accesses; the Cerebras Software Language (CSL) requires explicit placement, distributed SRAM, fabric communication, event-driven tasks, and host/device contracts. We present FABRICA-Bench, 49 paired CUDA-to-CSL tasks, and FABRICA, an agentic framework combining target knowledge, execution, failure-directed repair, and correctness-gated optimization. On a fixed 28-task Level~1--3 core comparison with Claude Opus 4.8, FABRICA raises success from 6/28 to 26/28; 22 successful programs match or beat their CSL references. Across the 49-task coverage evaluation, 38 tasks produce a correct program; the final three tasks are evaluated over three seeds and pass 8/9 runs. For 27 generated/reference pairs with device-internal timing, geometric-mean speedup is 3.75$\\times$ on the SDK simulator and 3.47$\\times$ on WSE-3 hardware. With the executable workflow fixed, Claude Opus~4.8 passes 26/28 core tasks while the best open-weight model passes 2/28; retrieved Cerebras knowledge separately raises success from 1/15 to 7/15 on a Level~1--3 panel. These results identify base-model capability, target knowledge, execution feedback, and same-target measurement as central to cross-architecture kernel generation.",
+      "link": "https://arxiv.org/abs/2608.25124",
+      "source": "arXiv Environmental Engineering",
+      "published": "2026-08-27T04:00:00+00:00",
+      "hotness": 17.6,
+      "score": 17.6,
+      "score_breakdown": {
+        "base": 5.0,
+        "source_score": 3.6,
+        "keyword_score": 0.0,
+        "time_score": 9.0,
+        "topic_bonus": 0.0,
+        "total": 17.6
+      },
+      "summary": "arXiv:2608.25124v1 Announce Type: new Abstract: Porting GPU kernels across architectures requires architectural remapping, not syntax substitution. CUDA encodes decomposition, locality, and synchronization through threads, blocks, and memory accesses; the Cerebras Software Language (CSL) requires explicit placement, distributed SRAM, fabric communication, event-driven tasks, and host/device contracts. We present FABRICA-Bench, 49 paired CUDA-to-CSL tasks, and FABRICA, an agentic framework combining target knowledge, execution, failure-directed repair, and correctness-gated optimization. On a fixed 28-task Level~1--3 core comparison with Claude Opus 4.8, FABRICA raises success from 6/28 to 26/28; 22 successful programs match or beat their CSL references. Across the 49-task coverage evaluation, 38 tasks produce a correct program; the final three tasks are evaluated over three seeds and pass 8/9 runs. For 27 generated/reference pairs with device-internal timing, geometric-mean speedup is 3.75$\\times$ on the SDK simulator and 3.47$\\times$ on WSE-3 hardware. With the executable workflow fixed, Claude Opus~4.8 passes 26/28 core tasks while the best open-weight model passes 2/28; retrieved Cerebras knowledge separately raises success from 1/15 to 7/15 on a Level~1--3 panel. These results identify base-model capability, target knowledge, execution feedback, and same-target measurement as central to cross-architecture kernel generation.",
+      "analysis": "该条目涉及【fabrica】话题，因发布时间较新，热度上升。",
+      "topic_tags": [
+        "fabrica",
+        "agentic",
+        "cuda"
+      ],
+      "matched_keywords": [],
+      "keywords": []
+    },
+    {
+      "title": "RWA-PoB: A Credential-Based Proof-of-Backing Framework for Tokenized U.S. Treasury Products",
+      "title_en": "",
+      "title_zh": "RWA-PoB: A Credential-Based Proof-of-Backing Framework for Tokenized U.S. Treasury Products",
+      "summary_en": "",
+      "summary_zh": "arXiv:2608.25269v1 Announce Type: new Abstract: Proof of reserves (PoR) can improve transparency for tokenized assets, but aggregate reserve coverage does not establish whether off-chain assets are legally eligible, unencumbered, consistently valued, or sufficiently liquid for redemptions. We propose RWA-PoB, a credential-based proof-of-backing framework for tokenized U.S. Treasury products. Five authorised institutional roles approve a canonical EIP-712 snapshot containing reserve, liability, liquidity, and policy information. The framework evaluates backing adequacy through the Backing Coverage Ratio (BCR) and short-term redemption capacity through the Redemption Liquidity Coverage (RLC). The Solidity prototype couples the policy controller to an ERC-20 token. Successful issuance atomically increases token supply and recorded liabilities by the corresponding USD-denominated liability. A redemption request burns tokens while reclassifying the corresponding obligation as pending. The obligation is reduced only after an authorised settlement-role account confirms payment. We evaluate the framework against a simplified aggregate PoR baseline using USDY-calibrated liabilities and deterministic synthetic reserve scenarios. Both approaches permit issuance in the valid state, but RWA-PoB rejects an encumbered-assets state with a BCR of 96.3408%, below the experimental 105% threshold. Under liquidity stress, it classifies the proposed redemption as queued because the post-request RLC falls to 39.9999%. RWA-PoB authenticates the attribution and integrity of institutional claims but does not independently prove the existence, ownership, or condition of off-chain assets. The prototype, test suite, datasets, and replication scripts are available at https://github.com/rischanlab/PoB.",
+      "link": "https://arxiv.org/abs/2608.25269",
+      "source": "arXiv Environmental Engineering",
+      "published": "2026-08-27T04:00:00+00:00",
+      "hotness": 17.6,
+      "score": 17.6,
+      "score_breakdown": {
+        "base": 5.0,
+        "source_score": 3.6,
+        "keyword_score": 0.0,
+        "time_score": 9.0,
+        "topic_bonus": 0.0,
+        "total": 17.6
+      },
+      "summary": "arXiv:2608.25269v1 Announce Type: new Abstract: Proof of reserves (PoR) can improve transparency for tokenized assets, but aggregate reserve coverage does not establish whether off-chain assets are legally eligible, unencumbered, consistently valued, or sufficiently liquid for redemptions. We propose RWA-PoB, a credential-based proof-of-backing framework for tokenized U.S. Treasury products. Five authorised institutional roles approve a canonical EIP-712 snapshot containing reserve, liability, liquidity, and policy information. The framework evaluates backing adequacy through the Backing Coverage Ratio (BCR) and short-term redemption capacity through the Redemption Liquidity Coverage (RLC). The Solidity prototype couples the policy controller to an ERC-20 token. Successful issuance atomically increases token supply and recorded liabilities by the corresponding USD-denominated liability. A redemption request burns tokens while reclassifying the corresponding obligation as pending. The obligation is reduced only after an authorised settlement-role account confirms payment. We evaluate the framework against a simplified aggregate PoR baseline using USDY-calibrated liabilities and deterministic synthetic reserve scenarios. Both approaches permit issuance in the valid state, but RWA-PoB rejects an encumbered-assets state with a BCR of 96.3408%, below the experimental 105% threshold. Under liquidity stress, it classifies the proposed redemption as queued because the post-request RLC falls to 39.9999%. RWA-PoB authenticates the attribution and integrity of institutional claims but does not independently prove the existence, ownership, or condition of off-chain assets. The prototype, test suite, datasets, and replication scripts are available at https://github.com/rischanlab/PoB.",
+      "analysis": "该条目涉及【代币化美国国债】话题，因发布时间较新，热度上升。",
+      "topic_tags": [
+        "代币化美国国债",
+        "储备证明",
+        "RWA-PoB框架"
+      ],
+      "matched_keywords": [],
+      "keywords": []
+    },
+    {
+      "title": "Forecasting Global Volatility Across Asynchronous Markets: Incremental Accuracy from Constrained Cross-Market Attention",
+      "title_en": "",
+      "title_zh": "Forecasting Global Volatility Across Asynchronous Markets: Incremental Accuracy from Constrained Cross-Market Attention",
+      "summary_en": "",
+      "summary_zh": "arXiv:2608.25369v1 Announce Type: new Abstract: Multivariate volatility forecasting across international equity markets presents a fundamental information-set problem: asynchronous exchange closures dictate which market observations belong to the information filtration at any forecast origin. We investigate whether regularized, origin-admissible cross-market information yields incremental accuracy beyond established benchmarks. We develop PGA-Trans-HAR, combining an origin-admissible ridge-VAR/GFEVD connectedness prior with spatial self-attention. A time-invariant market gate governs their allocation, asymmetric attention masking prevents closed exchanges from transmitting spurious signals, and a direct-horizon HAR baseline anchors residual corrections. Using high-frequency data from eight major indices (2006--2022), we evaluate direct forecasts at 1-, 5-, and 22-day horizons across all-days and common-days panels, five-seed ensembles, structural ablations, HAC-adjusted Diebold--Mariano tests, and Model Confidence Sets. Relative to univariate HAR, the framework reduces MSE and MAE across all markets at daily and weekly horizons, and seven of eight monthly. Among linear and deep learning benchmarks, it achieves the lowest daily average MAE and the lowest weekly/monthly average MSE and MAE. Structural ablations show that spatial restrictions are essential: learned market gates improve accuracy over uniform weighting at medium-to-long horizons, while daily forecasts favor stronger scalar shrinkage. Disciplined, origin-aligned cross-market information yields genuine predictive gains, especially at medium and long horizons where structural spillovers persist.",
+      "link": "https://arxiv.org/abs/2608.25369",
+      "source": "arXiv Environmental Engineering",
+      "published": "2026-08-27T04:00:00+00:00",
+      "hotness": 17.6,
+      "score": 17.6,
+      "score_breakdown": {
+        "base": 5.0,
+        "source_score": 3.6,
+        "keyword_score": 0.0,
+        "time_score": 9.0,
+        "topic_bonus": 0.0,
+        "total": 17.6
+      },
+      "summary": "arXiv:2608.25369v1 Announce Type: new Abstract: Multivariate volatility forecasting across international equity markets presents a fundamental information-set problem: asynchronous exchange closures dictate which market observations belong to the information filtration at any forecast origin. We investigate whether regularized, origin-admissible cross-market information yields incremental accuracy beyond established benchmarks. We develop PGA-Trans-HAR, combining an origin-admissible ridge-VAR/GFEVD connectedness prior with spatial self-attention. A time-invariant market gate governs their allocation, asymmetric attention masking prevents closed exchanges from transmitting spurious signals, and a direct-horizon HAR baseline anchors residual corrections. Using high-frequency data from eight major indices (2006--2022), we evaluate direct forecasts at 1-, 5-, and 22-day horizons across all-days and common-days panels, five-seed ensembles, structural ablations, HAC-adjusted Diebold--Mariano tests, and Model Confidence Sets. Relative to univariate HAR, the framework reduces MSE and MAE across all markets at daily and weekly horizons, and seven of eight monthly. Among linear and deep learning benchmarks, it achieves the lowest daily average MAE and the lowest weekly/monthly average MSE and MAE. Structural ablations show that spatial restrictions are essential: learned market gates improve accuracy over uniform weighting at medium-to-long horizons, while daily forecasts favor stronger scalar shrinkage. Disciplined, origin-aligned cross-market information yields genuine predictive gains, especially at medium and long horizons where structural spillovers persist.",
+      "analysis": "该条目涉及【跨市场波动预测】话题，因发布时间较新，热度上升。",
+      "topic_tags": [
+        "跨市场波动预测",
+        "异步市场信息集",
+        "金融时间序列分析"
+      ],
+      "matched_keywords": [],
+      "keywords": []
+    },
+    {
+      "title": "Unlocking Multimodal Protein Language Models at Inference Time",
+      "title_en": "",
+      "title_zh": "Unlocking Multimodal Protein Language Models at Inference Time",
+      "summary_en": "",
+      "summary_zh": "arXiv:2608.25855v1 Announce Type: new Abstract: Multimodal protein language models (pLMs) learn joint protein sequence-structure distributions, and their generation performance should also depend critically on inference-time sampling strategies. Yet prior work has focused more on model training than on how inference-time strategies behave. In this paper, we establish a three-stage investigation framework to empirically study the inference design space of multimodal pLMs across three representative pLMs and four fundamental tasks. We evaluate vanilla sampling, task-specific classifier-free guidance, and reward-guided beam search on multimodal pLMs, corresponding to controls over sampling distributions, per-step logits, and parallel trajectories. Throughout the complementary advancements centered on exploration-exploitation trade-off, we (1) reveal the suboptimality of default inference protocols and identify task-oriented sampling preferences; (2) observe substantial quantitative gains across tasks, consistently boosting the upper bound performance of multimodal pLMs without updating model parameters; (3) derive conclusions about base models that differ from prior consensus.",
+      "link": "https://arxiv.org/abs/2608.25855",
+      "source": "arXiv Environmental Engineering",
+      "published": "2026-08-27T04:00:00+00:00",
+      "hotness": 17.6,
+      "score": 17.6,
+      "score_breakdown": {
+        "base": 5.0,
+        "source_score": 3.6,
+        "keyword_score": 0.0,
+        "time_score": 9.0,
+        "topic_bonus": 0.0,
+        "total": 17.6
+      },
+      "summary": "arXiv:2608.25855v1 Announce Type: new Abstract: Multimodal protein language models (pLMs) learn joint protein sequence-structure distributions, and their generation performance should also depend critically on inference-time sampling strategies. Yet prior work has focused more on model training than on how inference-time strategies behave. In this paper, we establish a three-stage investigation framework to empirically study the inference design space of multimodal pLMs across three representative pLMs and four fundamental tasks. We evaluate vanilla sampling, task-specific classifier-free guidance, and reward-guided beam search on multimodal pLMs, corresponding to controls over sampling distributions, per-step logits, and parallel trajectories. Throughout the complementary advancements centered on exploration-exploitation trade-off, we (1) reveal the suboptimality of default inference protocols and identify task-oriented sampling preferences; (2) observe substantial quantitative gains across tasks, consistently boosting the upper bound performance of multimodal pLMs without updating model parameters; (3) derive conclusions about base models that differ from prior consensus.",
+      "analysis": "该条目涉及【unlocking】话题，因发布时间较新，热度上升。",
+      "topic_tags": [
+        "unlocking",
+        "multimodal",
+        "protein"
+      ],
+      "matched_keywords": [],
+      "keywords": []
+    },
+    {
+      "title": "Efficient tensor bases for pairwise comparisons",
+      "title_en": "",
+      "title_zh": "Efficient tensor bases for pairwise comparisons",
+      "summary_en": "",
+      "summary_zh": "arXiv:2608.25923v1 Announce Type: new Abstract: In this study, we construct the first orthogonal basis for additively consistent subspace in pairwise comparisons theory. This construction is based on our representation of additively consistent best approximations of skew-symmetric matrices with respect to a tensor basis having minimal support. The orthogonal basis establishes the logarithmic consistent projection for the orthogonal windowing of pairwise comparisons matrices. It is compared with the windowing of the Saaty and SVD types. These comparisons resulted in new composite formulae for logarithmic, Saaty, and SVD projections. The theoretical considerations presented in the paper are accompanied by numerous examples.",
+      "link": "https://arxiv.org/abs/2608.25923",
+      "source": "arXiv Environmental Engineering",
+      "published": "2026-08-27T04:00:00+00:00",
+      "hotness": 17.6,
+      "score": 17.6,
+      "score_breakdown": {
+        "base": 5.0,
+        "source_score": 3.6,
+        "keyword_score": 0.0,
+        "time_score": 9.0,
+        "topic_bonus": 0.0,
+        "total": 17.6
+      },
+      "summary": "arXiv:2608.25923v1 Announce Type: new Abstract: In this study, we construct the first orthogonal basis for additively consistent subspace in pairwise comparisons theory. This construction is based on our representation of additively consistent best approximations of skew-symmetric matrices with respect to a tensor basis having minimal support. The orthogonal basis establishes the logarithmic consistent projection for the orthogonal windowing of pairwise comparisons matrices. It is compared with the windowing of the Saaty and SVD types. These comparisons resulted in new composite formulae for logarithmic, Saaty, and SVD projections. The theoretical considerations presented in the paper are accompanied by numerous examples.",
+      "analysis": "该条目涉及【efficient】话题，因发布时间较新，热度上升。",
+      "topic_tags": [
+        "efficient",
+        "tensor",
+        "bases"
+      ],
+      "matched_keywords": [],
+      "keywords": []
+    },
+    {
+      "title": "金马环保：规范固废处置 护航草原生态 - banyuetan.org",
+      "title_en": "",
+      "title_zh": "金马环保：规范固废处置 护航草原生态 - banyuetan.org",
+      "summary_en": "",
+      "summary_zh": "",
+      "link": "https://news.google.com/rss/articles/CBMikAFBVV95cUxOYlNYYTZ5NjJtR3VRSmViaHIzeEtfVlpfc19ZZU9GWUtJMUVZOHlMc1l0bENHVWk2ck44T2E5UzMzbVF1SFhrWFI4Zk44R1NPYWRGMjlvXy1ITDl5eVFuVENZcllISUJfeUJDMGp3d1dlTFNNN1F4d0dubUltM2Z4NThWWTNaMGFfV1ZqM2NDSjA?oc=5",
+      "source": "Google News 环境保护",
+      "published": "2026-08-27T01:10:53+00:00",
+      "hotness": 17.51,
+      "score": 17.51,
+      "score_breakdown": {
+        "base": 5.0,
+        "source_score": 4.5,
+        "keyword_score": 0.0,
+        "time_score": 8.01,
+        "topic_bonus": 0.0,
+        "total": 17.51
+      },
+      "summary": "关于「金马」的资讯。",
+      "analysis": "该条目涉及【规范固废处置】话题，因来源较权威且发布时间较新，热度上升。",
+      "topic_tags": [
+        "规范固废处置"
+      ],
+      "matched_keywords": [],
+      "keywords": []
+    },
+    {
+      "title": "如何从北爱尔兰观看月偏食",
+      "title_en": "How to watch the partial lunar eclipse from Northern Ireland",
+      "title_zh": "如何从北爱尔兰观看月偏食",
+      "summary_en": "Skygazers may see a partial lunar eclipse early on Friday, as the Moon enters Earth's shadow.",
+      "summary_zh": "当月球进入地球的阴影时，天空观测者可能会在周五早些时候看到部分月食。",
+      "link": "https://www.bbc.co.uk/news/articles/cq5xe322ezgo?at_medium=RSS&at_campaign=rss",
+      "source": "BBC 科学与环境",
+      "published": "2026-08-27T05:15:52+00:00",
+      "hotness": 17.49,
+      "score": 17.49,
+      "score_breakdown": {
+        "base": 5.0,
+        "source_score": 3.0,
+        "keyword_score": 0.0,
+        "time_score": 9.49,
+        "topic_bonus": 0.0,
+        "total": 17.49
+      },
+      "summary": "当月球进入地球的阴影时，天空观测者可能会在周五早些时候看到部分月食。",
+      "analysis": "该条目涉及【如何从北爱尔兰观看月偏食】话题，因发布时间较新，热度上升。",
+      "topic_tags": [
+        "如何从北爱尔兰观看月偏食"
+      ],
+      "matched_keywords": [],
+      "keywords": []
+    },
+    {
+      "title": "去哪里做环保志愿？湖南首批10个实践场地来了 - 湖南红网",
+      "title_en": "",
+      "title_zh": "去哪里做环保志愿？湖南首批10个实践场地来了 - 湖南红网",
+      "summary_en": "",
+      "summary_zh": "",
+      "link": "https://news.google.com/rss/articles/CBMiYkFVX3lxTE5tcmZlU3d4NURqTldqTjhkdFFHck9DOWVlSXVPcG4xTGk2UW04Sk9HZGlSNkxNMV8tV1hqZUtxUk9YbGxtYmgzMDdtbmQtcFY3ZUN2RkhIMGphaWd0b3YyVE93?oc=5",
+      "source": "Google News 环境保护",
+      "published": "2026-08-27T00:57:12+00:00",
+      "hotness": 17.43,
+      "score": 17.43,
+      "score_breakdown": {
+        "base": 5.0,
+        "source_score": 4.5,
+        "keyword_score": 0.0,
+        "time_score": 7.93,
+        "topic_bonus": 0.0,
+        "total": 17.43
+      },
+      "summary": "关于「哪里」的资讯。",
+      "analysis": "该条目涉及【去哪里做环保志愿】话题，因来源较权威且发布时间较新，热度上升。",
+      "topic_tags": [
+        "去哪里做环保志愿"
+      ],
+      "matched_keywords": [],
+      "keywords": []
+    },
+    {
+      "title": "废水超标外排 企业被立案处理 - qzwb.com",
+      "title_en": "",
+      "title_zh": "废水超标外排 企业被立案处理 - qzwb.com",
+      "summary_en": "",
+      "summary_zh": "",
+      "link": "https://news.google.com/rss/articles/CBMib0FVX3lxTE40OUVBTVRhcWQyME1jLWxwTzBYRThQRWg5eWVuR1lXLVdpYnlRNVRlOTBLaEhHOVNYbzZrQUs4TXhVSEoxYUpCc29tdVFlSzN3bmZZZ0hYeEhDUjNnc0ZOdVRyOEpNU0lnVlZ1NXJORQ?oc=5",
+      "source": "Google News 环境污染",
+      "published": "2026-08-27T00:48:00+00:00",
+      "hotness": 17.38,
+      "score": 17.38,
+      "score_breakdown": {
+        "base": 5.0,
+        "source_score": 4.5,
+        "keyword_score": 0.0,
+        "time_score": 7.88,
+        "topic_bonus": 0.0,
+        "total": 17.38
+      },
+      "summary": "关于「废水」的资讯。",
+      "analysis": "该条目涉及【企业被立案处理】话题，因来源较权威且发布时间较新，热度上升。",
+      "topic_tags": [
+        "企业被立案处理"
+      ],
+      "matched_keywords": [],
+      "keywords": []
+    },
+    {
+      "title": "8月25日，吉林省生态环境厅举行新闻发布会，对外集中发布了吉林省大气污染防治工作进展及成效 - 凤凰网",
+      "title_en": "",
+      "title_zh": "8月25日，吉林省生态环境厅举行新闻发布会，对外集中发布了吉林省大气污染防治工作进展及成效 - 凤凰网",
+      "summary_en": "",
+      "summary_zh": "",
+      "link": "https://news.google.com/rss/articles/CBMiSkFVX3lxTFAtZnpDV3BOTHgxRENmdEZ3cnotb25FSDJVLVRCTXlSX3ZWSzhlMW1xRUdYamhsSmtQcU1YVU5XY1hXZGhWdjZQUlZn?oc=5",
+      "source": "Google News 生态环境",
+      "published": "2026-08-26T03:50:50+00:00",
+      "hotness": 16.79,
+      "score": 16.79,
+      "score_breakdown": {
+        "base": 5.0,
+        "source_score": 4.5,
+        "keyword_score": 2.0,
+        "time_score": 3.29,
+        "topic_bonus": 2.0,
+        "total": 16.79
+      },
+      "summary": "关于「25」的资讯。",
+      "analysis": "该条目涉及【大气污染】话题，因来源较权威且与近期热点主题相关，热度上升。",
+      "topic_tags": [
+        "大气污染"
+      ],
+      "matched_keywords": [
+        "大气污染"
+      ],
+      "keywords": [
+        "大气污染"
+      ]
+    },
+    {
+      "title": "分贝不高的噪声算扰民吗 - 中国经济网",
+      "title_en": "",
+      "title_zh": "分贝不高的噪声算扰民吗 - 中国经济网",
+      "summary_en": "",
+      "summary_zh": "",
+      "link": "https://news.google.com/rss/articles/CBMib0FVX3lxTE9qX0VuM0laNmstRU8tTXFhM3ROTWpPbDFxOXdyUExpcWEwVjlzZjJuMGtRUmxhcWpOY2NJa3FxczNObm1kS2pmcGpaaG5aX2MwdE14THBxYU5KTWtCb1BZMHZZb3BHWUp2cllHWEJXaw?oc=5",
+      "source": "Google News 环境污染",
+      "published": "2026-08-26T22:41:00+00:00",
+      "hotness": 16.71,
+      "score": 16.71,
+      "score_breakdown": {
+        "base": 5.0,
+        "source_score": 4.5,
+        "keyword_score": 0.0,
+        "time_score": 7.21,
+        "topic_bonus": 0.0,
+        "total": 16.71
+      },
+      "summary": "关于「分贝」的资讯。",
+      "analysis": "该条目涉及【分贝不高的噪声算扰民吗】话题，因来源较权威且发布时间较新，热度上升。",
+      "topic_tags": [
+        "分贝不高的噪声算扰民吗"
+      ],
+      "matched_keywords": [],
+      "keywords": []
+    },
+    {
+      "title": "全球日均海表温度刷新历史纪录 - 新浪财经",
+      "title_en": "",
+      "title_zh": "全球日均海表温度刷新历史纪录 - 新浪财经",
+      "summary_en": "",
+      "summary_zh": "",
+      "link": "https://news.google.com/rss/articles/CBMioAFBVV95cUxOQU9kVTRKa2lBdnBpUXZ1d1BHYzZCaTVJYTYzejRtaGdkUnd5OUJVejF5a3NzM1JlWG5ia01CRUpRSHFJSTJfMUFWLUdDOExKVm9fRVVCb2lnTFNpbXdkSUl1bXRkb3p2XzR5cWRpQlNKVU1SeFNoQmFiTHNYX0NhZnItSWlMRElqajRTWDlqOGQ5Q2M1V05Ud1VKVGRxU1pM?oc=5",
       "source": "Google News 气候变化",
-      "published": "2026-08-25T10:26:28+00:00",
-      "hotness": 18.54,
-      "score": 18.54,
+      "published": "2026-08-26T21:58:11+00:00",
+      "hotness": 16.5,
+      "score": 16.5,
       "score_breakdown": {
         "base": 5.0,
         "source_score": 4.5,
-        "keyword_score": 2.0,
-        "time_score": 3.04,
-        "topic_bonus": 4.0,
-        "total": 18.54
+        "keyword_score": 0.0,
+        "time_score": 7.0,
+        "topic_bonus": 0.0,
+        "total": 16.5
       },
-      "summary": "",
-      "analysis": "该条目涉及【陕西科技大学环境学院】话题，因来源较权威且与近期热点主题相关，热度上升。",
+      "summary": "关于「日均」的资讯。",
+      "analysis": "该条目涉及【全球日均海表温度刷新历史纪录】话题，因来源较权威且发布时间较新，热度上升。",
       "topic_tags": [
-        "陕西科技大学环境学院"
+        "全球日均海表温度刷新历史纪录"
       ],
-      "matched_keywords": [
-        "气候变化"
-      ],
-      "keywords": [
-        "气候变化"
-      ]
+      "matched_keywords": [],
+      "keywords": []
     },
     {
-      "title": "中国核电举办2026年生态环境知识竞赛决赛 - 深圳核博会",
-      "title_en": "",
-      "title_zh": "中国核电举办2026年生态环境知识竞赛决赛 - 深圳核博会",
-      "summary_en": "",
-      "summary_zh": "",
-      "link": "https://news.google.com/rss/articles/CBMiUkFVX3lxTE5fZ3VCanBidzgxdmVWcUVaWG1COGNZdzdVOS1qVThuT0E4MTZBdVBidGkzM1ZHNmRnUGxaUkhnakhUUnlLT2xpM3NPNTZaYXRYTGc?oc=5",
-      "source": "Google News 环境竞赛",
-      "published": "2026-08-25T03:27:00+00:00",
-      "hotness": 15.77,
-      "score": 15.77,
+      "title": "尼泊尔山洪暴发后数十名美国和加拿大公民失踪",
+      "title_en": "Dozens of US and Canadian citizens missing after flash flooding in Nepal",
+      "title_zh": "尼泊尔山洪暴发后数十名美国和加拿大公民失踪",
+      "summary_en": "They are among hundreds of people still unaccounted for, with authorities for both countries saying they are closely monitoring the situation.",
+      "summary_zh": "他们是数百名仍然下落不明的人之一，两国当局都表示正在密切关注这一情况。",
+      "link": "https://www.bbc.co.uk/news/articles/cn5dzldq1pzo?at_medium=RSS&at_campaign=rss",
+      "source": "BBC 科学与环境",
+      "published": "2026-08-26T23:14:14+00:00",
+      "hotness": 15.38,
+      "score": 15.38,
       "score_breakdown": {
         "base": 5.0,
-        "source_score": 4.5,
-        "keyword_score": 2.0,
-        "time_score": 2.27,
-        "topic_bonus": 2.0,
-        "total": 15.77
+        "source_score": 3.0,
+        "keyword_score": 0.0,
+        "time_score": 7.38,
+        "topic_bonus": 0.0,
+        "total": 15.38
       },
-      "summary": "",
-      "analysis": "该条目涉及【年生态环境知识竞赛决赛】话题，因来源较权威且与近期热点主题相关，热度上升。",
+      "summary": "他们是数百名仍然下落不明的人之一，两国当局都表示正在密切关注这一情况。",
+      "analysis": "该条目涉及【尼泊尔山洪暴发后数十】话题，因发布时间较新，热度上升。",
       "topic_tags": [
-        "年生态环境知识竞赛决赛"
+        "尼泊尔山洪暴发后数十"
       ],
-      "matched_keywords": [
-        "竞赛"
-      ],
-      "keywords": [
-        "竞赛"
-      ]
+      "matched_keywords": [],
+      "keywords": []
     },
     {
-      "title": "2026河南靠谱考研机构盘点：5个硬指标全达标的名单 - 中华网科技频道",
-      "title_en": "",
-      "title_zh": "2026河南靠谱考研机构盘点：5个硬指标全达标的名单 - 中华网科技频道",
+      "title": "短激发波长下忽略的荧光光谱：通过CDOM中铀介导的荧光猝灭解开",
+      "title_en": "Overlooked fluorescence spectra at short excitation wavelengths: Unraveled by uranium-mediated fluorescence quenching in CDOM",
+      "title_zh": "短激发波长下忽略的荧光光谱：通过CDOM中铀介导的荧光猝灭解开",
       "summary_en": "",
       "summary_zh": "",
-      "link": "https://news.google.com/rss/articles/CBMibkFVX3lxTFB0aHVWVGcyQ3Y3cW5qc2tJc0NFUHNwbmpVRFdOYkdXbmdpWmFNVl9sN1VZNkJHdG5NZFZkZDFCaVpJSG56RWMxR0NHbm5XSUNoV2E4Ti1uNHhaUEFfSDZaejY1aWJrM0dKY0FaaGlB?oc=5",
-      "source": "Google News 环境考研",
-      "published": "2026-08-25T01:09:33+00:00",
-      "hotness": 15.57,
-      "score": 15.57,
+      "link": "https://www.sciencedirect.com/science/article/pii/S0043135426014594?dgcid=rss_sd_all",
+      "source": "Water Research",
+      "published": "2026-08-26T06:27:42.826780+00:00",
+      "hotness": 14.67,
+      "score": 14.67,
+      "score_breakdown": {
+        "base": 5.0,
+        "source_score": 6.0,
+        "keyword_score": 0.0,
+        "time_score": 3.67,
+        "topic_bonus": 0.0,
+        "total": 14.67
+      },
+      "summary": "关于「激发」的资讯。",
+      "analysis": "该条目涉及【短激发波长下忽略的荧光光谱】话题，因来源权威性高，热度上升。",
+      "topic_tags": [
+        "短激发波长下忽略的荧光光谱"
+      ],
+      "matched_keywords": [],
+      "keywords": []
+    },
+    {
+      "title": "营养物泵送触发低营养水体中的藻类过度生长",
+      "title_en": "Nutrient pumping triggers algal overgrowth in oligotrophic water bodies",
+      "title_zh": "营养物泵送触发低营养水体中的藻类过度生长",
+      "summary_en": "",
+      "summary_zh": "",
+      "link": "https://www.sciencedirect.com/science/article/pii/S0043135426014478?dgcid=rss_sd_all",
+      "source": "Water Research",
+      "published": "2026-08-26T06:27:42.826780+00:00",
+      "hotness": 14.67,
+      "score": 14.67,
+      "score_breakdown": {
+        "base": 5.0,
+        "source_score": 6.0,
+        "keyword_score": 0.0,
+        "time_score": 3.67,
+        "topic_bonus": 0.0,
+        "total": 14.67
+      },
+      "summary": "关于「营养物」的资讯。",
+      "analysis": "该条目涉及【营养物泵送触发低营养】话题，因来源权威性高，热度上升。",
+      "topic_tags": [
+        "营养物泵送触发低营养"
+      ],
+      "matched_keywords": [],
+      "keywords": []
+    },
+    {
+      "title": "剂量依赖性二元性：在厌氧反硝化过程中，细胞外囊泡从代谢促进剂转变为细胞毒性效应物",
+      "title_en": "Dose-dependent duality: Extracellular vesicles shift from metabolic facilitators to cytotoxic effectors during anaerobic denitrification",
+      "title_zh": "剂量依赖性二元性：在厌氧反硝化过程中，细胞外囊泡从代谢促进剂转变为细胞毒性效应物",
+      "summary_en": "",
+      "summary_zh": "",
+      "link": "https://www.sciencedirect.com/science/article/pii/S0043135426014193?dgcid=rss_sd_all",
+      "source": "Water Research",
+      "published": "2026-08-26T06:27:42.826780+00:00",
+      "hotness": 14.67,
+      "score": 14.67,
+      "score_breakdown": {
+        "base": 5.0,
+        "source_score": 6.0,
+        "keyword_score": 0.0,
+        "time_score": 3.67,
+        "topic_bonus": 0.0,
+        "total": 14.67
+      },
+      "summary": "关于「剂量」的资讯。",
+      "analysis": "该条目涉及【细胞外囊泡从代谢促进】话题，因来源权威性高，热度上升。",
+      "topic_tags": [
+        "细胞外囊泡从代谢促进"
+      ],
+      "matched_keywords": [],
+      "keywords": []
+    },
+    {
+      "title": "从海洋塑料碎片中分离出的重组细菌财团对聚乙烯的协同降解",
+      "title_en": "Synergistic degradation of polyethylene by a restructured bacterial consortium isolated from marine plastic debris",
+      "title_zh": "从海洋塑料碎片中分离出的重组细菌财团对聚乙烯的协同降解",
+      "summary_en": "",
+      "summary_zh": "",
+      "link": "https://www.sciencedirect.com/science/article/pii/S004313542601448X?dgcid=rss_sd_all",
+      "source": "Water Research",
+      "published": "2026-08-26T06:27:42.826780+00:00",
+      "hotness": 14.67,
+      "score": 14.67,
+      "score_breakdown": {
+        "base": 5.0,
+        "source_score": 6.0,
+        "keyword_score": 0.0,
+        "time_score": 3.67,
+        "topic_bonus": 0.0,
+        "total": 14.67
+      },
+      "summary": "关于「海洋」的资讯。",
+      "analysis": "该条目涉及【从海洋塑料碎片中分离】话题，因来源权威性高，热度上升。",
+      "topic_tags": [
+        "从海洋塑料碎片中分离"
+      ],
+      "matched_keywords": [],
+      "keywords": []
+    },
+    {
+      "title": "泰国走私嫌疑人在南非机场被捕后鹦鹉蛋孵化",
+      "title_en": "Parrot eggs hatch after suspected Thai smuggler arrested at South African airport",
+      "title_zh": "泰国走私嫌疑人在南非机场被捕后鹦鹉蛋孵化",
+      "summary_en": "A 50-year-old Thai suspect was arrested with the eggs in a \"homemade incubator\" carried as hand luggage.",
+      "summary_zh": "一名50岁的泰国嫌疑人在手提行李中携带“自制孵化器”中的鸡蛋被捕。",
+      "link": "https://www.bbc.co.uk/news/articles/ceq8n04q0gxo?at_medium=RSS&at_campaign=rss",
+      "source": "BBC 科学与环境",
+      "published": "2026-08-26T19:19:46+00:00",
+      "hotness": 14.27,
+      "score": 14.27,
+      "score_breakdown": {
+        "base": 5.0,
+        "source_score": 3.0,
+        "keyword_score": 0.0,
+        "time_score": 6.27,
+        "topic_bonus": 0.0,
+        "total": 14.27
+      },
+      "summary": "一名50岁的泰国嫌疑人在手提行李中携带“自制孵化器”中的鸡蛋被捕。",
+      "analysis": "该条目涉及【泰国走私嫌疑人在南非】话题，因发布时间较新，热度上升。",
+      "topic_tags": [
+        "泰国走私嫌疑人在南非"
+      ],
+      "matched_keywords": [],
+      "keywords": []
+    },
+    {
+      "title": "随着厄尔尼诺现象加剧，有史以来最高的海洋温度",
+      "title_en": "Highest-ever ocean temperatures recorded as El Niño intensifies",
+      "title_zh": "随着厄尔尼诺现象加剧，有史以来最高的海洋温度",
+      "summary_en": "Nature, Published online: 26 August 2026; doi:10.1038/d41586-026-02681-4Why extreme temperatures are expected to weaken ocean carbon sinks — plus, how mitochondrial injections could treat vision loss.",
+      "summary_zh": "《自然》，在线发布： 2026年8月26日； DOI ： 10.1038/d41586-026-02681-4Why极端温度预计会削弱海洋碳汇，以及线粒体注射如何治疗视力丧失。",
+      "link": "https://www.nature.com/articles/d41586-026-02681-4",
+      "source": "Nature",
+      "published": "2026-08-26T00:00:00+00:00",
+      "hotness": 13.8,
+      "score": 13.8,
+      "score_breakdown": {
+        "base": 5.0,
+        "source_score": 6.0,
+        "keyword_score": 0.0,
+        "time_score": 2.8,
+        "topic_bonus": 0.0,
+        "total": 13.8
+      },
+      "summary": "《自然》，在线发布： 2026年8月26日； DOI ： 10.1038/d41586-026-02681-4Why极端温度预计会削弱海洋碳汇，以及线粒体注射如何治疗视力丧失。",
+      "analysis": "该条目涉及【有史以来最高的海洋温度】话题，因来源权威性高，热度上升。",
+      "topic_tags": [
+        "有史以来最高的海洋温度"
+      ],
+      "matched_keywords": [],
+      "keywords": []
+    },
+    {
+      "title": "利用核废料为太空任务提供动力",
+      "title_en": "Using nuclear waste to power space missions",
+      "title_zh": "利用核废料为太空任务提供动力",
+      "summary_en": "Nature, Published online: 26 August 2026; doi:10.1038/d41586-026-02514-4Researchers plan to use radioactive isotopes to power systems on a future Mars rover.",
+      "summary_zh": "《自然》，在线发布： 2026年8月26日； DOI ： 10.1038/d41586-026-02514-4Researchers计划使用放射性同位素为未来火星探测器上的系统供电。",
+      "link": "https://www.nature.com/articles/d41586-026-02514-4",
+      "source": "Nature",
+      "published": "2026-08-26T00:00:00+00:00",
+      "hotness": 13.8,
+      "score": 13.8,
+      "score_breakdown": {
+        "base": 5.0,
+        "source_score": 6.0,
+        "keyword_score": 0.0,
+        "time_score": 2.8,
+        "topic_bonus": 0.0,
+        "total": 13.8
+      },
+      "summary": "《自然》，在线发布： 2026年8月26日； DOI ： 10.1038/d41586-026-02514-4Researchers计划使用放射性同位素为未来火星探测器上的系统供电。",
+      "analysis": "该条目涉及【利用核废料为太空任务提供动力】话题，因来源权威性高，热度上升。",
+      "topic_tags": [
+        "利用核废料为太空任务提供动力"
+      ],
+      "matched_keywords": [],
+      "keywords": []
+    },
+    {
+      "title": "遗传密码的自动化原型设计",
+      "title_en": "Automated prototyping of genetic codes",
+      "title_zh": "遗传密码的自动化原型设计",
+      "summary_en": "Nature, Published online: 26 August 2026; doi:10.1038/s41586-026-10949-yA robotic, cell–free platform rapidly prototypes redesigned genetic codes, enabling the translation of proteins with reassigned codons and non-standard amino acids without altering living genomes.",
+      "summary_zh": "Nature ，在线发布日期： 2026年8月26日； DOI ： 10.1038/s41586-026-10949-yA机器人、无细胞平台快速原型重新设计遗传密码，能够在不改变活基因组的情况下翻译具有重新分配的密码子和非标准氨基酸的蛋白质。",
+      "link": "https://www.nature.com/articles/s41586-026-10949-y",
+      "source": "Nature",
+      "published": "2026-08-26T00:00:00+00:00",
+      "hotness": 13.8,
+      "score": 13.8,
+      "score_breakdown": {
+        "base": 5.0,
+        "source_score": 6.0,
+        "keyword_score": 0.0,
+        "time_score": 2.8,
+        "topic_bonus": 0.0,
+        "total": 13.8
+      },
+      "summary": "Nature ，在线发布日期： 2026年8月26日； DOI ： 10.1038/s41586-026-10949-yA机器人、无细胞平台快速原型重新设计遗传密码，能够在不改变活基因组的情况下翻译具有重新分配的密码子和非标准氨基酸的蛋白质。",
+      "analysis": "该条目涉及【遗传密码的自动化原型设计】话题，因来源权威性高，热度上升。",
+      "topic_tags": [
+        "遗传密码的自动化原型设计"
+      ],
+      "matched_keywords": [],
+      "keywords": []
+    },
+    {
+      "title": "从<i>Myotis</i>蝙蝠基因组中了解长寿和病毒驱动的适应",
+      "title_en": "Insights into longevity and virus-driven adaptation from <i>Myotis</i> bat genomes",
+      "title_zh": "从<i>Myotis</i>蝙蝠基因组中了解长寿和病毒驱动的适应",
+      "summary_en": "Nature, Published online: 26 August 2026; doi:10.1038/s41586-026-10932-7Comparative and functional analyses of Myotis bats uncover unique patterns of adaptation in virus-interacting proteins and longevity-associated pathways, linking two hallmarks of bat biology.",
+      "summary_zh": "Nature ，在线发表于2026年8月26日； DOI ： 10.1038/s41586-026-10932-7Comparative和Myotis蝙蝠的功能分析揭示了病毒相互作用蛋白和长寿相关途径的独特适应模式，将蝙蝠生物学的两个标志联系起来。",
+      "link": "https://www.nature.com/articles/s41586-026-10932-7",
+      "source": "Nature",
+      "published": "2026-08-26T00:00:00+00:00",
+      "hotness": 13.8,
+      "score": 13.8,
+      "score_breakdown": {
+        "base": 5.0,
+        "source_score": 6.0,
+        "keyword_score": 0.0,
+        "time_score": 2.8,
+        "topic_bonus": 0.0,
+        "total": 13.8
+      },
+      "summary": "Nature ，在线发表于2026年8月26日； DOI ： 10.1038/s41586-026-10932-7Comparative和Myotis蝙蝠的功能分析揭示了病毒相互作用蛋白和长寿相关途径的独特适应模式，将蝙蝠生物学的两个标志联系起来。",
+      "analysis": "该条目涉及【蝙蝠基因组中了解长寿】话题，因来源权威性高，热度上升。",
+      "topic_tags": [
+        "蝙蝠基因组中了解长寿"
+      ],
+      "matched_keywords": [],
+      "keywords": []
+    },
+    {
+      "title": "系统疫苗学和人体免疫架构",
+      "title_en": "Systems vaccinology and the architecture of human immunity",
+      "title_zh": "系统疫苗学和人体免疫架构",
+      "summary_en": "Nature, Published online: 26 August 2026; doi:10.1038/s41586-026-10753-8A review of the current state of the field of systems vaccinology discusses the challenges in translating insights into clinical and regulatory practice.",
+      "summary_zh": "《自然》，在线发布： 2026年8月26日； DOI ： 10.1038/s41586-026-10753-8A系统疫苗学领域现状综述讨论了将见解转化为临床和监管实践的挑战。",
+      "link": "https://www.nature.com/articles/s41586-026-10753-8",
+      "source": "Nature",
+      "published": "2026-08-26T00:00:00+00:00",
+      "hotness": 13.8,
+      "score": 13.8,
+      "score_breakdown": {
+        "base": 5.0,
+        "source_score": 6.0,
+        "keyword_score": 0.0,
+        "time_score": 2.8,
+        "topic_bonus": 0.0,
+        "total": 13.8
+      },
+      "summary": "《自然》，在线发布： 2026年8月26日； DOI ： 10.1038/s41586-026-10753-8A系统疫苗学领域现状综述讨论了将见解转化为临床和监管实践的挑战。",
+      "analysis": "该条目涉及【系统疫苗学和人体免疫架构】话题，因来源权威性高，热度上升。",
+      "topic_tags": [
+        "系统疫苗学和人体免疫架构"
+      ],
+      "matched_keywords": [],
+      "keywords": []
+    },
+    {
+      "title": "每天暴露于交通产生的细颗粒物会增加癌症死亡风险",
+      "title_en": "Daily exposure to fine particulate matter from traffic increases cancer mortality risk",
+      "title_zh": "每天暴露于交通产生的细颗粒物会增加癌症死亡风险",
+      "summary_en": "Nature Sustainability, Published online: 26 August 2026; doi:10.1038/s41893-026-01927-3Evidence from a multi-country analysis of 9.2 million cancer deaths suggests that traffic-sourced PM2.5 might contribute to the short-term PM2.5-related cancer mortality burden to a much greater extent than would be expected from its share of total PM2.5 concentration.",
+      "summary_zh": "Nature Sustainability ，在线发表于： 2026年8月26日； DOI ： 10.1038/s41893-026-01927-3Evidence对920万癌症死亡人数的多国分析表明，交通来源的PM2.5可能导致与PM2.5相关的短期癌症死亡负担，其程度远远大于其在PM2.5总浓度中所占份额的预期。",
+      "link": "https://www.nature.com/articles/s41893-026-01927-3",
+      "source": "Nature Sustainability",
+      "published": "2026-08-26T00:00:00+00:00",
+      "hotness": 13.8,
+      "score": 13.8,
+      "score_breakdown": {
+        "base": 5.0,
+        "source_score": 6.0,
+        "keyword_score": 0.0,
+        "time_score": 2.8,
+        "topic_bonus": 0.0,
+        "total": 13.8
+      },
+      "summary": "Nature Sustainability ，在线发表于： 2026年8月26日； DOI ： 10.1038/s41893-026-01927-3Evidence对920万癌症死亡人数的多国分析表明，交通来源的PM2.5可能导致与PM2.5相关的短期癌症死亡负担，其程度远远大于其在PM2.5总浓度中所占份额的预期。",
+      "analysis": "该条目涉及【每天暴露于交通产生的】话题，因来源权威性高，热度上升。",
+      "topic_tags": [
+        "每天暴露于交通产生的"
+      ],
+      "matched_keywords": [],
+      "keywords": []
+    },
+    {
+      "title": "运输NO x排放造成的臭氧影响以及对综合预防策略的影响：大气建模和自然实验的见解",
+      "title_en": "Ozone impacts caused by shipping NO x emissions and implications for an integrated prevention strategy: atmospheric modeling and insights from natural experiments",
+      "title_zh": "运输NO x排放造成的臭氧影响以及对综合预防策略的影响：大气建模和自然实验的见解",
+      "summary_en": "Shipping emissions are a major source of nitrogen oxides (NOx) in coastal regions and can substantially influence regional atmospheric oxidation and ozone formation. Here, we quantify the contribution of shipping emissions to NO2, O3, and total oxidants (Ox = O3 + NO2) over the Yangtze River Delta of China using high-resolution modeling for 2021. Ship emissions increase NO2 by over 40 μg m−3 in coastal waters and modulate O3 by 8–16 μg m−3 depending on chemical regimes, substantially altering regional oxidation capacity. A natural experiment during the 2022 Shanghai epidemic lockdown reveals an unexpected response: despite reduced shipping emissions in Shanghai associated with changes in maritime traffic, O3 increased by ∼25%, while adjacent port regions experienced O3 decreases. Scenario analysis for 2030 further shows that transportation-focused NOx reductions may enhance coastal O3 by 8–16 μg m−3, whereas coordinated reductions of NOx and volatile organic compounds can reduce Ox by 10%–20% in spring and summer. These findings demonstrate that both chemical nonlinearity and cross-sector interactions must be explicitly considered in air quality management, and highlight the necessity of coordinated, multi-sectoral strategies for effective O3 mitigation in coastal megacity regions.",
+      "summary_zh": "船舶排放是沿海地区氮氧化物（ NOx ）的主要来源，可能对区域大气氧化和臭氧形成产生重大影响。在这里，我们使用2021年的高分辨率建模来量化中国长江三角洲航运排放量对NO2、O3和总氧化剂（ Ox = O3 + NO2 ）的贡献。船舶排放量增加NO2超过40 μg m − 3在沿海水域和调节O3 8–16 μg m − 3取决于化学制度，大大改变",
+      "link": "https://iopscience.iop.org/article/10.1088/1748-9326/ae8f5b",
+      "source": "Environmental Research Letters",
+      "published": "2026-08-25T23:00:00+00:00",
+      "hotness": 13.69,
+      "score": 13.69,
+      "score_breakdown": {
+        "base": 5.0,
+        "source_score": 6.0,
+        "keyword_score": 0.0,
+        "time_score": 2.69,
+        "topic_bonus": 0.0,
+        "total": 13.69
+      },
+      "summary": "船舶排放是沿海地区氮氧化物（ NOx ）的主要来源，可能对区域大气氧化和臭氧形成产生重大影响。在这里，我们使用2021年的高分辨率建模来量化中国长江三角洲航运排放量对NO2、O3和总氧化剂（ Ox = O3 + NO2 ）的贡献。船舶排放量增加NO2超过40 μg m − 3在沿海水域和调节O3 8–16 μg m − 3取决于化学制度，大大改变",
+      "analysis": "该条目涉及【臭氧】话题，因来源权威性高，热度上升。",
+      "topic_tags": [
+        "臭氧"
+      ],
+      "matched_keywords": [],
+      "keywords": []
+    },
+    {
+      "title": "半干旱山地永久冻土区对早期季节性解冻的非线性植被响应的因果推断",
+      "title_en": "Causal inference of nonlinear vegetation response to earlier seasonal thaw in a semi-arid mountain permafrost region",
+      "title_zh": "半干旱山地永久冻土区对早期季节性解冻的非线性植被响应的因果推断",
+      "summary_en": "Under rapid warming, the impact of advancing seasonal permafrost thaw on vegetation dynamics remains debated, particularly regarding whether earlier spring phenology induces late-season productivity deficits. Integrating multi-source remote sensing data over the Altai Mountains, this study employs a double machine learning framework to quantify the causal effects of thaw timing on vegetation growth. The results indicate that mid-May acts as a critical phenological tipping point. Thaw onset prior to this date provides a net subsidy, significantly enhancing peak growing season leaf area index with a magnitude comparable to precipitation and solar radiation. Our causal inference and strict matching analysis confirm the positive stimulation effect during the peak growing season (July). It also confirms that the legacy effects of the spring thaw almost completely dissipate by the late growing season (October). These results suggest caution when applying rigid linear assumptions to complex multivariate systems as such assumptions may fail to capture the true underlying controls.",
+      "summary_zh": "在快速变暖的情况下，季节性永久冻土融化对植被动态的影响仍然存在争议，特别是关于早春物候是否会导致季节性生产力赤字。本研究整合了阿尔泰山脉上的多源遥感数据，采用双机器学习框架来量化解冻时间对植被生长的因果影响。结果表明， 5月中旬是一个关键的物候临界点。",
+      "link": "https://iopscience.iop.org/article/10.1088/1748-9326/ae93e1",
+      "source": "Environmental Research Letters",
+      "published": "2026-08-25T23:00:00+00:00",
+      "hotness": 13.69,
+      "score": 13.69,
+      "score_breakdown": {
+        "base": 5.0,
+        "source_score": 6.0,
+        "keyword_score": 0.0,
+        "time_score": 2.69,
+        "topic_bonus": 0.0,
+        "total": 13.69
+      },
+      "summary": "在快速变暖的情况下，季节性永久冻土融化对植被动态的影响仍然存在争议，特别是关于早春物候是否会导致季节性生产力赤字。本研究整合了阿尔泰山脉上的多源遥感数据，采用双机器学习框架来量化解冻时间对植被生长的因果影响。结果表明， 5月中旬是一个关键的物候临界点。",
+      "analysis": "该条目涉及【半干旱山地永久冻土区】话题，因来源权威性高，热度上升。",
+      "topic_tags": [
+        "半干旱山地永久冻土区"
+      ],
+      "matched_keywords": [],
+      "keywords": []
+    },
+    {
+      "title": "不断升级的贸易壁垒对美国能源体系的影响",
+      "title_en": "Effects of escalating trade barriers on the U.S. energy system",
+      "title_zh": "不断升级的贸易壁垒对美国能源体系的影响",
+      "summary_en": "",
+      "summary_zh": "",
+      "link": "https://iopscience.iop.org/article/10.1088/1748-9326/ae97f8",
+      "source": "Environmental Research Letters",
+      "published": "2026-08-25T23:00:00+00:00",
+      "hotness": 13.69,
+      "score": 13.69,
+      "score_breakdown": {
+        "base": 5.0,
+        "source_score": 6.0,
+        "keyword_score": 0.0,
+        "time_score": 2.69,
+        "topic_bonus": 0.0,
+        "total": 13.69
+      },
+      "summary": "关于「升级」的资讯。",
+      "analysis": "该条目涉及【不断升级的贸易壁垒对】话题，因来源权威性高，热度上升。",
+      "topic_tags": [
+        "不断升级的贸易壁垒对"
+      ],
+      "matched_keywords": [],
+      "keywords": []
+    },
+    {
+      "title": "从稻田到政策：利用先进的CH4测量和建模来推动气候行动和碳市场转型",
+      "title_en": "From paddy fields to policy: leveraging advanced CH4 measurement and modeling to drive climate action and carbon market transformation",
+      "title_zh": "从稻田到政策：利用先进的CH4测量和建模来推动气候行动和碳市场转型",
+      "summary_en": "",
+      "summary_zh": "",
+      "link": "https://iopscience.iop.org/article/10.1088/1748-9326/ae996a",
+      "source": "Environmental Research Letters",
+      "published": "2026-08-25T23:00:00+00:00",
+      "hotness": 13.69,
+      "score": 13.69,
+      "score_breakdown": {
+        "base": 5.0,
+        "source_score": 6.0,
+        "keyword_score": 0.0,
+        "time_score": 2.69,
+        "topic_bonus": 0.0,
+        "total": 13.69
+      },
+      "summary": "关于「稻田」的资讯。",
+      "analysis": "该条目涉及【测量和建模来推动气候】话题，因来源权威性高，热度上升。",
+      "topic_tags": [
+        "测量和建模来推动气候"
+      ],
+      "matched_keywords": [],
+      "keywords": []
+    },
+    {
+      "title": "进入城市林地与较少使用抗抑郁药有关",
+      "title_en": "Access to Urban Woodlands Linked With Lower Use of Antidepressants",
+      "title_zh": "进入城市林地与较少使用抗抑郁药有关",
+      "summary_en": "A study from Scotland found that living near an accessible urban woodland significantly lowered the likelihood of being prescribed antidepressants.Read more on E360 →",
+      "summary_zh": "苏格兰的一项研究发现，居住在可进入的城市林地附近显著降低了服用抗抑郁药的可能性。阅读更多关于E360 →",
+      "link": "https://e360.yale.edu/digest/scotland-woodlands-antidepressants",
+      "source": "Yale Environment 360",
+      "published": "2026-08-26T12:43:00+00:00",
+      "hotness": 13.36,
+      "score": 13.36,
+      "score_breakdown": {
+        "base": 5.0,
+        "source_score": 3.6,
+        "keyword_score": 0.0,
+        "time_score": 4.76,
+        "topic_bonus": 0.0,
+        "total": 13.36
+      },
+      "summary": "苏格兰的一项研究发现，居住在可进入的城市林地附近显著降低了服用抗抑郁药的可能性。阅读更多关于E360 →",
+      "analysis": "该条目涉及【进入城市林地与较少使】话题，热度受综合因素影响，可留意。",
+      "topic_tags": [
+        "进入城市林地与较少使"
+      ],
+      "matched_keywords": [],
+      "keywords": []
+    },
+    {
+      "title": "守好这片山水，再苦再累都值得——记长白山保护开发区生态环境局池西区分局环保科科员玄洪美 - 新浪财经",
+      "title_en": "",
+      "title_zh": "守好这片山水，再苦再累都值得——记长白山保护开发区生态环境局池西区分局环保科科员玄洪美 - 新浪财经",
+      "summary_en": "",
+      "summary_zh": "",
+      "link": "https://news.google.com/rss/articles/CBMieEFVX3lxTE0zSVZpSTNyTWJudVYxLXdrWkk1cGx5U0dzZGtwcmhES2hMLVhwR3NBalItZURrRzhiRFk4Wjd2SExVbXVMRzJWR005Q1hTVUZxa3FwaWNiYnZaMGVZM3k3NVdaLXFRbjYyZllWYTVNQ1ZXZmZIQW05Mg?oc=5",
+      "source": "Google News 生态环境",
+      "published": "2026-08-26T06:01:00+00:00",
+      "hotness": 13.1,
+      "score": 13.1,
       "score_breakdown": {
         "base": 5.0,
         "source_score": 4.5,
-        "keyword_score": 2.0,
-        "time_score": 2.07,
-        "topic_bonus": 2.0,
-        "total": 15.57
+        "keyword_score": 0.0,
+        "time_score": 3.6,
+        "topic_bonus": 0.0,
+        "total": 13.1
       },
-      "summary": "",
-      "analysis": "该条目涉及【河南靠谱考研机构盘点】话题，因来源较权威且与近期热点主题相关，热度上升。",
+      "summary": "关于「守好」的资讯。",
+      "analysis": "该条目涉及【记长白山保护开发区生】话题，因来源较权威，热度上升。",
       "topic_tags": [
-        "河南靠谱考研机构盘点"
+        "记长白山保护开发区生"
       ],
-      "matched_keywords": [
-        "考研"
+      "matched_keywords": [],
+      "keywords": []
+    },
+    {
+      "title": "无人机喷洒农药引发环境污染责任纠纷 都昌一莲藕种植户获赔7.8万余元 - 凤凰网江西",
+      "title_en": "",
+      "title_zh": "无人机喷洒农药引发环境污染责任纠纷 都昌一莲藕种植户获赔7.8万余元 - 凤凰网江西",
+      "summary_en": "",
+      "summary_zh": "",
+      "link": "https://news.google.com/rss/articles/CBMiSkFVX3lxTE9IcWNBZTI5bHRhWTdxYUlWRmgweGdMdW0tTUtMb1JES1RoRlBlaTJ1OVk1VDgzZ1NxanZLVmtvUnhXakV5NGxVYjVn?oc=5",
+      "source": "Google News 环境污染",
+      "published": "2026-08-26T03:32:53+00:00",
+      "hotness": 12.75,
+      "score": 12.75,
+      "score_breakdown": {
+        "base": 5.0,
+        "source_score": 4.5,
+        "keyword_score": 0.0,
+        "time_score": 3.25,
+        "topic_bonus": 0.0,
+        "total": 12.75
+      },
+      "summary": "关于「无人机」的资讯。",
+      "analysis": "该条目涉及【无人机喷洒农药引发环】话题，因来源较权威，热度上升。",
+      "topic_tags": [
+        "无人机喷洒农药引发环"
       ],
-      "keywords": [
-        "考研"
-      ]
+      "matched_keywords": [],
+      "keywords": []
+    },
+    {
+      "title": "“你可以品尝火山灰” ：在美国的野火烟雾之都生存",
+      "title_en": "‘You can taste the ash’: surviving in America’s wildfire smoke capital",
+      "title_zh": "“你可以品尝火山灰” ：在美国的野火烟雾之都生存",
+      "summary_en": "A magical corner of Oregon has the highest US rate of wildfire smoke deaths. How do residents live with the haze – and grief?Driving into the county, you can’t miss the sign.“IT’S THE CLIMATE”. Continue reading...",
+      "summary_zh": "俄勒冈州的一个神奇角落是美国野火烟雾死亡率最高的地区。居民如何忍受阴霾和悲伤？开车进入县城，你不能错过这个标志。“这就是气候”。继续阅读...",
+      "link": "https://www.theguardian.com/us-news/ng-interactive/2026/aug/26/oregon-wildfire-smoke-deaths",
+      "source": "The Guardian Environment",
+      "published": "2026-08-26T12:00:11+00:00",
+      "hotness": 12.62,
+      "score": 12.62,
+      "score_breakdown": {
+        "base": 5.0,
+        "source_score": 3.0,
+        "keyword_score": 0.0,
+        "time_score": 4.62,
+        "topic_bonus": 0.0,
+        "total": 12.62
+      },
+      "summary": "俄勒冈州的一个神奇角落是美国野火烟雾死亡率最高的地区。居民如何忍受阴霾和悲伤？开车进入县城，你不能错过这个标志。“这就是气候”。继续阅读...",
+      "analysis": "该条目涉及【在美国的野火烟雾之都生存】话题，热度受综合因素影响，可留意。",
+      "topic_tags": [
+        "在美国的野火烟雾之都生存"
+      ],
+      "matched_keywords": [],
+      "keywords": []
+    },
+    {
+      "title": "Forces deep inside Earth helped Antarctica freeze before the Arctic",
+      "title_en": "",
+      "title_zh": "Forces deep inside Earth helped Antarctica freeze before the Arctic",
+      "summary_en": "",
+      "summary_zh": "Scientists may have solved the mystery of why Antarctica froze millions of years before the Arctic. Slow-moving waves deep inside Earth gradually lifted East Antarctica, building mountains and a high plateau where snow and ice could survive even in a much warmer world. Once glaciers took hold, their bright surfaces reflected sunlight and helped cool the region further.",
+      "link": "https://www.sciencedaily.com/releases/2026/08/260823094154.htm",
+      "source": "ScienceDaily 环境科学",
+      "published": "2026-08-25T17:12:46+00:00",
+      "hotness": 12.51,
+      "score": 12.51,
+      "score_breakdown": {
+        "base": 5.0,
+        "source_score": 5.4,
+        "keyword_score": 0.0,
+        "time_score": 2.11,
+        "topic_bonus": 0.0,
+        "total": 12.51
+      },
+      "summary": "Scientists may have solved the mystery of why Antarctica froze millions of years before the Arctic. Slow-moving waves deep inside Earth gradually lifted East Antarctica, building mountains and a high plateau where snow and ice could survive even in a much warmer world. Once glaciers took hold, their bright surfaces reflected sunlight and helped cool the region further.",
+      "analysis": "该条目涉及【forces】话题，因来源较权威，热度上升。",
+      "topic_tags": [
+        "forces",
+        "deep",
+        "inside"
+      ],
+      "matched_keywords": [],
+      "keywords": []
+    },
+    {
+      "title": "团体起诉特朗普的环保署对有毒数据中心化学品的快速批准",
+      "title_en": "Groups sue Trump’s EPA over fast-track approval of toxic datacenter chemicals",
+      "title_zh": "团体起诉特朗普的环保署对有毒数据中心化学品的快速批准",
+      "summary_en": "Exposure to two compounds approved can result in ‘sudden death’ and range of other serious health risks, lawsuit warnsThe Trump administration has approved two new datacenter chemicals to which exposure can result in “sudden death” and a range of other serious health risks, like cancer, eye corrosion, neurological damage and reproductive harm, a new lawsuit warns.The two compounds approved by the Environmental Protection Agency (EPA) for import and immediate use in facilities across the US are photoacid generators that also appear to be Pfas “forever chemicals”, though it is unclear because much of the EPA documents are redacted. Some Pfas are commonly used in the production of semiconductors.This article was amended on 26 August 2026. A previous version said the EPA concedes that the chemicals present an “unreasonable risk” to workers. It has been updated to say the chemicals may present an unreasonable risk. Continue reading...",
+      "summary_zh": "一项新的诉讼警告说，暴露于两种批准的化合物可能会导致“猝死”和一系列其他严重健康风险。特朗普政府已经批准了两种新的数据中心化学品，暴露于这两种化学品可能会导致“猝死”和一系列其他严重健康风险，如癌症、眼睛腐蚀、神经损伤和生殖伤害。美国环境保护署（ EPA ）批准进口并立即用于美国各地设施的这两种化合物是p",
+      "link": "https://www.theguardian.com/us-news/2026/aug/26/trump-epa-datacenter-forever-chemicals",
+      "source": "The Guardian Environment",
+      "published": "2026-08-26T11:00:12+00:00",
+      "hotness": 12.43,
+      "score": 12.43,
+      "score_breakdown": {
+        "base": 5.0,
+        "source_score": 3.0,
+        "keyword_score": 0.0,
+        "time_score": 4.43,
+        "topic_bonus": 0.0,
+        "total": 12.43
+      },
+      "summary": "一项新的诉讼警告说，暴露于两种批准的化合物可能会导致“猝死”和一系列其他严重健康风险。特朗普政府已经批准了两种新的数据中心化学品，暴露于这两种化学品可能会导致“猝死”和一系列其他严重健康风险，如癌症、眼睛腐蚀、神经损伤和生殖伤害。美国环境保护署（ EPA ）批准进口并立即用于美国各地设施的这两种化合物是p",
+      "analysis": "该条目涉及【团体起诉特朗普的环保】话题，热度受综合因素影响，可留意。",
+      "topic_tags": [
+        "团体起诉特朗普的环保"
+      ],
+      "matched_keywords": [],
+      "keywords": []
+    },
+    {
+      "title": "‘132F’ ：认识那个叫出纽约地狱般热闹的地铁站的人",
+      "title_en": "‘132F’: meet the man calling out NYC’s infernally hot subway stations",
+      "title_zh": "‘132F’ ：认识那个叫出纽约地狱般热闹的地铁站的人",
+      "summary_en": "Jack Klein takes heat readings, gives fans to overheated passengers and lugs big jugs of water into the stationsOn a recent August day in the subterranean furnace of New York City’s subway, one bearded, curly-haired man was studying his phone for different reasons than the other wilting passengers – to track the soaring temperatures and ponder how underground train stations can cool down in an era of climate crisis.Jack Klein, a 31-year-old construction site manager, has in the past two years taken it upon himself to become a sort of guerrilla subway heat operative, sticking teardrop-shaped thermometers to steel beams in seven of the hottest Manhattan stations and posting social media videos of the hades-like summer temperatures that commuters have to endure. Continue reading...",
+      "summary_zh": "杰克·克莱因（ Jack Klein ）读取热量读数，将风扇送给过热的乘客，并将大罐水送入车站。最近8月的一天，在纽约市地铁的地下炉中，一名留着胡子的卷发男子正在研究他的手机，原因与其他萎靡不振的乘客不同–跟踪飙升的温度，并思考在气候危机时代地铁站如何降温。31岁的建筑工地经理杰克·克莱因（ Jack Klein ）在过去两年中",
+      "link": "https://www.theguardian.com/us-news/2026/aug/26/new-york-subway-extreme-heat",
+      "source": "The Guardian Environment",
+      "published": "2026-08-26T10:00:41+00:00",
+      "hotness": 12.26,
+      "score": 12.26,
+      "score_breakdown": {
+        "base": 5.0,
+        "source_score": 3.0,
+        "keyword_score": 0.0,
+        "time_score": 4.26,
+        "topic_bonus": 0.0,
+        "total": 12.26
+      },
+      "summary": "杰克·克莱因（ Jack Klein ）读取热量读数，将风扇送给过热的乘客，并将大罐水送入车站。最近8月的一天，在纽约市地铁的地下炉中，一名留着胡子的卷发男子正在研究他的手机，原因与其他萎靡不振的乘客不同–跟踪飙升的温度，并思考在气候危机时代地铁站如何降温。31岁的建筑工地经理杰克·克莱因（ Jack Klein ）在过去两年中",
+      "analysis": "该条目涉及【认识那个叫出纽约地狱】话题，热度受综合因素影响，可留意。",
+      "topic_tags": [
+        "认识那个叫出纽约地狱"
+      ],
+      "matched_keywords": [],
+      "keywords": []
+    },
+    {
+      "title": "中办国办印发《党政领导干部生态环境损害责任追究办法》 - 人民日报",
+      "title_en": "",
+      "title_zh": "中办国办印发《党政领导干部生态环境损害责任追究办法》 - 人民日报",
+      "summary_en": "",
+      "summary_zh": "",
+      "link": "https://news.google.com/rss/articles/CBMif0FVX3lxTE9aVm8wQnVUcTFlZzZqWVlTVWNuYTE5T3k1SjhJNVZkLUw4eGJtdkI2aVMxbkhjcXBIVS0xeXczV2phTnZMTE1kMVRSbDY0UEVFbk5lcnZqSjRSTWNjSmdXaTBpZEphUGVrYUxSNkZOUWhEMjFiOG1MWkNibEJsVFU?oc=5",
+      "source": "Google News 生态环境",
+      "published": "2026-08-25T21:59:19+00:00",
+      "hotness": 12.08,
+      "score": 12.08,
+      "score_breakdown": {
+        "base": 5.0,
+        "source_score": 4.5,
+        "keyword_score": 0.0,
+        "time_score": 2.58,
+        "topic_bonus": 0.0,
+        "total": 12.08
+      },
+      "summary": "关于「中办国办」的资讯。",
+      "analysis": "该条目涉及【党政领导干部生态环境】话题，因来源较权威，热度上升。",
+      "topic_tags": [
+        "党政领导干部生态环境"
+      ],
+      "matched_keywords": [],
+      "keywords": []
+    },
+    {
+      "title": "Atomic catalyst unlocks the hidden value of plant waste",
+      "title_en": "",
+      "title_zh": "Atomic catalyst unlocks the hidden value of plant waste",
+      "summary_en": "",
+      "summary_zh": "Scientists have created a highly efficient catalyst that breaks down stubborn lignin from plant waste into useful chemicals under relatively mild conditions. By revealing exactly how the catalyst works at the atomic level, the discovery could help turn forestry and agricultural waste into renewable building blocks for fuels, plastics, and other materials.",
+      "link": "https://www.sciencedaily.com/releases/2026/08/260824065601.htm",
+      "source": "ScienceDaily 环境科学",
+      "published": "2026-08-25T10:09:15+00:00",
+      "hotness": 11.97,
+      "score": 11.97,
+      "score_breakdown": {
+        "base": 5.0,
+        "source_score": 5.4,
+        "keyword_score": 0.0,
+        "time_score": 1.57,
+        "topic_bonus": 0.0,
+        "total": 11.97
+      },
+      "summary": "Scientists have created a highly efficient catalyst that breaks down stubborn lignin from plant waste into useful chemicals under relatively mild conditions. By revealing exactly how the catalyst works at the atomic level, the discovery could help turn forestry and agricultural waste into renewable building blocks for fuels, plastics, and other materials.",
+      "analysis": "该条目涉及【atomic】话题，因来源较权威，热度上升。",
+      "topic_tags": [
+        "atomic",
+        "catalyst",
+        "unlocks"
+      ],
+      "matched_keywords": [],
+      "keywords": []
+    },
+    {
+      "title": "向失职失责“亮剑” 为美丽中国“护航”——中央组织部负责人就修订颁布《党政领导干部生态环境损害责任追究办法》答记者问 - 新华网",
+      "title_en": "",
+      "title_zh": "向失职失责“亮剑” 为美丽中国“护航”——中央组织部负责人就修订颁布《党政领导干部生态环境损害责任追究办法》答记者问 - 新华网",
+      "summary_en": "",
+      "summary_zh": "",
+      "link": "https://news.google.com/rss/articles/CBMid0FVX3lxTE1BazBKek4zZWNpWW9XVlZWSWI3angwUzJnVmNIbDgteklQRTJfTDNCbWFsaUctaVVWQ2oyZVcxZU9PM1JqTWd5N0hmd2R0QlNJWEdhVURIRmdDeDVudVlwd0ZHVzVsQUhOUzA5WEJET09BMUJVMHRv?oc=5",
+      "source": "Google News 环境保护",
+      "published": "2026-08-25T11:23:40+00:00",
+      "hotness": 11.16,
+      "score": 11.16,
+      "score_breakdown": {
+        "base": 5.0,
+        "source_score": 4.5,
+        "keyword_score": 0.0,
+        "time_score": 1.66,
+        "topic_bonus": 0.0,
+        "total": 11.16
+      },
+      "summary": "关于「失职」的资讯。",
+      "analysis": "该条目涉及【党政领导干部生态环境】话题，因来源较权威，热度上升。",
+      "topic_tags": [
+        "党政领导干部生态环境"
+      ],
+      "matched_keywords": [],
+      "keywords": []
+    },
+    {
+      "title": "中办、国办印发《党政领导干部生态环境损害责任追究办法》 - thepaper.cn",
+      "title_en": "",
+      "title_zh": "中办、国办印发《党政领导干部生态环境损害责任追究办法》 - thepaper.cn",
+      "summary_en": "",
+      "summary_zh": "",
+      "link": "https://news.google.com/rss/articles/CBMiYEFVX3lxTFBnZzQtMDNIYmoxQ2hseFF2UnhqQnpjbUc4dmxTc1F0UFpXcjVjczNoZnVDNk5sRXJYdmU2VExvaThCekVZbHJ2WHJIUDlMd0hKamFYSmpkQ1hLbDFxMTMzaA?oc=5",
+      "source": "Google News 环境污染",
+      "published": "2026-08-25T09:24:00+00:00",
+      "hotness": 11.03,
+      "score": 11.03,
+      "score_breakdown": {
+        "base": 5.0,
+        "source_score": 4.5,
+        "keyword_score": 0.0,
+        "time_score": 1.53,
+        "topic_bonus": 0.0,
+        "total": 11.03
+      },
+      "summary": "关于「国办」的资讯。",
+      "analysis": "该条目涉及【党政领导干部生态环境】话题，因来源较权威，热度上升。",
+      "topic_tags": [
+        "党政领导干部生态环境"
+      ],
+      "matched_keywords": [],
+      "keywords": []
+    },
+    {
+      "title": "多管闲事的北极熊和幸运的松鼠： 2026年野生动物摄影师入围名单",
+      "title_en": "A nosy polar bear and a lucky squirrel: Wildlife Photographer of the Year 2026 shortlist",
+      "title_zh": "多管闲事的北极熊和幸运的松鼠： 2026年野生动物摄影师入围名单",
+      "summary_en": "The polar bear image taken by Audun Rikardsen was among the 'highly commended' entries in this year's competition.",
+      "summary_zh": "Audun Rikardsen拍摄的北极熊图像是今年比赛中“高度赞扬”的参赛作品之一。",
+      "link": "https://www.bbc.co.uk/news/articles/cg7m5e3mylpo?at_medium=RSS&at_campaign=rss",
+      "source": "BBC 科学与环境",
+      "published": "2026-08-25T23:41:13+00:00",
+      "hotness": 10.77,
+      "score": 10.77,
+      "score_breakdown": {
+        "base": 5.0,
+        "source_score": 3.0,
+        "keyword_score": 0.0,
+        "time_score": 2.77,
+        "topic_bonus": 0.0,
+        "total": 10.77
+      },
+      "summary": "Audun Rikardsen拍摄的北极熊图像是今年比赛中“高度赞扬”的参赛作品之一。",
+      "analysis": "该条目涉及【多管闲事的北极熊和幸运的松鼠】话题，热度受综合因素影响，可留意。",
+      "topic_tags": [
+        "多管闲事的北极熊和幸运的松鼠"
+      ],
+      "matched_keywords": [],
+      "keywords": []
+    },
+    {
+      "title": "破纪录的热穹顶预计将给美国西南部带来危险的温度",
+      "title_en": "Record-breaking heat dome expected to bring dangerous temperatures to US south-west",
+      "title_zh": "破纪录的热穹顶预计将给美国西南部带来危险的温度",
+      "summary_en": "As wildfires rage and intense heat builds across the region, daytime highs of 110-11F (43-46C) are forecastSurging temperatures are expected to broil more than 45 million people as a heat dome settles in across the south-western US through the end of August and into early September, according to the National Weather Service (NWS).As wildfires rage in some parts and intense heat builds across the region, daytime highs of 110-115F (43-46C) are forecast, with limited cooling relief in the evenings and overnight. Experts predict that some record highs could be tied or broken this month and the weather agency warned of the scorching late summer heat as a potential health hazard. Continue reading...",
+      "summary_zh": "根据国家气象局（ NWS ）的数据，随着野火在整个地区肆虐，预计白天高温将达到110-11华氏度（ 43-46摄氏度）。随着热穹顶在美国西南部落户，预计到8月底和9月初，气温飙升将使超过4500万人感到震惊。由于野火在部分地区肆虐，整个地区将出现高温，预计白天高温将达到110-115华氏度（ 43-46摄氏度） ，晚上将有限的降温缓解",
+      "link": "https://www.theguardian.com/us-news/2026/aug/25/us-weather-heat-dome-south-west",
+      "source": "The Guardian Environment",
+      "published": "2026-08-25T22:40:43+00:00",
+      "hotness": 10.65,
+      "score": 10.65,
+      "score_breakdown": {
+        "base": 5.0,
+        "source_score": 3.0,
+        "keyword_score": 0.0,
+        "time_score": 2.65,
+        "topic_bonus": 0.0,
+        "total": 10.65
+      },
+      "summary": "根据国家气象局（ NWS ）的数据，随着野火在整个地区肆虐，预计白天高温将达到110-11华氏度（ 43-46摄氏度）。随着热穹顶在美国西南部落户，预计到8月底和9月初，气温飙升将使超过4500万人感到震惊。由于野火在部分地区肆虐，整个地区将出现高温，预计白天高温将达到110-115华氏度（ 43-46摄氏度） ，晚上将有限的降温缓解",
+      "analysis": "该条目涉及【破纪录的热穹顶预计将】话题，热度受综合因素影响，可留意。",
+      "topic_tags": [
+        "破纪录的热穹顶预计将"
+      ],
+      "matched_keywords": [],
+      "keywords": []
+    },
+    {
+      "title": "炸弹捕捞正在破坏印度尼西亚的珊瑚礁",
+      "title_en": "Bomb Fishing Is Wreaking Havoc on Indonesia's Coral Reefs",
+      "title_zh": "炸弹捕捞正在破坏印度尼西亚的珊瑚礁",
+      "summary_en": "Fishers operating off the coast of Sulawesi, Indonesia, are detonating more than 8,000 underwater explosives each year, researchers estimate. The practice is turning picturesque coral reefs to “rubble.”Read more on E360 →",
+      "summary_zh": "研究人员估计，在印度尼西亚苏拉威西岛海岸作业的渔民每年引爆8000多枚水下爆炸物。这种做法正在将风景如画的珊瑚礁变成“瓦砾”。”阅读更多关于E360的信息 →",
+      "link": "https://e360.yale.edu/digest/bomb-fishing-coral-reefs",
+      "source": "Yale Environment 360",
+      "published": "2026-08-25T10:26:00+00:00",
+      "hotness": 10.19,
+      "score": 10.19,
+      "score_breakdown": {
+        "base": 5.0,
+        "source_score": 3.6,
+        "keyword_score": 0.0,
+        "time_score": 1.59,
+        "topic_bonus": 0.0,
+        "total": 10.19
+      },
+      "summary": "研究人员估计，在印度尼西亚苏拉威西岛海岸作业的渔民每年引爆8000多枚水下爆炸物。这种做法正在将风景如画的珊瑚礁变成“瓦砾”。”阅读更多关于E360的信息 →",
+      "analysis": "该条目涉及【炸弹捕捞正在破坏印度】话题，热度受综合因素影响，可留意。",
+      "topic_tags": [
+        "炸弹捕捞正在破坏印度"
+      ],
+      "matched_keywords": [],
+      "keywords": []
+    },
+    {
+      "title": "美国化石燃料说客还代表数百个城市为气候破坏而战",
+      "title_en": "US fossil fuel lobbyists also represent hundreds of cities fighting for climate damages",
+      "title_zh": "美国化石燃料说客还代表数百个城市为气候破坏而战",
+      "summary_en": "Local governments working with firms also linked to fossil fuel giants, analysis of federal lobbying disclosures showsCongressional lobbyists working for fossil fuel firms that are exacerbating the climate crisis are simultaneously representing more than 300 local governments raising funding to recover from climate damage, according to a new analysis.The research by F Minus and Make Polluters Pay reviewed congressional lobbying disclosures for the first quarter of 2026, finding that another 568 local governments hired fossil fuel lobbyists to work on non-climate related issues during that time, some of which included climate adjacent issues, like healthcare and home insurance. Continue reading...",
+      "summary_zh": "根据一项新的分析，地方政府与也与化石燃料巨头有联系的公司合作，对联邦游说披露的分析显示，为加剧气候危机的化石燃料公司工作的国会游说者同时代表300多个地方政府筹集资金，以从气候破坏中恢复过来。F Minus和Make Polluters Pay的研究审查了2026年第一季度的国会游说披露，发现另有568",
+      "link": "https://www.theguardian.com/environment/2026/aug/25/fossil-fuel-lobbyists-fight-climate-damage",
+      "source": "The Guardian Environment",
+      "published": "2026-08-25T12:00:35+00:00",
+      "hotness": 9.7,
+      "score": 9.7,
+      "score_breakdown": {
+        "base": 5.0,
+        "source_score": 3.0,
+        "keyword_score": 0.0,
+        "time_score": 1.7,
+        "topic_bonus": 0.0,
+        "total": 9.7
+      },
+      "summary": "根据一项新的分析，地方政府与也与化石燃料巨头有联系的公司合作，对联邦游说披露的分析显示，为加剧气候危机的化石燃料公司工作的国会游说者同时代表300多个地方政府筹集资金，以从气候破坏中恢复过来。F Minus和Make Polluters Pay的研究审查了2026年第一季度的国会游说披露，发现另有568",
+      "analysis": "该条目涉及【美国化石燃料说客还代】话题，热度受综合因素影响，可留意。",
+      "topic_tags": [
+        "美国化石燃料说客还代"
+      ],
+      "matched_keywords": [],
+      "keywords": []
     }
   ],
   "keyword_analysis": [
     {
-      "keyword": "气候变化",
-      "count": 2
+      "keyword": "生态环境",
+      "count": 7
     },
     {
-      "keyword": "大气污染",
-      "count": 1
+      "keyword": "环保",
+      "count": 4
     },
     {
-      "keyword": "微塑料",
-      "count": 1
+      "keyword": "美国",
+      "count": 4
     },
     {
-      "keyword": "竞赛",
-      "count": 1
+      "keyword": "责任",
+      "count": 4
     },
     {
-      "keyword": "考研",
-      "count": 1
+      "keyword": "甘肃",
+      "count": 3
+    },
+    {
+      "keyword": "新浪",
+      "count": 3
+    },
+    {
+      "keyword": "财经",
+      "count": 3
+    },
+    {
+      "keyword": "温度",
+      "count": 3
+    },
+    {
+      "keyword": "党政领导",
+      "count": 3
+    },
+    {
+      "keyword": "干部",
+      "count": 3
     }
   ],
   "keywords": [
     {
-      "keyword": "气候变化",
-      "count": 2
+      "keyword": "生态环境",
+      "count": 7
     },
     {
-      "keyword": "大气污染",
-      "count": 1
+      "keyword": "环保",
+      "count": 4
     },
     {
-      "keyword": "微塑料",
-      "count": 1
+      "keyword": "美国",
+      "count": 4
     },
     {
-      "keyword": "竞赛",
-      "count": 1
+      "keyword": "责任",
+      "count": 4
     },
     {
-      "keyword": "考研",
-      "count": 1
+      "keyword": "甘肃",
+      "count": 3
+    },
+    {
+      "keyword": "新浪",
+      "count": 3
+    },
+    {
+      "keyword": "财经",
+      "count": 3
+    },
+    {
+      "keyword": "温度",
+      "count": 3
+    },
+    {
+      "keyword": "党政领导",
+      "count": 3
+    },
+    {
+      "keyword": "干部",
+      "count": 3
     }
   ],
-  "hot_summary": "今日热点围绕气候变化、大气污染、微塑料、竞赛、考研等话题，共聚合6条资讯。",
-  "summary": "今日热点围绕气候变化、大气污染、微塑料、竞赛、考研等话题，共聚合6条资讯。",
-  "weekly_summary": "近7天环境领域热点集中在：考研、大气污染、竞赛，关键词累计出现16次。",
-  "weekly_insight": "近7天热点主要集中在考研、大气污染、竞赛等方向，关键词累计出现16次，整体呈现持续关注态势，建议重点关注考研、大气污染相关进展。",
+  "hot_summary": "今日热点围绕生态环境、环保、美国、责任、甘肃等话题，共聚合50条资讯。",
+  "summary": "今日热点围绕生态环境、环保、美国、责任、甘肃等话题，共聚合50条资讯。",
+  "weekly_summary": "近7日环境领域热点聚焦考研与竞赛，同时关注大气污染、微塑料及水污染等核心议题，相关讨论共20次，科研与治理并重。",
+  "weekly_insight": "近期环境领域热点呈现“学术竞争与污染议题并重”的鲜明特点：考研与竞赛的高频出现，反映出环境专业人才对学历提升和技能比拼的强烈需求，而大气污染、微塑料",
   "weekly_keywords": [
     {
       "term": "考研",
-      "count": 7
+      "count": 8
+    },
+    {
+      "term": "竞赛",
+      "count": 5
     },
     {
       "term": "大气污染",
       "count": 4
     },
     {
-      "term": "竞赛",
-      "count": 4
+      "term": "微塑料",
+      "count": 2
     },
     {
       "term": "水污染",

@@ -284,6 +284,11 @@ DEFAULT_CONFIG = {
         "password": "",
         "receiver": "",
     },
+    "translation_api": {
+        "enabled": True,
+        "provider": "auto",          # deepl / google / auto
+        "deepl_api_key": "",         # DeepL Free API Key；为空则自动使用 Google
+    },
     "max_items_per_source": 5,
     "max_total_items": 50,
 }
@@ -636,21 +641,23 @@ def fetch_all_feeds(config, max_items_per_source):
                         "summary": summary,
                     }
 
-                    # 英文标题/摘要翻译为中文（本地词表 + MyMemory），保留原文与译文
+                    # 英文标题翻译为中文（DeepL + Google），中文标题 title_zh 置空
                     if title and not is_chinese(title):
+                        item["title_en"] = title
                         title_zh = translate_en_to_zh(title)
                         if title_zh and title_zh != title and is_chinese(title_zh):
-                            item["title_en"] = title
                             item["title_zh"] = title_zh
-                            item["title"] = title_zh  # 前端默认显示中文标题
+                        else:
+                            item["title_zh"] = ""
+                        # title 保留英文原标题，前端通过“译”按钮在英文/中文间切换
                     else:
-                        item["title_zh"] = title
+                        item["title_zh"] = ""
                     if summary and not is_chinese(summary):
                         summary_zh = translate_en_to_zh(summary)
                         if summary_zh and summary_zh != summary:
                             item["summary_en"] = summary
                             item["summary_zh"] = summary_zh
-                            item["summary"] = summary_zh  # 前端默认显示中文摘要
+                            item["summary"] = summary_zh  # 摘要默认显示中文
                     else:
                         item["summary_zh"] = summary
                     all_items.append(item)
@@ -1128,7 +1135,7 @@ FAILED_DOMAINS = set()
 STRICT_DOMAINS = ["sciencedirect.com", "acs.org", "nature.com", "pnas.org", "iopscience.iop.org"]
 
 # ============================================================
-# 英文翻译功能（本地词表 + MyMemory 免费 API）
+# 英文翻译功能（本地词表 + DeepL 免费 API / Google 兜底）
 # ============================================================
 
 # 内置环境专业英文-中文词表（基础版）
@@ -1259,6 +1266,14 @@ WIDE_ZH_WORDS = set([
     "生态", "多地", "遭遇", "期间", "当中", "其中",
 ])
 
+# 翻译请求使用的浏览器 User-Agent（避免被翻译接口拦截）
+BROWSER_UA = (
+    "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 "
+    "(KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
+)
+# translation_api 配置缓存
+_TRANSLATION_CFG_CACHE = None
+
 
 def is_chinese(text):
     """判断文本是否主要为中文（中文字符占比超过30%）"""
@@ -1271,12 +1286,95 @@ def is_chinese(text):
     return (chinese_chars / total_chars) > 0.3
 
 
+def _get_translation_config():
+    """读取 translation_api 配置（DeepL key 等），带模块级缓存"""
+    global _TRANSLATION_CFG_CACHE
+    if _TRANSLATION_CFG_CACHE is None:
+        try:
+            _TRANSLATION_CFG_CACHE = load_config().get("translation_api", {}) or {}
+        except Exception:
+            _TRANSLATION_CFG_CACHE = {}
+    return _TRANSLATION_CFG_CACHE
+
+
+def _deepl_translate(text, api_key):
+    """调用 DeepL Free API 翻译英文->中文；失败返回空字符串"""
+    try:
+        import urllib.parse
+        payload = {
+            "auth_key": api_key,
+            "text": text[:2000],
+            "target_lang": "ZH",
+        }
+        headers = {"User-Agent": BROWSER_UA}
+        for attempt in range(2):  # 失败重试 1 次，等待 2 秒
+            try:
+                resp = requests.post(
+                    "https://api-free.deepl.com/v2/translate",
+                    data=payload, headers=headers, timeout=10)
+                resp.raise_for_status()
+                result = resp.json()
+                translations = result.get("translations") or []
+                if not translations:
+                    return ""
+                translated = (translations[0].get("text") or "").strip()
+                if translated and len(translated) >= 2 and translated != text:
+                    print("[翻译] DeepL 翻译成功")
+                    return translated
+                return ""
+            except requests.exceptions.HTTPError as e:
+                status_code = e.response.status_code if e.response is not None else "unknown"
+                print(f"[翻译] DeepL HTTP {status_code}")
+                if attempt == 0 and status_code in (429, 502, 503):
+                    time.sleep(2)
+                    continue
+                return ""
+            except requests.exceptions.Timeout:
+                print("[翻译] DeepL 请求超时")
+                if attempt == 0:
+                    time.sleep(2)
+                    continue
+                return ""
+    except Exception as e:
+        print(f"[翻译] DeepL 调用异常: {str(e)[:40]}")
+        return ""
+    return ""
+
+
+def _google_translate(text):
+    """调用 Google 免费翻译接口（gtx）英文->中文；失败返回空字符串"""
+    try:
+        import urllib.parse
+        q = urllib.parse.quote(text[:2000])
+        url = (f"https://translate.googleapis.com/translate_a/single"
+               f"?client=gtx&sl=en&tl=zh-CN&dt=t&q={q}")
+        headers = {"User-Agent": BROWSER_UA}
+        resp = requests.get(url, timeout=10, headers=headers)
+        resp.raise_for_status()
+        data = resp.json()
+        parts = []
+        try:
+            for seg in data[0]:
+                if seg and seg[0]:
+                    parts.append(seg[0])
+        except Exception:
+            return ""
+        translated = "".join(parts).strip()
+        if translated and len(translated) >= 2 and translated != text:
+            print("[翻译] Google 翻译成功")
+            return translated
+        return ""
+    except Exception as e:
+        print(f"[翻译] Google 翻译失败: {str(e)[:40]}")
+        return ""
+
+
 def translate_en_to_zh(text):
     """
     将英文文本翻译为中文
     - 中文或为空直接返回
     - 优先使用本地环境专业词表匹配
-    - 本地词表无法匹配时，调用 MyMemory 免费翻译 API
+    - 词表无法匹配时：DeepL Free API（配置了 deepl_api_key 时）→ Google 翻译兜底
     - 翻译失败保留英文原文
     """
     if not text or not text.strip():
@@ -1302,47 +1400,30 @@ def translate_en_to_zh(text):
         except Exception:
             pass
 
-    # 第二步：调用 MyMemory 免费翻译 API（429 限流时重试，等待 2/5/10 秒，最多重试 3 次）
     if not REQUESTS_AVAILABLE:
         return text
 
-    retry_delays = [2, 5, 10]
-    for attempt in range(4):
-        try:
-            import urllib.parse
-            encoded_text = urllib.parse.quote(text[:500])
-            api_url = f"https://api.mymemory.translated.net/get?q={encoded_text}&langpair=en|zh-CN"
-            resp = requests.get(api_url, timeout=10)
-            resp.raise_for_status()
-            result = resp.json()
-            translated = result.get("responseData", {}).get("translatedText", "")
-            if translated and translated.strip() and translated != text:
-                return translated.strip()
-            # 返回空或与原文相同，视为翻译无结果
-            break
-        except requests.exceptions.HTTPError as e:
-            status_code = e.response.status_code if e.response is not None else "unknown"
-            if status_code == 429 and attempt < 3:
-                wait_time = retry_delays[attempt]
-                print(f"[翻译] MyMemory 429限流，第{attempt+1}次重试，等待{wait_time}秒...")
-                time.sleep(wait_time)
-                continue
-            # 重试耗尽或其他 HTTP 错误：保留英文原文
-            print(f"[翻译] MyMemory 翻译失败（保留英文）: HTTP {status_code}")
-            return text
-        except requests.exceptions.Timeout:
-            if attempt < 3:
-                wait_time = retry_delays[attempt]
-                print(f"[翻译] MyMemory 请求超时，第{attempt+1}次重试，等待{wait_time}秒...")
-                time.sleep(wait_time)
-                continue
-            print("[翻译] MyMemory 请求超时（保留英文）")
-            return text
-        except Exception as e:
-            # 翻译失败：保留英文原文，并记录日志（便于排查）
-            print(f"[翻译] MyMemory 翻译失败（保留英文）: {str(e)[:40]}")
-            return text
+    tcfg = _get_translation_config()
+    if not tcfg.get("enabled", True):
+        return text
 
+    provider = (tcfg.get("provider") or "auto").lower()
+    deepl_key = (tcfg.get("deepl_api_key") or "").strip()
+    use_deepl = (deepl_key != "" and provider in ("deepl", "auto"))
+
+    # DeepL 优先（失败自动切换 Google）
+    if use_deepl:
+        result = _deepl_translate(text, deepl_key)
+        if result:
+            return result
+        print("[翻译] DeepL 翻译失败，切换 Google 翻译兜底...")
+
+    # Google 兜底
+    result = _google_translate(text)
+    if result:
+        return result
+
+    print("[翻译] Google 翻译也失败，保留英文原文")
     return text
 
 
@@ -2691,7 +2772,7 @@ def generate_latest_json(items, config, weekly_summary="", weekly_keywords=None,
         output_items.append({
             "title": sanitize_str(item.get("title")),
             "title_en": sanitize_str(item.get("title_en", "")),
-            "title_zh": sanitize_str(item.get("title_zh", item.get("title", ""))),
+            "title_zh": sanitize_str(item.get("title_zh", "")),
             "summary_en": sanitize_str(item.get("summary_en", "")),
             "summary_zh": sanitize_str(item.get("summary_zh", item.get("summary", ""))),
             "link": sanitize_str(item.get("link")),
@@ -2742,6 +2823,8 @@ def generate_daily_snapshot(items, config):
     for item in top10:
         output_items.append({
             "title": sanitize_str(item.get("title")),
+            "title_en": sanitize_str(item.get("title_en", "")),
+            "title_zh": sanitize_str(item.get("title_zh", "")),
             "link": sanitize_str(item.get("link")),
             "source": sanitize_str(item.get("source")),
             "published": sanitize_str(item.get("published")),
@@ -2977,6 +3060,8 @@ def generate_personal_latest(items, config):
         if matched:
             personal_item = {
                 "title": sanitize_str(item.get("title")),
+                "title_en": sanitize_str(item.get("title_en", "")),
+                "title_zh": sanitize_str(item.get("title_zh", "")),
                 "link": sanitize_str(item.get("link")),
                 "source": sanitize_str(item.get("source")),
                 "published": sanitize_str(item.get("published")),

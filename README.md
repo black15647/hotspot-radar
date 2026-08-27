@@ -20,7 +20,7 @@
 - **个性化过滤**：支持自定义用户关键词，生成专属热点列表
 - **我的收藏**：收藏感兴趣的热点，按热度排序展示，数据保存在本地浏览器
 - **AI 智能摘要**：基于英伟达 NIM (deepseek-ai/deepseek-v4-flash-0731) 批量生成热点摘要；原文提取升级为 trafilatura 本地提取 + readability 兜底 + Firecrawl keyless 兜底 + Jina Reader 兜底，提高原文获取成功率；有原文基于原文生成，无原文基于标题生成，保证每条热点都有摘要
-- **英文内容翻译**：内置环境专业英中词表 + MyMemory 免费翻译 API，英文热点也能生成中文关键词
+- **英文内容翻译**：内置环境专业英中词表 + **DeepL Free API（可选）** + **Google 翻译兜底**；英文热点自动生成中文标题 `title_zh` 字段，前端提供"译"按钮在英文/中文标题间切换
 - **近 7 天热词统计**：从每日快照中统计实际高频词，写入 `weekly_keywords` 字段，趋势图联动展示
 - **近 7 天热度总结**：基于实际高频词 AI 生成总结，失败自动降级为规则总结
 - **批量 API 调用**：所有 AI 处理合并为批量请求，每天最多 3 次 API 调用，大幅降低 429 限流风险
@@ -150,6 +150,9 @@ rss_feeds:
 | `reader_api.firecrawl_enabled` | bool | true | 是否启用 Firecrawl keyless 兜底（无需 API Key） |
 | `reader_api.jina_api_key` | string | 空 | Jina Reader API Key（也可通过环境变量 JINA_API_KEY 设置） |
 | `reader_api.jina_base_url` | string | https://r.jina.ai/ | Jina Reader 基础地址 |
+| `translation_api.enabled` | bool | true | 是否启用英文翻译（标题/摘要） |
+| `translation_api.provider` | string | auto | `deepl`（仅 DeepL）/ `google`（仅 Google）/ `auto`（有 Key 优先 DeepL，失败自动切 Google） |
+| `translation_api.deepl_api_key` | string | 空 | DeepL Free API Key（https://www.deepl.com/pro-api 注册获取）；留空则自动使用 Google 免费翻译接口 |
 | `max_items_per_source` | int | 5 | 每个源最大抓取条数（冷启动自动设为 10） |
 | `max_total_items` | int | 50 | 总条目上限 |
 
@@ -377,7 +380,14 @@ hotspot-radar/
 
 ## 📝 更新日志
 
-### v7.5（最新）
+### v7.6（最新）
+
+- 🌐 **翻译服务升级为 DeepL + Google**：移除 MyMemory，彻底告别 429 限流。`config.yaml` 新增 `translation_api` 配置（`enabled` / `provider` / `deepl_api_key`）：配置 DeepL Free Key 时优先 DeepL（失败自动切 Google），未配置则直接使用 Google 免费翻译接口；均带浏览器 UA 请求头降低被拦截概率，全部失败保留英文原文
+- 🏷️ **新增 `title_zh` 字段**：英文标题自动生成中文翻译写入 `title_zh`（覆盖 `latest.json`、`personal_latest.json`、`daily/*.json` 等所有输出）；中文标题 `title_zh` 置空
+- 🔘 **前端"译"按钮**：英文热点标题旁显示可点击"译"按钮，点击在英文原题与中文翻译间切换显示，`stopPropagation` 不影响标题展开、收藏、分享等交互；支持暗黑模式与移动端点击
+- 🛡️ **AI 响应防御式解析**：新增 `_extract_ai_content`，修复 `'NoneType' object has no attribute 'strip'`；修复函数内局部 `import re` 导致的 `UnboundLocalError`（`extract_tags_from_title`、`generate_personal_knowledge`）
+
+### v7.5
 
 - 🐛 **修复批量摘要 ValueError**：修复 `generate_batch_summaries` 中 `candidates` 解包数量不一致导致的 `too many values to unpack` 崩溃
 - 📄 **原文提取升级 trafilatura**：新增 trafilatura 本地正文提取（优先），与 readability 形成双本地提取，提高反爬网站原文获取成功率

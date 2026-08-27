@@ -365,158 +365,160 @@
 
 ## 2026-08-27
 
-**今日高频关键词**：`#生态环境` `#环保` `#美国` `#责任` `#甘肃`
+**今日高频关键词**：`#of` `#to` `#in` `#生态环境` `#凤凰网`
 
 **今日 Top10 热点**
 
-### 1. 解耦干湿热贡献：用于检测区域复合极端热量的基于站的指标
+### 1. A scenario assessment of the global mitigation effort in the light of the 2035 climate finance goal
 - **来源**：Environmental Research Letters
-- **热度**：21.7
-- **链接**：https://iopscience.iop.org/article/10.1088/1748-9326/ae9b24
-- **摘要**：极端高温事件在气候变化下构成越来越大的风险。现有的热应力指数将温度和湿度整合到组合指标中，这可能会限制它们在复合热事件期间各自贡献的明确归因。为了解决这一差距，我们开发了动态天气-气候指数（ DWCI ） ，这是一个基于站的框架，可以分解温度、湿度负荷和干蒸发需求异常路径，同时保留单个事件检测指标。
-- **分析**：该条目涉及【动态天气-气候指数】话题，因来源权威性高且与近期热点主题相关，热度上升。
+- **热度**：27.8
+- **链接**：https://iopscience.iop.org/article/10.1088/1748-9326/ae9890
+- **摘要**：联合国气候变化框架公约 (UNFCCC) 于 2024 年同意到 2035 年将发展中国家应对气候变化的资金增加到 3000 亿美元。在这项研究中，我们评估了通过工业化地区的碳定价产生的这笔收入可以在多大程度上减少温室气体 (GHG) 排放。我们评估了一个考虑工业化、转型和发展中地区碳价格差异的情景。我们发现，与现有国家减排目标（以截至 2022 年国家确定的贡献为代表）的情景相比，这种情景到 2035 年可减少 16% 的温室气体排放。尽管如此，在实现减排所需的收入方面仍存在相当大的差距，以确保全球变暖比工业化前水平高出 1.5°C 的气候目标。因此，这些结果表明，除了各国在《联合国气候变化框架公约》下商定的气候融资目标之外，还需要采取更大规模的气候缓解行动。此外，我们通过其他情景强调了工业化地区（美国）和发展中地区（中国）主要温室气体排放国碳定价方案中缺失的影响（在减排、碳价格收入和消费损失方面）。
+- **分析**：该条目涉及【2035气候融资目标】话题，因来源权威性高且发布时间较新，热度上升。
 
-### 2. 甘肃：应对气候变化交出亮眼“成绩单” 生态“含绿量”正加速转化为“含金量”_生态文明看甘肃 - 中国甘肃网
+### 2. Environment International：气候变化下高温、花粉与空气污染对过敏性鼻炎和哮喘的协同影响-MedSci.cn - 梅斯医学 MedSci
+- **来源**：Google News 环境污染
+- **热度**：22.2
+- **链接**：https://news.google.com/rss/articles/CBMibkFVX3lxTE9sYkthZEV5Z0g0OGV6Nm5nb1NDR0N5MS1wcHJ0eG9fWHNxWFZVZjc2Q2NoY0VhVjBjME1STWg4a2hxYTVGeXpRRUhNLUJkQnMxby1fMk10YzRwaVEtcF93NUs3Uko3WkdWZVdQQUdn?oc=5
+- **摘要**：关于「气候变化」的资讯。
+- **分析**：该条目涉及【花粉与空气污染对过敏】话题，因来源较权威且与近期热点主题相关，热度上升。
+
+### 3. 甘肃：应对气候变化交出亮眼“成绩单” 生态“含绿量”正加速转化为“含金量”_生态文明看甘肃 - 中国甘肃网
 - **来源**：Google News 气候变化
-- **热度**：20.4
+- **热度**：22.2
 - **链接**：https://news.google.com/rss/articles/CBMia0FVX3lxTE5MU0xMMER5bUh4SFB3VjlpWVBPcFVwUEs4VzA5cVNfNFBFbFNybkJ3VmNvOHlPdXdvWWo2QU9mdEkwUTdhMlFEOWNJdUpyRDJzZjEwTTdLa3VraGlrcEVJWDRaTERFQzVJU1FV?oc=5
 - **摘要**：关于「甘肃」的资讯。
 - **分析**：该条目涉及【应对气候变化交出亮眼】话题，因来源较权威且与近期热点主题相关，热度上升。
 
-### 3. 气候变化、照护与性别 - CLACSO
+### 4. 气候变化、照护与性别 - CLACSO
 - **来源**：Google News 气候变化
-- **热度**：19.0
+- **热度**：20.9
 - **链接**：https://news.google.com/rss/articles/CBMickFVX3lxTE0xbVhqQUV2QUNQN084cnI0TjFxNXA4S0t0ZUkyNkZ4Vk1oVFlveG9WN2V6ak91cVROWjBBcnNPRGhQazQ3NDhzYnZoYUlxcjZsaDZTblkyOUZpRUh0S29RU1JQMWdQZk9rRWN2b3FqVHoxZw?oc=5
 - **摘要**：关于「气候变化」的资讯。
 - **分析**：该条目涉及【照护与性别】话题，因来源较权威且与近期热点主题相关，热度上升。
 
-### 4. 聚苯乙烯-微塑料衍生的溶解有机物转化为胶体和微粒：微生物活性和紫外线照射的作用
-- **来源**：Water Research
-- **热度**：18.7
-- **链接**：https://www.sciencedirect.com/science/article/pii/S0043135426014557?dgcid=rss_sd_all
-- **摘要**：关于「聚苯乙烯」的资讯。
-- **分析**：该条目涉及【聚苯乙烯】话题，因来源权威性高且与近期热点主题相关，热度上升。
+### 5. 清华开班！远景以零碳技术伙伴之力共筑全球南方国家能源转型之路 - 凤凰网财经
+- **来源**：Google News 气候变化
+- **热度**：19.4
+- **链接**：https://news.google.com/rss/articles/CBMiUEFVX3lxTE1Dazh0cWpmR2JFbkwtVVlhQ3RwS3BleUhJTGtqR3J1UWdHUkxEYllNSGZ3N2FGYzNSSzZBSTNLc0Z5MjBZM1VkdWxHb3dNNmhK?oc=5
+- **摘要**：关于「清华」的资讯。
+- **分析**：该条目涉及【远景以零碳技术伙伴之】话题，因来源较权威且发布时间较新，热度上升。
 
-### 5. 生态环境法典进大宁，携手共筑净美宜居家园 - 新浪财经
-- **来源**：Google News 生态环境
-- **热度**：18.0
-- **链接**：https://news.google.com/rss/articles/CBMieEFVX3lxTE9HWlVWMG1PQ25PUVJ6bWpibmRZNXNfRU5tUTJWU2R2aVFtR2l1Z3RDSmJpWWZ3czR6TmdySmZnVF9sXzZxMkpfMDktNTRZb0hGdGRGTHZuVnptZzJaWDk2eVl0RG9uaWszbWJsSkYwZDVQZ0RESlpoWA?oc=5
-- **摘要**：关于「生态环境」的资讯。
-- **分析**：该条目涉及【生态环境法典】话题，因来源较权威且发布时间较新，热度上升。
+### 6. Midwinter enhancement of synoptic-scale extreme PM2.5 pollution in North China
+- **来源**：Environmental Research Letters
+- **热度**：17.8
+- **链接**：https://iopscience.iop.org/article/10.1088/1748-9326/ae9c59
+- **摘要**：华北地区是人口稠密的地区，近年来发生了一些全国最严重的空气污染事件。研究表明，该地区PM2.5平均浓度为134.8 μg m-3，极端空气污染发生在1月份，占冬季所有事件的53%。使用因果推理框架，这些事件可归因于与北太平洋风暴路径（NPST）的仲冬抑制同时发生的环流异常。更具体地说，1月份NPST显着减弱，对应于涡流热通量产生的反气旋异常。这种反气旋异常支持沿北半球中高纬度地区的罗斯贝波列，导致大约 10 天后在东北亚产生强大的反气旋。华北地区空气滞留、通风条件差，空气污染严重。这些发现为定向减排提供了科学指导。
+- **分析**：该条目涉及【PM2.5】话题，因来源权威性高且发布时间较新，热度上升。
 
-### 6. 中广核环保与浙江生态环境集团签署战略合作协议 - 中国水网
+### 7. 'The flood took everything': Nepal survivors describe horror of loved ones being swept away
+- **来源**：BBC 科学与环境
+- **热度**：17.6
+- **链接**：https://www.bbc.co.uk/news/articles/cd08z840p8lo?at_medium=RSS&at_campaign=rss
+- **摘要**：一名妇女说，她的父亲、母亲、姐妹和姐妹的孩子在她眼前被带走。
+- **分析**：该条目涉及【尼泊尔幸存者描述亲人】话题，因发布时间较新，热度上升。
+
+### 8. 中广核环保与浙江生态环境集团签署战略合作协议 - 中国水网
 - **来源**：Google News 环境保护
-- **热度**：17.9
+- **热度**：17.4
 - **链接**：https://news.google.com/rss/articles/CBMiVEFVX3lxTE9UclJhWWVnQmpkUFlWXzh5MElhME84Y20yV1BPejFqLThNa3daT09vMWI5OTdCM2Q3Vm9zd01uUm5rUkpzdGdXUVR0X21jVmVjdWN6Zg?oc=5
 - **摘要**：关于「中广核」的资讯。
 - **分析**：该条目涉及【中广核环保与浙江生态】话题，因来源较权威且发布时间较新，热度上升。
 
-### 7. 月亮将变成红色，因为罕见的部分月食在周五为英国天空增光添彩
+### 9. Moon set to turn red as rare partial lunar eclipse graces UK skies on Friday
 - **来源**：BBC 科学与环境
-- **热度**：17.8
+- **热度**：17.2
 - **链接**：https://www.bbc.co.uk/weather/articles/c5y4n7y89w7o?at_medium=RSS&at_campaign=rss
-- **摘要**：周五凌晨，月球可能会发出令人毛骨悚然的红光，但云层覆盖可能会破坏英国部分地区的景观。
-- **分析**：该条目涉及【因为罕见的部分月食在】话题，因发布时间较新，热度上升。
+- **摘要**：周五凌晨，月亮可能会发出诡异的红色，但云层可能会破坏英国部分地区的奇观。
+- **分析**：该条目涉及【英国天空出现罕见的月偏食】话题，因发布时间较新，热度上升。
 
-### 8. FABRICA: Agentic CUDA-to-CSL Translation and Optimization for Wafer-Scale Systems
+### 10. FABRICA: Agentic CUDA-to-CSL Translation and Optimization for Wafer-Scale Systems
 - **来源**：arXiv Environmental Engineering
-- **热度**：17.6
+- **热度**：17.0
 - **链接**：https://arxiv.org/abs/2608.25124
-- **摘要**：arXiv:2608.25124v1 Announce Type: new Abstract: Porting GPU kernels across architectures requires architectural remapping, not syntax substitution. CUDA encodes decomposition, locality, and synchronization through threads, blocks, and memory accesses; the Cerebras Software Language (CSL) requires explicit placement, distributed SRAM, fabric communication, event-driven tasks, and host/device contracts. We present FABRICA-Bench, 49 paired CUDA-to-CSL tasks, and FABRICA, an agentic framework combining target knowledge, execution, failure-directed repair, and correctness-gated optimization. On a fixed 28-task Level~1--3 core comparison with Claude Opus 4.8, FABRICA raises success from 6/28 to 26/28; 22 successful programs match or beat their CSL references. Across the 49-task coverage evaluation, 38 tasks produce a correct program; the final three tasks are evaluated over three seeds and pass 8/9 runs. For 27 generated/reference pairs with device-internal timing, geometric-mean speedup is 3.75$\times$ on the SDK simulator and 3.47$\times$ on WSE-3 hardware. With the executable workflow fixed, Claude Opus~4.8 passes 26/28 core tasks while the best open-weight model passes 2/28; retrieved Cerebras knowledge separately raises success from 1/15 to 7/15 on a Level~1--3 panel. These results identify base-model capability, target knowledge, execution feedback, and same-target measurement as central to cross-architecture kernel generation.
-- **分析**：该条目涉及【fabrica】话题，因发布时间较新，热度上升。
-
-### 9. RWA-PoB: A Credential-Based Proof-of-Backing Framework for Tokenized U.S. Treasury Products
-- **来源**：arXiv Environmental Engineering
-- **热度**：17.6
-- **链接**：https://arxiv.org/abs/2608.25269
-- **摘要**：arXiv:2608.25269v1 Announce Type: new Abstract: Proof of reserves (PoR) can improve transparency for tokenized assets, but aggregate reserve coverage does not establish whether off-chain assets are legally eligible, unencumbered, consistently valued, or sufficiently liquid for redemptions. We propose RWA-PoB, a credential-based proof-of-backing framework for tokenized U.S. Treasury products. Five authorised institutional roles approve a canonical EIP-712 snapshot containing reserve, liability, liquidity, and policy information. The framework evaluates backing adequacy through the Backing Coverage Ratio (BCR) and short-term redemption capacity through the Redemption Liquidity Coverage (RLC). The Solidity prototype couples the policy controller to an ERC-20 token. Successful issuance atomically increases token supply and recorded liabilities by the corresponding USD-denominated liability. A redemption request burns tokens while reclassifying the corresponding obligation as pending. The obligation is reduced only after an authorised settlement-role account confirms payment. We evaluate the framework against a simplified aggregate PoR baseline using USDY-calibrated liabilities and deterministic synthetic reserve scenarios. Both approaches permit issuance in the valid state, but RWA-PoB rejects an encumbered-assets state with a BCR of 96.3408%, below the experimental 105% threshold. Under liquidity stress, it classifies the proposed redemption as queued because the post-request RLC falls to 39.9999%. RWA-PoB authenticates the attribution and integrity of institutional claims but does not independently prove the existence, ownership, or condition of off-chain assets. The prototype, test suite, datasets, and replication scripts are available at https://github.com/rischanlab/PoB.
-- **分析**：该条目涉及【代币化美国国债】话题，因发布时间较新，热度上升。
-
-### 10. Forecasting Global Volatility Across Asynchronous Markets: Incremental Accuracy from Constrained Cross-Market Attention
-- **来源**：arXiv Environmental Engineering
-- **热度**：17.6
-- **链接**：https://arxiv.org/abs/2608.25369
-- **摘要**：arXiv:2608.25369v1 Announce Type: new Abstract: Multivariate volatility forecasting across international equity markets presents a fundamental information-set problem: asynchronous exchange closures dictate which market observations belong to the information filtration at any forecast origin. We investigate whether regularized, origin-admissible cross-market information yields incremental accuracy beyond established benchmarks. We develop PGA-Trans-HAR, combining an origin-admissible ridge-VAR/GFEVD connectedness prior with spatial self-attention. A time-invariant market gate governs their allocation, asymmetric attention masking prevents closed exchanges from transmitting spurious signals, and a direct-horizon HAR baseline anchors residual corrections. Using high-frequency data from eight major indices (2006--2022), we evaluate direct forecasts at 1-, 5-, and 22-day horizons across all-days and common-days panels, five-seed ensembles, structural ablations, HAC-adjusted Diebold--Mariano tests, and Model Confidence Sets. Relative to univariate HAR, the framework reduces MSE and MAE across all markets at daily and weekly horizons, and seven of eight monthly. Among linear and deep learning benchmarks, it achieves the lowest daily average MAE and the lowest weekly/monthly average MSE and MAE. Structural ablations show that spatial restrictions are essential: learned market gates improve accuracy over uniform weighting at medium-to-long horizons, while daily forecasts favor stronger scalar shrinkage. Disciplined, origin-aligned cross-market information yields genuine predictive gains, especially at medium and long horizons where structural spillovers persist.
-- **分析**：该条目涉及【跨市场波动预测】话题，因发布时间较新，热度上升。
+- **摘要**：arXiv:2608.25124v1 公告类型：新 摘要：跨架构移植 GPU 内核需要架构重新映射，而不是语法替换。 CUDA 通过线程、块和内存访问对分解、局部性和同步进行编码； Cerebras 软件语言 (CSL) 需要显式布局、分布式 SRAM、结构通信、事件驱动任务和主机/设备契约。我们提出了 FABRICA-Bench，49 个配对的 CUDA-to-CSL 任务，以及 FABRICA，一个结合了目标知识、执行、故障导向修复和正确性门控优化的代理框架。在固定 28 任务 Level~1--3 核心与 Claude Opus 4.8 的比较中，FABRICA 将成功率从 6/28 提高到 26/28； 22 个成功的项目匹配或超越了他们的 CSL 参考。在 49 项任务覆盖率评估中，38 项任务产生了正确的程序；最后三项任务通过三个种子进行评估并通过 8/9 运行。对于具有设备内部时序的 27 个生成/参考对，几何平均加速比在 SDK 模拟器上为 3.75$	imes$，在 WSE-3 硬件上为 3.47$	imes$。在固定可执行工作流程的情况下，Claude Opus~4.8 通过了 26/28 个核心任务，而最佳开放权重模型通过了 2/28；检索到的 Cerebras 知识分别将 Level~1--3 面板上的成功率从 1/15 提高到 7/15。这些结果将基础模型功能、目标知识、执行反馈和相同目标测量确定为跨架构内核生成的核心。
+- **分析**：该条目涉及【晶圆级系统的代理】话题，因发布时间较新，热度上升。
 
 **今日自动提取候选新词**
 
-- **生态环境**（出现 7 次）
-  - 上下文：生态环境法典进大宁，携手共筑净美宜居家园 - 新浪财经
+- **生态环境**（出现 6 次）
   - 上下文：中广核环保与浙江生态环境集团签署战略合作协议 - 中国水网
   - 上下文：8月25日，吉林省生态环境厅举行新闻发布会，对外集中发布了吉林省大气污染防治工作进展及成效 - 凤凰网
-- **中国**（出现 4 次）
+  - 上下文：严重破坏生态环境将终身追责 - 新浪财经
+- **财经**（出现 4 次）
+  - 上下文：清华开班！远景以零碳技术伙伴之力共筑全球南方国家能源转型之路 - 凤凰网财经
+  - 上下文：全球日均海表温度刷新历史纪录 - 新浪财经
+  - 上下文：严重破坏生态环境将终身追责 - 新浪财经
+- **中国**（出现 3 次）
   - 上下文：甘肃：应对气候变化交出亮眼“成绩单” 生态“含绿量”正加速转化为“含金量”_生态文明看甘肃 - 中国甘肃网
   - 上下文：中广核环保与浙江生态环境集团签署战略合作协议 - 中国水网
-  - 上下文：分贝不高的噪声算扰民吗 - 中国经济网
-- **环保**（出现 4 次）
+  - 上下文：向失职失责“亮剑” 为美丽中国“护航”——中央组织部负责人就修订颁布《党政领导干部生态环境损害责任追究办法》答记者问 - 新华网
+- **环保**（出现 3 次）
   - 上下文：中广核环保与浙江生态环境集团签署战略合作协议 - 中国水网
   - 上下文：金马环保：规范固废处置 护航草原生态 - banyuetan.org
-  - 上下文：去哪里做环保志愿？湖南首批10个实践场地来了 - 湖南红网
-- **美国**（出现 4 次）
-  - 上下文：尼泊尔山洪暴发后数十名美国和加拿大公民失踪
-  - 上下文：“你可以品尝火山灰” ：在美国的野火烟雾之都生存
-  - 上下文：破纪录的热穹顶预计将给美国西南部带来危险的温度
-- **责任**（出现 4 次）
+  - 上下文：去哪里做环保志愿？湖南首批10个实践场地来了-湖南频道 - 湖南红网
+- **江西**（出现 3 次）
+  - 上下文：满眼赣鄱蓝！江西优良空气持续“刷屏” - 新浪财经
+  - 上下文：无人机喷洒农药引发环境污染责任纠纷 都昌一莲藕种植户获赔7.8万余元 - 凤凰网江西
+  - 上下文：上饶市广信区一养猪场乱排污染水源被举报 区生态环境局：已立案 - 凤凰网江西
+- **责任**（出现 3 次）
   - 上下文：无人机喷洒农药引发环境污染责任纠纷 都昌一莲藕种植户获赔7.8万余元 - 凤凰网江西
   - 上下文：中办国办印发《党政领导干部生态环境损害责任追究办法》 - 人民日报
   - 上下文：向失职失责“亮剑” 为美丽中国“护航”——中央组织部负责人就修订颁布《党政领导干部生态环境损害责任追究办法》答记者问 - 新华网
-- **财经**（出现 3 次）
-  - 上下文：生态环境法典进大宁，携手共筑净美宜居家园 - 新浪财经
-  - 上下文：全球日均海表温度刷新历史纪录 - 新浪财经
-  - 上下文：守好这片山水，再苦再累都值得——记长白山保护开发区生态环境局池西区分局环保科科员玄洪美 - 新浪财经
-- **温度**（出现 3 次）
-  - 上下文：全球日均海表温度刷新历史纪录 - 新浪财经
-  - 上下文：随着厄尔尼诺现象加剧，有史以来最高的海洋温度
-  - 上下文：破纪录的热穹顶预计将给美国西南部带来危险的温度
-- **党政领导**（出现 3 次）
-  - 上下文：中办国办印发《党政领导干部生态环境损害责任追究办法》 - 人民日报
-  - 上下文：向失职失责“亮剑” 为美丽中国“护航”——中央组织部负责人就修订颁布《党政领导干部生态环境损害责任追究办法》答记者问 - 新华网
-  - 上下文：中办、国办印发《党政领导干部生态环境损害责任追究办法》 - thepaper.cn
-- **干部**（出现 3 次）
-  - 上下文：中办国办印发《党政领导干部生态环境损害责任追究办法》 - 人民日报
-  - 上下文：向失职失责“亮剑” 为美丽中国“护航”——中央组织部负责人就修订颁布《党政领导干部生态环境损害责任追究办法》答记者问 - 新华网
-  - 上下文：中办、国办印发《党政领导干部生态环境损害责任追究办法》 - thepaper.cn
-- **损害**（出现 3 次）
-  - 上下文：中办国办印发《党政领导干部生态环境损害责任追究办法》 - 人民日报
-  - 上下文：向失职失责“亮剑” 为美丽中国“护航”——中央组织部负责人就修订颁布《党政领导干部生态环境损害责任追究办法》答记者问 - 新华网
-  - 上下文：中办、国办印发《党政领导干部生态环境损害责任追究办法》 - thepaper.cn
-- **追究**（出现 3 次）
-  - 上下文：中办国办印发《党政领导干部生态环境损害责任追究办法》 - 人民日报
-  - 上下文：向失职失责“亮剑” 为美丽中国“护航”——中央组织部负责人就修订颁布《党政领导干部生态环境损害责任追究办法》答记者问 - 新华网
-  - 上下文：中办、国办印发《党政领导干部生态环境损害责任追究办法》 - thepaper.cn
+- **climate**（出现 2 次）
+  - 上下文：A scenario assessment of the global mitigation effort in the light of the 2035 climate finance goal
+  - 上下文：US fossil fuel lobbyists also represent hundreds of cities fighting for climate damages
 - **生态**（出现 2 次）
   - 上下文：甘肃：应对气候变化交出亮眼“成绩单” 生态“含绿量”正加速转化为“含金量”_生态文明看甘肃 - 中国甘肃网
   - 上下文：金马环保：规范固废处置 护航草原生态 - banyuetan.org
-- **转化**（出现 2 次）
-  - 上下文：甘肃：应对气候变化交出亮眼“成绩单” 生态“含绿量”正加速转化为“含金量”_生态文明看甘肃 - 中国甘肃网
-  - 上下文：聚苯乙烯-微塑料衍生的溶解有机物转化为胶体和微粒：微生物活性和紫外线照射的作用
+- **全球**（出现 2 次）
+  - 上下文：清华开班！远景以零碳技术伙伴之力共筑全球南方国家能源转型之路 - 凤凰网财经
+  - 上下文：全球日均海表温度刷新历史纪录 - 新浪财经
+- **Nepal**（出现 2 次）
+  - 上下文：'The flood took everything': Nepal survivors describe horror of loved ones being swept away
+  - 上下文：Dozens of US and Canadian citizens missing after flash flooding in Nepal
+- **partial**（出现 2 次）
+  - 上下文：Moon set to turn red as rare partial lunar eclipse graces UK skies on Friday
+  - 上下文：How to watch the partial lunar eclipse from Northern Ireland
+- **lunar**（出现 2 次）
+  - 上下文：Moon set to turn red as rare partial lunar eclipse graces UK skies on Friday
+  - 上下文：How to watch the partial lunar eclipse from Northern Ireland
+- **eclipse**（出现 2 次）
+  - 上下文：Moon set to turn red as rare partial lunar eclipse graces UK skies on Friday
+  - 上下文：How to watch the partial lunar eclipse from Northern Ireland
+- **Systems**（出现 2 次）
+  - 上下文：FABRICA: Agentic CUDA-to-CSL Translation and Optimization for Wafer-Scale Systems
+  - 上下文：Systems vaccinology and the architecture of human immunity
+- **固废**（出现 2 次）
+  - 上下文：金马环保：规范固废处置 护航草原生态 - banyuetan.org
+  - 上下文：【举报】一省对岩溶洞穴污染及非法处置固废违法线索实行有奖举报 - 搜狐网
 - **护航**（出现 2 次）
   - 上下文：金马环保：规范固废处置 护航草原生态 - banyuetan.org
   - 上下文：向失职失责“亮剑” 为美丽中国“护航”——中央组织部负责人就修订颁布《党政领导干部生态环境损害责任追究办法》答记者问 - 新华网
-- **海洋**（出现 2 次）
-  - 上下文：从海洋塑料碎片中分离出的重组细菌财团对聚乙烯的协同降解
-  - 上下文：随着厄尔尼诺现象加剧，有史以来最高的海洋温度
-- **利用**（出现 2 次）
-  - 上下文：利用核废料为太空任务提供动力
-  - 上下文：从稻田到政策：利用先进的CH4测量和建模来推动气候行动和碳市场转型
-- **影响**（出现 2 次）
-  - 上下文：运输NO x排放造成的臭氧影响以及对综合预防策略的影响：大气建模和自然实验的见解
-  - 上下文：不断升级的贸易壁垒对美国能源体系的影响
-- **建模**（出现 2 次）
-  - 上下文：运输NO x排放造成的臭氧影响以及对综合预防策略的影响：大气建模和自然实验的见解
-  - 上下文：从稻田到政策：利用先进的CH4测量和建模来推动气候行动和碳市场转型
-- **气候**（出现 2 次）
-  - 上下文：从稻田到政策：利用先进的CH4测量和建模来推动气候行动和碳市场转型
-  - 上下文：美国化石燃料说客还代表数百个城市为气候破坏而战
-- **城市**（出现 2 次）
-  - 上下文：进入城市林地与较少使用抗抑郁药有关
-  - 上下文：美国化石燃料说客还代表数百个城市为气候破坏而战
-- **印发**（出现 2 次）
+- **into**（出现 2 次）
+  - 上下文：Transformation of polystyrene-microplastic-derived dissolved organic matter into colloids and microparticles: Roles of microbial activity and UV irradiation
+  - 上下文：Insights into longevity and virus-driven adaptation from <i>Myotis</i> bat genomes
+- **temperatures**（出现 2 次）
+  - 上下文：Highest-ever ocean temperatures recorded as El Niño intensifies
+  - 上下文：Record-breaking heat dome expected to bring dangerous temperatures to US south-west
+- **waste**（出现 2 次）
+  - 上下文：Using nuclear waste to power space missions
+  - 上下文：Atomic catalyst unlocks the hidden value of plant waste
+- **举报**（出现 2 次）
+  - 上下文：【举报】一省对岩溶洞穴污染及非法处置固废违法线索实行有奖举报 - 搜狐网
+  - 上下文：上饶市广信区一养猪场乱排污染水源被举报 区生态环境局：已立案 - 凤凰网江西
+- **党政领导**（出现 2 次）
   - 上下文：中办国办印发《党政领导干部生态环境损害责任追究办法》 - 人民日报
-  - 上下文：中办、国办印发《党政领导干部生态环境损害责任追究办法》 - thepaper.cn
-- **破坏**（出现 2 次）
-  - 上下文：炸弹捕捞正在破坏印度尼西亚的珊瑚礁
-  - 上下文：美国化石燃料说客还代表数百个城市为气候破坏而战
+  - 上下文：向失职失责“亮剑” 为美丽中国“护航”——中央组织部负责人就修订颁布《党政领导干部生态环境损害责任追究办法》答记者问 - 新华网
+- **干部**（出现 2 次）
+  - 上下文：中办国办印发《党政领导干部生态环境损害责任追究办法》 - 人民日报
+  - 上下文：向失职失责“亮剑” 为美丽中国“护航”——中央组织部负责人就修订颁布《党政领导干部生态环境损害责任追究办法》答记者问 - 新华网
+- **损害**（出现 2 次）
+  - 上下文：中办国办印发《党政领导干部生态环境损害责任追究办法》 - 人民日报
+  - 上下文：向失职失责“亮剑” 为美丽中国“护航”——中央组织部负责人就修订颁布《党政领导干部生态环境损害责任追究办法》答记者问 - 新华网
+- **追究**（出现 2 次）
+  - 上下文：中办国办印发《党政领导干部生态环境损害责任追究办法》 - 人民日报
+  - 上下文：向失职失责“亮剑” 为美丽中国“护航”——中央组织部负责人就修订颁布《党政领导干部生态环境损害责任追究办法》答记者问 - 新华网
 
 ---
+

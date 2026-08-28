@@ -12,6 +12,8 @@ jobs:
     runs-on: ubuntu-latest
     permissions:
       contents: write
+    # 限制单次任务时长：抓取+生成一般 5-10 分钟即可完成，超时即失败并触发通知，避免任务长期挂起
+    timeout-minutes: 25
 
     steps:
       - name: Checkout repository

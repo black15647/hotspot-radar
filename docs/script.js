@@ -214,6 +214,25 @@
         // 搜索
         on(els.searchInput, 'input', handleSearch);
 
+        // 移动端圆形搜索按钮：点击展开/收起搜索框
+        var searchToggleBtn = document.getElementById('searchToggleBtn');
+        var srchBox = document.querySelector('.srch-box');
+        if (searchToggleBtn && srchBox) {
+            on(searchToggleBtn, 'click', function () {
+                srchBox.classList.toggle('show');
+                if (srchBox.classList.contains('show') && els.searchInput) {
+                    setTimeout(function () { els.searchInput.focus(); }, 50);
+                }
+            });
+            // 点击外部关闭搜索框
+            document.addEventListener('click', function (e) {
+                if (!srchBox.classList.contains('show')) return;
+                if (!srchBox.contains(e.target) && !searchToggleBtn.contains(e.target)) {
+                    srchBox.classList.remove('show');
+                }
+            });
+        }
+
         // 刷新数据
         on(document.getElementById('refreshDataBtn'), 'click', () => {
             showToast('正在刷新数据...');

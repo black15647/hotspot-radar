@@ -105,7 +105,15 @@ button:active { transform: scale(0.95); transition: transform 0.1s; }
     color: var(--clr-text);
     white-space: nowrap;
 }
-.brand-mark { font-size: 20px; }
+.brand-mark {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 28px;
+    height: 28px;
+    color: var(--clr-brand, #10b981);
+}
+.brand-mark svg { width: 24px; height: 24px; }
 .brand-name { letter-spacing: 0.5px; }
 
 .nav-tabs {
@@ -135,6 +143,7 @@ button:active { transform: scale(0.95); transition: transform 0.1s; }
     display: flex;
     align-items: center;
     gap: 6px;
+    position: relative;
 }
 
 .srch-box {
@@ -177,6 +186,8 @@ button:active { transform: scale(0.95); transition: transform 0.1s; }
 }
 .icon-btn:hover { background: var(--clr-brand-soft); color: var(--clr-brand-deep); border-color: var(--clr-brand); }
 .icon-btn:active { transform: scale(0.92); }
+.icon-btn svg { width: 18px; height: 18px; display: block; }
+#searchToggleBtn { display: none; }
 
 /* ============================================================
    主舞台与页面标题
@@ -1730,7 +1741,14 @@ body.dark .highlight { background: rgba(245, 158, 11, 0.4); }
     font-size: 11px;
     transition: color .15s;
 }
-.mobile-nav-item .mobile-nav-icon { font-size: 19px; }
+.mobile-nav-item .mobile-nav-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 22px;
+    height: 22px;
+}
+.mobile-nav-item .mobile-nav-icon svg { width: 22px; height: 22px; }
 .mobile-nav-item.is-active { color: var(--clr-brand-deep); font-weight: 600; }
 
 .toast {
@@ -1814,13 +1832,28 @@ body.dark .highlight { background: rgba(245, 158, 11, 0.4); }
 @media (max-width: 640px) {
     .topbar-inner { padding: 0 12px; gap: 10px; }
     .brand-name { font-size: 15px; }
-    .nav-tabs { order: 3; width: 100%; overflow-x: auto; gap: 0; padding-bottom: 6px; flex: none; }
+    .nav-tabs { display: none; }
     .nav-tab { padding: 6px 12px; font-size: 14px; }
-    .srch-box input { width: 120px; }
-    .srch-box input:focus { width: 150px; }
+    #searchToggleBtn { display: flex; }
+    .srch-box {
+        display: none;
+        position: absolute;
+        top: calc(100% + 6px);
+        left: 0;
+        right: 0;
+        margin: 0;
+        padding: 8px 12px;
+        background: var(--clr-surface);
+        border-radius: 0 0 12px 12px;
+        box-shadow: var(--sh-md);
+        z-index: 900;
+    }
+    .srch-box.show { display: flex; }
+    .srch-box input { width: 100%; }
+    .srch-box input:focus { width: 100%; }
     .top-actions .icon-btn { display: none; }
     .top-actions #themeToggle { display: flex; }
-    .srch-box { margin-right: 6px; }
+    .top-actions #searchToggleBtn { display: flex; }
     .kaoyan-toolbar-hint { display: none; }
 
     .stage { padding: 14px 12px 90px; }

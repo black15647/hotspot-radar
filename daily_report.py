@@ -1185,7 +1185,7 @@ def extract_article_text(url, api_config):
 
 # 英伟达 NIM API 连续失败计数器（连续失败5次后停止AI调用）
 NVIDIA_CONSECUTIVE_FAILURES = 0
-NVIDIA_MAX_CONSECUTIVE_FAILURES = 5
+NVIDIA_MAX_CONSECUTIVE_FAILURES = 2  # 连续失败2次即停止AI调用，快速降级
 
 # 原文提取失败域名集合（避免重复打印相同错误）
 FAILED_DOMAINS = set()
@@ -1354,6 +1354,16 @@ WIDE_ZH_WORDS = set([
     "现象", "加剧", "措施", "方案", "计划", "项目", "结果", "进展", "趋势",
     "消息", "动态", "内容", "平台", "论坛", "峰会", "会议", "活动", "开展",
     "生态", "多地", "遭遇", "期间", "当中", "其中",
+    # 新增：地域/通用词
+    "全国", "湖南", "湖北", "广东", "北京", "上海", "江苏", "浙江", "四川",
+    "山东", "河南", "河北", "福建", "安徽", "江西", "广西", "云南", "贵州",
+    "陕西", "甘肃", "青海", "宁夏", "新疆", "西藏", "内蒙古", "黑龙江", "吉林",
+    "辽宁", "天津", "重庆", "海南", "山西",
+    "城市", "地区", "区域", "地方", "全省", "全市", "全县", "全镇",
+    "首次", "再次", "多次", "不断", "持续", "进一步", "深入", "全面",
+    "重要", "重大", "重点", "主要", "关键", "核心", "基本", "根本",
+    "通过", "进行", "实现", "开展", "推进", "加强", "提升", "提高", "改善",
+    "建立", "建设", "构建", "营造", "打造", "形成", "成为", "作为", "属于",
 ])
 
 # 翻译请求使用的浏览器 User-Agent（避免被翻译接口拦截）
@@ -1377,13 +1387,19 @@ def is_chinese(text):
 
 
 def _get_translation_config():
-    """读取 translation_api 配置（DeepL key 等），带模块级缓存"""
+    """读取 translation_api 配置（DeepL key 等），带模块级缓存；环境变量 DEEPL_API_KEY 优先级最高"""
     global _TRANSLATION_CFG_CACHE
     if _TRANSLATION_CFG_CACHE is None:
         try:
-            _TRANSLATION_CFG_CACHE = load_config().get("translation_api", {}) or {}
+            cfg = load_config().get("translation_api", {}) or {}
         except Exception:
-            _TRANSLATION_CFG_CACHE = {}
+            cfg = {}
+        # 环境变量 DEEPL_API_KEY 优先级高于 config.yaml
+        env_deepl = os.environ.get("DEEPL_API_KEY", "").strip()
+        if env_deepl:
+            cfg["deepl_api_key"] = env_deepl
+            print("[翻译] 检测到环境变量 DEEPL_API_KEY，优先使用 DeepL")
+        _TRANSLATION_CFG_CACHE = cfg
     return _TRANSLATION_CFG_CACHE
 
 
@@ -1432,31 +1448,54 @@ def _deepl_translate(text, api_key):
 
 
 def _google_translate(text):
-    """调用 Google 免费翻译接口（gtx）英文->中文；失败返回空字符串"""
+    """调用 Google 免费翻译接口（gtx）英文->中文；失败返回空字符串；带3次重试（5/10/20秒）"""
     try:
         import urllib.parse
         q = urllib.parse.quote(text[:2000])
         url = (f"https://translate.googleapis.com/translate_a/single"
                f"?client=gtx&sl=en&tl=zh-CN&dt=t&q={q}")
         headers = {"User-Agent": BROWSER_UA}
-        resp = requests.get(url, timeout=10, headers=headers)
-        resp.raise_for_status()
-        data = resp.json()
-        parts = []
-        try:
-            for seg in data[0]:
-                if seg and seg[0]:
-                    parts.append(seg[0])
-        except Exception:
-            return ""
-        translated = "".join(parts).strip()
-        if translated and len(translated) >= 2 and translated != text:
-            print("[翻译] Google 翻译成功")
-            return translated
-        return ""
+        retry_delays = [5, 10, 20]
+        for attempt in range(3):
+            try:
+                resp = requests.get(url, timeout=15, headers=headers)
+                if resp.status_code == 429:
+                    print(f"[翻译] Google 429 限流，第{attempt+1}次重试，等待{retry_delays[attempt]}秒...")
+                    if attempt < 2:
+                        time.sleep(retry_delays[attempt])
+                        continue
+                    return ""
+                resp.raise_for_status()
+                data = resp.json()
+                parts = []
+                try:
+                    for seg in data[0]:
+                        if seg and seg[0]:
+                            parts.append(seg[0])
+                except Exception:
+                    return ""
+                translated = "".join(parts).strip()
+                if translated and len(translated) >= 2 and translated != text:
+                    print("[翻译] Google 翻译成功")
+                    return translated
+                return ""
+            except requests.exceptions.Timeout:
+                print(f"[翻译] Google 请求超时（{attempt+1}/3）")
+                if attempt < 2:
+                    time.sleep(retry_delays[attempt])
+                    continue
+                return ""
+            except requests.exceptions.HTTPError as e:
+                status_code = e.response.status_code if e.response is not None else "unknown"
+                print(f"[翻译] Google HTTP {status_code}（{attempt+1}/3）")
+                if status_code in (429, 500, 502, 503) and attempt < 2:
+                    time.sleep(retry_delays[attempt])
+                    continue
+                return ""
     except Exception as e:
-        print(f"[翻译] Google 翻译失败: {str(e)[:40]}")
+        print(f"[翻译] Google 调用异常: {str(e)[:40]}")
         return ""
+    return ""
 
 
 def translate_en_to_zh(text):
@@ -1503,12 +1542,15 @@ def translate_en_to_zh(text):
 
     # DeepL 优先（失败自动切换 Google）
     if use_deepl:
+        print(f"[翻译] 使用 DeepL 翻译：{text[:40]}")
         result = _deepl_translate(text, deepl_key)
         if result:
             return result
         print("[翻译] DeepL 翻译失败，切换 Google 翻译兜底...")
+    else:
+        print(f"[翻译] DeepL 未配置（deepl_api_key 为空），直接使用 Google 翻译：{text[:40]}")
 
-    # Google 兜底
+    # Google 兜底（带重试，避免 429 频繁失败）
     result = _google_translate(text)
     if result:
         return result
@@ -1575,7 +1617,9 @@ def call_nvidia_api(prompt, api_config, max_tokens=None):
         try:
             # 超时设置：统一 30 秒
             timeout = 30
+            t0 = time.time()
             resp = requests.post(url, headers=headers, json=data, timeout=timeout)
+            elapsed = time.time() - t0
 
             # 404：主模型无效，打印详细信息并尝试备用模型
             if resp.status_code == 404:
@@ -1609,7 +1653,7 @@ def call_nvidia_api(prompt, api_config, max_tokens=None):
                 return None
             # 调用成功，重置连续失败计数
             NVIDIA_CONSECUTIVE_FAILURES = 0
-            print(f"[英伟达 NIMAPI] 调用成功（模型: {model}，耗时/长度正常）")
+            print(f"[英伟达 NIMAPI] 调用成功（模型: {model}，耗时: {elapsed:.1f}s，输入长度: {len(prompt)} 字符）")
             return content
         except requests.exceptions.HTTPError as e:
             status_code = e.response.status_code if e.response is not None else "unknown"
@@ -2390,113 +2434,134 @@ def generate_batch_summaries(items, api_config):
     if not candidates:
         return items
 
-    # 构建 prompt（每个条目均包含；有原文给内容，无原文注明基于标题）
-    news_list = []
-    for local_idx, (_, _, item, article_text) in enumerate(candidates):
-        title = item.get("title", "无标题")
-        if article_text:
-            news_list.append(f"{local_idx}. 标题：{title}\n内容：{article_text}")
-        else:
-            news_list.append(f"{local_idx}. 标题：{title}\n（暂无原文，请基于标题中的关键信息生成摘要，不要直接照抄标题原话）")
+    # 分批处理：每批最多 5 条，降低单次请求长度和超时风险
+    BATCH_SIZE = 5
+    total_batches = (len(candidates) + BATCH_SIZE - 1) // BATCH_SIZE
+    total_success = 0
 
-    prompt = f"""你是一个环境领域摘要助手。请为以下每条新闻生成一句不超过50字的中文摘要，直接返回JSON数组，格式：[{{"id":0,"summary":"..."}},{{"id":1,"summary":"..."}}]，不要解释。
+    for batch_idx in range(total_batches):
+        start = batch_idx * BATCH_SIZE
+        batch = candidates[start:start + BATCH_SIZE]
+        batch_local_offset = start  # 本批第一条在全局 candidates 中的索引
+
+        # 连续失败达到阈值，剩余批次全部回退规则生成
+        if NVIDIA_CONSECUTIVE_FAILURES >= NVIDIA_MAX_CONSECUTIVE_FAILURES:
+            print(f"[AI批量摘要] 连续失败次数过多，第{batch_idx+1}/{total_batches}批回退规则生成")
+            _apply_rule_summaries(batch)
+            continue
+
+        # 构建本批 prompt
+        news_list = []
+        for local_in_batch, (_, _, item, article_text) in enumerate(batch):
+            title = item.get("title", "无标题")
+            if article_text:
+                news_list.append(f"{local_in_batch}. 标题：{title}\n内容：{article_text}")
+            else:
+                news_list.append(f"{local_in_batch}. 标题：{title}\n（暂无原文，请基于标题中的关键信息生成摘要，不要直接照抄标题原话）")
+
+        prompt = f"""你是一个环境领域摘要助手。请为以下每条新闻生成一句不超过50字的中文摘要，直接返回JSON数组，格式：[{{"id":0,"summary":"..."}},{{"id":1,"summary":"..."}}]，不要解释。
 摘要需包含关键信息，不要直接照抄标题原话。
 
 新闻列表：
 {chr(10).join(news_list)}"""
 
-    # 批量请求，重试1-2次，等待5秒、10秒，超时20秒
-    retry_delays = [5, 10]
-    result_text = None
-    for attempt in range(2):
-        try:
-            url = api_config["base_url"].rstrip("/") + "/chat/completions"
-            headers = {
-                "Authorization": f"Bearer {api_config['api_key']}",
-                "Content-Type": "application/json",
-            }
-            data = {
-                "model": api_config["model"],
-                "messages": [{"role": "user", "content": prompt}],
-                "max_tokens": 800,
-                "temperature": 0.3,
-            }
-            resp = requests.post(url, headers=headers, json=data, timeout=30)
-            resp.raise_for_status()
-            result = resp.json()
-            result_text = _extract_ai_content(result)
-            if not result_text:
-                # 返回空/格式异常：重试1次（5秒）后仍失败才降级
-                print(f"[AI批量摘要] 返回为空或格式异常（{attempt+1}/1 次重试）")
+        # 批量请求，重试2次，等待5秒、10秒，超时30秒
+        retry_delays = [5, 10]
+        result_text = None
+        for attempt in range(2):
+            try:
+                url = api_config["base_url"].rstrip("/") + "/chat/completions"
+                headers = {
+                    "Authorization": f"Bearer {api_config['api_key']}",
+                    "Content-Type": "application/json",
+                }
+                data = {
+                    "model": api_config["model"],
+                    "messages": [{"role": "user", "content": prompt}],
+                    "max_tokens": 400,
+                    "temperature": 0.3,
+                }
+                t0 = time.time()
+                resp = requests.post(url, headers=headers, json=data, timeout=30)
+                elapsed = time.time() - t0
+                resp.raise_for_status()
+                result = resp.json()
+                result_text = _extract_ai_content(result)
+                if not result_text:
+                    print(f"[AI批量摘要] 第{batch_idx+1}批返回为空（{attempt+1}/2 次重试）")
+                    if attempt < 1:
+                        time.sleep(5)
+                        continue
+                    NVIDIA_CONSECUTIVE_FAILURES += 1
+                    break
+                NVIDIA_CONSECUTIVE_FAILURES = 0
+                print(f"[AI批量摘要] 第{batch_idx+1}/{total_batches}批调用成功（耗时: {elapsed:.1f}s，{len(batch)}条）")
+                break
+            except requests.exceptions.HTTPError as e:
+                status_code = e.response.status_code if e.response is not None else "unknown"
+                if status_code == 429 and attempt < 1:
+                    wait_time = retry_delays[attempt]
+                    print(f"[AI批量摘要] 第{batch_idx+1}批 429限流，等待{wait_time}秒重试...")
+                    time.sleep(wait_time)
+                    continue
+                print(f"[AI批量摘要] 第{batch_idx+1}批 HTTP错误 {status_code}（回退规则）")
+                NVIDIA_CONSECUTIVE_FAILURES += 1
+                break
+            except requests.exceptions.Timeout:
+                print(f"[AI批量摘要] 第{batch_idx+1}批请求超时（{attempt+1}/2）")
                 if attempt < 1:
                     time.sleep(5)
                     continue
                 NVIDIA_CONSECUTIVE_FAILURES += 1
                 break
-            NVIDIA_CONSECUTIVE_FAILURES = 0
-            print("[AI批量摘要] 调用成功")
-            break
-        except requests.exceptions.HTTPError as e:
-            status_code = e.response.status_code if e.response is not None else "unknown"
-            if status_code == 429 and attempt < 1:
-                wait_time = retry_delays[attempt]
-                print(f"[AI批量摘要] 429限流，第{attempt+1}次重试，等待{wait_time}秒...")
-                time.sleep(wait_time)
-                continue
-            print(f"[AI批量摘要] HTTP错误 {status_code}（将回退规则生成）")
-            NVIDIA_CONSECUTIVE_FAILURES += 1
-            break
-        except requests.exceptions.Timeout:
-            if attempt < 1:
-                wait_time = retry_delays[attempt]
-                print(f"[AI批量摘要] 请求超时，第{attempt+1}次重试，等待{wait_time}秒...")
-                time.sleep(wait_time)
-                continue
-            print("[AI批量摘要] 请求超时（将回退规则生成）")
-            NVIDIA_CONSECUTIVE_FAILURES += 1
-            break
-        except Exception as e:
-            print(f"[AI批量摘要] 调用失败: {str(e)[:60]}（将回退规则生成）")
-            NVIDIA_CONSECUTIVE_FAILURES += 1
-            break
+            except Exception as e:
+                print(f"[AI批量摘要] 第{batch_idx+1}批调用失败: {str(e)[:50]}（回退规则）")
+                NVIDIA_CONSECUTIVE_FAILURES += 1
+                break
 
-    # 解析并写回
-    if result_text:
-        try:
-            result_text = result_text.strip()
-            if result_text.startswith("```"):
-                result_text = result_text.split("\n", 1)[-1]
-                if result_text.endswith("```"):
-                    result_text = result_text[:-3]
-            result_text = result_text.strip()
-            start = result_text.find("[")
-            end = result_text.rfind("]")
-            if start >= 0 and end > start:
-                result_text = result_text[start:end+1]
-            summaries = json.loads(result_text)
-            success_ids = set()
-            if isinstance(summaries, list):
-                for s in summaries:
-                    if isinstance(s, dict) and "id" in s and "summary" in s:
-                        local_idx = int(s["id"])
-                        if 0 <= local_idx < len(candidates):
-                            _, _, item, _ = candidates[local_idx]
-                            new_summary = str(s["summary"]).strip().strip('"').strip("'")
-                            title = item.get("title", "")
-                            if new_summary and new_summary != title:
-                                item["summary"] = new_summary
-                                success_ids.add(local_idx)
-            # 未成功生成的条目回退规则
-            for local_idx, (_, _, item, _) in enumerate(candidates):
-                if local_idx not in success_ids:
-                    item["summary"] = _fallback_rule_summary(item.get("title", ""))
-            print(f"[AI批量摘要] 生成摘要 {len(success_ids)}/{len(candidates)} 条，其余回退规则")
-        except Exception as e:
-            print(f"[AI批量摘要] 解析返回结果失败: {str(e)[:50]}（回退规则生成）")
-            _apply_rule_summaries(candidates)
-    else:
-        _apply_rule_summaries(candidates)
+        # 解析本批结果并写回
+        batch_success = 0
+        if result_text:
+            try:
+                result_text = result_text.strip()
+                if result_text.startswith("```"):
+                    result_text = result_text.split("\n", 1)[-1]
+                    if result_text.endswith("```"):
+                        result_text = result_text[:-3]
+                result_text = result_text.strip()
+                start_pos = result_text.find("[")
+                end_pos = result_text.rfind("]")
+                if start_pos >= 0 and end_pos > start_pos:
+                    result_text = result_text[start_pos:end_pos+1]
+                summaries = json.loads(result_text)
+                if isinstance(summaries, list):
+                    success_ids = set()
+                    for s in summaries:
+                        if isinstance(s, dict) and "id" in s and "summary" in s:
+                            local_in_batch = int(s["id"])
+                            if 0 <= local_in_batch < len(batch):
+                                _, _, item, _ = batch[local_in_batch]
+                                new_summary = str(s["summary"]).strip().strip('"').strip("'")
+                                title = item.get("title", "")
+                                if new_summary and new_summary != title:
+                                    item["summary"] = new_summary
+                                    success_ids.add(local_in_batch)
+                                    batch_success += 1
+                    # 本批未成功的条目回退规则
+                    for local_in_batch, (_, _, item, _) in enumerate(batch):
+                        if local_in_batch not in success_ids:
+                            item["summary"] = _fallback_rule_summary(item.get("title", ""))
+                else:
+                    _apply_rule_summaries(batch)
+            except Exception as e:
+                print(f"[AI批量摘要] 第{batch_idx+1}批解析失败: {str(e)[:40]}（回退规则）")
+                _apply_rule_summaries(batch)
+        else:
+            _apply_rule_summaries(batch)
 
+        total_success += batch_success
+
+    print(f"[AI批量摘要] 完成：AI生成 {total_success}/{len(candidates)} 条，其余回退规则")
     return items
 
 
@@ -2963,25 +3028,48 @@ def extract_specific_keywords_jieba(items, config):
             if zh and zh != title and is_chinese(zh):
                 seg_title = zh
             else:
-                # 翻译失败：提取英文专有名词（长度>=3、非停用词、首字母大写或词表映射）
-                en_words = re.findall(r"[A-Za-z][A-Za-z\-]{2,}", title)
+                # 翻译失败：只保留强环境英文词表中的词或已知缩写，过滤 Science/Nature 等通用词
+                EN_GENERIC_BLACKLIST = {
+                    "science", "nature", "new", "research", "study", "analysis",
+                    "journal", "proceedings", "conference", "paper", "article",
+                    "review", "letter", "report", "news", "today", "daily",
+                    "weekly", "monthly", "annual", "international", "national",
+                    "global", "world", "country", "region", "area", "city",
+                    "people", "person", "man", "woman", "child", "student",
+                    "researcher", "scientist", "expert", "author", "editor",
+                    "published", "online", "open", "access", "free", "full",
+                    "abstract", "introduction", "method", "result", "discussion",
+                    "conclusion", "reference", "university", "institute", "college",
+                    "school", "department", "laboratory", "center", "centre",
+                    "program", "project", "based", "using", "used", "via",
+                    "between", "among", "within", "without", "within", "from",
+                }
+                ENV_ABBR = {"ai", "esg", "epa", "vocs", "pm2.5", "pm10", "cop",
+                             "ghg", "lca", "bmp", "wwtp", "cod", "bod", "toc",
+                             "tss", "tn", "tp", "ph", "do", "ec", "tds"}
+                en_words = re.findall(r"[A-Za-z][A-Za-z\-\.0-9]{1,}", title)
                 seen = set()
                 for w in en_words:
-                    wl = w.lower().strip("-")
-                    if len(wl) < 3 or wl in STOP_WORDS_EN or wl in seen:
+                    wl = w.lower().strip("-").strip(".")
+                    if len(wl) < 2 or wl in seen:
                         continue
                     seen.add(wl)
+                    if wl in EN_GENERIC_BLACKLIST or wl in STOP_WORDS_EN:
+                        continue
                     mapped = EN_ZH_REVERSE.get(wl)
-                    if mapped:
-                        if (len(mapped) >= 2 and len(mapped) <= 6
-                                and mapped not in preset
-                                and mapped not in STOP_WORDS
-                                and mapped not in WIDE_ZH_WORDS
-                                and not any(m in mapped for m in MEDIA_BLACKLIST)):
-                            counter[mapped] += 1
-                    elif w[0].isupper() or w.isupper():
-                        # 首字母大写的英文专有名词（EPA、ESG、Nature 等）
+                    if mapped and (2 <= len(mapped) <= 6
+                                   and mapped not in preset
+                                   and mapped not in STOP_WORDS
+                                   and mapped not in WIDE_ZH_WORDS
+                                   and not any(m in mapped for m in MEDIA_BLACKLIST)):
+                        counter[mapped] += 1
+                        continue
+                    if wl in [e.lower() for e in ENV_RELATED_EN]:
                         counter[w] += 1
+                        continue
+                    if wl in ENV_ABBR:
+                        counter[w] += 1
+                        continue
                 continue
         else:
             seg_title = title
@@ -2999,8 +3087,20 @@ def extract_specific_keywords_jieba(items, config):
             if re.fullmatch(r"[a-zA-Z\-]+", w):
                 if w.lower() in STOP_WORDS_EN:
                     continue
-                # 纯小写英文词（普通名词/动词）不保留，除非全大写专有名词
-                if not (w.isupper() or w[0].isupper()):
+                # 过滤通用英文词（Science、Nature、Research 等）
+                _en_generic = {"science", "nature", "new", "research", "study",
+                               "analysis", "journal", "paper", "article", "review",
+                               "letter", "report", "news", "today", "daily", "global",
+                               "world", "country", "region", "area", "city", "people",
+                               "person", "student", "researcher", "scientist", "expert",
+                               "author", "editor", "published", "online", "open", "access",
+                               "university", "institute", "college", "school", "department",
+                               "laboratory", "center", "centre", "program", "project",
+                               "based", "using", "used", "via", "between", "among", "within"}
+                if w.lower() in _en_generic:
+                    continue
+                # 纯小写英文词（普通名词/动词）不保留，除非全大写专有名词或在强环境词表中
+                if not (w.isupper() or w[0].isupper() or w.lower() in [e.lower() for e in ENV_RELATED_EN]):
                     continue
             if w in STOP_WORDS or w in WIDE_ZH_WORDS or w in preset:
                 continue

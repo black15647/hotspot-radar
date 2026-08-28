@@ -33,6 +33,7 @@ jobs:
         env:
           NVIDIA_API_KEY: ${{ secrets.NVIDIA_API_KEY }}
           JINA_API_KEY: ${{ secrets.JINA_API_KEY }}
+          DEEPL_API_KEY: ${{ secrets.DEEPL_API_KEY }}
         run: |
           python daily_report.py
 

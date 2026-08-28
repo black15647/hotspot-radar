@@ -553,6 +553,48 @@ def extract_summary(entry):
     return text
 
 
+def clean_summary_inline(text):
+    """
+    内联清洗摘要：去除与正文混在同一行的元数据垃圾。
+    包括：期刊名前缀、"在线发布/发表"元数据片段、DOI 链接/编号、多余空格标点。
+    用于 RSS 原始摘要或 AI 生成摘要中元数据未被按行清洗的情况。
+    """
+    if not text:
+        return ""
+    original = text
+    # 1. 去除 DOI（doi:xxx 或 https://doi.org/xxx），DOI 只匹配到中文字符/空白前
+    text = re.sub(r'https?://(?:dx\.)?doi\.org/\S+', '', text, flags=re.IGNORECASE)
+    text = re.sub(r'\bdoi\s*[:：]?\s*[^\u4e00-\u9fff\s；;。，,]+', '', text, flags=re.IGNORECASE)
+    # 2. 去除"在线发布/在线发表/Published online/发布日期/发表日期/接收日期/收稿日期"
+    #    及其后到分号/句号/换行的内容（含日期）—— 贪婪匹配到分号/句号
+    text = re.sub(
+        r'(?:在线发布|在线发表|发表在线|发布日期|发表日期|接收日期|收稿日期|录用日期|修回日期|'
+        r'Published\s+online|Publication\s+date|Received|Accepted|Revised)'
+        r'\s*[:：]?\s*[^；;。\n]*[；;]?',
+        '', text, flags=re.IGNORECASE
+    )
+    # 3. 去除常见期刊名前缀（出现在摘要开头时）
+    journal_prefixes = [
+        '自然可持续发展', '自然', 'Nature Sustainability', 'Nature', 'Science',
+        '环境科学', 'Environmental Science & Technology', 'Environmental Science',
+        'Water Research', '科学通报', '中国环境科学', '环境科学研究',
+        '环境科学学报', '环境工程学报', '生态学杂志', '生态学报',
+    ]
+    # 按长度降序排列，避免短前缀误匹配
+    for jp in sorted(journal_prefixes, key=len, reverse=True):
+        text = re.sub(r'^\s*' + re.escape(jp) + r'\s*[，,、：:]\s*', '', text.strip())
+    # 4. 去除行首残留的年份/卷期信息（如 "2026, 12(3): "）
+    text = re.sub(r'^\s*\d{4}\s*[,，年]\s*\d+\s*[(（]?\d*[)）]?\s*[:：]?\s*', '', text)
+    # 5. 清理多余空格和首尾标点
+    text = re.sub(r'\s+', ' ', text).strip()
+    text = re.sub(r'^[；;，,、：:\s]+', '', text)
+    text = re.sub(r'[；;，,、：:\s]+$', '', text)
+    # 6. 如果清洗后过短（<10字），返回原文（避免误删）
+    if len(text) < 10 and len(original) >= 20:
+        return original.strip()
+    return text.strip()
+
+
 def match_keywords(text, keywords):
     """
     在文本中匹配关键词，返回匹配到的关键词列表
@@ -1234,6 +1276,11 @@ ENV_RELATED_ZH = [
     "垃圾", "废水", "废气", "固废", "修复", "监测", "环评", "碳汇", "新能源",
     "光伏", "风电", "微塑料", "重金属", "臭氧", "酸雨", "碳中和", "碳达峰",
     "湿地", "物种", "野生动物", "危废", "噪声", "含油污水", "污水",
+    # AI + 环境交叉领域
+    "AI", "人工智能", "机器学习", "深度学习", "智能环境", "环境大数据",
+    "环境工程", "环境科学", "生态学", "市政工程", "给排水", "大气污染控制",
+    "水处理", "污水处理", "土壤修复", "固废处理", "环境监测", "环境健康",
+    "环境政策", "环境技术", "环境管理",
 ]
 # 中文环境单字弱信号（如"水""碳""核"，过于宽泛，不单独触发保留，仅作提示）
 ENV_RELATED_ZH_SINGLE = set("水碳核")
@@ -1251,6 +1298,10 @@ ENV_RELATED_EN = [
     "acid rain", "renewable", "solar", "wind", "microplastic", "heavy metal",
     "ecosystem", "conservation", "environmental", "river", "flood", "drought",
     "wildlife", "species", "recycle", "plastic", "sea", "polution",
+    # AI + 环境交叉
+    "ai", "artificial intelligence", "machine learning", "deep learning",
+    "environmental engineering", "environmental science", "ecology",
+    "water treatment", "wastewater", "air pollution", "soil pollution",
 ]
 # 英文明显无关词（单词边界匹配）
 IRRELEVANT_EN = [
@@ -1681,18 +1732,26 @@ def _ai_relevance_irrelevant(items, api_config):
 
 def _zh_relevance_keep(title):
     """
-    中文标题保守相关性判断：
-    1. 含任一多字环境相关词 -> 保留（必须保留，避免误杀）
-    2. 命中明显无关词（体育/游戏/娱乐等）且无多字环境词 -> 过滤
-    3. 无法判断 -> 默认保留
+    中文标题严格相关性判断：
+    1. 含任一强环境相关词（含 AI/人工智能/机器学习等交叉领域）-> 保留
+    2. 命中明显无关词（体育/游戏/娱乐等）-> 过滤
+    3. 既不含强环境词也不含明显无关词 -> 过滤（严格模式，避免无关热点混入）
+    注意：filter_environmental_relevance 会在剩余不足10条时取消过滤，保留全部
     """
+    title_lower = title.lower()
+    # 1. 强环境相关词匹配（中文直接包含，英文用单词边界）
     for kw in ENV_RELATED_ZH:
-        if kw in title:
+        if re.match(r'^[a-zA-Z\s\-]+$', kw):
+            if re.search(r'\b' + re.escape(kw.lower()) + r'\b', title_lower):
+                return True
+        elif kw in title:
             return True
+    # 2. 明显无关词 -> 过滤
     for m in IRRELEVANT_MARKERS:
         if m in title:
             return False
-    return True
+    # 3. 严格模式：不含强环境词 -> 过滤（由上层在不足10条时放宽）
+    return False
 
 
 def _en_relevance_keep(title):
@@ -1749,14 +1808,27 @@ def filter_environmental_relevance(items, config, api_config):
                 continue
             kept.append(item)
             continue
-        # 规则降级（保守）：只过滤明显无关内容，其余默认保留
+        # 规则降级（严格）：必须含强环境相关词才保留，其余过滤
         keep = _zh_relevance_keep(title) if is_chinese(title) else _en_relevance_keep(title)
+        # 特殊处理：来源为"环境考研"的条目，除"考研"外必须包含环境专业方向词
+        source = item.get("source", "")
+        if keep and "考研" in source:
+            env_major_words = [
+                "环境工程", "环境科学", "生态学", "市政工程", "给排水",
+                "环境监测", "大气污染控制", "水处理", "环境管理", "环境健康",
+                "环境政策", "环境技术", "环境经济学", "环境法学", "资源环境",
+                "地球科学", "地质", "海洋科学", "生物科学", "化学", "材料",
+            ]
+            has_major = any(w in title for w in env_major_words)
+            if not has_major:
+                keep = False
+                print(f"[过滤] 考研条目缺少环境专业方向词：{title[:20]}")
         if keep:
             kept.append(item)
             print(f"[保留] {title[:20]}")
         else:
             item["irrelevant"] = True
-            print(f"[过滤] 明显无关内容：{title[:20]}")
+            print(f"[过滤] 无关内容（缺少环境强相关词）：{title[:20]}")
 
     # 过滤后剩余不足10条 -> 取消过滤，保留全部
     if len(kept) < 10 and len(kept) < len(items):
@@ -2040,44 +2112,73 @@ def generate_topic_tags(item, api_config):
 
 def extract_tags_from_title(title):
     """
-    从标题中提取话题标签作为降级方案
-    优先匹配环境领域具体关键词，其次提取有意义的中文片段
-    英文标题先翻译成中文再提取；翻译失败则提取英文关键词并尝试词表映射
-    过滤媒体名称、客户端等无意义词；失败返回 ["环境动态"]
+    从标题中提取话题标签作为降级方案（增强版）
+    1. 英文标题先翻译成中文再提取；翻译失败则提取英文关键词
+    2. 优先匹配环境领域具体关键词（含 AI/人工智能等交叉领域）
+    3. 提取包含强环境词的连续中文片段（长度4-15字）
+    4. 过滤：纯数字、序数词、量词、时间词、媒体名、通用名词（课堂/小伙等）
+    5. 标签长度至少4个汉字（英文缩写如 AI/VOCs/PM2.5 可单独作为标签）
+    6. 兜底返回 ["环境资讯"]（不使用"环境领域"）
     """
     if not title or len(title) < 4:
-        return ["环境动态"]
+        return ["环境资讯"]
 
-    # 英文标题：先翻译成中文再提取（问题六：避免英文条目兜底"环境领域"）
+    # 英文标题：先翻译成中文再提取
     if not is_chinese(title):
         zh = translate_en_to_zh(title)
         if zh and zh != title and is_chinese(zh):
             return extract_tags_from_title(zh)
-        # 翻译失败：提取英文关键词（长度>=3），过滤无意义词，词表映射中文
-        en_words = re.findall(r"[a-zA-Z]{3,}", title.lower())
+        # 翻译失败：提取英文关键词（长度>=3），过滤停用词，词表映射中文
+        en_words = re.findall(r"[a-zA-Z]{2,}", title)
         words, seen = [], set()
         for w in en_words:
-            if w in STOP_WORDS_EN or w in seen:
+            wl = w.lower()
+            if wl in STOP_WORDS_EN or wl in seen:
                 continue
-            seen.add(w)
+            # 过滤纯数字/单字母
+            if len(wl) < 2 or wl.isdigit():
+                continue
+            seen.add(wl)
             words.append(w)
         mapped = []
         for w in words[:6]:
-            mapped.append(EN_ZH_REVERSE.get(w, w))
+            mapped.append(EN_ZH_REVERSE.get(w.lower(), w))
         if mapped:
             return mapped[:3]
-        return ["环境动态"]
+        return ["环境资讯"]
 
-    # 媒体名/无意义词（出现在提取结果中则丢弃该段）
-    media_noise = [
-        "客户端", "新闻网", "日报", "晚报", "电视台", "广播电台", "通讯社",
-        "搜狐", "网易", "腾讯", "新浪", "凤凰", "澎湃", "环球网", "新华网",
-        "人民网", "央视", "中新网", "参考消息", "联合早报", "财新", "界面",
-        "每经", "第一财经", "证券时报", "经济观察", "中国网", "百家号", "头条",
-        "湖北日报", "今日关注", "详情", "全文", "快讯", "重磅", "突发",
+    # === 中文标题处理 ===
+
+    # 序数词/时间词/量词/通用名词黑名单（出现在提取结果中则丢弃该段）
+    noise_patterns = [
+        # 序数词
+        r"^第[一二三四五六七八九十百千零\d]+次?$",
+        r"^第[一二三四五六七八九十百千零\d]+[届轮期季批]$",
+        # 时间词
+        r"^\d{4}年$", r"^\d{1,2}月$", r"^\d{1,2}日$",
+        r"^今天$", r"^昨天$", r"^明天$", r"^近日$", r"^日前$",
+        r"^今年$", r"^去年$", r"^明年$", r"^本周$", r"^本月$",
+        # 量词/通用名词
+        r"^个$", r"^名$", r"^位$", r"^项$", r"^条$", r"^件$", r"^种$", r"^类$",
+        r"^课堂$", r"^小伙$", r"^安置$", r"^效果$", r"^怎么样$", r"^如何$",
+        r"^为什么$", r"^什么$", r"^哪里$", r"^哪个$", r"^多少$", r"^几$",
+        r"^记者$", r"^编辑$", r"^通讯员$", r"^作者$", r"^来源$",
+        r"^视频$", r"^图片$", r"^全文$", r"^详情$", r"^快讯$", r"^重磅$",
+        r"^突发$", r"^刚刚$", r"^最新$", r"^关注$", r"^热议$", r"^火了$",
+        r"^爆了$", r"^疯传$", r"^刷屏$", r"^围观$", r"^速看$", r"^扩散$",
+        r"^转发$", r"^收藏$", r"^点赞$", r"^订阅$", r"^扫码$", r"^下载$",
+        r"^客户端$", r"^APP$", r"^网站$", r"^公众号$", r"^微博$", r"^微信$",
+        r"^抖音$", r"^快手$", r"^B站$", r"^知乎$", r"^豆瓣$",
+        r"^报道$", r"^新闻$", r"^资讯$", r"^动态$", r"^消息$", r"^专题$",
+        r"^独家$", r"^原创$", r"^首发$", r"^发布$", r"^点击$", r"^阅读$",
+        r"^查看$", r"^摘要$", r"^原文$", r"^链接$", r"^相关$", r"^热点$",
     ]
+    noise_re = re.compile("|".join(noise_patterns))
 
-    # 已知环境领域关键词（具体词）
+    # 媒体名称黑名单
+    media_noise = set(MEDIA_BLACKLIST)
+
+    # 已知环境领域具体关键词（优先匹配）
     specific_keywords = [
         "碳中和", "碳达峰", "碳关税", "碳交易", "碳汇", "碳排放",
         "微塑料", "新污染物", "重金属", "PM2.5", "VOCs", "臭氧",
@@ -2090,61 +2191,137 @@ def extract_tags_from_title(title):
         "光催化", "吸附", "膜分离", "高级氧化", "生物降解",
         "联合国", "COP", "巴黎协定", "京都议定书", "蒙特利尔议定书",
         "生态环境部", "环保部", "国家发改委", "国务院",
+        # AI + 环境交叉
+        "人工智能", "机器学习", "深度学习", "智能环境", "环境大数据",
+        "环境工程", "环境科学", "生态学", "市政工程", "给排水",
+        "大气污染控制", "环境健康", "环境政策", "环境技术", "环境管理",
     ]
 
-    # 从标题中匹配具体关键词
+    # 第一步：从标题中匹配具体关键词
     matched = []
     for kw in specific_keywords:
         if kw in title:
             matched.append(kw)
-
     if matched:
-        # 取前3个匹配的关键词
         return matched[:3]
 
-    # 提取较长的连续中文字符串（长度>=4），并过滤媒体名/无意义片段
+    # 第二步：提取包含强环境词的连续中文片段
     chinese_segments = re.findall(r'[\u4e00-\u9fa5]{4,}', title)
-    valid_segments = []
+    env_segments = []
     for seg in chinese_segments:
-        if any(noise in seg for noise in media_noise):
+        if any(m in seg for m in media_noise):
             continue
-        valid_segments.append(seg)
-    if valid_segments:
-        # 取最长的一段
-        longest = max(valid_segments, key=len)
-        if len(longest) <= 15:
-            return [longest]
-        else:
-            # 太长则取前10个字符
-            return [longest[:10]]
+        if noise_re.match(seg):
+            continue
+        has_env = any(kw in seg for kw in ENV_RELATED_ZH if len(kw) >= 2)
+        if has_env:
+            # 去除序数词前缀（第X次/第X届/第X轮等）
+            seg = re.sub(r'^第[一二三四五六七八九十百千零\d]+[次届轮期季批]', '', seg)
+            if len(seg) >= 4:
+                env_segments.append(seg)
+    if env_segments:
+        # 取最长的一段，长度控制在4-15字
+        longest = max(env_segments, key=len)
+        if len(longest) > 15:
+            longest = longest[:15]
+        return [longest]
+
+    # 第三步：没有强环境词的标题，直接兜底（不提取无意义片段如"课堂"）
+    return ["环境资讯"]
+
+    # 第四步：尝试 jieba 分词提取名词短语（长度2-6）
+    if JIEBA_AVAILABLE:
+        try:
+            _init_jieba_env()
+            nouns = []
+            for w in jieba.cut(title):
+                w = w.strip()
+                if len(w) < 2 or len(w) > 6:
+                    continue
+                if w in STOP_WORDS or w in WIDE_ZH_WORDS:
+                    continue
+                if noise_re.match(w):
+                    continue
+                if any(m in w for m in media_noise):
+                    continue
+                # 过滤纯数字
+                if w.isdigit():
+                    continue
+                nouns.append(w)
+            if nouns:
+                return nouns[:3]
+        except Exception:
+            pass
 
     # 兜底
-    return ["环境动态"]
+    return ["环境资讯"]
 
 
 def _fallback_rule_summary(title):
     """
-    规则生成摘要（AI 失败时的最终兜底）：
-    用 jieba 提取标题核心词，生成"关于「核心词」的资讯"
+    规则生成摘要（AI 失败时的最终兜底）—— 优化版
+    1. 先清洗标题中的 DOI、期刊名前缀、在线发布等元数据
+    2. 用 jieba 提取包含强环境词的核心名词短语（长度2-6字）
+    3. 格式："标题涉及「核心短语」，请点击查看详情。"
+    4. 无法提取有效核心短语时，使用标题前20字 + "，点击查看详情。"
+    5. 不使用"关于「XX」的资讯"格式
     保证 summary 非空且与标题不同
     """
+    if not title:
+        return "环境热点资讯，点击查看详情。"
+
+    # 第一步：清洗标题中的元数据（DOI、期刊名前缀、在线发布等）
+    cleaned_title = clean_summary_inline(title)
+    if not cleaned_title:
+        cleaned_title = title
+
     core = ""
-    if JIEBA_AVAILABLE and title:
+    # 第二步：优先提取包含强环境词的名词短语
+    if JIEBA_AVAILABLE and cleaned_title:
         try:
             _init_jieba_env()
-            for w in jieba.cut(title):
+            env_candidates = []
+            for w in jieba.cut(cleaned_title):
                 w = w.strip()
-                if 2 <= len(w) <= 6 and w not in STOP_WORDS and w not in WIDE_ZH_WORDS:
-                    core = w
-                    break
+                if len(w) < 2 or len(w) > 8:
+                    continue
+                if w in STOP_WORDS or w in WIDE_ZH_WORDS:
+                    continue
+                # 过滤纯数字、序数词
+                if w.isdigit() or re.match(r'^第[一二三四五六七八九十\d]+', w):
+                    continue
+                # 只保留包含强环境词的短语
+                has_env = any(kw in w for kw in ENV_RELATED_ZH if 2 <= len(kw) <= 4)
+                if has_env:
+                    env_candidates.append(w)
+            if env_candidates:
+                core = env_candidates[0]
         except Exception:
             core = ""
+
+    # 第三步：如果 jieba 没提取到，尝试从标题中匹配具体环境关键词
     if not core:
-        cleaned = re.sub(r'[\s\W_]+', '', title or "")
-        core = cleaned[:6] if cleaned else "环境热点"
-    if not core:
-        core = "环境热点"
-    return f"关于「{core}」的资讯。"
+        specific_kw = [
+            "碳中和", "碳达峰", "碳关税", "微塑料", "新污染物", "重金属",
+            "水污染", "大气污染", "土壤污染", "生物多样性", "生态修复",
+            "可再生能源", "新能源", "光伏", "风电", "垃圾分类", "环境监测",
+            "人工智能", "机器学习", "深度学习", "环境大数据", "环境工程",
+            "环境科学", "生态学", "给排水", "环境健康", "环境政策",
+        ]
+        for kw in specific_kw:
+            if kw in cleaned_title:
+                core = kw
+                break
+
+    # 第四步：生成摘要
+    if core and len(core) >= 2:
+        return f"标题涉及「{core}」，请点击查看详情。"
+    else:
+        # 无法提取有效核心短语，使用标题前20字
+        short = cleaned_title[:20].strip()
+        if len(cleaned_title) > 20:
+            short += "…"
+        return f"{short}，点击查看详情。"
 
 
 def _apply_rule_summaries(candidates):
@@ -2919,6 +3096,10 @@ def generate_latest_json(items, config, weekly_summary="", weekly_keywords=None,
         # 生成分析（优先使用 topic_tags 优化）
         analysis = enhance_analysis_with_tags(item)
         item["analysis"] = analysis
+        # 内联清洗摘要：去除期刊名前缀、在线发布元数据、DOI 等与正文混在一行的垃圾
+        raw_summary = item.get("summary", "")
+        if raw_summary:
+            item["summary"] = clean_summary_inline(raw_summary)
         output_items.append({
             "title": sanitize_str(item.get("title")),
             "title_en": sanitize_str(item.get("title_en", "")),

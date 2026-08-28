@@ -17,6 +17,7 @@ from email.mime.text import MIMEText
 from email.header import Header
 from datetime import datetime, timedelta, timezone
 from collections import Counter, defaultdict
+import socket  # 用于给 RSS 抓取设置 socket 超时，避免失效源导致脚本挂起
 
 # 可选依赖：用于原文提取和 AI 摘要
 try:
@@ -607,7 +608,22 @@ def fetch_all_feeds(config, max_items_per_source):
 
         try:
             print(f"[抓取] {source_name} ...")
-            feed = feedparser.parse(url)
+            # 设置 socket 默认超时：防止失效源（如部分被墙/无响应源）导致脚本永久挂起，
+            # 从而保证 GitHub Actions 定时任务能稳定跑完
+            socket.setdefaulttimeout(20)
+            feed = None
+            if REQUESTS_AVAILABLE:
+                try:
+                    resp = requests.get(url, timeout=(10, 20), headers={
+                        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 "
+                                      "(KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
+                    })
+                    if resp.ok and resp.content:
+                        feed = feedparser.parse(resp.content)
+                except Exception:
+                    feed = None
+            if feed is None:
+                feed = feedparser.parse(url)
 
             if feed.bozo and not feed.entries:
                 error_msg = f"解析失败：{feed.bozo_exception}"
@@ -2681,7 +2697,9 @@ def generate_personal_knowledge():
             re.DOTALL
         )
         if pattern.search(existing_content):
-            existing_content = pattern.sub(day_content.rstrip() + "\n\n", existing_content)
+            # 用 lambda 作为替换值：避免 day_content 中的反斜杠（如 \m）被 re.sub
+            # 当作转义序列解析而抛出 PatternError: bad escape
+            existing_content = pattern.sub(lambda m: day_content.rstrip() + "\n\n", existing_content)
             print(f"[个人知识库] 已替换 {today} 的内容")
         else:
             existing_content += "\n" + day_content

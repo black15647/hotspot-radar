@@ -494,3 +494,126 @@
 
 ---
 
+## 2026-08-28
+
+**今日高频关键词**：`#生态环境` `#气候` `#法典` `#科学` `#管理`
+
+**今日 Top10 热点**
+
+### 1. 气候变化加剧喜马拉雅地区致命灾害风险 - 纽约时报中文网
+- **来源**：Google News 气候变化
+- **热度**：28.8
+- **链接**：https://news.google.com/rss/articles/CBMiekFVX3lxTE5NUWlVTDBDYUVJektmblE4WHFpR285Nnhlb29RN1pBazZMazEtcjZMYVRBallfVVBmRERHZVRBZlA3UEhkeDdndEhfXzF1U3d3Zk54UWNkR1B2V2E4aV9yVDE4VXVQeWlFTmxuY1hreDBGWldReFhDU3R3?oc=5
+- **摘要**：研究指出气候变化导致喜马拉雅地区升温，加剧洪水等致命灾害风险。
+- **分析**：该条目涉及【气候变化加剧喜马拉雅】话题，因来源较权威且发布时间较新，热度上升。
+
+### 2. 第十次中澳气候变化部长级对话成功召开 - 中华人民共和国生态环境部
+- **来源**：Google News 气候变化
+- **热度**：25.6
+- **链接**：https://news.google.com/rss/articles/CBMidkFVX3lxTFBIZEtqTWNpMUtYQ0x6R1hfNzl2WWRabHRwdGZsRTFxeHZxSVJVY0NpcHhIZUZvNHhwVERHLXlQY3NoQ3N2RkVsMkRoUUtwUnQyTk4zWGs3TkpCYnI3TjQ0ejItNkZudmFvdDV5bjVFU0t3Y0FxMFE?oc=5
+- **摘要**：中澳举行第十次气候变化部长级对话，共商气候合作事宜。
+- **分析**：该条目涉及【生态环境部】话题，因来源较权威且发布时间较新，热度上升。
+
+### 3. 老科技工作者决策咨询沙龙探讨气候记忆助力公众理解气候变化 - 科学网—新闻
+- **来源**：Google News 气候变化
+- **热度**：24.6
+- **链接**：https://news.google.com/rss/articles/CBMiZEFVX3lxTE5SY21jVWJJcHI5ZndWeXRLZ2pPdk5rQmtFdDd6VXY2NFVxTmV1R1I3eVA4b25sU3M4di1zTnV2NUYzM0g2d3Zxek9zRmUxSEJMdEtDTTk0RHFqUGVUYW5lZVB0UGs?oc=5
+- **摘要**：老科技工作者沙龙探讨如何通过气候记忆提升公众对气候变化的认知。
+- **分析**：该条目涉及【气候记忆】话题，因来源较权威且与近期热点主题相关，热度上升。
+
+### 4. A scenario assessment of the global mitigation effort in the light of the 2035 climate finance goal
+- **来源**：Environmental Research Letters
+- **热度**：23.9
+- **链接**：https://iopscience.iop.org/article/10.1088/1748-9326/ae9890
+- **摘要**：联合国气候变化框架公约 (UNFCCC) 于 2024 年同意到 2035 年将发展中国家应对气候变化的资金增加到 3000 亿美元。在这项研究中，我们评估了通过工业化地区的碳定价产生的这笔收入可以在多大程度上减少温室气体 (GHG) 排放。我们评估了一个考虑工业化、转型和发展中地区碳价格差异的情景。我们发现，与现有国家减排目标（以截至 2022 年国家确定的贡献为代表）的情景相比，这种情景到 2035 年可减少 16% 的温室气体排放。尽管如此，在实现减排所需的收入方面仍存在相当大的差距，以确保全球变暖比工业化前水平高出 1.5°C 的气候目标。因此，这些结果表明，除了各国在《联合国气候变化框架公约》下商定的气候融资目标之外，还需要采取更大规模的气候缓解行动。此外，我们通过其他情景强调了工业化地区（美国）和发展中地区（中国）主要温室气体排放国碳定价方案中缺失的影响（在减排、碳价格收入和消费损失方面）。
+- **分析**：该条目涉及【2035气候融资目标】话题，因来源权威性高且与近期热点主题相关，热度上升。
+
+### 5. Report of the 2026 Workshop on Next-Generation Ecosystems for Scientific Computing: Harnessing Community, Software, and AI for Cross-Disciplinary Team Science
+- **来源**：arXiv Environmental Engineering
+- **热度**：22.2
+- **链接**：https://arxiv.org/abs/2608.26519
+- **摘要**：arXiv:2608.26519v1 公告类型：新 摘要：随着人工智能、异构计算、自动化和数据密集型研究的进步，科学计算正在经历快速转型，不仅重塑了计算工具，还重塑了支持科学发现的机构、劳动力模型和协作实践。本报告综合了 2026 年下一代科学计算生态系统研讨会的见解，这是为期三年的系列会议的第二次，重点是通过社会技术协同设计加强科学计算生态系统。研讨会讨论确定了四个相互依赖的战略主题：人工智能支持的科学发现的软件生态系统；信任、验证和可追溯性；人类与人工智能的合作和范式转变；以及劳动力、教育学和治理。该报告将这些主题转化为社区行动的八个优先事项，涵盖共享研究基础设施、信任和可追溯性、用户体验、人类与人工智能团队、劳动力发展、跨部门协调、管理和可持续性以及科学价值评估。这些优先事项共同概述了构建科学计算生态系统的方向，随着人工智能在科学工作中发挥越来越大的作用，这些生态系统仍然值得信赖、可持续、创新和有弹性。
+- **分析**：该条目涉及【生态系统】话题，因发布时间较新且与近期热点主题相关，热度上升。
+
+### 6. Fair Dynamic Operating Envelopes using Distributed Multi-Period Optimal Power Flow and Jain Index for Active Distribution Networks
+- **来源**：arXiv Environmental Engineering
+- **热度**：22.2
+- **链接**：https://arxiv.org/abs/2608.23444
+- **摘要**：arXiv:2608.23444v1 公告类型：交叉 摘要：动态操作范围 (DOE) 越来越多地用于发布随时间变化的出口限制，使配电网络保持在操作限制范围内。然而，纯粹技术性的美国能源部分配可以系统地为电力有利的产消者提供特权，同时将公平性直接嵌入到单周期最优潮流（OPF）目标中，以掩盖公平成本的方式混合网络可行性、公平性和效率。本文提出了一个解决这两个问题的两阶段、多时期框架。最初，技术分布式 OPF 计算网络可行的导出包络。然后，后续阶段应用动态总出口预算，并通过累积比例公平重新分配容量，通过可接受的效率预算限制额外削减。由此产生的公平 DOE 被视为第一阶段决策，而电池存储在需求和可再生能源不确定性下提供依赖于场景的资源。操作问题通过无损 LinDistFlow 模型上的校准区域交替方向乘法器 (ADMM) 来解决，并使用交流潮流进行独立验证。在 24 小时范围内的 IEEE 33 总线馈线上，技术基准产生了 2.1097 MWh 的可再生能源限电，而公平约束分配将限电增加到 5.7216 MWh，但将最大累积限电比率限制在 11.20%，并将 Jain 公平指数提高到接近 1，交流电压偏差低于 0.01 p.u.。并且在采用的 0.90-1.05 p.u. 下没有电压或热违规。限制。结果表明，同时考虑存储（减轻限电影响）和多周期公平性（增加限电）对于现代能源部设计来说是一种有趣的方法，而这反过来又需要多周期共同设计的方法。
+- **分析**：该条目涉及【动态运行包络】话题，因发布时间较新且与近期热点主题相关，热度上升。
+
+### 7. 水资源与灌溉部长跟进加强气候适应能力及制定沿海地区综合管理规划工作 - الهيئة العامة للاستعلامات
+- **来源**：Google News 气候变化
+- **热度**：19.0
+- **链接**：https://news.google.com/rss/articles/CBMikgRBVV95cUxQUUFJMnpqd1pieFVaQ214NVUyaGRIUTJBQ2w1RzhVN2kyT3czMl9aaUZINWJSaFphTlZuQ0xGNDZCQS1NZzZEQXlmSVRDMHhRb0JTakNxSWNsZGluMGZRNG9CSW5mNldSeVItWWY2d0JySGdieDFOM0JVYmMycFJYVDJJT2pIY0xTVjB1NnVLWjVzMUpCQmJQTnlmUlRuX1RndTNseWVWSjJKakgzb3locWVqbGstdE0yMFBrM2w2a0hKMGtBQTZlN0J2VmZDWVdnN0lFX3N5UWE0SE5XWkl6UE1TRFVvQTR6aGp0WGh5dVRuUm5vaHVLd09lNjNwZGUxcXhxc185cUFfOFp0SlhzMm5ueDJvZk8yaXVJRWItQ2REcFhONE5Way1ZR1U5bUI1WlFxdFZlNlBJeXhuM1NnQ0Z4b2prR2N5amtIaDM3anhKUGwtVXUzb0xLaVVMdjgxdExCczlqaFA0VkduZk0wZTk5RWJscUxMb1A4OTBxSGhVYzh5WmF0emNGWWpIV0ItZ2kwd0Q1SWJXUzdYX0dzWllvNUZCTm11UG5LREJhc3RJZl8tV2RnUVlyOUdJcnR1ekdFaGRYNU40VjdOZmxpNFFDWmltQ21jMG9NUUZoTkt4dW9WV2QzQ3lNdVVyTUhxWlJSRDl4YXM5dWUxZjNrVU9LbGZoWXBMd3cweVV1X1JfQQ?oc=5
+- **摘要**：水资源与灌溉部长推进气候适应和沿海地区综合管理规划工作。
+- **分析**：该条目涉及【水资源与灌溉部长跟进】话题，因来源较权威且发布时间较新，热度上升。
+
+### 8. 生态环境法典 守护您的宜居生活 - 中国网新闻中心
+- **来源**：Google News 生态环境
+- **热度**：18.9
+- **链接**：https://news.google.com/rss/articles/CBMia0FVX3lxTFBMdjNVT0RZX0NEdmFOTm5XbHo3TjQ0akdaeWlFeGV0ay1nMndBOXJGUF9pMHNiQ2dPQ1h3R3Q3NHF1WFlQdEJHX1hrOG5VOURVaHQ0enBRV1lIcUFXTEhEUUFZU3pRcmdXLWs4?oc=5
+- **摘要**：生态环境法典旨在守护公众宜居生活，提供法律保障。
+- **分析**：该条目涉及【生态环境法典】话题，因来源较权威且发布时间较新，热度上升。
+
+### 9. 7月北京PM2.5浓度同比下降0.5% - 新京报
+- **来源**：Google News 环境污染
+- **热度**：18.8
+- **链接**：https://news.google.com/rss/articles/CBMiZEFVX3lxTE5PWFk3ZGppYTN3NkRqczBGZG9vTy00ZEdUaDdKRnUzQXpSRDk0V1c2ek96VjR2eno1M0Y5UHNMRUFFWGV2TmV2Q3hiRFZwODdBdXNVbEctQ2piTG1HNVdkZnRsbVA?oc=5
+- **摘要**：今年7月北京PM2.5浓度较去年同期下降0.5%，空气质量改善。
+- **分析**：该条目涉及【PM2.5】话题，因来源较权威且发布时间较新，热度上升。
+
+### 10. 当课堂搬到工厂里 效果怎么样？ - 北京市人民政府门户网站
+- **来源**：Google News 环境保护
+- **热度**：18.8
+- **链接**：https://news.google.com/rss/articles/CBMidEFVX3lxTFBnVHFaMkdMWkNBbGJOcTZWOHJ4VWRUWGotNDR6Umc0RnE1Y0xsZkk1VUEtakdaV0RJM0luUjZOZmFZenZ1T2lFWlFzTmJ6ZXJKMUZYS1ppcGtfNVV0MXFFZHh5ZXlfN2JHWU96V05SaldERGdC?oc=5
+- **摘要**：探讨将课堂搬至工厂的实践教学效果，可能涉及职业教育或环保培训。
+- **分析**：该条目涉及【工厂实践教学】话题，因来源较权威且发布时间较新，热度上升。
+
+**今日自动提取候选新词**
+
+- **生态环境**（出现 6 次）
+  - 上下文：第十次中澳气候变化部长级对话成功召开 - 中华人民共和国生态环境部
+  - 上下文：生态环境法典 守护您的宜居生活 - 中国网新闻中心
+  - 上下文：生态环境部公布2026年7月全国环境空气质量状况 - 中华人民共和国生态环境部
+- **Science**（出现 4 次）
+  - 上下文：Report of the 2026 Workshop on Next-Generation Ecosystems for Scientific Computing: Harnessing Community, Software, and AI for Cross-Disciplinary Team Science
+  - 上下文：A necroptotic-to-apoptotic signaling axis underlies inflammatory bowel disease | Science
+  - 上下文：Foreshock productivity and rupture nucleation in injection-induced earthquakes in western Canada | Science
+- **法典**（出现 3 次）
+  - 上下文：生态环境法典 守护您的宜居生活 - 中国网新闻中心
+  - 上下文：贯彻实施生态环境法典，珠海这样做→ - 搜狐网
+  - 上下文：生态环境法典进大宁，携手共筑净美宜居家园 - 新浪财经
+- **flood**（出现 3 次）
+  - 上下文：'The flood took everything': Nepal survivors describe horror of loved ones being swept away
+  - 上下文：'Our parents were crossing the border an hour before the flood hit'
+  - 上下文：Glacier collapse caused Nepal’s deadly flash flood — a sign of things to come?
+- **中华人民共和国**（出现 2 次）
+  - 上下文：第十次中澳气候变化部长级对话成功召开 - 中华人民共和国生态环境部
+  - 上下文：生态环境部公布2026年7月全国环境空气质量状况 - 中华人民共和国生态环境部
+- **气候**（出现 2 次）
+  - 上下文：老科技工作者决策咨询沙龙探讨气候记忆助力公众理解气候变化 - 科学网—新闻
+  - 上下文：水资源与灌溉部长跟进加强气候适应能力及制定沿海地区综合管理规划工作 - الهيئة العامة للاستعلامات
+- **climate**（出现 2 次）
+  - 上下文：A scenario assessment of the global mitigation effort in the light of the 2035 climate finance goal
+  - 上下文：El Niño climate patterns supercharged by burning of fossil fuels, study finds
+- **宜居**（出现 2 次）
+  - 上下文：生态环境法典 守护您的宜居生活 - 中国网新闻中心
+  - 上下文：生态环境法典进大宁，携手共筑净美宜居家园 - 新浪财经
+- **中国**（出现 2 次）
+  - 上下文：生态环境法典 守护您的宜居生活 - 中国网新闻中心
+  - 上下文：在安置点被暖心照顾，河南考研小伙想扎根宁波 - 中国宁波网
+- **making**（出现 2 次）
+  - 上下文：Dreams of making drugs and tissues in space get closer to reality
+  - 上下文：France relaxes strict cheese-making rules after prolonged drought
+- **Nepal**（出现 2 次）
+  - 上下文：'The flood took everything': Nepal survivors describe horror of loved ones being swept away
+  - 上下文：Glacier collapse caused Nepal’s deadly flash flood — a sign of things to come?
+- **Unraveled**（出现 2 次）
+  - 上下文：Overlooked fluorescence spectra at short excitation wavelengths: Unraveled by uranium-mediated fluorescence quenching in CDOM
+  - 上下文：A Hard-Won Rule to Cut Chemical Plant Pollution Is Being Unraveled
+- **财经**（出现 2 次）
+  - 上下文：生态环境法典进大宁，携手共筑净美宜居家园 - 新浪财经
+  - 上下文：严重破坏生态环境将终身追责 - 新浪财经
+
+---

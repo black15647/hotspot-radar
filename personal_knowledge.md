@@ -496,122 +496,130 @@
 
 ## 2026-08-28
 
-**今日高频关键词**：`#气候变化` `#生态系统` `#可再生能源` `#考研` `#中澳气候变化部长级对话`
+**今日高频关键词**：`#生态环境` `#法典` `#Science` `#湖南` `#全国`
 
 **今日 Top10 热点**
 
-### 1. 气候变化加剧喜马拉雅地区致命灾害风险 - 纽约时报中文网
+### 1. 2026年“应对气候变化的城乡景观”国际暑期学校圆满收官 - 中国农业大学新闻网
 - **来源**：Google News 气候变化
-- **热度**：28.3
-- **链接**：https://news.google.com/rss/articles/CBMiekFVX3lxTE5NUWlVTDBDYUVJektmblE4WHFpR285Nnhlb29RN1pBazZMazEtcjZMYVRBallfVVBmRERHZVRBZlA3UEhkeDdndEhfXzF1U3d3Zk54UWNkR1B2V2E4aV9yVDE4VXVQeWlFTmxuY1hreDBGWldReFhDU3R3?oc=5
-- **摘要**：关于「气候变化」的资讯。
-- **分析**：该条目涉及【气候变化加剧喜马拉雅】话题，因来源较权威且发布时间较新，热度上升。
+- **热度**：29.8
+- **链接**：https://news.google.com/rss/articles/CBMic0FVX3lxTE96b0pTdlA4WU1YRXYzZmFuUTVyNEtqRVZ4VlI4WDM3V3k1dDZUVjFrX093VjRLcUJkaDVvcU9UZW1LTWFqNkpCb3pSZkJxdlJmd2kzZlI0QktvcllWb3BrQldGTi1PQnA3VmM5RlVqZ2Z1WUU?oc=5
+- **摘要**：标题涉及「气候变化」，请点击查看详情。
+- **分析**：该条目涉及【应对气候变化的城乡景观】话题，因来源较权威且发布时间较新，热度上升。
 
-### 2. 第十次中澳气候变化部长级对话成功召开 - 中华人民共和国生态环境部
+### 2. 气候变化加剧喜马拉雅地区致命灾害风险 - 纽约时报中文网
 - **来源**：Google News 气候变化
-- **热度**：25.2
+- **热度**：28.4
+- **链接**：https://news.google.com/rss/articles/CBMiekFVX3lxTE5NUWlVTDBDYUVJektmblE4WHFpR285Nnhlb29RN1pBazZMazEtcjZMYVRBallfVVBmRERHZVRBZlA3UEhkeDdndEhfXzF1U3d3Zk54UWNkR1B2V2E4aV9yVDE4VXVQeWlFTmxuY1hreDBGWldReFhDU3R3?oc=5
+- **摘要**：标题涉及「气候变化」，请点击查看详情。
+- **分析**：该条目涉及【气候变化加剧喜马拉雅地区致命灾】话题，因来源较权威且发布时间较新，热度上升。
+
+### 3. 甘肃应对气候变化工作取得阶段性成效 - ideacarbon.org
+- **来源**：Google News 气候变化
+- **热度**：27.6
+- **链接**：https://news.google.com/rss/articles/CBMiXkFVX3lxTE94R3dXVF9WSGJHYlI2NkJPRlo1bHphYnZmRGxSN0sxYVFrVHlHMkh3VjduakhZRE5KYjZ3SGpfbWltU0J4dEpsaENQNlJDLWM5Tnd0OXdiR0lUR2lvc2c?oc=5
+- **摘要**：标题涉及「气候变化」，请点击查看详情。
+- **分析**：该条目涉及【甘肃应对气候变化工作取得阶段性】话题，因来源较权威且发布时间较新，热度上升。
+
+### 4. 研究：气候变化或致欧洲野火过火面积激增 - 人民日报
+- **来源**：Google News 气候变化
+- **热度**：27.1
+- **链接**：https://news.google.com/rss/articles/CBMif0FVX3lxTFBzSW9WV2JCM3hTUWhDSV9wbFRKNWg0bVRLSGtGTEkyM3hVZ3ZDSU5rYjZFNXRIWmVXcFNiRERyeXBlbE9pWTRrT0FQcGZrUXM0THk1NWZ4OThLV2hXVUVMWDkzYkp2VmRUQm1kRzRaNTVON2VZLWFOWjdDM2NyZUU?oc=5
+- **摘要**：标题涉及「气候变化」，请点击查看详情。
+- **分析**：该条目涉及【气候变化或致欧洲野火过火面积激】话题，因来源较权威且与近期热点主题相关，热度上升。
+
+### 5. 第十次中澳气候变化部长级对话成功召开 - 中华人民共和国生态环境部
+- **来源**：Google News 气候变化
+- **热度**：26.0
 - **链接**：https://news.google.com/rss/articles/CBMidkFVX3lxTFBIZEtqTWNpMUtYQ0x6R1hfNzl2WWRabHRwdGZsRTFxeHZxSVJVY0NpcHhIZUZvNHhwVERHLXlQY3NoQ3N2RkVsMkRoUUtwUnQyTk4zWGs3TkpCYnI3TjQ0ejItNkZudmFvdDV5bjVFU0t3Y0FxMFE?oc=5
-- **摘要**：关于「第十次」的资讯。
+- **摘要**：标题涉及「气候变化」，请点击查看详情。
 - **分析**：该条目涉及【生态环境部】话题，因来源较权威且与近期热点主题相关，热度上升。
 
-### 3. 老科技工作者决策咨询沙龙探讨气候记忆助力公众理解气候变化 - 科学网—新闻
-- **来源**：Google News 气候变化
-- **热度**：24.3
-- **链接**：https://news.google.com/rss/articles/CBMiZEFVX3lxTE5SY21jVWJJcHI5ZndWeXRLZ2pPdk5rQmtFdDd6VXY2NFVxTmV1R1I3eVA4b25sU3M4di1zTnV2NUYzM0g2d3Zxek9zRmUxSEJMdEtDTTk0RHFqUGVUYW5lZVB0UGs?oc=5
-- **摘要**：关于「科技」的资讯。
-- **分析**：该条目涉及【老科技工作者决策咨询】话题，因来源较权威且与近期热点主题相关，热度上升。
-
-### 4. A scenario assessment of the global mitigation effort in the light of the 2035 climate finance goal
-- **来源**：Environmental Research Letters
-- **热度**：23.7
-- **链接**：https://iopscience.iop.org/article/10.1088/1748-9326/ae9890
-- **摘要**：联合国气候变化框架公约 (UNFCCC) 于 2024 年同意到 2035 年将发展中国家应对气候变化的资金增加到 3000 亿美元。在这项研究中，我们评估了通过工业化地区的碳定价产生的这笔收入可以在多大程度上减少温室气体 (GHG) 排放。我们评估了一个考虑工业化、转型和发展中地区碳价格差异的情景。我们发现，与现有国家减排目标（以截至 2022 年国家确定的贡献为代表）的情景相比，这种情景到 2035 年可减少 16% 的温室气体排放。尽管如此，在实现减排所需的收入方面仍存在相当大的差距，以确保全球变暖比工业化前水平高出 1.5°C 的气候目标。因此，这些结果表明，除了各国在《联合国气候变化框架公约》下商定的气候融资目标之外，还需要采取更大规模的气候缓解行动。此外，我们通过其他情景强调了工业化地区（美国）和发展中地区（中国）主要温室气体排放国碳定价方案中缺失的影响（在减排、碳价格收入和消费损失方面）。
-- **分析**：该条目涉及【2035气候融资目标】话题，因来源权威性高且与近期热点主题相关，热度上升。
-
-### 5. Report of the 2026 Workshop on Next-Generation Ecosystems for Scientific Computing: Harnessing Community, Software, and AI for Cross-Disciplinary Team Science
-- **来源**：arXiv Environmental Engineering
-- **热度**：21.7
-- **链接**：https://arxiv.org/abs/2608.26519
-- **摘要**：arXiv:2608.26519v1 公告类型：新 摘要：随着人工智能、异构计算、自动化和数据密集型研究的进步，科学计算正在经历快速转型，不仅重塑了计算工具，还重塑了支持科学发现的机构、劳动力模型和协作实践。本报告综合了 2026 年下一代科学计算生态系统研讨会的见解，这是为期三年的系列会议的第二次，重点是通过社会技术协同设计加强科学计算生态系统。研讨会讨论确定了四个相互依赖的战略主题：人工智能支持的科学发现的软件生态系统；信任、验证和可追溯性；人类与人工智能的合作和范式转变；以及劳动力、教育学和治理。该报告将这些主题转化为社区行动的八个优先事项，涵盖共享研究基础设施、信任和可追溯性、用户体验、人类与人工智能团队、劳动力发展、跨部门协调、管理和可持续性以及科学价值评估。这些优先事项共同概述了构建科学计算生态系统的方向，随着人工智能在科学工作中发挥越来越大的作用，这些生态系统仍然值得信赖、可持续、创新和有弹性。
-- **分析**：该条目涉及【生态系统】话题，因发布时间较新且与近期热点主题相关，热度上升。
-
-### 6. Fair Dynamic Operating Envelopes using Distributed Multi-Period Optimal Power Flow and Jain Index for Active Distribution Networks
-- **来源**：arXiv Environmental Engineering
-- **热度**：21.7
-- **链接**：https://arxiv.org/abs/2608.23444
-- **摘要**：arXiv:2608.23444v1 公告类型：交叉 摘要：动态操作范围 (DOE) 越来越多地用于发布随时间变化的出口限制，使配电网络保持在操作限制范围内。然而，纯粹技术性的美国能源部分配可以系统地为电力有利的产消者提供特权，同时将公平性直接嵌入到单周期最优潮流（OPF）目标中，以掩盖公平成本的方式混合网络可行性、公平性和效率。本文提出了一个解决这两个问题的两阶段、多时期框架。最初，技术分布式 OPF 计算网络可行的导出包络。然后，后续阶段应用动态总出口预算，并通过累积比例公平重新分配容量，通过可接受的效率预算限制额外削减。由此产生的公平 DOE 被视为第一阶段决策，而电池存储在需求和可再生能源不确定性下提供依赖于场景的资源。操作问题通过无损 LinDistFlow 模型上的校准区域交替方向乘法器 (ADMM) 来解决，并使用交流潮流进行独立验证。在 24 小时范围内的 IEEE 33 总线馈线上，技术基准产生了 2.1097 MWh 的可再生能源限电，而公平约束分配将限电增加到 5.7216 MWh，但将最大累积限电比率限制在 11.20%，并将 Jain 公平指数提高到接近 1，交流电压偏差低于 0.01 p.u.。并且在采用的 0.90-1.05 p.u. 下没有电压或热违规。限制。结果表明，同时考虑存储（减轻限电影响）和多周期公平性（增加限电）对于现代能源部设计来说是一种有趣的方法，而这反过来又需要多周期共同设计的方法。
-- **分析**：该条目涉及【指数实现主动配电网络】话题，因发布时间较新且与近期热点主题相关，热度上升。
-
-### 7. 生态环境法典 守护您的宜居生活 - 中国网新闻中心
-- **来源**：Google News 生态环境
-- **热度**：18.4
-- **链接**：https://news.google.com/rss/articles/CBMia0FVX3lxTFBMdjNVT0RZX0NEdmFOTm5XbHo3TjQ0akdaeWlFeGV0ay1nMndBOXJGUF9pMHNiQ2dPQ1h3R3Q3NHF1WFlQdEJHX1hrOG5VOURVaHQ0enBRV1lIcUFXTEhEUUFZU3pRcmdXLWs4?oc=5
-- **摘要**：关于「生态环境」的资讯。
-- **分析**：该条目涉及【生态环境法典】话题，因来源较权威且发布时间较新，热度上升。
-
-### 8. 7月北京PM2.5浓度同比下降0.5% - 新京报
-- **来源**：Google News 环境污染
-- **热度**：18.3
-- **链接**：https://news.google.com/rss/articles/CBMiZEFVX3lxTE5PWFk3ZGppYTN3NkRqczBGZG9vTy00ZEdUaDdKRnUzQXpSRDk0V1c2ek96VjR2eno1M0Y5UHNMRUFFWGV2TmV2Q3hiRFZwODdBdXNVbEctQ2piTG1HNVdkZnRsbVA?oc=5
-- **摘要**：关于「北京」的资讯。
-- **分析**：该条目涉及【PM2.5】话题，因来源较权威且发布时间较新，热度上升。
-
-### 9. 当课堂搬到工厂里 效果怎么样？ - 北京市人民政府门户网站
+### 6. 地质灾害防治与地质环境保护全国重点实验室主任范宣梅：四川山区地灾防控，重心仍在极端降雨触发泥石流 - 川观新闻
 - **来源**：Google News 环境保护
-- **热度**：18.3
-- **链接**：https://news.google.com/rss/articles/CBMidEFVX3lxTFBnVHFaMkdMWkNBbGJOcTZWOHJ4VWRUWGotNDR6Umc0RnE1Y0xsZkk1VUEtakdaV0RJM0luUjZOZmFZenZ1T2lFWlFzTmJ6ZXJKMUZYS1ppcGtfNVV0MXFFZHh5ZXlfN2JHWU96V05SaldERGdC?oc=5
-- **摘要**：关于「课堂」的资讯。
-- **分析**：该条目涉及【产教融合】话题，因来源较权威且发布时间较新，热度上升。
+- **热度**：19.4
+- **链接**：https://news.google.com/rss/articles/CBMiTkFVX3lxTFByUGVNVnhqY0I5b0hKZ3czbU5PanFFcWRoU1Z3WDRtVV8tM3hiamtIYm81UkFMS3VuODJqUzRJMmkyWEk2dDdrNThFRWtxUQ?oc=5
+- **摘要**：标题涉及「环境保护」，请点击查看详情。
+- **分析**：该条目涉及【地质灾害防治与地质环境保护全国】话题，因来源较权威且发布时间较新，热度上升。
 
-### 10. 在安置点被暖心照顾，河南考研小伙想扎根宁波 - 中国宁波网
-- **来源**：Google News 环境考研
-- **热度**：17.9
-- **链接**：https://news.google.com/rss/articles/CBMiaEFVX3lxTE9TdDJ3Zl9EelBQODFPVEdWMTEzelVKc2tVLUdKcV9FNXRjWTVpSnlaTlpsdU5Nb2dISzFlaFJ4QV9TR1hFMDNJR0JWVFlsZlQ5NUtkYXB5b3ZkWEk2cURzT3psNWQxVU5G?oc=5
-- **摘要**：关于「安置」的资讯。
-- **分析**：该条目涉及【宁波安置点】话题，因来源较权威且与近期热点主题相关，热度上升。
+### 7. IPO新观察｜苏讯新材过会，业绩和环保问题被重点问询 - 新京报
+- **来源**：Google News 环境保护
+- **热度**：19.1
+- **链接**：https://news.google.com/rss/articles/CBMiZEFVX3lxTE1VR1hiMXpfblJYRjBYQllOdmxWWF94aTVNdnRVMU5WelF4UEtmRFlPZ0oxd1hwa0MxOGg2SUVqVjBOZURrYmRPZlBvVElUN3pGSEdBUW5kZEZEcks3Z09KakllNmY?oc=5
+- **摘要**：标题涉及「环保」，请点击查看详情。
+- **分析**：该条目涉及【业绩和环保问题被重点问询】话题，因来源较权威且发布时间较新，热度上升。
+
+### 8. 检察官解读生态环境法典之垃圾不能“一倒了之” - hnzf.gov.cn
+- **来源**：Google News 环境污染
+- **热度**：18.9
+- **链接**：https://news.google.com/rss/articles/CBMiZkFVX3lxTFBQcmUtTGdXYmhXRTNJaHVFang3YkE4VURhOVBOa1JfaExWUzVJdTU4eWpkakZaLThyZ0pKMGpDa0hyNG5zM2Y0ME5NZVM2X1doMFFIYWk1VXN6alg4TzdVYlJsdU1qdw?oc=5
+- **摘要**：标题涉及「生态环境」，请点击查看详情。
+- **分析**：该条目涉及【检察官解读生态环境法典之垃圾不】话题，因来源较权威且发布时间较新，热度上升。
+
+### 9. In Africa, a Growing Underground Solar Boom
+- **来源**：Yale Environment 360
+- **热度**：18.5
+- **链接**：https://e360.yale.edu/digest/africa-solar-2026
+- **摘要**：Households and businesses are driving a solar boom in Africa, where rooftop arrays and other small systems account for the bulk of new solar installations. But this rapid buildout, which is driving solar additions to record levels, is largely unaccounted for in official statistics, analysts say.Read more on E360 →
+- **分析**：该条目涉及【Africa】话题，因发布时间较新，热度上升。
+
+### 10. 'Please help us find her': Families fly to Nepal in search for 33 missing British nationals
+- **来源**：BBC 科学与环境
+- **热度**：17.7
+- **链接**：https://www.bbc.co.uk/news/articles/c93v70w79gxo?at_medium=RSS&at_campaign=rss
+- **摘要**：Among the British nationals reported missing are a 13-year-old girl and 14-year-old boy.
+- **分析**：该条目涉及【Please】话题，因发布时间较新，热度上升。
 
 **今日自动提取候选新词**
 
-- **生态环境**（出现 6 次）
+- **生态环境**（出现 7 次）
   - 上下文：第十次中澳气候变化部长级对话成功召开 - 中华人民共和国生态环境部
+  - 上下文：检察官解读生态环境法典之垃圾不能“一倒了之” - hnzf.gov.cn
   - 上下文：生态环境法典 守护您的宜居生活 - 中国网新闻中心
-  - 上下文：生态环境部公布2026年7月全国环境空气质量状况 - 中华人民共和国生态环境部
+- **法典**（出现 5 次）
+  - 上下文：检察官解读生态环境法典之垃圾不能“一倒了之” - hnzf.gov.cn
+  - 上下文：生态环境法典 守护您的宜居生活 - 中国网新闻中心
+  - 上下文：贯彻实施生态环境法典，珠海这样做→ - 搜狐网
 - **Science**（出现 4 次）
   - 上下文：Report of the 2026 Workshop on Next-Generation Ecosystems for Scientific Computing: Harnessing Community, Software, and AI for Cross-Disciplinary Team Science
   - 上下文：A necroptotic-to-apoptotic signaling axis underlies inflammatory bowel disease | Science
   - 上下文：Foreshock productivity and rupture nucleation in injection-induced earthquakes in western Canada | Science
-- **法典**（出现 3 次）
-  - 上下文：生态环境法典 守护您的宜居生活 - 中国网新闻中心
-  - 上下文：贯彻实施生态环境法典，珠海这样做→ - 搜狐网
-  - 上下文：生态环境法典进大宁，携手共筑净美宜居家园 - 新浪财经
-- **flood**（出现 3 次）
-  - 上下文：'The flood took everything': Nepal survivors describe horror of loved ones being swept away
-  - 上下文：'Our parents were crossing the border an hour before the flood hit'
-  - 上下文：Glacier collapse caused Nepal’s deadly flash flood — a sign of things to come?
+- **应对**（出现 2 次）
+  - 上下文：2026年“应对气候变化的城乡景观”国际暑期学校圆满收官 - 中国农业大学新闻网
+  - 上下文：甘肃应对气候变化工作取得阶段性成效 - ideacarbon.org
 - **中华人民共和国**（出现 2 次）
   - 上下文：第十次中澳气候变化部长级对话成功召开 - 中华人民共和国生态环境部
   - 上下文：生态环境部公布2026年7月全国环境空气质量状况 - 中华人民共和国生态环境部
-- **climate**（出现 2 次）
-  - 上下文：A scenario assessment of the global mitigation effort in the light of the 2035 climate finance goal
-  - 上下文：El Niño climate patterns supercharged by burning of fossil fuels, study finds
+- **全国**（出现 2 次）
+  - 上下文：地质灾害防治与地质环境保护全国重点实验室主任范宣梅：四川山区地灾防控，重心仍在极端降雨触发泥石流 - 川观新闻
+  - 上下文：生态环境部公布2026年7月全国环境空气质量状况 - 中华人民共和国生态环境部
+- **环保**（出现 2 次）
+  - 上下文：IPO新观察｜苏讯新材过会，业绩和环保问题被重点问询 - 新京报
+  - 上下文：去哪里做环保志愿？湖南首批10个实践场地来了 - 湖南红网
+- **Nepal**（出现 2 次）
+  - 上下文：'Please help us find her': Families fly to Nepal in search for 33 missing British nationals
+  - 上下文：'The flood took everything': Nepal survivors describe horror of loved ones being swept away
+- **missing**（出现 2 次）
+  - 上下文：'Please help us find her': Families fly to Nepal in search for 33 missing British nationals
+  - 上下文：A solution to the mystery of the missing neutrinos
 - **宜居**（出现 2 次）
   - 上下文：生态环境法典 守护您的宜居生活 - 中国网新闻中心
   - 上下文：生态环境法典进大宁，携手共筑净美宜居家园 - 新浪财经
 - **中国**（出现 2 次）
   - 上下文：生态环境法典 守护您的宜居生活 - 中国网新闻中心
-  - 上下文：在安置点被暖心照顾，河南考研小伙想扎根宁波 - 中国宁波网
-- **making**（出现 2 次）
-  - 上下文：Dreams of making drugs and tissues in space get closer to reality
-  - 上下文：France relaxes strict cheese-making rules after prolonged drought
-- **Nepal**（出现 2 次）
+  - 上下文：湖南《生态环境法典》普法基层行活动正式启动 - 中国网
+- **flood**（出现 2 次）
   - 上下文：'The flood took everything': Nepal survivors describe horror of loved ones being swept away
-  - 上下文：Glacier collapse caused Nepal’s deadly flash flood — a sign of things to come?
+  - 上下文：'Our parents were crossing the border an hour before the flood hit'
 - **Unraveled**（出现 2 次）
   - 上下文：Overlooked fluorescence spectra at short excitation wavelengths: Unraveled by uranium-mediated fluorescence quenching in CDOM
   - 上下文：A Hard-Won Rule to Cut Chemical Plant Pollution Is Being Unraveled
-- **财经**（出现 2 次）
-  - 上下文：生态环境法典进大宁，携手共筑净美宜居家园 - 新浪财经
-  - 上下文：严重破坏生态环境将终身追责 - 新浪财经
+- **climate**（出现 2 次）
+  - 上下文：A scenario assessment of the global mitigation effort in the light of the 2035 climate finance goal
+  - 上下文：El Niño climate patterns supercharged by burning of fossil fuels, study finds
+- **湖南**（出现 2 次）
+  - 上下文：湖南《生态环境法典》普法基层行活动正式启动 - 中国网
+  - 上下文：去哪里做环保志愿？湖南首批10个实践场地来了 - 湖南红网
 
 ---
 

@@ -233,6 +233,15 @@
             });
         }
 
+        // 就业方向：查看更多招聘 → 展开四个招聘网站面板
+        var jobsMoreBtn = document.getElementById('jobsMoreBtn');
+        var jobsMorePanel = document.getElementById('jobsMorePanel');
+        if (jobsMoreBtn && jobsMorePanel) {
+            on(jobsMoreBtn, 'click', function () {
+                jobsMorePanel.classList.toggle('show');
+            });
+        }
+
         // 刷新数据
         on(document.getElementById('refreshDataBtn'), 'click', () => {
             showToast('正在刷新数据...');
@@ -2585,13 +2594,21 @@
                 window.scrollTo({ top: 0, behavior: 'smooth' });
                 break;
             case 'glossary':
-                if (els.glossaryBtn) els.glossaryBtn.click();
+                if (typeof openGlossaryModal === 'function') {
+                    openGlossaryModal();
+                } else if (els.glossaryBtn) {
+                    els.glossaryBtn.click();
+                }
                 break;
             case 'history':
                 if (els.historyBtn) els.historyBtn.click();
                 break;
             case 'saved':
-                if (els.savedBtn) els.savedBtn.click();
+                if (typeof openSavedModal === 'function') {
+                    openSavedModal();
+                } else if (els.savedBtn) {
+                    els.savedBtn.click();
+                }
                 break;
         }
     }

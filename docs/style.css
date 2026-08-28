@@ -1027,6 +1027,42 @@ body.dark .card-rank.rank-other { background: rgba(148, 163, 184, 0.2); color: #
 .recruit-job { font-size: 12.5px; color: var(--clr-text); margin-bottom: 4px; }
 .recruit-meta { font-size: 11.5px; color: var(--clr-muted); }
 
+/* 查看更多招聘：展开面板 */
+.jobs-more-btn {
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: var(--clr-brand-deep);
+    font-size: 13px;
+    font-weight: 600;
+    padding: 0;
+    transition: color .15s;
+}
+.jobs-more-btn:hover { color: var(--clr-brand); }
+.jobs-more-panel {
+    display: none;
+    flex-wrap: wrap;
+    gap: 8px;
+    padding: 12px 0 4px;
+}
+.jobs-more-panel.show { display: flex; }
+.jobs-more-link {
+    display: inline-block;
+    padding: 6px 14px;
+    background: var(--clr-brand-soft);
+    color: var(--clr-brand-deep);
+    border-radius: 16px;
+    font-size: 12.5px;
+    font-weight: 600;
+    text-decoration: none;
+    transition: background .15s, transform .15s;
+}
+.jobs-more-link:hover {
+    background: var(--clr-brand);
+    color: #fff;
+    transform: translateY(-1px);
+}
+
 /* ============================================================
    页脚
    ============================================================ */

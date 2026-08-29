@@ -1404,7 +1404,27 @@ def _get_translation_config():
 
 
 def _deepl_translate(text, api_key):
-    """调用 DeepL Free API 翻译英文->中文；失败返回空字符串"""
+    """
+    调用 DeepL Free API 翻译英文->中文；失败返回空字符串
+    - 免费版 endpoint: https://api-free.deepl.com/v2/translate
+    - 认证：同时使用 Header (Authorization: DeepL-Auth-Key) 和表单参数 auth_key
+    - Content-Type: application/x-www-form-urlencoded
+    - 401/403 不重试（认证错误），打印明确错误信息和 key 脱敏信息
+    - 429/500/502/503 重试1次（等待3秒）
+    """
+    if not api_key or not api_key.strip():
+        print("[翻译] DeepL API Key 为空，跳过 DeepL 翻译")
+        return ""
+
+    api_key = api_key.strip()
+    # key 脱敏：只显示前4位和后4位，中间用***代替
+    if len(api_key) > 8:
+        key_masked = api_key[:4] + "***" + api_key[-4:]
+    else:
+        key_masked = "****"
+    # 免费版 key 应以 :fx 结尾
+    is_free_key = api_key.endswith(":fx")
+
     try:
         import urllib.parse
         payload = {
@@ -1412,37 +1432,67 @@ def _deepl_translate(text, api_key):
             "text": text[:2000],
             "target_lang": "ZH",
         }
-        headers = {"User-Agent": BROWSER_UA}
-        for attempt in range(2):  # 失败重试 1 次，等待 2 秒
+        # 同时使用 Header 认证（DeepL 推荐方式）和表单参数（兼容方式）
+        headers = {
+            "User-Agent": BROWSER_UA,
+            "Authorization": f"DeepL-Auth-Key {api_key}",
+            "Content-Type": "application/x-www-form-urlencoded",
+        }
+        url = "https://api-free.deepl.com/v2/translate"
+
+        for attempt in range(2):  # 最多重试1次
             try:
-                resp = requests.post(
-                    "https://api-free.deepl.com/v2/translate",
-                    data=payload, headers=headers, timeout=10)
+                resp = requests.post(url, data=payload, headers=headers, timeout=15)
+
+                # 401/403：认证错误，不重试，打印详细信息
+                if resp.status_code in (401, 403):
+                    resp_body = resp.text[:300].replace("\n", " ")
+                    print(f"[翻译] DeepL 认证失败 (HTTP {resp.status_code})")
+                    print(f"[翻译]   API Key (脱敏): {key_masked}")
+                    print(f"[翻译]   免费版Key格式(:fx结尾): {'是' if is_free_key else '否'}")
+                    print(f"[翻译]   Endpoint: {url}")
+                    print(f"[翻译]   响应内容: {resp_body}")
+                    if not is_free_key:
+                        print("[翻译]   提示：DeepL 免费版 API Key 应以 ':fx' 结尾，请检查 Key 是否正确")
+                    print("[翻译]   请在 DeepL 官网 (https://www.deepl.com/pro-api) 确认 API Key 状态和额度")
+                    return ""
+
                 resp.raise_for_status()
                 result = resp.json()
                 translations = result.get("translations") or []
                 if not translations:
+                    print("[翻译] DeepL 返回空翻译结果")
                     return ""
                 translated = (translations[0].get("text") or "").strip()
                 if translated and len(translated) >= 2 and translated != text:
-                    print("[翻译] DeepL 翻译成功")
+                    print(f"[翻译] DeepL 翻译成功 (Key: {key_masked})")
                     return translated
+                print(f"[翻译] DeepL 翻译结果无效或与原文相同: {translated[:50]}")
                 return ""
+
             except requests.exceptions.HTTPError as e:
                 status_code = e.response.status_code if e.response is not None else "unknown"
-                print(f"[翻译] DeepL HTTP {status_code}")
-                if attempt == 0 and status_code in (429, 502, 503):
-                    time.sleep(2)
+                # 401/403 已经在上面处理了，这里处理其他 HTTP 错误
+                if status_code in (429, 500, 502, 503) and attempt == 0:
+                    print(f"[翻译] DeepL HTTP {status_code}，3秒后重试...")
+                    time.sleep(3)
                     continue
+                resp_body = ""
+                if e.response is not None:
+                    resp_body = e.response.text[:200].replace("\n", " ")
+                print(f"[翻译] DeepL HTTP 错误 {status_code}: {resp_body}")
                 return ""
+
             except requests.exceptions.Timeout:
-                print("[翻译] DeepL 请求超时")
                 if attempt == 0:
-                    time.sleep(2)
+                    print("[翻译] DeepL 请求超时，3秒后重试...")
+                    time.sleep(3)
                     continue
+                print("[翻译] DeepL 请求超时（已重试）")
                 return ""
+
     except Exception as e:
-        print(f"[翻译] DeepL 调用异常: {str(e)[:40]}")
+        print(f"[翻译] DeepL 调用异常: {str(e)[:60]}")
         return ""
     return ""
 

@@ -1030,7 +1030,7 @@ def get_api_config(config):
     return {
         "summary_enabled": summary_api.get("enabled", False) and bool(nvidia_key),
         "api_key": nvidia_key,
-        "model": summary_api.get("model", "deepseek-ai/deepseek-v4-flash-0731"),
+        "model": summary_api.get("model", "nvidia/nemotron-3.5-lightning"),
         "fallback_model": summary_api.get("fallback_model", ""),
         "base_url": summary_api.get("base_url", "https://integrate.api.nvidia.com/v1/"),
         "max_tokens": summary_api.get("max_tokens", 150),
@@ -1387,7 +1387,7 @@ def is_chinese(text):
 
 
 def _get_translation_config():
-    """读取 translation_api 配置（DeepL key 等），带模块级缓存；环境变量 DEEPL_API_KEY 优先级最高"""
+    """读取 translation_api 配置（DeepL/百度翻译 key 等），带模块级缓存；环境变量优先级最高"""
     global _TRANSLATION_CFG_CACHE
     if _TRANSLATION_CFG_CACHE is None:
         try:
@@ -1399,6 +1399,14 @@ def _get_translation_config():
         if env_deepl:
             cfg["deepl_api_key"] = env_deepl
             print("[翻译] 检测到环境变量 DEEPL_API_KEY，优先使用 DeepL")
+        # 环境变量 BAIDU_APPID / BAIDU_SECRET_KEY 优先级高于 config.yaml
+        env_baidu_appid = os.environ.get("BAIDU_APPID", "").strip()
+        if env_baidu_appid:
+            cfg["baidu_appid"] = env_baidu_appid
+            print("[翻译] 检测到环境变量 BAIDU_APPID，启用百度翻译")
+        env_baidu_secret = os.environ.get("BAIDU_SECRET_KEY", "").strip()
+        if env_baidu_secret:
+            cfg["baidu_secret_key"] = env_baidu_secret
         _TRANSLATION_CFG_CACHE = cfg
     return _TRANSLATION_CFG_CACHE
 
@@ -1497,6 +1505,55 @@ def _deepl_translate(text, api_key):
     return ""
 
 
+def _baidu_translate(text, appid, secret_key):
+    """
+    调用百度翻译 API 翻译英文->中文；失败返回空字符串
+    - 接口：GET https://fanyi-api.baidu.com/api/trans/vip/translate
+    - 参数：q=待翻译文本、from=en、to=zh、appid、salt=随机数、sign=MD5(appid+文本+salt+secret_key)
+    - 解析返回 JSON 中的 trans_result[0].dst
+    - 超时15秒，失败不重试（由上层控制降级顺序）
+    """
+    if not appid or not appid.strip() or not secret_key or not secret_key.strip():
+        return ""
+    try:
+        import hashlib
+        import random
+        text_to_translate = text[:2000]
+        salt = str(random.randint(32768, 65536))
+        sign_str = appid.strip() + text_to_translate + salt + secret_key.strip()
+        sign = hashlib.md5(sign_str.encode("utf-8")).hexdigest()
+        import urllib.parse
+        q = urllib.parse.quote(text_to_translate)
+        url = (f"https://fanyi-api.baidu.com/api/trans/vip/translate"
+               f"?q={q}&from=en&to=zh&appid={appid.strip()}&salt={salt}&sign={sign}")
+        headers = {"User-Agent": BROWSER_UA}
+        resp = requests.get(url, timeout=15, headers=headers)
+        resp.raise_for_status()
+        result = resp.json()
+        # 百度翻译错误码处理
+        error_code = result.get("error_code")
+        if error_code:
+            error_msg = result.get("error_msg", "")
+            print(f"[翻译] 百度翻译错误 {error_code}: {error_msg}")
+            return ""
+        trans_result = result.get("trans_result") or []
+        if trans_result and len(trans_result) > 0:
+            translated = (trans_result[0].get("dst") or "").strip()
+            if translated and len(translated) >= 2 and translated != text:
+                return translated
+        return ""
+    except requests.exceptions.HTTPError as e:
+        status_code = e.response.status_code if e.response is not None else "unknown"
+        print(f"[翻译] 百度翻译 HTTP 错误 {status_code}")
+        return ""
+    except requests.exceptions.Timeout:
+        print("[翻译] 百度翻译请求超时")
+        return ""
+    except Exception as e:
+        print(f"[翻译] 百度翻译调用异常: {str(e)[:50]}")
+        return ""
+
+
 def _google_translate(text):
     """调用 Google 免费翻译接口（gtx）英文->中文；失败返回空字符串；带3次重试（5/10/20秒）"""
     try:
@@ -1553,8 +1610,8 @@ def translate_en_to_zh(text):
     将英文文本翻译为中文
     - 中文或为空直接返回
     - 优先使用本地环境专业词表匹配
-    - 词表无法匹配时：DeepL Free API（配置了 deepl_api_key 时）→ Google 翻译兜底
-    - 翻译失败保留英文原文
+    - 词表无法匹配时：DeepL → 百度翻译 → Google 翻译 三级降级
+    - 所有服务都失败时保留英文原文
     """
     if not text or not text.strip():
         return text
@@ -1588,24 +1645,36 @@ def translate_en_to_zh(text):
 
     provider = (tcfg.get("provider") or "auto").lower()
     deepl_key = (tcfg.get("deepl_api_key") or "").strip()
-    use_deepl = (deepl_key != "" and provider in ("deepl", "auto"))
+    baidu_appid = (tcfg.get("baidu_appid") or "").strip()
+    baidu_secret = (tcfg.get("baidu_secret_key") or "").strip()
 
-    # DeepL 优先（失败自动切换 Google）
-    if use_deepl:
-        print(f"[翻译] 使用 DeepL 翻译：{text[:40]}")
+    # 第二级：DeepL（配置了 key 且 provider 允许时优先）
+    if deepl_key and provider in ("deepl", "auto"):
+        print(f"[翻译] 使用 DeepL：{text[:40]}")
         result = _deepl_translate(text, deepl_key)
         if result:
             return result
-        print("[翻译] DeepL 翻译失败，切换 Google 翻译兜底...")
-    else:
-        print(f"[翻译] DeepL 未配置（deepl_api_key 为空），直接使用 Google 翻译：{text[:40]}")
+        print("[翻译] DeepL 失败，尝试百度翻译...")
+    elif not deepl_key:
+        print("[翻译] DeepL 未配置，跳过")
 
-    # Google 兜底（带重试，避免 429 频繁失败）
+    # 第三级：百度翻译
+    if baidu_appid and baidu_secret and provider in ("baidu", "auto"):
+        print(f"[翻译] 使用百度翻译：{text[:40]}")
+        result = _baidu_translate(text, baidu_appid, baidu_secret)
+        if result:
+            return result
+        print("[翻译] 百度翻译失败，尝试 Google...")
+    elif not baidu_appid or not baidu_secret:
+        print("[翻译] 百度翻译未配置（appid 或 secret_key 为空），跳过")
+
+    # 第四级：Google 兜底（带重试，避免 429 频繁失败）
+    print(f"[翻译] 使用 Google：{text[:40]}")
     result = _google_translate(text)
     if result:
         return result
 
-    print("[翻译] Google 翻译也失败，保留英文原文")
+    print("[翻译] 所有服务失败，保留英文")
     return text
 
 
@@ -1654,6 +1723,7 @@ def call_nvidia_api(prompt, api_config, max_tokens=None):
         "Content-Type": "application/json",
     }
     model = api_config["model"]
+    print(f"[AI] 使用模型：{model}")
     data = {
         "model": model,
         "messages": [{"role": "user", "content": prompt}],
@@ -1765,7 +1835,7 @@ def generate_ai_summary(item, api_config):
     if not article_text:
         # 无法获取原文，不基于标题猜测，保持摘要为空（避免误导用户）
         return ""
-    prompt = f"你是一个环境领域摘要助手。请根据以下文章内容，生成一句不超过50字的中文摘要，直接输出摘要，不要解释。\n\n文章内容：{article_text[:3000]}"
+    prompt = f"你是一个环境领域摘要助手。请根据以下文章内容，生成一句25-60字的中文摘要，直接输出摘要，不要解释。禁止输出'点击查看详情''标题涉及'等无信息量提示语，必须包含具体事件信息。\n\n文章内容：{article_text[:3000]}"
 
     result = call_nvidia_api(prompt, api_config, max_tokens=100)
     if result:
@@ -1785,7 +1855,8 @@ def _ai_relevance_irrelevant(items, api_config):
     for idx, item in enumerate(items):
         title = item.get("title", "")
         if title:
-            lines.append(f"{idx}. {title}")
+            # 只发送标题前40字符，减少输入长度，避免超时
+            lines.append(f"{idx}. {title[:40]}")
     if not lines:
         return None
     prompt = (
@@ -1795,7 +1866,7 @@ def _ai_relevance_irrelevant(items, api_config):
         "每条只回答\"是\"或\"否\"，不要解释。\n\n"
         "标题列表：\n" + "\n".join(lines)
     )
-    result = call_nvidia_api(prompt, api_config, max_tokens=300)
+    result = call_nvidia_api(prompt, api_config, max_tokens=100)
     if not result:
         return None
     try:
@@ -2353,75 +2424,207 @@ def extract_tags_from_title(title):
 
 def _fallback_rule_summary(title):
     """
-    规则生成摘要（AI 失败时的最终兜底）—— 优化版
+    规则生成摘要（AI 失败时的最终兜底）—— 有信息量版本
     1. 先清洗标题中的 DOI、期刊名前缀、在线发布等元数据
-    2. 用 jieba 提取包含强环境词的核心名词短语（长度2-6字）
-    3. 格式："标题涉及「核心短语」，请点击查看详情。"
-    4. 无法提取有效核心短语时，使用标题前20字 + "，点击查看详情。"
-    5. 不使用"关于「XX」的资讯"格式
-    保证 summary 非空且与标题不同
+    2. 英文标题翻译失败时：保留英文标题前50字符（单词边界截断，不截成片段）
+    3. 中文标题：优先提取包含强环境词的完整事件短语，生成"关于「事件短语」的资讯"
+    4. 提取不到事件短语时：直接使用标题前30字（不加"点击查看详情"）
+    5. 最终校验：中文至少15字符，英文至少10个单词，否则使用清洗后的完整标题
+    禁止输出"点击查看详情""标题涉及"等无信息量模板
     """
-    if not title:
-        return "环境热点资讯，点击查看详情。"
+    if not title or not title.strip():
+        return "环境领域热点资讯，关注最新动态。"
 
-    # 第一步：清洗标题中的元数据（DOI、期刊名前缀、在线发布等）
+    # 第一步：清洗标题中的元数据
     cleaned_title = clean_summary_inline(title)
-    if not cleaned_title:
-        cleaned_title = title
+    if not cleaned_title or len(cleaned_title) < 2:
+        cleaned_title = title.strip()
 
-    core = ""
-    # 第二步：优先提取包含强环境词的名词短语
-    if JIEBA_AVAILABLE and cleaned_title:
+    # 第二步：判断是否为英文标题
+    is_english = not is_chinese(cleaned_title)
+
+    if is_english:
+        # 英文标题：尝试翻译，翻译失败则保留英文标题前50字符（单词边界截断）
+        translated = ""
+        try:
+            translated = translate_en_to_zh(cleaned_title)
+        except Exception:
+            translated = ""
+        if translated and translated != cleaned_title and is_chinese(translated) and len(translated) >= 10:
+            # 翻译成功，使用翻译后的中文（前40字）
+            summary = translated[:40].strip()
+            if len(translated) > 40:
+                summary += "…"
+            if len(summary) >= 10:
+                return summary
+        # 翻译失败：保留英文标题前50字符，在单词边界截断，不截成片段
+        words = cleaned_title.split()
+        if len(words) <= 12:
+            return cleaned_title
+        # 取前12个单词，确保完整
+        summary = " ".join(words[:12])
+        if len(words) > 12:
+            summary += "…"
+        return summary
+
+    # 第三步：中文标题 — 优先提取包含强环境词的完整事件短语
+    core_event = ""
+
+    # 方法1：从标题中提取包含强环境词的连续中文片段（长度4-20字）
+    chinese_segments = re.findall(r'[\u4e00-\u9fa5]{4,}', cleaned_title)
+    for seg in chinese_segments:
+        # 过滤序数词开头
+        seg = re.sub(r'^第[一二三四五六七八九十百千零\d]+[次届轮期季批]', '', seg)
+        if len(seg) < 4:
+            continue
+        # 过滤媒体名和无意义词
+        if any(m in seg for m in MEDIA_BLACKLIST):
+            continue
+        # 包含强环境词的片段优先
+        has_env = any(kw in seg for kw in ENV_RELATED_ZH if 2 <= len(kw) <= 6)
+        if has_env and len(seg) <= 25:
+            core_event = seg
+            break
+
+    # 方法2：jieba 提取包含强环境词的名词短语
+    if not core_event and JIEBA_AVAILABLE:
         try:
             _init_jieba_env()
-            env_candidates = []
             for w in jieba.cut(cleaned_title):
                 w = w.strip()
-                if len(w) < 2 or len(w) > 8:
+                if len(w) < 4 or len(w) > 15:
                     continue
                 if w in STOP_WORDS or w in WIDE_ZH_WORDS:
                     continue
-                # 过滤纯数字、序数词
                 if w.isdigit() or re.match(r'^第[一二三四五六七八九十\d]+', w):
                     continue
-                # 只保留包含强环境词的短语
+                if any(m in w for m in MEDIA_BLACKLIST):
+                    continue
                 has_env = any(kw in w for kw in ENV_RELATED_ZH if 2 <= len(kw) <= 4)
                 if has_env:
-                    env_candidates.append(w)
-            if env_candidates:
-                core = env_candidates[0]
+                    core_event = w
+                    break
         except Exception:
-            core = ""
+            pass
 
-    # 第三步：如果 jieba 没提取到，尝试从标题中匹配具体环境关键词
-    if not core:
+    # 方法3：匹配具体环境关键词
+    if not core_event:
         specific_kw = [
             "碳中和", "碳达峰", "碳关税", "微塑料", "新污染物", "重金属",
             "水污染", "大气污染", "土壤污染", "生物多样性", "生态修复",
             "可再生能源", "新能源", "光伏", "风电", "垃圾分类", "环境监测",
             "人工智能", "机器学习", "深度学习", "环境大数据", "环境工程",
             "环境科学", "生态学", "给排水", "环境健康", "环境政策",
+            "气候变化", "生态保护", "绿色发展", "可持续发展",
         ]
         for kw in specific_kw:
             if kw in cleaned_title:
-                core = kw
+                core_event = kw
                 break
 
     # 第四步：生成摘要
-    if core and len(core) >= 2:
-        return f"标题涉及「{core}」，请点击查看详情。"
+    if core_event and len(core_event) >= 4:
+        # 生成"关于「事件短语」的资讯"，包含具体事件信息
+        summary = f"关于「{core_event}」的资讯"
+        # 如果标题比事件短语更长，补充标题中的其他信息
+        if len(cleaned_title) > len(core_event) + 5:
+            # 提取标题中事件短语之外的部分作为补充
+            remaining = cleaned_title.replace(core_event, "").strip("，,。.、；;：: ")
+            if remaining and len(remaining) >= 4 and len(remaining) <= 20:
+                summary = f"关于「{core_event}」的资讯：{remaining}"
+        return summary
+
+    # 第五步：提取不到事件短语时，直接使用标题前30字（不加"点击查看详情"）
+    if len(cleaned_title) <= 30:
+        summary = cleaned_title
     else:
-        # 无法提取有效核心短语，使用标题前20字
-        short = cleaned_title[:20].strip()
-        if len(cleaned_title) > 20:
-            short += "…"
-        return f"{short}，点击查看详情。"
+        # 在30字附近的标点处截断，避免截断词语
+        trunc_point = 30
+        for i in range(30, min(40, len(cleaned_title))):
+            if cleaned_title[i] in "，,。.、；;：:":
+                trunc_point = i
+                break
+        summary = cleaned_title[:trunc_point].rstrip("，,。.、；;：:")
+        if len(cleaned_title) > trunc_point:
+            summary += "…"
+
+    # 第六步：最终校验 — 中文至少15字符，否则使用完整标题
+    if len(summary) < 15:
+        summary = cleaned_title if len(cleaned_title) >= 15 else cleaned_title + "相关资讯"
+
+    return summary
 
 
 def _apply_rule_summaries(candidates):
     """对候选条目统一回退为规则摘要"""
     for _, _, item, _ in candidates:
         item["summary"] = _fallback_rule_summary(item.get("title", ""))
+
+
+def _finalize_summary(item):
+    """
+    摘要最终校验与修复：确保非空、有信息量、与标题不同、长度足够
+    - 清除"点击查看详情""标题涉及"等无信息量模板
+    - 中文至少15字符，英文至少10个单词
+    - 英文摘要不被截断成不完整片段（修复"A hybrid attention-b…"这类问题）
+    - 与标题不同（如果摘要==标题，用规则重新生成）
+    """
+    title = (item.get("title") or "").strip()
+    summary = (item.get("summary") or "").strip()
+
+    # 1. 清除无信息量模板
+    bad_patterns = [
+        r"^标题涉及[「\"'].*?[\"'」]，?请点击查看详情。?$",
+        r"^点击查看详情。?$",
+        r"^请点击查看详情。?$",
+        r"^暂无摘要，?点击查看详情。?$",
+        r"^暂无摘要。?$",
+    ]
+    for pat in bad_patterns:
+        if re.match(pat, summary):
+            summary = ""
+            break
+
+    # 2. 如果摘要为空或与标题相同，用规则生成
+    if not summary or summary == title:
+        summary = _fallback_rule_summary(title)
+
+    # 3. 英文摘要修复：不截断成不完整片段
+    if summary and not is_chinese(summary[:10]):
+        # 如果摘要以"…"或"..."结尾且最后一个单词不完整，修复
+        if summary.endswith("…") or summary.endswith("..."):
+            # 去掉省略号，检查最后一个单词是否完整
+            clean = summary.rstrip("….").strip()
+            words = clean.split()
+            if words:
+                last_word = words[-1]
+                # 如果最后一个单词长度<3或不以常见字母结尾，可能是截断的
+                if len(last_word) < 3 or not re.match(r'[a-zA-Z]{2,}$', last_word):
+                    # 去掉最后一个不完整单词
+                    words = words[:-1]
+                    summary = " ".join(words).strip()
+                    if summary:
+                        summary += "…"
+        # 英文摘要至少10个单词，否则用标题
+        word_count = len(summary.split())
+        if word_count < 10 and title:
+            # 用英文标题（前12个单词）
+            title_words = title.split()
+            if len(title_words) <= 12:
+                summary = title
+            else:
+                summary = " ".join(title_words[:12]) + "…"
+
+    # 4. 中文摘要至少15字符
+    if summary and is_chinese(summary[:5]) and len(summary) < 15:
+        summary = _fallback_rule_summary(title)
+
+    # 5. 最终确保与标题不同
+    if summary == title and title:
+        summary = _fallback_rule_summary(title)
+
+    item["summary"] = summary
+    return summary
 
 
 def generate_batch_summaries(items, api_config):
@@ -2509,8 +2712,12 @@ def generate_batch_summaries(items, api_config):
             else:
                 news_list.append(f"{local_in_batch}. 标题：{title}\n（暂无原文，请基于标题中的关键信息生成摘要，不要直接照抄标题原话）")
 
-        prompt = f"""你是一个环境领域摘要助手。请为以下每条新闻生成一句不超过50字的中文摘要，直接返回JSON数组，格式：[{{"id":0,"summary":"..."}},{{"id":1,"summary":"..."}}]，不要解释。
-摘要需包含关键信息，不要直接照抄标题原话。
+        prompt = f"""你是一个环境领域摘要助手。请为以下每条新闻生成一句25-60字的中文摘要，直接返回JSON数组，格式：[{{"id":0,"summary":"..."}},{{"id":1,"summary":"..."}}]，不要解释。
+严格要求：
+1. 摘要必须包含具体事件信息，让用户一眼了解文章核心内容
+2. 禁止输出"点击查看详情""标题涉及""请点击"等无信息量的提示语
+3. 不要直接照抄标题原话，要基于内容提炼
+4. 摘要长度25-60个中文字符
 
 新闻列表：
 {chr(10).join(news_list)}"""
@@ -2612,6 +2819,17 @@ def generate_batch_summaries(items, api_config):
         total_success += batch_success
 
     print(f"[AI批量摘要] 完成：AI生成 {total_success}/{len(candidates)} 条，其余回退规则")
+
+    # 最终校验：确保所有条目摘要非空、有信息量、与标题不同
+    fixed_count = 0
+    for item in items:
+        original = (item.get("summary") or "").strip()
+        finalized = _finalize_summary(item)
+        if finalized != original:
+            fixed_count += 1
+    if fixed_count > 0:
+        print(f"[摘要校验] 修复了 {fixed_count} 条摘要（空/无信息量/过短/与标题相同）")
+
     return items
 
 
@@ -2635,25 +2853,38 @@ def generate_batch_topic_tags(items, api_config):
             item["topic_tags"] = []
         return items
 
-    # 只处理前10条
+    # 只处理前10条，分2批（每批5条），减少单次请求长度避免超时
     target_items = items[:10]
     if not target_items:
         return items
 
-    # 构建 prompt（先翻译英文内容为中文）
-    news_list = []
-    for idx, item in enumerate(target_items):
-        title = item.get("title", "无标题")
-        summary = item.get("summary", "")
-        # 翻译英文标题和摘要（精简：只发标题和摘要前 150 字）
-        title_zh = translate_en_to_zh(title)
-        summary_zh = translate_en_to_zh(summary[:150]) if summary else ""
-        if summary_zh and len(summary_zh) > 10:
-            news_list.append(f"{idx}. 标题：{title_zh}\n摘要：{summary_zh[:150]}")
-        else:
-            news_list.append(f"{idx}. 标题：{title_zh}")
+    BATCH_SIZE = 5
+    total_success = 0
 
-    prompt = f"""你是一个环境领域标签专家。请为以下每条新闻提取1-3个具体的中文关键词或短语作为话题标签。
+    for batch_start in range(0, len(target_items), BATCH_SIZE):
+        batch = target_items[batch_start:batch_start + BATCH_SIZE]
+        batch_idx_offset = batch_start
+
+        # 连续失败达到阈值，剩余批次回退规则
+        if NVIDIA_CONSECUTIVE_FAILURES >= NVIDIA_MAX_CONSECUTIVE_FAILURES:
+            print(f"[AI批量标签] 连续失败次数过多，第{batch_start//BATCH_SIZE+1}批回退规则")
+            for item in batch:
+                item["topic_tags"] = []
+            continue
+
+        # 构建 prompt（先翻译英文内容为中文）
+        news_list = []
+        for local_idx, item in enumerate(batch):
+            title = item.get("title", "无标题")
+            summary = item.get("summary", "")
+            title_zh = translate_en_to_zh(title)
+            summary_zh = translate_en_to_zh(summary[:150]) if summary else ""
+            if summary_zh and len(summary_zh) > 10:
+                news_list.append(f"{local_idx}. 标题：{title_zh}\n摘要：{summary_zh[:150]}")
+            else:
+                news_list.append(f"{local_idx}. 标题：{title_zh}")
+
+        prompt = f"""你是一个环境领域标签专家。请为以下每条新闻提取1-3个具体的中文关键词或短语作为话题标签。
 
 严格要求：
 1. 标签必须具体、贴近内容，与环境领域相关
@@ -2665,105 +2896,100 @@ def generate_batch_topic_tags(items, api_config):
 新闻列表：
 {chr(10).join(news_list)}"""
 
-    # 批量请求，重试1-2次，等待5秒、10秒，超时20秒
-    retry_delays = [5, 10]
-    result_text = None
-    for attempt in range(2):
-        try:
-            url = api_config["base_url"].rstrip("/") + "/chat/completions"
-            headers = {
-                "Authorization": f"Bearer {api_config['api_key']}",
-                "Content-Type": "application/json",
-            }
-            data = {
-                "model": api_config["model"],
-                "messages": [{"role": "user", "content": prompt}],
-                "max_tokens": 600,
-                "temperature": 0.3,
-            }
-            resp = requests.post(url, headers=headers, json=data, timeout=30)
-            resp.raise_for_status()
-            result = resp.json()
-            result_text = _extract_ai_content(result)
-            if not result_text:
-                # 返回空/格式异常：重试1次（5秒）后仍失败才降级
-                print(f"[AI批量标签] 返回为空或格式异常（{attempt+1}/1 次重试）")
-                if attempt < 1:
-                    time.sleep(5)
+        # 批量请求，重试1-2次，等待5秒、10秒，超时30秒
+        retry_delays = [5, 10]
+        result_text = None
+        for attempt in range(2):
+            try:
+                url = api_config["base_url"].rstrip("/") + "/chat/completions"
+                headers = {
+                    "Authorization": f"Bearer {api_config['api_key']}",
+                    "Content-Type": "application/json",
+                }
+                data = {
+                    "model": api_config["model"],
+                    "messages": [{"role": "user", "content": prompt}],
+                    "max_tokens": 100,
+                    "temperature": 0.3,
+                }
+                resp = requests.post(url, headers=headers, json=data, timeout=30)
+                resp.raise_for_status()
+                result = resp.json()
+                result_text = _extract_ai_content(result)
+                if not result_text:
+                    print(f"[AI批量标签] 第{batch_start//BATCH_SIZE+1}批返回为空或格式异常（{attempt+1}/1 次重试）")
+                    if attempt < 1:
+                        time.sleep(5)
+                        continue
+                    NVIDIA_CONSECUTIVE_FAILURES += 1
+                    break
+                NVIDIA_CONSECUTIVE_FAILURES = 0
+                print(f"[AI批量标签] 第{batch_start//BATCH_SIZE+1}批调用成功")
+                break
+            except requests.exceptions.HTTPError as e:
+                status_code = e.response.status_code if e.response is not None else "unknown"
+                if status_code == 429 and attempt < 1:
+                    wait_time = retry_delays[attempt]
+                    print(f"[AI批量标签] 第{batch_start//BATCH_SIZE+1}批 429限流，第{attempt+1}次重试，等待{wait_time}秒...")
+                    time.sleep(wait_time)
                     continue
+                print(f"[AI批量标签] 第{batch_start//BATCH_SIZE+1}批 HTTP错误 {status_code}")
                 NVIDIA_CONSECUTIVE_FAILURES += 1
                 break
-            NVIDIA_CONSECUTIVE_FAILURES = 0
-            print("[AI批量标签] 调用成功")
-            break
-        except requests.exceptions.HTTPError as e:
-            status_code = e.response.status_code if e.response is not None else "unknown"
-            if status_code == 429 and attempt < 1:
-                wait_time = retry_delays[attempt]
-                print(f"[AI批量标签] 429限流，第{attempt+1}次重试，等待{wait_time}秒...")
-                time.sleep(wait_time)
-                continue
-            print(f"[AI批量标签] HTTP错误 {status_code}")
-            NVIDIA_CONSECUTIVE_FAILURES += 1
-            for item in items:
+            except requests.exceptions.Timeout:
+                if attempt < 1:
+                    wait_time = retry_delays[attempt]
+                    print(f"[AI批量标签] 第{batch_start//BATCH_SIZE+1}批请求超时，第{attempt+1}次重试，等待{wait_time}秒...")
+                    time.sleep(wait_time)
+                    continue
+                print(f"[AI批量标签] 第{batch_start//BATCH_SIZE+1}批请求超时（已重试）")
+                NVIDIA_CONSECUTIVE_FAILURES += 1
+                break
+            except Exception as e:
+                print(f"[AI批量标签] 第{batch_start//BATCH_SIZE+1}批调用失败: {str(e)[:60]}")
+                NVIDIA_CONSECUTIVE_FAILURES += 1
+                break
+
+        if not result_text:
+            for item in batch:
                 item["topic_tags"] = []
-            return items
-        except requests.exceptions.Timeout:
-            if attempt < 1:
-                wait_time = retry_delays[attempt]
-                print(f"[AI批量标签] 请求超时，第{attempt+1}次重试，等待{wait_time}秒...")
-                time.sleep(wait_time)
-                continue
-            print("[AI批量标签] 请求超时（已重试）")
-            NVIDIA_CONSECUTIVE_FAILURES += 1
-            for item in items:
-                item["topic_tags"] = []
-            return items
+            continue
+
+        # 解析返回的 JSON
+        try:
+            result_text = result_text.strip()
+            if result_text.startswith("```"):
+                result_text = result_text.split("\n", 1)[-1]
+                if result_text.endswith("```"):
+                    result_text = result_text[:-3]
+            result_text = result_text.strip()
+            start = result_text.find("[")
+            end = result_text.rfind("]")
+            if start >= 0 and end > start:
+                result_text = result_text[start:end+1]
+            tags_list = json.loads(result_text)
+            if isinstance(tags_list, list):
+                batch_count = 0
+                for t in tags_list:
+                    if isinstance(t, dict) and "id" in t and "tags" in t:
+                        idx = int(t["id"]) + batch_idx_offset
+                        if 0 <= idx < len(target_items):
+                            tags = t["tags"]
+                            if isinstance(tags, list):
+                                clean_tags = [str(tag).strip() for tag in tags if tag and len(str(tag).strip()) >= 2][:3]
+                                target_items[idx]["topic_tags"] = clean_tags
+                                batch_count += 1
+                for item in batch:
+                    if "topic_tags" not in item:
+                        item["topic_tags"] = []
+                total_success += batch_count
+                print(f"[AI批量标签] 第{batch_start//BATCH_SIZE+1}批成功生成 {batch_count}/{len(batch)} 条话题标签")
         except Exception as e:
-            print(f"[AI批量标签] 调用失败: {str(e)[:60]}")
-            NVIDIA_CONSECUTIVE_FAILURES += 1
-            for item in items:
+            print(f"[AI批量标签] 第{batch_start//BATCH_SIZE+1}批解析返回结果失败: {str(e)[:50]}")
+            for item in batch:
                 item["topic_tags"] = []
-            return items
 
-    if not result_text:
-        for item in items:
-            item["topic_tags"] = []
-        return items
-
-    # 解析返回的 JSON
-    try:
-        result_text = result_text.strip()
-        if result_text.startswith("```"):
-            result_text = result_text.split("\n", 1)[-1]
-            if result_text.endswith("```"):
-                result_text = result_text[:-3]
-        result_text = result_text.strip()
-        start = result_text.find("[")
-        end = result_text.rfind("]")
-        if start >= 0 and end > start:
-            result_text = result_text[start:end+1]
-        tags_list = json.loads(result_text)
-        if isinstance(tags_list, list):
-            count = 0
-            for t in tags_list:
-                if isinstance(t, dict) and "id" in t and "tags" in t:
-                    idx = int(t["id"])
-                    if 0 <= idx < len(target_items):
-                        tags = t["tags"]
-                        if isinstance(tags, list):
-                            clean_tags = [str(tag).strip() for tag in tags if tag and len(str(tag).strip()) >= 2][:3]
-                            target_items[idx]["topic_tags"] = clean_tags
-                            count += 1
-            # 为没有返回标签的条目设置空数组
-            for item in target_items:
-                if "topic_tags" not in item:
-                    item["topic_tags"] = []
-            print(f"[AI批量标签] 成功生成 {count}/{len(target_items)} 条话题标签")
-    except Exception as e:
-        print(f"[AI批量标签] 解析返回结果失败: {str(e)[:50]}")
-        for item in items:
-            item["topic_tags"] = []
+    print(f"[AI批量标签] 完成：AI生成 {total_success}/{len(target_items)} 条，其余回退规则")
 
     # 为剩余条目设置空 topic_tags
     for item in items[10:]:
@@ -3796,6 +4022,20 @@ def main():
         print("[AI] 英伟达 NIM 未启用，使用规则生成摘要和关键词")
         for item in all_items:
             item["topic_tags"] = extract_tags_from_title(item.get("title", ""))
+
+    # 翻译英文摘要为中文（如果摘要已是中文则跳过）
+    translated_summaries = 0
+    for item in all_items:
+        summary = (item.get("summary") or "").strip()
+        if summary and not is_chinese(summary[:10]):
+            # 保存英文原摘要
+            item["summary_en"] = summary
+            translated = translate_en_to_zh(summary)
+            if translated and translated != summary and is_chinese(translated[:5]):
+                item["summary"] = translated
+                translated_summaries += 1
+    if translated_summaries > 0:
+        print(f"[翻译] 已将 {translated_summaries} 条英文摘要翻译为中文")
 
     # 生成近7天热度总结（基于实际高频词）
     weekly_keywords = calculate_weekly_keywords()

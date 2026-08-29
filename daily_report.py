@@ -1373,6 +1373,8 @@ BROWSER_UA = (
 )
 # translation_api 配置缓存
 _TRANSLATION_CFG_CACHE = None
+# 百度翻译上次调用时间戳（用于 QPS=1 限速，每次调用至少间隔 1.2 秒）
+_BAIDU_LAST_CALL_TIME = 0.0
 
 
 def is_chinese(text):
@@ -1511,47 +1513,78 @@ def _baidu_translate(text, appid, secret_key):
     - 接口：GET https://fanyi-api.baidu.com/api/trans/vip/translate
     - 参数：q=待翻译文本、from=en、to=zh、appid、salt=随机数、sign=MD5(appid+文本+salt+secret_key)
     - 解析返回 JSON 中的 trans_result[0].dst
-    - 超时15秒，失败不重试（由上层控制降级顺序）
+    - 限速：每次调用至少间隔 1.2 秒（百度翻译免费版 QPS=1）
+    - 错误码 54003（频率超限）：等待 3 秒后重试 1 次，仍失败则返回空
+    - 其他错误（网络、超时、签名错误等）：直接返回空，由上层降级到 Google
     """
+    global _BAIDU_LAST_CALL_TIME
     if not appid or not appid.strip() or not secret_key or not secret_key.strip():
         return ""
-    try:
-        import hashlib
-        import random
-        text_to_translate = text[:2000]
-        salt = str(random.randint(32768, 65536))
-        sign_str = appid.strip() + text_to_translate + salt + secret_key.strip()
-        sign = hashlib.md5(sign_str.encode("utf-8")).hexdigest()
-        import urllib.parse
-        q = urllib.parse.quote(text_to_translate)
-        url = (f"https://fanyi-api.baidu.com/api/trans/vip/translate"
-               f"?q={q}&from=en&to=zh&appid={appid.strip()}&salt={salt}&sign={sign}")
-        headers = {"User-Agent": BROWSER_UA}
-        resp = requests.get(url, timeout=15, headers=headers)
-        resp.raise_for_status()
-        result = resp.json()
-        # 百度翻译错误码处理
-        error_code = result.get("error_code")
-        if error_code:
-            error_msg = result.get("error_msg", "")
-            print(f"[翻译] 百度翻译错误 {error_code}: {error_msg}")
+
+    # 限速控制：确保距离上次调用至少 1.2 秒
+    now = time.time()
+    elapsed = now - _BAIDU_LAST_CALL_TIME
+    if elapsed < 1.2:
+        wait_time = 1.2 - elapsed
+        time.sleep(wait_time)
+
+    import hashlib
+    import random
+    import urllib.parse
+
+    text_to_translate = text[:2000]
+    headers = {"User-Agent": BROWSER_UA}
+
+    # 最多尝试 2 次（首次 + 54003 重试 1 次）
+    for attempt in range(2):
+        try:
+            # 更新上次调用时间（每次实际请求前更新）
+            _BAIDU_LAST_CALL_TIME = time.time()
+
+            salt = str(random.randint(32768, 65536))
+            sign_str = appid.strip() + text_to_translate + salt + secret_key.strip()
+            sign = hashlib.md5(sign_str.encode("utf-8")).hexdigest()
+            q = urllib.parse.quote(text_to_translate)
+            url = (f"https://fanyi-api.baidu.com/api/trans/vip/translate"
+                   f"?q={q}&from=en&to=zh&appid={appid.strip()}&salt={salt}&sign={sign}")
+
+            resp = requests.get(url, timeout=15, headers=headers)
+            resp.raise_for_status()
+            result = resp.json()
+
+            # 百度翻译错误码处理
+            error_code = result.get("error_code")
+            if error_code:
+                error_msg = result.get("error_msg", "")
+                # 54003：访问频率受限，等待 3 秒后重试一次
+                if str(error_code) == "54003" and attempt == 0:
+                    print(f"[翻译] 百度翻译频率受限 (54003)，等待 3 秒后重试...")
+                    time.sleep(3)
+                    continue
+                # 其他错误或重试仍失败
+                print(f"[翻译] 百度翻译错误 {error_code}: {error_msg}")
+                return ""
+
+            # 成功解析翻译结果
+            trans_result = result.get("trans_result") or []
+            if trans_result and len(trans_result) > 0:
+                translated = (trans_result[0].get("dst") or "").strip()
+                if translated and len(translated) >= 2 and translated != text:
+                    return translated
             return ""
-        trans_result = result.get("trans_result") or []
-        if trans_result and len(trans_result) > 0:
-            translated = (trans_result[0].get("dst") or "").strip()
-            if translated and len(translated) >= 2 and translated != text:
-                return translated
-        return ""
-    except requests.exceptions.HTTPError as e:
-        status_code = e.response.status_code if e.response is not None else "unknown"
-        print(f"[翻译] 百度翻译 HTTP 错误 {status_code}")
-        return ""
-    except requests.exceptions.Timeout:
-        print("[翻译] 百度翻译请求超时")
-        return ""
-    except Exception as e:
-        print(f"[翻译] 百度翻译调用异常: {str(e)[:50]}")
-        return ""
+
+        except requests.exceptions.HTTPError as e:
+            status_code = e.response.status_code if e.response is not None else "unknown"
+            print(f"[翻译] 百度翻译 HTTP 错误 {status_code}")
+            return ""
+        except requests.exceptions.Timeout:
+            print("[翻译] 百度翻译请求超时")
+            return ""
+        except Exception as e:
+            print(f"[翻译] 百度翻译调用异常: {str(e)[:50]}")
+            return ""
+
+    return ""
 
 
 def _google_translate(text):

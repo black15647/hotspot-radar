@@ -43,6 +43,7 @@ jobs:
         run: |
           git config --local user.email "github-actions[bot]@users.noreply.github.com"
           git config --local user.name "github-actions[bot]"
+          git pull --rebase origin main || true
           git add docs/data/
           git add personal_knowledge.md 2>/dev/null || true
           git diff --staged --quiet || git commit -m "chore: update daily hotspot report $(date -u +%Y-%m-%d)"

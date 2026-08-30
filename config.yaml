@@ -113,18 +113,18 @@ weights:
 
 # ---------- 可选：AI 摘要生成配置 ----------
 summary_api:
-  enabled: True
+  enabled: false
   api_key: ""
-  model: "nvidia/nemotron-3.5-lightning"
-  fallback_model: "nvidia/nemotron-3-nano"
+  model: "nvidia/nemotron-3.5-lightning-30b-a3b"
+  fallback_model: "nvidia/nemotron-3-nano-30b-a3b"
   base_url: "https://integrate.api.nvidia.com/v1/"
   max_tokens: 100
 
 # ---------- 可选：原文提取配置 ----------
 reader_api:
-  enabled: True
-  local_extraction: True
-  firecrawl_enabled: True
+  enabled: true
+  local_extraction: true
+  firecrawl_enabled: true
   jina_api_key: ""
   jina_base_url: "https://r.jina.ai/"
 
@@ -135,7 +135,7 @@ reader_api:
 #   - auto：配置了 deepl_api_key 时优先 DeepL，否则或失败时用 Google
 # deepl_api_key 留空则自动使用 Google 翻译，无需任何 key
 translation_api:
-  enabled: True
+  enabled: true
   provider: "auto"
   deepl_api_key: ""
   baidu_appid: ""

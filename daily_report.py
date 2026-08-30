@@ -1030,7 +1030,7 @@ def get_api_config(config):
     return {
         "summary_enabled": summary_api.get("enabled", False) and bool(nvidia_key),
         "api_key": nvidia_key,
-        "model": summary_api.get("model", "nvidia/nemotron-3.5-lightning"),
+        "model": summary_api.get("model", "nvidia/nemotron-3.5-lightning-30b-a3b"),
         "fallback_model": summary_api.get("fallback_model", ""),
         "base_url": summary_api.get("base_url", "https://integrate.api.nvidia.com/v1/"),
         "max_tokens": summary_api.get("max_tokens", 150),
@@ -1298,6 +1298,18 @@ ENV_RELATED_EN = [
     "acid rain", "renewable", "solar", "wind", "microplastic", "heavy metal",
     "ecosystem", "conservation", "environmental", "river", "flood", "drought",
     "wildlife", "species", "recycle", "plastic", "sea", "polution",
+    # 新增宽泛环境词
+    "recycling", "toxic", "chemical", "contamination", "contaminant",
+    "green", "clean energy", "fossil fuel", "coal", "oil", "gas",
+    "deforestation", "landfill", "sewage", "effluent", "sludge",
+    "atmosphere", "particulate", "pm2.5", "pm10", "smog", "acid",
+    "eutrophication", "algae", "coral", "reef", "wetland", "mangrove",
+    "endangered", "extinction", "invasive", "habitat", "population",
+    "urbanization", "industrial", "agriculture", "fertilizer", "pesticide",
+    "irrigation", "dam", "reservoir", "groundwater", "aquifer",
+    "remediation", "treatment", "filtration", "purification", "monitoring",
+    "assessment", "regulation", "policy", "legislation", "treaty",
+    "agreement", "protocol", "carbon neutral", "net zero", "emission reduction",
     # AI + 环境交叉
     "ai", "artificial intelligence", "machine learning", "deep learning",
     "environmental engineering", "environmental science", "ecology",
@@ -1638,6 +1650,12 @@ def _google_translate(text):
     return ""
 
 
+# 翻译缓存与计数
+TRANSLATION_CACHE = {}
+TRANSLATION_COUNT = 0
+TRANSLATION_MAX_DAILY = 20  # 每天最多翻译20条（超出则保留原文）
+
+
 def translate_en_to_zh(text):
     """
     将英文文本翻译为中文
@@ -1645,7 +1663,11 @@ def translate_en_to_zh(text):
     - 优先使用本地环境专业词表匹配
     - 词表无法匹配时：DeepL → 百度翻译 → Google 翻译 三级降级
     - 所有服务都失败时保留英文原文
+    - 使用翻译缓存，避免重复翻译
+    - 每天最多翻译20条（超出则保留原文）
     """
+    global TRANSLATION_COUNT
+
     if not text or not text.strip():
         return text
     if is_chinese(text):
@@ -1669,6 +1691,15 @@ def translate_en_to_zh(text):
         except Exception:
             pass
 
+    # 第二步：检查翻译缓存
+    if text_lower in TRANSLATION_CACHE:
+        return TRANSLATION_CACHE[text_lower]
+
+    # 第三步：检查每日翻译次数限制
+    if TRANSLATION_COUNT >= TRANSLATION_MAX_DAILY:
+        print(f"[翻译] 已达每日翻译上限（{TRANSLATION_MAX_DAILY}条），保留原文")
+        return text
+
     if not REQUESTS_AVAILABLE:
         return text
 
@@ -1681,30 +1712,38 @@ def translate_en_to_zh(text):
     baidu_appid = (tcfg.get("baidu_appid") or "").strip()
     baidu_secret = (tcfg.get("baidu_secret_key") or "").strip()
 
-    # 第二级：DeepL（配置了 key 且 provider 允许时优先）
+    result = None
+
+    # 第四级：DeepL（配置了 key 且 provider 允许时优先）
     if deepl_key and provider in ("deepl", "auto"):
         print(f"[翻译] 使用 DeepL：{text[:40]}")
         result = _deepl_translate(text, deepl_key)
         if result:
+            TRANSLATION_COUNT += 1
+            TRANSLATION_CACHE[text_lower] = result
             return result
         print("[翻译] DeepL 失败，尝试百度翻译...")
     elif not deepl_key:
         print("[翻译] DeepL 未配置，跳过")
 
-    # 第三级：百度翻译
+    # 第五级：百度翻译
     if baidu_appid and baidu_secret and provider in ("baidu", "auto"):
         print(f"[翻译] 使用百度翻译：{text[:40]}")
         result = _baidu_translate(text, baidu_appid, baidu_secret)
         if result:
+            TRANSLATION_COUNT += 1
+            TRANSLATION_CACHE[text_lower] = result
             return result
         print("[翻译] 百度翻译失败，尝试 Google...")
     elif not baidu_appid or not baidu_secret:
         print("[翻译] 百度翻译未配置（appid 或 secret_key 为空），跳过")
 
-    # 第四级：Google 兜底（带重试，避免 429 频繁失败）
+    # 第六级：Google 兜底（带重试，避免 429 频繁失败）
     print(f"[翻译] 使用 Google：{text[:40]}")
     result = _google_translate(text)
     if result:
+        TRANSLATION_COUNT += 1
+        TRANSLATION_CACHE[text_lower] = result
         return result
 
     print("[翻译] 所有服务失败，保留英文")
@@ -1731,6 +1770,122 @@ def _extract_ai_content(result):
         return str(content).strip()
     except Exception:
         return ""
+
+
+def check_model_health(api_config):
+    """
+    模型健康检查：用极短文本测试模型是否可用
+    - 返回 True 表示模型可用，False 表示不可用
+    - 连续失败2次或返回404则判定不可用
+    """
+    if not api_config.get("summary_enabled") or not api_config.get("api_key"):
+        return False
+    if not REQUESTS_AVAILABLE:
+        return False
+
+    url = api_config["base_url"].rstrip("/") + "/chat/completions"
+    headers = {
+        "Authorization": f"Bearer {api_config['api_key']}",
+        "Content-Type": "application/json",
+    }
+    model = api_config["model"]
+    data = {
+        "model": model,
+        "messages": [{"role": "user", "content": "回复OK"}],
+        "max_tokens": 5,
+        "temperature": 0.1,
+    }
+
+    for attempt in range(2):
+        try:
+            resp = requests.post(url, headers=headers, json=data, timeout=15)
+            if resp.status_code == 404:
+                body = resp.text[:200].replace("\n", " ")
+                print(f"[模型健康检查] 404 模型不可用 | 模型: {model} | 响应: {body}")
+                # 尝试备用模型
+                fallback = (api_config.get("fallback_model") or "").strip()
+                if fallback and fallback != model:
+                    print(f"[模型健康检查] 尝试备用模型: {fallback}")
+                    data["model"] = fallback
+                    resp2 = requests.post(url, headers=headers, json=data, timeout=15)
+                    if resp2.status_code == 200:
+                        print(f"[模型健康检查] 备用模型可用: {fallback}")
+                        return True
+                    print(f"[模型健康检查] 备用模型也不可用")
+                return False
+            if resp.status_code == 200:
+                result = resp.json()
+                content = _extract_ai_content(result)
+                if content is not None:
+                    print(f"[模型健康检查] 模型可用: {model}")
+                    return True
+            print(f"[模型健康检查] 异常状态码: {resp.status_code}（尝试 {attempt+1}/2）")
+            if attempt < 1:
+                time.sleep(3)
+        except Exception as e:
+            print(f"[模型健康检查] 检查失败: {str(e)[:50]}（尝试 {attempt+1}/2）")
+            if attempt < 1:
+                time.sleep(3)
+    return False
+
+
+# ============================================================
+# 关键词归类（8 大类）
+# ============================================================
+CATEGORY_KEYWORDS = {
+    "气候变化": ["气候", "变暖", "温室", "碳排放", "碳达峰", "碳中和", "碳汇", "极端天气", "厄尔尼诺", "拉尼娜", "海平面", "冰川", "全球变暖", "climate", "warming", "greenhouse", "carbon", "emission", "el nino", "la nina", "sea level", "glacier"],
+    "污染治理": ["污染", "废水", "废气", "固废", "垃圾", "重金属", "微塑料", "新污染物", "pm2.5", "雾霾", "酸雨", "臭氧", "voc", "土壤污染", "地下水污染", "pollution", "waste", "sewage", "effluent", "microplastic", "heavy metal", "contamination", "smog", "ozone", "landfill"],
+    "生态环境": ["生态", "生物多样性", "湿地", "森林", "海洋", "荒漠", "草原", "保护区", "濒危", "物种", "栖息地", "入侵物种", "生态修复", "退耕还林", "ecology", "biodiversity", "wetland", "forest", "ocean", "desert", "grassland", "reserve", "endangered", "species", "habitat", "invasive", "conservation", "ecosystem", "wildlife", "coral", "reef", "mangrove"],
+    "环境政策": ["环保", "环评", "督察", "政策", "法规", "立法", "标准", "规划", "治理", "监管", "执法", "处罚", "整改", "碳关税", "双碳", "environment policy", "regulation", "legislation", "standard", "planning", "governance", "supervision", "enforcement", "esg", "carbon tariff"],
+    "能源与碳中和": ["能源", "新能源", "光伏", "风电", "水电", "核电", "储能", "氢能", "电池", "电动汽车", "充电桩", "化石能源", "煤炭", "石油", "天然气", "碳中和", "碳达峰", "净零", "energy", "renewable", "solar", "wind", "hydro", "nuclear", "storage", "hydrogen", "battery", "ev", "electric vehicle", "fossil", "coal", "oil", "gas", "net zero", "carbon neutral"],
+    "水处理": ["水", "水处理", "污水处理", "供水", "饮用水", "水质", "水资源", "节水", "水循环", "再生水", " desalination", "海水淡化", "water", "wastewater", "treatment", "drinking", "water quality", "water resource", "desalination", "sewage", "effluent", "sludge"],
+    "科研学术": ["研究", "论文", "期刊", "大学", "学院", "实验室", "科研", "学术", "基金", "项目", "实验", "分析", "检测", "监测", "技术", "方法", "模型", "数据", "research", "study", "paper", "journal", "university", "college", "laboratory", "lab", "scientific", "academic", "funding", "experiment", "analysis", "monitoring", "technology", "method", "model", "data", "ai", "machine learning", "deep learning", "artificial intelligence"],
+    "环境健康": ["健康", "疾病", "癌症", "中毒", "呼吸", "心血管", "暴露", "风险", "危害", "公共卫生", "食品安全", "health", "disease", "cancer", "toxic", "poisoning", "respiratory", "cardiovascular", "exposure", "risk", "hazard", "public health", "food safety"],
+}
+
+CATEGORY_ORDER = ["气候变化", "污染治理", "生态环境", "环境政策", "能源与碳中和", "水处理", "科研学术", "环境健康", "其他"]
+
+
+def classify_keyword(keyword):
+    """
+    将关键词映射到 8 个大类之一
+    - 匹配 CATEGORY_KEYWORDS 中的关键词
+    - 无法判断的归为"其他"
+    """
+    if not keyword:
+        return "其他"
+    kw_lower = keyword.lower().strip()
+    for category, kws in CATEGORY_KEYWORDS.items():
+        for k in kws:
+            if k.lower() in kw_lower:
+                return category
+    return "其他"
+
+
+def classify_item(item):
+    """
+    为热点条目确定分类：
+    - 优先使用 topic_tags 中的第一个有效标签分类
+    - 其次使用 matched_keywords
+    - 最后使用标题中的关键词
+    """
+    # 1. 从 topic_tags 分类
+    for tag in item.get("topic_tags", []):
+        cat = classify_keyword(tag)
+        if cat != "其他":
+            return cat
+    # 2. 从 matched_keywords 分类
+    for kw in item.get("matched_keywords", []):
+        cat = classify_keyword(kw)
+        if cat != "其他":
+            return cat
+    # 3. 从标题中查找环境关键词
+    title = item.get("title", "")
+    for cat, kws in CATEGORY_KEYWORDS.items():
+        for k in kws:
+            if k.lower() in title.lower():
+                return cat
+    return "其他"
 
 
 def call_nvidia_api(prompt, api_config, max_tokens=None):
@@ -1764,12 +1919,12 @@ def call_nvidia_api(prompt, api_config, max_tokens=None):
         "temperature": 0.3,
     }
 
-    # 重试机制：429 限流重试最多3次（3/6/10秒）；超时/返回空/格式异常重试1次（5秒）
-    retry_delays = [3, 6, 10]
+    # 重试机制：429/超时/返回空 最多重试2次（3/6秒），总共3次尝试
+    retry_delays = [3, 6]
     for attempt in range(3):
         try:
-            # 超时设置：统一 30 秒
-            timeout = 30
+            # 超时设置：20 秒（nemotron 模型响应较快）
+            timeout = 20
             t0 = time.time()
             resp = requests.post(url, headers=headers, json=data, timeout=timeout)
             elapsed = time.time() - t0
@@ -1797,10 +1952,12 @@ def call_nvidia_api(prompt, api_config, max_tokens=None):
             result = resp.json()
             content = _extract_ai_content(result)
             if not content:
-                # 返回空/格式异常：重试1次（5秒）后仍失败才降级
-                print(f"[英伟达 NIMAPI] AI 返回为空或响应格式异常（{attempt+1}/1 次重试）")
-                if attempt < 1:
-                    time.sleep(5)
+                # 返回空/格式异常：重试2次（3/6秒）后仍失败才降级
+                print(f"[英伟达 NIMAPI] AI 返回为空或响应格式异常（第{attempt+1}次尝试）")
+                if attempt < 2:
+                    wait_time = retry_delays[attempt]
+                    print(f"[英伟达 NIMAPI] 等待{wait_time}秒后重试...")
+                    time.sleep(wait_time)
                     continue
                 NVIDIA_CONSECUTIVE_FAILURES += 1
                 return None
@@ -1824,10 +1981,12 @@ def call_nvidia_api(prompt, api_config, max_tokens=None):
             NVIDIA_CONSECUTIVE_FAILURES += 1
             return None
         except requests.exceptions.Timeout:
-            # 超时：重试1次（5秒）后降级
-            print(f"[英伟达 NIMAPI] 请求超时（{attempt+1}/1 次重试）| URL: {url} | 模型: {model}")
-            if attempt < 1:
-                time.sleep(5)
+            # 超时：重试2次（3/6秒）后降级
+            print(f"[英伟达 NIMAPI] 请求超时（第{attempt+1}次尝试）| URL: {url} | 模型: {model}")
+            if attempt < 2:
+                wait_time = retry_delays[attempt]
+                print(f"[英伟达 NIMAPI] 等待{wait_time}秒后重试...")
+                time.sleep(wait_time)
                 continue
             NVIDIA_CONSECUTIVE_FAILURES += 1
             return None
@@ -2023,19 +2182,68 @@ def filter_environmental_relevance(items, config, api_config):
                 print(f"[过滤] 考研条目缺少环境专业方向词：{title[:20]}")
         if keep:
             kept.append(item)
-            print(f"[保留] {title[:20]}")
+            # 打印匹配到的关键词
+            matched_kw = ""
+            if is_chinese(title):
+                for kw in ENV_RELATED_ZH:
+                    if kw in title:
+                        matched_kw = kw
+                        break
+            else:
+                tl = title.lower()
+                for kw in ENV_RELATED_EN:
+                    if re.search(r'\b' + re.escape(kw) + r'\b', tl):
+                        matched_kw = kw
+                        break
+            if matched_kw:
+                print(f"[保留] {title[:20]}（匹配关键词：{matched_kw}）")
+            else:
+                print(f"[保留] {title[:20]}")
         else:
             item["irrelevant"] = True
             print(f"[过滤] 无关内容（缺少环境强相关词）：{title[:20]}")
 
-    # 过滤后剩余不足10条 -> 取消过滤，保留全部
-    if len(kept) < 10 and len(kept) < len(items):
-        print(f"[过滤] 过滤后仅剩 {len(kept)} 条（少于10条），取消过滤，保留全部 {len(items)} 条")
+    # 过滤后剩余不足20条 -> 取消过滤，保留全部（放宽阈值，避免误杀）
+    if len(kept) < 20 and len(kept) < len(items):
+        print(f"[过滤] 过滤后仅剩 {len(kept)} 条（少于20条），取消过滤，保留全部 {len(items)} 条")
         for item in items:
             item.pop("irrelevant", None)
         return items
 
     return kept
+
+
+def calculate_weekly_categories():
+    """
+    统计近7天各分类的条目数量趋势
+    从每日快照文件（docs/data/daily/YYYY-MM-DD.json）中读取 category 字段
+    返回 [{date, categories: {cat: count}}, ...]，按日期升序
+    """
+    result = []
+    today = datetime.now(timezone.utc).date()
+    for i in range(6, -1, -1):
+        date = today - timedelta(days=i)
+        date_str = date.strftime("%Y-%m-%d")
+        snapshot_path = os.path.join(DATA_DIR, "daily", f"{date_str}.json")
+        cat_counts = {cat: 0 for cat in CATEGORY_ORDER}
+        if os.path.exists(snapshot_path):
+            try:
+                with open(snapshot_path, "r", encoding="utf-8") as f:
+                    snap = json.load(f)
+                items = snap.get("items", []) if isinstance(snap, dict) else []
+                for item in items:
+                    cat = item.get("category", "")
+                    if not cat:
+                        # 旧数据没有 category，用 classify_item 推断
+                        cat = classify_item(item)
+                    if cat in cat_counts:
+                        cat_counts[cat] += 1
+                    else:
+                        cat_counts["其他"] += 1
+            except Exception:
+                pass
+        result.append({"date": date_str, "categories": cat_counts})
+    return result
 
 
 def calculate_weekly_keywords():
@@ -2105,34 +2313,48 @@ def calculate_weekly_keywords():
     return top_keywords
 
 
-def generate_weekly_summary(api_config, weekly_keywords=None):
+def generate_weekly_summary(api_config, weekly_keywords=None, weekly_categories=None):
     """
     生成近7天热度总结
-    优先使用 AI 生成，失败则使用规则生成
-    基于实际高频词（weekly_keywords）生成，而不是预设宽泛词
-    写入 latest.json 的 weekly_summary 字段
+    优先基于大类统计生成，格式如："近7天热点集中在：气候变化（12条）、污染治理（9条）…"
+    若 AI 可用，可生成自然语言总结；若不可用，则使用规则模板
     """
-    # 如果没有传入 weekly_keywords，则计算
-    if weekly_keywords is None:
-        weekly_keywords = calculate_weekly_keywords()
+    # 如果没有传入 weekly_categories，则计算
+    if weekly_categories is None:
+        weekly_categories = calculate_weekly_categories()
 
-    if not weekly_keywords:
-        return ""
+    # 统计近7天各分类总条目数
+    cat_totals = Counter()
+    total_items = 0
+    for day in weekly_categories:
+        for cat, cnt in day.get("categories", {}).items():
+            if cat != "其他" and cnt > 0:
+                cat_totals[cat] += cnt
+                total_items += cnt
 
-    # 提取前5个高频词
-    top_terms = [kw["term"] for kw in weekly_keywords[:5]]
-    total_count = sum(kw["count"] for kw in weekly_keywords)
+    # 取前5个分类
+    top_cats = cat_totals.most_common(5)
 
-    # AI 生成
-    if api_config["summary_enabled"] and top_terms:
-        prompt = f"你是一个环境领域分析助手。请根据以下近7天环境领域高频关键词，生成一段不超过80字的中文总结，直接输出总结，不要解释。\n\n高频关键词：{', '.join(top_terms)}\n关键词总出现次数：{total_count}"
+    # AI 生成（基于大类统计）
+    if api_config["summary_enabled"] and top_cats:
+        cat_str = "、".join([f"{cat}（{cnt}条）" for cat, cnt in top_cats])
+        prompt = f"你是一个环境领域分析助手。请根据以下近7天环境领域热点分类统计，生成一段不超过80字的中文总结，直接输出总结，不要解释。\n\n分类统计：{cat_str}\n总条目数：{total_items}"
         result = call_nvidia_api(prompt, api_config, max_tokens=120)
         if result:
             return result.strip('"').strip("'").strip()
 
-    # 规则生成（降级）
-    if top_terms:
-        return f"近7天环境领域热点集中在：{'、'.join(top_terms[:3])}，关键词累计出现{total_count}次。"
+    # 规则生成（基于大类统计）
+    if top_cats:
+        cat_str = "、".join([f"{cat}（{cnt}条）" for cat, cnt in top_cats[:3]])
+        return f"近7天热点集中在：{cat_str}，共聚合{total_items}条环境领域资讯。"
+
+    # 降级：使用关键词
+    if weekly_keywords is None:
+        weekly_keywords = calculate_weekly_keywords()
+    if weekly_keywords:
+        top_terms = [kw["term"] for kw in weekly_keywords[:3]]
+        total_count = sum(kw["count"] for kw in weekly_keywords)
+        return f"近7天环境领域热点集中在：{'、'.join(top_terms)}，关键词累计出现{total_count}次。"
     return ""
 
 
@@ -2755,8 +2977,8 @@ def generate_batch_summaries(items, api_config):
 新闻列表：
 {chr(10).join(news_list)}"""
 
-        # 批量请求，重试2次，等待5秒、10秒，超时30秒
-        retry_delays = [5, 10]
+        # 批量请求，重试2次，等待3秒、6秒，超时20秒，max_tokens=100
+        retry_delays = [3, 6]
         result_text = None
         for attempt in range(2):
             try:
@@ -2768,19 +2990,21 @@ def generate_batch_summaries(items, api_config):
                 data = {
                     "model": api_config["model"],
                     "messages": [{"role": "user", "content": prompt}],
-                    "max_tokens": 400,
+                    "max_tokens": 100,
                     "temperature": 0.3,
                 }
                 t0 = time.time()
-                resp = requests.post(url, headers=headers, json=data, timeout=30)
+                resp = requests.post(url, headers=headers, json=data, timeout=20)
                 elapsed = time.time() - t0
                 resp.raise_for_status()
                 result = resp.json()
                 result_text = _extract_ai_content(result)
                 if not result_text:
-                    print(f"[AI批量摘要] 第{batch_idx+1}批返回为空（{attempt+1}/2 次重试）")
+                    print(f"[AI批量摘要] 第{batch_idx+1}批返回为空（第{attempt+1}次尝试）")
                     if attempt < 1:
-                        time.sleep(5)
+                        wait_time = retry_delays[attempt]
+                        print(f"[AI批量摘要] 等待{wait_time}秒后重试...")
+                        time.sleep(wait_time)
                         continue
                     NVIDIA_CONSECUTIVE_FAILURES += 1
                     break
@@ -2798,9 +3022,11 @@ def generate_batch_summaries(items, api_config):
                 NVIDIA_CONSECUTIVE_FAILURES += 1
                 break
             except requests.exceptions.Timeout:
-                print(f"[AI批量摘要] 第{batch_idx+1}批请求超时（{attempt+1}/2）")
+                print(f"[AI批量摘要] 第{batch_idx+1}批请求超时（第{attempt+1}次尝试）")
                 if attempt < 1:
-                    time.sleep(5)
+                    wait_time = retry_delays[attempt]
+                    print(f"[AI批量摘要] 等待{wait_time}秒后重试...")
+                    time.sleep(wait_time)
                     continue
                 NVIDIA_CONSECUTIVE_FAILURES += 1
                 break
@@ -2929,8 +3155,8 @@ def generate_batch_topic_tags(items, api_config):
 新闻列表：
 {chr(10).join(news_list)}"""
 
-        # 批量请求，重试1-2次，等待5秒、10秒，超时30秒
-        retry_delays = [5, 10]
+        # 批量请求，重试2次，等待3秒、6秒，超时20秒，max_tokens=100
+        retry_delays = [3, 6]
         result_text = None
         for attempt in range(2):
             try:
@@ -2945,14 +3171,16 @@ def generate_batch_topic_tags(items, api_config):
                     "max_tokens": 100,
                     "temperature": 0.3,
                 }
-                resp = requests.post(url, headers=headers, json=data, timeout=30)
+                resp = requests.post(url, headers=headers, json=data, timeout=20)
                 resp.raise_for_status()
                 result = resp.json()
                 result_text = _extract_ai_content(result)
                 if not result_text:
-                    print(f"[AI批量标签] 第{batch_start//BATCH_SIZE+1}批返回为空或格式异常（{attempt+1}/1 次重试）")
+                    print(f"[AI批量标签] 第{batch_start//BATCH_SIZE+1}批返回为空或格式异常（第{attempt+1}次尝试）")
                     if attempt < 1:
-                        time.sleep(5)
+                        wait_time = retry_delays[attempt]
+                        print(f"[AI批量标签] 等待{wait_time}秒后重试...")
+                        time.sleep(wait_time)
                         continue
                     NVIDIA_CONSECUTIVE_FAILURES += 1
                     break
@@ -3501,6 +3729,7 @@ def generate_latest_json(items, config, weekly_summary="", weekly_keywords=None,
 
     # 构建条目列表（移除内部字段，确保所有值为可序列化的基本类型）
     output_items = []
+    category_counter = Counter()
     for item in items:
         # 生成分析（优先使用 topic_tags 优化）
         analysis = enhance_analysis_with_tags(item)
@@ -3509,6 +3738,10 @@ def generate_latest_json(items, config, weekly_summary="", weekly_keywords=None,
         raw_summary = item.get("summary", "")
         if raw_summary:
             item["summary"] = clean_summary_inline(raw_summary)
+        # 为条目添加分类
+        category = classify_item(item)
+        item["category"] = category
+        category_counter[category] += 1
         output_items.append({
             "title": sanitize_str(item.get("title")),
             "title_en": sanitize_str(item.get("title_en", "")),
@@ -3524,9 +3757,16 @@ def generate_latest_json(items, config, weekly_summary="", weekly_keywords=None,
             "summary": sanitize_str(item.get("summary")),
             "analysis": sanitize_str(analysis),
             "topic_tags": item.get("topic_tags", []),
+            "category": sanitize_str(category),
             "matched_keywords": [sanitize_str(kw) for kw in item.get("matched_keywords", [])],
             "keywords": [sanitize_str(kw) for kw in item.get("matched_keywords", [])],
         })
+
+    # 当日分类统计
+    today_categories = [{"category": cat, "count": cnt} for cat, cnt in category_counter.most_common()]
+
+    # 近7天分类趋势（从每日快照中统计）
+    weekly_categories = calculate_weekly_categories()
 
     data = {
         "report_date": datetime.now(timezone.utc).strftime("%Y-%m-%d"),
@@ -3541,6 +3781,8 @@ def generate_latest_json(items, config, weekly_summary="", weekly_keywords=None,
         "weekly_summary": sanitize_str(weekly_summary),
         "weekly_insight": sanitize_str(weekly_insight),
         "weekly_keywords": weekly_keywords if weekly_keywords is not None else [],
+        "weekly_categories": weekly_categories,
+        "today_categories": today_categories,
     }
 
     path = os.path.join(DATA_DIR, "latest.json")
@@ -4001,6 +4243,16 @@ def main():
     # 3.5 环境领域相关性过滤（时间过滤后、热度计算前，保证不相关内容不进榜单）
     print("--- 第三步补充：环境领域相关性过滤 ---")
     api_config = get_api_config(config)
+
+    # 模型健康检查：如果模型不可用，当天跳过所有 AI 功能
+    if api_config["summary_enabled"]:
+        model_ok = check_model_health(api_config)
+        if not model_ok:
+            print("[模型健康检查] 模型不可用，今日使用规则模式（跳过所有 AI 调用）")
+            api_config["summary_enabled"] = False
+        else:
+            print("[模型健康检查] 模型可用，AI 功能已启用")
+
     all_items = filter_environmental_relevance(all_items, config, api_config)
     print(f"[统计] 相关性过滤后 {len(all_items)} 条")
     print()
@@ -4070,11 +4322,12 @@ def main():
     if translated_summaries > 0:
         print(f"[翻译] 已将 {translated_summaries} 条英文摘要翻译为中文")
 
-    # 生成近7天热度总结（基于实际高频词）
+    # 生成近7天热度总结（基于大类统计）
     weekly_keywords = calculate_weekly_keywords()
     if weekly_keywords:
         print(f"[统计] 近7天高频词：{', '.join(kw['term'] for kw in weekly_keywords[:5])}")
-    weekly_summary = generate_weekly_summary(api_config, weekly_keywords=weekly_keywords)
+    weekly_categories = calculate_weekly_categories()
+    weekly_summary = generate_weekly_summary(api_config, weekly_keywords=weekly_keywords, weekly_categories=weekly_categories)
     if weekly_summary:
         print(f"[AI] 近7天总结: {weekly_summary[:60]}...")
     weekly_insight = generate_weekly_insight(api_config, weekly_keywords=weekly_keywords)

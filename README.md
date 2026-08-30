@@ -36,6 +36,7 @@
 - **🎓 高校考研窗口**：双窗口结构，独立的高校考研院校分析模块，内置广东省18所高校环境类考研详细数据，支持按层次、难度筛选，按难度排序，点击查看完整考试科目、参考书目、复试内容、历年分数线、招生人数等；支持7个省份选择（广东已开放，其他省份敬请期待）
 - **⚖️ 合规说明**：明确项目使用范围、数据来源、爬虫规范、隐私保护等合规声明
 - **🎓 考研院校分析**：内置广东省 20 所高校环境类考研数据，支持按层次、难度筛选，按难度排序，点击卡片查看完整考试科目、参考书目、复试内容、历年分数线、招生人数等详情
+- **💼 就业方向窗口**：展示环境专业十大就业方向（水处理、大气治理、固废、生态修复、环境监测、环评咨询、ESG、碳管理、环境政策、环保研发），每张卡片含方向简介、典型岗位、需求程度标签及可展开的详细描述；最新招聘资讯展示真实企业岗位（公司、薪资、岗位、地点·经验·标签）
 - **移动端底部导航**：移动端固定底部 Tab 栏，快速切换热点、知识库、趋势、收藏
 - **微交互动画**：按钮缩放、卡片悬停、模态框淡入淡出、收藏弹跳等流畅动画
 - **骨架屏加载**：数据加载期间显示骨架屏占位，提升用户体验
@@ -369,6 +370,8 @@ hotspot-radar/
 │       ├── pending_terms.json   # 候选新词
 │       ├── glossary.json        # 环境知识库（100+ 术语）
 │       ├── learning_path.json   # 学习路径数据
+│       ├── careers.json         # 十大就业方向数据（方向、简介、岗位、需求、详情）
+│       ├── jobs.json            # 招聘岗位数据（公司、薪资、岗位、地点、经验、标签）
 │       ├── daily/               # 每日 Top10 快照
 │       │   └── YYYY-MM-DD.json
 │       └── archive/             # 月度归档
@@ -380,12 +383,24 @@ hotspot-radar/
 
 ## 📝 更新日志
 
-### v7.6（最新）
+### v7.7（最新）
+
+- 🏷️ **关键词归类与大类趋势图**：新增 `classify_keyword()` 函数，将关键词映射到 8 个大类（气候变化、污染治理、生态环境、环境政策、能源与碳中和、水处理、科研学术、环境健康）；每条热点新增 `category` 字段；趋势图改为展示近 7 天各大类条目数量变化（`weekly_categories`），替代原关键词趋势
+- 📊 **近 7 天总结基于大类统计**：`generate_weekly_summary()` 优先基于各大类条目数生成，格式如"近 7 天热点集中在：气候变化（12 条）、污染治理（9 条）…"；AI 可用时生成自然语言总结，不可用时使用规则模板
+- 🩺 **模型健康检查**：新增 `check_model_health()`，每次运行开始用极短文本测试模型可用性；返回 404 或连续失败 2 次则当天跳过所有 AI 功能，日志提示"模型不可用，今日使用规则模式"；自动尝试备用模型
+- 🔙 **模型改回 deepseek-v4-flash**：`config.yaml` 中 `summary_api.model` 改回 `deepseek-ai/deepseek-v4-flash-0731`（旧的可用模型），`fallback_model` 设为同一模型，避免 nemotron 新模型 404 导致 AI 功能全部失效
+- 🛡️ **放宽相关性过滤**：过滤后剩余条目少于 20 条时自动取消过滤（原阈值 10 条），避免误杀环境类新闻；英文环境词表扩充至 80+ 词（新增 recycling、toxic、contamination、fossil fuel、deforestation、sewage、eutrophication 等）；过滤日志明确输出匹配到的关键词
+- 🌐 **翻译服务优化**：新增翻译缓存（`TRANSLATION_CACHE`）避免重复翻译；每日翻译上限 20 条（`TRANSLATION_MAX_DAILY`），超出保留原文；百度翻译保持 1.2 秒限速 + 54003 错误 3 秒重试；DeepL → 百度 → Google 三级降级不变
+- 📈 **趋势图前端重构**：`renderTrendChart()` 优先读取 `weekly_categories` 展示大类趋势，取 Top 5 分类绘制多线折线图；无分类数据时降级显示总条数；完全兼容旧版 `weekly_keywords` 数据
+- 📦 **数据文件完整性**：确认 `glossary.json`（100 条）、`careers.json`（10 条）、`jobs.json`（4 条）、`schools.json`（18 条）、`learning_path.json`（8 条）结构正确、字段完整
+
+### v7.6
 
 - 🌐 **翻译服务升级为 DeepL + Google**：移除 MyMemory，彻底告别 429 限流。`config.yaml` 新增 `translation_api` 配置（`enabled` / `provider` / `deepl_api_key`）：配置 DeepL Free Key 时优先 DeepL（失败自动切 Google），未配置则直接使用 Google 免费翻译接口；均带浏览器 UA 请求头降低被拦截概率，全部失败保留英文原文
 - 🏷️ **新增 `title_zh` 字段**：英文标题自动生成中文翻译写入 `title_zh`（覆盖 `latest.json`、`personal_latest.json`、`daily/*.json` 等所有输出）；中文标题 `title_zh` 置空
 - 🔘 **前端"译"按钮**：英文热点标题旁显示可点击"译"按钮，点击在英文原题与中文翻译间切换显示，`stopPropagation` 不影响标题展开、收藏、分享等交互；支持暗黑模式与移动端点击
 - 🛡️ **AI 响应防御式解析**：新增 `_extract_ai_content`，修复 `'NoneType' object has no attribute 'strip'`；修复函数内局部 `import re` 导致的 `UnboundLocalError`（`extract_tags_from_title`、`generate_personal_knowledge`）
+- 💼 **就业方向窗口数据完善**：新增 `docs/data/careers.json`（十大就业方向，含 direction/intro/positions/demand/detail）与 `docs/data/jobs.json`（招聘岗位，含 company/salary/position/location/experience/tags）；前端从 `data/` 动态加载真实数据（fetch 失败自动降级内置示例），方向卡片支持"查看岗位详情"展开/收起（同一时间只展开一个）；"查看更多招聘 →"改为占位外链 `https://www.example.com/jobs`（新窗口打开），原"查看岗位详情"链接仍平滑滚动到方向列表
 
 ### v7.5
 

@@ -708,7 +708,7 @@
             summaryEl.title = '点击展开完整摘要';
         } else {
             summaryEl.className = 'card-summary empty-summary';
-            summaryEl.textContent = '暂无摘要，点击查看详情';
+            summaryEl.textContent = '暂无摘要';
         }
         summaryEl.addEventListener('click', () => toggleCardSummary(card, item));
         card.appendChild(summaryEl);
@@ -858,7 +858,7 @@
         } else {
             // 切回中文
             if (titleWrap) titleWrap.textContent = item.title_zh || item.title || '无标题';
-            if (summaryEl) summaryEl.textContent = item.summary_zh || item.summary || '暂无摘要，点击查看详情';
+            if (summaryEl) summaryEl.textContent = item.summary_zh || item.summary || '暂无摘要';
             if (detailText) detailText.textContent = item.summary_zh || item.summary || '暂无摘要内容，请点击"阅读原文"查看完整内容。';
             btn.textContent = '显示原文';
             card.dataset.orig = '0';
@@ -1080,23 +1080,13 @@
     }
 
     // ============================================================
-    // 渲染近7天趋势图
+    // 渲染近7天趋势图（大类趋势）
     // ============================================================
     function renderTrendChart() {
         const chartEl = document.getElementById('trendChart');
         if (!chartEl) return;
         const ctx = chartEl.getContext('2d');
         if (!ctx) return;
-
-        // 取最近7天数据（按日期升序）
-        const historyData = Array.isArray(state.historyData) ? state.historyData : [];
-        const recent7 = historyData.slice(0, 7).reverse();
-
-        const labels = recent7.map((h) => h.date ? h.date.slice(5) : '');
-
-        // 从 latest.json 中读取 weekly_keywords（前3个高频词）
-        const weeklyKeywords = (state.latestData && state.latestData.weekly_keywords) || [];
-        const topKeywords = weeklyKeywords.slice(0, 3).map(kw => kw.term || kw.keyword);
 
         if (state.trendChart) {
             state.trendChart.destroy();
@@ -1106,27 +1096,36 @@
         const textColor = isDark ? '#94A3B8' : '#6B7280';
         const gridColor = isDark ? 'rgba(148, 163, 184, 0.1)' : 'rgba(107, 114, 128, 0.1)';
 
-        // 如果没有高频词数据，显示资讯条数
-        let datasets = [];
-        const colors = ['#10B981', '#3B82F6', '#F59E0B', '#EF4444', '#8B5CF6'];
+        // 优先使用 weekly_categories（大类趋势）
+        const weeklyCategories = (state.latestData && state.latestData.weekly_categories) || [];
+        const colors = ['#EF4444', '#F59E0B', '#10B981', '#3B82F6', '#8B5CF6', '#EC4899', '#06B6D4', '#84CC16', '#6B7280'];
 
-        if (topKeywords.length > 0) {
-            // 为每个高频词统计近7天出现次数
-            topKeywords.forEach((keyword, idx) => {
-                const color = colors[idx % colors.length];
-                const data = recent7.map((day) => {
-                    const dayKeywords = day.keywords || [];
-                    let count = 0;
-                    dayKeywords.forEach(kw => {
-                        const term = kw.term || kw.keyword || kw;
-                        if (term === keyword) {
-                            count = kw.count || 1;
-                        }
-                    });
-                    return count;
+        let datasets = [];
+        let labels = [];
+        let showLegend = false;
+
+        if (weeklyCategories.length > 0) {
+            // 大类趋势：每天各分类条目数量
+            labels = weeklyCategories.map(day => day.date ? day.date.slice(5) : '');
+            // 收集所有出现过的分类（按总条数排序）
+            const catTotals = {};
+            weeklyCategories.forEach(day => {
+                Object.entries(day.categories || {}).forEach(([cat, cnt]) => {
+                    if (cat !== '其他' && cnt > 0) {
+                        catTotals[cat] = (catTotals[cat] || 0) + cnt;
+                    }
                 });
+            });
+            const topCats = Object.entries(catTotals)
+                .sort((a, b) => b[1] - a[1])
+                .slice(0, 5)
+                .map(([cat]) => cat);
+
+            topCats.forEach((cat, idx) => {
+                const color = colors[idx % colors.length];
+                const data = weeklyCategories.map(day => (day.categories && day.categories[cat]) || 0);
                 datasets.push({
-                    label: keyword,
+                    label: cat,
                     data: data,
                     borderColor: color,
                     backgroundColor: color + '20',
@@ -1140,23 +1139,86 @@
                     pointHoverRadius: 6,
                 });
             });
+            showLegend = topCats.length > 0;
+
+            // 如果没有分类数据，显示总条数
+            if (datasets.length === 0) {
+                const totalData = weeklyCategories.map(day => {
+                    let total = 0;
+                    Object.values(day.categories || {}).forEach(cnt => total += cnt);
+                    return total;
+                });
+                datasets.push({
+                    label: '资讯条数',
+                    data: totalData,
+                    borderColor: '#10B981',
+                    backgroundColor: 'rgba(16, 185, 129, 0.15)',
+                    borderWidth: 2,
+                    fill: true,
+                    tension: 0.4,
+                    pointBackgroundColor: '#10B981',
+                    pointBorderColor: '#fff',
+                    pointBorderWidth: 2,
+                    pointRadius: 5,
+                    pointHoverRadius: 7,
+                });
+            }
         } else {
-            // 没有高频词，显示资讯条数
-            const data = recent7.map((h) => h.total_items || 0);
-            datasets.push({
-                label: '资讯条数',
-                data: data,
-                borderColor: '#10B981',
-                backgroundColor: 'rgba(16, 185, 129, 0.15)',
-                borderWidth: 2,
-                fill: true,
-                tension: 0.4,
-                pointBackgroundColor: '#10B981',
-                pointBorderColor: '#fff',
-                pointBorderWidth: 2,
-                pointRadius: 5,
-                pointHoverRadius: 7,
-            });
+            // 降级：使用 history.json 的关键词趋势
+            const historyData = Array.isArray(state.historyData) ? state.historyData : [];
+            const recent7 = historyData.slice(0, 7).reverse();
+            labels = recent7.map((h) => h.date ? h.date.slice(5) : '');
+
+            const weeklyKeywords = (state.latestData && state.latestData.weekly_keywords) || [];
+            const topKeywords = weeklyKeywords.slice(0, 3).map(kw => kw.term || kw.keyword);
+
+            if (topKeywords.length > 0) {
+                topKeywords.forEach((keyword, idx) => {
+                    const color = colors[idx % colors.length];
+                    const data = recent7.map((day) => {
+                        const dayKeywords = day.keywords || [];
+                        let count = 0;
+                        dayKeywords.forEach(kw => {
+                            const term = kw.term || kw.keyword || kw;
+                            if (term === keyword) {
+                                count = kw.count || 1;
+                            }
+                        });
+                        return count;
+                    });
+                    datasets.push({
+                        label: keyword,
+                        data: data,
+                        borderColor: color,
+                        backgroundColor: color + '20',
+                        borderWidth: 2,
+                        fill: false,
+                        tension: 0.4,
+                        pointBackgroundColor: color,
+                        pointBorderColor: '#fff',
+                        pointBorderWidth: 2,
+                        pointRadius: 4,
+                        pointHoverRadius: 6,
+                    });
+                });
+                showLegend = true;
+            } else {
+                const data = recent7.map((h) => h.total_items || 0);
+                datasets.push({
+                    label: '资讯条数',
+                    data: data,
+                    borderColor: '#10B981',
+                    backgroundColor: 'rgba(16, 185, 129, 0.15)',
+                    borderWidth: 2,
+                    fill: true,
+                    tension: 0.4,
+                    pointBackgroundColor: '#10B981',
+                    pointBorderColor: '#fff',
+                    pointBorderWidth: 2,
+                    pointRadius: 5,
+                    pointHoverRadius: 7,
+                });
+            }
         }
 
         state.trendChart = new Chart(ctx, {
@@ -1170,7 +1232,7 @@
                 maintainAspectRatio: false,
                 plugins: {
                     legend: {
-                        display: topKeywords.length > 0,
+                        display: showLegend,
                         position: 'top',
                         labels: {
                             color: textColor,

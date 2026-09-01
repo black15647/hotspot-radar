@@ -1,54 +1,54 @@
 # 环境学子雷达 - 每日热点报告
 
-**日期**：2026-08-31
-**总条目数**：23
+**日期**：2026-09-01
+**总条目数**：39
 
 **近7天见解**：Here's a thinking process:
 
 1.  **Analyze User Request:**
-   - **Input:** "近7天环境领域热点数据" (Recent 7-day environmental domain hotspot data)
-   - **Provided Data Points:** High-frequency keywords: 考研 (postgraduate entrance exam), 竞赛 (competition), 大气污染 (air pollution), 微塑料 (microplastics), 生物多样性 (biodiversity), 可再生能源 (renewable energy)
-   - **Counts:** Keyword cumulative appearances: 20, average ~3 times per day
-   - **Output Requirement:** Write a brief insight (2-4 sentences), analyze recent hotspot trends and characteristics, must have observation and summary, NOT just list keywords.
+   - **Input:** "近7天环境领域热点数据" with specific keywords: 考研, 竞赛, 大气污染, 微塑料, 招聘, 生物多样性
+   - **Keyword total count:** 18
+   - **Frequency:** Average ~3 times per day
+   - **Task:** Write a brief insight (2-4 sentences)
+   - **Requirements:** Analyze recent hot trends and characteristics, have observation and summary, do NOT just list keywords.
 
-2.  **Identify Key Constraints:**
-   - 2-4 sentences only
-   - Must analyze trends/characteristics, not just
+2.  **Analyze the Data/Keywords:**
+   - Keywords given: 考研 (postgraduate entrance exam), 竞赛 (competitions), 大气污染 (air pollution), 微塑料 (microplastics), 招聘 (recruitment), 生物多样性
 
 ---
 
 ## 🔥 今日热点 TOP 10
 
-### 1. [千年珊瑚记录揭示全球气候变化|厄尔尼诺现象|温室气体|海面温度|印度尼西亚|全球变暖_手机新浪网 - finance.sina.com.cn](https://news.google.com/rss/articles/CBMinwFBVV95cUxNMkw4eFh2MlQtdTB0Vkp0MVpzZmxESDJHNkNDV21rNmlBeHVZeXZKTktYSmgwOUoyMW0xZHpaaDZzaUpBZzJmSHpIYXZtYkRVUDluQ3V0YmpSMzlWSTAybFFPS1VNYWpsclM5MlhCS21aQlE4c0lWbHI1NUFnYXB0emRtTC1WRnE5OFJPRnpEZHlZRjk4eFdnYS1DS1NEQVk?oc=5)
+### 1. [甘肃省应对气候变化工作取得阶段性成效 - 新浪财经](https://news.google.com/rss/articles/CBMioAFBVV95cUxQWHZUWllySzhvSElhY2hMbnR3Yk5VYnlDUlpMQmN0dHV4enR6emN0Mm1JQTZ5ZU0tZTM2MzBDNlRaa0pfNThwX1RoTHhValJULTh1NHlkZHpMZUhWazRKWkZZQWJQeFp2Rmc0YkdpQjI5Zmo4czlYbkdTbWhCV2ItVFAtWU5yeHh0azFKWmM3Z2JwWGFVNVd0Rm5wenFVb0gy?oc=5)
 
 - **来源**：Google News 气候变化
-- **热度**：29.6
-- **发布时间**：2026-08-30T18:57:55+00:00
+- **热度**：21.33
+- **发布时间**：2026-08-31T01:01:30+00:00
 - **关键词**：气候变化
 
-> 关于「千年珊瑚记录揭示全球气候变化」的资讯
+> 关于「甘肃省应对气候变化工作取得阶段性成效」的资讯：- 新浪财经
 
-**📊 分析**：该条目涉及【千年珊瑚记录揭示全球气候变化】话题，因来源较权威且发布时间较新，热度上升。
+**📊 分析**：该条目涉及【甘肃省应对气候变化工作取得阶段】话题，因来源较权威且与近期热点主题相关，热度上升。
 
 ---
 
-### 2. [锚点：气候变化，是真的还是假的？ | 袁岚峰 - 风闻](https://news.google.com/rss/articles/CBMiakFVX3lxTE5pZmtpMkx1aGpGWFM0SjNPMFlzWjlVX1hxVks5bDhWTFBlRTJNX2lGbzdJd00tbk9ncnR0UFYyOF9mRFhtV1ktZDJzemtITFRpWFdOTGV3cjc1ZkRjdFRDY1dGUmpDMnp3Rmc?oc=5)
+### 2. [2026年茂名市生态环境执法大练兵竞赛圆满举办 - mm111.net](https://news.google.com/rss/articles/CBMiW0FVX3lxTFBQMUFRN3R1MXMydUg0OEt0TnhjamJWWnN4aW1RTkpIX0JjR1RHZjVYSkxON3FXbHBfcjkwS3E5cHh1aWs5TVVpeHRlX3A3bEVPSGdWMTBZeVBEeFk?oc=5)
 
-- **来源**：Google News 气候变化
-- **热度**：27.82
-- **发布时间**：2026-08-30T13:01:18+00:00
-- **关键词**：气候变化
+- **来源**：Google News 环境竞赛
+- **热度**：19.69
+- **发布时间**：2026-08-31T12:34:00+00:00
+- **关键词**：竞赛
 
-> 关于「气候变化」的资讯
+> 关于「年茂名市生态环境执法大练兵竞赛圆满举办」的资讯：2026 - mm111.net
 
-**📊 分析**：该条目涉及【气候变化】话题，因来源较权威且发布时间较新，热度上升。
+**📊 分析**：该条目涉及【年茂名市生态环境执法大练兵竞赛】话题，因来源较权威且发布时间较新，热度上升。
 
 ---
 
-### 3. [气候变化与健康守护科普工作坊在西安举行 30余名志愿者共学“气候健康课” - 搜狐网](https://news.google.com/rss/articles/CBMijAFBVV95cUxQenI3dkQxTVJENG9pTFlUVnBOYjZrTUxtQVJiamdQdVZMWHpmMUd4N0Q0TlpEVUFOQk1yNVN2eldtb285bHRRWnFvOVdDS2U2M3k2MURXNkJwY0N3MGd0bVptV1ZRbEFaNDJlbUJMV1FVOVc2aXNWMkRVeXJ1WDFWdnFERlJlaHlNRkJNcA?oc=5)
+### 3. [气候变化与健康守护科普工作坊在西安举行 30余名志愿者共学“气候健康课” - Sohu](https://news.google.com/rss/articles/CBMijAFBVV95cUxQenI3dkQxTVJENG9pTFlUVnBOYjZrTUxtQVJiamdQdVZMWHpmMUd4N0Q0TlpEVUFOQk1yNVN2eldtb285bHRRWnFvOVdDS2U2M3k2MURXNkJwY0N3MGd0bVptV1ZRbEFaNDJlbUJMV1FVOVc2aXNWMkRVeXJ1WDFWdnFERlJlaHlNRkJNcA?oc=5)
 
 - **来源**：Google News 气候变化
-- **热度**：26.82
+- **热度**：19.46
 - **发布时间**：2026-08-30T08:54:06+00:00
 - **关键词**：气候变化
 
@@ -58,89 +58,87 @@
 
 ---
 
-### 4. [喜马拉雅洪灾死亡人数升至682人 近3000人失踪 联合国与尼泊尔警告气候变化威胁加剧 - RFI](https://news.google.com/rss/articles/CBMigwRBVV95cUxOanJORGFJVjhkbFZPdmE5aGF6S3NFaXJGSm9Odlhhc2pvS2JzYnA4ak0wektrQ3U5QmhxY3I2QVQxTGNzUnp4eFd1YnlTRVlqT0pqR2hiQ1VPRmRnUUxuS1hIdFA2ZDZRcDBPYUhkUU9qQ25yREZaUVE4TTdLLVpjeXFSWl8xVklXQ0hmdHBjTV9CblVDb3hvUjc3TXBrTXdhblFTRWJVc1FpTWNVNi1NOWRxUzlrMURSa1dIQV9DUWR3WWttUXl5aHdOQk5CeWdmeG5lWm5RajM5MzNJc0F3cVdUVF9kNFlaTzFLVkZYNS1LSWZzcU01RDdYWE5uY1JLZGhtYzQyUTJfR3k1a0x2T082WDdFOEt2NFY2bU5JajlDdDVMWWZMeEtHMUVDOFBldnZZbGROLTJPWm80dzlSX0hSWWtJNm9jODZramdTOXNxVUYyaElNZVFuN3RkOElvSGgyQ0VKRGNhUE5DRmlTY1VzTXdvMTJaWlRRZkEzXzJ5QmRueENOc040UWVoNkJab2pGZ0dUbEJzaDZzemZuYWRDaUZjZllHTGZJdkJIbkd3U1NkaGxtYkdOWXkyM1lrNVUtOHFXLWZaV0ljd3NpY2VmYlVSNXJlV1hJZlNtN2oxdll2X2NrSmZkT1FnMUNOTTZ4YzBNNHVYelR3aDVSeXpKYw?oc=5)
+### 4. [厄尔尼诺现象为何愈发猛烈？千年珊瑚记录直指气候变化 - 科学网—新闻](https://news.google.com/rss/articles/CBMiZEFVX3lxTE5NLU5VaW90azNvLThpcWhEczR0RWh0TnR0SXNfSmpiRUN2ZS1vRTM2TVZpRjQ3NmtUQlBMdmZWUHl3NnU0NWlzWFRkMDBhVDU5a2NVUG5rZnJkQ0RvRDNLdHQ1QVU?oc=5)
 
 - **来源**：Google News 气候变化
-- **热度**：24.74
-- **发布时间**：2026-08-29T20:59:53+00:00
+- **热度**：19.38
+- **发布时间**：2026-08-30T07:57:27+00:00
 - **关键词**：气候变化
 
-> 关于「联合国与尼泊尔警告气候变化威胁加剧」的资讯
+> 关于「千年珊瑚记录直指气候变化」的资讯
 
-**📊 分析**：该条目涉及【联合国】话题，因来源较权威且与近期热点主题相关，热度上升。
-
----
-
-### 5. [尼泊尔民众回忆洪水来临惊险瞬间 气候变化加剧灾害风险 - 中华网](https://news.google.com/rss/articles/CBMicEFVX3lxTE5HQXp3dllEd2VSVktTYzQyWlNtV3RCNWQ5SUlSWkV6T1RjYzZ2YVBFMXo0Z21IOW9iVHhyemRXaVhPMWctbEtnNmJJQnhjcHlRalZKTWYtQmc2Uy1lTk11OVR2QXBYdjg1MWxDcUU5elY?oc=5)
-
-- **来源**：Google News 气候变化
-- **热度**：23.99
-- **发布时间**：2026-08-29T14:38:50+00:00
-- **关键词**：气候变化
-
-> 关于「气候变化加剧灾害风险」的资讯
-
-**📊 分析**：该条目涉及【气候变化加剧灾害风险】话题，因来源较权威且与近期热点主题相关，热度上升。
+**📊 分析**：该条目涉及【千年珊瑚记录直指气候变化】话题，因来源较权威且与近期热点主题相关，热度上升。
 
 ---
 
-### 6. [湖南公开征集涉溶洞生态环境污染问题线索 最高奖励10万元 - 华声在线](https://news.google.com/rss/articles/CBMiX0FVX3lxTE9sejhDV1hRT1p3ZU5tTWtNSHBCXzdVUlhBQnRFQ2dyYWE2ZDdVLUJVN1htUmxJMDNSUXk5a1JVQlpKZzFERUNFZVZVRkRMaTlaaTJyYmM0U0dOQUwwNnlj?oc=5)
-
-- **来源**：Google News 环境污染
-- **热度**：19.04
-- **发布时间**：2026-08-30T22:54:00+00:00
-
-> 关于「湖南公开征集涉溶洞生态环境污染问题线索」的资讯：最高奖励10万元 - 华声在线
-
-**📊 分析**：该条目涉及【湖南公开征集涉溶洞生态环境污染】话题，因来源较权威且发布时间较新，热度上升。
-
----
-
-### 7. [中国能建葛洲坝生态环保公司招聘公告 - finance.sina.com.cn](https://news.google.com/rss/articles/CBMidkFVX3lxTE1Vd29hZ1hEdGpxSFp6dmdneV83OVc0UG9lZjA4UW00NnhScFZuLUxDeW5MRlZVX2piTHY4WXdZcC1VZzAtOGhKWURpSXJFV3BmcWxkVjRHSVRITUNNWXVaVnJ0bmVhRndpS0JfaHNPM2RWVm5ZcFE?oc=5)
-
-- **来源**：Google News 环保招聘
-- **热度**：17.17
-- **发布时间**：2026-08-30T00:00:00+00:00
-- **关键词**：招聘
-
-> 关于「中国能建葛洲坝生态环保公司招聘公告」的资讯
-
-**📊 分析**：该条目涉及【中国能建葛洲坝生态环保公司招聘】话题，因来源较权威且与近期热点主题相关，热度上升。
-
----
-
-### 8. [Hundreds of hidden earthquakes found at Antarctica’s Doomsday Glacier](https://www.sciencedaily.com/releases/2026/08/260829035328.htm)
-
-- **来源**：ScienceDaily 环境科学
-- **热度**：16.75
-- **发布时间**：2026-08-30T13:07:17+00:00
-
-> Hundreds of previously overlooked seismic events have been detected beneath Antarctica, including 245 near the marine edge of the Thwaites Glacier. Many appear to be glacial earthquakes caused when huge icebergs break off, capsize, and collide with the glacier. The surge in activity coincided with a period when Thwaites was flowing faster toward the ocean, hinting that changing ocean conditions may be destabilizing the ice.
-
-**📊 分析**：该条目涉及【Hundreds】话题，因来源较权威且发布时间较新，热度上升。
-
----
-
-### 9. ['A giant leap forward': Nasa launches powerful new space telescope](https://www.bbc.co.uk/news/articles/ce87e55vgpjo?at_medium=RSS&at_campaign=rss)
+### 5. [Summer 2026 expected to be declared UK's hottest on record](https://www.bbc.co.uk/weather/articles/c99dypl3jgmo?at_medium=RSS&at_campaign=rss)
 
 - **来源**：BBC 科学与环境
-- **热度**：16.07
-- **发布时间**：2026-08-30T18:53:53+00:00
+- **热度**：17.86
+- **发布时间**：2026-08-31T23:42:55+00:00
 
-> The US space agency's telescope is starting a multi-year mission to create a new map of the universe and learn more about dark energy and dark matter.
+> Met Office figures due on Tuesday are likely to show that the previous record, set in 2025, has been broken after an unprecedented summer of persistent heat.
 
-**📊 分析**：该条目涉及【giant】话题，因发布时间较新，热度上升。
+**📊 分析**：该条目涉及【Summer】话题，因发布时间较新，热度上升。
 
 ---
 
-### 10. [Researchers unveil sustainable spirulina solution to vitamin B12 deficiency](https://www.sciencedaily.com/releases/2026/08/260829035227.htm)
+### 6. [How intense rains in the Grand Canyon turned into a deadly disaster](https://www.theguardian.com/us-news/ng-interactive/2026/aug/31/grand-canyon-flash-flood-causes)
 
-- **来源**：ScienceDaily 环境科学
-- **热度**：14.98
-- **发布时间**：2026-08-30T05:17:05+00:00
+- **来源**：The Guardian Environment
+- **热度**：17.19
+- **发布时间**：2026-08-31T22:02:05+00:00
 
-> Researchers have produced a form of Spirulina containing biologically active vitamin B12 at levels comparable to beef. By carefully controlling the light used to grow the algae, they overcame a major problem with conventional Spirulina, which mainly contains a form of B12 the human body cannot use. The carbon-neutral system could provide a more sustainable source of the essential vitamin.
+> 亚利桑那州一处旅游胜地发生的山洪暴发，很可能是由干旱和太平洋海水变暖等多重气候因素共同引发的。这座位于大峡谷偏远地区的旅馆虽遭致命山洪侵袭，却拥有传奇般的历史。上周末发生在大峡谷的致命山洪暴发，很可能是由干旱、 野火烧痕以及可能加剧风暴强度的太平洋海水变暖。周六，暴雨袭击了大峡谷国家公园的布莱特安吉尔溪地区，引发的洪水和泥石流席卷了这一极具人气的旅游胜地，造成至少两人死亡，15人失踪或下落不明。继续阅读...
 
-**📊 分析**：该条目涉及【Researchers】话题，因来源较权威，热度上升。
+**📊 分析**：该条目涉及【环境资讯】话题，因发布时间较新，热度上升。
+
+---
+
+### 7. [Remote Grand Canyon lodge hit by deadly flash flood boasts fabled history](https://www.theguardian.com/us-news/2026/aug/31/grand-canyon-flash-flood-phantom-ranch)
+
+- **来源**：The Guardian Environment
+- **热度**：16.88
+- **发布时间**：2026-08-31T21:12:24+00:00
+
+> 由西奥多·罗斯福创立的幻影牧场，一个多世纪以来一直以其著名的木屋欢迎精疲力尽的徒步者；大峡谷山洪暴发造成2人死亡、至少15人失踪；幻影牧场一直是一处僻静的避难所，历史上许多赫赫有名的人物都曾造访过这里。 但更常见的是，一个多世纪以来，这里一直是那些半昏厥、精疲力竭且中暑的徒步者们，在跋涉下行大峡谷时的一盏明灯。作为大峡谷最深处唯一的旅馆，这些小木屋长期以来享有近乎神话般的声誉。它们坐落在布莱特安吉尔溪畔——这条溪流在大峡谷底部奔涌入雄伟的科罗拉多河——这些小木屋见证了美国这一最壮丽却也最险恶的环境之一所承载的悠久历史。继续阅读……
+
+**📊 分析**：该条目涉及【环境资讯】话题，因发布时间较新，热度上升。
+
+---
+
+### 8. [江西省生态环境厅第三轮“利剑行动”启动 - 凤凰网江西](https://news.google.com/rss/articles/CBMiSkFVX3lxTE01T3QybzAtR083Tm9YVmp4YWpEWjFHZWd4aHdhczZsQm83SmxPcFVCSTBGZWFOMGduZzVPZ2xGalVFbXFjZmp1RWVn?oc=5)
+
+- **来源**：Google News 生态环境
+- **热度**：16.33
+- **发布时间**：2026-08-31T14:55:07+00:00
+
+> 关于「江西省生态环境厅第三轮」的资讯：“利剑行动”启动 - 凤凰网江西
+
+**📊 分析**：该条目涉及【江西省生态环境厅第三轮】话题，因来源较权威且发布时间较新，热度上升。
+
+---
+
+### 9. [Two dead and at least 15 missing after flash flood in Arizona’s Grand Canyon](https://www.theguardian.com/us-news/2026/aug/31/grand-canyon-storms-flash-flood)
+
+- **来源**：The Guardian Environment
+- **热度**：15.79
+- **发布时间**：2026-08-31T18:03:47+00:00
+
+> 美国国家公园管理局确认周末山洪暴发造成第二人死亡，该地区正严阵以待更多风暴的到来。上周末，大峡谷某区域遭遇山洪暴发，洪水和碎石奔涌而下，美国国家公园管理局官员于周一确认了第二起死亡事件。在此次山洪淹没步道和基础设施期间，数十名游客不得不乘坐直升机撤离。 国家公园管理局在一份声明中表示，目前仍有15人失踪或下落不明，而预报显示将有更多暴雨和雷暴来袭，可能引发新的泥石流、山洪或落石。继续阅读...
+
+**📊 分析**：该条目涉及【环境资讯】话题，因发布时间较新，热度上升。
+
+---
+
+### 10. [关于《关于北京市西城区生态环境局修订部分行政规范性文件》公开征集意见的反馈 - beijing.gov.cn](https://news.google.com/rss/articles/CBMihAFBVV95cUxQZVpzai11d2dMaE8tVjhoWENvZTBOTE4zWlFHME5tazhtMXgtcC11VDFjc3E0SlpIaEhaOHB2bHJlR3lPSnBPUE0teGh2SFZVTU9SdWNRcE1ON0RSYnQxcGJoVHVXRlB4ck9YUXpiM0hYTFV1MkVTYzFhT2IxTkhLZ1hxM0g?oc=5)
+
+- **来源**：Google News 生态环境
+- **热度**：15.42
+- **发布时间**：2026-08-31T11:28:25+00:00
+
+> 关于「关于北京市西城区生态环境局修订部分行政规范性文件」的资讯
+
+**📊 分析**：该条目涉及【关于北京市西城区生态环境局修订】话题，因来源较权威，热度上升。
 
 ---

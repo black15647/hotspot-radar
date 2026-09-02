@@ -1105,3 +1105,149 @@
   - 上下文：Machine-learning-assisted multiscale topology optimization of functionally graded superimposed lattice structures
 
 ---
+## 2026-09-02
+
+**今日高频关键词**：`#生态环境` `#法典` `#气候` `#财经` `#climate`
+
+**今日 Top10 热点**
+
+### 1. 视频丨专家：气候变化是尼泊尔发生冰岩崩的重要诱因 - Sohu
+- **来源**：Google News 气候变化
+- **热度**：24.4
+- **链接**：https://news.google.com/rss/articles/CBMiiwFBVV95cUxNUXlqb3FUbm0ycGF0N2JjQ05JUDk1anduY2s3dF9ZbzZTQ09saXJ5OF93RE1rSnVkWlBWdk9ONFpCV2Y0c014SVZHMkZjWk1uaGhsSGc2THVZRW82U0VyRlZYc0JpdWhqcHZLX0dpTHNnMEE4aVBOQm43WVVyb244bVp4YWdhS1pDaFdZ?oc=5
+- **摘要**：关于「气候变化是尼泊尔发生冰岩崩的重要诱因」的资讯：视频丨专家： - Sohu
+- **分析**：该条目涉及【气候变化是尼泊尔发生冰岩崩的重】话题，因来源较权威且发布时间较新，热度上升。
+
+### 2. 研究：气候变化使儿童面临更多高温风险 - 联合早报
+- **来源**：Google News 气候变化
+- **热度**：22.4
+- **链接**：https://news.google.com/rss/articles/CBMiZkFVX3lxTE5NRFpDVl9iTjhrdTNpZm9vUmQtM05sVnppX3dRSWNEUkxtNjg0Vlh1bkRrY1JVVG5oUDNNcmRrQ25zWnBuTXFDQTdCWEcxWHVTMjdMVHYxWE8wY0w4WGFFQWtLUVk4QQ?oc=5
+- **摘要**：关于「气候变化使儿童面临更多高温风险」的资讯：研究： - 联合早报
+- **分析**：该条目涉及【气候变化使儿童面临更多高温风险】话题，因来源较权威且与近期热点主题相关，热度上升。
+
+### 3. 南极融化释放千年剧毒水银 气候变化敲响警钟 - 中华网娱乐
+- **来源**：Google News 气候变化
+- **热度**：21.3
+- **链接**：https://news.google.com/rss/articles/CBMidEFVX3lxTE0tcGVuR19ZQVZTRnE1MVdEYk5sdG45NnpWTUJtQTNmWGJlcmljUDFqUVQ0UjJONUV2RGJjMVNUa0FTVWs2U0pZVlZ3eGkxQlhQVF9mQWR0WlVZdTZ5Ulg5eDRSWVZRZ2VkbXdZVjhVbWNVaVVf?oc=5
+- **摘要**：关于「气候变化敲响警钟」的资讯
+- **分析**：该条目涉及【气候变化敲响警钟】话题，因来源较权威且与近期热点主题相关，热度上升。
+
+### 4. 江西推动生态环境法典落地见效 制定265项行政处罚裁量细化基准 - 凤凰网江西
+- **来源**：Google News 生态环境
+- **热度**：19.1
+- **链接**：https://news.google.com/rss/articles/CBMiSkFVX3lxTE5keGhQX0JWd1k3LTVVTzVvWXNfOGVqbkpFaVlzaVFITHpzdXR3RDYwN3gyQTlQOEZQMVpJRmd3MHZtRl92VGZ4Sk9B?oc=5
+- **摘要**：关于「江西推动生态环境法典落地见效」的资讯
+- **分析**：该条目涉及【江西推动生态环境法典落地见效】话题，因来源较权威且发布时间较新，热度上升。
+
+### 5. Watch: Astronauts set out on rare all-female spacewalk
+- **来源**：BBC 科学与环境
+- **热度**：16.9
+- **链接**：https://www.bbc.co.uk/news/videos/c89jyxqvjq0o?at_medium=RSS&at_campaign=rss
+- **摘要**：For the sixth time in history, a team of two women completed a spacewalk outside the International Space Station.
+- **分析**：该条目涉及【Watch】话题，因发布时间较新，热度上升。
+
+### 6. 2026年茂名市生态环境执法大练兵竞赛圆满举办 - mm111.net
+- **来源**：Google News 环境竞赛
+- **热度**：15.8
+- **链接**：https://news.google.com/rss/articles/CBMiW0FVX3lxTFBQMUFRN3R1MXMydUg0OEt0TnhjamJWWnN4aW1RTkpIX0JjR1RHZjVYSkxON3FXbHBfcjkwS3E5cHh1aWs5TVVpeHRlX3A3bEVPSGdWMTBZeVBEeFk?oc=5
+- **摘要**：关于「年茂名市生态环境执法大练兵竞赛圆满举办」的资讯：2026 - mm111.net
+- **分析**：该条目涉及【年茂名市生态环境执法大练兵竞赛】话题，因来源较权威且与近期热点主题相关，热度上升。
+
+### 7. One of Earth’s driest places was just covered in snow
+- **来源**：ScienceDaily 环境科学
+- **热度**：15.8
+- **链接**：https://www.sciencedaily.com/releases/2026/09/260901010709.htm
+- **摘要**：Rare storms covered huge stretches of Chile’s Atacama Desert in snow and dumped extraordinary amounts of rain on one of the driest regions on Earth. The extreme weather shut down observatories, triggered damaging floods and mudflows, and unfolded against the backdrop of a strengthening El Niño.
+- **分析**：该条目涉及【Earth】话题，因来源较权威，热度上升。
+
+### 8. 中办国办发文加强党政领导干部生态环境追责丨碳中和周报 - 新浪财经
+- **来源**：Google News 生态环境
+- **热度**：15.7
+- **链接**：https://news.google.com/rss/articles/CBMibkFVX3lxTE1SSDFseGRvNGVHa3AwdGh3N1VfSkVBNGlKTHVLUVFZTEVfaTVnV3Z2T1FCR2g1ZG02VzB2dmctcFlhWjFEYWhLMjFsS29KQ1FJY2NOOTdpVXJvak92d0RFTG9Sb3BOUlZrRTBDbE1n?oc=5
+- **摘要**：关于「生态环境」的资讯
+- **分析**：该条目涉及【碳中和】话题，因来源较权威且与近期热点主题相关，热度上升。
+
+### 9. How a small island in Canada appeared, vanished, and was found again
+- **来源**：BBC 科学与环境
+- **热度**：15.7
+- **链接**：https://www.bbc.co.uk/news/articles/cgk5jk6nkxzo?at_medium=RSS&at_campaign=rss
+- **摘要**：Officials in British Columbia say the floating island drifted towards the shoreline of a local lake. But its origins remain a mystery.
+- **分析**：该条目涉及【small】话题，因发布时间较新，热度上升。
+
+### 10. Met Office: Summer 2026 was UK's hottest ever
+- **来源**：BBC 科学与环境
+- **热度**：15.6
+- **链接**：https://www.bbc.co.uk/news/videos/cn74vl31r48o?at_medium=RSS&at_campaign=rss
+- **摘要**：The UK had a spring and summer of persistent heat with five widespread heatwaves and 40 days of temperatures above 30C (86F), smashing the previous record of 34 days.
+- **分析**：该条目涉及【Met】话题，因发布时间较新，热度上升。
+
+**今日自动提取候选新词**
+
+- **生态环境**（出现 7 次）
+  - 上下文：江西推动生态环境法典落地见效 制定265项行政处罚裁量细化基准 - 凤凰网江西
+  - 上下文：2026年茂名市生态环境执法大练兵竞赛圆满举办 - mm111.net
+  - 上下文：中办国办发文加强党政领导干部生态环境追责丨碳中和周报 - 新浪财经
+- **法典**（出现 4 次）
+  - 上下文：江西推动生态环境法典落地见效 制定265项行政处罚裁量细化基准 - 凤凰网江西
+  - 上下文：上海首案！吴淞海事局查处《生态环境法典》施行后首例船舶生活污水直排案 - 上观新闻
+  - 上下文：赣鄱大地“绿”动法治引擎：写在生态环境法典时代的一线答卷 - 中国日报网
+- **climate**（出现 4 次）
+  - 上下文：Judge strikes down New York law that forced climate polluters to pay damages
+  - 上下文：Translating predictive climate models for agricultural decisions: co-production of the DAWN climate data viewer
+  - 上下文：Co2-altered evapotranspiration moderates future global dryland expansion under climate change
+- **One**（出现 3 次）
+  - 上下文：One of Earth’s driest places was just covered in snow
+  - 上下文：One-step removal of free and complexed heavy metals using a biomass-derived amphiphilic network flocculant
+  - 上下文：One still missing after Grand Canyon floods kill two and prompt rescue efforts
+- **was**（出现 3 次）
+  - 上下文：One of Earth’s driest places was just covered in snow
+  - 上下文：How a small island in Canada appeared, vanished, and was found again
+  - 上下文：Met Office: Summer 2026 was UK's hottest ever
+- **global**（出现 3 次）
+  - 上下文：Diverse trajectories of global fertilizer use in the post-Green Revolution period
+  - 上下文：Co2-altered evapotranspiration moderates future global dryland expansion under climate change
+  - 上下文：A three-decade-long analysis shows rising threatened species and responsibility gaps in global supply chains
+- **专家**（出现 2 次）
+  - 上下文：视频丨专家：气候变化是尼泊尔发生冰岩崩的重要诱因 - Sohu
+  - 上下文：国家气候中心专家：全球变暖背景下未来冰崩频次将进一步上升 - 新浪财经
+- **Sohu**（出现 2 次）
+  - 上下文：视频丨专家：气候变化是尼泊尔发生冰岩崩的重要诱因 - Sohu
+  - 上下文：漫说生态环境法典② | 广场舞不是演唱会，安静权有法管 - Sohu
+- **财经**（出现 2 次）
+  - 上下文：中办国办发文加强党政领导干部生态环境追责丨碳中和周报 - 新浪财经
+  - 上下文：国家气候中心专家：全球变暖背景下未来冰崩频次将进一步上升 - 新浪财经
+- **insights**（出现 2 次）
+  - 上下文：Multi-omics insights into choline chloride-enhanced methane production from waste activated sludge anaerobic digestion: linking rheological regulation with microbial metabolic responses
+  - 上下文：IAA as a microbial activator for enhanced low-temperature nitrogen removal: mechanistic insights and pilot-scale validation
+- **enhanced**（出现 2 次）
+  - 上下文：Multi-omics insights into choline chloride-enhanced methane production from waste activated sludge anaerobic digestion: linking rheological regulation with microbial metabolic responses
+  - 上下文：IAA as a microbial activator for enhanced low-temperature nitrogen removal: mechanistic insights and pilot-scale validation
+- **production**（出现 2 次）
+  - 上下文：Multi-omics insights into choline chloride-enhanced methane production from waste activated sludge anaerobic digestion: linking rheological regulation with microbial metabolic responses
+  - 上下文：Translating predictive climate models for agricultural decisions: co-production of the DAWN climate data viewer
+- **microbial**（出现 2 次）
+  - 上下文：Multi-omics insights into choline chloride-enhanced methane production from waste activated sludge anaerobic digestion: linking rheological regulation with microbial metabolic responses
+  - 上下文：IAA as a microbial activator for enhanced low-temperature nitrogen removal: mechanistic insights and pilot-scale validation
+- **removal**（出现 2 次）
+  - 上下文：One-step removal of free and complexed heavy metals using a biomass-derived amphiphilic network flocculant
+  - 上下文：IAA as a microbial activator for enhanced low-temperature nitrogen removal: mechanistic insights and pilot-scale validation
+- **using**（出现 2 次）
+  - 上下文：One-step removal of free and complexed heavy metals using a biomass-derived amphiphilic network flocculant
+  - 上下文：Spatial validation reveals transferability and allocation tradeoffs in national PFAS screening using UCMR5 data
+- **validation**（出现 2 次）
+  - 上下文：Spatial validation reveals transferability and allocation tradeoffs in national PFAS screening using UCMR5 data
+  - 上下文：IAA as a microbial activator for enhanced low-temperature nitrogen removal: mechanistic insights and pilot-scale validation
+- **data**（出现 2 次）
+  - 上下文：Spatial validation reveals transferability and allocation tradeoffs in national PFAS screening using UCMR5 data
+  - 上下文：Translating predictive climate models for agricultural decisions: co-production of the DAWN climate data viewer
+- **long**（出现 2 次）
+  - 上下文：Exposure of children to multiple long-term air pollutants (PM2.5, BC, NO2) and noise at home and school in accra, Ghana
+  - 上下文：A three-decade-long analysis shows rising threatened species and responsibility gaps in global supply chains
+- **future**（出现 2 次）
+  - 上下文：Co2-altered evapotranspiration moderates future global dryland expansion under climate change
+  - 上下文：Nepal’s glacial collapse foreshadowed a future of climate disaster | Michael Mann
+- **Aware**（出现 2 次）
+  - 上下文：QoI-Aware Provisional Rollout and Retrospective Reconciliation for Reduced-State Scientific Twins
+  - 上下文：OmniClimate-TC: Physics-Aware Visual Abstractions for Multimedia Reasoning over Tropical Cyclones
+
+---

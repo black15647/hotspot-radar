@@ -1251,3 +1251,161 @@
   - 上下文：OmniClimate-TC: Physics-Aware Visual Abstractions for Multimedia Reasoning over Tropical Cyclones
 
 ---
+## 2026-09-03
+
+**今日高频关键词**：`#生态环境` `#财经` `#气候` `#法典` `#冰崩`
+
+**今日 Top10 热点**
+
+### 1. 锚点：迷雾之下：气候变化为何引发巨大争议？ | 袁岚峰 - 风闻
+- **来源**：Google News 气候变化
+- **热度**：23.8
+- **链接**：https://news.google.com/rss/articles/CBMiW0FVX3lxTE5hX2ZWU2pfR1JnT0Q3Rm54WUFaQjNManhwdUtlZlJneGY4SzZJVDFqbUpmaVBfMWZmUzg5RHA1clBhdUliMWRIcFVnazZJS0NUdDhFMUdya3VoRjg?oc=5
+- **分析**：该条目涉及【气候变化为何引发巨大争议】话题，因来源较权威且发布时间较新，热度上升。
+
+### 2. 外交部：中方将继续同国际社会合作应对气候变化 - thepaper.cn
+- **来源**：Google News 气候变化
+- **热度**：22.9
+- **链接**：https://news.google.com/rss/articles/CBMiYEFVX3lxTE54N0dnaGIteXRBU3k4Vi02SXc0MGVUSFJWSUw0cDRxVld6aUxsRXJSdVphYUVqMVlUOVROT1ZqTlkwUnRLaDdKaFpVSG04QVB5REl2UlkzOHJvdXNLZnNseg?oc=5
+- **分析**：该条目涉及【中方将继续同国际社会合作应对气】话题，因来源较权威且与近期热点主题相关，热度上升。
+
+### 3. 研究：气候变化使儿童面临更多高温风险 - 联合早报
+- **来源**：Google News 气候变化
+- **热度**：19.3
+- **链接**：https://news.google.com/rss/articles/CBMiZkFVX3lxTE5NRFpDVl9iTjhrdTNpZm9vUmQtM05sVnppX3dRSWNEUkxtNjg0Vlh1bkRrY1JVVG5oUDNNcmRrQ25zWnBuTXFDQTdCWEcxWHVTMjdMVHYxWE8wY0w4WGFFQWtLUVk4QQ?oc=5
+- **分析**：该条目涉及【气候变化使儿童面临更多高温风险】话题，因来源较权威且与近期热点主题相关，热度上升。
+
+### 4. Widow whose husband died after falling into slurry pit warns of pressure on farmers
+- **来源**：BBC 科学与环境
+- **热度**：17.2
+- **链接**：https://www.bbc.co.uk/news/articles/cn9wv8l15ezo?at_medium=RSS&at_campaign=rss
+- **摘要**：Margaret Owen says "things are getting worse" after a rise in deaths of workers on British farms.
+- **分析**：该条目涉及【Widow】话题，因发布时间较新，热度上升。
+
+### 5. 画廊 墨西哥城查普尔特佩克环境文化中心设计竞赛获胜者 - 18 - ArchDaily
+- **来源**：Google News 环境竞赛
+- **热度**：17.1
+- **链接**：https://news.google.com/rss/articles/CBMi8wJBVV95cUxNMmxqMkxWUGhrMUlPZjJKbDV5OHpJMlN3MkNlY1lzR1hQN1hMc0pfRnVyV2R3NVBfVHkxd2VXN3BLcGE3U2xaeEYxNkJNMFI0b0x2MGJzSks2eFVtcUVKbkwyNnhjamlJOTk3bWdQRlFQU1ZOZ1JBbGltWDVwZWd3V0NxWmtMTkZHTUNoQ0diUUdRX2lwd25IaUJTc2VzaTNaUXZHcWtaSDVtakVpRXJnTTR5UjFVYkhOR1JNOEJMeng2RDhsOWxUQ0M0SjhRQlJrNWtxT0FVVjR4NkVpVzZoZzUxb0tQRUpwRUpJZWZkTWRid2pfVHdiOEtlOTYzcFBZYjFVTW8yZ0RsN2ltdUc4N3F5RUR0WFFoZ1NfRlJJZ1ZOUkdrMENXdzMxRmtveUU3bDJIZi13ODlmUVZMS2Z3NEx4RmEwRHhPZkJMSG9EUHVnWUFRZzBBSG9UMmJlNkp0NEQ5aUgzQkJ4cklkTm1MOUdTMA?oc=5
+- **分析**：该条目涉及【墨西哥城查普尔特佩克环境文化中】话题，因来源较权威且与近期热点主题相关，热度上升。
+
+### 6. 画廊 墨西哥城查普尔特佩克环境文化中心设计竞赛获胜者 - 24 - ArchDaily
+- **来源**：Google News 环境竞赛
+- **热度**：17.1
+- **链接**：https://news.google.com/rss/articles/CBMi8wJBVV95cUxNaFh5cmtSYUZMa0xVN1lzbDctOExLb2NvdTZ1dHZJOE1NTF9yaFo1RlRDbExNakJWWS0wcTZvTUZ5VTlqWUtUT29VSnpabUlMWHJmSVlTZnV2QzNXNTBfTDYyWkE5OGg5d05rTktYVTJ0VngxTFJrdjZyNGRRcURONXRIWm1oYmZpblZVekFfSDhmUkQzX09TcWZ2OVFSM1hDQVhhajlCdUtYMGpKSWNYbXJ2ZXh5UW4zaVp0dVhoRFlxZHF4V0hGc3BkLW9kSXFacWdlUGJiMktLSDJ2dW9SdXdiMms1MEd0V2U1NkFBdXYzeDZ1b2I1S2N0OU1mOGlWakhiSDNrdXJMcXBFdXZGUmpFam9mNXRocDEwbUk0MlB0NGJwcGZzNlEzN1o3TnpVWHBLb3dfNWNjUlhTdnNPMFZnSUs0dGFOdHpmcS1yVDFuNHVDVUlkUUlSTXNya20wVWpzZUpBRHpFSGZWdXR3dUc2QQ?oc=5
+- **分析**：该条目涉及【墨西哥城查普尔特佩克环境文化中】话题，因来源较权威且与近期热点主题相关，热度上升。
+
+### 7. 守护绿水青山 海南构建生态环境信用监管体系 - 新浪财经
+- **来源**：Google News 生态环境
+- **热度**：16.4
+- **链接**：https://news.google.com/rss/articles/CBMieEFVX3lxTE01MWUtQ0c5c05zS3V5bjVHNGJ0Nlk4eWJXbGZ6OG9tbDBfU1JBVnhPUTRqZ19kRmJkQUJCWmM0SFpCU3l3RHZJSDBPbDRyWTdEX0pRMUZpWk9XWFc0QnBaVUJ3ZlRjQUZyeGZhMGVuUzU5aUNCV2ZBZQ?oc=5
+- **分析**：该条目涉及【海南构建生态环境信用监管体系】话题，因来源较权威且发布时间较新，热度上升。
+
+### 8. How do microplastics move through water and land? Earth scientists find ways to track their journey
+- **来源**：PNAS 环境科学
+- **热度**：15.9
+- **链接**：https://www.pnas.org/doi/abs/10.1073/pnas.2628766123?af=R
+- **摘要**：Proceedings of the National Academy of Sciences, Volume 123, Issue 36, September 2026.
+- **分析**：该条目涉及【微塑料】话题，因来源权威性高，热度上升。
+
+### 9. Temperature check: alarm as prediction markets lean into weather and climate bets
+- **来源**：The Guardian Environment
+- **热度**：14.9
+- **链接**：https://www.theguardian.com/us-news/2026/sep/02/weather-betting-kalshi-polymarket
+- **摘要**：气候专家警告称，美国Kalshi和Polymarket的用户正在“将灾难游戏化”，因为他们对热浪和日均气温等事件进行投注。在线预测市场原本已被体育、加密货币和政治领域的押注资金所充斥，如今却将目光投向了一个极具潜力的新增长领域：对地球未来宜居性的投注。针对正在演变的气候危机以及短期天气预报，游戏化预测的兴起得到了最新协议的印证：该协议允许领先的在线金融交易所Kalshi访问天气频道所有者——Weather Company的数据，以验证与天气相关的投注结果。继续阅读……
+- **分析**：该条目涉及【预测市场热衷于天气和气候投注】话题，因发布时间较新，热度上升。
+
+### 10. Earth may have lost the Sun’s protective shield millions of years ago
+- **来源**：ScienceDaily 环境科学
+- **热度**：14.8
+- **链接**：https://www.sciencedaily.com/releases/2026/09/260901070523.htm
+- **摘要**：NASA-funded studies suggest Earth’s climate has been influenced by both the Sun’s travels through dense regions of the Milky Way and the violent superflares of its youth. Those events may help explain ancient ice ages as well as how early Earth stayed warm enough for liquid water when the Sun was much dimmer.
+- **分析**：该条目涉及【Earth】话题，因来源较权威，热度上升。
+
+**今日自动提取候选新词**
+
+- **生态环境**（出现 5 次）
+  - 上下文：守护绿水青山 海南构建生态环境信用监管体系 - 新浪财经
+  - 上下文：国际生态环境小记者工作坊在成都开营，19国青年共探公园城市生态密码 - thepaper.cn
+  - 上下文：江西推动生态环境法典落地见效 制定265项行政处罚裁量细化基准 - 凤凰网江西
+- **中心**（出现 3 次）
+  - 上下文：画廊 墨西哥城查普尔特佩克环境文化中心设计竞赛获胜者 - 18 - ArchDaily
+  - 上下文：画廊 墨西哥城查普尔特佩克环境文化中心设计竞赛获胜者 - 24 - ArchDaily
+  - 上下文：国家气候中心专家：全球变暖背景下未来冰崩频次将进一步上升 - 新浪财经
+- **财经**（出现 3 次）
+  - 上下文：守护绿水青山 海南构建生态环境信用监管体系 - 新浪财经
+  - 上下文：5200米高山冰崩背后：一场令全球“发烧”的气候危机正深刻影响人类社会 - 新浪财经
+  - 上下文：国家气候中心专家：全球变暖背景下未来冰崩频次将进一步上升 - 新浪财经
+- **Earth**（出现 3 次）
+  - 上下文：How do microplastics move through water and land? Earth scientists find ways to track their journey
+  - 上下文：Earth may have lost the Sun’s protective shield millions of years ago
+  - 上下文：One of Earth’s driest places was just covered in snow
+- **法典**（出现 3 次）
+  - 上下文：江西推动生态环境法典落地见效 制定265项行政处罚裁量细化基准 - 凤凰网江西
+  - 上下文：赣鄱大地“绿”动法治引擎：写在生态环境法典时代的一线答卷 - 中国日报网
+  - 上下文：漫说生态环境法典② | 广场舞不是演唱会，安静权有法管 - Sohu
+- **was**（出现 3 次）
+  - 上下文：One of Earth’s driest places was just covered in snow
+  - 上下文：How a small island in Canada appeared, vanished, and was found again
+  - 上下文：Met Office: Summer 2026 was UK's hottest ever
+- **国际**（出现 2 次）
+  - 上下文：外交部：中方将继续同国际社会合作应对气候变化 - thepaper.cn
+  - 上下文：国际生态环境小记者工作坊在成都开营，19国青年共探公园城市生态密码 - thepaper.cn
+- **社会**（出现 2 次）
+  - 上下文：外交部：中方将继续同国际社会合作应对气候变化 - thepaper.cn
+  - 上下文：5200米高山冰崩背后：一场令全球“发烧”的气候危机正深刻影响人类社会 - 新浪财经
+- **thepaper**（出现 2 次）
+  - 上下文：外交部：中方将继续同国际社会合作应对气候变化 - thepaper.cn
+  - 上下文：国际生态环境小记者工作坊在成都开营，19国青年共探公园城市生态密码 - thepaper.cn
+- **into**（出现 2 次）
+  - 上下文：Widow whose husband died after falling into slurry pit warns of pressure on farmers
+  - 上下文：Temperature check: alarm as prediction markets lean into weather and climate bets
+- **画廊**（出现 2 次）
+  - 上下文：画廊 墨西哥城查普尔特佩克环境文化中心设计竞赛获胜者 - 18 - ArchDaily
+  - 上下文：画廊 墨西哥城查普尔特佩克环境文化中心设计竞赛获胜者 - 24 - ArchDaily
+- **墨西哥城**（出现 2 次）
+  - 上下文：画廊 墨西哥城查普尔特佩克环境文化中心设计竞赛获胜者 - 18 - ArchDaily
+  - 上下文：画廊 墨西哥城查普尔特佩克环境文化中心设计竞赛获胜者 - 24 - ArchDaily
+- **普尔**（出现 2 次）
+  - 上下文：画廊 墨西哥城查普尔特佩克环境文化中心设计竞赛获胜者 - 18 - ArchDaily
+  - 上下文：画廊 墨西哥城查普尔特佩克环境文化中心设计竞赛获胜者 - 24 - ArchDaily
+- **佩克**（出现 2 次）
+  - 上下文：画廊 墨西哥城查普尔特佩克环境文化中心设计竞赛获胜者 - 18 - ArchDaily
+  - 上下文：画廊 墨西哥城查普尔特佩克环境文化中心设计竞赛获胜者 - 24 - ArchDaily
+- **文化**（出现 2 次）
+  - 上下文：画廊 墨西哥城查普尔特佩克环境文化中心设计竞赛获胜者 - 18 - ArchDaily
+  - 上下文：画廊 墨西哥城查普尔特佩克环境文化中心设计竞赛获胜者 - 24 - ArchDaily
+- **设计**（出现 2 次）
+  - 上下文：画廊 墨西哥城查普尔特佩克环境文化中心设计竞赛获胜者 - 18 - ArchDaily
+  - 上下文：画廊 墨西哥城查普尔特佩克环境文化中心设计竞赛获胜者 - 24 - ArchDaily
+- **获胜者**（出现 2 次）
+  - 上下文：画廊 墨西哥城查普尔特佩克环境文化中心设计竞赛获胜者 - 18 - ArchDaily
+  - 上下文：画廊 墨西哥城查普尔特佩克环境文化中心设计竞赛获胜者 - 24 - ArchDaily
+- **ArchDaily**（出现 2 次）
+  - 上下文：画廊 墨西哥城查普尔特佩克环境文化中心设计竞赛获胜者 - 18 - ArchDaily
+  - 上下文：画廊 墨西哥城查普尔特佩克环境文化中心设计竞赛获胜者 - 24 - ArchDaily
+- **sub**（出现 2 次）
+  - 上下文：Curvature strain engineering enhanced singlet oxygen selectivity: Dual-Function FeN<sub>4</sub> sites for targeted guanine oxidation of antibiotic resistance genes
+  - 上下文：Root exudates stabilize denitrification yet amplify CO<sub>2</sub> emissions by priming effect in constructed wetlands
+- **derived**（出现 2 次）
+  - 上下文：From glacier to delta: Spatial distribution of PFAS and tire-derived contaminants along the entire Rhône River continuum
+  - 上下文：Hidden relationships in a document-derived property graph: top-k chunk embeddings and inverse-distance weighting over a dynamically evolving ontology
+- **Author**（出现 2 次）
+  - 上下文：Author Correction: Endocannabinoids facilitate reward engagement through retrograde gain control
+  - 上下文：Author Correction: Signalling thresholds and negative B-cell selection in acute lymphoblastic leukaemia
+- **Correction**（出现 2 次）
+  - 上下文：Author Correction: Endocannabinoids facilitate reward engagement through retrograde gain control
+  - 上下文：Author Correction: Signalling thresholds and negative B-cell selection in acute lymphoblastic leukaemia
+- **生态**（出现 2 次）
+  - 上下文：国际生态环境小记者工作坊在成都开营，19国青年共探公园城市生态密码 - thepaper.cn
+  - 上下文：“环保+义警”双向赋能——贵南县沙沟乡派出所探索高原生态警务新路子 - 新华网
+- **Model**（出现 2 次）
+  - 上下文：MUFASA: An Information Utility-Aware Preprocessing Framework for Reliable Model Reasoning in Computational Pathology
+  - 上下文：Aerodynamic Shape Design Space Exploration with Deep Latent Diffusion Model
+- **冰崩**（出现 2 次）
+  - 上下文：5200米高山冰崩背后：一场令全球“发烧”的气候危机正深刻影响人类社会 - 新浪财经
+  - 上下文：国家气候中心专家：全球变暖背景下未来冰崩频次将进一步上升 - 新浪财经
+- **气候**（出现 2 次）
+  - 上下文：5200米高山冰崩背后：一场令全球“发烧”的气候危机正深刻影响人类社会 - 新浪财经
+  - 上下文：国家气候中心专家：全球变暖背景下未来冰崩频次将进一步上升 - 新浪财经
+
+---

@@ -1409,3 +1409,170 @@
   - 上下文：国家气候中心专家：全球变暖背景下未来冰崩频次将进一步上升 - 新浪财经
 
 ---
+## 2026-09-04
+
+**今日高频关键词**：`#海洋` `#主力` `#climate` `#热浪` `#AI`
+
+**今日 Top10 热点**
+
+### 1. 适应气候变化成为新加坡可持续发展重要议题 - companies.caixin.com
+- **来源**：Google News 气候变化
+- **热度**：28.4
+- **链接**：https://news.google.com/rss/articles/CBMiZEFVX3lxTE1WQmtoVXozdGtzMHBzZExsZ0JwalM2c2MwZURfbzA5Ymx1V3E4d1NETzJiMTNGb21HMUVKQXZhMnF6VzhpaFd0WHpMbFZGRlNkTUhLdE4wZkwwcEsxRkxxdGNOd3o?oc=5
+- **摘要**：关于「适应气候变化成为新加坡可持续发展重要议题」的资讯
+- **分析**：该条目涉及【适应气候变化成为新加坡可持续发】话题，因来源较权威且主题热度高，热度上升。
+
+### 2. 印度，全球第一个被气候变化“做空”的国家 - qq.com
+- **来源**：Google News 气候变化
+- **热度**：26.4
+- **链接**：https://news.google.com/rss/articles/CBMibEFVX3lxTFB2QzRvUTZSaVVBay1DXzZhX2hOWEk4X0pIR3FRbE1XMGFIbm5uTFZnSWlGdFZjLUJVSkpoT1FtSlJpM3dDOEtJaV95LTlSNTBya1NMWUExSlloeHBTWWREd3gzVi14WW8tS0VvYQ?oc=5
+- **摘要**：关于「全球第一个被气候变化」的资讯：印度，“做空”的国家 - qq.com
+- **分析**：该条目涉及【全球第一个被气候变化】话题，因来源较权威且发布时间较新，热度上升。
+
+### 3. A Surge of Marine Heat Waves Threatens to Scramble Ocean Life
+- **来源**：Yale Environment 360
+- **热度**：24.0
+- **链接**：https://e360.yale.edu/features/marine-heat-waves
+- **摘要**：受气候变化和日益强烈的厄尔尼诺现象推动，创纪录的海洋热浪正席卷全球各大洋，并对海洋生物造成严重破坏。近期事件中不断涌现的证据表明，无论是在陆地还是海上，这种破坏都可能十分严重且影响持久。在 E360 上阅读更多内容 →
+- **分析**：该条目涉及【恐将扰乱海洋生态】话题，因与近期热点主题相关，热度上升。
+
+### 4. 外交部：中方将继续同国际社会合作应对气候变化 - thepaper.cn
+- **来源**：Google News 气候变化
+- **热度**：21.5
+- **链接**：https://news.google.com/rss/articles/CBMiYEFVX3lxTE54N0dnaGIteXRBU3k4Vi02SXc0MGVUSFJWSUw0cDRxVld6aUxsRXJSdVphYUVqMVlUOVROT1ZqTlkwUnRLaDdKaFpVSG04QVB5REl2UlkzOHJvdXNLZnNseg?oc=5
+- **摘要**：关于「中方将继续同国际社会合作应对气候变化」的资讯：外交部： - thepaper.cn
+- **分析**：该条目涉及【中方将继续同国际社会合作应对气】话题，因来源较权威且与近期热点主题相关，热度上升。
+
+### 5. Can AI help solve the peer-review crisis? Here are its promises and pitfalls
+- **来源**：Science
+- **热度**：19.1
+- **链接**：https://www.science.org/content/article/can-ai-help-solve-peer-review-crisis-here-are-its-promises-and-pitfalls
+- **摘要**：Amid a shortage of human reviewers, tests indicate AI can assist—but is not a savior
+- **分析**：该条目涉及【AI】话题，因来源权威性高且发布时间较新，热度上升。
+
+### 6. 绿色动力集团领跑污泥资源再生利用赛道 - sohu.com
+- **来源**：Google News 环境污染
+- **热度**：19.1
+- **链接**：https://news.google.com/rss/articles/CBMijAFBVV95cUxQcG5xZzFIbVJmX09VUkI0cDdNYTduZ0lUalZtQXQ0bDhLRHpSbUszSk5VUWFrOWZrb2JPMXI4ZmVyR1dQcXdBQnd0dFZ5by0ybWgxTTRfNWl3cG1iOWlGSFlXQlQyYWxOdG4xdWltcXRzQ0UzWXEyMktwTEh6eURDSU5QenZrNVlQV2d5WA?oc=5
+- **摘要**：关于「绿色动力集团领跑污泥资源再生利用赛道」的资讯：- sohu.com
+- **分析**：该条目涉及【绿色动力集团领跑污泥资源再生利】话题，因来源较权威且发布时间较新，热度上升。
+
+### 7. Longitudinal dynamics of gene expression and metabolomics in an aging population cohort | Science
+- **来源**：Science
+- **热度**：17.3
+- **链接**：https://www.science.org/doi/10.1126/science.aed6452
+- **摘要**：Multiomic profiling provides a comprehensive physiological overview at the molecular level, but understanding of its spatiotemporal dynamics remains limited in human populations. We profiled longitudinal whole-blood gene expression and metabolite levels ...
+- **分析**：该条目涉及【Longitudinal】话题，因来源权威性高且发布时间较新，热度上升。
+
+### 8. Psilocybin prevents chemotherapy-induced peripheral neuropathy through mitochondrial trafficking preservation | Science
+- **来源**：Science
+- **热度**：17.3
+- **链接**：https://www.science.org/doi/10.1126/science.aec6116
+- **摘要**：Chemotherapy-induced peripheral neuropathy (CIPN) is a disabling, often irreversible toxicity that affects millions of patients, limits life-saving cancer therapy, and lacks proven treatment. In this work, we show that as little as two doses…
+- **分析**：该条目涉及【Psilocybin】话题，因来源权威性高且发布时间较新，热度上升。
+
+### 9. Conformational asymmetry of replicated human chromosomes | Science
+- **来源**：Science
+- **热度**：17.3
+- **链接**：https://www.science.org/doi/10.1126/science.aea4611
+- **摘要**：DNA replication generates sister chromatids with identical sequence, yet its mechanism is fundamentally asymmetric: Chromatids inherit strands of opposite orientation, whereas forks synthesize new strands by distinct leading- and…
+- **分析**：该条目涉及【Conformational】话题，因来源权威性高且发布时间较新，热度上升。
+
+### 10. Thalamic NRXN1-mediated input to human cortical progenitors drives excitatory neurogenesis | Science
+- **来源**：Science
+- **热度**：17.3
+- **链接**：https://www.science.org/doi/10.1126/science.ady5180
+- **摘要**：The human cerebral cortex develops through coordinated signals from within the cortex and from other brain regions, including the thalamus. However, how thalamic neuronal projections influence early human cortical development remains less…
+- **分析**：该条目涉及【Thalamic】话题，因来源权威性高且发布时间较新，热度上升。
+
+**今日自动提取候选新词**
+
+- **Science**（出现 4 次）
+  - 上下文：Longitudinal dynamics of gene expression and metabolomics in an aging population cohort | Science
+  - 上下文：Psilocybin prevents chemotherapy-induced peripheral neuropathy through mitochondrial trafficking preservation | Science
+  - 上下文：Conformational asymmetry of replicated human chromosomes | Science
+- **human**（出现 3 次）
+  - 上下文：Conformational asymmetry of replicated human chromosomes | Science
+  - 上下文：Thalamic NRXN1-mediated input to human cortical progenitors drives excitatory neurogenesis | Science
+  - 上下文：How the brain of a fly may help explain human behaviour
+- **生态环境**（出现 3 次）
+  - 上下文：《生态环境法典》进社区 把法条“翻译”成百姓生活常识 - sohu.com
+  - 上下文：守护绿水青山 海南构建生态环境信用监管体系 - 新浪财经
+  - 上下文：国际生态环境小记者工作坊在成都开营，19国青年共探公园城市生态密码 - thepaper.cn
+- **国家**（出现 2 次）
+  - 上下文：印度，全球第一个被气候变化“做空”的国家 - qq.com
+  - 上下文：尼泊尔：不会向中国等国家寻求“气候正义赔偿” - 凤凰网
+- **国际**（出现 2 次）
+  - 上下文：外交部：中方将继续同国际社会合作应对气候变化 - thepaper.cn
+  - 上下文：国际生态环境小记者工作坊在成都开营，19国青年共探公园城市生态密码 - thepaper.cn
+- **thepaper**（出现 2 次）
+  - 上下文：外交部：中方将继续同国际社会合作应对气候变化 - thepaper.cn
+  - 上下文：国际生态环境小记者工作坊在成都开营，19国青年共探公园城市生态密码 - thepaper.cn
+- **help**（出现 2 次）
+  - 上下文：Can AI help solve the peer-review crisis? Here are its promises and pitfalls
+  - 上下文：How the brain of a fly may help explain human behaviour
+- **绿色**（出现 2 次）
+  - 上下文：绿色动力集团领跑污泥资源再生利用赛道 - sohu.com
+  - 上下文：向富向强向美：法典时代固废活出绿色生命力|文汇讲堂 - 上观新闻
+- **sohu**（出现 2 次）
+  - 上下文：绿色动力集团领跑污泥资源再生利用赛道 - sohu.com
+  - 上下文：《生态环境法典》进社区 把法条“翻译”成百姓生活常识 - sohu.com
+- **dynamics**（出现 2 次）
+  - 上下文：Longitudinal dynamics of gene expression and metabolomics in an aging population cohort | Science
+  - 上下文：Tradeoffs between nutrient load reductions and greenhouse gas dynamics in constructed agricultural wetlands
+- **chemotherapy**（出现 2 次）
+  - 上下文：Psilocybin prevents chemotherapy-induced peripheral neuropathy through mitochondrial trafficking preservation | Science
+  - 上下文：Magic-mushroom compound blocks a severe side effect of chemotherapy, in mice
+- **wildfire**（出现 2 次）
+  - 上下文：Razed by wildfire, erased by USPS: Hawaiians fight to restore mail delivery
+  - 上下文：Toxic wildfire haze spreads across South East Asia as 'super' El Niño intensifies
+- **chaos**（出现 2 次）
+  - 上下文：‘So scary’: massive hail and torrential rain causes chaos in Toronto
+  - 上下文：Will El Nino bring chaos to UK weather?
+- **法典**（出现 2 次）
+  - 上下文：《生态环境法典》进社区 把法条“翻译”成百姓生活常识 - sohu.com
+  - 上下文：向富向强向美：法典时代固废活出绿色生命力|文汇讲堂 - 上观新闻
+- **based**（出现 2 次）
+  - 上下文：Revisiting rule-based external carbon dosing for low-cost digital transformation of full-scale WWTPs
+  - 上下文：Differentiating molecular fingerprints of dissolved organic nitrogen between natural soil and iron-based sorption media for stormwater treatment
+- **enhanced**（出现 2 次）
+  - 上下文：Curvature strain engineering enhanced singlet oxygen selectivity: Dual-Function FeN<sub>4</sub> sites for targeted guanine oxidation of antibiotic resistance genes
+  - 上下文：A physics-enhanced bidirectional multi-order graph fusion network for interpretable bearing remaining useful life prediction
+- **sub**（出现 2 次）
+  - 上下文：Curvature strain engineering enhanced singlet oxygen selectivity: Dual-Function FeN<sub>4</sub> sites for targeted guanine oxidation of antibiotic resistance genes
+  - 上下文：Root exudates stabilize denitrification yet amplify CO<sub>2</sub> emissions by priming effect in constructed wetlands
+- **effect**（出现 2 次）
+  - 上下文：Root exudates stabilize denitrification yet amplify CO<sub>2</sub> emissions by priming effect in constructed wetlands
+  - 上下文：Magic-mushroom compound blocks a severe side effect of chemotherapy, in mice
+- **constructed**（出现 2 次）
+  - 上下文：Root exudates stabilize denitrification yet amplify CO<sub>2</sub> emissions by priming effect in constructed wetlands
+  - 上下文：Tradeoffs between nutrient load reductions and greenhouse gas dynamics in constructed agricultural wetlands
+- **wetlands**（出现 2 次）
+  - 上下文：Root exudates stabilize denitrification yet amplify CO<sub>2</sub> emissions by priming effect in constructed wetlands
+  - 上下文：Tradeoffs between nutrient load reductions and greenhouse gas dynamics in constructed agricultural wetlands
+- **new**（出现 2 次）
+  - 上下文：Buried underpants and a new definition of kissing win 2026 Ig Nobel prizes
+  - 上下文：How a new instrument could reveal the secrets of the stars
+- **生态**（出现 2 次）
+  - 上下文：推进生态文明建设 | 阿勒泰的生态密码藏在这八个字里 - altxw.com
+  - 上下文：国际生态环境小记者工作坊在成都开营，19国青年共探公园城市生态密码 - thepaper.cn
+- **密码**（出现 2 次）
+  - 上下文：推进生态文明建设 | 阿勒泰的生态密码藏在这八个字里 - altxw.com
+  - 上下文：国际生态环境小记者工作坊在成都开营，19国青年共探公园城市生态密码 - thepaper.cn
+- **climate**（出现 2 次）
+  - 上下文：Tipping points do not make 1.5 °C a physical climate limit
+  - 上下文：Time of emergence of climate signals in the abyssal Clarion–Clipperton Zone and implications for deep-sea mining baselines
+- **sea**（出现 2 次）
+  - 上下文：Multi-decadal shoreline variability at a Mediterranean urban beach: disentangling storm impacts and sea-level influence
+  - 上下文：Time of emergence of climate signals in the abyssal Clarion–Clipperton Zone and implications for deep-sea mining baselines
+- **South**（出现 2 次）
+  - 上下文：Two distinct synoptic pathways to extreme humid heat over South China: monsoon-related versus tropical-cyclone-related
+  - 上下文：Toxic wildfire haze spreads across South East Asia as 'super' El Niño intensifies
+- **Materials**（出现 2 次）
+  - 上下文：When Literature Data Mislead Artificial Intelligence in Materials Discovery
+  - 上下文：Learning the Constitutive Behavior of Materials via Neural Operators and Causal Attention: Case Studies in Plasticity and Damage
+- **Earth**（出现 2 次）
+  - 上下文：How do microplastics move through water and land? Earth scientists find ways to track their journey
+  - 上下文：Earth may have lost the Sun’s protective shield millions of years ago
+
+---

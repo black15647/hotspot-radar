@@ -1,56 +1,37 @@
 [
   {
+    "term": "Science",
+    "count": 4,
+    "contexts": [
+      "Longitudinal dynamics of gene expression and metabolomics in an aging population cohort | Science",
+      "Psilocybin prevents chemotherapy-induced peripheral neuropathy through mitochondrial trafficking preservation | Science",
+      "Conformational asymmetry of replicated human chromosomes | Science"
+    ]
+  },
+  {
+    "term": "human",
+    "count": 3,
+    "contexts": [
+      "Conformational asymmetry of replicated human chromosomes | Science",
+      "Thalamic NRXN1-mediated input to human cortical progenitors drives excitatory neurogenesis | Science",
+      "How the brain of a fly may help explain human behaviour"
+    ]
+  },
+  {
     "term": "生态环境",
-    "count": 5,
+    "count": 3,
     "contexts": [
+      "《生态环境法典》进社区 把法条“翻译”成百姓生活常识 - sohu.com",
       "守护绿水青山 海南构建生态环境信用监管体系 - 新浪财经",
-      "国际生态环境小记者工作坊在成都开营，19国青年共探公园城市生态密码 - thepaper.cn",
-      "江西推动生态环境法典落地见效 制定265项行政处罚裁量细化基准 - 凤凰网江西"
+      "国际生态环境小记者工作坊在成都开营，19国青年共探公园城市生态密码 - thepaper.cn"
     ]
   },
   {
-    "term": "中心",
-    "count": 3,
+    "term": "国家",
+    "count": 2,
     "contexts": [
-      "画廊 墨西哥城查普尔特佩克环境文化中心设计竞赛获胜者 - 18 - ArchDaily",
-      "画廊 墨西哥城查普尔特佩克环境文化中心设计竞赛获胜者 - 24 - ArchDaily",
-      "国家气候中心专家：全球变暖背景下未来冰崩频次将进一步上升 - 新浪财经"
-    ]
-  },
-  {
-    "term": "财经",
-    "count": 3,
-    "contexts": [
-      "守护绿水青山 海南构建生态环境信用监管体系 - 新浪财经",
-      "5200米高山冰崩背后：一场令全球“发烧”的气候危机正深刻影响人类社会 - 新浪财经",
-      "国家气候中心专家：全球变暖背景下未来冰崩频次将进一步上升 - 新浪财经"
-    ]
-  },
-  {
-    "term": "Earth",
-    "count": 3,
-    "contexts": [
-      "How do microplastics move through water and land? Earth scientists find ways to track their journey",
-      "Earth may have lost the Sun’s protective shield millions of years ago",
-      "One of Earth’s driest places was just covered in snow"
-    ]
-  },
-  {
-    "term": "法典",
-    "count": 3,
-    "contexts": [
-      "江西推动生态环境法典落地见效 制定265项行政处罚裁量细化基准 - 凤凰网江西",
-      "赣鄱大地“绿”动法治引擎：写在生态环境法典时代的一线答卷 - 中国日报网",
-      "漫说生态环境法典② | 广场舞不是演唱会，安静权有法管 - Sohu"
-    ]
-  },
-  {
-    "term": "was",
-    "count": 3,
-    "contexts": [
-      "One of Earth’s driest places was just covered in snow",
-      "How a small island in Canada appeared, vanished, and was found again",
-      "Met Office: Summer 2026 was UK's hottest ever"
+      "印度，全球第一个被气候变化“做空”的国家 - qq.com",
+      "尼泊尔：不会向中国等国家寻求“气候正义赔偿” - 凤凰网"
     ]
   },
   {
@@ -62,14 +43,6 @@
     ]
   },
   {
-    "term": "社会",
-    "count": 2,
-    "contexts": [
-      "外交部：中方将继续同国际社会合作应对气候变化 - thepaper.cn",
-      "5200米高山冰崩背后：一场令全球“发烧”的气候危机正深刻影响人类社会 - 新浪财经"
-    ]
-  },
-  {
     "term": "thepaper",
     "count": 2,
     "contexts": [
@@ -78,75 +51,83 @@
     ]
   },
   {
-    "term": "into",
+    "term": "help",
     "count": 2,
     "contexts": [
-      "Widow whose husband died after falling into slurry pit warns of pressure on farmers",
-      "Temperature check: alarm as prediction markets lean into weather and climate bets"
+      "Can AI help solve the peer-review crisis? Here are its promises and pitfalls",
+      "How the brain of a fly may help explain human behaviour"
     ]
   },
   {
-    "term": "画廊",
+    "term": "绿色",
     "count": 2,
     "contexts": [
-      "画廊 墨西哥城查普尔特佩克环境文化中心设计竞赛获胜者 - 18 - ArchDaily",
-      "画廊 墨西哥城查普尔特佩克环境文化中心设计竞赛获胜者 - 24 - ArchDaily"
+      "绿色动力集团领跑污泥资源再生利用赛道 - sohu.com",
+      "向富向强向美：法典时代固废活出绿色生命力|文汇讲堂 - 上观新闻"
     ]
   },
   {
-    "term": "墨西哥城",
+    "term": "sohu",
     "count": 2,
     "contexts": [
-      "画廊 墨西哥城查普尔特佩克环境文化中心设计竞赛获胜者 - 18 - ArchDaily",
-      "画廊 墨西哥城查普尔特佩克环境文化中心设计竞赛获胜者 - 24 - ArchDaily"
+      "绿色动力集团领跑污泥资源再生利用赛道 - sohu.com",
+      "《生态环境法典》进社区 把法条“翻译”成百姓生活常识 - sohu.com"
     ]
   },
   {
-    "term": "普尔",
+    "term": "dynamics",
     "count": 2,
     "contexts": [
-      "画廊 墨西哥城查普尔特佩克环境文化中心设计竞赛获胜者 - 18 - ArchDaily",
-      "画廊 墨西哥城查普尔特佩克环境文化中心设计竞赛获胜者 - 24 - ArchDaily"
+      "Longitudinal dynamics of gene expression and metabolomics in an aging population cohort | Science",
+      "Tradeoffs between nutrient load reductions and greenhouse gas dynamics in constructed agricultural wetlands"
     ]
   },
   {
-    "term": "佩克",
+    "term": "chemotherapy",
     "count": 2,
     "contexts": [
-      "画廊 墨西哥城查普尔特佩克环境文化中心设计竞赛获胜者 - 18 - ArchDaily",
-      "画廊 墨西哥城查普尔特佩克环境文化中心设计竞赛获胜者 - 24 - ArchDaily"
+      "Psilocybin prevents chemotherapy-induced peripheral neuropathy through mitochondrial trafficking preservation | Science",
+      "Magic-mushroom compound blocks a severe side effect of chemotherapy, in mice"
     ]
   },
   {
-    "term": "文化",
+    "term": "wildfire",
     "count": 2,
     "contexts": [
-      "画廊 墨西哥城查普尔特佩克环境文化中心设计竞赛获胜者 - 18 - ArchDaily",
-      "画廊 墨西哥城查普尔特佩克环境文化中心设计竞赛获胜者 - 24 - ArchDaily"
+      "Razed by wildfire, erased by USPS: Hawaiians fight to restore mail delivery",
+      "Toxic wildfire haze spreads across South East Asia as 'super' El Niño intensifies"
     ]
   },
   {
-    "term": "设计",
+    "term": "chaos",
     "count": 2,
     "contexts": [
-      "画廊 墨西哥城查普尔特佩克环境文化中心设计竞赛获胜者 - 18 - ArchDaily",
-      "画廊 墨西哥城查普尔特佩克环境文化中心设计竞赛获胜者 - 24 - ArchDaily"
+      "‘So scary’: massive hail and torrential rain causes chaos in Toronto",
+      "Will El Nino bring chaos to UK weather?"
     ]
   },
   {
-    "term": "获胜者",
+    "term": "法典",
     "count": 2,
     "contexts": [
-      "画廊 墨西哥城查普尔特佩克环境文化中心设计竞赛获胜者 - 18 - ArchDaily",
-      "画廊 墨西哥城查普尔特佩克环境文化中心设计竞赛获胜者 - 24 - ArchDaily"
+      "《生态环境法典》进社区 把法条“翻译”成百姓生活常识 - sohu.com",
+      "向富向强向美：法典时代固废活出绿色生命力|文汇讲堂 - 上观新闻"
     ]
   },
   {
-    "term": "ArchDaily",
+    "term": "based",
     "count": 2,
     "contexts": [
-      "画廊 墨西哥城查普尔特佩克环境文化中心设计竞赛获胜者 - 18 - ArchDaily",
-      "画廊 墨西哥城查普尔特佩克环境文化中心设计竞赛获胜者 - 24 - ArchDaily"
+      "Revisiting rule-based external carbon dosing for low-cost digital transformation of full-scale WWTPs",
+      "Differentiating molecular fingerprints of dissolved organic nitrogen between natural soil and iron-based sorption media for stormwater treatment"
+    ]
+  },
+  {
+    "term": "enhanced",
+    "count": 2,
+    "contexts": [
+      "Curvature strain engineering enhanced singlet oxygen selectivity: Dual-Function FeN<sub>4</sub> sites for targeted guanine oxidation of antibiotic resistance genes",
+      "A physics-enhanced bidirectional multi-order graph fusion network for interpretable bearing remaining useful life prediction"
     ]
   },
   {
@@ -158,59 +139,91 @@
     ]
   },
   {
-    "term": "derived",
+    "term": "effect",
     "count": 2,
     "contexts": [
-      "From glacier to delta: Spatial distribution of PFAS and tire-derived contaminants along the entire Rhône River continuum",
-      "Hidden relationships in a document-derived property graph: top-k chunk embeddings and inverse-distance weighting over a dynamically evolving ontology"
+      "Root exudates stabilize denitrification yet amplify CO<sub>2</sub> emissions by priming effect in constructed wetlands",
+      "Magic-mushroom compound blocks a severe side effect of chemotherapy, in mice"
     ]
   },
   {
-    "term": "Author",
+    "term": "constructed",
     "count": 2,
     "contexts": [
-      "Author Correction: Endocannabinoids facilitate reward engagement through retrograde gain control",
-      "Author Correction: Signalling thresholds and negative B-cell selection in acute lymphoblastic leukaemia"
+      "Root exudates stabilize denitrification yet amplify CO<sub>2</sub> emissions by priming effect in constructed wetlands",
+      "Tradeoffs between nutrient load reductions and greenhouse gas dynamics in constructed agricultural wetlands"
     ]
   },
   {
-    "term": "Correction",
+    "term": "wetlands",
     "count": 2,
     "contexts": [
-      "Author Correction: Endocannabinoids facilitate reward engagement through retrograde gain control",
-      "Author Correction: Signalling thresholds and negative B-cell selection in acute lymphoblastic leukaemia"
+      "Root exudates stabilize denitrification yet amplify CO<sub>2</sub> emissions by priming effect in constructed wetlands",
+      "Tradeoffs between nutrient load reductions and greenhouse gas dynamics in constructed agricultural wetlands"
+    ]
+  },
+  {
+    "term": "new",
+    "count": 2,
+    "contexts": [
+      "Buried underpants and a new definition of kissing win 2026 Ig Nobel prizes",
+      "How a new instrument could reveal the secrets of the stars"
     ]
   },
   {
     "term": "生态",
     "count": 2,
     "contexts": [
-      "国际生态环境小记者工作坊在成都开营，19国青年共探公园城市生态密码 - thepaper.cn",
-      "“环保+义警”双向赋能——贵南县沙沟乡派出所探索高原生态警务新路子 - 新华网"
+      "推进生态文明建设 | 阿勒泰的生态密码藏在这八个字里 - altxw.com",
+      "国际生态环境小记者工作坊在成都开营，19国青年共探公园城市生态密码 - thepaper.cn"
     ]
   },
   {
-    "term": "Model",
+    "term": "密码",
     "count": 2,
     "contexts": [
-      "MUFASA: An Information Utility-Aware Preprocessing Framework for Reliable Model Reasoning in Computational Pathology",
-      "Aerodynamic Shape Design Space Exploration with Deep Latent Diffusion Model"
+      "推进生态文明建设 | 阿勒泰的生态密码藏在这八个字里 - altxw.com",
+      "国际生态环境小记者工作坊在成都开营，19国青年共探公园城市生态密码 - thepaper.cn"
     ]
   },
   {
-    "term": "冰崩",
+    "term": "climate",
     "count": 2,
     "contexts": [
-      "5200米高山冰崩背后：一场令全球“发烧”的气候危机正深刻影响人类社会 - 新浪财经",
-      "国家气候中心专家：全球变暖背景下未来冰崩频次将进一步上升 - 新浪财经"
+      "Tipping points do not make 1.5 °C a physical climate limit",
+      "Time of emergence of climate signals in the abyssal Clarion–Clipperton Zone and implications for deep-sea mining baselines"
     ]
   },
   {
-    "term": "气候",
+    "term": "sea",
     "count": 2,
     "contexts": [
-      "5200米高山冰崩背后：一场令全球“发烧”的气候危机正深刻影响人类社会 - 新浪财经",
-      "国家气候中心专家：全球变暖背景下未来冰崩频次将进一步上升 - 新浪财经"
+      "Multi-decadal shoreline variability at a Mediterranean urban beach: disentangling storm impacts and sea-level influence",
+      "Time of emergence of climate signals in the abyssal Clarion–Clipperton Zone and implications for deep-sea mining baselines"
+    ]
+  },
+  {
+    "term": "South",
+    "count": 2,
+    "contexts": [
+      "Two distinct synoptic pathways to extreme humid heat over South China: monsoon-related versus tropical-cyclone-related",
+      "Toxic wildfire haze spreads across South East Asia as 'super' El Niño intensifies"
+    ]
+  },
+  {
+    "term": "Materials",
+    "count": 2,
+    "contexts": [
+      "When Literature Data Mislead Artificial Intelligence in Materials Discovery",
+      "Learning the Constitutive Behavior of Materials via Neural Operators and Causal Attention: Case Studies in Plasticity and Damage"
+    ]
+  },
+  {
+    "term": "Earth",
+    "count": 2,
+    "contexts": [
+      "How do microplastics move through water and land? Earth scientists find ways to track their journey",
+      "Earth may have lost the Sun’s protective shield millions of years ago"
     ]
   }
 ]

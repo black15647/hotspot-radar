@@ -1,5 +1,14 @@
 [
   {
+    "term": "气候",
+    "count": 4,
+    "contexts": [
+      "视频丨欧盟气候机构：欧洲是全球变暖速度最快的大洲 - Sohu",
+      "泥石流灾难后 尼泊尔争取气候正义 - DW.com",
+      "尼泊尔称不会向中国等国家寻求“气候正义赔偿” - 凤凰网"
+    ]
+  },
+  {
     "term": "Science",
     "count": 4,
     "contexts": [
@@ -9,221 +18,125 @@
     ]
   },
   {
-    "term": "human",
-    "count": 3,
-    "contexts": [
-      "Conformational asymmetry of replicated human chromosomes | Science",
-      "Thalamic NRXN1-mediated input to human cortical progenitors drives excitatory neurogenesis | Science",
-      "How the brain of a fly may help explain human behaviour"
-    ]
-  },
-  {
     "term": "生态环境",
     "count": 3,
     "contexts": [
-      "《生态环境法典》进社区 把法条“翻译”成百姓生活常识 - sohu.com",
-      "守护绿水青山 海南构建生态环境信用监管体系 - 新浪财经",
-      "国际生态环境小记者工作坊在成都开营，19国青年共探公园城市生态密码 - thepaper.cn"
+      "生态环境部环评司有关负责人就《排污许可证申请与核发技术规范 火电》等六项国家生态环境标准修订答记者问 - 新浪网",
+      "图解：3分钟了解生态环境法典 - Sohu",
+      "落地生态环境法典 泰安集中修改三部地方性法规 - 腾讯新闻"
+    ]
+  },
+  {
+    "term": "尼泊尔",
+    "count": 3,
+    "contexts": [
+      "尼泊尔有声音要求美印中赔偿 中方回应 共同应对气候变化挑战 - 中华军事",
+      "泥石流灾难后 尼泊尔争取气候正义 - DW.com",
+      "尼泊尔称不会向中国等国家寻求“气候正义赔偿” - 凤凰网"
     ]
   },
   {
     "term": "国家",
     "count": 2,
     "contexts": [
-      "印度，全球第一个被气候变化“做空”的国家 - qq.com",
-      "尼泊尔：不会向中国等国家寻求“气候正义赔偿” - 凤凰网"
+      "生态环境部环评司有关负责人就《排污许可证申请与核发技术规范 火电》等六项国家生态环境标准修订答记者问 - 新浪网",
+      "尼泊尔称不会向中国等国家寻求“气候正义赔偿” - 凤凰网"
     ]
   },
   {
-    "term": "国际",
+    "term": "新浪网",
     "count": 2,
     "contexts": [
-      "外交部：中方将继续同国际社会合作应对气候变化 - thepaper.cn",
-      "国际生态环境小记者工作坊在成都开营，19国青年共探公园城市生态密码 - thepaper.cn"
+      "生态环境部环评司有关负责人就《排污许可证申请与核发技术规范 火电》等六项国家生态环境标准修订答记者问 - 新浪网",
+      "24个台风是厄尔尼诺催生？许小峰：气候变暖应是最大诱因 - 新浪新闻_手机新浪网"
     ]
   },
   {
-    "term": "thepaper",
+    "term": "赔偿",
     "count": 2,
     "contexts": [
-      "外交部：中方将继续同国际社会合作应对气候变化 - thepaper.cn",
-      "国际生态环境小记者工作坊在成都开营，19国青年共探公园城市生态密码 - thepaper.cn"
+      "尼泊尔有声音要求美印中赔偿 中方回应 共同应对气候变化挑战 - 中华军事",
+      "尼泊尔称不会向中国等国家寻求“气候正义赔偿” - 凤凰网"
     ]
   },
   {
-    "term": "help",
+    "term": "Sohu",
     "count": 2,
     "contexts": [
-      "Can AI help solve the peer-review crisis? Here are its promises and pitfalls",
-      "How the brain of a fly may help explain human behaviour"
+      "视频丨欧盟气候机构：欧洲是全球变暖速度最快的大洲 - Sohu",
+      "图解：3分钟了解生态环境法典 - Sohu"
     ]
   },
   {
-    "term": "绿色",
+    "term": "中国",
     "count": 2,
     "contexts": [
-      "绿色动力集团领跑污泥资源再生利用赛道 - sohu.com",
-      "向富向强向美：法典时代固废活出绿色生命力|文汇讲堂 - 上观新闻"
-    ]
-  },
-  {
-    "term": "sohu",
-    "count": 2,
-    "contexts": [
-      "绿色动力集团领跑污泥资源再生利用赛道 - sohu.com",
-      "《生态环境法典》进社区 把法条“翻译”成百姓生活常识 - sohu.com"
-    ]
-  },
-  {
-    "term": "dynamics",
-    "count": 2,
-    "contexts": [
-      "Longitudinal dynamics of gene expression and metabolomics in an aging population cohort | Science",
-      "Tradeoffs between nutrient load reductions and greenhouse gas dynamics in constructed agricultural wetlands"
-    ]
-  },
-  {
-    "term": "chemotherapy",
-    "count": 2,
-    "contexts": [
-      "Psilocybin prevents chemotherapy-induced peripheral neuropathy through mitochondrial trafficking preservation | Science",
-      "Magic-mushroom compound blocks a severe side effect of chemotherapy, in mice"
-    ]
-  },
-  {
-    "term": "wildfire",
-    "count": 2,
-    "contexts": [
-      "Razed by wildfire, erased by USPS: Hawaiians fight to restore mail delivery",
-      "Toxic wildfire haze spreads across South East Asia as 'super' El Niño intensifies"
-    ]
-  },
-  {
-    "term": "chaos",
-    "count": 2,
-    "contexts": [
-      "‘So scary’: massive hail and torrential rain causes chaos in Toronto",
-      "Will El Nino bring chaos to UK weather?"
+      "大连市2026年船舶污染应急处置综合演练举办 - 中国科技网",
+      "尼泊尔称不会向中国等国家寻求“气候正义赔偿” - 凤凰网"
     ]
   },
   {
     "term": "法典",
     "count": 2,
     "contexts": [
-      "《生态环境法典》进社区 把法条“翻译”成百姓生活常识 - sohu.com",
-      "向富向强向美：法典时代固废活出绿色生命力|文汇讲堂 - 上观新闻"
+      "图解：3分钟了解生态环境法典 - Sohu",
+      "落地生态环境法典 泰安集中修改三部地方性法规 - 腾讯新闻"
     ]
   },
   {
-    "term": "based",
+    "term": "空气质量",
     "count": 2,
     "contexts": [
-      "Revisiting rule-based external carbon dosing for low-cost digital transformation of full-scale WWTPs",
-      "Differentiating molecular fingerprints of dissolved organic nitrogen between natural soil and iron-based sorption media for stormwater treatment"
+      "今日问政(893)丨今年夏天成都空气质量如何？出现污染天气的原因是什么？回应来了 - 四川新闻",
+      "新余空气质量优良率97.1%，提升幅度居全省第二 - 凤凰网江西"
     ]
   },
   {
-    "term": "enhanced",
+    "term": "正义",
     "count": 2,
     "contexts": [
-      "Curvature strain engineering enhanced singlet oxygen selectivity: Dual-Function FeN<sub>4</sub> sites for targeted guanine oxidation of antibiotic resistance genes",
-      "A physics-enhanced bidirectional multi-order graph fusion network for interpretable bearing remaining useful life prediction"
+      "泥石流灾难后 尼泊尔争取气候正义 - DW.com",
+      "尼泊尔称不会向中国等国家寻求“气候正义赔偿” - 凤凰网"
     ]
   },
   {
-    "term": "sub",
+    "term": "ozonation",
     "count": 2,
     "contexts": [
-      "Curvature strain engineering enhanced singlet oxygen selectivity: Dual-Function FeN<sub>4</sub> sites for targeted guanine oxidation of antibiotic resistance genes",
-      "Root exudates stabilize denitrification yet amplify CO<sub>2</sub> emissions by priming effect in constructed wetlands"
+      "Continuous coagulant and alkali dosing enhanced organic separation from hypersaline wastewater in synchronous ozonation coagulation process",
+      "A scalable Zn-Mn-enabled catalytic ozonation process for robust drinking water purification"
     ]
   },
   {
-    "term": "effect",
+    "term": "process",
     "count": 2,
     "contexts": [
-      "Root exudates stabilize denitrification yet amplify CO<sub>2</sub> emissions by priming effect in constructed wetlands",
-      "Magic-mushroom compound blocks a severe side effect of chemotherapy, in mice"
+      "Continuous coagulant and alkali dosing enhanced organic separation from hypersaline wastewater in synchronous ozonation coagulation process",
+      "A scalable Zn-Mn-enabled catalytic ozonation process for robust drinking water purification"
     ]
   },
   {
-    "term": "constructed",
+    "term": "water",
     "count": 2,
     "contexts": [
-      "Root exudates stabilize denitrification yet amplify CO<sub>2</sub> emissions by priming effect in constructed wetlands",
-      "Tradeoffs between nutrient load reductions and greenhouse gas dynamics in constructed agricultural wetlands"
+      "Regional zooplankton community differences inform freshwater-organism water quality criteria refinement: an eDNA-guided framework",
+      "A scalable Zn-Mn-enabled catalytic ozonation process for robust drinking water purification"
     ]
   },
   {
-    "term": "wetlands",
+    "term": "framework",
     "count": 2,
     "contexts": [
-      "Root exudates stabilize denitrification yet amplify CO<sub>2</sub> emissions by priming effect in constructed wetlands",
-      "Tradeoffs between nutrient load reductions and greenhouse gas dynamics in constructed agricultural wetlands"
+      "Regional zooplankton community differences inform freshwater-organism water quality criteria refinement: an eDNA-guided framework",
+      "sp-DBA: a general framework for adaptive transform-domain computation"
     ]
   },
   {
-    "term": "new",
+    "term": "human",
     "count": 2,
     "contexts": [
-      "Buried underpants and a new definition of kissing win 2026 Ig Nobel prizes",
-      "How a new instrument could reveal the secrets of the stars"
-    ]
-  },
-  {
-    "term": "生态",
-    "count": 2,
-    "contexts": [
-      "推进生态文明建设 | 阿勒泰的生态密码藏在这八个字里 - altxw.com",
-      "国际生态环境小记者工作坊在成都开营，19国青年共探公园城市生态密码 - thepaper.cn"
-    ]
-  },
-  {
-    "term": "密码",
-    "count": 2,
-    "contexts": [
-      "推进生态文明建设 | 阿勒泰的生态密码藏在这八个字里 - altxw.com",
-      "国际生态环境小记者工作坊在成都开营，19国青年共探公园城市生态密码 - thepaper.cn"
-    ]
-  },
-  {
-    "term": "climate",
-    "count": 2,
-    "contexts": [
-      "Tipping points do not make 1.5 °C a physical climate limit",
-      "Time of emergence of climate signals in the abyssal Clarion–Clipperton Zone and implications for deep-sea mining baselines"
-    ]
-  },
-  {
-    "term": "sea",
-    "count": 2,
-    "contexts": [
-      "Multi-decadal shoreline variability at a Mediterranean urban beach: disentangling storm impacts and sea-level influence",
-      "Time of emergence of climate signals in the abyssal Clarion–Clipperton Zone and implications for deep-sea mining baselines"
-    ]
-  },
-  {
-    "term": "South",
-    "count": 2,
-    "contexts": [
-      "Two distinct synoptic pathways to extreme humid heat over South China: monsoon-related versus tropical-cyclone-related",
-      "Toxic wildfire haze spreads across South East Asia as 'super' El Niño intensifies"
-    ]
-  },
-  {
-    "term": "Materials",
-    "count": 2,
-    "contexts": [
-      "When Literature Data Mislead Artificial Intelligence in Materials Discovery",
-      "Learning the Constitutive Behavior of Materials via Neural Operators and Causal Attention: Case Studies in Plasticity and Damage"
-    ]
-  },
-  {
-    "term": "Earth",
-    "count": 2,
-    "contexts": [
-      "How do microplastics move through water and land? Earth scientists find ways to track their journey",
-      "Earth may have lost the Sun’s protective shield millions of years ago"
+      "Conformational asymmetry of replicated human chromosomes | Science",
+      "Thalamic NRXN1-mediated input to human cortical progenitors drives excitatory neurogenesis | Science"
     ]
   }
 ]

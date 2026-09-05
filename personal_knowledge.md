@@ -1576,3 +1576,138 @@
   - 上下文：Earth may have lost the Sun’s protective shield millions of years ago
 
 ---
+## 2026-09-05
+
+**今日高频关键词**：`#生态环境` `#尼泊尔` `#集团` `#空气质量` `#water`
+
+**今日 Top10 热点**
+
+### 1. 生态环境部环评司有关负责人就《排污许可证申请与核发技术规范 火电》等六项国家生态环境标准修订答记者问 - 新浪网
+- **来源**：Google News 生态环境
+- **热度**：19.8
+- **链接**：https://news.google.com/rss/articles/CBMif0FVX3lxTE0xdkx2ZFJISG1qUEROeHFybk1ESmRVNVlrLUFCWHN2dXFTS1NMVjNUV3VjNHNNMGVoWk0yZG5yRFdQSVNkeS1OQWRwN3BvZFRMbDB6MjhWSHlKd05pMXc4SHFTNEhYazA4LUMtV0ZiYXBUcjRScnhldFJFQXQ2enM?oc=5
+- **摘要**：关于「生态环境部环评司有关负责人就」的资讯
+- **分析**：该条目涉及【环评】话题，因来源较权威且发布时间较新，热度上升。
+
+### 2. 尼泊尔有声音要求美印中赔偿 中方回应 共同应对气候变化挑战 - 中华军事
+- **来源**：Google News 气候变化
+- **热度**：19.3
+- **链接**：https://news.google.com/rss/articles/CBMicEFVX3lxTE9kX3YxMjhFbjBhdHZTSU9nNFQwQTRSaVZLdTN0eXZfZEhNeUVNWC1PM3NRSHpGQzZOWWNLRTVOb3RzWGxzM2p6Zl9wcUo5VGtpSmp5ZmZIUHpYWWtMQTRvVGQ5YnphOVh2UVZaTkFrcnE?oc=5
+- **摘要**：关于「共同应对气候变化挑战」的资讯
+- **分析**：该条目涉及【共同应对气候变化挑战】话题，因来源较权威且与近期热点主题相关，热度上升。
+
+### 3. Ancient cave art discovery suggests first known humans in Ireland walked over from Wales
+- **来源**：BBC 科学与环境
+- **热度**：17.2
+- **链接**：https://www.bbc.co.uk/news/articles/c5y75dl0jpko?at_medium=RSS&at_campaign=rss
+- **摘要**：During the most recent Ice Age, researchers believe there was a "lost land bridge" between Wales and Ireland.
+- **分析**：该条目涉及【Ancient】话题，因发布时间较新，热度上升。
+
+### 4. A Surge of Marine Heat Waves Threatens to Scramble Ocean Life
+- **来源**：Yale Environment 360
+- **热度**：16.6
+- **链接**：https://e360.yale.edu/features/marine-heat-waves
+- **摘要**：受气候变化和日益加剧的厄尔尼诺现象推动，创纪录的海洋热浪正席卷全球各大洋，并对海洋生物造成严重破坏。近期事件中不断涌现的证据表明，无论在陆地还是海上，其造成的破坏都可能十分严重且影响持久。在 E360 上阅读更多内容 →
+- **分析**：该条目涉及【威胁着海洋生物的生存】话题，因与近期热点主题相关，热度上升。
+
+### 5. 视频丨欧盟气候机构：欧洲是全球变暖速度最快的大洲 - Sohu
+- **来源**：Google News 气候变化
+- **热度**：16.5
+- **链接**：https://news.google.com/rss/articles/CBMiiwFBVV95cUxQOVU2ZTA1cXN2dHNsS3U4am1oZ0ZJb0w5SmpDWDJoX3dsOUs2YS1QZU5NemRHWHliZWtJeE9GZkk5XzVjZTF0RlJTVGw3VFVjQXVDUjl6bkw2bXFzZl81NGljdzBRNVRPMnUyTGNjQ0d1MEJjVGwxZW5aNUk1STFwNHRYMkNxVW1QWm0w?oc=5
+- **摘要**：关于「视频丨欧盟气候机构」的资讯
+- **分析**：该条目涉及【视频丨欧盟气候机构】话题，因来源较权威且发布时间较新，热度上升。
+
+### 6. 大连市2026年船舶污染应急处置综合演练举办 - 中国科技网
+- **来源**：Google News 环境污染
+- **热度**：15.7
+- **链接**：https://news.google.com/rss/articles/CBMicEFVX3lxTFBqT0dMdjkxZWZpdW1wRXkyQlc2RmtHc1FrUGQ4TFV1UXU0UFp3bUxLa0g1RFR0MDdYWnZrdnFnclZ5eGFxUG11emZVLUtoVDlOT1dkX0ZORnJ3TWo4OG9NVU9pUVMxcEhFQlVvUWp5X0c?oc=5
+- **摘要**：关于「年船舶污染应急处置综合演练举办」的资讯：大连市2026 - 中国科技网
+- **分析**：该条目涉及【年船舶污染应急处置综合演练举办】话题，因来源较权威且发布时间较新，热度上升。
+
+### 7. 最高可罚50万元！回收处理废弃电器电子产品，这些规定要遵守- 湖北日报新闻客户端 - 湖北日报传媒集团
+- **来源**：Google News 环境污染
+- **热度**：15.6
+- **链接**：https://news.google.com/rss/articles/CBMiWEFVX3lxTE52b2RTUEs3QjdvVmNCOXBjeTFLZXVGanFnQzE5YUo5Vi1BVDFWLTRUcTFROXFVZkpqVVMxcWI2cmdhVHhFbndGMjhJaUJrTUxRQmdaQ2kzQUg?oc=5
+- **摘要**：最高可罚50万元！回收处理废弃电器电子产品，这些规定要遵守-…
+- **分析**：该条目涉及【环境资讯】话题，因来源较权威且发布时间较新，热度上升。
+
+### 8. 图解：3分钟了解生态环境法典 - Sohu
+- **来源**：Google News 生态环境
+- **热度**：15.3
+- **链接**：https://news.google.com/rss/articles/CBMiiAFBVV95cUxPYUQxT2FXNF81TmFTU3ZSOGlNU2xTazRHSVpfZ0R1eE1NWHEwcGNfRWxRWF9jRmZmcG5GazFCN2M0S283MnU1SnBYVWtITzJDSmN5aTZEMGJ4VFZCMWdfMHNuZTA1TlpQcHpvM0VrS2xCbnZTWG80SGZRRWo0VmljWFJndVZ0QkFo?oc=5
+- **摘要**：关于「分钟了解生态环境法典」的资讯：图解：3 - Sohu
+- **分析**：该条目涉及【分钟了解生态环境法典】话题，因来源较权威，热度上升。
+
+### 9. At least 37 killed by toxic fumes during alleged petrol theft in Nigeria, reports say
+- **来源**：BBC 科学与环境
+- **热度**：15.1
+- **链接**：https://www.bbc.co.uk/news/articles/cde024l10dyo?at_medium=RSS&at_campaign=rss
+- **摘要**：An environmental group says those who died are suspected of stealing petrol from a pipeline in Nigeria's Rivers State.
+- **分析**：该条目涉及【least】话题，因发布时间较新，热度上升。
+
+### 10. 今日问政(893)丨今年夏天成都空气质量如何？出现污染天气的原因是什么？回应来了 - 四川新闻
+- **来源**：Google News 环境污染
+- **热度**：15.0
+- **链接**：https://news.google.com/rss/articles/CBMiY0FVX3lxTE9wRTFwNXY0VTdfX0drb3JyckswaGdRbGlFY2ZMb3BZdk03bUlDSmtuNVM2MWgyc1h1MkRtSjRtLWdXR3ZCX2EzaGNMaHlYWnhBbEVpa0lWM0VHWmN2RFIwS1Y2aw?oc=5
+- **摘要**：关于「出现污染天气的原因是什么」的资讯
+- **分析**：该条目涉及【出现污染天气的原因是什么】话题，因来源较权威，热度上升。
+
+**今日自动提取候选新词**
+
+- **气候**（出现 4 次）
+  - 上下文：视频丨欧盟气候机构：欧洲是全球变暖速度最快的大洲 - Sohu
+  - 上下文：泥石流灾难后 尼泊尔争取气候正义 - DW.com
+  - 上下文：尼泊尔称不会向中国等国家寻求“气候正义赔偿” - 凤凰网
+- **Science**（出现 4 次）
+  - 上下文：Longitudinal dynamics of gene expression and metabolomics in an aging population cohort | Science
+  - 上下文：Psilocybin prevents chemotherapy-induced peripheral neuropathy through mitochondrial trafficking preservation | Science
+  - 上下文：Conformational asymmetry of replicated human chromosomes | Science
+- **生态环境**（出现 3 次）
+  - 上下文：生态环境部环评司有关负责人就《排污许可证申请与核发技术规范 火电》等六项国家生态环境标准修订答记者问 - 新浪网
+  - 上下文：图解：3分钟了解生态环境法典 - Sohu
+  - 上下文：落地生态环境法典 泰安集中修改三部地方性法规 - 腾讯新闻
+- **尼泊尔**（出现 3 次）
+  - 上下文：尼泊尔有声音要求美印中赔偿 中方回应 共同应对气候变化挑战 - 中华军事
+  - 上下文：泥石流灾难后 尼泊尔争取气候正义 - DW.com
+  - 上下文：尼泊尔称不会向中国等国家寻求“气候正义赔偿” - 凤凰网
+- **国家**（出现 2 次）
+  - 上下文：生态环境部环评司有关负责人就《排污许可证申请与核发技术规范 火电》等六项国家生态环境标准修订答记者问 - 新浪网
+  - 上下文：尼泊尔称不会向中国等国家寻求“气候正义赔偿” - 凤凰网
+- **新浪网**（出现 2 次）
+  - 上下文：生态环境部环评司有关负责人就《排污许可证申请与核发技术规范 火电》等六项国家生态环境标准修订答记者问 - 新浪网
+  - 上下文：24个台风是厄尔尼诺催生？许小峰：气候变暖应是最大诱因 - 新浪新闻_手机新浪网
+- **赔偿**（出现 2 次）
+  - 上下文：尼泊尔有声音要求美印中赔偿 中方回应 共同应对气候变化挑战 - 中华军事
+  - 上下文：尼泊尔称不会向中国等国家寻求“气候正义赔偿” - 凤凰网
+- **Sohu**（出现 2 次）
+  - 上下文：视频丨欧盟气候机构：欧洲是全球变暖速度最快的大洲 - Sohu
+  - 上下文：图解：3分钟了解生态环境法典 - Sohu
+- **中国**（出现 2 次）
+  - 上下文：大连市2026年船舶污染应急处置综合演练举办 - 中国科技网
+  - 上下文：尼泊尔称不会向中国等国家寻求“气候正义赔偿” - 凤凰网
+- **法典**（出现 2 次）
+  - 上下文：图解：3分钟了解生态环境法典 - Sohu
+  - 上下文：落地生态环境法典 泰安集中修改三部地方性法规 - 腾讯新闻
+- **空气质量**（出现 2 次）
+  - 上下文：今日问政(893)丨今年夏天成都空气质量如何？出现污染天气的原因是什么？回应来了 - 四川新闻
+  - 上下文：新余空气质量优良率97.1%，提升幅度居全省第二 - 凤凰网江西
+- **正义**（出现 2 次）
+  - 上下文：泥石流灾难后 尼泊尔争取气候正义 - DW.com
+  - 上下文：尼泊尔称不会向中国等国家寻求“气候正义赔偿” - 凤凰网
+- **ozonation**（出现 2 次）
+  - 上下文：Continuous coagulant and alkali dosing enhanced organic separation from hypersaline wastewater in synchronous ozonation coagulation process
+  - 上下文：A scalable Zn-Mn-enabled catalytic ozonation process for robust drinking water purification
+- **process**（出现 2 次）
+  - 上下文：Continuous coagulant and alkali dosing enhanced organic separation from hypersaline wastewater in synchronous ozonation coagulation process
+  - 上下文：A scalable Zn-Mn-enabled catalytic ozonation process for robust drinking water purification
+- **water**（出现 2 次）
+  - 上下文：Regional zooplankton community differences inform freshwater-organism water quality criteria refinement: an eDNA-guided framework
+  - 上下文：A scalable Zn-Mn-enabled catalytic ozonation process for robust drinking water purification
+- **framework**（出现 2 次）
+  - 上下文：Regional zooplankton community differences inform freshwater-organism water quality criteria refinement: an eDNA-guided framework
+  - 上下文：sp-DBA: a general framework for adaptive transform-domain computation
+- **human**（出现 2 次）
+  - 上下文：Conformational asymmetry of replicated human chromosomes | Science
+  - 上下文：Thalamic NRXN1-mediated input to human cortical progenitors drives excitatory neurogenesis | Science
+
+---

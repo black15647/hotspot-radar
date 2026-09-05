@@ -1366,6 +1366,10 @@ WIDE_ZH_WORDS = set([
     "现象", "加剧", "措施", "方案", "计划", "项目", "结果", "进展", "趋势",
     "消息", "动态", "内容", "平台", "论坛", "峰会", "会议", "活动", "开展",
     "生态", "多地", "遭遇", "期间", "当中", "其中",
+    # 新增：无意义词/媒体栏目名/人名
+    "锚点", "袁岚峰", "风闻", "科普", "工作坊", "观察者", "网易", "新浪", "搜狐", "腾讯", "凤凰", "澎湃", "头条", "知乎", "视频", "直播", "网友", "评论",
+    "今天", "昨天", "刚刚", "突发", "重磅", "独家", "原创", "首发", "热议", "图片", "来源", "作者",
+    "一个", "我们", "你们", "他们", "这个", "那个", "这些", "那些", "什么", "怎么", "为什么", "如何", "可以", "已经", "正在",
     # 新增：地域/通用词
     "全国", "湖南", "湖北", "广东", "北京", "上海", "江苏", "浙江", "四川",
     "山东", "河南", "河北", "福建", "安徽", "江西", "广西", "云南", "贵州",
@@ -1650,10 +1654,10 @@ def _google_translate(text):
     return ""
 
 
-# 翻译缓存与计数
+# 翻译缓存与计数（按字符数控制，每天最多 40000 字符）
 TRANSLATION_CACHE = {}
-TRANSLATION_COUNT = 0
-TRANSLATION_MAX_DAILY = 20  # 每天最多翻译20条（超出则保留原文）
+TRANSLATION_CHARS_USED = 0
+TRANSLATION_MAX_CHARS = 40000  # 每天最多翻译 40000 字符（月约120万，低于DeepL+百度额度）
 
 
 def translate_en_to_zh(text):
@@ -1664,9 +1668,9 @@ def translate_en_to_zh(text):
     - 词表无法匹配时：DeepL → 百度翻译 → Google 翻译 三级降级
     - 所有服务都失败时保留英文原文
     - 使用翻译缓存，避免重复翻译
-    - 每天最多翻译20条（超出则保留原文）
+    - 按字符数控制（每天最多40000字符），超出则保留原文
     """
-    global TRANSLATION_COUNT
+    global TRANSLATION_CHARS_USED
 
     if not text or not text.strip():
         return text
@@ -1695,9 +1699,10 @@ def translate_en_to_zh(text):
     if text_lower in TRANSLATION_CACHE:
         return TRANSLATION_CACHE[text_lower]
 
-    # 第三步：检查每日翻译次数限制
-    if TRANSLATION_COUNT >= TRANSLATION_MAX_DAILY:
-        print(f"[翻译] 已达每日翻译上限（{TRANSLATION_MAX_DAILY}条），保留原文")
+    # 第三步：检查每日翻译字符数限制
+    text_chars = len(text.strip())
+    if TRANSLATION_CHARS_USED + text_chars > TRANSLATION_MAX_CHARS:
+        print(f"[翻译] 已达每日翻译字符上限（{TRANSLATION_CHARS_USED}/{TRANSLATION_MAX_CHARS}），保留原文")
         return text
 
     if not REQUESTS_AVAILABLE:
@@ -1719,7 +1724,7 @@ def translate_en_to_zh(text):
         print(f"[翻译] 使用 DeepL：{text[:40]}")
         result = _deepl_translate(text, deepl_key)
         if result:
-            TRANSLATION_COUNT += 1
+            TRANSLATION_CHARS_USED += text_chars
             TRANSLATION_CACHE[text_lower] = result
             return result
         print("[翻译] DeepL 失败，尝试百度翻译...")
@@ -1731,7 +1736,7 @@ def translate_en_to_zh(text):
         print(f"[翻译] 使用百度翻译：{text[:40]}")
         result = _baidu_translate(text, baidu_appid, baidu_secret)
         if result:
-            TRANSLATION_COUNT += 1
+            TRANSLATION_CHARS_USED += text_chars
             TRANSLATION_CACHE[text_lower] = result
             return result
         print("[翻译] 百度翻译失败，尝试 Google...")
@@ -1742,7 +1747,7 @@ def translate_en_to_zh(text):
     print(f"[翻译] 使用 Google：{text[:40]}")
     result = _google_translate(text)
     if result:
-        TRANSLATION_COUNT += 1
+        TRANSLATION_CHARS_USED += text_chars
         TRANSLATION_CACHE[text_lower] = result
         return result
 
@@ -2397,6 +2402,7 @@ def generate_ai_keywords(items, api_config):
     """
     使用 AI 从热点条目中提取环境领域相关热门关键词
     返回关键词列表 [{term, count}]，失败返回 None
+    增强：解析失败重试1次，prompt强调直接返回JSON
     """
     if not api_config["summary_enabled"] or not items:
         return None
@@ -2420,43 +2426,53 @@ def generate_ai_keywords(items, api_config):
 2. 关键词要具体、多样，避免过于宽泛的词（如"环境""污染""保护"），除非原文特别强调
 3. 关键词要贴近原文内容，从标题和摘要中提炼，不要凭空生成
 4. 如果原文内容与环境领域无关，可返回空数组
-5. 直接返回 JSON 数组，格式：[{{"term": "碳中和", "count": 5}}]，不要解释
+5. 直接返回 JSON 数组，不要解释，不要 Markdown 代码块，不要思考过程，格式：[{{"term": "碳中和", "count": 5}}]
 
 新闻内容：
-{combined_text[:4000]}"""
+{combined_text}"""
 
-    result = call_nvidia_api(prompt, api_config, max_tokens=300)
-    if not result:
-        return None
+    # 最多尝试2次（首次+1次重试）
+    for attempt in range(2):
+        result = call_nvidia_api(prompt, api_config, max_tokens=200)
+        if not result:
+            if attempt == 0:
+                print("[AI关键词] 首次调用返回空，重试一次...")
+                continue
+            return None
 
-    # 解析 JSON
-    try:
-        # 去除可能的 markdown 代码块标记
-        result = result.strip()
-        if result.startswith("```"):
-            result = result.split("\n", 1)[-1]
-            if result.endswith("```"):
-                result = result[:-3]
-        result = result.strip()
-        # 找到第一个 [ 和最后一个 ]
-        start = result.find("[")
-        end = result.rfind("]")
-        if start >= 0 and end > start:
-            result = result[start:end+1]
-        keywords = json.loads(result)
-        if isinstance(keywords, list):
-            # 验证格式
-            valid = []
-            for kw in keywords:
-                if isinstance(kw, dict) and kw.get("term"):
-                    valid.append({
-                        "term": str(kw["term"]),
-                        "count": int(kw.get("count", 1)),
-                    })
-            if valid:
-                return valid
-    except Exception as e:
-        print(f"[AI关键词] 解析失败: {str(e)[:60]}")
+        # 解析 JSON（增强容错）
+        try:
+            result = result.strip()
+            # 去除 markdown 代码块标记
+            if result.startswith("```"):
+                result = result.split("\n", 1)[-1]
+                if result.endswith("```"):
+                    result = result[:-3]
+            result = result.strip()
+            # 找到第一个 [ 和最后一个 ]
+            start = result.find("[")
+            end = result.rfind("]")
+            if start >= 0 and end > start:
+                result = result[start:end+1]
+            keywords = json.loads(result)
+            if isinstance(keywords, list):
+                valid = []
+                for kw in keywords:
+                    if isinstance(kw, dict) and kw.get("term"):
+                        valid.append({
+                            "term": str(kw["term"]),
+                            "count": int(kw.get("count", 1)),
+                        })
+                if valid:
+                    if attempt > 0:
+                        print(f"[AI关键词] 第{attempt+1}次尝试解析成功，获取{len(valid)}个关键词")
+                    return valid
+            print(f"[AI关键词] 解析结果格式无效（第{attempt+1}次尝试）")
+        except Exception as e:
+            print(f"[AI关键词] 解析失败（第{attempt+1}次）: {str(e)[:80]}")
+            print(f"[AI关键词] 返回内容前200字: {result[:200]}")
+        if attempt == 0:
+            print("[AI关键词] 首次解析失败，重试一次...")
     return None
 
 
@@ -2973,6 +2989,7 @@ def generate_batch_summaries(items, api_config):
 2. 禁止输出"点击查看详情""标题涉及""请点击"等无信息量的提示语
 3. 不要直接照抄标题原话，要基于内容提炼
 4. 摘要长度25-60个中文字符
+5. 直接返回 JSON 数组，不要解释，不要 Markdown 代码块，不要思考过程
 
 新闻列表：
 {chr(10).join(news_list)}"""
@@ -3150,7 +3167,7 @@ def generate_batch_topic_tags(items, api_config):
 2. 禁止返回宽泛词：环境、污染、保护、气候变化、环保、生态、可持续发展、环境领域、环境保护、环境问题
 3. 如果看到英文内容，已翻译为中文，请基于中文内容提取
 4. 优先提取具体的事件、地点、物质、技术、政策名称
-5. 直接返回JSON数组，格式：[{{"id":0,"tags":["气候韧性","微塑料污染"]}},{{"id":1,"tags":["碳关税"]}}]，不要解释
+5. 直接返回JSON数组，不要解释，不要 Markdown 代码块，不要思考过程，格式：[{{"id":0,"tags":["气候韧性","微塑料污染"]}},{{"id":1,"tags":["碳关税"]}}]
 
 新闻列表：
 {chr(10).join(news_list)}"""
@@ -4308,9 +4325,11 @@ def main():
         for item in all_items:
             item["topic_tags"] = extract_tags_from_title(item.get("title", ""))
 
-    # 翻译英文摘要为中文（如果摘要已是中文则跳过）
+    # 翻译英文摘要为中文（优先翻译热度高、来源权威的条目）
     translated_summaries = 0
-    for item in all_items:
+    # 按热度分数降序排列，优先翻译重要条目
+    items_to_translate = sorted(all_items, key=lambda x: x.get("hotness", 0), reverse=True)
+    for item in items_to_translate:
         summary = (item.get("summary") or "").strip()
         if summary and not is_chinese(summary[:10]):
             # 保存英文原摘要

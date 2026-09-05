@@ -2761,21 +2761,53 @@
         const listEl = els.scoreBreakdownList;
         if (listEl) {
             listEl.innerHTML = '';
+            const fmt = (v) => Number(v).toFixed(1);
+            const addRow = (label, value, prefix = '+') => {
+                const itemEl = document.createElement('div');
+                itemEl.className = 'score-breakdown-item';
+                itemEl.innerHTML = `<span class="score-breakdown-item-label">${label}</span><span class="score-breakdown-item-value">${prefix}${fmt(value)}</span>`;
+                listEl.appendChild(itemEl);
+            };
             if (breakdown && typeof breakdown === 'object') {
-                const labels = {
-                    base: '基础分',
-                    source_score: '来源权重分',
-                    keyword_score: '关键词匹配分',
-                    time_score: '时间新鲜度分',
-                    topic_bonus: '主题聚合加分',
-                    total: '总分'
-                };
-                for (const [key, value] of Object.entries(breakdown)) {
-                    if (key === 'total') continue;
-                    const itemEl = document.createElement('div');
-                    itemEl.className = 'score-breakdown-item';
-                    itemEl.innerHTML = `<span class="score-breakdown-item-label">${labels[key] || key}</span><span class="score-breakdown-item-value">+${Number(value).toFixed(1)}</span>`;
-                    listEl.appendChild(itemEl);
+                if (breakdown.algorithm === 'v2' || breakdown.keyword_idf_score !== undefined) {
+                    // ===== 新算法 v2 明细 =====
+                    addRow('来源权威分', breakdown.source_score || 0);
+                    addRow('关键词IDF分', breakdown.keyword_idf_score || 0);
+                    addRow('跨源共振分', breakdown.resonance_score || 0);
+                    addRow('内容质量分', breakdown.quality_score || 0);
+                    addRow('基础分(满分75)', breakdown.base || 0);
+                    if (breakdown.time_factor !== undefined) {
+                        addRow('时间衰减系数', breakdown.time_factor, '×');
+                    }
+                    if (breakdown.repeat_penalty !== undefined && breakdown.repeat_penalty < 1) {
+                        addRow('重复事件惩罚', breakdown.repeat_penalty, '×');
+                    }
+                    if (breakdown.cross_source_count !== undefined) {
+                        addRow('权威来源数', breakdown.cross_source_count, '');
+                    }
+                    if (breakdown.raw !== undefined) {
+                        addRow('原始分', breakdown.raw, '=');
+                    }
+                    // v1/v2 对比
+                    if (item.score_v1 !== undefined && item.score_v1 !== null) {
+                        const cmp = document.createElement('div');
+                        cmp.className = 'score-breakdown-item score-breakdown-compare';
+                        cmp.innerHTML = `<span class="score-breakdown-item-label">旧算法(v1)分</span><span class="score-breakdown-item-value">${fmt(item.score_v1)}</span>`;
+                        listEl.appendChild(cmp);
+                    }
+                } else {
+                    // ===== 旧算法 v1 明细（兼容历史数据）=====
+                    const labels = {
+                        base: '基础分',
+                        source_score: '来源权重分',
+                        keyword_score: '关键词匹配分',
+                        time_score: '时间新鲜度分',
+                        topic_bonus: '主题聚合加分'
+                    };
+                    for (const [key, value] of Object.entries(breakdown)) {
+                        if (key === 'total' || key === 'algorithm') continue;
+                        addRow(labels[key] || key, value);
+                    }
                 }
             } else if (typeof breakdown === 'string') {
                 listEl.innerHTML = `<div class="score-breakdown-item"><span class="score-breakdown-item-label">${breakdown}</span></div>`;
@@ -2785,8 +2817,16 @@
         }
 
         if (els.scoreBreakdownTotal) {
-            const total = breakdown && breakdown.total ? breakdown.total : (item.hotness || item.score || 0);
-            els.scoreBreakdownTotal.innerHTML = `<span>总分</span><span>${Number(total).toFixed(1)}</span>`;
+            // v2 展示分优先；兼容 v1 的 total
+            let total;
+            if (breakdown && breakdown.algorithm === 'v2' && breakdown.display_score !== undefined) {
+                total = breakdown.display_score;
+            } else if (breakdown && breakdown.total !== undefined) {
+                total = breakdown.total;
+            } else {
+                total = item.score_v2 || item.hotness || item.score || 0;
+            }
+            els.scoreBreakdownTotal.innerHTML = `<span>热度分(v2)</span><span>${Number(total).toFixed(1)}</span>`;
         }
 
         openModal(els.scoreBreakdownModal);

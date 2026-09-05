@@ -1669,6 +1669,9 @@ body.dark .highlight { background: rgba(245, 158, 11, 0.4); }
 .score-breakdown-item { display: flex; justify-content: space-between; padding: 8px 12px; background: var(--clr-bg); border-radius: var(--r-sm); font-size: 13.5px; }
 .score-breakdown-item-label { color: var(--clr-muted); }
 .score-breakdown-item-value { font-weight: 700; color: var(--clr-text); }
+.score-breakdown-compare { border-top: 1px dashed var(--clr-border); margin-top: 2px; opacity: 0.85; }
+.score-breakdown-compare .score-breakdown-item-label { font-style: italic; }
+.score-breakdown-compare .score-breakdown-item-value { color: var(--clr-muted); font-weight: 600; }
 
 /* 源健康 */
 .source-health-status { font-size: 14px; }

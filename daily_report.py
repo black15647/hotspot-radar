@@ -556,31 +556,46 @@ def extract_summary(entry):
 def clean_summary_inline(text):
     """
     内联清洗摘要：去除与正文混在同一行的元数据垃圾。
-    包括：期刊名前缀、"在线发布/发表"元数据片段、DOI 链接/编号、多余空格标点。
-    用于 RSS 原始摘要或 AI 生成摘要中元数据未被按行清洗的情况。
+    包括：期刊名前缀、"在线发布/发表"元数据片段、DOI 链接/编号、卷期信息、
+    Volume/Issue/Published online 等出版信息、多余空格标点。
     """
     if not text:
         return ""
     original = text
-    # 1. 去除 DOI（doi:xxx 或 https://doi.org/xxx），DOI 只匹配到中文字符/空白前
+    # 1. 去除 DOI（doi:xxx 或 https://doi.org/xxx）
     text = re.sub(r'https?://(?:dx\.)?doi\.org/\S+', '', text, flags=re.IGNORECASE)
     text = re.sub(r'\bdoi\s*[:：]?\s*[^\u4e00-\u9fff\s；;。，,]+', '', text, flags=re.IGNORECASE)
-    # 2. 去除"在线发布/在线发表/Published online/发布日期/发表日期/接收日期/收稿日期"
-    #    及其后到分号/句号/换行的内容（含日期）—— 贪婪匹配到分号/句号
+    # 2. 去除"在线发布/在线发表/Published online/接收日期"等及其后内容
     text = re.sub(
         r'(?:在线发布|在线发表|发表在线|发布日期|发表日期|接收日期|收稿日期|录用日期|修回日期|'
         r'Published\s+online|Publication\s+date|Received|Accepted|Revised)'
         r'\s*[:：]?\s*[^；;。\n]*[；;]?',
         '', text, flags=re.IGNORECASE
     )
+    # 2.5 去除包含 Volume/Issue/Vol./No./pp./Pages 等出版信息的片段
+    text = re.sub(
+        r'(?:Volume|Vol\.?|Issue|No\.?|Number|pp\.?|Pages?|第\d+卷|第\d+期)\s*[\d\w\-\(\),\.\s/]*[；;。]?',
+        '', text, flags=re.IGNORECASE
+    )
+    # 2.6 去除完整期刊名开头的出版信息句子
+    journal_sentence_patterns = [
+        r'Proceedings of the National Academy of Sciences[^.；;\n]*[.；;]?',
+        r'Nature,?\s*Published online[^.；;\n]*[.；;]?',
+        r'Science,?\s*Published online[^.；;\n]*[.；;]?',
+        r'Nature Sustainability,?\s*Published online[^.；;\n]*[.；;]?',
+        r'Environmental Science\s*&\s*Technology[^.；;\n]*Published[^.；;\n]*[.；;]?',
+        r'Water Research[^.；;\n]*Published[^.；;\n]*[.；;]?',
+    ]
+    for jsp in journal_sentence_patterns:
+        text = re.sub(jsp, '', text, flags=re.IGNORECASE)
     # 3. 去除常见期刊名前缀（出现在摘要开头时）
     journal_prefixes = [
         '自然可持续发展', '自然', 'Nature Sustainability', 'Nature', 'Science',
         '环境科学', 'Environmental Science & Technology', 'Environmental Science',
         'Water Research', '科学通报', '中国环境科学', '环境科学研究',
         '环境科学学报', '环境工程学报', '生态学杂志', '生态学报',
+        'Proceedings of the National Academy of Sciences', 'PNAS',
     ]
-    # 按长度降序排列，避免短前缀误匹配
     for jp in sorted(journal_prefixes, key=len, reverse=True):
         text = re.sub(r'^\s*' + re.escape(jp) + r'\s*[，,、：:]\s*', '', text.strip())
     # 4. 去除行首残留的年份/卷期信息（如 "2026, 12(3): "）
@@ -786,11 +801,367 @@ def filter_by_time(items, hours=48):
     return filtered
 
 
+# ============================================================
+# 热度算法：v1（旧）与 v2（新）双轨实现
+# ============================================================
+
+def _load_keyword_history_days():
+    """
+    统计每个关键词在历史数据中出现过的天数（用于 v2 IDF 计算）
+    返回 (keyword_day_count: dict, total_days: int)
+    数据来源：history.json 的 keyword_counts/keywords + daily/*.json 快照
+    """
+    keyword_days = defaultdict(set)  # kw -> {date1, date2, ...}
+    all_dates = set()
+
+    # 来源1：history.json
+    history_path = os.path.join(DATA_DIR, "history.json")
+    if os.path.exists(history_path):
+        try:
+            with open(history_path, "r", encoding="utf-8") as f:
+                history = json.load(f)
+            if isinstance(history, list):
+                for day in history:
+                    date = day.get("date", "")
+                    if not date:
+                        continue
+                    all_dates.add(date)
+                    kc = day.get("keyword_counts", {})
+                    if isinstance(kc, dict) and kc:
+                        for kw in kc.keys():
+                            if kw:
+                                keyword_days[str(kw)].add(date)
+                    for kw in day.get("keywords", []):
+                        term = kw.get("keyword", "") or kw.get("term", "") if isinstance(kw, dict) else str(kw)
+                        if term:
+                            keyword_days[term].add(date)
+        except Exception:
+            pass
+
+    # 来源2：daily/*.json 每日快照（补充 topic_tags / matched_keywords）
+    daily_dir = os.path.join(DATA_DIR, "daily")
+    if os.path.isdir(daily_dir):
+        try:
+            for fname in os.listdir(daily_dir):
+                if not fname.endswith(".json"):
+                    continue
+                date = fname[:-5]  # YYYY-MM-DD
+                fpath = os.path.join(daily_dir, fname)
+                try:
+                    with open(fpath, "r", encoding="utf-8") as f:
+                        ddata = json.load(f)
+                except Exception:
+                    continue
+                all_dates.add(date)
+                for it in ddata.get("items", []):
+                    for kw in it.get("matched_keywords", []):
+                        if kw:
+                            keyword_days[str(kw)].add(date)
+                    for tag in it.get("topic_tags", []):
+                        if tag:
+                            keyword_days[str(tag)].add(date)
+        except Exception:
+            pass
+
+    keyword_day_count = {kw: len(dates) for kw, dates in keyword_days.items()}
+    total_days = len(all_dates)
+    return keyword_day_count, total_days
+
+
+def _load_domain_whitelist():
+    """
+    加载领域白名单（v2 关键词保护分用）
+    来源：glossary.json 的 term + pending_terms.json 的 term
+    """
+    whitelist = set()
+    # glossary.json
+    gp = os.path.join(DATA_DIR, "glossary.json")
+    if os.path.exists(gp):
+        try:
+            with open(gp, "r", encoding="utf-8") as f:
+                glossary = json.load(f)
+            if isinstance(glossary, list):
+                for entry in glossary:
+                    term = entry.get("term", "") if isinstance(entry, dict) else str(entry)
+                    if term and len(str(term).strip()) >= 2:
+                        whitelist.add(str(term).strip())
+        except Exception:
+            pass
+    # pending_terms.json（人工确认过的词）
+    pp = os.path.join(DATA_DIR, "pending_terms.json")
+    if os.path.exists(pp):
+        try:
+            with open(pp, "r", encoding="utf-8") as f:
+                pending = json.load(f)
+            if isinstance(pending, list):
+                for entry in pending:
+                    term = entry.get("term", "") if isinstance(entry, dict) else str(entry)
+                    if term and len(str(term).strip()) >= 2:
+                        whitelist.add(str(term).strip())
+        except Exception:
+            pass
+    return whitelist
+
+
+def _title_token_set(title):
+    """提取标题关键词集合用于 Jaccard 相似度聚类（中文jieba/2字滑窗+英文按词）"""
+    tokens = set()
+    if not title:
+        return tokens
+    # 英文词
+    for w in re.findall(r"[a-zA-Z]{3,}", title.lower()):
+        if w not in STOP_WORDS_EN:
+            tokens.add(w)
+    # 中文：jieba 分词优先，否则2字滑窗
+    zh = "".join(re.findall(r"[\u4e00-\u9fa5]+", title))
+    if zh:
+        if JIEBA_AVAILABLE:
+            try:
+                _init_jieba_env()
+                for w in jieba.cut(zh):
+                    w = w.strip()
+                    if len(w) >= 2 and w not in STOP_WORDS:
+                        tokens.add(w)
+            except Exception:
+                pass
+        else:
+            for i in range(len(zh) - 1):
+                tokens.add(zh[i:i + 2])
+    return tokens
+
+
+def _jaccard(set_a, set_b):
+    """计算两个集合的 Jaccard 相似度"""
+    if not set_a or not set_b:
+        return 0.0
+    inter = len(set_a & set_b)
+    if inter == 0:
+        return 0.0
+    union = len(set_a | set_b)
+    return inter / union if union > 0 else 0.0
+
+
+def calculate_heat_v1(item, keyword_item_count, source_weights, keyword_bonus=2.0, now=None):
+    """
+    旧热度算法 v1（保持原公式不变），返回 (score_v1, breakdown_v1)
+    score_v1 = 5 + source_weight*3 + keyword_matches*keyword_bonus
+               + topic_aggregation + 10*exp(-hours/24)
+    """
+    if now is None:
+        now = datetime.now(timezone.utc)
+    score = 5.0
+    source_weight = get_source_weight(item.get("source", ""), source_weights)
+    score += source_weight * 3
+    matched = item.get("matched_keywords", [])
+    score += len(matched) * keyword_bonus
+    aggregation_bonus = 0.0
+    for kw in set(matched):
+        aggregation_bonus += 2 * keyword_item_count.get(kw, 0)
+    score += aggregation_bonus
+    published_dt = item.get("published_dt")
+    if published_dt:
+        hours_ago = (now - published_dt).total_seconds() / 3600.0
+        if hours_ago < 0:
+            hours_ago = 0
+        time_score = 10 * math.exp(-hours_ago / 24)
+    else:
+        hours_ago = None
+        time_score = 0.0
+    score += time_score
+    breakdown = {
+        "base": 5.0,
+        "source_score": round(source_weight * 3, 2),
+        "keyword_score": round(len(matched) * keyword_bonus, 2),
+        "time_score": round(time_score, 2),
+        "topic_bonus": round(aggregation_bonus, 2),
+        "total": round(score, 2),
+    }
+    return round(score, 2), breakdown, source_weight, hours_ago
+
+
+def calculate_heat_v2(items, config, keyword_item_count=None):
+    """
+    新热度算法 v2（完整实现），直接在 items 上写入：
+      score_v2_raw、score_v2（展示分）、score_breakdown（v2 明细）、repeat_penalty
+    返回 items（已附加 v2 字段）
+
+    组件：
+      1. 来源权威分 0-25（权重2.0→25，1.0→15 线性映射）
+      2. 关键词 IDF 饱和分 0-25：25*(1-exp(-sum_idf/3))，白名单保护
+      3. 跨源共振分 0-15：15*(1-exp(-(N-1)/3))，只统计权威来源(权重>=1.0)
+      4. 内容质量分 0-10（摘要非空且>=20字符得10）
+      5. 时间衰减（乘性）：T=0.35+0.65*exp(-hours/48)
+      6. raw = base*T*repeat_penalty（Jaccard 聚类重复惩罚 0.6）
+      7. 百分位归一化到 40-100 作为展示分 score_v2
+    """
+    weights = config.get("weights", {})
+    source_weights = weights.get("source_weights", DEFAULT_SOURCE_WEIGHTS)
+    now = datetime.now(timezone.utc)
+
+    # ---- 预加载 IDF 历史与领域白名单 ----
+    keyword_day_count, total_days = _load_keyword_history_days()
+    cold_start = total_days < 7  # 历史不足7天：冷启动，IDF 全部设为1
+    whitelist = _load_domain_whitelist()
+
+    def get_idf(kw):
+        if cold_start:
+            return 1.0
+        appear_days = keyword_day_count.get(kw, 0)
+        return math.log(total_days / (appear_days + 1)) + 1
+
+    # ---- 预统计：每个关键词出现在哪些权威来源（跨源共振）----
+    if keyword_item_count is None:
+        keyword_item_count = defaultdict(int)
+        for it in items:
+            for kw in set(it.get("matched_keywords", [])):
+                keyword_item_count[kw] += 1
+    keyword_authoritative_sources = defaultdict(set)  # kw -> {source,...}
+    for it in items:
+        sw = get_source_weight(it.get("source", ""), source_weights)
+        if sw >= 1.0:  # 只统计权威来源
+            for kw in set(it.get("matched_keywords", [])):
+                keyword_authoritative_sources[kw].add(it.get("source", ""))
+
+    # ---- Jaccard 轻量聚类，标记重复事件（保留最高分，其余惩罚0.6）----
+    token_sets = [_title_token_set(it.get("title", "")) for it in items]
+    repeat_penalty = [1.0] * len(items)
+    cluster_keep_idx = {}  # 聚类代表索引
+    # 先按来源权重+时间粗排，权威且新的优先作为代表
+    order = sorted(range(len(items)),
+                   key=lambda i: (-get_source_weight(items[i].get("source", ""), source_weights),
+                                   items[i].get("published", "")), reverse=False)
+    assigned = {}
+    for i in order:
+        placed = False
+        for rep_idx, members in assigned.items():
+            if _jaccard(token_sets[i], token_sets[rep_idx]) >= 0.45:
+                members.append(i)
+                placed = True
+                break
+        if not placed:
+            assigned[i] = [i]
+    for rep_idx, members in assigned.items():
+        if len(members) > 1:
+            # 聚类内除代表外，其余重复惩罚（代表在 raw 计算后再按分数确定，这里先标记候选）
+            for m in members:
+                if m != rep_idx:
+                    repeat_penalty[m] = 0.6
+
+    # ---- 逐条计算 raw 分 ----
+    for idx, item in enumerate(items):
+        matched = item.get("matched_keywords", [])
+        source_weight = get_source_weight(item.get("source", ""), source_weights)
+
+        # 1. 来源权威分：权重2.0→25，1.0→15 线性（score=15+(w-1)*10，截断到0-25）
+        s_source = 15.0 + (source_weight - 1.0) * 10.0
+        s_source = max(0.0, min(25.0, s_source))
+
+        # 2. 关键词 IDF 饱和分
+        sum_idf = 0.0
+        used_kw = []
+        for kw in set(matched):
+            idf = get_idf(kw)
+            in_white = kw in whitelist
+            # 噪声词（不在白名单、且非配置关键词）不给 IDF 分
+            # 配置关键词 / 白名单词正常计分；其余词只有在 IDF 较高（专有名）时计分
+            if (not in_white) and (kw not in keyword_item_count):
+                continue
+            sum_idf += idf
+            used_kw.append({"kw": kw, "idf": round(idf, 3)})
+        s_keyword = 25.0 * (1 - math.exp(-sum_idf / 3.0))
+        # 白名单最低保护：只要命中白名单词，关键词分至少给 5
+        if any(kw in whitelist for kw in set(matched)) and s_keyword < 5.0:
+            s_keyword = 5.0
+        s_keyword = min(25.0, s_keyword)
+
+        # 3. 跨源共振分：取该条目关键词中最大的权威来源数 N
+        max_sources = 1
+        for kw in set(matched):
+            n_src = len(keyword_authoritative_sources.get(kw, set()))
+            if n_src > max_sources:
+                max_sources = n_src
+        s_resonance = 15.0 * (1 - math.exp(-(max_sources - 1) / 3.0))
+
+        # 4. 内容质量分
+        summary = (item.get("summary") or "").strip()
+        s_quality = 10.0 if (summary and len(summary) >= 20) else 0.0
+
+        # 5. 时间衰减（乘性）
+        published_dt = item.get("published_dt")
+        if published_dt:
+            hours_ago = (now - published_dt).total_seconds() / 3600.0
+            if hours_ago < 0:
+                hours_ago = 0
+        else:
+            hours_ago = 9999.0
+        time_factor = 0.35 + 0.65 * math.exp(-hours_ago / 48.0)
+
+        base = s_source + s_keyword + s_resonance + s_quality
+        penalty = repeat_penalty[idx]
+        raw = base * time_factor * penalty
+
+        item["_v2_source"] = round(s_source, 2)
+        item["_v2_keyword"] = round(s_keyword, 2)
+        item["_v2_resonance"] = round(s_resonance, 2)
+        item["_v2_quality"] = round(s_quality, 2)
+        item["_v2_time_factor"] = round(time_factor, 4)
+        item["_v2_repeat_penalty"] = penalty
+        item["_v2_base"] = round(base, 2)
+        item["_v2_raw"] = round(raw, 2)
+        item["_v2_idf_detail"] = used_kw
+        item["_v2_cross_sources"] = max_sources
+
+    # ---- 聚类内重新确定代表：raw 最高者不惩罚，其余保持0.6 ----
+    for rep_idx, members in assigned.items():
+        if len(members) > 1:
+            best = max(members, key=lambda i: items[i]["_v2_raw"])
+            for m in members:
+                if m != best:
+                    # 重新应用惩罚
+                    it = items[m]
+                    it["_v2_repeat_penalty"] = 0.6
+                    it["_v2_raw"] = round(it["_v2_base"] * it["_v2_time_factor"] * 0.6, 2)
+                else:
+                    items[m]["_v2_repeat_penalty"] = 1.0
+
+    # ---- 百分位归一化到 40-100 ----
+    n = len(items)
+    sorted_by_raw = sorted(range(n), key=lambda i: items[i]["_v2_raw"])
+    rank_of_idx = {idx: r for r, idx in enumerate(sorted_by_raw)}
+    for idx, item in enumerate(items):
+        if n <= 1:
+            percentile = 1.0
+        else:
+            # 百分位排名（0-1）
+            percentile = rank_of_idx[idx] / (n - 1)
+        display_score = 40.0 + 60.0 * percentile
+        item["score_v2_raw"] = item["_v2_raw"]
+        item["score_v2"] = round(display_score, 1)
+        # v2 明细（供前端热度弹窗展示）
+        item["score_breakdown"] = {
+            "algorithm": "v2",
+            "source_score": item["_v2_source"],
+            "keyword_idf_score": item["_v2_keyword"],
+            "resonance_score": item["_v2_resonance"],
+            "quality_score": item["_v2_quality"],
+            "base": item["_v2_base"],
+            "time_factor": item["_v2_time_factor"],
+            "repeat_penalty": item["_v2_repeat_penalty"],
+            "cross_source_count": item["_v2_cross_sources"],
+            "raw": item["_v2_raw"],
+            "display_score": item["score_v2"],
+        }
+
+    return items
+
+
 def calculate_hotness(items, config):
     """
-    计算热度分数
-    热度 = 5 + 来源权重×3 + 关键词匹配数×keyword_bonus + 主题聚合加分 + 10×exp(-hours/24)
-    主题聚合加分：同一关键词在多个条目标题/摘要中出现，额外加2×包含该关键词的条目数
+    双轨热度计算：同时计算 v1（旧）与 v2（新）
+    - score_v1：旧公式，保存在 item["score_v1"] 与 item["hotness"]（兼容旧字段）
+    - score_v2：新算法（IDF/跨源共振/内容质量/乘性衰减/百分位归一化），保存在 item["score_v2"]
+    - 排序与前端展示统一使用 score_v2（见 sort_and_limit）
+    - score_breakdown 保存 v2 详细分解；score_v1_breakdown 保存 v1 分解用于对比
     """
     keywords = config.get("keywords", DEFAULT_KEYWORDS)
     weights = config.get("weights", {})
@@ -804,62 +1175,42 @@ def calculate_hotness(items, config):
         text = item.get("title", "") + " " + item.get("summary", "")
         item["matched_keywords"] = match_keywords(text, keywords)
 
-    # 第二步：统计每个关键词在多少个条目中出现（用于主题聚合加分）
+    # 第二步：统计每个关键词在多少个条目中出现（主题聚合 / 跨源共振用）
     keyword_item_count = defaultdict(int)
     for item in items:
         for kw in set(item["matched_keywords"]):
             keyword_item_count[kw] += 1
 
-    # 第三步：计算每条的热度
+    # 第三步：v1 旧算法逐条计算
     for item in items:
-        # 基础分
-        score = 5.0
-
-        # 来源权重加分
-        source_weight = get_source_weight(item.get("source", ""), source_weights)
-        score += source_weight * 3
-
-        # 关键词匹配加分
-        matched = item.get("matched_keywords", [])
-        score += len(matched) * keyword_bonus
-
-        # 主题聚合加分
-        aggregation_bonus = 0.0
-        for kw in set(matched):
-            count = keyword_item_count.get(kw, 0)
-            aggregation_bonus += 2 * count
-        score += aggregation_bonus
-
-        # 时间衰减加分
-        published_dt = item.get("published_dt")
-        if published_dt:
-            hours_ago = (now - published_dt).total_seconds() / 3600.0
-            if hours_ago < 0:
-                hours_ago = 0
-            time_score = 10 * math.exp(-hours_ago / 24)
-        else:
-            time_score = 0
-        score += time_score
-
-        item["hotness"] = round(score, 2)
+        score_v1, breakdown_v1, source_weight, _ = calculate_heat_v1(
+            item, keyword_item_count, source_weights, keyword_bonus, now
+        )
+        item["score_v1"] = score_v1
+        item["score_v1_breakdown"] = breakdown_v1
         item["source_weight"] = source_weight
-        item["aggregation_bonus"] = round(aggregation_bonus, 2)
-        # 热度分数明细（用于前端点击展示）
-        item["score_breakdown"] = {
-            "base": 5.0,
-            "source_score": round(source_weight * 3, 2),
-            "keyword_score": round(len(matched) * keyword_bonus, 2),
-            "time_score": round(time_score, 2),
-            "topic_bonus": round(aggregation_bonus, 2),
-            "total": round(score, 2),
-        }
+        item["aggregation_bonus"] = breakdown_v1["topic_bonus"]
+        # hotness 保留 v1 分数，兼容仍读取 hotness 的旧逻辑
+        item["hotness"] = score_v1
+
+    # 第四步：v2 新算法（IDF 饱和 + 跨源共振 + 内容质量 + 乘性衰减 + 百分位归一化）
+    items = calculate_heat_v2(items, config, keyword_item_count)
+
+    # 第五步：hotness/score 统一指向 v2 展示分，供排序与前端使用
+    for item in items:
+        item["hotness"] = item.get("score_v2", item.get("score_v1", 0))
+        # 清理 v2 内部临时字段（保留明细，删除以下划线开头的临时键）
+        for tmp in ["_v2_source", "_v2_keyword", "_v2_resonance", "_v2_quality",
+                    "_v2_time_factor", "_v2_repeat_penalty", "_v2_base", "_v2_raw",
+                    "_v2_idf_detail", "_v2_cross_sources"]:
+            item.pop(tmp, None)
 
     return items
 
 
 def sort_and_limit(items, max_total):
-    """按热度从高到低排序，取前 max_total 条"""
-    items.sort(key=lambda x: x.get("hotness", 0), reverse=True)
+    """按新算法 v2 展示分从高到低排序，取前 max_total 条（v2 缺失时回退 hotness/v1）"""
+    items.sort(key=lambda x: x.get("score_v2", x.get("hotness", x.get("score_v1", 0))), reverse=True)
     return items[:max_total]
 
 
@@ -1204,6 +1555,17 @@ BUILTIN_EN_ZH_GLOSSARY = {
     "microplastics": "微塑料",
     "emerging contaminants": "新污染物",
     "heavy metals": "重金属",
+    "heavy metal": "重金属",
+    "groundwater": "地下水",
+    "carbon neutral": "碳中和",
+    "net zero": "净零排放",
+    "fossil fuel": "化石燃料",
+    "wastewater treatment": "污水处理",
+    "coral reef": "珊瑚礁",
+    "sea level": "海平面",
+    "drinking water": "饮用水",
+    "solar power": "太阳能",
+    "wind power": "风能",
     "biodiversity": "生物多样性",
     "ecological restoration": "生态修复",
     "ecosystem": "生态系统",
@@ -2549,12 +2911,12 @@ def generate_topic_tags(item, api_config):
 def extract_tags_from_title(title):
     """
     从标题中提取话题标签作为降级方案（增强版）
-    1. 英文标题先翻译成中文再提取；翻译失败则提取英文关键词
+    1. 英文标题先翻译成中文再提取；翻译失败则只提取环境相关英文专有名词/复合短语
     2. 优先匹配环境领域具体关键词（含 AI/人工智能等交叉领域）
     3. 提取包含强环境词的连续中文片段（长度4-15字）
-    4. 过滤：纯数字、序数词、量词、时间词、媒体名、通用名词（课堂/小伙等）
-    5. 标签长度至少4个汉字（英文缩写如 AI/VOCs/PM2.5 可单独作为标签）
-    6. 兜底返回 ["环境资讯"]（不使用"环境领域"）
+    4. 过滤：纯数字、序数词、量词、时间词、媒体名、通用名词
+    5. 英文宽泛基础词（water/air/carbon 等）不单独成标签，须组成复合短语
+    6. 兜底返回 ["环境资讯"]（不使用"环境领域"，绝不输出 Widow/Earth/Met 等无意义普通词）
     """
     if not title or len(title) < 4:
         return ["环境资讯"]
@@ -2564,37 +2926,80 @@ def extract_tags_from_title(title):
         zh = translate_en_to_zh(title)
         if zh and zh != title and is_chinese(zh):
             return extract_tags_from_title(zh)
-        # 翻译失败：提取英文关键词（长度>=3），过滤停用词，词表映射中文
-        en_words = re.findall(r"[a-zA-Z]{2,}", title)
-        words, seen = [], set()
+        # 翻译失败：只提取环境强相关复合短语/专有名词/缩写
+        env_abbr = {
+            "ai", "esg", "epa", "vocs", "pm2.5", "pm10", "cop", "ghg", "lca",
+            "bmp", "wwtp", "cod", "bod", "toc", "tss", "tn", "tp", "ph", "do",
+            "ec", "tds", "ipcc", "unep", "iea", "who",
+        }
+        # 环境复合短语（优先整体匹配，命中后其组成词不再单独成标签）
+        env_phrases = [
+            "climate change", "carbon neutral", "carbon neutrality", "net zero",
+            "global warming", "air pollution", "water pollution", "soil pollution",
+            "microplastics", "heavy metal", "biodiversity", "renewable energy",
+            "fossil fuel", "greenhouse gas", "ozone layer", "acid rain",
+            "solar power", "wind power", "waste water", "wastewater treatment",
+            "water treatment", "circular economy", "ecosystem service",
+            "environmental protection", "sustainable development",
+            "el nino", "la nina", "clean energy", "carbon emission",
+            "sea level", "coral reef", "drinking water", "groundwater",
+        ]
+        # 宽泛基础英文词：单独出现不作为标签（太泛），只有组成短语才有意义
+        generic_en = {
+            "water", "air", "carbon", "climate", "energy", "gas", "green",
+            "environment", "environmental", "new", "research", "study", "science",
+            "scientific", "nature", "natural", "world", "global", "national",
+            "international", "report", "analysis", "effect", "effects", "impact",
+            "level", "levels", "system", "systems", "process", "model", "data",
+            "change", "development", "protection", "management", "quality",
+            "treatment", "pollution", "emission", "emissions", "waste", "soil",
+            "ocean", "marine", "forest", "ecology", "ecological", "ecosystem",
+            "chemical", "industrial", "human", "health", "risk", "assessment",
+        }
+        title_lower = title.lower()
+        tags = []
+        covered_words = set()  # 已被复合短语覆盖的单词
+        # 先匹配复合短语
+        for phrase in env_phrases:
+            if phrase in title_lower:
+                mapped = EN_ZH_REVERSE.get(phrase)
+                tag = mapped if mapped else phrase.title()
+                if tag not in tags:
+                    tags.append(tag)
+                for w in phrase.split():
+                    covered_words.add(w)
+        # 再匹配单词级：只保留缩写、专有名词；宽泛基础词跳过
+        en_words = re.findall(r"[A-Za-z][A-Za-z\-\.0-9]{1,}", title)
+        seen = set()
         for w in en_words:
-            wl = w.lower()
-            if wl in STOP_WORDS_EN or wl in seen:
-                continue
-            # 过滤纯数字/单字母
-            if len(wl) < 2 or wl.isdigit():
+            wl = w.lower().strip("-").strip(".")
+            if wl in seen or len(wl) < 2:
                 continue
             seen.add(wl)
-            words.append(w)
-        mapped = []
-        for w in words[:6]:
-            mapped.append(EN_ZH_REVERSE.get(w.lower(), w))
-        if mapped:
-            return mapped[:3]
+            if wl in STOP_WORDS_EN or wl in generic_en or wl in covered_words:
+                continue
+            # 环境缩写：保留大写形式
+            if wl in env_abbr:
+                up = w.upper()
+                if up not in tags:
+                    tags.append(up)
+                continue
+            # 其余英文词：能映射中文才保留，否则不保留（避免普通词）
+            mapped = EN_ZH_REVERSE.get(wl)
+            if mapped and 2 <= len(mapped) <= 8 and mapped not in tags:
+                tags.append(mapped)
+        tags = tags[:3]
+        if tags:
+            return tags
         return ["环境资讯"]
 
     # === 中文标题处理 ===
-
-    # 序数词/时间词/量词/通用名词黑名单（出现在提取结果中则丢弃该段）
     noise_patterns = [
-        # 序数词
         r"^第[一二三四五六七八九十百千零\d]+次?$",
         r"^第[一二三四五六七八九十百千零\d]+[届轮期季批]$",
-        # 时间词
         r"^\d{4}年$", r"^\d{1,2}月$", r"^\d{1,2}日$",
         r"^今天$", r"^昨天$", r"^明天$", r"^近日$", r"^日前$",
         r"^今年$", r"^去年$", r"^明年$", r"^本周$", r"^本月$",
-        # 量词/通用名词
         r"^个$", r"^名$", r"^位$", r"^项$", r"^条$", r"^件$", r"^种$", r"^类$",
         r"^课堂$", r"^小伙$", r"^安置$", r"^效果$", r"^怎么样$", r"^如何$",
         r"^为什么$", r"^什么$", r"^哪里$", r"^哪个$", r"^多少$", r"^几$",
@@ -2610,11 +3015,8 @@ def extract_tags_from_title(title):
         r"^查看$", r"^摘要$", r"^原文$", r"^链接$", r"^相关$", r"^热点$",
     ]
     noise_re = re.compile("|".join(noise_patterns))
-
-    # 媒体名称黑名单
     media_noise = set(MEDIA_BLACKLIST)
 
-    # 已知环境领域具体关键词（优先匹配）
     specific_keywords = [
         "碳中和", "碳达峰", "碳关税", "碳交易", "碳汇", "碳排放",
         "微塑料", "新污染物", "重金属", "PM2.5", "VOCs", "臭氧",
@@ -2627,21 +3029,18 @@ def extract_tags_from_title(title):
         "光催化", "吸附", "膜分离", "高级氧化", "生物降解",
         "联合国", "COP", "巴黎协定", "京都议定书", "蒙特利尔议定书",
         "生态环境部", "环保部", "国家发改委", "国务院",
-        # AI + 环境交叉
         "人工智能", "机器学习", "深度学习", "智能环境", "环境大数据",
         "环境工程", "环境科学", "生态学", "市政工程", "给排水",
         "大气污染控制", "环境健康", "环境政策", "环境技术", "环境管理",
     ]
 
-    # 第一步：从标题中匹配具体关键词
     matched = []
     for kw in specific_keywords:
         if kw in title:
             matched.append(kw)
     if matched:
-        return matched[:3]
+        return matched
 
-    # 第二步：提取包含强环境词的连续中文片段
     chinese_segments = re.findall(r'[\u4e00-\u9fa5]{4,}', title)
     env_segments = []
     for seg in chinese_segments:
@@ -2651,57 +3050,22 @@ def extract_tags_from_title(title):
             continue
         has_env = any(kw in seg for kw in ENV_RELATED_ZH if len(kw) >= 2)
         if has_env:
-            # 去除序数词前缀（第X次/第X届/第X轮等）
             seg = re.sub(r'^第[一二三四五六七八九十百千零\d]+[次届轮期季批]', '', seg)
             if len(seg) >= 4:
                 env_segments.append(seg)
     if env_segments:
-        # 取最长的一段，长度控制在4-15字
         longest = max(env_segments, key=len)
-        if len(longest) > 15:
-            longest = longest[:15]
         return [longest]
 
-    # 第三步：没有强环境词的标题，直接兜底（不提取无意义片段如"课堂"）
-    return ["环境资讯"]
-
-    # 第四步：尝试 jieba 分词提取名词短语（长度2-6）
-    if JIEBA_AVAILABLE:
-        try:
-            _init_jieba_env()
-            nouns = []
-            for w in jieba.cut(title):
-                w = w.strip()
-                if len(w) < 2 or len(w) > 6:
-                    continue
-                if w in STOP_WORDS or w in WIDE_ZH_WORDS:
-                    continue
-                if noise_re.match(w):
-                    continue
-                if any(m in w for m in media_noise):
-                    continue
-                # 过滤纯数字
-                if w.isdigit():
-                    continue
-                nouns.append(w)
-            if nouns:
-                return nouns[:3]
-        except Exception:
-            pass
-
-    # 兜底
     return ["环境资讯"]
 
 
 def _fallback_rule_summary(title):
     """
-    规则生成摘要（AI 失败时的最终兜底）—— 有信息量版本
-    1. 先清洗标题中的 DOI、期刊名前缀、在线发布等元数据
-    2. 英文标题翻译失败时：保留英文标题前50字符（单词边界截断，不截成片段）
-    3. 中文标题：优先提取包含强环境词的完整事件短语，生成"关于「事件短语」的资讯"
-    4. 提取不到事件短语时：直接使用标题前30字（不加"点击查看详情"）
-    5. 最终校验：中文至少15字符，英文至少10个单词，否则使用清洗后的完整标题
-    禁止输出"点击查看详情""标题涉及"等无信息量模板
+    规则生成摘要（AI 失败时的最终兜底）—— 直接使用标题，保证有信息量
+    - 禁止使用"关于「XX」的资讯""点击查看详情"等无信息量模板
+    - 中文标题：清洗后取前50字符，去掉来源后缀（- 搜狐 等）
+    - 英文标题：优先翻译为中文；翻译失败则取前80字符（完整单词，不截断单词）
     """
     if not title or not title.strip():
         return "环境领域热点资讯，关注最新动态。"
@@ -2711,107 +3075,60 @@ def _fallback_rule_summary(title):
     if not cleaned_title or len(cleaned_title) < 2:
         cleaned_title = title.strip()
 
+    # 去掉来源后缀（如 "- 搜狐"、"_新浪财经"、"| 网易"）
+    _src_suffixes = ["搜狐", "新浪财经", "新浪", "腾讯", "网易", "凤凰网", "凤凰", "澎湃新闻", "澎湃",
+                     "央视网", "新华网", "人民网", "环球网", "中国网", "光明网", "界面新闻",
+                     "第一财经", "每经网", "中国新闻网", "中新网"]
+    for _sep in [" - ", "_", " | ", " – ", " — ", "-", "|"]:
+        if _sep in cleaned_title:
+            _parts = cleaned_title.split(_sep)
+            _tail = _parts[-1].strip()
+            if any(_tail.startswith(_s) or _s in _tail for _s in _src_suffixes) and len(_parts) > 1:
+                cleaned_title = _sep.join(_parts[:-1])
+                break
+    cleaned_title = cleaned_title.strip(" -_|–—")
+
     # 第二步：判断是否为英文标题
     is_english = not is_chinese(cleaned_title)
 
     if is_english:
-        # 英文标题：尝试翻译，翻译失败则保留英文标题前50字符（单词边界截断）
+        # 英文标题：尝试翻译
         translated = ""
         try:
             translated = translate_en_to_zh(cleaned_title)
         except Exception:
             translated = ""
         if translated and translated != cleaned_title and is_chinese(translated) and len(translated) >= 10:
-            # 翻译成功，使用翻译后的中文（前40字）
-            summary = translated[:40].strip()
-            if len(translated) > 40:
-                summary += "…"
-            if len(summary) >= 10:
-                return summary
-        # 翻译失败：保留英文标题前50字符，在单词边界截断，不截成片段
-        words = cleaned_title.split()
-        if len(words) <= 12:
+            summary = translated.strip()
+            if len(summary) > 50:
+                # 在50字附近的标点处截断
+                cut = 50
+                for i in range(50, min(60, len(summary))):
+                    if summary[i] in "，,。.、；;：:":
+                        cut = i
+                        break
+                summary = summary[:cut].rstrip("，,。.、；;：:") + "…"
+            return summary
+        # 翻译失败：保留英文标题前80字符，在单词边界截断，不截断单词
+        if len(cleaned_title) <= 80:
             return cleaned_title
-        # 取前12个单词，确保完整
-        summary = " ".join(words[:12])
-        if len(words) > 12:
-            summary += "…"
-        return summary
-
-    # 第三步：中文标题 — 优先提取包含强环境词的完整事件短语
-    core_event = ""
-
-    # 方法1：从标题中提取包含强环境词的连续中文片段（长度4-20字）
-    chinese_segments = re.findall(r'[\u4e00-\u9fa5]{4,}', cleaned_title)
-    for seg in chinese_segments:
-        # 过滤序数词开头
-        seg = re.sub(r'^第[一二三四五六七八九十百千零\d]+[次届轮期季批]', '', seg)
-        if len(seg) < 4:
-            continue
-        # 过滤媒体名和无意义词
-        if any(m in seg for m in MEDIA_BLACKLIST):
-            continue
-        # 包含强环境词的片段优先
-        has_env = any(kw in seg for kw in ENV_RELATED_ZH if 2 <= len(kw) <= 6)
-        if has_env and len(seg) <= 25:
-            core_event = seg
-            break
-
-    # 方法2：jieba 提取包含强环境词的名词短语
-    if not core_event and JIEBA_AVAILABLE:
-        try:
-            _init_jieba_env()
-            for w in jieba.cut(cleaned_title):
-                w = w.strip()
-                if len(w) < 4 or len(w) > 15:
-                    continue
-                if w in STOP_WORDS or w in WIDE_ZH_WORDS:
-                    continue
-                if w.isdigit() or re.match(r'^第[一二三四五六七八九十\d]+', w):
-                    continue
-                if any(m in w for m in MEDIA_BLACKLIST):
-                    continue
-                has_env = any(kw in w for kw in ENV_RELATED_ZH if 2 <= len(kw) <= 4)
-                if has_env:
-                    core_event = w
-                    break
-        except Exception:
-            pass
-
-    # 方法3：匹配具体环境关键词
-    if not core_event:
-        specific_kw = [
-            "碳中和", "碳达峰", "碳关税", "微塑料", "新污染物", "重金属",
-            "水污染", "大气污染", "土壤污染", "生物多样性", "生态修复",
-            "可再生能源", "新能源", "光伏", "风电", "垃圾分类", "环境监测",
-            "人工智能", "机器学习", "深度学习", "环境大数据", "环境工程",
-            "环境科学", "生态学", "给排水", "环境健康", "环境政策",
-            "气候变化", "生态保护", "绿色发展", "可持续发展",
-        ]
-        for kw in specific_kw:
-            if kw in cleaned_title:
-                core_event = kw
+        words = cleaned_title.split()
+        result_words = []
+        cur_len = 0
+        for w in words:
+            if cur_len + len(w) + 1 > 80:
                 break
+            result_words.append(w)
+            cur_len += len(w) + 1
+        return " ".join(result_words) + "…"
 
-    # 第四步：生成摘要
-    if core_event and len(core_event) >= 4:
-        # 生成"关于「事件短语」的资讯"，包含具体事件信息
-        summary = f"关于「{core_event}」的资讯"
-        # 如果标题比事件短语更长，补充标题中的其他信息
-        if len(cleaned_title) > len(core_event) + 5:
-            # 提取标题中事件短语之外的部分作为补充
-            remaining = cleaned_title.replace(core_event, "").strip("，,。.、；;：: ")
-            if remaining and len(remaining) >= 4 and len(remaining) <= 20:
-                summary = f"关于「{core_event}」的资讯：{remaining}"
-        return summary
-
-    # 第五步：提取不到事件短语时，直接使用标题前30字（不加"点击查看详情"）
-    if len(cleaned_title) <= 30:
+    # 第三步：中文标题 — 直接取标题前50字符（不使用"关于「XX」的资讯"模板）
+    if len(cleaned_title) <= 50:
         summary = cleaned_title
     else:
-        # 在30字附近的标点处截断，避免截断词语
-        trunc_point = 30
-        for i in range(30, min(40, len(cleaned_title))):
+        # 在50字附近的标点处截断，避免截断词语
+        trunc_point = 50
+        for i in range(50, min(60, len(cleaned_title))):
             if cleaned_title[i] in "，,。.、；;：:":
                 trunc_point = i
                 break
@@ -2819,10 +3136,9 @@ def _fallback_rule_summary(title):
         if len(cleaned_title) > trunc_point:
             summary += "…"
 
-    # 第六步：最终校验 — 中文至少15字符，否则使用完整标题
-    if len(summary) < 15:
-        summary = cleaned_title if len(cleaned_title) >= 15 else cleaned_title + "相关资讯"
-
+    # 最终校验：中文至少15字符，否则用完整标题补足
+    if len(summary) < 15 and cleaned_title:
+        summary = cleaned_title if len(cleaned_title) >= 15 else cleaned_title + "，关注最新动态"
     return summary
 
 
@@ -2835,9 +3151,10 @@ def _apply_rule_summaries(candidates):
 def _finalize_summary(item):
     """
     摘要最终校验与修复：确保非空、有信息量、与标题不同、长度足够
-    - 清除"点击查看详情""标题涉及"等无信息量模板
+    - 清除"点击查看详情""标题涉及""关于「XX」的资讯"等无信息量模板
+    - 清洗期刊元数据（DOI/Published online/Volume 等）
     - 中文至少15字符，英文至少10个单词
-    - 英文摘要不被截断成不完整片段（修复"A hybrid attention-b…"这类问题）
+    - 清洗后长度不足20字符时，用标题重新生成兜底摘要
     - 与标题不同（如果摘要==标题，用规则重新生成）
     """
     title = (item.get("title") or "").strip()
@@ -2846,6 +3163,7 @@ def _finalize_summary(item):
     # 1. 清除无信息量模板
     bad_patterns = [
         r"^标题涉及[「\"'].*?[\"'」]，?请点击查看详情。?$",
+        r"^关于[「\"'].*?[\"'」]的资讯.*$",
         r"^点击查看详情。?$",
         r"^请点击查看详情。?$",
         r"^暂无摘要，?点击查看详情。?$",
@@ -2856,41 +3174,45 @@ def _finalize_summary(item):
             summary = ""
             break
 
-    # 2. 如果摘要为空或与标题相同，用规则生成
+    # 2. 清洗期刊元数据
+    if summary:
+        cleaned = clean_summary_inline(summary)
+        # 如果清洗后丢失大量内容（元数据占主体），视为无效
+        if cleaned and len(cleaned) >= 10:
+            summary = cleaned
+        elif len(summary) >= 20 and len(cleaned) < 10:
+            # 原文较长但清洗后几乎为空，说明全是元数据
+            summary = ""
+
+    # 3. 如果摘要为空或与标题相同，用规则生成（直接基于标题）
     if not summary or summary == title:
         summary = _fallback_rule_summary(title)
 
-    # 3. 英文摘要修复：不截断成不完整片段
-    if summary and not is_chinese(summary[:10]):
-        # 如果摘要以"…"或"..."结尾且最后一个单词不完整，修复
+    # 4. 英文摘要修复：不截断成不完整片段
+    if summary and not is_chinese(summary):
         if summary.endswith("…") or summary.endswith("..."):
-            # 去掉省略号，检查最后一个单词是否完整
             clean = summary.rstrip("….").strip()
             words = clean.split()
             if words:
                 last_word = words[-1]
-                # 如果最后一个单词长度<3或不以常见字母结尾，可能是截断的
                 if len(last_word) < 3 or not re.match(r'[a-zA-Z]{2,}$', last_word):
-                    # 去掉最后一个不完整单词
                     words = words[:-1]
                     summary = " ".join(words).strip()
                     if summary:
                         summary += "…"
-        # 英文摘要至少10个单词，否则用标题
         word_count = len(summary.split())
         if word_count < 10 and title:
-            # 用英文标题（前12个单词）
             title_words = title.split()
             if len(title_words) <= 12:
                 summary = title
             else:
-                summary = " ".join(title_words[:12]) + "…"
+                summary = " ".join(title_words) + "…"
 
-    # 4. 中文摘要至少15字符
-    if summary and is_chinese(summary[:5]) and len(summary) < 15:
+    # 5. 中文摘要至少15字符
+    if summary and is_chinese(summary) and len(summary) < 15:
         summary = _fallback_rule_summary(title)
 
-    # 5. 最终确保与标题不同
+    # 6. 最终确保与标题不同
     if summary == title and title:
         summary = _fallback_rule_summary(title)
 
@@ -2908,8 +3230,17 @@ def generate_batch_summaries(items, api_config):
     """
     global NVIDIA_CONSECUTIVE_FAILURES
     if not api_config["summary_enabled"] or not api_config["api_key"]:
+        # AI 未启用：规则兜底，保证每条都有摘要
+        for it in items:
+            s = (it.get("summary") or "").strip()
+            if not s or len(s) < 10 or s == it.get("title", ""):
+                it["summary"] = _fallback_rule_summary(it.get("title", ""))
         return items
     if not REQUESTS_AVAILABLE:
+        for it in items:
+            s = (it.get("summary") or "").strip()
+            if not s or len(s) < 10 or s == it.get("title", ""):
+                it["summary"] = _fallback_rule_summary(it.get("title", ""))
         return items
     if NVIDIA_CONSECUTIVE_FAILURES >= NVIDIA_MAX_CONSECUTIVE_FAILURES:
         # 连续失败：直接规则生成，保证每条都有摘要
@@ -3768,9 +4099,12 @@ def generate_latest_json(items, config, weekly_summary="", weekly_keywords=None,
             "link": sanitize_str(item.get("link")),
             "source": sanitize_str(item.get("source")),
             "published": sanitize_str(item.get("published")),
-            "hotness": float(item.get("hotness", 0)),
-            "score": float(item.get("hotness", 0)),
+            "hotness": float(item.get("score_v2", item.get("hotness", 0))),
+            "score": float(item.get("score_v2", item.get("hotness", 0))),
+            "score_v1": float(item.get("score_v1", 0)),
+            "score_v2": float(item.get("score_v2", item.get("hotness", 0))),
             "score_breakdown": item.get("score_breakdown", {}),
+            "score_v1_breakdown": item.get("score_v1_breakdown", {}),
             "summary": sanitize_str(item.get("summary")),
             "analysis": sanitize_str(analysis),
             "topic_tags": item.get("topic_tags", []),
@@ -3827,7 +4161,10 @@ def generate_daily_snapshot(items, config):
             "link": sanitize_str(item.get("link")),
             "source": sanitize_str(item.get("source")),
             "published": sanitize_str(item.get("published")),
-            "hotness": float(item.get("hotness", 0)),
+            "hotness": float(item.get("score_v2", item.get("hotness", 0))),
+            "score_v1": float(item.get("score_v1", 0)),
+            "score_v2": float(item.get("score_v2", item.get("hotness", 0))),
+            "score_breakdown": item.get("score_breakdown", {}),
             "summary": sanitize_str(item.get("summary")),
             "analysis": sanitize_str(item.get("analysis", "")),
             "matched_keywords": [sanitize_str(kw) for kw in item.get("matched_keywords", [])],
@@ -4064,14 +4401,16 @@ def generate_personal_latest(items, config):
                 "link": sanitize_str(item.get("link")),
                 "source": sanitize_str(item.get("source")),
                 "published": sanitize_str(item.get("published")),
-                "hotness": float(item.get("hotness", 0)),
+                "hotness": float(item.get("score_v2", item.get("hotness", 0))),
+                "score_v1": float(item.get("score_v1", 0)),
+                "score_v2": float(item.get("score_v2", item.get("hotness", 0))),
                 "summary": sanitize_str(item.get("summary")),
                 "analysis": sanitize_str(item.get("analysis", generate_analysis(item, config))),
                 "matched_user_keywords": [sanitize_str(kw) for kw in matched],
             }
             personal_items.append(personal_item)
 
-    personal_items.sort(key=lambda x: x.get("hotness", 0), reverse=True)
+    personal_items.sort(key=lambda x: x.get("score_v2", x.get("hotness", 0)), reverse=True)
 
     data = {
         "report_date": datetime.now(timezone.utc).strftime("%Y-%m-%d"),
@@ -4324,6 +4663,10 @@ def main():
         print("[AI] 英伟达 NIM 未启用，使用规则生成摘要和关键词")
         for item in all_items:
             item["topic_tags"] = extract_tags_from_title(item.get("title", ""))
+            # AI 未启用：对空摘要/过短摘要用规则兜底
+            cur_summary = (item.get("summary") or "").strip()
+            if not cur_summary or len(cur_summary) < 10 or cur_summary == item.get("title", ""):
+                item["summary"] = _fallback_rule_summary(item.get("title", ""))
 
     # 翻译英文摘要为中文（优先翻译热度高、来源权威的条目）
     translated_summaries = 0
@@ -4340,6 +4683,17 @@ def main():
                 translated_summaries += 1
     if translated_summaries > 0:
         print(f"[翻译] 已将 {translated_summaries} 条英文摘要翻译为中文")
+
+    # 统一摘要兜底：无论 AI 是否启用/成功，确保每条摘要非空、有信息量、与标题不同
+    summary_fixed = 0
+    for item in all_items:
+        before = (item.get("summary") or "").strip()
+        _finalize_summary(item)
+        after = (item.get("summary") or "").strip()
+        if not before or before != after:
+            summary_fixed += 1
+    if summary_fixed:
+        print(f"[摘要] 统一兜底校验：修复/补全 {summary_fixed} 条摘要")
 
     # 生成近7天热度总结（基于大类统计）
     weekly_keywords = calculate_weekly_keywords()

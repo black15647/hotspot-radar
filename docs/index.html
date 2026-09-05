@@ -294,7 +294,7 @@ var _hmt = _hmt || [];
                         <div class="jobs-stats">
                             <span class="jobs-stat-item"><strong>10</strong> 大分类</span>
                             <span class="jobs-stat-item"><strong>120+</strong> 岗位</span>
-                            <span class="jobs-stat-item"></strong> 聚合招聘与实习资讯</span>
+                            <span class="jobs-stat-item"><strong>每日</strong> 聚合招聘与实习资讯</span>
                         </div>
                     </div>
                 </div>
@@ -559,16 +559,20 @@ var _hmt = _hmt || [];
                 <button class="modal-close" id="timelineClose">✕</button>
             </div>
             <div class="modal-body">
+                <div class="timeline-cat-tabs" id="timelineCatTabs"></div>
                 <div class="timeline-controls">
-                    <select id="timelineKeyword" class="timeline-select"></select>
-                    <button class="btn-primary" id="timelineLoadBtn">加载时间线</button>
+                    <div class="timeline-metric-switch" id="timelineMetricSwitch" role="tablist">
+                        <button type="button" class="timeline-metric-btn active" data-metric="count">条目数</button>
+                        <button type="button" class="timeline-metric-btn" data-metric="total_heat">热度总和</button>
+                    </div>
                 </div>
                 <div class="timeline-chart-container">
                     <canvas id="timelineChart"></canvas>
                 </div>
                 <div class="timeline-info" id="timelineInfo">
-                    <p class="timeline-hint">选择关键词后点击"加载时间线"查看热度变化趋势</p>
+                    <p class="timeline-hint">点击折线图上的某一天，可查看当天该大类下的热点列表</p>
                 </div>
+                <div class="timeline-day-list" id="timelineDayList"></div>
             </div>
         </div>
     </div>

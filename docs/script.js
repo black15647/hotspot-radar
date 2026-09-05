@@ -22,7 +22,9 @@
         dailyWordHistory: [],
         learningData: [],
         timelineChart: null,
-        currentTimelineKeyword: null,
+        timelineData: null,
+        timelineCategory: null,
+        timelineMetric: 'count',
         // v5.0 新增
         followedKeywords: [],
         sourceHealthData: null,
@@ -145,10 +147,11 @@
         els.timelineModal = document.getElementById('timelineModal');
         els.timelineOverlay = document.getElementById('timelineOverlay');
         els.timelineClose = document.getElementById('timelineClose');
-        els.timelineKeyword = document.getElementById('timelineKeyword');
-        els.timelineLoadBtn = document.getElementById('timelineLoadBtn');
+        els.timelineCatTabs = document.getElementById('timelineCatTabs');
+        els.timelineMetricSwitch = document.getElementById('timelineMetricSwitch');
         els.timelineChart = document.getElementById('timelineChart');
         els.timelineInfo = document.getElementById('timelineInfo');
+        els.timelineDayList = document.getElementById('timelineDayList');
         // v5.0 新增
         els.backToTop = document.getElementById('backToTop');
         els.shareSiteBtn = document.getElementById('shareSiteBtn');
@@ -408,7 +411,25 @@
         on(els.timelineBtn, 'click', openTimelineModal);
         on(els.timelineOverlay, 'click', () => closeModal(els.timelineModal));
         on(els.timelineClose, 'click', () => closeModal(els.timelineModal));
-        on(els.timelineLoadBtn, 'click', loadTimelineData);
+        // 大类切换（事件委托）
+        if (els.timelineCatTabs) {
+            on(els.timelineCatTabs, 'click', (e) => {
+                const btn = e.target.closest('.timeline-cat-btn');
+                if (!btn) return;
+                state.timelineCategory = btn.dataset.cat;
+                renderTimelineCategory();
+            });
+        }
+        // 指标切换（条目数 / 热度总和）
+        if (els.timelineMetricSwitch) {
+            on(els.timelineMetricSwitch, 'click', (e) => {
+                const btn = e.target.closest('.timeline-metric-btn');
+                if (!btn) return;
+                state.timelineMetric = btn.dataset.metric || 'count';
+                els.timelineMetricSwitch.querySelectorAll('.timeline-metric-btn').forEach(b => b.classList.toggle('active', b === btn));
+                renderTimelineCategory();
+            });
+        }
 
         // v5.0 新增事件
         // 回到顶部
@@ -2149,165 +2170,187 @@
         els.learningList.appendChild(frag);
     }
 
-    // ---------- 事件时间线 ----------
-    function openTimelineModal() {
+    // ---------- 事件时间线（近30天大类趋势） ----------
+    const TIMELINE_CATS = ['气候变化', '污染治理', '生态环境', '环境政策', '能源与碳中和', '水处理', '科研学术', '环境健康'];
+    const TIMELINE_CAT_COLORS = {
+        '气候变化': '#EF4444', '污染治理': '#F59E0B', '生态环境': '#10B981', '环境政策': '#3B82F6',
+        '能源与碳中和': '#8B5CF6', '水处理': '#06B6D4', '科研学术': '#84CC16', '环境健康': '#EC4899',
+    };
+
+    async function getTimelineData() {
+        // 优先使用 latest.json 内嵌的 timeline，否则单独请求 timeline.json
+        if (state.timelineData) return state.timelineData;
+        const embedded = state.latestData && state.latestData.timeline;
+        if (embedded && Object.keys(embedded).length > 0) {
+            state.timelineData = embedded;
+            return embedded;
+        }
+        try {
+            const resp = await fetch('data/timeline.json');
+            if (!resp.ok) throw new Error('timeline.json ' + resp.status);
+            const json = await resp.json();
+            state.timelineData = json.categories || {};
+        } catch (err) {
+            console.warn('时间线数据加载失败：', err);
+            state.timelineData = {};
+        }
+        return state.timelineData;
+    }
+
+    async function openTimelineModal() {
         if (!els.timelineModal) return;
         openModal(els.timelineModal);
-        // 填充关键词下拉框
-        populateTimelineKeywords();
+        if (!state.timelineCategory) state.timelineCategory = TIMELINE_CATS[0];
+        if (!state.timelineMetric) state.timelineMetric = 'count';
+        const data = await getTimelineData();
+        renderTimelineCatTabs(data);
+        renderTimelineCategory();
     }
 
-    function populateTimelineKeywords() {
-        if (!els.timelineKeyword) return;
-        // 从 latestData 的 keywords 中获取关键词
-        const keywords = [];
-        if (state.latestData && state.latestData.keywords) {
-            state.latestData.keywords.forEach((k) => {
-                if (k && k.keyword) keywords.push(k.keyword);
-            });
-        }
-        // 从 historyData 中补充关键词
-        if (Array.isArray(state.historyData)) {
-            state.historyData.forEach((h) => {
-                if (h.keywords) {
-                    h.keywords.forEach((kw) => {
-                        if (!keywords.includes(kw)) keywords.push(kw);
-                    });
-                }
-            });
-        }
-        if (keywords.length === 0) {
-            els.timelineKeyword.innerHTML = '<option value="">暂无关键词</option>';
-            return;
-        }
-        els.timelineKeyword.innerHTML = keywords
-            .map((k) => `<option value="${escapeHtml(k)}">${escapeHtml(k)}</option>`)
-            .join('');
+    function renderTimelineCatTabs(data) {
+        if (!els.timelineCatTabs) return;
+        data = data || {};
+        // 计算每个大类30天总条数，用于标签排序与角标
+        const totals = {};
+        TIMELINE_CATS.forEach((cat) => {
+            const series = data[cat] || [];
+            totals[cat] = series.reduce((s, d) => s + (d.count || 0), 0);
+        });
+        const ordered = TIMELINE_CATS.slice().sort((a, b) => totals[b] - totals[a]);
+        els.timelineCatTabs.innerHTML = ordered.map((cat) => {
+            const active = cat === state.timelineCategory ? ' active' : '';
+            const color = TIMELINE_CAT_COLORS[cat] || '#10B981';
+            return `<button type="button" class="timeline-cat-btn${active}" data-cat="${escapeHtml(cat)}" style="--cat-color:${color}">${escapeHtml(cat)}<span class="timeline-cat-num">${totals[cat]}</span></button>`;
+        }).join('');
     }
 
-    function loadTimelineData() {
-        if (!els.timelineKeyword || !els.timelineInfo) return;
-        const keyword = els.timelineKeyword.value;
-        if (!keyword) {
-            showToast('请先选择关键词');
-            return;
-        }
-        state.currentTimelineKeyword = keyword;
-
-        // 从 historyData 中提取该关键词的每日出现次数
-        const timelineData = [];
-        if (Array.isArray(state.historyData)) {
-            state.historyData.forEach((h) => {
-                if (h.date && h.keyword_counts) {
-                    const count = h.keyword_counts[keyword] || 0;
-                    if (count > 0) {
-                        timelineData.push({ date: h.date, count: count });
-                    }
-                } else if (h.date && h.keywords && h.keywords.includes(keyword)) {
-                    // 兼容旧数据：只有关键词列表没有计数
-                    timelineData.push({ date: h.date, count: 1 });
-                }
-            });
-        }
-
-        // 按日期排序
-        timelineData.sort((a, b) => a.date.localeCompare(b.date));
-
-        if (timelineData.length === 0) {
-            els.timelineInfo.innerHTML = '<div class="timeline-hint">该关键词暂无历史数据</div>';
-            if (state.timelineChart) {
-                state.timelineChart.destroy();
-                state.timelineChart = null;
-            }
-            return;
-        }
-
-        renderTimelineChart(timelineData, keyword);
-    }
-
-    function renderTimelineChart(data, keyword) {
+    function renderTimelineCategory() {
+        const data = state.timelineData || {};
+        const cat = state.timelineCategory || TIMELINE_CATS[0];
+        const metric = state.timelineMetric || 'count';
+        const series = data[cat] || [];
+        if (els.timelineDayList) els.timelineDayList.innerHTML = '';
         if (!els.timelineChart) return;
+
+        // 同步标签 active 态
+        if (els.timelineCatTabs) {
+            els.timelineCatTabs.querySelectorAll('.timeline-cat-btn').forEach((b) => {
+                b.classList.toggle('active', b.dataset.cat === cat);
+            });
+        }
+
         const ctx = els.timelineChart.getContext('2d');
-        if (state.timelineChart) {
-            state.timelineChart.destroy();
-        }
+        if (state.timelineChart) state.timelineChart.destroy();
 
-        const labels = data.map((d) => d.date);
-        const counts = data.map((d) => d.count);
-
-        // 检测热度突增节点（比前一天增长超过50%且绝对值>=2）
-        const spikePoints = [];
-        for (let i = 1; i < data.length; i++) {
-            const prev = data[i - 1].count;
-            const curr = data[i].count;
-            if (prev > 0 && curr >= prev * 1.5 && curr >= 2) {
-                spikePoints.push(data[i].date);
+        if (series.length === 0) {
+            if (els.timelineInfo) {
+                els.timelineInfo.innerHTML = '<div class="timeline-hint">暂无近30天时间线数据，请先运行 daily_report.py 生成</div>';
             }
+            return;
         }
 
-        const pointBgColors = labels.map((d) =>
-            spikePoints.includes(d) ? '#F59E0B' : 'rgba(16, 185, 129, 1)'
-        );
-        const pointRadii = labels.map((d) => (spikePoints.includes(d) ? 7 : 4));
+        const labels = series.map((d) => d.date ? d.date.slice(5) : '');
+        const values = series.map((d) => metric === 'total_heat' ? (d.total_heat || 0) : (d.count || 0));
+        const color = TIMELINE_CAT_COLORS[cat] || '#10B981';
+        const metricLabel = metric === 'total_heat' ? '热度总和' : '条目数';
+        const dateFull = series.map((d) => d.date);
 
         state.timelineChart = new Chart(ctx, {
             type: 'line',
             data: {
                 labels: labels,
                 datasets: [{
-                    label: keyword + ' 出现次数',
-                    data: counts,
-                    borderColor: '#10B981',
-                    backgroundColor: 'rgba(16, 185, 129, 0.1)',
+                    label: `${cat} ${metricLabel}`,
+                    data: values,
+                    borderColor: color,
+                    backgroundColor: color + '22',
+                    borderWidth: 2,
                     fill: true,
                     tension: 0.3,
-                    pointBackgroundColor: pointBgColors,
-                    pointRadius: pointRadii,
-                    pointHoverRadius: 8,
+                    pointBackgroundColor: color,
+                    pointBorderColor: '#fff',
+                    pointBorderWidth: 1.5,
+                    pointRadius: 3,
+                    pointHoverRadius: 7,
                 }],
             },
             options: {
                 responsive: true,
                 maintainAspectRatio: false,
+                onClick: (evt, elements) => {
+                    if (elements && elements.length > 0) {
+                        const idx = elements[0].index;
+                        loadTimelineDayItems(dateFull[idx], cat);
+                    }
+                },
                 plugins: {
                     legend: { display: true, position: 'top' },
                     tooltip: {
                         callbacks: {
-                            afterLabel: (ctx) => {
-                                if (spikePoints.includes(ctx.label)) {
-                                    return '🔥 热度突增';
-                                }
-                                return '';
-                            },
+                            afterLabel: () => '点击查看当天热点',
                         },
                     },
                 },
                 scales: {
-                    x: { ticks: { maxRotation: 45, minRotation: 45, font: { size: 10 } } },
-                    y: { beginAtZero: true, ticks: { stepSize: 1 } },
+                    x: { ticks: { maxRotation: 0, autoSkip: true, maxTicksLimit: 10, font: { size: 10 } } },
+                    y: { beginAtZero: true },
                 },
             },
         });
 
-        // 显示统计信息
-        const maxCount = Math.max(...counts);
-        const maxDate = data[counts.indexOf(maxCount)].date;
-        const totalAppear = counts.reduce((a, b) => a + b, 0);
-        const spikeHtml = spikePoints.length > 0
-            ? `<div class="timeline-stat"><span class="timeline-stat-label">热度突增</span><span class="timeline-stat-value">${spikePoints.length} 次</span></div>`
-            : '';
-
+        // 统计信息
+        const total = values.reduce((a, b) => a + b, 0);
+        const maxV = Math.max(...values);
+        const maxIdx = values.indexOf(maxV);
+        const activeDays = values.filter((v) => v > 0).length;
         if (els.timelineInfo) {
             els.timelineInfo.innerHTML = `
                 <div class="timeline-stats">
-                    <div class="timeline-stat"><span class="timeline-stat-label">首次出现</span><span class="timeline-stat-value">${data[0].date}</span></div>
-                    <div class="timeline-stat"><span class="timeline-stat-label">最近出现</span><span class="timeline-stat-value">${data[data.length - 1].date}</span></div>
-                    <div class="timeline-stat"><span class="timeline-stat-label">最高热度</span><span class="timeline-stat-value">${maxCount} 次 (${maxDate})</span></div>
-                    <div class="timeline-stat"><span class="timeline-stat-label">累计出现</span><span class="timeline-stat-value">${totalAppear} 次</span></div>
-                    ${spikeHtml}
+                    <div class="timeline-stat"><span class="timeline-stat-label">累计${metricLabel}</span><span class="timeline-stat-value">${metric === 'total_heat' ? total.toFixed(0) : total}</span></div>
+                    <div class="timeline-stat"><span class="timeline-stat-label">峰值${metricLabel}</span><span class="timeline-stat-value">${metric === 'total_heat' ? maxV.toFixed(0) : maxV}${maxV > 0 ? ' (' + (dateFull[maxIdx] || '') + ')' : ''}</span></div>
+                    <div class="timeline-stat"><span class="timeline-stat-label">活跃天数</span><span class="timeline-stat-value">${activeDays} 天</span></div>
                 </div>
+                <p class="timeline-hint">点击折线图上的点，查看当天「${escapeHtml(cat)}」下的热点</p>
             `;
         }
+    }
+
+    async function loadTimelineDayItems(dateStr, cat) {
+        if (!els.timelineDayList || !dateStr) return;
+        els.timelineDayList.innerHTML = '<div class="timeline-hint">正在加载 ' + dateStr + ' 的热点...</div>';
+        let items = [];
+        try {
+            const resp = await fetch(`data/daily/${dateStr}.json`);
+            if (resp.ok) {
+                const json = await resp.json();
+                items = (json.items || []).filter((it) => {
+                    const c = it.category || '';
+                    if (c === cat) return true;
+                    // 旧快照无 category 时用标签兜底匹配
+                    return !c && (it.topic_tags || []).some((t) => t && t.indexOf(cat) !== -1);
+                });
+            }
+        } catch (err) {
+            console.warn('当日快照加载失败：', err);
+        }
+        if (items.length === 0) {
+            els.timelineDayList.innerHTML = `<div class="timeline-day-title">${dateStr} · ${escapeHtml(cat)}</div><div class="timeline-hint">当天该大类暂无快照记录</div>`;
+            return;
+        }
+        const html = ['<div class="timeline-day-title">' + dateStr + ' · ' + escapeHtml(cat) + '（' + items.length + '条）</div>'];
+        html.push('<div class="timeline-day-items">');
+        items.forEach((it, i) => {
+            const title = it.title_zh || it.title || '无标题';
+            const heat = it.score_v2 || it.hotness || it.score || 0;
+            const link = it.link || '#';
+            html.push(`<a class="timeline-day-item" href="${escapeHtml(link)}" target="_blank" rel="noopener">
+                <span class="timeline-day-rank">${i + 1}</span>
+                <span class="timeline-day-name">${escapeHtml(title)}</span>
+                <span class="timeline-day-heat">${Number(heat).toFixed(0)}</span>
+            </a>`);
+        });
+        html.push('</div>');
+        els.timelineDayList.innerHTML = html.join('');
     }
 
     // ---------- 搜索高亮工具 ----------

@@ -1766,6 +1766,64 @@ def is_chinese(text):
     return (chinese_chars / total_chars) > 0.3
 
 
+# AI 输出中出现这些英文推理/思考标记，直接判定为无效结果
+_AI_REASONING_MARKERS = [
+    "here's a thinking", "here is a thinking", "thinking process",
+    "let me analyze", "let's analyze", "i'll analyze", "i will analyze",
+    "step 1", "step 2", "first,", "## analyze", "**analyze",
+    "analysis:", "input:", "reasoning:", "note:", "okay,",
+]
+
+
+def _sanitize_chinese_ai_text(text, max_len=80, min_chinese_ratio=0.5):
+    """
+    清洗 AI 返回的中文短文本（近7天总结/见解等）：
+    - 去除 markdown 代码块、引号、首尾空白
+    - 若包含英文推理标记 / 英文比例过高 / 中文字符过少，返回 None（交由规则兜底）
+    - 超过 max_len 时，在句号/分号处截断到不超过 max_len
+    - 返回清洗后的纯中文文本；无法得到合格中文时返回 None
+    """
+    if not text or not isinstance(text, str):
+        return None
+    t = text.strip()
+    # 去除 markdown 代码块
+    if t.startswith("```"):
+        t = t.split("\n", 1)[-1]
+        if t.endswith("```"):
+            t = t[:-3]
+    t = t.strip().strip('"').strip("'").strip("“").strip("”").strip()
+    if not t:
+        return None
+    low = t.lower()
+    # 命中英文推理标记，直接判无效
+    for marker in _AI_REASONING_MARKERS:
+        if marker in low:
+            print(f"[AI后处理] 检测到英文推理标记（{marker}），丢弃AI结果，回退规则")
+            return None
+    # 统计中文字符与拉丁字母比例
+    zh = sum(1 for c in t if '\u4e00' <= c <= '\u9fff')
+    en = sum(1 for c in t if c.isascii() and c.isalpha())
+    if zh < 6:
+        print(f"[AI后处理] 中文字符过少（{zh}），回退规则")
+        return None
+    if en > 0 and (zh / max(1, zh + en)) < min_chinese_ratio:
+        print(f"[AI后处理] 英文比例过高（中{zh}/英{en}），回退规则")
+        return None
+    # 超长则在中文句末标点处截断
+    if len(t) > max_len:
+        cut = t[:max_len]
+        best = -1
+        for sep in ["。", "；", "！", "？", "，"]:
+            idx = cut.rfind(sep)
+            if idx > best:
+                best = idx
+        if best >= int(max_len * 0.5):
+            t = cut[:best + 1]
+        else:
+            t = cut
+    return t.strip()
+
+
 def _get_translation_config():
     """读取 translation_api 配置（DeepL/百度翻译 key 等），带模块级缓存；环境变量优先级最高"""
     global _TRANSLATION_CFG_CACHE
@@ -2206,52 +2264,145 @@ CATEGORY_KEYWORDS = {
     "环境政策": ["环保", "环评", "督察", "政策", "法规", "立法", "标准", "规划", "治理", "监管", "执法", "处罚", "整改", "碳关税", "双碳", "environment policy", "regulation", "legislation", "standard", "planning", "governance", "supervision", "enforcement", "esg", "carbon tariff"],
     "能源与碳中和": ["能源", "新能源", "光伏", "风电", "水电", "核电", "储能", "氢能", "电池", "电动汽车", "充电桩", "化石能源", "煤炭", "石油", "天然气", "碳中和", "碳达峰", "净零", "energy", "renewable", "solar", "wind", "hydro", "nuclear", "storage", "hydrogen", "battery", "ev", "electric vehicle", "fossil", "coal", "oil", "gas", "net zero", "carbon neutral"],
     "水处理": ["水", "水处理", "污水处理", "供水", "饮用水", "水质", "水资源", "节水", "水循环", "再生水", " desalination", "海水淡化", "water", "wastewater", "treatment", "drinking", "water quality", "water resource", "desalination", "sewage", "effluent", "sludge"],
-    "科研学术": ["研究", "论文", "期刊", "大学", "学院", "实验室", "科研", "学术", "基金", "项目", "实验", "分析", "检测", "监测", "技术", "方法", "模型", "数据", "research", "study", "paper", "journal", "university", "college", "laboratory", "lab", "scientific", "academic", "funding", "experiment", "analysis", "monitoring", "technology", "method", "model", "data", "ai", "machine learning", "deep learning", "artificial intelligence"],
+    "科研学术": ["研究", "论文", "期刊", "大学", "学院", "实验室", "科研", "学术", "基金", "项目", "实验", "分析", "检测", "监测", "技术", "方法", "模型", "数据", "膜分离", "高级氧化", "光催化", "生物炭", "纳米", "催化剂", "降解", "吸附剂", "改性", "制备", "合成", "活化", "机理", "表征", "research", "study", "paper", "journal", "university", "college", "laboratory", "lab", "scientific", "academic", "funding", "experiment", "analysis", "monitoring", "technology", "method", "model", "data", "ai", "人工智能", "机器学习", "深度学习", "智能环境", "环境大数据", "大模型", "machine learning", "deep learning", "artificial intelligence"],
     "环境健康": ["健康", "疾病", "癌症", "中毒", "呼吸", "心血管", "暴露", "风险", "危害", "公共卫生", "食品安全", "health", "disease", "cancer", "toxic", "poisoning", "respiratory", "cardiovascular", "exposure", "risk", "hazard", "public health", "food safety"],
 }
 
 CATEGORY_ORDER = ["气候变化", "污染治理", "生态环境", "环境政策", "能源与碳中和", "水处理", "科研学术", "环境健康", "其他"]
 
 
-def classify_keyword(keyword):
+# glossary.json 中使用的类别名 -> 8大类归一化（基础概念不直接映射，交回规则判断）
+_GLOSSARY_CAT_NORMALIZE = {
+    "气候变化": "气候变化",
+    "污染治理": "污染治理",
+    "环境政策": "环境政策",
+    "环境健康": "环境健康",
+    "生态保护": "生态环境",
+    "生态环境": "生态环境",
+    "资源能源": "能源与碳中和",
+    "能源与碳中和": "能源与碳中和",
+    "科研学术": "科研学术",
+    "水处理": "水处理",
+    # 注：glossary 的"技术方法""基础概念"为泛类别，不直接映射，
+    # 回退到词面规则匹配（如"污水处理"应归"水处理"而非"科研学术"）
+}
+
+# 人工白名单缓存：term -> 大类（来自 glossary.json 与 pending_terms.json）
+_DOMAIN_CATEGORY_WHITELIST = None
+
+
+def _load_domain_category_whitelist():
+    """
+    加载人工白名单：glossary.json 的 term->category（归一化到8大类），
+    pending_terms.json 中确认过的 term 交回规则判断（不强行指定类别）。
+    模块级缓存，只读取一次。
+    """
+    global _DOMAIN_CATEGORY_WHITELIST
+    if _DOMAIN_CATEGORY_WHITELIST is not None:
+        return _DOMAIN_CATEGORY_WHITELIST
+    wl = {}
+    # glossary.json：term -> 归一化大类
+    glossary_path = os.path.join(DATA_DIR, "glossary.json")
+    try:
+        if os.path.exists(glossary_path):
+            with open(glossary_path, "r", encoding="utf-8") as f:
+                glossary = json.load(f)
+            for entry in glossary if isinstance(glossary, list) else []:
+                term = str(entry.get("term", "")).strip()
+                raw_cat = str(entry.get("category", "")).strip()
+                if term and raw_cat in _GLOSSARY_CAT_NORMALIZE:
+                    wl[term.lower()] = _GLOSSARY_CAT_NORMALIZE[raw_cat]
+    except Exception:
+        pass
+    _DOMAIN_CATEGORY_WHITELIST = wl
+    return wl
+
+
+def _rule_match_category(text):
+    """按 CATEGORY_KEYWORDS 做包含匹配，返回命中词最长（最具体）的大类；无命中返回'其他'"""
+    if not text:
+        return "其他"
+    t = text.lower()
+    best_cat = "其他"
+    best_len = 0
+    for category, kws in CATEGORY_KEYWORDS.items():
+        for k in kws:
+            kk = k.lower().strip()
+            if kk and kk in t and len(kk) > best_len:
+                best_len = len(kk)
+                best_cat = category
+    return best_cat
+
+
+def classify_keyword(keyword, allow_translate=True):
     """
     将关键词映射到 8 个大类之一
-    - 匹配 CATEGORY_KEYWORDS 中的关键词
-    - 无法判断的归为"其他"
+    1) 人工白名单（glossary term）优先
+    2) 中文：按 CATEGORY_KEYWORDS 最长包含匹配（多类别取最相关）
+    3) 英文：allow_translate 时先翻译成中文再匹配；否则直接用英文映射表
+    无法判断归为"其他"。批量统计历史快照时应传 allow_translate=False 避免联网
     """
     if not keyword:
         return "其他"
-    kw_lower = keyword.lower().strip()
-    for category, kws in CATEGORY_KEYWORDS.items():
-        for k in kws:
-            if k.lower() in kw_lower:
-                return category
-    return "其他"
+    kw = str(keyword).strip()
+    if not kw:
+        return "其他"
+
+    # 1. 人工白名单优先
+    wl = _load_domain_category_whitelist()
+    if kw.lower() in wl:
+        return wl[kw.lower()]
+
+    # 2. 含中文 -> 直接按中文规则
+    if re.search(r'[\u4e00-\u9fff]', kw):
+        return _rule_match_category(kw)
+
+    # 3. 纯英文：允许时先尝试翻译成中文再归类
+    if allow_translate:
+        try:
+            translated = translate_en_to_zh(kw)
+            if translated and translated != kw and re.search(r'[\u4e00-\u9fff]', translated):
+                cat = _rule_match_category(translated)
+                if cat != "其他":
+                    return cat
+        except Exception:
+            pass
+    # 翻译失败/不允许翻译：用英文映射表
+    return _rule_match_category(kw)
 
 
-def classify_item(item):
+def classify_item(item, allow_translate=True):
     """
     为热点条目确定分类：
     - 优先使用 topic_tags 中的第一个有效标签分类
     - 其次使用 matched_keywords
-    - 最后使用标题中的关键词
+    - 最后使用标题（英文标题在 allow_translate 时先翻译）中的关键词
+    批量统计历史快照时传 allow_translate=False，避免逐条联网翻译
     """
     # 1. 从 topic_tags 分类
     for tag in item.get("topic_tags", []):
-        cat = classify_keyword(tag)
+        cat = classify_keyword(tag, allow_translate=allow_translate)
         if cat != "其他":
             return cat
     # 2. 从 matched_keywords 分类
     for kw in item.get("matched_keywords", []):
-        cat = classify_keyword(kw)
+        cat = classify_keyword(kw, allow_translate=allow_translate)
         if cat != "其他":
             return cat
-    # 3. 从标题中查找环境关键词
-    title = item.get("title", "")
-    for cat, kws in CATEGORY_KEYWORDS.items():
-        for k in kws:
-            if k.lower() in title.lower():
-                return cat
+    # 3. 从标题中查找环境关键词（英文标题允许时先翻译）
+    title = item.get("title", "") or ""
+    cat = _rule_match_category(title)
+    if cat != "其他":
+        return cat
+    if allow_translate and not re.search(r'[\u4e00-\u9fff]', title):
+        try:
+            tz = translate_en_to_zh(title)
+            if tz and tz != title:
+                cat = _rule_match_category(tz)
+                if cat != "其他":
+                    return cat
+        except Exception:
+            pass
     return "其他"
 
 
@@ -2601,8 +2752,8 @@ def calculate_weekly_categories():
                 for item in items:
                     cat = item.get("category", "")
                     if not cat:
-                        # 旧数据没有 category，用 classify_item 推断
-                        cat = classify_item(item)
+                        # 旧数据没有 category，用 classify_item 推断（历史批量不联网翻译）
+                        cat = classify_item(item, allow_translate=False)
                     if cat in cat_counts:
                         cat_counts[cat] += 1
                     else:
@@ -2611,6 +2762,57 @@ def calculate_weekly_categories():
                 pass
         result.append({"date": date_str, "categories": cat_counts})
     return result
+
+
+def generate_timeline_data(days=30):
+    """
+    统计近 N 天（默认30天）各大类每天的条目数量与热度总和
+    数据来源：docs/data/daily/YYYY-MM-DD.json 每日快照（缺 category 时用 classify_item 推断）
+    返回结构：{大类: [{"date","count","total_heat"}, ...]}（日期升序，无数据补0）
+    同时写入 docs/data/timeline.json
+    """
+    timeline_cats = [c for c in CATEGORY_ORDER if c != "其他"]
+    timeline = {cat: [] for cat in timeline_cats}
+    today = datetime.now(timezone.utc).date()
+    date_list = [today - timedelta(days=i) for i in range(days - 1, -1, -1)]
+
+    for date in date_list:
+        date_str = date.strftime("%Y-%m-%d")
+        per_cat = {cat: {"count": 0, "total_heat": 0.0} for cat in timeline_cats}
+        snapshot_path = os.path.join(DATA_DIR, "daily", f"{date_str}.json")
+        if os.path.exists(snapshot_path):
+            try:
+                with open(snapshot_path, "r", encoding="utf-8") as f:
+                    snap = json.load(f)
+                for item in (snap.get("items", []) if isinstance(snap, dict) else []):
+                    cat = item.get("category") or classify_item(item, allow_translate=False)
+                    if cat not in per_cat:
+                        cat = "其他"
+                    if cat in per_cat:
+                        per_cat[cat]["count"] += 1
+                        heat = item.get("score_v2", item.get("hotness", item.get("score", 0))) or 0
+                        try:
+                            per_cat[cat]["total_heat"] += float(heat)
+                        except (TypeError, ValueError):
+                            pass
+            except Exception:
+                pass
+        for cat in timeline_cats:
+            timeline[cat].append({
+                "date": date_str,
+                "count": per_cat[cat]["count"],
+                "total_heat": round(per_cat[cat]["total_heat"], 1),
+            })
+
+    out_path = os.path.join(DATA_DIR, "timeline.json")
+    payload = {
+        "generated_at": datetime.now(timezone.utc).strftime("%Y-%m-%d %H:%M:%S"),
+        "days": days,
+        "categories": timeline,
+    }
+    safe_json_dump(payload, out_path)
+    print(f"[生成] {out_path}（近{days}天，{len(timeline_cats)}个大类）")
+    return timeline
 
 
 def calculate_weekly_keywords():
@@ -2680,84 +2882,108 @@ def calculate_weekly_keywords():
     return top_keywords
 
 
-def generate_weekly_summary(api_config, weekly_keywords=None, weekly_categories=None):
-    """
-    生成近7天热度总结
-    优先基于大类统计生成，格式如："近7天热点集中在：气候变化（12条）、污染治理（9条）…"
-    若 AI 可用，可生成自然语言总结；若不可用，则使用规则模板
-    """
-    # 如果没有传入 weekly_categories，则计算
-    if weekly_categories is None:
-        weekly_categories = calculate_weekly_categories()
-
-    # 统计近7天各分类总条目数
+def _weekly_cat_totals(weekly_categories):
+    """从 weekly_categories 统计近7天各分类总条目数，返回 (Counter, total)"""
     cat_totals = Counter()
     total_items = 0
-    for day in weekly_categories:
+    for day in weekly_categories or []:
         for cat, cnt in day.get("categories", {}).items():
             if cat != "其他" and cnt > 0:
                 cat_totals[cat] += cnt
                 total_items += cnt
+    return cat_totals, total_items
 
-    # 取前5个分类
+
+def generate_weekly_summary(api_config, weekly_keywords=None, weekly_categories=None):
+    """
+    生成近7天热度总结（一句中文，不超过80字）
+    优先基于大类统计；AI 可用时生成自然语言总结，并强制后处理为纯中文，失败回退规则模板
+    """
+    if weekly_categories is None:
+        weekly_categories = calculate_weekly_categories()
+
+    cat_totals, total_items = _weekly_cat_totals(weekly_categories)
     top_cats = cat_totals.most_common(5)
 
-    # AI 生成（基于大类统计）
-    if api_config["summary_enabled"] and top_cats:
-        cat_str = "、".join([f"{cat}（{cnt}条）" for cat, cnt in top_cats])
-        prompt = f"你是一个环境领域分析助手。请根据以下近7天环境领域热点分类统计，生成一段不超过80字的中文总结，直接输出总结，不要解释。\n\n分类统计：{cat_str}\n总条目数：{total_items}"
-        result = call_nvidia_api(prompt, api_config, max_tokens=120)
-        if result:
-            return result.strip('"').strip("'").strip()
-
-    # 规则生成（基于大类统计）
-    if top_cats:
-        cat_str = "、".join([f"{cat}（{cnt}条）" for cat, cnt in top_cats[:3]])
-        return f"近7天热点集中在：{cat_str}，共聚合{total_items}条环境领域资讯。"
-
-    # 降级：使用关键词
-    if weekly_keywords is None:
-        weekly_keywords = calculate_weekly_keywords()
-    if weekly_keywords:
-        top_terms = [kw["term"] for kw in weekly_keywords[:3]]
-        total_count = sum(kw["count"] for kw in weekly_keywords)
-        return f"近7天环境领域热点集中在：{'、'.join(top_terms)}，关键词累计出现{total_count}次。"
-    return ""
-
-
-def generate_weekly_insight(api_config, weekly_keywords=None):
-    """
-    基于近7天热点数据生成一段分析见解（2-4句），写入 latest.json 的 weekly_insight 字段
-    优先 AI 生成，失败则使用规则生成
-    """
-    if weekly_keywords is None:
-        weekly_keywords = calculate_weekly_keywords()
-    if not weekly_keywords:
+    def _rule_summary():
+        if top_cats:
+            cat_str = "、".join([f"{cat}（{cnt}条）" for cat, cnt in top_cats[:3]])
+            return f"近7天热点集中在：{cat_str}，共聚合{total_items}条环境领域资讯。"
+        kws = weekly_keywords if weekly_keywords is not None else calculate_weekly_keywords()
+        if kws:
+            top_terms = [kw["term"] for kw in kws[:3]]
+            total_count = sum(kw["count"] for kw in kws)
+            return f"近7天环境领域热点集中在：{'、'.join(top_terms)}，关键词累计出现{total_count}次。"
         return ""
-    top_terms = [kw["term"] for kw in weekly_keywords[:6]]
-    total_count = sum(kw["count"] for kw in weekly_keywords)
 
-    # AI 生成（一次调用）
-    if api_config["summary_enabled"] and top_terms:
+    # AI 生成（基于大类统计）
+    if api_config.get("summary_enabled") and top_cats:
+        cat_str = "、".join([f"{cat}（{cnt}条）" for cat, cnt in top_cats])
         prompt = (
-            "根据以下近7天环境领域热点数据，写一段简短见解（2-4句），"
-            "分析近期热点趋势和特点，要有观察和总结，不要只罗列关键词。\n\n"
-            f"高频关键词：{', '.join(top_terms)}\n"
-            f"关键词累计出现次数：{total_count}\n"
-            f"平均每天约 {max(1, round(total_count / 7))} 次出现"
+            "你是环境领域分析助手。根据近7天环境热点分类统计，写一句中文总结。\n"
+            "严格要求：只输出最终结果，不要输出思考过程、分析步骤、任何解释或英文；"
+            "直接输出中文，不超过80字，只写这一句总结，不要分点、不要加标题。\n\n"
+            f"分类统计：{cat_str}\n总条目数：{total_items}"
         )
-        result = call_nvidia_api(prompt, api_config, max_tokens=200)
+        result = call_nvidia_api(prompt, api_config, max_tokens=120)
+        cleaned = _sanitize_chinese_ai_text(result, max_len=80)
+        if cleaned:
+            return cleaned
         if result:
-            return result.strip('"').strip("'").strip()
+            print("[近7天总结] AI结果未通过中文校验，使用规则总结")
 
-    # 规则生成（降级）
-    if top_terms:
-        return (
-            f"近7天热点主要集中在{'、'.join(top_terms[:3])}等方向，"
-            f"关键词累计出现{total_count}次，整体呈现持续关注态势，"
-            f"建议重点关注{'、'.join(top_terms[:2])}相关进展。"
+    return _rule_summary()
+
+
+def generate_weekly_insight(api_config, weekly_keywords=None, weekly_categories=None):
+    """
+    生成近7天分析见解（2-4句中文）
+    优先基于大类统计；AI 结果强制后处理为纯中文，失败回退规则模板
+    """
+    if weekly_categories is None:
+        weekly_categories = calculate_weekly_categories()
+    cat_totals, total_items = _weekly_cat_totals(weekly_categories)
+    top_cats = cat_totals.most_common(6)
+
+    if weekly_keywords is None:
+        weekly_keywords = calculate_weekly_keywords()
+    top_terms = [kw["term"] for kw in (weekly_keywords or [])[:6]]
+
+    def _rule_insight():
+        if top_cats:
+            names = [c for c, _ in top_cats[:3]]
+            lead = top_cats[0][0] if top_cats else "环境领域"
+            return (
+                f"近7天热点主要集中在{'、'.join(names)}等方向，"
+                f"累计相关热点{total_items}条，整体呈现关注{lead}议题的态势，"
+                f"建议持续跟踪相关政策与技术进展。"
+            )
+        if top_terms:
+            return (
+                f"近7天热点主要集中在{'、'.join(top_terms[:3])}等方向，"
+                f"关键词累计出现{sum(kw['count'] for kw in weekly_keywords)}次，"
+                f"整体呈现持续关注态势，建议重点关注{top_terms[0]}相关进展。"
+            )
+        return ""
+
+    # AI 生成（基于大类统计，一次调用）
+    if api_config.get("summary_enabled") and (top_cats or top_terms):
+        cat_str = "、".join([f"{cat}（{cnt}条）" for cat, cnt in top_cats]) if top_cats else "、".join(top_terms)
+        prompt = (
+            "你是环境领域观察者。根据近7天环境热点的分类统计，写一段2-4句的中文见解，"
+            "分析近期热点趋势与特点，要有观察和总结，不要只罗列分类。\n"
+            "严格要求：只输出最终结果，不要输出思考过程、分析步骤、任何解释或英文；"
+            "直接输出中文，不超过160字，不要分点、不要加标题、不要Markdown。\n\n"
+            f"分类统计：{cat_str}\n累计条目数：{total_items}"
         )
-    return ""
+        result = call_nvidia_api(prompt, api_config, max_tokens=220)
+        cleaned = _sanitize_chinese_ai_text(result, max_len=160)
+        if cleaned:
+            return cleaned
+        if result:
+            print("[近7天见解] AI结果未通过中文校验，使用规则见解")
+
+    return _rule_insight()
 
 
 def generate_ai_keywords(items, api_config):
@@ -4033,7 +4259,7 @@ def _clean_keywords(keywords):
     return cleaned
 
 
-def generate_latest_json(items, config, weekly_summary="", weekly_keywords=None, weekly_insight=""):
+def generate_latest_json(items, config, weekly_summary="", weekly_keywords=None, weekly_insight="", timeline=None):
     """生成 data/latest.json"""
     site_name = config.get("site_name", "环境学子雷达")
     keywords = config.get("keywords", DEFAULT_KEYWORDS)
@@ -4134,6 +4360,7 @@ def generate_latest_json(items, config, weekly_summary="", weekly_keywords=None,
         "weekly_keywords": weekly_keywords if weekly_keywords is not None else [],
         "weekly_categories": weekly_categories,
         "today_categories": today_categories,
+        "timeline": timeline if timeline is not None else {},
     }
 
     path = os.path.join(DATA_DIR, "latest.json")
@@ -4154,6 +4381,8 @@ def generate_daily_snapshot(items, config):
     top10 = items[:10]
     output_items = []
     for item in top10:
+        # 保证快照带分类与话题标签，供近7天/30天趋势统计
+        item_cat = item.get("category") or classify_item(item)
         output_items.append({
             "title": sanitize_str(item.get("title")),
             "title_en": sanitize_str(item.get("title_en", "")),
@@ -4167,6 +4396,8 @@ def generate_daily_snapshot(items, config):
             "score_breakdown": item.get("score_breakdown", {}),
             "summary": sanitize_str(item.get("summary")),
             "analysis": sanitize_str(item.get("analysis", "")),
+            "topic_tags": [sanitize_str(t) for t in item.get("topic_tags", [])],
+            "category": sanitize_str(item_cat),
             "matched_keywords": [sanitize_str(kw) for kw in item.get("matched_keywords", [])],
         })
 
@@ -4703,11 +4934,13 @@ def main():
     weekly_summary = generate_weekly_summary(api_config, weekly_keywords=weekly_keywords, weekly_categories=weekly_categories)
     if weekly_summary:
         print(f"[AI] 近7天总结: {weekly_summary[:60]}...")
-    weekly_insight = generate_weekly_insight(api_config, weekly_keywords=weekly_keywords)
+    weekly_insight = generate_weekly_insight(api_config, weekly_keywords=weekly_keywords, weekly_categories=weekly_categories)
     if weekly_insight:
         print(f"[AI] 近7天见解: {weekly_insight[:60]}...")
 
-    latest_data = generate_latest_json(all_items, config, weekly_summary=weekly_summary, weekly_keywords=weekly_keywords, weekly_insight=weekly_insight)
+    # 近30天大类事件时间线（写入 timeline.json，并内嵌到 latest.json）
+    timeline_data = generate_timeline_data(days=30)
+    latest_data = generate_latest_json(all_items, config, weekly_summary=weekly_summary, weekly_keywords=weekly_keywords, weekly_insight=weekly_insight, timeline=timeline_data)
     generate_daily_snapshot(all_items, config)
     generate_monthly_archive(all_items, config)
     generate_pending_terms(all_items, config)

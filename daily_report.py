@@ -1683,6 +1683,101 @@ IRRELEVANT_EN = [
     "lottery", "celebrity", "fashion", "recipe", "movie", "concert", "horoscope",
 ]
 
+# 明显非环境领域的关键词黑名单（财经/泛化/营销/时政套话等），命中即丢弃
+NON_ENV_BLACKLIST = {
+    "保险", "系统性", "重塑", "财经", "金融", "股市", "股票", "基金", "债券", "理财",
+    "营收", "利润", "市值", "融资", "上市", "并购", "房地产", "楼市", "房价",
+    "娱乐", "明星", "综艺", "体育", "赛事", "游戏", "电竞", "彩票", "时尚", "美妆",
+    "改革", "赋能", "抓手", "闭环", "生态位", "布局", "赛道", "风口", "红利",
+    "同比", "环比", "季度", "年报", "财报", "增速", "涨幅", "跌幅", "指数",
+    "董事长", "总裁", "CEO", "总经理", "人事", "任命", "辞职", "被捕",
+    "网友", "评论", "点赞", "热搜", "话题", "直播", "带货", "网红",
+}
+
+# 常见环境缩写/专有词（补充相关性判定，避免被误删）
+ENV_ABBREV = {
+    "pm2.5", "pm10", "esg", "ai", "voc", "vocs", "cod", "bod", "tn", "tp",
+    "ghg", "ccus", "cchs", "lca", "epa", "ipcc", "cop", "svoc", "pfas",
+}
+
+
+_ENV_TERM_WHITELIST_CACHE = None
+
+
+def _env_term_whitelist():
+    """环境领域白名单词集合：glossary 的 term + pending_terms 已确认词，带缓存"""
+    global _ENV_TERM_WHITELIST_CACHE
+    cache = globals().get("_ENV_TERM_WHITELIST_CACHE")
+    if cache is not None:
+        return cache
+    wl = set()
+    try:
+        gp = os.path.join(DATA_DIR, "glossary.json")
+        if os.path.exists(gp):
+            with open(gp, "r", encoding="utf-8") as f:
+                for e in json.load(f):
+                    t = str(e.get("term", "")).strip()
+                    if t:
+                        wl.add(t.lower())
+    except Exception:
+        pass
+    try:
+        pp = os.path.join(DATA_DIR, "pending_terms.json")
+        if os.path.exists(pp):
+            with open(pp, "r", encoding="utf-8") as f:
+                pj = json.load(f)
+            for e in (pj if isinstance(pj, list) else []):
+                t = str(e.get("term", "")).strip()
+                if t:
+                    wl.add(t.lower())
+    except Exception:
+        pass
+    _ENV_TERM_WHITELIST_CACHE = wl
+    return wl
+
+
+def is_env_relevant_term(term):
+    """
+    判断一个关键词是否与环境领域相关（用于 AI/规则关键词的最终过滤）：
+    - 空词/命中非环境黑名单 -> False
+    - 在 glossary/pending 白名单，或为环境缩写 -> True
+    - 中文：包含任一环境相关语素（ENV_RELATED_ZH / CATEGORY_KEYWORDS）-> True
+    - 英文：包含任一环境英文词（ENV_RELATED_EN / 分类英文词 / 缩写）-> True
+    - 其余保守判为不相关（False）
+    """
+    if not term:
+        return False
+    t = str(term).strip()
+    if len(t) < 2:
+        return False
+    low = t.lower()
+    if t in NON_ENV_BLACKLIST or low in {x.lower() for x in NON_ENV_BLACKLIST}:
+        return False
+    # 白名单 / 环境缩写
+    if low in _env_term_whitelist() or low in ENV_ABBREV:
+        return True
+    # 中文：环境语素包含匹配
+    if re.search(r'[\u4e00-\u9fff]', t):
+        for w in ENV_RELATED_ZH:
+            if w and w in t:
+                return True
+        for kws in CATEGORY_KEYWORDS.values():
+            for k in kws:
+                if re.search(r'[\u4e00-\u9fff]', k) and k in t:
+                    return True
+        return False
+    # 纯英文/中英混合：英文环境词包含匹配
+    for w in ENV_RELATED_EN:
+        if w and w in low:
+            return True
+    for kws in CATEGORY_KEYWORDS.values():
+        for k in kws:
+            kk = k.lower().strip()
+            if kk and re.search(r'[a-z]', kk) and kk in low:
+                return True
+    return False
+
+
 # 英文停用词（jieba 英文词过滤用）
 STOP_WORDS_EN = set([
     "the", "and", "for", "with", "from", "this", "that", "are", "was", "were",
@@ -2197,6 +2292,57 @@ def _extract_ai_content(result):
         return ""
 
 
+# AI 返回内容中夹带的英文推理/思考过程标记
+_AI_THINKING_MARKERS = (
+    "here's a thinking", "here is a thinking", "thinking process",
+    "let me analyze", "let's analyze", "i'll analyze", "i will analyze",
+    "reasoning:", "## analyze", "**analyze",
+)
+
+
+def _strip_code_fence(text):
+    """去除 markdown 代码块围栏（```json ... ```）与首尾空白/引号"""
+    if not text:
+        return ""
+    t = str(text).strip()
+    if t.startswith("```"):
+        # 去掉首行围栏（可能带 json/python 标识）
+        t = t.split("\n", 1)[-1] if "\n" in t else t[3:]
+        if t.rstrip().endswith("```"):
+            t = t.rstrip()[:-3]
+    return t.strip().strip('"').strip("'").strip()
+
+
+def _extract_json_array(text, label="AI"):
+    """
+    从可能夹带推理过程/解释/markdown 的 AI 文本中，稳健提取第一个 JSON 数组。
+    流程：去代码块 -> 定位第一个 '[' 与最后一个 ']' -> json.loads。
+    成功返回 list；失败返回 None（调用方回退规则），并打印前200字便于排查。
+    """
+    if not text:
+        return None
+    t = _strip_code_fence(text)
+    start = t.find("[")
+    end = t.rfind("]")
+    if start < 0 or end <= start:
+        low = t.lower()
+        if any(m in low for m in _AI_THINKING_MARKERS):
+            print(f"[{label}] 返回内容为推理过程且未找到JSON数组，回退规则")
+        else:
+            print(f"[{label}] 未找到JSON数组，回退规则。前200字: {t[:200]}")
+        return None
+    candidate = t[start:end + 1]
+    try:
+        arr = json.loads(candidate)
+        if isinstance(arr, list):
+            return arr
+        print(f"[{label}] 解析结果不是数组，回退规则")
+        return None
+    except Exception as e:
+        print(f"[{label}] JSON解析失败: {str(e)[:80]}，回退规则。前200字: {t[:200]}")
+        return None
+
+
 def check_model_health(api_config):
     """
     模型健康检查：用极短文本测试模型是否可用
@@ -2406,7 +2552,7 @@ def classify_item(item, allow_translate=True):
     return "其他"
 
 
-def call_nvidia_api(prompt, api_config, max_tokens=None):
+def call_nvidia_api(prompt, api_config, max_tokens=None, json_mode=False):
     """
     调用英伟达 NIM API（OpenAI 兼容格式），返回生成的文本，失败返回 None
     - 增加重试机制：429或超时后等待重试，最多3次，等待时间递增3/6/10秒
@@ -2436,6 +2582,10 @@ def call_nvidia_api(prompt, api_config, max_tokens=None):
         "max_tokens": max_tokens or api_config["max_tokens"],
         "temperature": 0.3,
     }
+    # 结构化输出：要求模型直接返回 JSON（部分模型不支持，遇 400 自动去掉该参数）
+    use_response_format = bool(json_mode)
+    if use_response_format:
+        data["response_format"] = {"type": "json_object"}
 
     # 重试机制：429/超时/返回空 最多重试2次（3/6秒），总共3次尝试
     retry_delays = [3, 6]
@@ -2485,6 +2635,12 @@ def call_nvidia_api(prompt, api_config, max_tokens=None):
             return content
         except requests.exceptions.HTTPError as e:
             status_code = e.response.status_code if e.response is not None else "unknown"
+            # 400 多为模型不支持 response_format，去掉该参数后立即重试（不消耗重试退避）
+            if status_code == 400 and use_response_format:
+                use_response_format = False
+                data.pop("response_format", None)
+                print(f"[英伟达 NIMAPI] 模型不支持 response_format(400)，已移除该参数重试")
+                continue
             # 429 限流，需要重试
             if status_code == 429 and attempt < 2:
                 wait_time = retry_delays[attempt]
@@ -2576,32 +2732,20 @@ def _ai_relevance_irrelevant(items, api_config):
         "每条只回答\"是\"或\"否\"，不要解释。\n\n"
         "标题列表：\n" + "\n".join(lines)
     )
-    result = call_nvidia_api(prompt, api_config, max_tokens=100)
+    result = call_nvidia_api(prompt, api_config, max_tokens=100, json_mode=True)
     if not result:
         return None
-    try:
-        result = result.strip()
-        if result.startswith("```"):
-            result = result.split("\n", 1)[-1]
-            if result.endswith("```"):
-                result = result[:-3]
-        result = result.strip()
-        start = result.find("[")
-        end = result.rfind("]")
-        if start >= 0 and end > start:
-            result = result[start:end + 1]
-        arr = json.loads(result)
-        if isinstance(arr, list):
-            irrelevant_set = set()
-            for r in arr:
-                if isinstance(r, dict) and "id" in r:
-                    rid = int(r["id"])
-                    rel = str(r.get("relevant", "")).strip()
-                    if rel in ("否", "no", "false", "0"):
-                        irrelevant_set.add(rid)
-            return irrelevant_set
-    except Exception as e:
-        print(f"[相关性过滤] AI 结果解析失败，降级为规则判断: {str(e)[:50]}")
+    arr = _extract_json_array(result, label="相关性过滤")
+    if isinstance(arr, list):
+        irrelevant_set = set()
+        for r in arr:
+            if isinstance(r, dict) and "id" in r:
+                rid = int(r["id"])
+                rel = str(r.get("relevant", "")).strip()
+                if rel in ("否", "no", "false", "0"):
+                    irrelevant_set.add(rid)
+        return irrelevant_set
+    print("[相关性过滤] AI 结果解析失败，降级为规则判断")
     return None
 
 
@@ -3007,58 +3151,37 @@ def generate_ai_keywords(items, api_config):
             text_parts.append(f"摘要：{summary[:150]}")
     combined_text = "\n".join(text_parts)
 
-    prompt = f"""你是一个环境领域关键词提取专家。请从以下新闻标题和摘要中提取与环境领域相关的热门关键词。
+    prompt = (
+        "你是一个环境领域关键词提取器。只输出一个 JSON 数组，不要输出任何思考过程、分析、解释、英文或 Markdown 代码块。"
+        "格式示例：[{\"term\": \"碳中和\", \"count\": 5}]。如果无法提取，输出空数组 []。\n"
+        "要求：关键词必须与环境领域相关（气候、生态、污染、能源、碳、水处理、可持续、环境政策、环境健康、环境技术等），"
+        "具体多样，避免宽泛词（环境、污染、保护、研究、发展），从标题和摘要中提炼，不要凭空生成。\n\n"
+        f"新闻内容：\n{combined_text}"
+    )
 
-要求：
-1. 关键词必须与环境领域相关（气候、生态、污染、能源、可持续发展、环境政策、环境健康、技术方法等）
-2. 关键词要具体、多样，避免过于宽泛的词（如"环境""污染""保护"），除非原文特别强调
-3. 关键词要贴近原文内容，从标题和摘要中提炼，不要凭空生成
-4. 如果原文内容与环境领域无关，可返回空数组
-5. 直接返回 JSON 数组，不要解释，不要 Markdown 代码块，不要思考过程，格式：[{{"term": "碳中和", "count": 5}}]
-
-新闻内容：
-{combined_text}"""
-
-    # 最多尝试2次（首次+1次重试）
+    # 最多尝试2次（首次+1次重试），启用结构化输出
     for attempt in range(2):
-        result = call_nvidia_api(prompt, api_config, max_tokens=200)
+        result = call_nvidia_api(prompt, api_config, max_tokens=200, json_mode=True)
         if not result:
             if attempt == 0:
                 print("[AI关键词] 首次调用返回空，重试一次...")
                 continue
             return None
-
-        # 解析 JSON（增强容错）
-        try:
-            result = result.strip()
-            # 去除 markdown 代码块标记
-            if result.startswith("```"):
-                result = result.split("\n", 1)[-1]
-                if result.endswith("```"):
-                    result = result[:-3]
-            result = result.strip()
-            # 找到第一个 [ 和最后一个 ]
-            start = result.find("[")
-            end = result.rfind("]")
-            if start >= 0 and end > start:
-                result = result[start:end+1]
-            keywords = json.loads(result)
-            if isinstance(keywords, list):
-                valid = []
-                for kw in keywords:
-                    if isinstance(kw, dict) and kw.get("term"):
-                        valid.append({
-                            "term": str(kw["term"]),
-                            "count": int(kw.get("count", 1)),
-                        })
-                if valid:
-                    if attempt > 0:
-                        print(f"[AI关键词] 第{attempt+1}次尝试解析成功，获取{len(valid)}个关键词")
-                    return valid
-            print(f"[AI关键词] 解析结果格式无效（第{attempt+1}次尝试）")
-        except Exception as e:
-            print(f"[AI关键词] 解析失败（第{attempt+1}次）: {str(e)[:80]}")
-            print(f"[AI关键词] 返回内容前200字: {result[:200]}")
+        keywords = _extract_json_array(result, label="AI关键词")
+        if isinstance(keywords, list):
+            valid = []
+            for kw in keywords:
+                if isinstance(kw, dict) and kw.get("term"):
+                    term = str(kw["term"]).strip()
+                    # 环境相关性过滤：非环境词直接丢弃
+                    if is_env_relevant_term(term):
+                        valid.append({"term": term, "count": int(kw.get("count", 1) or 1)})
+            if valid:
+                if attempt > 0:
+                    print(f"[AI关键词] 第{attempt+1}次尝试解析成功，获取{len(valid)}个环境相关关键词")
+                return valid
+            print("[AI关键词] 解析成功但无环境相关词，回退规则")
+            return None
         if attempt == 0:
             print("[AI关键词] 首次解析失败，重试一次...")
     return None
@@ -3097,40 +3220,31 @@ def generate_topic_tags(item, api_config):
     else:
         content_text = f"标题：{title}"
 
-    prompt = f"""你是一个环境领域话题标签提取助手。请从以下新闻标题和摘要中提取 1-3 个最具体、最能概括内容的关键词或短语。
+    prompt = (
+        "你是一个环境领域关键词提取器。只输出一个 JSON 数组，不要输出任何思考过程、分析、解释、英文或 Markdown 代码块。"
+        "格式示例：[\"标签1\", \"标签2\"]。如果无法提取，输出空数组 []。\n"
+        "要求：提取 1-3 个最具体、最能概括内容的中文关键词/短语，优先具体事件、地点、物质、技术、政策名称；"
+        "禁止宽泛词（环境、污染、保护、气候变化、环保、生态、可持续发展、环境领域）。\n\n"
+        f"{content_text}"
+    )
 
-严格要求：
-1. 标签必须具体、贴近内容，禁止使用宽泛词
-2. 禁止返回以下宽泛词：环境、污染、保护、气候变化、环保、生态、可持续发展、环境领域、环境保护、环境问题
-3. 优先提取具体的事件、地点、物质、技术、政策名称
-4. 直接返回 JSON 数组，格式：["标签1","标签2"]，不要解释
-5. 如果无法确定具体标签，返回空数组 []
-
-{content_text}"""
-
-    result = call_nvidia_api(prompt, api_config, max_tokens=80)
+    result = call_nvidia_api(prompt, api_config, max_tokens=80, json_mode=True)
     if not result:
         return []
 
-    try:
-        result = result.strip()
-        if result.startswith("```"):
-            result = result.split("\n", 1)[-1]
-            if result.endswith("```"):
-                result = result[:-3]
-        result = result.strip()
-        start = result.find("[")
-        end = result.rfind("]")
-        if start >= 0 and end > start:
-            result = result[start:end+1]
-        tags = json.loads(result)
-        if isinstance(tags, list):
-            # 过滤宽泛词
-            banned = {"环境", "污染", "保护", "气候变化", "环保", "生态", "可持续发展", "环境领域", "环境保护", "环境问题", "环境科学", "环境工程"}
-            clean_tags = [str(t).strip() for t in tags if t and len(str(t).strip()) >= 2 and str(t).strip() not in banned]
-            return clean_tags[:3]
-    except Exception:
-        pass
+    tags = _extract_json_array(result, label="AI标签")
+    if isinstance(tags, list):
+        banned = {"环境", "污染", "保护", "气候变化", "环保", "生态", "可持续发展", "环境领域", "环境保护", "环境问题", "环境科学", "环境工程"}
+        clean_tags = []
+        for t in tags:
+            tt = str(t).strip()
+            if len(tt) < 2 or tt in banned:
+                continue
+            # 环境相关性过滤（白名单/环境语素），明显非环境词丢弃
+            if not is_env_relevant_term(tt):
+                continue
+            clean_tags.append(tt)
+        return clean_tags[:3]
     return []
 
 
@@ -3613,17 +3727,7 @@ def generate_batch_summaries(items, api_config):
         batch_success = 0
         if result_text:
             try:
-                result_text = result_text.strip()
-                if result_text.startswith("```"):
-                    result_text = result_text.split("\n", 1)[-1]
-                    if result_text.endswith("```"):
-                        result_text = result_text[:-3]
-                result_text = result_text.strip()
-                start_pos = result_text.find("[")
-                end_pos = result_text.rfind("]")
-                if start_pos >= 0 and end_pos > start_pos:
-                    result_text = result_text[start_pos:end_pos+1]
-                summaries = json.loads(result_text)
+                summaries = _extract_json_array(result_text, label="AI批量摘要")
                 if isinstance(summaries, list):
                     success_ids = set()
                     for s in summaries:
@@ -3717,17 +3821,14 @@ def generate_batch_topic_tags(items, api_config):
             else:
                 news_list.append(f"{local_idx}. 标题：{title_zh}")
 
-        prompt = f"""你是一个环境领域标签专家。请为以下每条新闻提取1-3个具体的中文关键词或短语作为话题标签。
-
-严格要求：
-1. 标签必须具体、贴近内容，与环境领域相关
-2. 禁止返回宽泛词：环境、污染、保护、气候变化、环保、生态、可持续发展、环境领域、环境保护、环境问题
-3. 如果看到英文内容，已翻译为中文，请基于中文内容提取
-4. 优先提取具体的事件、地点、物质、技术、政策名称
-5. 直接返回JSON数组，不要解释，不要 Markdown 代码块，不要思考过程，格式：[{{"id":0,"tags":["气候韧性","微塑料污染"]}},{{"id":1,"tags":["碳关税"]}}]
-
-新闻列表：
-{chr(10).join(news_list)}"""
+        prompt = (
+            "你是一个环境领域关键词提取器。只输出一个 JSON 数组，元素是每个条目的标签列表，"
+            "不要输出任何思考过程、分析、解释、英文或 Markdown 代码块。"
+            "格式：[{\"id\":0,\"tags\":[\"标签1\"]}, ...]，无法提取的条目返回空 tags。\n"
+            "要求：每条提取1-3个具体中文关键词/短语，与环境领域相关，优先具体事件、地点、物质、技术、政策名称；"
+            "禁止宽泛词（环境、污染、保护、气候变化、环保、生态、可持续发展、环境领域）；英文内容按其中文含义提取。\n\n"
+            f"新闻列表：\n{chr(10).join(news_list)}"
+        )
 
         # 批量请求，重试2次，等待3秒、6秒，超时20秒，max_tokens=100
         retry_delays = [3, 6]
@@ -3744,8 +3845,14 @@ def generate_batch_topic_tags(items, api_config):
                     "messages": [{"role": "user", "content": prompt}],
                     "max_tokens": 100,
                     "temperature": 0.3,
+                    "response_format": {"type": "json_object"},
                 }
                 resp = requests.post(url, headers=headers, json=data, timeout=20)
+                # 模型不支持 response_format 时（400）去掉该参数重试一次
+                if resp.status_code == 400 and "response_format" in data:
+                    data.pop("response_format", None)
+                    print("[AI批量标签] 模型不支持 response_format(400)，已移除重试")
+                    resp = requests.post(url, headers=headers, json=data, timeout=20)
                 resp.raise_for_status()
                 result = resp.json()
                 result_text = _extract_ai_content(result)
@@ -3790,37 +3897,33 @@ def generate_batch_topic_tags(items, api_config):
                 item["topic_tags"] = []
             continue
 
-        # 解析返回的 JSON
-        try:
-            result_text = result_text.strip()
-            if result_text.startswith("```"):
-                result_text = result_text.split("\n", 1)[-1]
-                if result_text.endswith("```"):
-                    result_text = result_text[:-3]
-            result_text = result_text.strip()
-            start = result_text.find("[")
-            end = result_text.rfind("]")
-            if start >= 0 and end > start:
-                result_text = result_text[start:end+1]
-            tags_list = json.loads(result_text)
-            if isinstance(tags_list, list):
-                batch_count = 0
-                for t in tags_list:
-                    if isinstance(t, dict) and "id" in t and "tags" in t:
-                        idx = int(t["id"]) + batch_idx_offset
-                        if 0 <= idx < len(target_items):
-                            tags = t["tags"]
-                            if isinstance(tags, list):
-                                clean_tags = [str(tag).strip() for tag in tags if tag and len(str(tag).strip()) >= 2][:3]
-                                target_items[idx]["topic_tags"] = clean_tags
-                                batch_count += 1
-                for item in batch:
-                    if "topic_tags" not in item:
-                        item["topic_tags"] = []
-                total_success += batch_count
-                print(f"[AI批量标签] 第{batch_start//BATCH_SIZE+1}批成功生成 {batch_count}/{len(batch)} 条话题标签")
-        except Exception as e:
-            print(f"[AI批量标签] 第{batch_start//BATCH_SIZE+1}批解析返回结果失败: {str(e)[:50]}")
+        # 解析返回的 JSON（统一提取，兼容夹带推理过程的返回）
+        tags_list = _extract_json_array(result_text, label="AI批量标签")
+        if isinstance(tags_list, list):
+            batch_count = 0
+            wide_banned = {"环境", "污染", "保护", "气候变化", "环保", "生态", "可持续发展", "环境领域", "环境保护", "环境问题"}
+            for t in tags_list:
+                if isinstance(t, dict) and "id" in t and "tags" in t:
+                    idx = int(t["id"]) + batch_idx_offset
+                    if 0 <= idx < len(target_items):
+                        tags = t["tags"]
+                        if isinstance(tags, list):
+                            clean_tags = []
+                            for tag in tags:
+                                tt = str(tag).strip()
+                                if len(tt) < 2 or tt in wide_banned:
+                                    continue
+                                if not is_env_relevant_term(tt):
+                                    continue
+                                clean_tags.append(tt)
+                            target_items[idx]["topic_tags"] = clean_tags[:3]
+                            batch_count += 1
+            for item in batch:
+                if "topic_tags" not in item:
+                    item["topic_tags"] = []
+            total_success += batch_count
+            print(f"[AI批量标签] 第{batch_start//BATCH_SIZE+1}批成功生成 {batch_count}/{len(batch)} 条话题标签")
+        else:
             for item in batch:
                 item["topic_tags"] = []
 
@@ -4253,6 +4356,12 @@ def _clean_keywords(keywords):
         if term in STOP_WORDS or term in WIDE_ZH_WORDS:
             continue
         if any(m in term for m in MEDIA_BLACKLIST):
+            continue
+        # 非环境黑名单（保险/财经/系统性等）直接丢弃
+        if term in NON_ENV_BLACKLIST:
+            continue
+        # 环境领域相关性校验：最终关键词必须与环境相关，否则丢弃
+        if not is_env_relevant_term(term):
             continue
         seen.add(term)
         cleaned.append({"keyword": term, "count": int(count)})

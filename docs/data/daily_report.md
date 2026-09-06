@@ -1,146 +1,135 @@
 # 环境学子雷达 - 每日热点报告
 
-**日期**：2026-09-05
-**总条目数**：46
+**日期**：2026-09-06
+**总条目数**：28
 
-**近7天见解**：Here's a thinking process:
-
-1.  **Analyze the Request:**
-   - **Input:** Recent 7-day environmental domain hotspot data
-   - **High-frequency keywords:** competition, postgraduate entrance exam (考研), air pollution (大气污染), carbon neutrality (碳中和), recruitment (招聘), renewable energy (可再生能源)
-   - **Keyword total count:** 18
-   - **Average frequency:** ~3 times per day
-   - **Output requirement:** A brief insight (2-4 sentences)
-   - **Content requirements:** Analyze recent hotspot trends and characteristics, include observation and summary, avoid just listing keywords
-
-2.  **Analyze the Keywords & Data:**
-   - Keywords: competition, postgraduate entrance exam, air pollution, carbon neutrality, recruitment, renewable energy
-   - Total 18 occurrences in 7 days, avg ~3/day
-   - Mix of
+**近7天见解**：近7天热点主要集中在气候变化、生态环境、科研学术等方向，累计相关热点46条，整体呈现关注气候变化议题的态势，建议持续跟踪相关政策与技术进展。
 
 ---
 
 ## 🔥 今日热点 TOP 10
 
-### 1. [生态环境部环评司有关负责人就《排污许可证申请与核发技术规范 火电》等六项国家生态环境标准修订答记者问 - 新浪网](https://news.google.com/rss/articles/CBMif0FVX3lxTE0xdkx2ZFJISG1qUEROeHFybk1ESmRVNVlrLUFCWHN2dXFTS1NMVjNUV3VjNHNNMGVoWk0yZG5yRFdQSVNkeS1OQWRwN3BvZFRMbDB6MjhWSHlKd05pMXc4SHFTNEhYazA4LUMtV0ZiYXBUcjRScnhldFJFQXQ2enM?oc=5)
-
-- **来源**：Google News 生态环境
-- **热度**：19.83
-- **发布时间**：2026-09-04T13:04:54+00:00
-- **关键词**：环评
-
-> 关于「生态环境部环评司有关负责人就」的资讯
-
-**📊 分析**：该条目涉及【环评】话题，因来源较权威且发布时间较新，热度上升。
-
----
-
-### 2. [尼泊尔有声音要求美印中赔偿 中方回应 共同应对气候变化挑战 - 中华军事](https://news.google.com/rss/articles/CBMicEFVX3lxTE9kX3YxMjhFbjBhdHZTSU9nNFQwQTRSaVZLdTN0eXZfZEhNeUVNWC1PM3NRSHpGQzZOWWNLRTVOb3RzWGxzM2p6Zl9wcUo5VGtpSmp5ZmZIUHpYWWtMQTRvVGQ5YnphOVh2UVZaTkFrcnE?oc=5)
-
-- **来源**：Google News 气候变化
-- **热度**：19.26
-- **发布时间**：2026-09-04T00:34:35+00:00
-- **关键词**：气候变化
-
-> 关于「共同应对气候变化挑战」的资讯
-
-**📊 分析**：该条目涉及【共同应对气候变化挑战】话题，因来源较权威且与近期热点主题相关，热度上升。
-
----
-
-### 3. [Ancient cave art discovery suggests first known humans in Ireland walked over from Wales](https://www.bbc.co.uk/news/articles/c5y75dl0jpko?at_medium=RSS&at_campaign=rss)
+### 1. [Aviation faces hotter, stormier skies – and passengers might have to accept more disruption](https://www.bbc.co.uk/news/articles/cm274p8m88lo?at_medium=RSS&at_campaign=rss)
 
 - **来源**：BBC 科学与环境
-- **热度**：17.19
-- **发布时间**：2026-09-04T22:01:41+00:00
-
-> During the most recent Ice Age, researchers believe there was a "lost land bridge" between Wales and Ireland.
-
-**📊 分析**：该条目涉及【Ancient】话题，因发布时间较新，热度上升。
-
----
-
-### 4. [A Surge of Marine Heat Waves Threatens to Scramble Ocean Life](https://e360.yale.edu/features/marine-heat-waves)
-
-- **来源**：Yale Environment 360
-- **热度**：16.57
-- **发布时间**：2026-09-03T09:06:00+00:00
+- **热度**：100.0
+- **发布时间**：2026-09-05T23:20:00+00:00
 - **关键词**：气候变化
 
-> 受气候变化和日益加剧的厄尔尼诺现象推动，创纪录的海洋热浪正席卷全球各大洋，并对海洋生物造成严重破坏。近期事件中不断涌现的证据表明，无论在陆地还是海上，其造成的破坏都可能十分严重且影响持久。在 E360 上阅读更多内容 →
+> 随着气候变化的影响日益加剧，人们是否将不得不越来越频繁地接受航班延误和改道的情况？
 
-**📊 分析**：该条目涉及【威胁着海洋生物的生存】话题，因与近期热点主题相关，热度上升。
+**📊 分析**：该条目涉及【环境资讯】话题，因来源权威性高，热度上升。
 
 ---
 
-### 5. [视频丨欧盟气候机构：欧洲是全球变暖速度最快的大洲 - Sohu](https://news.google.com/rss/articles/CBMiiwFBVV95cUxQOVU2ZTA1cXN2dHNsS3U4am1oZ0ZJb0w5SmpDWDJoX3dsOUs2YS1QZU5NemRHWHliZWtJeE9GZkk5XzVjZTF0RlJTVGw3VFVjQXVDUjl6bkw2bXFzZl81NGljdzBRNVRPMnUyTGNjQ0d1MEJjVGwxZW5aNUk1STFwNHRYMkNxVW1QWm0w?oc=5)
+### 2. [哈尔滨成人本科能不能考研究生 报考条件详解 - eol.cn](https://news.google.com/rss/articles/CBMiYEFVX3lxTE9Xcm9mbUxSSnpuWUxRVXd1OXdsbHpQOHJjQzFIVkN4MjdEN3FSMTg0UkFpVldIYmZPcFk0TVpOVFYtVHdpWEdfMkhZR25CTUNNUWhzbks0TlRmX1Z0V3JidA?oc=5)
+
+- **来源**：Google News 环境考研
+- **热度**：97.8
+- **发布时间**：2026-09-05T17:36:27+00:00
+- **关键词**：考研
+
+> 哈尔滨成人本科能不能考研究生 报考条件详解 - eol.cn
+
+**📊 分析**：该条目涉及【环境资讯】话题，因来源权威性高，热度上升。
+
+---
+
+### 3. [专访中国气象局原副局长许小峰：我们都是气候变化极端天气亲历者 - 新京报](https://news.google.com/rss/articles/CBMiZEFVX3lxTE9FM1M4d005ZUpaVFN3TkZ2dV82dVpnbV9ERHhKMjlSeTl3alhsYVBfZ1pMWXRZNE1oMHlGMk9lNGZxUnkxUnJHRTQxbk1ha3NscDVyNW5VekdjQm5HQkl1MGZPMXo?oc=5)
 
 - **来源**：Google News 气候变化
-- **热度**：16.5
-- **发布时间**：2026-09-04T15:29:51+00:00
+- **热度**：95.6
+- **发布时间**：2026-09-05T14:49:00+00:00
+- **关键词**：气候变化
 
-> 关于「视频丨欧盟气候机构」的资讯
+> 专访中国气象局原副局长许小峰：我们都是气候变化极端天气亲历者 - 新京报
 
-**📊 分析**：该条目涉及【视频丨欧盟气候机构】话题，因来源较权威且发布时间较新，热度上升。
-
----
-
-### 6. [大连市2026年船舶污染应急处置综合演练举办 - 中国科技网](https://news.google.com/rss/articles/CBMicEFVX3lxTFBqT0dMdjkxZWZpdW1wRXkyQlc2RmtHc1FrUGQ4TFV1UXU0UFp3bUxLa0g1RFR0MDdYWnZrdnFnclZ5eGFxUG11emZVLUtoVDlOT1dkX0ZORnJ3TWo4OG9NVU9pUVMxcEhFQlVvUWp5X0c?oc=5)
-
-- **来源**：Google News 环境污染
-- **热度**：15.68
-- **发布时间**：2026-09-04T12:30:19+00:00
-
-> 关于「年船舶污染应急处置综合演练举办」的资讯：大连市2026 - 中国科技网
-
-**📊 分析**：该条目涉及【年船舶污染应急处置综合演练举办】话题，因来源较权威且发布时间较新，热度上升。
+**📊 分析**：该条目涉及【我们都是气候变化极端天气亲历者】话题，因来源权威性高，热度上升。
 
 ---
 
-### 7. [最高可罚50万元！回收处理废弃电器电子产品，这些规定要遵守- 湖北日报新闻客户端 - 湖北日报传媒集团](https://news.google.com/rss/articles/CBMiWEFVX3lxTE52b2RTUEs3QjdvVmNCOXBjeTFLZXVGanFnQzE5YUo5Vi1BVDFWLTRUcTFROXFVZkpqVVMxcWI2cmdhVHhFbndGMjhJaUJrTUxRQmdaQ2kzQUg?oc=5)
+### 4. [Plants may be evolving the wrong traits for a warming world](https://www.sciencedaily.com/releases/2026/09/260901010719.htm)
 
-- **来源**：Google News 环境污染
-- **热度**：15.57
-- **发布时间**：2026-09-04T12:03:34+00:00
+- **来源**：ScienceDaily 环境科学
+- **热度**：93.3
+- **发布时间**：2026-09-04T03:02:07+00:00
+- **关键词**：气候变化
 
-> 最高可罚50万元！回收处理废弃电器电子产品，这些规定要遵守-…
+> 牵牛花可能正陷入一场进化拉锯战：一方面要适应气候变化，另一方面又要吸引日益稀少的传粉者。研究人员发现，在短短九年间，尽管这些植物仍拥有丰富的遗传多样性以供进化，但其适应速率却骤降了96%。
 
-**📊 分析**：该条目涉及【环境资讯】话题，因来源较权威且发布时间较新，热度上升。
-
----
-
-### 8. [图解：3分钟了解生态环境法典 - Sohu](https://news.google.com/rss/articles/CBMiiAFBVV95cUxPYUQxT2FXNF81TmFTU3ZSOGlNU2xTazRHSVpfZ0R1eE1NWHEwcGNfRWxRWF9jRmZmcG5GazFCN2M0S283MnU1SnBYVWtITzJDSmN5aTZEMGJ4VFZCMWdfMHNuZTA1TlpQcHpvM0VrS2xCbnZTWG80SGZRRWo0VmljWFJndVZ0QkFo?oc=5)
-
-- **来源**：Google News 生态环境
-- **热度**：15.33
-- **发布时间**：2026-09-04T11:05:11+00:00
-
-> 关于「分钟了解生态环境法典」的资讯：图解：3 - Sohu
-
-**📊 分析**：该条目涉及【分钟了解生态环境法典】话题，因来源较权威，热度上升。
+**📊 分析**：该条目涉及【环境资讯】话题，因来源权威性高，热度上升。
 
 ---
 
-### 9. [At least 37 killed by toxic fumes during alleged petrol theft in Nigeria, reports say](https://www.bbc.co.uk/news/articles/cde024l10dyo?at_medium=RSS&at_campaign=rss)
+### 5. [超强厄尔尼诺敲响警钟！保险专家：传统精算模型难以应对气候变化带来的系统性风险，保险定价逻辑面临重塑 - 新浪财经](https://news.google.com/rss/articles/CBMimAFBVV95cUxNbjktdTZRWEtELUh4dFNBNXpOVmRhRzV5XzY1clRmYUlqQTIxcWRfMldRSWVjTTNyYTZ5T1d1UkdrVi1xN044eTFGOFFBZXZEVHhhLXV0dmhlbjZ4RDFTX2FhNjM4RFlhdmZ1aXBnQmxfdWI1YVN1cDdLUGpadTloUVVHOG5BZlpVNHRvYnZDa0JBWUJ4U0Jpeg?oc=5)
+
+- **来源**：Google News 气候变化
+- **热度**：91.1
+- **发布时间**：2026-09-04T16:18:39+00:00
+- **关键词**：气候变化
+
+> 超强厄尔尼诺敲响警钟！保险专家：传统精算模型难以应对气候变化带来的系统性风险，保险定价逻辑面临重塑
+
+**📊 分析**：该条目涉及【传统精算模型难以应对气候变化带来的系统性风险】话题，因来源权威性高，热度上升。
+
+---
+
+### 6. [Trump signs order to remove endangered species protection for grey wolves](https://www.bbc.co.uk/news/articles/c62k677d4lzo?at_medium=RSS&at_campaign=rss)
 
 - **来源**：BBC 科学与环境
-- **热度**：15.07
-- **发布时间**：2026-09-04T15:44:05+00:00
+- **热度**：88.9
+- **发布时间**：2026-09-05T09:12:48+00:00
 
-> An environmental group says those who died are suspected of stealing petrol from a pipeline in Nigeria's Rivers State.
+> 美国总统表示，此举将有助于牧场主，但环保人士认为这可能会阻碍物种种群恢复的工作。
 
-**📊 分析**：该条目涉及【least】话题，因发布时间较新，热度上升。
+**📊 分析**：该条目涉及【取消对灰狼的濒危物种保护】话题，因来源权威性高，热度上升。
 
 ---
 
-### 10. [今日问政(893)丨今年夏天成都空气质量如何？出现污染天气的原因是什么？回应来了 - 四川新闻](https://news.google.com/rss/articles/CBMiY0FVX3lxTE9wRTFwNXY0VTdfX0drb3JyckswaGdRbGlFY2ZMb3BZdk03bUlDSmtuNVM2MWgyc1h1MkRtSjRtLWdXR3ZCX2EzaGNMaHlYWnhBbEVpa0lWM0VHWmN2RFIwS1Y2aw?oc=5)
+### 7. [Ancient cave art discovery suggests first known humans in Ireland walked over from Wales](https://www.bbc.co.uk/news/articles/c5y75dl0jpko?at_medium=RSS&at_campaign=rss)
 
-- **来源**：Google News 环境污染
-- **热度**：14.97
-- **发布时间**：2026-09-04T09:35:45+00:00
+- **来源**：BBC 科学与环境
+- **热度**：86.7
+- **发布时间**：2026-09-05T05:52:05+00:00
 
-> 关于「出现污染天气的原因是什么」的资讯
+> 研究人员认为，在最近一次冰河时期，威尔士和爱尔兰之间曾存在一条“失落的陆桥”。
 
-**📊 分析**：该条目涉及【出现污染天气的原因是什么】话题，因来源较权威，热度上升。
+**📊 分析**：该条目涉及【环境资讯】话题，因来源权威性高，热度上升。
+
+---
+
+### 8. [Deep beneath Mars, scientists find a vast hidden magma system](https://www.sciencedaily.com/releases/2026/09/260901070529.htm)
+
+- **来源**：ScienceDaily 环境科学
+- **热度**：84.4
+- **发布时间**：2026-09-04T00:52:29+00:00
+
+> 在火星地壳深处，科学家们发现了曾被认为需要类似地球的板块构造才能形成的巨大岩浆系统的证据。地震测量数据显示，熔融岩石在火星地壳中反复演化并循环，其范围可能达数百或数千公里。这一发现挑战了关于复杂行星地壳形成机制的传统观点。
+
+**📊 分析**：该条目涉及【环境资讯】话题，因来源权威性高，热度上升。
+
+---
+
+### 9. [Trump order directs officials to consider stripping protections for gray wolves](https://www.theguardian.com/us-news/2026/sep/04/trump-order-gray-wolves)
+
+- **来源**：The Guardian Environment
+- **热度**：82.2
+- **发布时间**：2026-09-05T00:50:41+00:00
+
+> 内政部获准在三个月内决定是否将狼从濒危物种名单中移除 唐纳德·特朗普于周五签署了一项行政命令，指示内政部考虑将灰狼从《濒危物种法案》中除名，并探讨该机构能否放宽批准猎杀灰狼的条件。该命令要求内政部长道格·伯格姆在三个月内确定，灰狼和墨西哥灰狼的种群数量是否已恢复到足以让联邦政府将其从名单中除名的程度。继续阅读...
+
+**📊 分析**：该条目涉及【环境资讯】话题，因来源权威性高，热度上升。
+
+---
+
+### 10. [Response characteristics of the symbiotic flocs system of bacteria and algae in treating Marine aquaculture wastewater with oxytetracycline](https://www.sciencedirect.com/science/article/pii/S0043135426014582?dgcid=rss_sd_all)
+
+- **来源**：Water Research
+- **热度**：80.0
+- **发布时间**：2026-09-05T00:04:14.560859+00:00
+
+> Response characteristics of the symbiotic flocs system of bacteria and algae in treating Marine aquaculture wastewater with oxytetracycline…
+
+**📊 分析**：该条目涉及【水处理】话题，因来源权威性高，热度上升。
 
 ---

@@ -1711,3 +1711,136 @@
   - 上下文：Thalamic NRXN1-mediated input to human cortical progenitors drives excitatory neurogenesis | Science
 
 ---
+## 2026-09-06
+
+**今日高频关键词**：`#财经` `#生态环境` `#保险` `#系统性` `#重塑`
+
+**今日 Top10 热点**
+
+### 1. Aviation faces hotter, stormier skies – and passengers might have to accept more disruption
+- **来源**：BBC 科学与环境
+- **热度**：100.0
+- **链接**：https://www.bbc.co.uk/news/articles/cm274p8m88lo?at_medium=RSS&at_campaign=rss
+- **摘要**：随着气候变化的影响日益加剧，人们是否将不得不越来越频繁地接受航班延误和改道的情况？
+- **分析**：该条目涉及【环境资讯】话题，因来源权威性高，热度上升。
+
+### 2. 哈尔滨成人本科能不能考研究生 报考条件详解 - eol.cn
+- **来源**：Google News 环境考研
+- **热度**：97.8
+- **链接**：https://news.google.com/rss/articles/CBMiYEFVX3lxTE9Xcm9mbUxSSnpuWUxRVXd1OXdsbHpQOHJjQzFIVkN4MjdEN3FSMTg0UkFpVldIYmZPcFk0TVpOVFYtVHdpWEdfMkhZR25CTUNNUWhzbks0TlRmX1Z0V3JidA?oc=5
+- **摘要**：哈尔滨成人本科能不能考研究生 报考条件详解 - eol.cn
+- **分析**：该条目涉及【环境资讯】话题，因来源权威性高，热度上升。
+
+### 3. 专访中国气象局原副局长许小峰：我们都是气候变化极端天气亲历者 - 新京报
+- **来源**：Google News 气候变化
+- **热度**：95.6
+- **链接**：https://news.google.com/rss/articles/CBMiZEFVX3lxTE9FM1M4d005ZUpaVFN3TkZ2dV82dVpnbV9ERHhKMjlSeTl3alhsYVBfZ1pMWXRZNE1oMHlGMk9lNGZxUnkxUnJHRTQxbk1ha3NscDVyNW5VekdjQm5HQkl1MGZPMXo?oc=5
+- **摘要**：专访中国气象局原副局长许小峰：我们都是气候变化极端天气亲历者 - 新京报
+- **分析**：该条目涉及【我们都是气候变化极端天气亲历者】话题，因来源权威性高，热度上升。
+
+### 4. Plants may be evolving the wrong traits for a warming world
+- **来源**：ScienceDaily 环境科学
+- **热度**：93.3
+- **链接**：https://www.sciencedaily.com/releases/2026/09/260901010719.htm
+- **摘要**：牵牛花可能正陷入一场进化拉锯战：一方面要适应气候变化，另一方面又要吸引日益稀少的传粉者。研究人员发现，在短短九年间，尽管这些植物仍拥有丰富的遗传多样性以供进化，但其适应速率却骤降了96%。
+- **分析**：该条目涉及【环境资讯】话题，因来源权威性高，热度上升。
+
+### 5. 超强厄尔尼诺敲响警钟！保险专家：传统精算模型难以应对气候变化带来的系统性风险，保险定价逻辑面临重塑 - 新浪财经
+- **来源**：Google News 气候变化
+- **热度**：91.1
+- **链接**：https://news.google.com/rss/articles/CBMimAFBVV95cUxNbjktdTZRWEtELUh4dFNBNXpOVmRhRzV5XzY1clRmYUlqQTIxcWRfMldRSWVjTTNyYTZ5T1d1UkdrVi1xN044eTFGOFFBZXZEVHhhLXV0dmhlbjZ4RDFTX2FhNjM4RFlhdmZ1aXBnQmxfdWI1YVN1cDdLUGpadTloUVVHOG5BZlpVNHRvYnZDa0JBWUJ4U0Jpeg?oc=5
+- **摘要**：超强厄尔尼诺敲响警钟！保险专家：传统精算模型难以应对气候变化带来的系统性风险，保险定价逻辑面临重塑
+- **分析**：该条目涉及【传统精算模型难以应对气候变化带来的系统性风险】话题，因来源权威性高，热度上升。
+
+### 6. Trump signs order to remove endangered species protection for grey wolves
+- **来源**：BBC 科学与环境
+- **热度**：88.9
+- **链接**：https://www.bbc.co.uk/news/articles/c62k677d4lzo?at_medium=RSS&at_campaign=rss
+- **摘要**：美国总统表示，此举将有助于牧场主，但环保人士认为这可能会阻碍物种种群恢复的工作。
+- **分析**：该条目涉及【取消对灰狼的濒危物种保护】话题，因来源权威性高，热度上升。
+
+### 7. Ancient cave art discovery suggests first known humans in Ireland walked over from Wales
+- **来源**：BBC 科学与环境
+- **热度**：86.7
+- **链接**：https://www.bbc.co.uk/news/articles/c5y75dl0jpko?at_medium=RSS&at_campaign=rss
+- **摘要**：研究人员认为，在最近一次冰河时期，威尔士和爱尔兰之间曾存在一条“失落的陆桥”。
+- **分析**：该条目涉及【环境资讯】话题，因来源权威性高，热度上升。
+
+### 8. Deep beneath Mars, scientists find a vast hidden magma system
+- **来源**：ScienceDaily 环境科学
+- **热度**：84.4
+- **链接**：https://www.sciencedaily.com/releases/2026/09/260901070529.htm
+- **摘要**：在火星地壳深处，科学家们发现了曾被认为需要类似地球的板块构造才能形成的巨大岩浆系统的证据。地震测量数据显示，熔融岩石在火星地壳中反复演化并循环，其范围可能达数百或数千公里。这一发现挑战了关于复杂行星地壳形成机制的传统观点。
+- **分析**：该条目涉及【环境资讯】话题，因来源权威性高，热度上升。
+
+### 9. Trump order directs officials to consider stripping protections for gray wolves
+- **来源**：The Guardian Environment
+- **热度**：82.2
+- **链接**：https://www.theguardian.com/us-news/2026/sep/04/trump-order-gray-wolves
+- **摘要**：内政部获准在三个月内决定是否将狼从濒危物种名单中移除 唐纳德·特朗普于周五签署了一项行政命令，指示内政部考虑将灰狼从《濒危物种法案》中除名，并探讨该机构能否放宽批准猎杀灰狼的条件。该命令要求内政部长道格·伯格姆在三个月内确定，灰狼和墨西哥灰狼的种群数量是否已恢复到足以让联邦政府将其从名单中除名的程度。继续阅读...
+- **分析**：该条目涉及【环境资讯】话题，因来源权威性高，热度上升。
+
+### 10. Response characteristics of the symbiotic flocs system of bacteria and algae in treating Marine aquaculture wastewater with oxytetracycline
+- **来源**：Water Research
+- **热度**：80.0
+- **链接**：https://www.sciencedirect.com/science/article/pii/S0043135426014582?dgcid=rss_sd_all
+- **摘要**：Response characteristics of the symbiotic flocs system of bacteria and algae in treating Marine aquaculture wastewater with oxytetracycline…
+- **分析**：该条目涉及【水处理】话题，因来源权威性高，热度上升。
+
+**今日自动提取候选新词**
+
+- **财经**（出现 3 次）
+  - 上下文：超强厄尔尼诺敲响警钟！保险专家：传统精算模型难以应对气候变化带来的系统性风险，保险定价逻辑面临重塑 - 新浪财经
+  - 上下文：青港签署《关于生态环境领域的合作安排》 - 新浪财经
+  - 上下文：联合国环境规划署：全球升温突破1.5℃已不可避免 - 新浪财经
+- **生态**（出现 3 次）
+  - 上下文：智听民声 数治环保｜南京“宁听小助手”数字化赋能生态民生服务提质增效 - yzwb.net
+  - 上下文：深学细悟习近平生态文明思想 推动我省生态环境保护实现系统性重塑 - 河北广播电视台
+  - 上下文：贵州生态法治的“典”亮之路 - 中国长安网
+- **天气**（出现 2 次）
+  - 上下文：专访中国气象局原副局长许小峰：我们都是气候变化极端天气亲历者 - 新京报
+  - 上下文：今日问政(893)丨今年夏天成都空气质量如何？出现污染天气的原因是什么？回应来了 - sichuan.scol.com.cn
+- **系统性**（出现 2 次）
+  - 上下文：超强厄尔尼诺敲响警钟！保险专家：传统精算模型难以应对气候变化带来的系统性风险，保险定价逻辑面临重塑 - 新浪财经
+  - 上下文：深学细悟习近平生态文明思想 推动我省生态环境保护实现系统性重塑 - 河北广播电视台
+- **重塑**（出现 2 次）
+  - 上下文：超强厄尔尼诺敲响警钟！保险专家：传统精算模型难以应对气候变化带来的系统性风险，保险定价逻辑面临重塑 - 新浪财经
+  - 上下文：深学细悟习近平生态文明思想 推动我省生态环境保护实现系统性重塑 - 河北广播电视台
+- **Trump**（出现 2 次）
+  - 上下文：Trump signs order to remove endangered species protection for grey wolves
+  - 上下文：Trump order directs officials to consider stripping protections for gray wolves
+- **order**（出现 2 次）
+  - 上下文：Trump signs order to remove endangered species protection for grey wolves
+  - 上下文：Trump order directs officials to consider stripping protections for gray wolves
+- **wolves**（出现 2 次）
+  - 上下文：Trump signs order to remove endangered species protection for grey wolves
+  - 上下文：Trump order directs officials to consider stripping protections for gray wolves
+- **system**（出现 2 次）
+  - 上下文：Deep beneath Mars, scientists find a vast hidden magma system
+  - 上下文：Response characteristics of the symbiotic flocs system of bacteria and algae in treating Marine aquaculture wastewater with oxytetracycline
+- **emissions**（出现 2 次）
+  - 上下文：Fencing farm ponds to limit livestock access reduces nitrous oxide and methane emissions
+  - 上下文：Trade-off mechanisms between N<sub>2</sub>O emissions and nitrogen multifunctionality in a lake littoral mesocosm wetland under seasonal water-level fluctuations: insights from metagenomics and machine learning
+- **lake**（出现 2 次）
+  - 上下文：Trade-off mechanisms between N<sub>2</sub>O emissions and nitrogen multifunctionality in a lake littoral mesocosm wetland under seasonal water-level fluctuations: insights from metagenomics and machine learning
+  - 上下文：Agricultural phosphorus pollution leads to a two-stage release of organic matter in sediments at the bottom of lake
+- **water**（出现 2 次）
+  - 上下文：Trade-off mechanisms between N<sub>2</sub>O emissions and nitrogen multifunctionality in a lake littoral mesocosm wetland under seasonal water-level fluctuations: insights from metagenomics and machine learning
+  - 上下文：A domain-enhanced multi-agent framework for trustworthy literature screening in water research
+- **生态环境**（出现 2 次）
+  - 上下文：青港签署《关于生态环境领域的合作安排》 - 新浪财经
+  - 上下文：生态环境部党组召开会议 - 中华人民共和国生态环境部
+- **sichuan**（出现 2 次）
+  - 上下文：遥望雪山之后，蓝天治理迎来新阶段 - sichuan.scol.com.cn
+  - 上下文：今日问政(893)丨今年夏天成都空气质量如何？出现污染天气的原因是什么？回应来了 - sichuan.scol.com.cn
+- **scol**（出现 2 次）
+  - 上下文：遥望雪山之后，蓝天治理迎来新阶段 - sichuan.scol.com.cn
+  - 上下文：今日问政(893)丨今年夏天成都空气质量如何？出现污染天气的原因是什么？回应来了 - sichuan.scol.com.cn
+- **中国**（出现 2 次）
+  - 上下文：贵州生态法治的“典”亮之路 - 中国长安网
+  - 上下文：亚洲清洁空气中心:《中国空气质量改善的健康效应评估2026：迈向空气污染健康影响减半目标》 - 发现报告
+- **空气质量**（出现 2 次）
+  - 上下文：亚洲清洁空气中心:《中国空气质量改善的健康效应评估2026：迈向空气污染健康影响减半目标》 - 发现报告
+  - 上下文：今日问政(893)丨今年夏天成都空气质量如何？出现污染天气的原因是什么？回应来了 - sichuan.scol.com.cn
+
+---

@@ -2979,6 +2979,114 @@ def calculate_weekly_categories():
     return result
 
 
+def _snapshot_keywords(item):
+    """从一条快照/当日条目中提取关键词集合（topic_tags + matched_keywords）"""
+    kws = set()
+    for key in ("topic_tags", "matched_keywords", "keywords"):
+        val = item.get(key)
+        if isinstance(val, list):
+            for k in val:
+                k = str(k).strip()
+                if k:
+                    kws.add(k)
+        elif isinstance(val, str) and val.strip():
+            kws.add(val.strip())
+    return kws
+
+
+def calculate_week_stats(today_items=None):
+    """
+    统计首页底部三个近7天指标：
+    - week_total_items：近7天热点总数（当天用内存 items，前6天优先用 history.json 的
+      完整 total_items，缺失时回退 daily 快照条目数；daily 快照只存 Top10）
+    - week_new_keywords：近7天新出现、而更早30天（第8-37天）从未出现过的关键词数
+    - policy_ratio：近7天"环境政策"类别条目占比（百分比，保留1位小数，类别来自 daily 快照）
+    无任何数据时全部返回 0。
+    """
+    today_items = today_items or []
+    today = datetime.now(timezone.utc).date()
+
+    # history.json：date -> record（含完整 total_items / keywords / keyword_counts）
+    history_map = {}
+    try:
+        for rec in load_history():
+            d = rec.get("date")
+            if d:
+                history_map[d] = rec
+    except Exception:
+        history_map = {}
+
+    def date_str(offset):
+        return (today - timedelta(days=offset)).strftime("%Y-%m-%d")
+
+    def load_snapshot(offset):
+        """offset=天数偏移；返回快照条目列表，文件不存在返回 None"""
+        p = os.path.join(DATA_DIR, "daily", f"{date_str(offset)}.json")
+        if os.path.exists(p):
+            try:
+                with open(p, "r", encoding="utf-8") as f:
+                    snap = json.load(f)
+                return snap.get("items", []) if isinstance(snap, dict) else []
+            except Exception:
+                return None
+        return None
+
+    week_total = 0
+    week_keywords = set()
+    policy_count = 0
+    week_cat_total = 0  # 有类别信息的条目数（快照口径），用于政策占比分母
+
+    # 近7天：offset 0 用当日内存条目，1-6 读快照 + history
+    for offset in range(7):
+        ds = date_str(offset)
+        if offset == 0:
+            day_items = today_items
+            week_total += len(day_items)
+        else:
+            day_items = load_snapshot(offset)
+            # 总数优先取 history 的完整条目数，其次快照条目数
+            hist_rec = history_map.get(ds)
+            if hist_rec and int(hist_rec.get("total_items", 0) or 0) > 0:
+                week_total += int(hist_rec["total_items"])
+                for k in (hist_rec.get("keywords") or []) + list((hist_rec.get("keyword_counts") or {}).keys()):
+                    if str(k).strip():
+                        week_keywords.add(str(k).strip())
+            elif day_items:
+                week_total += len(day_items)
+        if not day_items:
+            continue
+        for it in day_items:
+            week_keywords |= _snapshot_keywords(it)
+            cat = it.get("category") or classify_item(it, allow_translate=False)
+            week_cat_total += 1
+            if cat == "环境政策":
+                policy_count += 1
+
+    # 更早基线：第 8-37 天（前30天）出现过的关键词（快照 + history）
+    baseline_keywords = set()
+    for offset in range(7, 37):
+        ds = date_str(offset)
+        hist_rec = history_map.get(ds)
+        if hist_rec:
+            for k in (hist_rec.get("keywords") or []) + list((hist_rec.get("keyword_counts") or {}).keys()):
+                if str(k).strip():
+                    baseline_keywords.add(str(k).strip())
+        day_items = load_snapshot(offset)
+        if day_items:
+            for it in day_items:
+                baseline_keywords |= _snapshot_keywords(it)
+
+    new_keywords = week_keywords - baseline_keywords
+    # 政策占比分母用有类别信息的快照口径；若完全没有快照类别信息则为0
+    policy_ratio = round(policy_count / week_cat_total * 100, 1) if week_cat_total > 0 else 0.0
+
+    return {
+        "week_total_items": int(week_total),
+        "week_new_keywords": int(len(new_keywords)),
+        "policy_ratio": policy_ratio,
+    }
+
+
 def generate_timeline_data(days=30):
     """
     统计近 N 天（默认30天）各大类每天的条目数量与热度总和
@@ -4476,7 +4584,7 @@ def _clean_keywords(keywords):
     return cleaned
 
 
-def generate_latest_json(items, config, weekly_summary="", weekly_keywords=None, weekly_insight="", timeline=None):
+def generate_latest_json(items, config, weekly_summary="", weekly_keywords=None, weekly_insight="", timeline=None, source_health=None, week_stats=None):
     """生成 data/latest.json"""
     site_name = config.get("site_name", "环境学子雷达")
     keywords = config.get("keywords", DEFAULT_KEYWORDS)
@@ -4562,11 +4670,31 @@ def generate_latest_json(items, config, weekly_summary="", weekly_keywords=None,
     # 近7天分类趋势（从每日快照中统计）
     weekly_categories = calculate_weekly_categories()
 
+    # RSS 源抓取统计（来自本次运行的源健康度；缺省为0）
+    if source_health:
+        total_sources = len(source_health)
+        success_sources = sum(1 for s in source_health if s.get("success"))
+        failed_sources = total_sources - success_sources
+    else:
+        total_sources = success_sources = failed_sources = 0
+
+    # 近7天底部统计（总数/新增关键词/政策类占比），缺省为0
+    week_stats = week_stats or {}
+    week_total_items = int(week_stats.get("week_total_items", 0))
+    week_new_keywords = int(week_stats.get("week_new_keywords", 0))
+    policy_ratio = week_stats.get("policy_ratio", 0.0)
+
     data = {
         "report_date": datetime.now(timezone.utc).strftime("%Y-%m-%d"),
         "date": datetime.now(timezone.utc).strftime("%Y-%m-%d"),
         "site_name": sanitize_str(site_name),
         "total_items": len(output_items),
+        "total_sources": total_sources,
+        "success_sources": success_sources,
+        "failed_sources": failed_sources,
+        "week_total_items": week_total_items,
+        "week_new_keywords": week_new_keywords,
+        "policy_ratio": policy_ratio,
         "items": output_items,
         "keyword_analysis": top_keywords,
         "keywords": top_keywords,
@@ -4622,6 +4750,12 @@ def generate_daily_snapshot(items, config):
         "report_date": today,
         "site_name": sanitize_str(site_name),
         "total_items": len(output_items),
+        "total_sources": total_sources,
+        "success_sources": success_sources,
+        "failed_sources": failed_sources,
+        "week_total_items": week_total_items,
+        "week_new_keywords": week_new_keywords,
+        "policy_ratio": policy_ratio,
         "items": output_items,
     }
 
@@ -5157,7 +5291,14 @@ def main():
 
     # 近30天大类事件时间线（写入 timeline.json，并内嵌到 latest.json）
     timeline_data = generate_timeline_data(days=30)
-    latest_data = generate_latest_json(all_items, config, weekly_summary=weekly_summary, weekly_keywords=weekly_keywords, weekly_insight=weekly_insight, timeline=timeline_data)
+    # 首页底部近7天统计（总数/新增关键词/政策类占比），当天条目计入
+    week_stats = calculate_week_stats(all_items)
+    print(f"[统计] 近7天：热点{week_stats['week_total_items']}条，新增关键词{week_stats['week_new_keywords']}个，政策类占比{week_stats['policy_ratio']}%")
+    latest_data = generate_latest_json(
+        all_items, config, weekly_summary=weekly_summary,
+        weekly_keywords=weekly_keywords, weekly_insight=weekly_insight,
+        timeline=timeline_data, source_health=source_health, week_stats=week_stats,
+    )
     generate_daily_snapshot(all_items, config)
     generate_monthly_archive(all_items, config)
     generate_pending_terms(all_items, config)

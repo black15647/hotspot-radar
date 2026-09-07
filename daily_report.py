@@ -2343,6 +2343,62 @@ def _extract_json_array(text, label="AI"):
         return None
 
 
+def _json_mode_fields():
+    """
+    JSON 结构化输出统一附加字段（针对 nemotron 等推理模型）：
+    - temperature=0：降低随机性，输出更稳定
+    - response_format=json_object：强制返回 JSON 对象（不接受裸数组）
+    - chat_template_kwargs.enable_thinking=False：关闭可见思考链（Here's a thinking process...）
+    """
+    return {
+        "temperature": 0,
+        "response_format": {"type": "json_object"},
+        "chat_template_kwargs": {"enable_thinking": False},
+    }
+
+
+def _extract_json_object(text, label="AI"):
+    """
+    从 AI 返回中稳健提取 JSON 对象（json_object 模式），并兼容模型仍返回裸数组的情况。
+    流程：去代码块 -> 直接 json.loads -> 失败则截取第一个 '{' 到最后一个 '}' 再解析
+          -> 仍失败则尝试提取数组（向后兼容）。
+    成功返回 dict（或向后兼容时返回 list）；失败返回 None 并打印前200字。
+    """
+    if not text:
+        return None
+    t = _strip_code_fence(text)
+
+    def _try_loads(s):
+        try:
+            return json.loads(s)
+        except Exception:
+            return None
+
+    # 1) 整体直接解析
+    obj = _try_loads(t)
+    if isinstance(obj, (dict, list)):
+        return obj
+
+    # 2) 截取第一个 { 到最后一个 }
+    b0, b1 = t.find("{"), t.rfind("}")
+    if b0 >= 0 and b1 > b0:
+        obj = _try_loads(t[b0:b1 + 1])
+        if isinstance(obj, (dict, list)):
+            return obj
+
+    # 3) 向后兼容：模型仍返回裸数组
+    arr = _extract_json_array(text, label=label)
+    if isinstance(arr, list):
+        return arr
+
+    low = t.lower()
+    if any(m in low for m in _AI_THINKING_MARKERS):
+        print(f"[{label}] 返回思考链且无法提取JSON，回退规则")
+    else:
+        print(f"[{label}] JSON对象解析失败，回退规则。前200字: {t[:200]}")
+    return None
+
+
 def check_model_health(api_config):
     """
     模型健康检查：用极短文本测试模型是否可用
@@ -2582,10 +2638,15 @@ def call_nvidia_api(prompt, api_config, max_tokens=None, json_mode=False):
         "max_tokens": max_tokens or api_config["max_tokens"],
         "temperature": 0.3,
     }
-    # 结构化输出：要求模型直接返回 JSON（部分模型不支持，遇 400 自动去掉该参数）
-    use_response_format = bool(json_mode)
-    if use_response_format:
+    # 关闭推理模型可见思考链（对所有请求生效，自然语言摘要同样需要）
+    # 部分模型不支持该字段，遇 400 会按队列逐个移除后重试
+    data["chat_template_kwargs"] = {"enable_thinking": False}
+    json_strip_queue = ["chat_template_kwargs"]
+    if json_mode:
+        # JSON 模式额外：零随机 + 强制返回 JSON 对象（不接受裸数组）
+        data["temperature"] = 0
         data["response_format"] = {"type": "json_object"}
+        json_strip_queue = ["chat_template_kwargs", "response_format"]
 
     # 重试机制：429/超时/返回空 最多重试2次（3/6秒），总共3次尝试
     retry_delays = [3, 6]
@@ -2635,11 +2696,11 @@ def call_nvidia_api(prompt, api_config, max_tokens=None, json_mode=False):
             return content
         except requests.exceptions.HTTPError as e:
             status_code = e.response.status_code if e.response is not None else "unknown"
-            # 400 多为模型不支持 response_format，去掉该参数后立即重试（不消耗重试退避）
-            if status_code == 400 and use_response_format:
-                use_response_format = False
-                data.pop("response_format", None)
-                print(f"[英伟达 NIMAPI] 模型不支持 response_format(400)，已移除该参数重试")
+            # 400 多为模型不支持 JSON 模式附加字段，按队列逐个移除后立即重试
+            if status_code == 400 and json_strip_queue:
+                drop_field = json_strip_queue.pop(0)
+                data.pop(drop_field, None)
+                print(f"[英伟达 NIMAPI] 400，模型可能不支持 {drop_field}，已移除并重试（剩余: {json_strip_queue}）")
                 continue
             # 429 限流，需要重试
             if status_code == 429 and attempt < 2:
@@ -2728,21 +2789,31 @@ def _ai_relevance_irrelevant(items, api_config):
     prompt = (
         "请判断以下新闻标题是否与环境领域相关（包括气候变化、污染治理、生态保护、"
         "资源能源、环境政策、可持续发展、环境健康、环境技术等）。"
-        "直接返回JSON数组，格式：[{\"id\":0,\"relevant\":\"是\"},{\"id\":1,\"relevant\":\"否\"}]，"
-        "每条只回答\"是\"或\"否\"，不要解释。\n\n"
+        "只输出一个 JSON 对象，不要输出思考过程、解释或 Markdown。"
+        "格式：{\"results\":[{\"id\":0,\"relevant\":\"是\"},{\"id\":1,\"relevant\":\"否\"}]}，"
+        "每条只回答\"是\"或\"否\"。\n\n"
         "标题列表：\n" + "\n".join(lines)
     )
     result = call_nvidia_api(prompt, api_config, max_tokens=100, json_mode=True)
     if not result:
         return None
-    arr = _extract_json_array(result, label="相关性过滤")
+    parsed = _extract_json_object(result, label="相关性过滤")
+    if isinstance(parsed, dict):
+        arr = parsed.get("results") or parsed.get("items") or []
+    elif isinstance(parsed, list):
+        arr = parsed
+    else:
+        arr = None
     if isinstance(arr, list):
         irrelevant_set = set()
         for r in arr:
             if isinstance(r, dict) and "id" in r:
                 rid = int(r["id"])
                 rel = str(r.get("relevant", "")).strip()
-                if rel in ("否", "no", "false", "0"):
+                # 兼容 is_environment 布尔字段
+                is_env = r.get("is_environment", None)
+                irrelevant = rel in ("否", "no", "false", "0") or is_env is False
+                if irrelevant:
                     irrelevant_set.add(rid)
         return irrelevant_set
     print("[相关性过滤] AI 结果解析失败，降级为规则判断")
@@ -3152,8 +3223,8 @@ def generate_ai_keywords(items, api_config):
     combined_text = "\n".join(text_parts)
 
     prompt = (
-        "你是一个环境领域关键词提取器。只输出一个 JSON 数组，不要输出任何思考过程、分析、解释、英文或 Markdown 代码块。"
-        "格式示例：[{\"term\": \"碳中和\", \"count\": 5}]。如果无法提取，输出空数组 []。\n"
+        "你是一个环境领域关键词提取器。只输出一个 JSON 对象，不要输出任何思考过程、分析、解释、英文或 Markdown 代码块。"
+        "格式：{\"keywords\":[{\"term\":\"碳中和\",\"count\":5}]}，无法提取时输出 {\"keywords\":[]}。\n"
         "要求：关键词必须与环境领域相关（气候、生态、污染、能源、碳、水处理、可持续、环境政策、环境健康、环境技术等），"
         "具体多样，避免宽泛词（环境、污染、保护、研究、发展），从标题和摘要中提炼，不要凭空生成。\n\n"
         f"新闻内容：\n{combined_text}"
@@ -3167,7 +3238,14 @@ def generate_ai_keywords(items, api_config):
                 print("[AI关键词] 首次调用返回空，重试一次...")
                 continue
             return None
-        keywords = _extract_json_array(result, label="AI关键词")
+        parsed = _extract_json_object(result, label="AI关键词")
+        # 对象模式从 keywords 键取值；向后兼容裸数组
+        if isinstance(parsed, dict):
+            keywords = parsed.get("keywords") or parsed.get("terms") or []
+        elif isinstance(parsed, list):
+            keywords = parsed
+        else:
+            keywords = None
         if isinstance(keywords, list):
             valid = []
             for kw in keywords:
@@ -3176,6 +3254,10 @@ def generate_ai_keywords(items, api_config):
                     # 环境相关性过滤：非环境词直接丢弃
                     if is_env_relevant_term(term):
                         valid.append({"term": term, "count": int(kw.get("count", 1) or 1)})
+                elif isinstance(kw, str) and kw.strip():
+                    term = kw.strip()
+                    if is_env_relevant_term(term):
+                        valid.append({"term": term, "count": 1})
             if valid:
                 if attempt > 0:
                     print(f"[AI关键词] 第{attempt+1}次尝试解析成功，获取{len(valid)}个环境相关关键词")
@@ -3221,8 +3303,8 @@ def generate_topic_tags(item, api_config):
         content_text = f"标题：{title}"
 
     prompt = (
-        "你是一个环境领域关键词提取器。只输出一个 JSON 数组，不要输出任何思考过程、分析、解释、英文或 Markdown 代码块。"
-        "格式示例：[\"标签1\", \"标签2\"]。如果无法提取，输出空数组 []。\n"
+        "你是一个环境领域关键词提取器。只输出一个 JSON 对象，不要输出任何思考过程、分析、解释、英文或 Markdown 代码块。"
+        "格式：{\"tags\":[\"标签1\",\"标签2\"]}，无法提取时输出 {\"tags\":[]}。\n"
         "要求：提取 1-3 个最具体、最能概括内容的中文关键词/短语，优先具体事件、地点、物质、技术、政策名称；"
         "禁止宽泛词（环境、污染、保护、气候变化、环保、生态、可持续发展、环境领域）。\n\n"
         f"{content_text}"
@@ -3232,7 +3314,13 @@ def generate_topic_tags(item, api_config):
     if not result:
         return []
 
-    tags = _extract_json_array(result, label="AI标签")
+    parsed = _extract_json_object(result, label="AI标签")
+    if isinstance(parsed, dict):
+        tags = parsed.get("tags") or parsed.get("keywords") or []
+    elif isinstance(parsed, list):
+        tags = parsed
+    else:
+        tags = None
     if isinstance(tags, list):
         banned = {"环境", "污染", "保护", "气候变化", "环保", "生态", "可持续发展", "环境领域", "环境保护", "环境问题", "环境科学", "环境工程"}
         clean_tags = []
@@ -3654,13 +3742,13 @@ def generate_batch_summaries(items, api_config):
             else:
                 news_list.append(f"{local_in_batch}. 标题：{title}\n（暂无原文，请基于标题中的关键信息生成摘要，不要直接照抄标题原话）")
 
-        prompt = f"""你是一个环境领域摘要助手。请为以下每条新闻生成一句25-60字的中文摘要，直接返回JSON数组，格式：[{{"id":0,"summary":"..."}},{{"id":1,"summary":"..."}}]，不要解释。
+        prompt = f"""你是一个环境领域摘要助手。请为以下每条新闻生成一句25-60字的中文摘要，只输出一个 JSON 对象，格式：{{"summaries":[{{"id":0,"summary":"..."}},{{"id":1,"summary":"..."}}]}}，不要解释。
 严格要求：
 1. 摘要必须包含具体事件信息，让用户一眼了解文章核心内容
 2. 禁止输出"点击查看详情""标题涉及""请点击"等无信息量的提示语
 3. 不要直接照抄标题原话，要基于内容提炼
 4. 摘要长度25-60个中文字符
-5. 直接返回 JSON 数组，不要解释，不要 Markdown 代码块，不要思考过程
+5. 只输出 JSON 对象，不要思考过程、解释或 Markdown 代码块
 
 新闻列表：
 {chr(10).join(news_list)}"""
@@ -3679,10 +3767,17 @@ def generate_batch_summaries(items, api_config):
                     "model": api_config["model"],
                     "messages": [{"role": "user", "content": prompt}],
                     "max_tokens": 100,
-                    "temperature": 0.3,
                 }
+                # JSON 模式：零随机 + 强制JSON对象 + 关闭思考链；400 时逐个移除附加字段
+                data.update(_json_mode_fields())
+                _strip_q = ["chat_template_kwargs", "response_format"]
                 t0 = time.time()
                 resp = requests.post(url, headers=headers, json=data, timeout=20)
+                if resp.status_code == 400 and _strip_q:
+                    drop = _strip_q.pop(0)
+                    data.pop(drop, None)
+                    print(f"[AI批量摘要] 400，移除 {drop} 后重试")
+                    resp = requests.post(url, headers=headers, json=data, timeout=20)
                 elapsed = time.time() - t0
                 resp.raise_for_status()
                 result = resp.json()
@@ -3727,7 +3822,13 @@ def generate_batch_summaries(items, api_config):
         batch_success = 0
         if result_text:
             try:
-                summaries = _extract_json_array(result_text, label="AI批量摘要")
+                _parsed = _extract_json_object(result_text, label="AI批量摘要")
+                if isinstance(_parsed, dict):
+                    summaries = _parsed.get("summaries") or _parsed.get("results") or []
+                elif isinstance(_parsed, list):
+                    summaries = _parsed
+                else:
+                    summaries = None
                 if isinstance(summaries, list):
                     success_ids = set()
                     for s in summaries:
@@ -3822,9 +3923,9 @@ def generate_batch_topic_tags(items, api_config):
                 news_list.append(f"{local_idx}. 标题：{title_zh}")
 
         prompt = (
-            "你是一个环境领域关键词提取器。只输出一个 JSON 数组，元素是每个条目的标签列表，"
+            "你是一个环境领域关键词提取器。只输出一个 JSON 对象，元素是每个条目的标签列表，"
             "不要输出任何思考过程、分析、解释、英文或 Markdown 代码块。"
-            "格式：[{\"id\":0,\"tags\":[\"标签1\"]}, ...]，无法提取的条目返回空 tags。\n"
+            "格式：{\"results\":[{\"id\":0,\"tags\":[\"标签1\"]}, ...]}，无法提取的条目返回空 tags。\n"
             "要求：每条提取1-3个具体中文关键词/短语，与环境领域相关，优先具体事件、地点、物质、技术、政策名称；"
             "禁止宽泛词（环境、污染、保护、气候变化、环保、生态、可持续发展、环境领域）；英文内容按其中文含义提取。\n\n"
             f"新闻列表：\n{chr(10).join(news_list)}"
@@ -3844,14 +3945,15 @@ def generate_batch_topic_tags(items, api_config):
                     "model": api_config["model"],
                     "messages": [{"role": "user", "content": prompt}],
                     "max_tokens": 100,
-                    "temperature": 0.3,
-                    "response_format": {"type": "json_object"},
                 }
+                # JSON 模式：零随机 + 强制JSON对象 + 关闭思考链；400 时逐个移除附加字段
+                data.update(_json_mode_fields())
+                _strip_q = ["chat_template_kwargs", "response_format"]
                 resp = requests.post(url, headers=headers, json=data, timeout=20)
-                # 模型不支持 response_format 时（400）去掉该参数重试一次
-                if resp.status_code == 400 and "response_format" in data:
-                    data.pop("response_format", None)
-                    print("[AI批量标签] 模型不支持 response_format(400)，已移除重试")
+                if resp.status_code == 400 and _strip_q:
+                    drop = _strip_q.pop(0)
+                    data.pop(drop, None)
+                    print(f"[AI批量标签] 400，移除 {drop} 后重试")
                     resp = requests.post(url, headers=headers, json=data, timeout=20)
                 resp.raise_for_status()
                 result = resp.json()
@@ -3897,8 +3999,14 @@ def generate_batch_topic_tags(items, api_config):
                 item["topic_tags"] = []
             continue
 
-        # 解析返回的 JSON（统一提取，兼容夹带推理过程的返回）
-        tags_list = _extract_json_array(result_text, label="AI批量标签")
+        # 解析返回的 JSON 对象（从 results 键取值，兼容裸数组与夹带推理过程）
+        _parsed = _extract_json_object(result_text, label="AI批量标签")
+        if isinstance(_parsed, dict):
+            tags_list = _parsed.get("results") or _parsed.get("tags") or []
+        elif isinstance(_parsed, list):
+            tags_list = _parsed
+        else:
+            tags_list = None
         if isinstance(tags_list, list):
             batch_count = 0
             wide_banned = {"环境", "污染", "保护", "气候变化", "环保", "生态", "可持续发展", "环境领域", "环境保护", "环境问题"}

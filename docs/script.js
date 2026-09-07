@@ -515,6 +515,14 @@
                 }
             }
 
+            // 预取源健康度（可选）：顶部 RSS 源统计优先使用它的 success_count
+            try {
+                const shRes = await fetch('data/source_health.json');
+                if (shRes.ok) state.sourceHealthData = await shRes.json();
+            } catch (e) {
+                state.sourceHealthData = null;
+            }
+
             els.loading.style.display = 'none';
             renderAll();
             initDailyWord();
@@ -2888,10 +2896,16 @@
             const now = new Date();
             const weeks = ['星期日', '星期一', '星期二', '星期三', '星期四', '星期五', '星期六'];
             let srcCount = 0;
-            if (state.latestData && state.latestData.items) {
+            // 优先源健康度文件的成功源数；其次 latest.json 的 success_sources；
+            // 都没有时回退为当日条目来源去重数
+            if (state.sourceHealthData && Number.isFinite(Number(state.sourceHealthData.success_count))) {
+                srcCount = Number(state.sourceHealthData.success_count) || 0;
+            } else if (state.latestData && Number.isFinite(Number(state.latestData.success_sources))) {
+                srcCount = Number(state.latestData.success_sources) || 0;
+            } else if (state.latestData && state.latestData.items) {
                 srcCount = new Set(state.latestData.items.map((it) => it.source).filter(Boolean)).size;
             }
-            const srcTxt = srcCount > 0 ? ` · 已抓取 ${srcCount} 个 RSS 源` : ' · 每日聚合 · 数据自动更新';
+            const srcTxt = srcCount > 0 ? ` · 已抓取 ${srcCount} 个 RSS 源` : ' · 已抓取 0 个 RSS 源';
             dateEl.textContent = `${now.getFullYear()}年${now.getMonth() + 1}月${now.getDate()}日 · ${weeks[now.getDay()]}${srcTxt}`;
         }
 
@@ -2914,33 +2928,34 @@
         const statPolicy = document.getElementById('statPolicy');
         if (!statTotal) return;
 
-        const hist = state.historyData || [];
-        if (hist.length > 0) {
-            const last7 = hist.slice(-7);
-            const totalItems = last7.reduce((acc, d) => acc + (parseInt(d.total_items) || 0), 0);
-            const kwSet = new Set();
-            last7.forEach((d) => {
-                (d.keywords || []).forEach((k) => kwSet.add(k));
-            });
-            statTotal.textContent = totalItems;
-            statKeywords.textContent = kwSet.size;
-            // 政策类占比：关键词含政策/督察/法规/环评/法规等
-            let policy = 0;
-            kwSet.forEach((k) => {
-                if (/政策|督察|法规|环评|条例|标准|执法/.test(String(k))) policy++;
-            });
-            const ratio = kwSet.size > 0 ? Math.round((policy / kwSet.size) * 100) : 0;
-            statPolicy.textContent = ratio + '%';
+        const ld = state.latestData || {};
+        const hasWeekFields = Number.isFinite(Number(ld.week_total_items));
+        if (hasWeekFields) {
+            // 后端已统计的真实近7天指标（缺省为0）
+            statTotal.textContent = Number(ld.week_total_items) || 0;
+            statKeywords.textContent = Number(ld.week_new_keywords) || 0;
+            const pr = Number(ld.policy_ratio);
+            statPolicy.textContent = (Number.isFinite(pr) ? pr : 0) + '%';
         } else {
-            // 无历史数据：用当日关键词分析估算
-            const kw = (state.latestData && state.latestData.keyword_analysis) || [];
-            statTotal.textContent = (state.latestData && state.latestData.total_items) || 0;
-            statKeywords.textContent = kw.length;
-            let policy = 0;
-            kw.forEach((k) => {
-                if (/政策|督察|法规|环评|条例|标准|执法/.test(String(k.keyword || k))) policy++;
-            });
-            statPolicy.textContent = kw.length > 0 ? Math.round((policy / kw.length) * 100) + '%' : '--';
+            // 兼容旧数据：从 history.json 估算
+            const hist = state.historyData || [];
+            if (hist.length > 0) {
+                const last7 = hist.slice(-7);
+                const totalItems = last7.reduce((acc, d) => acc + (parseInt(d.total_items) || 0), 0);
+                const kwSet = new Set();
+                last7.forEach((d) => { (d.keywords || []).forEach((k) => kwSet.add(k)); });
+                statTotal.textContent = totalItems;
+                statKeywords.textContent = kwSet.size;
+                let policy = 0;
+                kwSet.forEach((k) => {
+                    if (/政策|督察|法规|环评|条例|标准|执法/.test(String(k))) policy++;
+                });
+                statPolicy.textContent = kwSet.size > 0 ? Math.round((policy / kwSet.size) * 100) + '%' : '0%';
+            } else {
+                statTotal.textContent = Number(ld.total_items) || 0;
+                statKeywords.textContent = ((ld.keyword_analysis) || []).length;
+                statPolicy.textContent = '0%';
+            }
         }
     }
 

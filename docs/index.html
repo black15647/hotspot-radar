@@ -416,17 +416,19 @@ var _hmt = _hmt || [];
         <div class="modal-overlay" id="algoOverlay"></div>
         <div class="modal-content">
             <div class="modal-head">
-                <h3 class="modal-title">透明热度算法</h3>
+                <h3 class="modal-title">透明热度算法 <span class="algo-ver">v2</span></h3>
                 <button class="modal-close" id="algoClose">✕</button>
             </div>
             <div class="modal-body">
-                <p class="formula">热度 = 5 + 来源权重 × 3 + 关键词匹配数 × 关键词加分 + 主题聚合加分 + 10 × e<sup>-小时数/24</sup></p>
+                <p class="formula">基础分 base = 来源权威分(0-25) + 关键词IDF饱和分(0-25) + 跨源共振分(0-15) + 内容质量分(0-10)<br>时间衰减 T = 0.35 + 0.65 × e<sup>(−hours/48)</sup><br>原始分 raw = base × T × 重复惩罚(0.6)<br>展示分 = 当日百分位映射到 40–100</p>
                 <ul class="algo-list">
-                    <li>基础分 5：每条资讯的保底热度。</li>
-                    <li>来源权重：权威学术源（如 Nature）权重更高，加分更多。</li>
-                    <li>关键词匹配：命中环境领域关键词越多，热度越高。</li>
-                    <li>主题聚合：同一关键词在多个条目中出现，额外加分。</li>
-                    <li>时间衰减：越新的资讯热度越高，24 小时后衰减明显。</li>
+                    <li><strong>来源权威分（0-25）</strong>：按来源权重线性映射，权威期刊与官方机构得分更高。</li>
+                    <li><strong>关键词IDF饱和分（0-25）</strong>：采用 IDF 加权，越具体的环境关键词贡献越大，“环境/污染”等常见泛词自动降权。</li>
+                    <li><strong>跨源共振分（0-15）</strong>：同一关键词被多个权威来源同时报道时加分，反映真实关注热度。</li>
+                    <li><strong>内容质量分（0-10）</strong>：摘要完整有效（≥20 字）得 10 分，否则 0 分。</li>
+                    <li><strong>时间衰减</strong>：保留 35% 长尾、48 小时半衰期，兼顾新闻时效与知识长期价值。</li>
+                    <li><strong>重复惩罚</strong>：同一事件被多个来源报道时，仅保留最高分条目，其余 ×0.6，避免刷屏。</li>
+                    <li><strong>展示分</strong>：将 raw 分数按当日百分位映射到 40–100，更直观且跨天可比。</li>
                 </ul>
             </div>
         </div>

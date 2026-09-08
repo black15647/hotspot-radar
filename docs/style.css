@@ -1258,6 +1258,8 @@ body.dark .card-rank.rank-other { background: rgba(148, 163, 184, 0.2); color: #
     border-bottom: 1px dashed var(--clr-border);
 }
 .algo-list li:last-child { border-bottom: none; }
+.algo-ver { font-size: 12px; font-weight: 600; opacity: .7; }
+.algo-list li strong { color: var(--clr-text); font-weight: 600; }
 .about-note { font-size: 14px; color: var(--clr-text); margin-bottom: 10px; line-height: 1.7; }
 
 /* 历史归档 */

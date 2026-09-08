@@ -2401,9 +2401,12 @@ def _extract_json_object(text, label="AI"):
 
 def check_model_health(api_config):
     """
-    模型健康检查：用极短文本测试模型是否可用
-    - 返回 True 表示模型可用，False 表示不可用
-    - 连续失败2次或返回404则判定不可用
+    模型健康检查：用最小请求（ping, max_tokens=1）探测模型端点是否可达
+    - 返回 True 表示可用，False 表示不可用
+    - 网络波动（连接错误/超时/5xx/429）：等待5秒重试，最多2次，两次都失败才判不可用
+    - 确定性模型/密钥错误（404 模型不存在、401/403 密钥无效）：重试无意义，直接判不可用
+      其中 404 会先尝试 fallback_model
+    - HTTP 200 即视为端点、模型、密钥均正常（不强制要求返回内容）
     """
     if not api_config.get("summary_enabled") or not api_config.get("api_key"):
         return False
@@ -2416,43 +2419,79 @@ def check_model_health(api_config):
         "Content-Type": "application/json",
     }
     model = api_config["model"]
-    data = {
-        "model": model,
-        "messages": [{"role": "user", "content": "回复OK"}],
-        "max_tokens": 5,
-        "temperature": 0.1,
-    }
+    # 最小请求体，降低因大请求导致超时的概率
+    def build_payload(m):
+        return {
+            "model": m,
+            "messages": [{"role": "user", "content": "ping"}],
+            "max_tokens": 1,
+            "temperature": 0,
+        }
+    data = build_payload(model)
 
-    for attempt in range(2):
+    HEALTH_TIMEOUT = 20      # 健康检查超时20秒，容忍网络抖动
+    MAX_ATTEMPTS = 2         # 最多尝试2次
+    RETRY_WAIT = 5           # 失败后等待5秒再重试
+    last_reason = "未知原因"
+
+    for attempt in range(MAX_ATTEMPTS):
         try:
-            resp = requests.post(url, headers=headers, json=data, timeout=15)
+            resp = requests.post(url, headers=headers, json=data, timeout=HEALTH_TIMEOUT)
+
+            # 404：模型ID不存在（确定性模型问题，重试无意义），先尝试备用模型
             if resp.status_code == 404:
                 body = resp.text[:200].replace("\n", " ")
-                print(f"[模型健康检查] 404 模型不可用 | 模型: {model} | 响应: {body}")
-                # 尝试备用模型
+                print(f"[模型健康检查] 404 模型不存在（模型问题，非网络波动）| 模型: {model} | 响应: {body}")
                 fallback = (api_config.get("fallback_model") or "").strip()
                 if fallback and fallback != model:
                     print(f"[模型健康检查] 尝试备用模型: {fallback}")
-                    data["model"] = fallback
-                    resp2 = requests.post(url, headers=headers, json=data, timeout=15)
-                    if resp2.status_code == 200:
-                        print(f"[模型健康检查] 备用模型可用: {fallback}")
-                        return True
-                    print(f"[模型健康检查] 备用模型也不可用")
+                    try:
+                        resp2 = requests.post(url, headers=headers, json=build_payload(fallback), timeout=HEALTH_TIMEOUT)
+                        if resp2.status_code == 200:
+                            print(f"[模型健康检查] 备用模型可用: {fallback}")
+                            api_config["model"] = fallback  # 后续调用直接用可用的备用模型
+                            return True
+                        print(f"[模型健康检查] 备用模型也不可用（状态码 {resp2.status_code}）")
+                    except Exception as fe:
+                        print(f"[模型健康检查] 备用模型请求异常: {str(fe)[:60]}")
+                last_reason = f"模型不存在(404): {model}"
                 return False
+
+            # 401/403：密钥无效（确定性问题，重试无意义）
+            if resp.status_code in (401, 403):
+                print(f"[模型健康检查] {resp.status_code} API Key 无效或无权限（密钥问题，非网络波动）")
+                last_reason = f"密钥无效({resp.status_code})"
+                return False
+
+            # 200：端点/模型/密钥均正常，即视为可用（max_tokens=1 时内容可能为空，不做强求）
             if resp.status_code == 200:
-                result = resp.json()
-                content = _extract_ai_content(result)
-                if content is not None:
-                    print(f"[模型健康检查] 模型可用: {model}")
-                    return True
-            print(f"[模型健康检查] 异常状态码: {resp.status_code}（尝试 {attempt+1}/2）")
-            if attempt < 1:
-                time.sleep(3)
+                print(f"[模型健康检查] 模型可用: {model}")
+                return True
+
+            # 429/5xx 属于临时性（限流/服务端），可重试；其余状态码也走重试
+            transient = resp.status_code == 429 or resp.status_code >= 500
+            kind = "服务端临时异常" if transient else "异常状态码"
+            last_reason = f"{kind}({resp.status_code})"
+            print(f"[模型健康检查] {last_reason}（尝试 {attempt+1}/{MAX_ATTEMPTS}）")
+            if attempt < MAX_ATTEMPTS - 1:
+                print(f"[模型健康检查] 等待 {RETRY_WAIT} 秒后重试（避免网络波动误判）...")
+                time.sleep(RETRY_WAIT)
+
+        except (requests.exceptions.Timeout, requests.exceptions.ConnectionError) as e:
+            # 网络波动：超时/连接失败，可重试
+            etype = "请求超时" if isinstance(e, requests.exceptions.Timeout) else "网络连接失败"
+            last_reason = f"{etype}: {str(e)[:60]}"
+            print(f"[模型健康检查] 网络问题-{last_reason}（尝试 {attempt+1}/{MAX_ATTEMPTS}）")
+            if attempt < MAX_ATTEMPTS - 1:
+                print(f"[模型健康检查] 等待 {RETRY_WAIT} 秒后重试（避免网络波动误判）...")
+                time.sleep(RETRY_WAIT)
         except Exception as e:
-            print(f"[模型健康检查] 检查失败: {str(e)[:50]}（尝试 {attempt+1}/2）")
-            if attempt < 1:
-                time.sleep(3)
+            last_reason = f"检查异常: {str(e)[:60]}"
+            print(f"[模型健康检查] {last_reason}（尝试 {attempt+1}/{MAX_ATTEMPTS}）")
+            if attempt < MAX_ATTEMPTS - 1:
+                time.sleep(RETRY_WAIT)
+
+    print(f"[模型健康检查] 两次尝试均失败（{last_reason}）。今日跳过 AI 功能，使用规则模式；主流程不受影响。")
     return False
 
 
@@ -4714,13 +4753,30 @@ def generate_latest_json(items, config, weekly_summary="", weekly_keywords=None,
     return data
 
 
-def generate_daily_snapshot(items, config):
+def generate_daily_snapshot(items, config, source_health=None, week_stats=None):
     """
     生成每日数据快照文件 docs/data/daily/YYYY-MM-DD.json
     包含当日 Top10 条目列表，覆盖写入
+    - source_health：本次运行的源健康度列表，用于统计 total/success/failed_sources
+    - week_stats：calculate_week_stats 的结果，用于近7天底部统计字段
     """
     site_name = config.get("site_name", "环境学子雷达")
     today = datetime.now(timezone.utc).strftime("%Y-%m-%d")
+
+    # RSS 源抓取统计：优先用传入的源健康度；缺省时从配置估算总源数、成功/失败置0
+    if source_health:
+        total_sources = len(source_health)
+        success_sources = sum(1 for s in source_health if s.get("success"))
+        failed_sources = total_sources - success_sources
+    else:
+        total_sources = len(config.get("rss_feeds", {}) or {})
+        success_sources = failed_sources = 0
+
+    # 近7天底部统计（缺省为0）
+    week_stats = week_stats or {}
+    week_total_items = int(week_stats.get("week_total_items", 0))
+    week_new_keywords = int(week_stats.get("week_new_keywords", 0))
+    policy_ratio = week_stats.get("policy_ratio", 0.0)
 
     # 取 Top10
     top10 = items[:10]
@@ -5299,7 +5355,7 @@ def main():
         weekly_keywords=weekly_keywords, weekly_insight=weekly_insight,
         timeline=timeline_data, source_health=source_health, week_stats=week_stats,
     )
-    generate_daily_snapshot(all_items, config)
+    generate_daily_snapshot(all_items, config, source_health=source_health, week_stats=week_stats)
     generate_monthly_archive(all_items, config)
     generate_pending_terms(all_items, config)
     critical_sources = generate_source_health(source_health)

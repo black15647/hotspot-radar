@@ -32,6 +32,15 @@
         currentDetailKeyword: null,
     };
 
+    // 八大类 + 其他 的统一配色（关键词云、趋势图、时间线共用）
+    const CATEGORY_ORDER = ['气候变化', '污染治理', '生态环境', '环境政策', '能源与碳中和', '水处理', '科研学术', '环境健康', '其他'];
+    const CATEGORY_COLORS = {
+        '气候变化': '#EF4444', '污染治理': '#F59E0B', '生态环境': '#10B981',
+        '环境政策': '#3B82F6', '能源与碳中和': '#8B5CF6', '水处理': '#06B6D4',
+        '科研学术': '#84CC16', '环境健康': '#EC4899', '其他': '#6B7280',
+    };
+    function categoryColor(cat) { return CATEGORY_COLORS[cat] || CATEGORY_COLORS['其他']; }
+
     // 默认主题配置
     const defaultTheme = {
         primaryColor: '#10B981',
@@ -1077,7 +1086,7 @@
     function renderTagCloud() {
         if (!state.latestData || !state.latestData.keyword_analysis) return;
 
-        const keywords = state.latestData.keyword_analysis;
+        let keywords = state.latestData.keyword_analysis || [];
         els.tagCloud.innerHTML = '';
 
         if (keywords.length === 0) {
@@ -1085,25 +1094,31 @@
             return;
         }
 
-        const maxCount = Math.max(...keywords.map((k) => k.count));
-        const minCount = Math.min(...keywords.map((k) => k.count));
+        // 标签云最多展示 15 个关键词
+        keywords = keywords.slice(0, 15);
+        const counts = keywords.map((k) => Number(k.count) || 1);
+        const maxCount = Math.max(...counts);
+        const minCount = Math.min(...counts);
 
         keywords.forEach((kw) => {
+            const term = kw.keyword || kw.term || '';
+            if (!term) return;
+            const cat = kw.category || '其他';
+            const color = categoryColor(cat);
             const tag = document.createElement('span');
-            tag.className = 'cloud-tag';
-            tag.textContent = `${kw.keyword} (${kw.count})`;
+            tag.className = 'cloud-tag cloud-tag-cat';
+            tag.title = `分类：${cat}`;
 
-            // 根据频次计算大小和颜色深浅
-            const ratio = maxCount === minCount ? 1 : (kw.count - minCount) / (maxCount - minCount);
-            const fontSize = 0.8 + ratio * 0.5;
-            const opacity = 0.6 + ratio * 0.4;
+            // 字号按频次微调；颜色按所属大类区分（含"其他"灰色）
+            const ratio = maxCount === minCount ? 1 : ((Number(kw.count) || 1) - minCount) / (maxCount - minCount);
+            tag.style.fontSize = (0.8 + ratio * 0.45) + 'rem';
+            tag.style.backgroundColor = color + '1A';
+            tag.style.color = color;
+            tag.style.borderColor = color + '40';
+            tag.innerHTML = `<span class="cloud-tag-dot" style="background:${color}"></span>${escapeHtml(term)}<span class="cloud-tag-count">${Number(kw.count) || 1}</span>`;
 
-            tag.style.fontSize = fontSize + 'rem';
-            tag.style.backgroundColor = `rgba(16, 185, 129, ${0.1 + ratio * 0.15})`;
-            tag.style.color = `rgba(5, 150, 105, ${opacity})`;
-            tag.style.borderColor = `rgba(16, 185, 129, ${0.2 + ratio * 0.3})`;
-
-            tag.addEventListener('click', () => openKeywordDetail(kw.keyword));
+            // 点击查看相关热点（保持原功能），阻止冒泡避免误触
+            tag.addEventListener('click', (e) => { e.stopPropagation(); openKeywordDetail(term); });
             els.tagCloud.appendChild(tag);
         });
     }
@@ -1140,7 +1155,7 @@
             const catTotals = {};
             weeklyCategories.forEach(day => {
                 Object.entries(day.categories || {}).forEach(([cat, cnt]) => {
-                    if (cat !== '其他' && cnt > 0) {
+                    if (cnt > 0) {
                         catTotals[cat] = (catTotals[cat] || 0) + cnt;
                     }
                 });
@@ -1150,8 +1165,8 @@
                 .slice(0, 5)
                 .map(([cat]) => cat);
 
-            topCats.forEach((cat, idx) => {
-                const color = colors[idx % colors.length];
+            topCats.forEach((cat) => {
+                const color = categoryColor(cat);
                 const data = weeklyCategories.map(day => (day.categories && day.categories[cat]) || 0);
                 datasets.push({
                     label: cat,
@@ -2179,11 +2194,8 @@
     }
 
     // ---------- 事件时间线（近30天大类趋势） ----------
-    const TIMELINE_CATS = ['气候变化', '污染治理', '生态环境', '环境政策', '能源与碳中和', '水处理', '科研学术', '环境健康'];
-    const TIMELINE_CAT_COLORS = {
-        '气候变化': '#EF4444', '污染治理': '#F59E0B', '生态环境': '#10B981', '环境政策': '#3B82F6',
-        '能源与碳中和': '#8B5CF6', '水处理': '#06B6D4', '科研学术': '#84CC16', '环境健康': '#EC4899',
-    };
+    const TIMELINE_CATS = CATEGORY_ORDER; // 含"其他"类别
+    const TIMELINE_CAT_COLORS = CATEGORY_COLORS;
 
     async function getTimelineData() {
         // 优先使用 latest.json 内嵌的 timeline，否则单独请求 timeline.json

@@ -661,6 +661,11 @@ body.dark .card-rank.rank-other { background: rgba(148, 163, 184, 0.2); color: #
 }
 .cloud-tag:hover { background: var(--clr-brand); color: #fff; transform: translateY(-2px); }
 .cloud-tag[data-count] { font-size: calc(12px + min(4px, (attr(data-count) / 10))); }
+/* 关键词云：按大类上色的标签（类别圆点 + 计数） */
+.cloud-tag-cat { display: inline-flex; align-items: center; gap: 5px; border: 1px solid transparent; font-weight: 600; }
+.cloud-tag-dot { width: 7px; height: 7px; border-radius: 50%; display: inline-block; flex: none; }
+.cloud-tag-count { font-size: .82em; opacity: .65; font-weight: 500; }
+.cloud-tag-cat:hover { transform: translateY(-2px); filter: brightness(.96); }
 
 /* 关注关键词 */
 .followed-list { display: flex; flex-wrap: wrap; gap: 7px; }

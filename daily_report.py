@@ -714,25 +714,14 @@ def fetch_all_feeds(config, max_items_per_source):
                         "summary": summary,
                     }
 
-                    # 英文标题翻译为中文（DeepL + Google），中文标题 title_zh 置空
-                    if title and not is_chinese(title):
-                        item["title_en"] = title
-                        title_zh = translate_en_to_zh(title)
-                        if title_zh and title_zh != title and is_chinese(title_zh):
-                            item["title_zh"] = title_zh
-                        else:
-                            item["title_zh"] = ""
-                        # title 保留英文原标题，前端通过“译”按钮在英文/中文间切换
-                    else:
-                        item["title_zh"] = ""
-                    if summary and not is_chinese(summary):
-                        summary_zh = translate_en_to_zh(summary)
-                        if summary_zh and summary_zh != summary:
-                            item["summary_en"] = summary
-                            item["summary_zh"] = summary_zh
-                            item["summary"] = summary_zh  # 摘要默认显示中文
-                    else:
-                        item["summary_zh"] = summary
+                    # 翻译延迟到“相关性过滤后”进行：抓取阶段只记录英文原始字段，
+                    # 只对最终进入候选池的条目翻译，避免对将被过滤的条目浪费翻译配额
+                    _is_en_title = bool(title) and not is_chinese(title)
+                    item["title_en"] = title if _is_en_title else ""
+                    item["title_zh"] = ""  # 由 translate_candidate_pool 填充
+                    _is_en_summary = bool(summary) and not is_chinese(summary)
+                    item["summary_en"] = summary if _is_en_summary else ""
+                    item["summary_zh"] = summary if (summary and not _is_en_summary) else ""
                     all_items.append(item)
                     count += 1
 
@@ -1537,6 +1526,7 @@ def extract_article_text(url, api_config):
 # 英伟达 NIM API 连续失败计数器（连续失败5次后停止AI调用）
 NVIDIA_CONSECUTIVE_FAILURES = 0
 NVIDIA_MAX_CONSECUTIVE_FAILURES = 2  # 连续失败2次即停止AI调用，快速降级
+_AI_RULE_DEGRADED = False  # 是否已打印过"AI 已降级规则模式"提示（只打印一次）
 
 # 原文提取失败域名集合（避免重复打印相同错误）
 FAILED_DOMAINS = set()
@@ -1643,6 +1633,8 @@ ENV_RELATED_ZH = [
     "环境工程", "环境科学", "生态学", "市政工程", "给排水", "大气污染控制",
     "水处理", "污水处理", "土壤修复", "固废处理", "环境监测", "环境健康",
     "环境政策", "环境技术", "环境管理",
+    # 气象/气候灾害与气温信号
+    "气温", "升温", "降温", "热浪", "寒潮", "气象灾害", "防灾", "减灾", "极端天气",
 ]
 # 中文环境单字弱信号（如"水""碳""核"，过于宽泛，不单独触发保留，仅作提示）
 ENV_RELATED_ZH_SINGLE = set("水碳核")
@@ -1676,6 +1668,11 @@ ENV_RELATED_EN = [
     "ai", "artificial intelligence", "machine learning", "deep learning",
     "environmental engineering", "environmental science", "ecology",
     "water treatment", "wastewater", "air pollution", "soil pollution",
+    # 气象与自然灾害（减少英文环境标题误杀）
+    "hurricane", "storm", "wildfire", "heatwave", "heat wave", "typhoon",
+    "cyclone", "tornado", "blizzard", "landslide", "mudslide", "erosion",
+    "sea level rise", "temperature", "extreme weather", "disaster",
+    "hazard", "resilience", "adaptation", "mitigation", "decarboni",
 ]
 # 英文明显无关词（单词边界匹配）
 IRRELEVANT_EN = [
@@ -1778,6 +1775,22 @@ def is_env_relevant_term(term):
     return False
 
 
+# 纯行政区划地名模式（福州市/广东省/XX区/县等），关键词提取时过滤
+_PLACE_NAME_RE = re.compile(r"^[一-龥]{2,7}?(省|市|区|县|州|盟|旗|镇|乡|村)$")
+
+
+def _is_place_name(term):
+    """判断是否为纯行政区划地名（福州市、广东省等）；若含环境语素（如生态局）则不算"""
+    if not term:
+        return False
+    t = str(term).strip()
+    if _PLACE_NAME_RE.search(t):
+        if any(w in t for w in ENV_RELATED_ZH if len(w) >= 2):
+            return False
+        return True
+    return False
+
+
 # 英文停用词（jieba 英文词过滤用）
 STOP_WORDS_EN = set([
     "the", "and", "for", "with", "from", "this", "that", "are", "was", "were",
@@ -1837,6 +1850,9 @@ WIDE_ZH_WORDS = set([
     "重要", "重大", "重点", "主要", "关键", "核心", "基本", "根本",
     "通过", "进行", "实现", "开展", "推进", "加强", "提升", "提高", "改善",
     "建立", "建设", "构建", "营造", "打造", "形成", "成为", "作为", "属于",
+    # 补充：过于通用的词（任务四点名）
+    "极端", "数据", "资源", "天气", "情况", "问题", "现象", "水平", "能力", "体系",
+    "系统", "机制", "模式", "方式", "类型", "领域", "行业", "产业", "经济",
 ])
 
 # 翻译请求使用的浏览器 User-Agent（避免被翻译接口拦截）
@@ -2499,8 +2515,8 @@ def check_model_health(api_config):
 # 关键词归类（8 大类）
 # ============================================================
 CATEGORY_KEYWORDS = {
-    "气候变化": ["气候", "变暖", "温室", "碳排放", "碳达峰", "碳中和", "碳汇", "极端天气", "厄尔尼诺", "拉尼娜", "海平面", "冰川", "全球变暖", "climate", "warming", "greenhouse", "carbon", "emission", "el nino", "la nina", "sea level", "glacier"],
-    "污染治理": ["污染", "废水", "废气", "固废", "垃圾", "重金属", "微塑料", "新污染物", "pm2.5", "雾霾", "酸雨", "臭氧", "voc", "土壤污染", "地下水污染", "pollution", "waste", "sewage", "effluent", "microplastic", "heavy metal", "contamination", "smog", "ozone", "landfill"],
+    "气候变化": ["气候", "气温", "变暖", "升温", "降温", "热浪", "寒潮", "温室", "碳排放", "碳达峰", "碳中和", "碳汇", "极端天气", "气象灾害", "台风", "飓风", "暴雨", "洪涝", "干旱", "厄尔尼诺", "拉尼娜", "海平面", "冰川", "全球变暖", "防灾", "减灾", "climate", "warming", "temperature", "heatwave", "greenhouse", "carbon", "emission", "el nino", "la nina", "sea level", "glacier", "hurricane", "storm", "typhoon", "wildfire", "flood", "drought", "extreme weather"],
+    "污染治理": ["污染", "大气", "空气", "废气", "废水", "固废", "垃圾", "重金属", "微塑料", "新污染物", "pm2.5", "雾霾", "酸雨", "臭氧", "voc", "烟气", "颗粒物", "土壤污染", "地下水污染", "pollution", "waste", "sewage", "effluent", "microplastic", "heavy metal", "contamination", "smog", "ozone", "landfill"],
     "生态环境": ["生态", "生物多样性", "湿地", "森林", "海洋", "荒漠", "草原", "保护区", "濒危", "物种", "栖息地", "入侵物种", "生态修复", "退耕还林", "ecology", "biodiversity", "wetland", "forest", "ocean", "desert", "grassland", "reserve", "endangered", "species", "habitat", "invasive", "conservation", "ecosystem", "wildlife", "coral", "reef", "mangrove"],
     "环境政策": ["环保", "环评", "督察", "政策", "法规", "立法", "标准", "规划", "治理", "监管", "执法", "处罚", "整改", "碳关税", "双碳", "environment policy", "regulation", "legislation", "standard", "planning", "governance", "supervision", "enforcement", "esg", "carbon tariff"],
     "能源与碳中和": ["能源", "新能源", "光伏", "风电", "水电", "核电", "储能", "氢能", "电池", "电动汽车", "充电桩", "化石能源", "煤炭", "石油", "天然气", "碳中和", "碳达峰", "净零", "energy", "renewable", "solar", "wind", "hydro", "nuclear", "storage", "hydrogen", "battery", "ev", "electric vehicle", "fossil", "coal", "oil", "gas", "net zero", "carbon neutral"],
@@ -2510,6 +2526,10 @@ CATEGORY_KEYWORDS = {
 }
 
 CATEGORY_ORDER = ["气候变化", "污染治理", "生态环境", "环境政策", "能源与碳中和", "水处理", "科研学术", "环境健康", "其他"]
+
+# 关键词归类优先级：一个关键词同时命中多个大类时，按此顺序选择最相关类别（"其他"最后）
+CATEGORY_PRIORITY = ["气候变化", "污染治理", "生态环境", "能源与碳中和", "水处理",
+                     "环境政策", "科研学术", "环境健康", "其他"]
 
 
 # glossary.json 中使用的类别名 -> 8大类归一化（基础概念不直接映射，交回规则判断）
@@ -2560,19 +2580,27 @@ def _load_domain_category_whitelist():
 
 
 def _rule_match_category(text):
-    """按 CATEGORY_KEYWORDS 做包含匹配，返回命中词最长（最具体）的大类；无命中返回'其他'"""
+    """
+    按 CATEGORY_KEYWORDS 做包含匹配：
+    - 收集所有命中的大类，再按 CATEGORY_PRIORITY 固定优先级选最相关的一个
+    - 无任何命中返回"其他"
+    """
     if not text:
         return "其他"
     t = text.lower()
-    best_cat = "其他"
-    best_len = 0
+    hit = set()
     for category, kws in CATEGORY_KEYWORDS.items():
         for k in kws:
             kk = k.lower().strip()
-            if kk and kk in t and len(kk) > best_len:
-                best_len = len(kk)
-                best_cat = category
-    return best_cat
+            if kk and kk in t:
+                hit.add(category)
+                break
+    if not hit:
+        return "其他"
+    for cat in CATEGORY_PRIORITY:
+        if cat in hit:
+            return cat
+    return "其他"
 
 
 def classify_keyword(keyword, allow_translate=True):
@@ -2654,14 +2682,17 @@ def call_nvidia_api(prompt, api_config, max_tokens=None, json_mode=False):
     - 404 时打印完整 URL/模型/响应，并自动尝试备用模型（fallback_model）
     - 连续失败5次后停止AI调用，失败均走规则降级，不中断脚本
     """
-    global NVIDIA_CONSECUTIVE_FAILURES
+    global NVIDIA_CONSECUTIVE_FAILURES, _AI_RULE_DEGRADED
 
     if not api_config["summary_enabled"] or not api_config["api_key"]:
         return None
     if not REQUESTS_AVAILABLE:
         return None
-    # 连续失败超过阈值，停止调用
+    # 连续失败超过阈值，停止调用并降级为规则模式（只提示一次）
     if NVIDIA_CONSECUTIVE_FAILURES >= NVIDIA_MAX_CONSECUTIVE_FAILURES:
+        if not _AI_RULE_DEGRADED:
+            print("[AI] 调用失败，已降级为规则模式（后续 AI 调用自动走规则，不影响主流程）")
+            _AI_RULE_DEGRADED = True
         return None
 
     url = api_config["base_url"].rstrip("/") + "/chat/completions"
@@ -2729,8 +2760,9 @@ def call_nvidia_api(prompt, api_config, max_tokens=None, json_mode=False):
                     continue
                 NVIDIA_CONSECUTIVE_FAILURES += 1
                 return None
-            # 调用成功，重置连续失败计数
+            # 调用成功，重置连续失败计数与降级标志
             NVIDIA_CONSECUTIVE_FAILURES = 0
+            _AI_RULE_DEGRADED = False
             print(f"[英伟达 NIMAPI] 调用成功（模型: {model}，耗时: {elapsed:.1f}s，输入长度: {len(prompt)} 字符）")
             return content
         except requests.exceptions.HTTPError as e:
@@ -2985,6 +3017,47 @@ def filter_environmental_relevance(items, config, api_config):
     return kept
 
 
+def translate_candidate_pool(items):
+    """
+    相关性过滤后、热度计算前，对进入候选池的英文条目统一翻译（DeepL→百度→Google）：
+    - 英文标题翻译结果存入 title_zh，title 保留英文原文（前端用“译”按钮切换）
+    - 英文摘要翻译为中文并替换 summary，原文保留在 summary_en
+    - 翻译失败或配额用尽时保留英文原文，不影响主流程
+    """
+    title_n = 0
+    summary_n = 0
+    for item in items:
+        title = item.get("title", "") or ""
+        # ---- 标题 ----
+        if title and not is_chinese(title):
+            item.setdefault("title_en", title)
+            tzh = translate_en_to_zh(title)
+            if tzh and tzh != title and is_chinese(tzh):
+                item["title_zh"] = tzh
+                title_n += 1
+            else:
+                item["title_zh"] = ""
+        else:
+            item.setdefault("title_zh", "")
+        # ---- 摘要 ----
+        summary = (item.get("summary") or "").strip()
+        if summary and not is_chinese(summary[:10]):
+            item.setdefault("summary_en", summary)
+            szh = translate_en_to_zh(summary)
+            if szh and szh != summary and is_chinese(szh[:5]):
+                item["summary_zh"] = szh
+                item["summary"] = szh
+                summary_n += 1
+            # 翻译失败/配额不足：保留英文原摘要
+        elif summary:
+            item.setdefault("summary_zh", summary)
+    if title_n or summary_n:
+        print(f"[翻译] 已翻译候选池英文标题 {title_n} 条 / 英文摘要 {summary_n} 条")
+    else:
+        print("[翻译] 候选池无待翻译英文内容（或翻译配额不足，已保留英文原文）")
+    return items
+
+
 def calculate_weekly_categories():
     """
     统计近7天各分类的条目数量趋势
@@ -3133,7 +3206,7 @@ def generate_timeline_data(days=30):
     返回结构：{大类: [{"date","count","total_heat"}, ...]}（日期升序，无数据补0）
     同时写入 docs/data/timeline.json
     """
-    timeline_cats = [c for c in CATEGORY_ORDER if c != "其他"]
+    timeline_cats = list(CATEGORY_ORDER)  # 含"其他"类别（数量为0时前端自然不突出）
     timeline = {cat: [] for cat in timeline_cats}
     today = datetime.now(timezone.utc).date()
     date_list = [today - timedelta(days=i) for i in range(days - 1, -1, -1)]
@@ -3373,13 +3446,14 @@ def generate_ai_keywords(items, api_config):
         "你是一个环境领域关键词提取器。只输出一个 JSON 对象，不要输出任何思考过程、分析、解释、英文或 Markdown 代码块。"
         "格式：{\"keywords\":[{\"term\":\"碳中和\",\"count\":5}]}，无法提取时输出 {\"keywords\":[]}。\n"
         "要求：关键词必须与环境领域相关（气候、生态、污染、能源、碳、水处理、可持续、环境政策、环境健康、环境技术等），"
-        "具体多样，避免宽泛词（环境、污染、保护、研究、发展），从标题和摘要中提炼，不要凭空生成。\n\n"
+        "具体多样，避免宽泛词（环境、污染、保护、研究、发展），从标题和摘要中提炼，不要凭空生成，"
+        "至少返回 10 个不同的关键词。\n\n"
         f"新闻内容：\n{combined_text}"
     )
 
     # 最多尝试2次（首次+1次重试），启用结构化输出
     for attempt in range(2):
-        result = call_nvidia_api(prompt, api_config, max_tokens=200, json_mode=True)
+        result = call_nvidia_api(prompt, api_config, max_tokens=300, json_mode=True)
         if not result:
             if attempt == 0:
                 print("[AI关键词] 首次调用返回空，重试一次...")
@@ -4471,7 +4545,7 @@ def extract_specific_keywords_jieba(items, config):
     - 英文标题优先翻译为中文再分词；翻译失败则提取英文专有名词（首字母大写/词表映射）
     - 中文标题过滤停用词、媒体名、宽泛词、单字、纯数字
     - 只保留长度 2-6 字的中文名词/动名词短语或英文专有名词
-    - 按出现频率降序，取前 10 个
+    - 按出现频率降序，取前 15 个候选
     返回 [{"keyword": term, "count": count}, ...]，失败返回空列表
     """
     if not JIEBA_AVAILABLE or not items:
@@ -4575,12 +4649,14 @@ def extract_specific_keywords_jieba(items, config):
                 continue
             if any(m in w for m in MEDIA_BLACKLIST):
                 continue
+            if _is_place_name(w):  # 过滤福州市、武汉市等纯行政区划地名
+                continue
             # 词性过滤：vn（名动词）放行；排除动词/形容词/虚词等，保留名词、专名（x）、简称（j）、英文
             if pseg and flag:
                 if flag != "vn" and flag[0] in _BAD_POS_PREFIX:
                     continue
             counter[w] += 1
-    result = [{"keyword": k, "count": v} for k, v in counter.most_common(10) if v >= 1]
+    result = [{"keyword": k, "count": v} for k, v in counter.most_common(15) if v >= 1]
     return result
 
 
@@ -4612,6 +4688,8 @@ def _clean_keywords(keywords):
             continue
         if any(m in term for m in MEDIA_BLACKLIST):
             continue
+        if _is_place_name(term):  # 过滤纯行政区划地名
+            continue
         # 非环境黑名单（保险/财经/系统性等）直接丢弃
         if term in NON_ENV_BLACKLIST:
             continue
@@ -4628,12 +4706,12 @@ def generate_latest_json(items, config, weekly_summary="", weekly_keywords=None,
     site_name = config.get("site_name", "环境学子雷达")
     keywords = config.get("keywords", DEFAULT_KEYWORDS)
 
-    # 关键词分析（前10）- 基于配置关键词统计
+    # 关键词分析（前15）- 基于配置关键词统计
     all_keywords = []
     for item in items:
         all_keywords.extend(item.get("matched_keywords", []))
     keyword_counter = Counter(all_keywords)
-    top_keywords = [{"keyword": kw, "count": cnt} for kw, cnt in keyword_counter.most_common(10)]
+    top_keywords = [{"keyword": kw, "count": cnt} for kw, cnt in keyword_counter.most_common(15)]
 
     # AI 关键词优先；AI 未启用或失败时，用 jieba 从标题提取具体关键词（避免宽泛词）
     ai_keywords = config.get("_ai_keywords", [])
@@ -4645,7 +4723,7 @@ def generate_latest_json(items, config, weekly_summary="", weekly_keywords=None,
                 top_keywords.append({"keyword": term, "count": ak.get("count", 1)})
                 existing_terms.add(term)
         top_keywords.sort(key=lambda x: x["count"], reverse=True)
-        top_keywords = top_keywords[:10]
+        top_keywords = top_keywords[:15]
     else:
         jieba_kw = extract_specific_keywords_jieba(items, config)
         if jieba_kw:
@@ -4654,9 +4732,40 @@ def generate_latest_json(items, config, weekly_summary="", weekly_keywords=None,
         else:
             print(f"[关键词] jieba 未安装或无结果，使用配置关键词匹配统计（前5）：{', '.join(k['keyword'] for k in top_keywords[:5])}")
 
-    # 最终关键词质量清洗：过滤英文停用词、媒体名、单字、纯数字、宽泛词等
+    # 最终关键词质量清洗：过滤英文停用词、媒体名、地名、单字、纯数字、宽泛词等
     top_keywords = _clean_keywords(top_keywords)
-    top_keywords = top_keywords[:10]
+    top_keywords = top_keywords[:15]
+
+    # 数量不足 10 个时，从 glossary/已确认术语白名单补充（仍需通过质量校验，不重复）
+    if len(top_keywords) < 10:
+        existing_terms = {k["keyword"] for k in top_keywords}
+        for wl_term in sorted(_env_term_whitelist()):
+            if len(top_keywords) >= 10:
+                break
+            t0 = str(wl_term).strip()
+            if not t0 or t0 in existing_terms or len(t0) < 2:
+                continue
+            if _is_place_name(t0) or t0 in WIDE_ZH_WORDS or t0 in NON_ENV_BLACKLIST:
+                continue
+            # 纯英文补足词：长度≥3、非停用词，且整词命中环境英文词表/缩写
+            if re.fullmatch(r"[a-zA-Z\-\s]+", t0):
+                wl0 = t0.lower().strip()
+                if len(wl0) < 3 or wl0 in STOP_WORDS_EN:
+                    continue
+                if not (wl0 in ENV_ABBREV or any(wl0 == str(w).strip().lower() for w in ENV_RELATED_EN)):
+                    continue
+            if not is_env_relevant_term(t0):
+                continue
+            top_keywords.append({"keyword": t0, "count": 1})
+            existing_terms.add(t0)
+        print(f"[关键词] 实际提取不足10个，已从术语白名单补足至 {len(top_keywords)} 个")
+
+    # 统一结构：同时提供 keyword/term（兼容前端），并标注所属大类 category（供标签云按类上色）
+    for k in top_keywords:
+        term = str(k.get("keyword") or k.get("term") or "").strip()
+        k["keyword"] = term
+        k["term"] = term
+        k["category"] = classify_keyword(term, allow_translate=False)
 
     # 热点总结
     if top_keywords:
@@ -5238,17 +5347,13 @@ def main():
     print("--- 第三步补充：环境领域相关性过滤 ---")
     api_config = get_api_config(config)
 
-    # 模型健康检查：如果模型不可用，当天跳过所有 AI 功能
-    if api_config["summary_enabled"]:
-        model_ok = check_model_health(api_config)
-        if not model_ok:
-            print("[模型健康检查] 模型不可用，今日使用规则模式（跳过所有 AI 调用）")
-            api_config["summary_enabled"] = False
-        else:
-            print("[模型健康检查] 模型可用，AI 功能已启用")
-
+    # 不再做独立的模型健康检查：首次实际调用 AI 时若超时/失败会自动重试（等待3/6秒），
+    # 连续失败达到阈值后由 call_nvidia_api 熔断并降级为规则模式，
+    # 避免一次网络波动就整日跳过所有 AI 功能。
     all_items = filter_environmental_relevance(all_items, config, api_config)
     print(f"[统计] 相关性过滤后 {len(all_items)} 条")
+    # 相关性过滤后再统一翻译候选池英文标题/摘要（抓取阶段不翻译，节省配额）
+    all_items = translate_candidate_pool(all_items)
     print()
 
     # 4. 热度计算

@@ -1,0 +1,341 @@
+{
+  "report_date": "2026-09-10",
+  "site_name": "环境学子雷达",
+  "total_items": 10,
+  "total_sources": 21,
+  "success_sources": 21,
+  "failed_sources": 0,
+  "week_total_items": 192,
+  "week_new_keywords": 37,
+  "policy_ratio": 4.3,
+  "items": [
+    {
+      "title": "Shifts in forest management intensity mediate biodiversity outcomes under contrasting socio-economic and climate scenarios",
+      "title_en": "Shifts in forest management intensity mediate biodiversity outcomes under contrasting socio-economic and climate scenarios",
+      "title_zh": "在不同的社会经济和气候情景下，森林管理强度的变化对生物多样性结果产生介导作用",
+      "link": "https://iopscience.iop.org/article/10.1088/1748-9326/ae9781",
+      "source": "Environmental Research Letters",
+      "published": "2026-09-08T23:00:00+00:00",
+      "hotness": 100.0,
+      "score_v1": 28.52,
+      "score_v2": 100.0,
+      "score_breakdown": {
+        "algorithm": "v2",
+        "source_score": 25.0,
+        "keyword_idf_score": 18.84,
+        "resonance_score": 4.25,
+        "quality_score": 10.0,
+        "base": 58.09,
+        "time_factor": 0.7356,
+        "repeat_penalty": 1.0,
+        "cross_source_count": 2,
+        "raw": 42.73,
+        "display_score": 100.0
+      },
+      "summary": "森林覆盖范围和森林管理在塑造生物多样性对气候和土地利用变化的响应方面都至关重要。然而，尽管土地利用模型在区分不同森林管理措施方面已取得进展，但生物多样性影响模型通常仍将受管理的森林视为一个汇总类别。这限制了我们评估未来情景下不同管理措施之间的转变如何影响生物多样性的能力。 我们通过将生物多样性模型GLOBIO与基于代理的土地利用模型CRAFTY-EU耦合，解决了这一问题。GLOBIO模拟了物种平均丰度（MSA）对生物多样性丧失驱动因素的响应变化。 CRAFTY-EU 根据社会需求以及社会经济和生物物理适宜性，分配土地利用类型，其中包括六种具有不同木材采伐强度的森林管理实践。 我们整合了GLOBIO模型中的气候变化、土地利用以及更新的森林管理MSA估算结果，以评估三种社会经济与气候情景（SSP1-RCP2.6、SSP3-RCP7.0和SSP5-RCP8.5）下的生物多样性结果。 只有在农业弃耕面积较大且气候影响适中的情况下，森林扩张才能部分缓解生物多样性丧失。这种效应在SSP1-RCP2.6情景下最为显著，在SSP5-RCP8.5情景下较弱（因气候损失占主导），而在SSP3-RCP7.0情景下则基本不存在（因弃耕面积有限且森林退化程度较轻）。 在所有情景中，向集约化森林管理转型均导致MSA下降，这表明仅靠森林扩张并不能保证带来生物多样性效益，特别是在管理集约化程度加深和气候变化加剧的情况下。 那些在促进森林恢复的同时避免管理强度的土地利用和林业政策，可以缓解生物多样性损失，但不太可能弥补由气候变化导致的严重衰退。此类政策与欧盟的《自然恢复条例》相一致，该条例提议到2030年种植30亿棵树并恢复20%的土地。要成功实施该条例，需要考虑……",
+      "analysis": "该条目涉及【森林管理】话题，因来源权威性高，热度上升。",
+      "topic_tags": [
+        "森林管理",
+        "生物多样性",
+        "气候情景"
+      ],
+      "category": "生态环境",
+      "matched_keywords": [
+        "气候变化",
+        "生物多样性"
+      ]
+    },
+    {
+      "title": "Quantifying temporal changes in the monetary value of forest cultural ecosystem services globally: a meta-analysis",
+      "title_en": "Quantifying temporal changes in the monetary value of forest cultural ecosystem services globally: a meta-analysis",
+      "title_zh": "量化全球森林文化生态系统服务货币价值的时变趋势：一项荟萃分析",
+      "link": "https://iopscience.iop.org/article/10.1088/1748-9326/ae9b25",
+      "source": "Environmental Research Letters",
+      "published": "2026-09-08T23:00:00+00:00",
+      "hotness": 96.8,
+      "score_v1": 24.52,
+      "score_v2": 96.8,
+      "score_breakdown": {
+        "algorithm": "v2",
+        "source_score": 25.0,
+        "keyword_idf_score": 21.72,
+        "resonance_score": 0.0,
+        "quality_score": 10.0,
+        "base": 56.72,
+        "time_factor": 0.7356,
+        "repeat_penalty": 1.0,
+        "cross_source_count": 1,
+        "raw": 41.73,
+        "display_score": 96.8
+      },
+      "summary": "全球森林及其所蕴含的生物多样性，为人类福祉提供了多种文化生态系统服务。然而，人类与森林之间的互动随着更广泛的社会和环境变化而演变，这引发了一个问题：与森林文化生态系统服务相关的价值是否随时间推移而发生了变化。 为探讨这一问题，我们对1980年至2019年这四十年間收集的137项经济估值研究（共705个观测值）进行了全球性荟萃分析。研究结果未发现旅行成本、条件估值、选择实验或享乐定价估算存在具有统计学意义的时序趋势。 同样，仅针对休闲活动的子样本也未显示货币价值随时间存在统计学上显著的趋势。尽管研究涵盖了多种文化生态系统服务类别和森林类型，但现有证据基础存在向高收入国家倾斜的偏倚，且估值研究仍高度集中于与森林的休闲互动，而精神与象征性互动则极少被量化。 这些知识缺口限制了我们量化全球森林文化生态系统服务货币价值的能力。尽管我们未发现人们对森林文化生态系统服务所赋予的价值存在时间趋势的证据，但模型中观察到的显著异质性及特定方法模式表明，在进行效益转移时不应假设其具有时间稳定性。 鉴于这些发现，在环境决策中应用效益转移方法时，应考虑方法论异质性和情境差异。中低收入国家相关研究匮乏，加之研究重点过度集中于休闲活动，凸显了开展更广泛且地域多元化的估值研究的必要性。弥补这些空白有助于支持采取更具情境敏感性的方法",
+      "analysis": "该条目涉及【森林文化生态系统服务】话题，因来源权威性高，热度上升。",
+      "topic_tags": [
+        "森林文化生态系统服务"
+      ],
+      "category": "生态环境",
+      "matched_keywords": [
+        "生物多样性",
+        "生态系统"
+      ]
+    },
+    {
+      "title": "第二批省生态环保督察“回头看”进驻7个市州，举报方式公布 - 华声在线",
+      "title_en": "",
+      "title_zh": "",
+      "link": "https://news.google.com/rss/articles/CBMiX0FVX3lxTE1wZnBjQWVnMlhPc19PaEZyQ2dCZ0RURm5TU2lGd1lkWHdQZFY3Qm9aWk5xbXBJTXJKbDF0VkFya1NjeEtYUHdiSWtRT3JxTUtESk9wN0ozOVp2dWNhN1pF?oc=5",
+      "source": "Google News 环境保护",
+      "published": "2026-09-09T14:53:00+00:00",
+      "hotness": 93.7,
+      "score_v1": 20.32,
+      "score_v2": 93.7,
+      "score_breakdown": {
+        "algorithm": "v2",
+        "source_score": 20.0,
+        "keyword_idf_score": 18.29,
+        "resonance_score": 0.0,
+        "quality_score": 0.0,
+        "base": 38.29,
+        "time_factor": 0.8869,
+        "repeat_penalty": 1.0,
+        "cross_source_count": 1,
+        "raw": 33.96,
+        "display_score": 93.7
+      },
+      "summary": "第二批省生态环保督察“回头看”进驻7个市州，举报方式公布 - 华声在线",
+      "analysis": "该条目涉及【生态环保督察】话题，因来源权威性高，热度上升。",
+      "topic_tags": [
+        "生态环保督察"
+      ],
+      "category": "生态环境",
+      "matched_keywords": [
+        "环保督察"
+      ]
+    },
+    {
+      "title": "规范经营，守护宜居环境——大华山镇联合区生态环保局开展餐饮油烟与垃圾分类专项检查 - 首都文明网",
+      "title_en": "",
+      "title_zh": "",
+      "link": "https://news.google.com/rss/articles/CBMiW0FVX3lxTE0tVi1lWlRIZzNuMU9ubFlYUDhyNlRLNDJVM3RseXliSkxRVlpaRmVQVlMxbkcwX0RSV1B3elk4cEpjc2Rna3ZuN0NYcllValVuOUVNZXJrcFlvMHc?oc=5",
+      "source": "Google News 环境污染",
+      "published": "2026-09-09T08:09:34+00:00",
+      "hotness": 90.5,
+      "score_v1": 18.66,
+      "score_v2": 90.5,
+      "score_breakdown": {
+        "algorithm": "v2",
+        "source_score": 20.0,
+        "keyword_idf_score": 18.29,
+        "resonance_score": 0.0,
+        "quality_score": 0.0,
+        "base": 38.29,
+        "time_factor": 0.8167,
+        "repeat_penalty": 1.0,
+        "cross_source_count": 1,
+        "raw": 31.27,
+        "display_score": 90.5
+      },
+      "summary": "规范经营，守护宜居环境——大华山镇联合区生态环保局开展餐饮油烟与垃圾分类专项检查 - 首都文明网",
+      "analysis": "该条目涉及【生态环保局】话题，因来源权威性高，热度上升。",
+      "topic_tags": [
+        "生态环保局",
+        "垃圾分类"
+      ],
+      "category": "生态环境",
+      "matched_keywords": [
+        "垃圾分类"
+      ]
+    },
+    {
+      "title": "新研究发现太阳活动“操控”深海气候变化 - 科学网—新闻",
+      "title_en": "",
+      "title_zh": "",
+      "link": "https://news.google.com/rss/articles/CBMiZEFVX3lxTE9wak5nX1NtQmpXdnVjQ2lfTWF4VzhJdE5vX2xFXzgzUEZkQUZFOC1jSG51MUNZOVZQTmQtYjc5WkEzci1iMWdwRzhBRjZlWFdINGl5dTdsc1ltUFBTbzItcEV5QVQ?oc=5",
+      "source": "Google News 气候变化",
+      "published": "2026-09-09T13:59:55+00:00",
+      "hotness": 87.4,
+      "score_v1": 24.08,
+      "score_v2": 87.4,
+      "score_breakdown": {
+        "algorithm": "v2",
+        "source_score": 20.0,
+        "keyword_idf_score": 6.78,
+        "resonance_score": 4.25,
+        "quality_score": 0.0,
+        "base": 31.03,
+        "time_factor": 0.8771,
+        "repeat_penalty": 1.0,
+        "cross_source_count": 2,
+        "raw": 27.22,
+        "display_score": 87.4
+      },
+      "summary": "新研究发现太阳活动“操控”深海气候变化 - 科学网—新闻",
+      "analysis": "该条目涉及【深海气候变化】话题，因来源权威性高，热度上升。",
+      "topic_tags": [
+        "深海气候变化"
+      ],
+      "category": "气候变化",
+      "matched_keywords": [
+        "气候变化"
+      ]
+    },
+    {
+      "title": "Emissions and system-level decarbonization pathways for global petrochemical production",
+      "title_en": "Emissions and system-level decarbonization pathways for global petrochemical production",
+      "title_zh": "全球石化生产的排放及系统级脱碳路径",
+      "link": "https://www.nature.com/articles/s41893-026-01931-7",
+      "source": "Nature Sustainability",
+      "published": "2026-09-09T00:00:00+00:00",
+      "hotness": 84.2,
+      "score_v1": 14.67,
+      "score_v2": 84.2,
+      "score_breakdown": {
+        "algorithm": "v2",
+        "source_score": 25.0,
+        "keyword_idf_score": 0.0,
+        "resonance_score": 0.0,
+        "quality_score": 10.0,
+        "base": 35.0,
+        "time_factor": 0.7437,
+        "repeat_penalty": 1.0,
+        "cross_source_count": 1,
+        "raw": 26.03,
+        "display_score": 84.2
+      },
+      "summary": "《自然·可持续性》， 石化行业是温室气体排放的主要来源，但目前缺乏一致的设施级排放清单，这阻碍了该行业的有效脱碳。 本研究通过对全球37,379家设施进行自下而上且详细的评估，填补了这一空白。",
+      "analysis": "该条目涉及【温室气体排放】话题，因来源权威性高，热度上升。",
+      "topic_tags": [
+        "温室气体排放"
+      ],
+      "category": "气候变化",
+      "matched_keywords": []
+    },
+    {
+      "title": "How AI is changing PhD programmes: join our free webinar",
+      "title_en": "How AI is changing PhD programmes: join our free webinar",
+      "title_zh": "人工智能如何改变博士项目：欢迎参加我们的免费网络研讨会",
+      "link": "https://www.nature.com/articles/d41586-026-02751-7",
+      "source": "Nature",
+      "published": "2026-09-09T00:00:00+00:00",
+      "hotness": 81.1,
+      "score_v1": 14.67,
+      "score_v2": 81.1,
+      "score_breakdown": {
+        "algorithm": "v2",
+        "source_score": 25.0,
+        "keyword_idf_score": 0.0,
+        "resonance_score": 0.0,
+        "quality_score": 10.0,
+        "base": 35.0,
+        "time_factor": 0.7437,
+        "repeat_penalty": 1.0,
+        "cross_source_count": 1,
+        "raw": 26.03,
+        "display_score": 81.1
+      },
+      "summary": "《自然》杂志， 了解人工智能如何帮助您提升研究能力，以及过度依赖它可能带来的潜在风险。",
+      "analysis": "该条目涉及【人工智能】话题，因来源权威性高，热度上升。",
+      "topic_tags": [
+        "人工智能"
+      ],
+      "category": "科研学术",
+      "matched_keywords": []
+    },
+    {
+      "title": "联合国发布最新报告：空气污染与气候变化协同治理是见效捷径更是经济机遇 - ideacarbon.org",
+      "title_en": "",
+      "title_zh": "",
+      "link": "https://news.google.com/rss/articles/CBMiXkFVX3lxTFBlbTFsTmlBNFlWbGhOei1LOUFIV0hxeG5zdDhRdHZHNE9VblQtMVVCdzJlbjlvYmkwYzZKLUU0ajdMLVAwOENmQ0FLMjZYWkFsRnAxUnBJbVMwS2RyekE?oc=5",
+      "source": "Google News 气候变化",
+      "published": "2026-09-09T00:09:00+00:00",
+      "hotness": 77.9,
+      "score_v1": 21.19,
+      "score_v2": 77.9,
+      "score_breakdown": {
+        "algorithm": "v2",
+        "source_score": 20.0,
+        "keyword_idf_score": 6.78,
+        "resonance_score": 4.25,
+        "quality_score": 0.0,
+        "base": 31.03,
+        "time_factor": 0.745,
+        "repeat_penalty": 1.0,
+        "cross_source_count": 2,
+        "raw": 23.12,
+        "display_score": 77.9
+      },
+      "summary": "联合国发布最新报告：空气污染与气候变化协同治理是见效捷径更是经济机遇 - ideacarbon.or…",
+      "analysis": "该条目涉及【空气污染】话题，因来源权威性高，热度上升。",
+      "topic_tags": [
+        "空气污染",
+        "气候变化协同治理"
+      ],
+      "category": "污染治理",
+      "matched_keywords": [
+        "气候变化"
+      ]
+    },
+    {
+      "title": "“环境有价”从纸面落到了山间地头 - finance.sina.cn",
+      "title_en": "",
+      "title_zh": "",
+      "link": "https://news.google.com/rss/articles/CBMieEFVX3lxTE5TZnFjbFdNcmVtR0h4UEFUSEZqY1UtMFEtX1kwNEZTRWV3Y0d2STl0MHRmX2FFOHczLWRZb2RXM0E2ZnFTeFFWS2hSWi1MQl9yZl9sTkw2ZXV3Z3dFTkFQMmJnWFJoejItWDdsTTlVZTA4SHQ5OVRQcg?oc=5",
+      "source": "Google News 生态环境",
+      "published": "2026-09-09T22:20:52+00:00",
+      "hotness": 74.7,
+      "score_v1": 18.81,
+      "score_v2": 74.7,
+      "score_breakdown": {
+        "algorithm": "v2",
+        "source_score": 20.0,
+        "keyword_idf_score": 0.0,
+        "resonance_score": 0.0,
+        "quality_score": 0.0,
+        "base": 20.0,
+        "time_factor": 0.9772,
+        "repeat_penalty": 1.0,
+        "cross_source_count": 1,
+        "raw": 19.54,
+        "display_score": 74.7
+      },
+      "summary": "“环境有价”从纸面落到了山间地头 - finance.sina.cn",
+      "analysis": "该条目涉及【环境有价】话题，因来源权威性高，热度上升。",
+      "topic_tags": [
+        "环境有价"
+      ],
+      "category": "其他",
+      "matched_keywords": []
+    },
+    {
+      "title": "遭受洪灾重创的尼泊尔呼吁气候正义 - UN News",
+      "title_en": "",
+      "title_zh": "",
+      "link": "https://news.google.com/rss/articles/CBMiV0FVX3lxTE5MMVNma2hVbnluZG1RX3hadXM4NXRhUzZ5S1hpRUpJQWFsbjFBSGRfeWpUeF9iWkxkWWxFRktIaHRzRWlybmFSakNZbDd5Y3RaRDVRNWVJNA?oc=5",
+      "source": "Google News 气候变化",
+      "published": "2026-09-09T21:55:07+00:00",
+      "hotness": 71.6,
+      "score_v1": 18.65,
+      "score_v2": 71.6,
+      "score_breakdown": {
+        "algorithm": "v2",
+        "source_score": 20.0,
+        "keyword_idf_score": 0.0,
+        "resonance_score": 0.0,
+        "quality_score": 0.0,
+        "base": 20.0,
+        "time_factor": 0.9716,
+        "repeat_penalty": 1.0,
+        "cross_source_count": 1,
+        "raw": 19.43,
+        "display_score": 71.6
+      },
+      "summary": "遭受洪灾重创的尼泊尔呼吁气候正义 - UN News",
+      "analysis": "该条目涉及【气候正义】话题，因来源权威性高，热度上升。",
+      "topic_tags": [
+        "气候正义"
+      ],
+      "category": "气候变化",
+      "matched_keywords": []
+    }
+  ]
+}

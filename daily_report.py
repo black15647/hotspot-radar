@@ -1643,6 +1643,10 @@ IRRELEVANT_MARKERS = [
     "体育", "电竞", "游戏", "手游", "彩票", "娱乐", "星座", "时尚", "美食", "汽车",
     "明星", "综艺", "影视", "球赛", "足球", "篮球", "演唱会", "美妆", "穿搭",
     "菜谱", "购物", "双11", "双十一", "房产", "楼市",
+    # 博彩/赌球（即使标题夹带"环境/ESG"也过滤）
+    "赌城", "网投", "博彩", "赌博", "赌场", "下注", "盘口", "赌球", "菠菜",
+    # 教育/学术泛化（非环境研究本身）
+    "博士项目", "博士培养", "博士生", "博士点",
 ]
 # 英文环境相关词（英文标题翻译失败时使用，单词边界匹配）
 ENV_RELATED_EN = [
@@ -1650,34 +1654,40 @@ ENV_RELATED_EN = [
     "air", "soil", "energy", "nuclear", "waste", "emission", "sustainability",
     "biodiversity", "ocean", "forest", "desert", "greenhouse", "ozone",
     "acid rain", "renewable", "solar", "wind", "microplastic", "heavy metal",
-    "ecosystem", "conservation", "environmental", "river", "flood", "drought",
-    "wildlife", "species", "recycle", "plastic", "sea", "polution",
-    # 新增宽泛环境词
+    "ecosystem", "conservation", "environmental", "river", "flood", "flooding", "drought",
+    "wildlife", "species", "recycle", "plastic", "polution",
     "recycling", "toxic", "chemical", "contamination", "contaminant",
-    "green", "clean energy", "fossil fuel", "coal", "oil", "gas",
+    "green", "clean energy", "fossil fuel", "coal",
     "deforestation", "landfill", "sewage", "effluent", "sludge",
-    "atmosphere", "particulate", "pm2.5", "pm10", "smog", "acid",
+    "atmosphere", "particulate", "pm2.5", "pm10", "smog",
     "eutrophication", "algae", "coral", "reef", "wetland", "mangrove",
-    "endangered", "extinction", "invasive", "habitat", "population",
-    "urbanization", "industrial", "agriculture", "fertilizer", "pesticide",
-    "irrigation", "dam", "reservoir", "groundwater", "aquifer",
-    "remediation", "treatment", "filtration", "purification", "monitoring",
-    "assessment", "regulation", "policy", "legislation", "treaty",
+    "endangered", "extinction", "invasive", "habitat",
+    "urbanization", "agriculture", "agricultural", "farmers", "farmer", "farming",
+    "fertilizer", "pesticide", "poisoning", "irrigation", "crop", "crops", "livestock", "livelihood",
+    "dam", "reservoir", "groundwater", "aquifer",
+    "remediation", "filtration", "purification",
+    "regulation", "legislation", "environmental law", "treaty",
     "agreement", "protocol", "carbon neutral", "net zero", "emission reduction",
-    # AI + 环境交叉
-    "ai", "artificial intelligence", "machine learning", "deep learning",
-    "environmental engineering", "environmental science", "ecology",
-    "water treatment", "wastewater", "air pollution", "soil pollution",
+    # AI + 环境交叉（删除过宽的裸 "ai"，只保留完整术语，避免 "How AI is changing PhD" 误留）
+    "artificial intelligence", "machine learning", "deep learning",
+    "environmental engineering", "environmental science",
+    "wastewater", "air pollution", "soil pollution", "water pollution",
     # 气象与自然灾害（减少英文环境标题误杀）
     "hurricane", "storm", "wildfire", "heatwave", "heat wave", "typhoon",
     "cyclone", "tornado", "blizzard", "landslide", "mudslide", "erosion",
-    "sea level rise", "temperature", "extreme weather", "disaster",
-    "hazard", "resilience", "adaptation", "mitigation", "decarboni",
+    "sea level rise", "sea level", "glacier", "glaciers", "ice sheet", "sea ice",
+    "precipitation", "rainfall", "snowmelt", "temperature", "extreme weather",
+    "disaster", "hazard", "resilience", "adaptation", "mitigation", "decarboni",
+    # 能源获取/清洁烹饪/气候正义（农户、健康暴露相关）
+    "fuel", "clean cooking", "cooking fuel", "clean cooking fuel",
+    "energy access", "energy poverty", "climate justice",
 ]
 # 英文明显无关词（单词边界匹配）
 IRRELEVANT_EN = [
-    "sports", "football", "basketball", "gaming", "esports", "e-sports",
-    "lottery", "celebrity", "fashion", "recipe", "movie", "concert", "horoscope",
+    "sports", "football", "basketball", "soccer", "nba", "fifa", "uefa",
+    "gaming", "esports", "e-sports", "gambling", "casino", "betting", "lottery",
+    "celebrity", "entertainment", "fashion", "recipe", "movie", "concert", "horoscope",
+    "phd", "programme", "program", "scholarship",
 ]
 
 # 明显非环境领域的关键词黑名单（财经/泛化/营销/时政套话等），命中即丢弃
@@ -1693,7 +1703,7 @@ NON_ENV_BLACKLIST = {
 
 # 常见环境缩写/专有词（补充相关性判定，避免被误删）
 ENV_ABBREV = {
-    "pm2.5", "pm10", "esg", "ai", "voc", "vocs", "cod", "bod", "tn", "tp",
+    "pm2.5", "pm10", "esg", "voc", "vocs", "cod", "bod", "tn", "tp",
     "ghg", "ccus", "cchs", "lca", "epa", "ipcc", "cop", "svoc", "pfas",
 }
 
@@ -2373,7 +2383,7 @@ def _json_mode_fields():
     }
 
 
-def _extract_json_object(text, label="AI"):
+def _extract_json_object(text, label="AI", quiet=False):
     """
     从 AI 返回中稳健提取 JSON 对象（json_object 模式），并兼容模型仍返回裸数组的情况。
     流程：去代码块 -> 直接 json.loads -> 失败则截取第一个 '{' 到最后一个 '}' 再解析
@@ -2402,16 +2412,70 @@ def _extract_json_object(text, label="AI"):
         if isinstance(obj, (dict, list)):
             return obj
 
-    # 3) 向后兼容：模型仍返回裸数组
-    arr = _extract_json_array(text, label=label)
-    if isinstance(arr, list):
-        return arr
+    # 3) 向后兼容：模型仍返回裸数组（静默尝试，不打印"未找到数组"之类误导日志）
+    a0, a1 = t.find("["), t.rfind("]")
+    if a0 >= 0 and a1 > a0:
+        arr = _try_loads(t[a0:a1 + 1])
+        if isinstance(arr, list):
+            return arr
 
     low = t.lower()
-    if any(m in low for m in _AI_THINKING_MARKERS):
-        print(f"[{label}] 返回思考链且无法提取JSON，回退规则")
-    else:
-        print(f"[{label}] JSON对象解析失败，回退规则。前200字: {t[:200]}")
+    if not quiet:
+        if any(m in low for m in _AI_THINKING_MARKERS):
+            print(f"[{label}] 返回思考链且无法提取JSON，回退规则")
+        else:
+            print(f"[{label}] JSON对象解析失败，回退规则。前200字: {t[:200]}")
+    return None
+
+
+def _extract_ai_list(text, keys=(), label="AI"):
+    """
+    统一解析 AI 返回的 JSON 对象并取出目标数组（results/summaries/tags/keywords 等）。
+    顺序：
+      1) _extract_json_object 得到 dict/list（先整体 json.loads，再截取第一个{到最后一个}）
+      2) dict 时按 keys 顺序取第一个 list；都没有则取对象内第一个 list
+      3) 外层 JSON 被 max_tokens 截断时，正则抢救所有完整的内层 {...} 记录，尽量返回部分结果
+      4) 纯字符串数组被截断时，抢救完整的 "..." 元素
+    成功返回 list；彻底失败返回 None（调用方回退规则）。
+    """
+    parsed = _extract_json_object(text, label=label, quiet=True)
+    if isinstance(parsed, dict):
+        for k in keys:
+            v = parsed.get(k)
+            if isinstance(v, list):
+                return v
+        for v in parsed.values():  # 键名不一致时，取第一个数组值兜底
+            if isinstance(v, list):
+                return v
+        return None
+    if isinstance(parsed, list):
+        return parsed
+
+    # —— 外层不完整（常见于 max_tokens 截断）：抢救完整内层记录 ——
+    t = _strip_code_fence(text or "")
+    rescued = []
+    for frag in re.findall(r"\{[^{}]*\}", t):
+        try:
+            obj = json.loads(frag)
+            if isinstance(obj, dict):
+                rescued.append(obj)
+        except Exception:
+            continue
+    if rescued:
+        print(f"[{label}] 外层JSON不完整（疑似被截断），已抢救出 {len(rescued)} 条完整记录")
+        return rescued
+
+    # 纯字符串数组（如 {"tags":["a","b"]} 被截断）：抢救完整字符串元素
+    _struct_words = {"results", "summaries", "tags", "keywords", "terms", "items",
+                     "id", "summary", "term", "count", "relevant", "is_environment"}
+    strs = []
+    for s in re.findall(r'"([^"\\]*(?:\\.[^"\\]*)*)"', t):
+        s2 = s.strip()
+        if s2 and s2 not in _struct_words and s2 not in strs:
+            strs.append(s2)
+    if strs:
+        return strs
+    print(f"[{label}] 未能从返回中解析出有效JSON，回退规则。前200字: {t[:200]}")
     return None
 
 
@@ -2865,16 +2929,11 @@ def _ai_relevance_irrelevant(items, api_config):
         "每条只回答\"是\"或\"否\"。\n\n"
         "标题列表：\n" + "\n".join(lines)
     )
-    result = call_nvidia_api(prompt, api_config, max_tokens=100, json_mode=True)
+    # max_tokens 按标题条数估算，避免条目多时 JSON 被截断
+    result = call_nvidia_api(prompt, api_config, max_tokens=max(300, 14 * len(lines)), json_mode=True)
     if not result:
         return None
-    parsed = _extract_json_object(result, label="相关性过滤")
-    if isinstance(parsed, dict):
-        arr = parsed.get("results") or parsed.get("items") or []
-    elif isinstance(parsed, list):
-        arr = parsed
-    else:
-        arr = None
+    arr = _extract_ai_list(result, keys=("results", "items"), label="相关性过滤")
     if isinstance(arr, list):
         irrelevant_set = set()
         for r in arr:
@@ -2900,17 +2959,17 @@ def _zh_relevance_keep(title):
     注意：filter_environmental_relevance 会在剩余不足10条时取消过滤，保留全部
     """
     title_lower = title.lower()
-    # 1. 强环境相关词匹配（中文直接包含，英文用单词边界）
+    # 1. 无关黑名单优先：博彩/体育/娱乐/教育等即使夹带"环境/ESG/AI"字样也先过滤
+    for m in IRRELEVANT_MARKERS:
+        if m in title:
+            return False
+    # 2. 强环境相关词匹配（中文直接包含，英文用单词边界）
     for kw in ENV_RELATED_ZH:
         if re.match(r'^[a-zA-Z\s\-]+$', kw):
             if re.search(r'\b' + re.escape(kw.lower()) + r'\b', title_lower):
                 return True
         elif kw in title:
             return True
-    # 2. 明显无关词 -> 过滤
-    for m in IRRELEVANT_MARKERS:
-        if m in title:
-            return False
     # 3. 严格模式：不含强环境词 -> 过滤（由上层在不足10条时放宽）
     return False
 
@@ -2926,12 +2985,15 @@ def _en_relevance_keep(title):
     if zh and zh != title and is_chinese(zh):
         return _zh_relevance_keep(zh)
     tl = title.lower()
-    for kw in ENV_RELATED_EN:
-        if re.search(r'\b' + re.escape(kw) + r'\b', tl):
-            return True
+    # 无关黑名单优先（博彩/体育/娱乐/教育）
     for m in IRRELEVANT_EN:
         if re.search(r'\b' + re.escape(m) + r'\b', tl):
             return False
+    # 命中任一英文环境词 -> 保留
+    for kw in ENV_RELATED_EN:
+        if re.search(r'\b' + re.escape(kw) + r'\b', tl):
+            return True
+    # 无法判断 -> 默认保留（保守，避免误杀）
     return True
 
 
@@ -3459,14 +3521,7 @@ def generate_ai_keywords(items, api_config):
                 print("[AI关键词] 首次调用返回空，重试一次...")
                 continue
             return None
-        parsed = _extract_json_object(result, label="AI关键词")
-        # 对象模式从 keywords 键取值；向后兼容裸数组
-        if isinstance(parsed, dict):
-            keywords = parsed.get("keywords") or parsed.get("terms") or []
-        elif isinstance(parsed, list):
-            keywords = parsed
-        else:
-            keywords = None
+        keywords = _extract_ai_list(result, keys=("keywords", "terms"), label="AI关键词")
         if isinstance(keywords, list):
             valid = []
             for kw in keywords:
@@ -3531,17 +3586,11 @@ def generate_topic_tags(item, api_config):
         f"{content_text}"
     )
 
-    result = call_nvidia_api(prompt, api_config, max_tokens=80, json_mode=True)
+    result = call_nvidia_api(prompt, api_config, max_tokens=160, json_mode=True)
     if not result:
         return []
 
-    parsed = _extract_json_object(result, label="AI标签")
-    if isinstance(parsed, dict):
-        tags = parsed.get("tags") or parsed.get("keywords") or []
-    elif isinstance(parsed, list):
-        tags = parsed
-    else:
-        tags = None
+    tags = _extract_ai_list(result, keys=("tags", "keywords"), label="AI标签")
     if isinstance(tags, list):
         banned = {"环境", "污染", "保护", "气候变化", "环保", "生态", "可持续发展", "环境领域", "环境保护", "环境问题", "环境科学", "环境工程"}
         clean_tags = []
@@ -3987,7 +4036,7 @@ def generate_batch_summaries(items, api_config):
                 data = {
                     "model": api_config["model"],
                     "messages": [{"role": "user", "content": prompt}],
-                    "max_tokens": 100,
+                    "max_tokens": 900,
                 }
                 # JSON 模式：零随机 + 强制JSON对象 + 关闭思考链；400 时逐个移除附加字段
                 data.update(_json_mode_fields())
@@ -4043,13 +4092,7 @@ def generate_batch_summaries(items, api_config):
         batch_success = 0
         if result_text:
             try:
-                _parsed = _extract_json_object(result_text, label="AI批量摘要")
-                if isinstance(_parsed, dict):
-                    summaries = _parsed.get("summaries") or _parsed.get("results") or []
-                elif isinstance(_parsed, list):
-                    summaries = _parsed
-                else:
-                    summaries = None
+                summaries = _extract_ai_list(result_text, keys=("summaries", "results"), label="AI批量摘要")
                 if isinstance(summaries, list):
                     success_ids = set()
                     for s in summaries:
@@ -4165,7 +4208,7 @@ def generate_batch_topic_tags(items, api_config):
                 data = {
                     "model": api_config["model"],
                     "messages": [{"role": "user", "content": prompt}],
-                    "max_tokens": 100,
+                    "max_tokens": 700,
                 }
                 # JSON 模式：零随机 + 强制JSON对象 + 关闭思考链；400 时逐个移除附加字段
                 data.update(_json_mode_fields())
@@ -4221,13 +4264,7 @@ def generate_batch_topic_tags(items, api_config):
             continue
 
         # 解析返回的 JSON 对象（从 results 键取值，兼容裸数组与夹带推理过程）
-        _parsed = _extract_json_object(result_text, label="AI批量标签")
-        if isinstance(_parsed, dict):
-            tags_list = _parsed.get("results") or _parsed.get("tags") or []
-        elif isinstance(_parsed, list):
-            tags_list = _parsed
-        else:
-            tags_list = None
+        tags_list = _extract_ai_list(result_text, keys=("results", "tags"), label="AI批量标签")
         if isinstance(tags_list, list):
             batch_count = 0
             wide_banned = {"环境", "污染", "保护", "气候变化", "环保", "生态", "可持续发展", "环境领域", "环境保护", "环境问题"}
@@ -5495,4 +5532,3 @@ def main():
 
 if __name__ == "__main__":
     main()
-

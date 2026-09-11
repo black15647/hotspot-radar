@@ -1681,6 +1681,13 @@ ENV_RELATED_EN = [
     # 能源获取/清洁烹饪/气候正义（农户、健康暴露相关）
     "fuel", "clean cooking", "cooking fuel", "clean cooking fuel",
     "energy access", "energy poverty", "climate justice",
+    # 极端天气/灾害与气温纪录（补充误杀词）
+    "tsunami", "catastrophic", "catastrophe", "blaze", "smoke", "haze",
+    "hottest", "warmest", "record heat", "heat record", "global temperature",
+    # 温室气体与排放（含复数及常见写法；emission 匹配不到 emissions，故单列）
+    "emissions", "methane", "greenhouse gas", "ghg", "nitrous oxide", "co2",
+    # 海洋生态现象（马尾藻暴发等）
+    "sargassum", "sargassum bloom", "seaweed", "algal bloom",
 ]
 # 英文明显无关词（单词边界匹配）
 IRRELEVANT_EN = [

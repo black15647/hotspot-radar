@@ -1523,10 +1523,37 @@ def extract_article_text(url, api_config):
     return None
 
 
-# 英伟达 NIM API 连续失败计数器（连续失败5次后停止AI调用）
-NVIDIA_CONSECUTIVE_FAILURES = 0
-NVIDIA_MAX_CONSECUTIVE_FAILURES = 2  # 连续失败2次即停止AI调用，快速降级
-_AI_RULE_DEGRADED = False  # 是否已打印过"AI 已降级规则模式"提示（只打印一次）
+# ============================================================
+# AI 按功能独立熔断（替代旧的“一个功能失败、全部 AI 跳过”的全局熔断）
+# 每个 AI 功能（相关性过滤/批量摘要/话题标签/关键词/近7天总结…）各自计数，
+# 某功能连续失败达到阈值后，仅该功能降级为规则模式，不影响其他功能继续调用 AI。
+# ============================================================
+AI_FUNC_FAILURES = {}            # {功能名: 该功能连续失败次数}
+AI_FUNC_MAX_FAILURES = 3         # 每个功能连续失败 3 次后独立熔断、降级规则
+AI_FUNC_DEGRADED_LOGGED = set()  # 已打印过降级提示的功能（只提示一次，避免刷屏）
+AI_RETRY_DELAYS = [5, 15, 30]    # 统一重试间隔：首次失败后等 5s、再 15s、再 30s
+
+
+def _ai_func_disabled(feature):
+    """该 AI 功能是否已因连续失败达到阈值而独立熔断（只影响该功能自身）"""
+    return AI_FUNC_FAILURES.get(feature, 0) >= AI_FUNC_MAX_FAILURES
+
+
+def _ai_record_success(feature):
+    """某次 AI 调用成功：清零该功能的连续失败计数与降级标记（不影响其他功能）"""
+    if AI_FUNC_FAILURES.get(feature, 0):
+        AI_FUNC_FAILURES[feature] = 0
+    AI_FUNC_DEGRADED_LOGGED.discard(feature)
+
+
+def _ai_record_failure(feature, label=None):
+    """某次 AI 调用失败：仅该功能计数 +1；达到阈值时对该功能打印一次降级日志，返回当前连续失败次数"""
+    AI_FUNC_FAILURES[feature] = AI_FUNC_FAILURES.get(feature, 0) + 1
+    fail_n = AI_FUNC_FAILURES[feature]
+    if fail_n >= AI_FUNC_MAX_FAILURES and feature not in AI_FUNC_DEGRADED_LOGGED:
+        print(f"[{label or feature}] 连续失败{AI_FUNC_MAX_FAILURES}次，已降级为规则模式")
+        AI_FUNC_DEGRADED_LOGGED.add(feature)
+    return fail_n
 
 # 原文提取失败域名集合（避免重复打印相同错误）
 FAILED_DOMAINS = set()
@@ -2746,24 +2773,21 @@ def classify_item(item, allow_translate=True):
     return "其他"
 
 
-def call_nvidia_api(prompt, api_config, max_tokens=None, json_mode=False):
+def call_nvidia_api(prompt, api_config, max_tokens=None, json_mode=False, feature="AI通用"):
     """
     调用英伟达 NIM API（OpenAI 兼容格式），返回生成的文本，失败返回 None
-    - 增加重试机制：429或超时后等待重试，最多3次，等待时间递增3/6/10秒
+    - 按功能独立熔断：feature 标识所属功能（相关性过滤/批量摘要/话题标签/关键词提取/近7天总结…），
+      某功能连续失败达到阈值后仅该功能降级为规则，不影响其他功能继续调用 AI
+    - 重试机制：429/超时/返回空时按 [5,15,30] 秒重试，首次 + 3 次重试共 4 次尝试
     - 404 时打印完整 URL/模型/响应，并自动尝试备用模型（fallback_model）
-    - 连续失败5次后停止AI调用，失败均走规则降级，不中断脚本
+    - 所有失败均只触发该功能自身的规则降级，不中断脚本
     """
-    global NVIDIA_CONSECUTIVE_FAILURES, _AI_RULE_DEGRADED
-
     if not api_config["summary_enabled"] or not api_config["api_key"]:
         return None
     if not REQUESTS_AVAILABLE:
         return None
-    # 连续失败超过阈值，停止调用并降级为规则模式（只提示一次）
-    if NVIDIA_CONSECUTIVE_FAILURES >= NVIDIA_MAX_CONSECUTIVE_FAILURES:
-        if not _AI_RULE_DEGRADED:
-            print("[AI] 调用失败，已降级为规则模式（后续 AI 调用自动走规则，不影响主流程）")
-            _AI_RULE_DEGRADED = True
+    # 仅当“该功能自身”连续失败达到阈值时才跳过，不影响其他功能
+    if _ai_func_disabled(feature):
         return None
 
     url = api_config["base_url"].rstrip("/") + "/chat/completions"
@@ -2789,9 +2813,9 @@ def call_nvidia_api(prompt, api_config, max_tokens=None, json_mode=False):
         data["response_format"] = {"type": "json_object"}
         json_strip_queue = ["chat_template_kwargs", "response_format"]
 
-    # 重试机制：429/超时/返回空 最多重试2次（3/6秒），总共3次尝试
-    retry_delays = [3, 6]
-    for attempt in range(3):
+    # 重试机制：429/超时/返回空 按 [5,15,30] 秒重试，首次 + 3 次重试共 4 次尝试
+    retry_delays = AI_RETRY_DELAYS
+    for attempt in range(4):
         try:
             # 超时设置：20 秒（nemotron 模型响应较快）
             timeout = 20
@@ -2812,29 +2836,28 @@ def call_nvidia_api(prompt, api_config, max_tokens=None, json_mode=False):
                     if resp.status_code == 404:
                         body2 = resp.text[:300].replace("\n", " ")
                         print(f"[英伟达 NIMAPI] 备用模型也 404 | URL: {url} | 模型: {fallback} | 响应: {body2}")
-                        NVIDIA_CONSECUTIVE_FAILURES += 1
+                        _ai_record_failure(feature)
                         return None
                 else:
-                    NVIDIA_CONSECUTIVE_FAILURES += 1
+                    _ai_record_failure(feature)
                     return None
 
             resp.raise_for_status()
             result = resp.json()
             content = _extract_ai_content(result)
             if not content:
-                # 返回空/格式异常：重试2次（3/6秒）后仍失败才降级
-                print(f"[英伟达 NIMAPI] AI 返回为空或响应格式异常（第{attempt+1}次尝试）")
-                if attempt < 2:
+                # 每次失败尝试都累计该功能失败次数（成功会清零），达到3次即独立熔断
+                print(f"[英伟达 NIMAPI] AI 返回为空或响应格式异常（第{attempt+1}次尝试，功能:{feature}）")
+                _ai_record_failure(feature)
+                if attempt < 3:
                     wait_time = retry_delays[attempt]
                     print(f"[英伟达 NIMAPI] 等待{wait_time}秒后重试...")
                     time.sleep(wait_time)
                     continue
-                NVIDIA_CONSECUTIVE_FAILURES += 1
                 return None
-            # 调用成功，重置连续失败计数与降级标志
-            NVIDIA_CONSECUTIVE_FAILURES = 0
-            _AI_RULE_DEGRADED = False
-            print(f"[英伟达 NIMAPI] 调用成功（模型: {model}，耗时: {elapsed:.1f}s，输入长度: {len(prompt)} 字符）")
+            # 调用成功：仅清零“该功能”的连续失败计数
+            _ai_record_success(feature)
+            print(f"[英伟达 NIMAPI] 调用成功（功能:{feature}，模型: {model}，耗时: {elapsed:.1f}s，输入长度: {len(prompt)} 字符）")
             return content
         except requests.exceptions.HTTPError as e:
             status_code = e.response.status_code if e.response is not None else "unknown"
@@ -2844,40 +2867,41 @@ def call_nvidia_api(prompt, api_config, max_tokens=None, json_mode=False):
                 data.pop(drop_field, None)
                 print(f"[英伟达 NIMAPI] 400，模型可能不支持 {drop_field}，已移除并重试（剩余: {json_strip_queue}）")
                 continue
-            # 429 限流，需要重试
-            if status_code == 429 and attempt < 2:
+            # 429 限流，按 [5,15,30] 重试
+            if status_code == 429 and attempt < 3:
+                _ai_record_failure(feature)
                 wait_time = retry_delays[attempt]
                 print(f"[英伟达 NIMAPI] 429限流，第{attempt+1}次重试，等待{wait_time}秒...")
                 time.sleep(wait_time)
                 continue
-            # 其他HTTP错误，打印详细请求信息后降级
+            # 其他HTTP错误，打印详细请求信息后该功能降级
             resp_text = ""
             if e.response is not None:
                 resp_text = e.response.text[:200].replace("\n", " ")
             print(f"[英伟达 NIMAPI] HTTP错误 {status_code} | URL: {url} | 模型: {model} | 响应: {resp_text}")
-            NVIDIA_CONSECUTIVE_FAILURES += 1
+            _ai_record_failure(feature)
             return None
         except requests.exceptions.Timeout:
-            # 超时：重试2次（3/6秒）后降级
-            print(f"[英伟达 NIMAPI] 请求超时（第{attempt+1}次尝试）| URL: {url} | 模型: {model}")
-            if attempt < 2:
+            # 每次超时都累计该功能失败次数，达到3次即独立熔断
+            print(f"[英伟达 NIMAPI] 请求超时（第{attempt+1}次尝试，功能:{feature}）| URL: {url} | 模型: {model}")
+            _ai_record_failure(feature)
+            if attempt < 3:
                 wait_time = retry_delays[attempt]
                 print(f"[英伟达 NIMAPI] 等待{wait_time}秒后重试...")
                 time.sleep(wait_time)
                 continue
-            NVIDIA_CONSECUTIVE_FAILURES += 1
             return None
         except requests.exceptions.RequestException as e:
-            print(f"[英伟达 NIMAPI] 网络错误: {str(e)[:50]}")
-            NVIDIA_CONSECUTIVE_FAILURES += 1
+            print(f"[英伟达 NIMAPI] 网络错误: {str(e)[:50]}（功能:{feature}）")
+            _ai_record_failure(feature)
             return None
         except Exception as e:
-            print(f"[英伟达 NIMAPI] 未知错误: {str(e)[:50]}")
-            NVIDIA_CONSECUTIVE_FAILURES += 1
+            print(f"[英伟达 NIMAPI] 未知错误: {str(e)[:50]}（功能:{feature}）")
+            _ai_record_failure(feature)
             return None
 
-    # 所有重试都失败
-    NVIDIA_CONSECUTIVE_FAILURES += 1
+    # 4 次尝试都失败：该功能独立降级
+    _ai_record_failure(feature)
     return None
 
 
@@ -2906,7 +2930,7 @@ def generate_ai_summary(item, api_config):
         return ""
     prompt = f"你是一个环境领域摘要助手。请根据以下文章内容，生成一句25-60字的中文摘要，直接输出摘要，不要解释。禁止输出'点击查看详情''标题涉及'等无信息量提示语，必须包含具体事件信息。\n\n文章内容：{article_text[:3000]}"
 
-    result = call_nvidia_api(prompt, api_config, max_tokens=100)
+    result = call_nvidia_api(prompt, api_config, max_tokens=100, feature="摘要生成")
     if result:
         # 清理可能的引号
         result = result.strip('"').strip("'").strip()
@@ -2937,7 +2961,7 @@ def _ai_relevance_irrelevant(items, api_config):
         "标题列表：\n" + "\n".join(lines)
     )
     # max_tokens 按标题条数估算，避免条目多时 JSON 被截断
-    result = call_nvidia_api(prompt, api_config, max_tokens=max(300, 14 * len(lines)), json_mode=True)
+    result = call_nvidia_api(prompt, api_config, max_tokens=max(300, 14 * len(lines)), json_mode=True, feature="相关性过滤")
     if not result:
         return None
     arr = _extract_ai_list(result, keys=("results", "items"), label="相关性过滤")
@@ -3021,7 +3045,7 @@ def filter_environmental_relevance(items, config, api_config):
     ai_ok = api_config["summary_enabled"] and api_config["api_key"] and REQUESTS_AVAILABLE
 
     irrelevant_set = None
-    if ai_ok and NVIDIA_CONSECUTIVE_FAILURES < NVIDIA_MAX_CONSECUTIVE_FAILURES:
+    if ai_ok and not _ai_func_disabled("相关性过滤"):
         irrelevant_set = _ai_relevance_irrelevant(items, api_config)
 
     kept = []
@@ -3429,7 +3453,7 @@ def generate_weekly_summary(api_config, weekly_keywords=None, weekly_categories=
             "直接输出中文，不超过80字，只写这一句总结，不要分点、不要加标题。\n\n"
             f"分类统计：{cat_str}\n总条目数：{total_items}"
         )
-        result = call_nvidia_api(prompt, api_config, max_tokens=120)
+        result = call_nvidia_api(prompt, api_config, max_tokens=120, feature="近7天总结")
         cleaned = _sanitize_chinese_ai_text(result, max_len=80)
         if cleaned:
             return cleaned
@@ -3480,7 +3504,7 @@ def generate_weekly_insight(api_config, weekly_keywords=None, weekly_categories=
             "直接输出中文，不超过160字，不要分点、不要加标题、不要Markdown。\n\n"
             f"分类统计：{cat_str}\n累计条目数：{total_items}"
         )
-        result = call_nvidia_api(prompt, api_config, max_tokens=220)
+        result = call_nvidia_api(prompt, api_config, max_tokens=220, feature="近7天见解")
         cleaned = _sanitize_chinese_ai_text(result, max_len=160)
         if cleaned:
             return cleaned
@@ -3522,11 +3546,9 @@ def generate_ai_keywords(items, api_config):
 
     # 最多尝试2次（首次+1次重试），启用结构化输出
     for attempt in range(2):
-        result = call_nvidia_api(prompt, api_config, max_tokens=300, json_mode=True)
+        result = call_nvidia_api(prompt, api_config, max_tokens=300, json_mode=True, feature="关键词提取")
         if not result:
-            if attempt == 0:
-                print("[AI关键词] 首次调用返回空，重试一次...")
-                continue
+            # 网络失败/空响应已在 call_nvidia_api 内按 [5,15,30] 重试并对该功能独立熔断，不再二次重试
             return None
         keywords = _extract_ai_list(result, keys=("keywords", "terms"), label="AI关键词")
         if isinstance(keywords, list):
@@ -3593,7 +3615,7 @@ def generate_topic_tags(item, api_config):
         f"{content_text}"
     )
 
-    result = call_nvidia_api(prompt, api_config, max_tokens=160, json_mode=True)
+    result = call_nvidia_api(prompt, api_config, max_tokens=160, json_mode=True, feature="话题标签")
     if not result:
         return []
 
@@ -3933,7 +3955,7 @@ def generate_batch_summaries(items, api_config):
     返回修改后的 items 列表（原地修改）
     每天最多调用1次 API
     """
-    global NVIDIA_CONSECUTIVE_FAILURES
+    FEATURE = "批量摘要"
     if not api_config["summary_enabled"] or not api_config["api_key"]:
         # AI 未启用：规则兜底，保证每条都有摘要
         for it in items:
@@ -3947,9 +3969,9 @@ def generate_batch_summaries(items, api_config):
             if not s or len(s) < 10 or s == it.get("title", ""):
                 it["summary"] = _fallback_rule_summary(it.get("title", ""))
         return items
-    if NVIDIA_CONSECUTIVE_FAILURES >= NVIDIA_MAX_CONSECUTIVE_FAILURES:
-        # 连续失败：直接规则生成，保证每条都有摘要
-        print("[AI批量摘要] 连续失败次数过多，回退规则生成摘要")
+    if _ai_func_disabled(FEATURE):
+        # 该功能已独立熔断：直接规则生成，保证每条都有摘要
+        print("[AI批量摘要] 该功能已降级，回退规则生成摘要")
         _apply_rule_summaries([(i, i, it, "") for i, it in enumerate(items)
                                if not it.get("summary") or len(it.get("summary", "")) < 20])
         return items
@@ -4005,8 +4027,8 @@ def generate_batch_summaries(items, api_config):
         batch_local_offset = start  # 本批第一条在全局 candidates 中的索引
 
         # 连续失败达到阈值，剩余批次全部回退规则生成
-        if NVIDIA_CONSECUTIVE_FAILURES >= NVIDIA_MAX_CONSECUTIVE_FAILURES:
-            print(f"[AI批量摘要] 连续失败次数过多，第{batch_idx+1}/{total_batches}批回退规则生成")
+        if _ai_func_disabled(FEATURE):
+            print(f"[AI批量摘要] 该功能已降级，第{batch_idx+1}/{total_batches}批回退规则生成")
             _apply_rule_summaries(batch)
             continue
 
@@ -4030,10 +4052,10 @@ def generate_batch_summaries(items, api_config):
 新闻列表：
 {chr(10).join(news_list)}"""
 
-        # 批量请求，重试2次，等待3秒、6秒，超时20秒，max_tokens=100
-        retry_delays = [3, 6]
+        # 批量请求，按 [5,15,30] 秒重试，首次+3次重试共4次尝试，超时20秒
+        retry_delays = AI_RETRY_DELAYS
         result_text = None
-        for attempt in range(2):
+        for attempt in range(4):
             try:
                 url = api_config["base_url"].rstrip("/") + "/chat/completions"
                 headers = {
@@ -4061,38 +4083,39 @@ def generate_batch_summaries(items, api_config):
                 result_text = _extract_ai_content(result)
                 if not result_text:
                     print(f"[AI批量摘要] 第{batch_idx+1}批返回为空（第{attempt+1}次尝试）")
-                    if attempt < 1:
+                    _ai_record_failure(FEATURE, FEATURE)
+                    if attempt < 3:
                         wait_time = retry_delays[attempt]
                         print(f"[AI批量摘要] 等待{wait_time}秒后重试...")
                         time.sleep(wait_time)
                         continue
-                    NVIDIA_CONSECUTIVE_FAILURES += 1
                     break
-                NVIDIA_CONSECUTIVE_FAILURES = 0
+                _ai_record_success(FEATURE)
                 print(f"[AI批量摘要] 第{batch_idx+1}/{total_batches}批调用成功（耗时: {elapsed:.1f}s，{len(batch)}条）")
                 break
             except requests.exceptions.HTTPError as e:
                 status_code = e.response.status_code if e.response is not None else "unknown"
-                if status_code == 429 and attempt < 1:
+                if status_code == 429 and attempt < 3:
+                    _ai_record_failure(FEATURE, FEATURE)
                     wait_time = retry_delays[attempt]
                     print(f"[AI批量摘要] 第{batch_idx+1}批 429限流，等待{wait_time}秒重试...")
                     time.sleep(wait_time)
                     continue
                 print(f"[AI批量摘要] 第{batch_idx+1}批 HTTP错误 {status_code}（回退规则）")
-                NVIDIA_CONSECUTIVE_FAILURES += 1
+                _ai_record_failure(FEATURE, FEATURE)
                 break
             except requests.exceptions.Timeout:
                 print(f"[AI批量摘要] 第{batch_idx+1}批请求超时（第{attempt+1}次尝试）")
-                if attempt < 1:
+                _ai_record_failure(FEATURE, FEATURE)
+                if attempt < 3:
                     wait_time = retry_delays[attempt]
                     print(f"[AI批量摘要] 等待{wait_time}秒后重试...")
                     time.sleep(wait_time)
                     continue
-                NVIDIA_CONSECUTIVE_FAILURES += 1
                 break
             except Exception as e:
                 print(f"[AI批量摘要] 第{batch_idx+1}批调用失败: {str(e)[:50]}（回退规则）")
-                NVIDIA_CONSECUTIVE_FAILURES += 1
+                _ai_record_failure(FEATURE, FEATURE)
                 break
 
         # 解析本批结果并写回
@@ -4148,7 +4171,7 @@ def generate_batch_topic_tags(items, api_config):
     返回修改后的 items 列表（原地修改）
     每天最多调用1次 API
     """
-    global NVIDIA_CONSECUTIVE_FAILURES
+    FEATURE = "话题标签"
     if not api_config["summary_enabled"] or not api_config["api_key"]:
         for item in items:
             item["topic_tags"] = []
@@ -4157,7 +4180,8 @@ def generate_batch_topic_tags(items, api_config):
         for item in items:
             item["topic_tags"] = []
         return items
-    if NVIDIA_CONSECUTIVE_FAILURES >= NVIDIA_MAX_CONSECUTIVE_FAILURES:
+    if _ai_func_disabled(FEATURE):
+        print("[AI批量标签] 该功能已降级，回退规则标签")
         for item in items:
             item["topic_tags"] = []
         return items
@@ -4174,9 +4198,9 @@ def generate_batch_topic_tags(items, api_config):
         batch = target_items[batch_start:batch_start + BATCH_SIZE]
         batch_idx_offset = batch_start
 
-        # 连续失败达到阈值，剩余批次回退规则
-        if NVIDIA_CONSECUTIVE_FAILURES >= NVIDIA_MAX_CONSECUTIVE_FAILURES:
-            print(f"[AI批量标签] 连续失败次数过多，第{batch_start//BATCH_SIZE+1}批回退规则")
+        # 该功能独立熔断后，剩余批次回退规则
+        if _ai_func_disabled(FEATURE):
+            print(f"[AI批量标签] 该功能已降级，第{batch_start//BATCH_SIZE+1}批回退规则")
             for item in batch:
                 item["topic_tags"] = []
             continue
@@ -4202,10 +4226,10 @@ def generate_batch_topic_tags(items, api_config):
             f"新闻列表：\n{chr(10).join(news_list)}"
         )
 
-        # 批量请求，重试2次，等待3秒、6秒，超时20秒，max_tokens=100
-        retry_delays = [3, 6]
+        # 批量请求，按 [5,15,30] 秒重试，首次+3次重试共4次尝试，超时20秒
+        retry_delays = AI_RETRY_DELAYS
         result_text = None
-        for attempt in range(2):
+        for attempt in range(4):
             try:
                 url = api_config["base_url"].rstrip("/") + "/chat/completions"
                 headers = {
@@ -4231,38 +4255,39 @@ def generate_batch_topic_tags(items, api_config):
                 result_text = _extract_ai_content(result)
                 if not result_text:
                     print(f"[AI批量标签] 第{batch_start//BATCH_SIZE+1}批返回为空或格式异常（第{attempt+1}次尝试）")
-                    if attempt < 1:
+                    _ai_record_failure(FEATURE, FEATURE)
+                    if attempt < 3:
                         wait_time = retry_delays[attempt]
                         print(f"[AI批量标签] 等待{wait_time}秒后重试...")
                         time.sleep(wait_time)
                         continue
-                    NVIDIA_CONSECUTIVE_FAILURES += 1
                     break
-                NVIDIA_CONSECUTIVE_FAILURES = 0
+                _ai_record_success(FEATURE)
                 print(f"[AI批量标签] 第{batch_start//BATCH_SIZE+1}批调用成功")
                 break
             except requests.exceptions.HTTPError as e:
                 status_code = e.response.status_code if e.response is not None else "unknown"
-                if status_code == 429 and attempt < 1:
+                if status_code == 429 and attempt < 3:
+                    _ai_record_failure(FEATURE, FEATURE)
                     wait_time = retry_delays[attempt]
                     print(f"[AI批量标签] 第{batch_start//BATCH_SIZE+1}批 429限流，第{attempt+1}次重试，等待{wait_time}秒...")
                     time.sleep(wait_time)
                     continue
                 print(f"[AI批量标签] 第{batch_start//BATCH_SIZE+1}批 HTTP错误 {status_code}")
-                NVIDIA_CONSECUTIVE_FAILURES += 1
+                _ai_record_failure(FEATURE, FEATURE)
                 break
             except requests.exceptions.Timeout:
-                if attempt < 1:
+                _ai_record_failure(FEATURE, FEATURE)
+                if attempt < 3:
                     wait_time = retry_delays[attempt]
                     print(f"[AI批量标签] 第{batch_start//BATCH_SIZE+1}批请求超时，第{attempt+1}次重试，等待{wait_time}秒...")
                     time.sleep(wait_time)
                     continue
                 print(f"[AI批量标签] 第{batch_start//BATCH_SIZE+1}批请求超时（已重试）")
-                NVIDIA_CONSECUTIVE_FAILURES += 1
                 break
             except Exception as e:
                 print(f"[AI批量标签] 第{batch_start//BATCH_SIZE+1}批调用失败: {str(e)[:60]}")
-                NVIDIA_CONSECUTIVE_FAILURES += 1
+                _ai_record_failure(FEATURE, FEATURE)
                 break
 
         if not result_text:
@@ -5391,9 +5416,8 @@ def main():
     print("--- 第三步补充：环境领域相关性过滤 ---")
     api_config = get_api_config(config)
 
-    # 不再做独立的模型健康检查：首次实际调用 AI 时若超时/失败会自动重试（等待3/6秒），
-    # 连续失败达到阈值后由 call_nvidia_api 熔断并降级为规则模式，
-    # 避免一次网络波动就整日跳过所有 AI 功能。
+    # 不做独立模型健康检查，也不做全局熔断：每个 AI 功能（相关性/摘要/标签/关键词/近7天总结）
+    # 各自按 [5,15,30] 秒重试，连续失败 3 次后仅该功能独立降级为规则模式，不影响其他功能继续调用 AI。
     all_items = filter_environmental_relevance(all_items, config, api_config)
     print(f"[统计] 相关性过滤后 {len(all_items)} 条")
     # 相关性过滤后再统一翻译候选池英文标题/摘要（抓取阶段不翻译，节省配额）

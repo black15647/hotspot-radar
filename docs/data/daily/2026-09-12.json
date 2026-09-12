@@ -1,0 +1,339 @@
+{
+  "report_date": "2026-09-12",
+  "site_name": "环境学子雷达",
+  "total_items": 10,
+  "total_sources": 21,
+  "success_sources": 21,
+  "failed_sources": 0,
+  "week_total_items": 148,
+  "week_new_keywords": 70,
+  "policy_ratio": 1.3,
+  "items": [
+    {
+      "title": "Evaporative demand delays soil moisture accumulation timing during the dry-to-wet season transition in the Sahel",
+      "title_en": "Evaporative demand delays soil moisture accumulation timing during the dry-to-wet season transition in the Sahel",
+      "title_zh": "在萨赫勒地区从干季向湿季过渡期间，蒸发需求延迟了土壤水分积累的时间",
+      "link": "https://iopscience.iop.org/article/10.1088/1748-9326/aea2ae",
+      "source": "Environmental Research Letters",
+      "published": "2026-09-10T23:00:00+00:00",
+      "hotness": 100.0,
+      "score_v1": 20.52,
+      "score_v2": 100.0,
+      "score_breakdown": {
+        "algorithm": "v2",
+        "source_score": 25.0,
+        "keyword_idf_score": 13.9,
+        "resonance_score": 4.25,
+        "quality_score": 10.0,
+        "base": 53.15,
+        "time_factor": 0.7356,
+        "repeat_penalty": 1.0,
+        "cross_source_count": 2,
+        "raw": 39.1,
+        "display_score": 100.0
+      },
+      "summary": "在干季向湿季过渡期间，土壤水分的可用性驱动着整个半干旱萨赫勒地区的生态系统生产力。在此期间，土壤水分反映了降水提供的水分与大气需求之间的平衡，但这些过程如何共同影响土壤水分积累的时机尚不明确。 本文分析了2003年至2024年间，在撒哈拉沙漠与湿热带之间的半干旱地区，从旱季向湿季过渡期间土壤水分和降水的变化趋势。 我们利用日最高气温作为诊断性土壤水分模型中的蒸发需求指标，以评估降水输入和温度驱动的土壤干燥过程各自如何影响土壤水分动态。 我们发现，在萨赫勒地区的大部分区域，土壤含水量的起始时间相对于降水的起始时间存在系统性延迟，且土壤含水量起始与降水起始的趋势呈现出由东向西的分化模式。 在诊断模型中将日最高温度与降水共同纳入，显著提高了其再现起始时机的能力，并有助于解释观测到的土壤水分与降水起始时间之间的分歧。 这些结果表明，在干季向湿季过渡期间，蒸发需求的增加可以抵消降水量的增加，并延迟植物可利用水的出现。这些发现强调了在评估萨赫勒地区土壤水可利用性的变化时，大气需求与降水输入同等重要，这对雨养农业系统具有潜在影响。",
+      "analysis": "该条目涉及【蒸发需求延迟了土壤水分积累的时间】话题，因来源权威性高，热度上升。",
+      "topic_tags": [
+        "蒸发需求延迟了土壤水分积累的时间"
+      ],
+      "category": "水处理",
+      "matched_keywords": [
+        "生态系统"
+      ]
+    },
+    {
+      "title": "Urban planning to strengthen resilience to extreme climate events—a systematic review",
+      "title_en": "Urban planning to strengthen resilience to extreme climate events—a systematic review",
+      "title_zh": "旨在增强应对极端气候事件韧性的城市规划——一项系统性综述",
+      "link": "https://iopscience.iop.org/article/10.1088/1748-9326/ae9eb2",
+      "source": "Environmental Research Letters",
+      "published": "2026-09-10T23:00:00+00:00",
+      "hotness": 97.8,
+      "score_v1": 22.52,
+      "score_v2": 97.8,
+      "score_breakdown": {
+        "algorithm": "v2",
+        "source_score": 25.0,
+        "keyword_idf_score": 6.81,
+        "resonance_score": 4.25,
+        "quality_score": 10.0,
+        "base": 46.06,
+        "time_factor": 0.7356,
+        "repeat_penalty": 1.0,
+        "cross_source_count": 2,
+        "raw": 33.88,
+        "display_score": 97.8
+      },
+      "summary": "越来越多的文献表明，城市是应对气候变化减缓与适应的关键参与者。然而，对于城市规划者在构建韧性过程中所采取的方法及面临的挑战，目前了解尚少。现有研究往往侧重于特定城市中的具体规划工具，而对全球不同地区及不同收入水平城市所面临的挑战及所采用工具的更广泛评估则关注不足。 本文基于对采用ROSES标准的科学论文的系统性综述，探讨了与城市规划相关的挑战及增强韧性的措施如何因城市规模、地区和收入水平的不同而有所差异。初步分析涵盖了3410篇文献，经过多次筛选迭代后，最终有398篇论文被纳入深入审查。 数据提取借助了基于大型语言模型（LLM）的软件，并通过人工核查对结果进行了验证。我们发现，行政问题（机构分散和缺乏合作）是各地区提及频率最高的挑战。相比之下，尽管不同规模的城市之间差异较小，但世界各地区之间的土地使用冲突却存在显著差异。 此外还存在其他差异，例如在基于自然的解决方案（NbA）和数字工具的应用方面。与特大城市和大城市相比，在涉及小城市和极小城市的文献中，基于自然的解决方案被讨论得更为频繁。基于自然的解决方案不仅在欧洲常见，在非洲和小岛屿国家也较为普遍。 在涉及高收入国家城市的论文中，信息技术（IT）和数字工具被提及的频率更高。这种数字鸿沟表明，用于投资此类工具和技术的可用资源也取决于收入水平和财政资源。 总体而言，研究结果强调，多层次治理和发展条件是影响城市规划所面临挑战及其支持韧性建设能力的重要因素。",
+      "analysis": "该条目涉及【旨在增强应对极端气候事件韧性的城市规划】话题，因来源权威性高，热度上升。",
+      "topic_tags": [
+        "旨在增强应对极端气候事件韧性的城市规划"
+      ],
+      "category": "气候变化",
+      "matched_keywords": [
+        "气候变化"
+      ]
+    },
+    {
+      "title": "Hydroclimatic-driven pulse enrichment amplifies riverine microplastic export in developing countries | Science",
+      "title_en": "Hydroclimatic-driven pulse enrichment amplifies riverine microplastic export in developing countries | Science",
+      "title_zh": "水文气候驱动的脉冲富集加剧了发展中国家河流微塑料的输出 | 《科学》",
+      "link": "https://www.science.org/doi/10.1126/science.aeb4487",
+      "source": "Science",
+      "published": "2026-09-10T13:01:00+00:00",
+      "hotness": 95.6,
+      "score_v1": 17.32,
+      "score_v2": 95.6,
+      "score_breakdown": {
+        "algorithm": "v2",
+        "source_score": 25.0,
+        "keyword_idf_score": 15.64,
+        "resonance_score": 0.0,
+        "quality_score": 10.0,
+        "base": 50.64,
+        "time_factor": 0.6632,
+        "repeat_penalty": 1.0,
+        "cross_source_count": 1,
+        "raw": 33.58,
+        "display_score": 95.6
+      },
+      "summary": "河流是全球微塑料循环中的关键通道，但它们向海洋输送了多少微塑料，以及什么因素控制着这种输送，这些问题至今尚未得到解决。在此，我们提供了一组关于河流中微塑料浓度和输送量的全球每日数据集，并发现……",
+      "analysis": "该条目涉及【微塑料】话题，因来源权威性高，热度上升。",
+      "topic_tags": [
+        "微塑料"
+      ],
+      "category": "污染治理",
+      "matched_keywords": [
+        "微塑料"
+      ]
+    },
+    {
+      "title": "Climate ‘feedback loops’ could worsen global warming by 30%, study finds",
+      "title_en": "Climate ‘feedback loops’ could worsen global warming by 30%, study finds",
+      "title_zh": "研究发现，气候“反馈循环”可能使全球变暖加剧30%",
+      "link": "https://www.theguardian.com/environment/2026/sep/10/climate-feedback-loops-global-warming-study",
+      "source": "The Guardian Environment",
+      "published": "2026-09-10T08:00:19+00:00",
+      "hotness": 93.3,
+      "score_v1": 19.88,
+      "score_v2": 93.3,
+      "score_breakdown": {
+        "algorithm": "v2",
+        "source_score": 15.0,
+        "keyword_idf_score": 21.37,
+        "resonance_score": 4.25,
+        "quality_score": 10.0,
+        "base": 50.62,
+        "time_factor": 0.6321,
+        "repeat_penalty": 1.0,
+        "cross_source_count": 2,
+        "raw": 32.0,
+        "display_score": 93.3
+      },
+      "summary": "研究论文指出，来自自然来源的、导致地球变暖的甲烷和二氧化碳排放正加剧气候危机。化石燃料燃烧导致的全球气温上升正在改变全球的森林、湿地和苔原，以至于这些生态系统释放的温室气体排放量可能使全球变暖程度进一步加剧多达30%， 一项新研究发现。随着全球变暖，高纬度地区的永久冻土正在融化，日益干旱的森林和湿地中野火愈演愈烈，湖泊水温也在升高。 该论文指出，所有这些变化本身都在导致封存在树木和土壤中的、会加剧全球变暖的甲烷和二氧化碳释放，从而加剧了气候危机。继续阅读...",
+      "analysis": "该条目涉及【环境资讯】话题，因来源权威性高，热度上升。",
+      "topic_tags": [
+        "环境资讯"
+      ],
+      "category": "气候变化",
+      "matched_keywords": [
+        "碳排放",
+        "生态系统"
+      ]
+    },
+    {
+      "title": "专家：臭氧成制约大气污染系统治理的关键污染物 - chinanews.com.cn",
+      "title_en": "",
+      "title_zh": "",
+      "link": "https://news.google.com/rss/articles/CBMiaEFVX3lxTE5KZlJSVWtkVjh3QmJONXgwdTBsVEQzYTV0MFBnZmhNS0kxQkJ5d0g3cHRTQVB0QWV3YXJ1LVNVemlpRG9iYVZCWWhQNmh4MVI0NjdMZjVERHQzR0ZYMjRGLURTbXJuVXNX?oc=5",
+      "source": "Google News 环境污染",
+      "published": "2026-09-11T11:05:53+00:00",
+      "hotness": 91.1,
+      "score_v1": 19.33,
+      "score_v2": 91.1,
+      "score_breakdown": {
+        "algorithm": "v2",
+        "source_score": 20.0,
+        "keyword_idf_score": 15.64,
+        "resonance_score": 0.0,
+        "quality_score": 0.0,
+        "base": 35.64,
+        "time_factor": 0.8461,
+        "repeat_penalty": 1.0,
+        "cross_source_count": 1,
+        "raw": 30.15,
+        "display_score": 91.1
+      },
+      "summary": "专家：臭氧成制约大气污染系统治理的关键污染物 - chinanews.com.cn",
+      "analysis": "该条目涉及【臭氧】话题，因来源权威性高，热度上升。",
+      "topic_tags": [
+        "臭氧",
+        "大气污染"
+      ],
+      "category": "污染治理",
+      "matched_keywords": [
+        "大气污染"
+      ]
+    },
+    {
+      "title": "团体一等奖！江门斩获省生态环境执法技能竞赛多项荣誉 - Sohu",
+      "title_en": "",
+      "title_zh": "",
+      "link": "https://news.google.com/rss/articles/CBMijAFBVV95cUxNRTNrNkE2Wm43R2pEODJNb3RZeW4xQ3U4U0psRHNRSDJKOVdGOGNSZFBfNWNFUDZCTVdqSDVxR3YtX2V6eG4tOWJOOXVEdm8wbHVxbFdoVzNCME96M0xGUWNIRHB6U3JERnRKWXdYM1lUaHRWZDBPT0NZcXlKRXZvOVItYmVlTmlMN0Q5YQ?oc=5",
+      "source": "Google News 环境竞赛",
+      "published": "2026-09-11T14:06:51+00:00",
+      "hotness": 88.9,
+      "score_v1": 20.11,
+      "score_v2": 88.9,
+      "score_breakdown": {
+        "algorithm": "v2",
+        "source_score": 20.0,
+        "keyword_idf_score": 12.58,
+        "resonance_score": 0.0,
+        "quality_score": 0.0,
+        "base": 32.58,
+        "time_factor": 0.8783,
+        "repeat_penalty": 1.0,
+        "cross_source_count": 1,
+        "raw": 28.61,
+        "display_score": 88.9
+      },
+      "summary": "团体一等奖！江门斩获省生态环境执法技能竞赛多项荣誉 - Sohu",
+      "analysis": "该条目涉及【江门斩获省生态环境执法技能竞赛多项荣誉】话题，因来源权威性高，热度上升。",
+      "topic_tags": [
+        "江门斩获省生态环境执法技能竞赛多项荣誉"
+      ],
+      "category": "生态环境",
+      "matched_keywords": [
+        "竞赛"
+      ]
+    },
+    {
+      "title": "服贸观澜｜共建跨领域标准体系，破解气候变化下的能源发展命题 - 北京商报",
+      "title_en": "",
+      "title_zh": "",
+      "link": "https://news.google.com/rss/articles/CBMiXkFVX3lxTE9xUURib1Vhdl9qQzVPdzVfUzJMRXJBei1obDZsSlFBV1hpSk40LUEtME8wY043UjVsVXVMeXJBVGpBR0w5aGdVUkktX3RNZlBDRE9aczhGX3pNWXp2RkE?oc=5",
+      "source": "Google News 气候变化",
+      "published": "2026-09-11T15:13:35+00:00",
+      "hotness": 86.7,
+      "score_v1": 24.42,
+      "score_v2": 86.7,
+      "score_breakdown": {
+        "algorithm": "v2",
+        "source_score": 20.0,
+        "keyword_idf_score": 6.81,
+        "resonance_score": 4.25,
+        "quality_score": 0.0,
+        "base": 31.06,
+        "time_factor": 0.8907,
+        "repeat_penalty": 1.0,
+        "cross_source_count": 2,
+        "raw": 27.66,
+        "display_score": 86.7
+      },
+      "summary": "服贸观澜｜共建跨领域标准体系，破解气候变化下的能源发展命题 - 北京商报",
+      "analysis": "该条目涉及【破解气候变化下的能源发展命题】话题，因来源权威性高，热度上升。",
+      "topic_tags": [
+        "破解气候变化下的能源发展命题"
+      ],
+      "category": "气候变化",
+      "matched_keywords": [
+        "气候变化"
+      ]
+    },
+    {
+      "title": "El Niño goes viral — and scientists learn what makes people care about the climate",
+      "title_en": "El Niño goes viral — and scientists learn what makes people care about the climate",
+      "title_zh": "“厄尔尼诺”现象引发热议——科学家们由此了解到是什么让人们关注气候问题",
+      "link": "https://www.nature.com/articles/d41586-026-02763-3",
+      "source": "Nature",
+      "published": "2026-09-11T00:00:00+00:00",
+      "hotness": 84.4,
+      "score_v1": 14.67,
+      "score_v2": 84.4,
+      "score_breakdown": {
+        "algorithm": "v2",
+        "source_score": 25.0,
+        "keyword_idf_score": 0.0,
+        "resonance_score": 0.0,
+        "quality_score": 10.0,
+        "base": 35.0,
+        "time_factor": 0.7437,
+        "repeat_penalty": 1.0,
+        "cross_source_count": 1,
+        "raw": 26.03,
+        "display_score": 84.4
+      },
+      "summary": "《自然》杂志， 与仅靠数据相比，唤起情感更可能促使人们参与气候行动。",
+      "analysis": "该条目涉及【科学家们由此了解到是什么让人们关注气候问题】话题，因来源权威性高，热度上升。",
+      "topic_tags": [
+        "科学家们由此了解到是什么让人们关注气候问题"
+      ],
+      "category": "气候变化",
+      "matched_keywords": []
+    },
+    {
+      "title": "Larger methane emissions from Indian paddies than expected: towards tracking wetland methane emissions over India using multi-satellite measurements and modeling, Part B (non-natural wetlands)",
+      "title_en": "Larger methane emissions from Indian paddies than expected: towards tracking wetland methane emissions over India using multi-satellite measurements and modeling, Part B (non-natural wetlands)",
+      "title_zh": "印度稻田的甲烷排放量高于预期：利用多卫星观测数据和建模方法追踪印度湿地甲烷排放研究（B部分：非天然湿地）",
+      "link": "https://iopscience.iop.org/article/10.1088/1748-9326/aea2ac",
+      "source": "Environmental Research Letters",
+      "published": "2026-09-10T23:00:00+00:00",
+      "hotness": 82.2,
+      "score_v1": 14.52,
+      "score_v2": 82.2,
+      "score_breakdown": {
+        "algorithm": "v2",
+        "source_score": 25.0,
+        "keyword_idf_score": 0.0,
+        "resonance_score": 0.0,
+        "quality_score": 10.0,
+        "base": 35.0,
+        "time_factor": 0.7356,
+        "repeat_penalty": 1.0,
+        "cross_source_count": 1,
+        "raw": 25.75,
+        "display_score": 82.2
+      },
+      "summary": "印度是全球第二大水稻生产国，种植面积超过4000万公顷，年产量占全球总产量的22%，年出口量超过1500万吨。这使得该国成为全球粮食安全的重要参与者，但同时也对全球水稻甲烷（CH₄）排放作出了显著贡献。 目前对印度农业CH排放量的估算存在极高不确定性（超过50%），且缺乏该地区范围内的空间明确细节，这给实施可持续减排策略带来了挑战。本研究开发了一种基于卫星的方法，能够以10米分辨率解析印度各地水稻CH排放的季节性和次国家层面的变异性。 通过将“哨兵-1”合成孔径雷达（SAR）和“哨兵-2”多光谱观测数据与半经验的、基于过程的模型相结合，我们建立了首个基于观测、空间明确的2019–2025年印度水稻CH排放多季节数据集。 方法学评估显示，像素级验证准确率达90.12%，且在水稻种植面积制图方面与农业普查统计数据高度一致（= 0.896）。 利用这些前所未有的水稻种植面积详细数据，我们估算出全国年均排放量为 9.73 ± 2.03 Tg CH yr，这一数值高于此前报告的数据。 我们发现，卡里夫（Kharif）季风季节的贡献占主导地位（占年排放量的74.7%），其次是夏季（17.5%）和拉比（Rabi）冬季（7.8%），这凸显了在卡里夫水稻种植期间，通过有针对性的水管理措施，稻田中存在尚未开发的减排机会。 一个由18个模型组成的集合配置，捕捉了由温度依赖性甲烷生成、异养呼吸以及降水调节的淹水动态所驱动的排放季节性和空间变异性，并能够量化由模型参数和环境敏感性引起的结构性不确定性。因此，本研究的发现解决了现有研究中的关键结构性局限性",
+      "analysis": "该条目涉及【湿地】话题，因来源权威性高，热度上升。",
+      "topic_tags": [
+        "湿地"
+      ],
+      "category": "生态环境",
+      "matched_keywords": []
+    },
+    {
+      "title": "The dynamic impact of land-use changes on soil organic carbon",
+      "title_en": "The dynamic impact of land-use changes on soil organic carbon",
+      "title_zh": "土地利用变化对土壤有机碳的动态影响",
+      "link": "https://iopscience.iop.org/article/10.1088/1748-9326/ae9e50",
+      "source": "Environmental Research Letters",
+      "published": "2026-09-10T23:00:00+00:00",
+      "hotness": 80.0,
+      "score_v1": 14.52,
+      "score_v2": 80.0,
+      "score_breakdown": {
+        "algorithm": "v2",
+        "source_score": 25.0,
+        "keyword_idf_score": 0.0,
+        "resonance_score": 0.0,
+        "quality_score": 10.0,
+        "base": 35.0,
+        "time_factor": 0.7356,
+        "repeat_penalty": 1.0,
+        "cross_source_count": 1,
+        "raw": 25.75,
+        "display_score": 80.0
+      },
+      "summary": "本研究探讨了欧洲范围内土壤有机碳（SOC）对土地利用变化（LUCs）的响应。利用LUCAS调查的实地数据和基于卫星的Corine土地覆盖数据， 我们发现，因土地转为农田而导致的土壤有机碳损失是即时的（63%发生在前1.5年内），而农田转为草地或森林后的土壤有机碳积累则较为缓慢（10–20年），但在前1.5年内仍会出现显著的峰值。 我们的动态分析方法揭示，土地利用变化带来的碳封存潜力可能远高于当前国家清单报告的数值（1990年至2021年间约为572 MtC，而现有报告为76 MtC），尽管这两种方法都存在显著局限性。 这些发现表明，IPCC第一级（Tier 1）的保守估计可能低估了土地利用政策的减排潜力。 我们提供了可直接使用的、针对具体国家的排放因子，以提高国家温室气体清单的精确度并支持遵守公共法规，但由于样本量较小以及森林落叶可能被纳入表层土壤测量中，与森林相关的土地利用变化（LUC）仍需进一步验证。",
+      "analysis": "该条目涉及【土地利用变化对土壤有机碳的动态影响】话题，因来源权威性高，热度上升。",
+      "topic_tags": [
+        "土地利用变化对土壤有机碳的动态影响"
+      ],
+      "category": "气候变化",
+      "matched_keywords": []
+    }
+  ]
+}

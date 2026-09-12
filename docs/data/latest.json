@@ -1,54 +1,147 @@
 {
-  "report_date": "2026-09-11",
-  "date": "2026-09-11",
+  "report_date": "2026-09-12",
+  "date": "2026-09-12",
   "site_name": "环境学子雷达",
-  "total_items": 24,
+  "total_items": 28,
   "total_sources": 21,
   "success_sources": 21,
   "failed_sources": 0,
-  "week_total_items": 166,
-  "week_new_keywords": 59,
-  "policy_ratio": 2.7,
+  "week_total_items": 148,
+  "week_new_keywords": 70,
+  "policy_ratio": 1.3,
   "items": [
     {
-      "title": "Hydroclimatic-driven pulse enrichment amplifies riverine microplastic export in developing countries | Science",
-      "title_en": "Hydroclimatic-driven pulse enrichment amplifies riverine microplastic export in developing countries | Science",
-      "title_zh": "水文气候驱动的脉冲富集加剧了发展中国家河流微塑料的输运 | 《科学》",
-      "summary_en": "Rivers are key conduits in the global microplastic cycle, but how much they export to ` ocean and what controls this export remain unresolved. Here, we present a global daily dataset of riverine microplastic concentrations and exports and find that ...",
-      "summary_zh": "河流是全球微塑料循环中的关键通道，但它们向海洋输送了多少微塑料，以及什么因素控制着这种输送，这些问题至今尚未得到解决。在此，我们提供了一套关于河流中微塑料浓度和输送量的全球每日数据集，并发现……",
-      "link": "https://www.science.org/doi/10.1126/science.aeb4487",
-      "source": "Science",
-      "published": "2026-09-10T13:01:00+00:00",
+      "title": "Evaporative demand delays soil moisture accumulation timing during the dry-to-wet season transition in the Sahel",
+      "title_en": "Evaporative demand delays soil moisture accumulation timing during the dry-to-wet season transition in the Sahel",
+      "title_zh": "在萨赫勒地区从干季向湿季过渡期间，蒸发需求延迟了土壤水分积累的时间",
+      "summary_en": "Soil water availability during the dry-to-wet season transition drives ecosystem productivity across the semi-arid Sahel. During this period, soil moisture reflects the balance between water supplied by precipitation and atmospheric demand, but how these processes jointly influence the timing of soil moisture accumulation remains unclear. Here, we analyze trends in soil moisture and precipitation during the dry-to-wet season transition from 2003 to 2024 across the semi-arid zone between the Sahara and the humid tropics. We use daily maximum temperature as an index of evaporative demand in a diagnostic soil moisture model to evaluate how precipitation inputs and temperature-driven dry-down each influence soil moisture dynamics. We find that soil moisture onset is systematically delayed relative to precipitation onset across much of the Sahel, and that trends in soil moisture onset and precipitation onset diverge in an east–west pattern. Including daily maximum temperature alongside precipitation in the diagnostic model substantially improves its ability to reproduce onset timing and helps explain the observed divergence between soil moisture and precipitation onset. These results indicate that increased evaporative demand can offset increases in precipitation during the dry-to-wet season transition and delay the emergence of plant-available water. These findings highlight the importance of atmospheric demand alongside precipitation inputs when assessing shifts in soil water availability across the Sahel, with potential implications for rainfed agricultural systems.",
+      "summary_zh": "在干季向湿季过渡期间，土壤水分的可用性驱动着整个半干旱萨赫勒地区的生态系统生产力。在此期间，土壤水分反映了降水提供的水分与大气需求之间的平衡，但这些过程如何共同影响土壤水分积累的时机尚不明确。 本文分析了2003年至2024年间，在撒哈拉沙漠与湿热带之间的半干旱地区，从旱季向湿季过渡期间土壤水分和降水的变化趋势。 我们利用日最高气温作为诊断性土壤水分模型中的蒸发需求指标，以评估降水输入和温度驱动的土壤干燥过程各自如何影响土壤水分动态。 我们发现，在萨赫勒地区的大部分区域，土壤含水量的起始时间相对于降水的起始时间存在系统性延迟，且土壤含水量起始与降水起始的趋势呈现出由东向西的分化模式。 在诊断模型中将日最高温度与降水共同纳入，显著提高了其再现起始时机的能力，并有助于解释观测到的土壤水分与降水起始时间之间的分歧。 这些结果表明，在干季向湿季过渡期间，蒸发需求的增加可以抵消降水量的增加，并延迟植物可利用水的出现。这些发现强调了在评估萨赫勒地区土壤水可利用性的变化时，大气需求与降水输入同等重要，这对雨养农业系统具有潜在影响。",
+      "link": "https://iopscience.iop.org/article/10.1088/1748-9326/aea2ae",
+      "source": "Environmental Research Letters",
+      "published": "2026-09-10T23:00:00+00:00",
       "hotness": 100.0,
       "score": 100.0,
-      "score_v1": 21.31,
+      "score_v1": 20.52,
       "score_v2": 100.0,
       "score_breakdown": {
         "algorithm": "v2",
         "source_score": 25.0,
-        "keyword_idf_score": 16.69,
-        "resonance_score": 0.0,
+        "keyword_idf_score": 13.9,
+        "resonance_score": 4.25,
         "quality_score": 10.0,
-        "base": 51.69,
-        "time_factor": 0.8663,
+        "base": 53.15,
+        "time_factor": 0.7356,
         "repeat_penalty": 1.0,
-        "cross_source_count": 1,
-        "raw": 44.78,
+        "cross_source_count": 2,
+        "raw": 39.1,
         "display_score": 100.0
       },
       "score_v1_breakdown": {
         "base": 5.0,
         "source_score": 6.0,
         "keyword_score": 2.0,
-        "time_score": 6.31,
-        "topic_bonus": 2.0,
-        "total": 21.31
+        "time_score": 3.52,
+        "topic_bonus": 4.0,
+        "total": 20.52
       },
-      "summary": "河流是全球微塑料循环中的关键通道，但它们向海洋输送了多少微塑料，以及什么因素控制着这种输送，这些问题至今尚未得到解决。在此，我们提供了一套关于河流中微塑料浓度和输送量的全球每日数据集，并发现……",
+      "summary": "在干季向湿季过渡期间，土壤水分的可用性驱动着整个半干旱萨赫勒地区的生态系统生产力。在此期间，土壤水分反映了降水提供的水分与大气需求之间的平衡，但这些过程如何共同影响土壤水分积累的时机尚不明确。 本文分析了2003年至2024年间，在撒哈拉沙漠与湿热带之间的半干旱地区，从旱季向湿季过渡期间土壤水分和降水的变化趋势。 我们利用日最高气温作为诊断性土壤水分模型中的蒸发需求指标，以评估降水输入和温度驱动的土壤干燥过程各自如何影响土壤水分动态。 我们发现，在萨赫勒地区的大部分区域，土壤含水量的起始时间相对于降水的起始时间存在系统性延迟，且土壤含水量起始与降水起始的趋势呈现出由东向西的分化模式。 在诊断模型中将日最高温度与降水共同纳入，显著提高了其再现起始时机的能力，并有助于解释观测到的土壤水分与降水起始时间之间的分歧。 这些结果表明，在干季向湿季过渡期间，蒸发需求的增加可以抵消降水量的增加，并延迟植物可利用水的出现。这些发现强调了在评估萨赫勒地区土壤水可利用性的变化时，大气需求与降水输入同等重要，这对雨养农业系统具有潜在影响。",
+      "analysis": "该条目涉及【蒸发需求延迟了土壤水分积累的时间】话题，因来源权威性高，热度上升。",
+      "topic_tags": [
+        "蒸发需求延迟了土壤水分积累的时间"
+      ],
+      "category": "水处理",
+      "matched_keywords": [
+        "生态系统"
+      ],
+      "keywords": [
+        "生态系统"
+      ]
+    },
+    {
+      "title": "Urban planning to strengthen resilience to extreme climate events—a systematic review",
+      "title_en": "Urban planning to strengthen resilience to extreme climate events—a systematic review",
+      "title_zh": "旨在增强应对极端气候事件韧性的城市规划——一项系统性综述",
+      "summary_en": "A growing body of literature shows that cities are key actors in mitigation and adaptation to climate change. However, there is less knowledge about the approaches and challenges urban planners face in building resilience. Existing studies often focus on specific planning tools in selected cities, while limited attention is given to the wider assessment of challenges and tools used in different world regions and across income classes. This paper explores how urban planning-related challenges and measures for strengthening resilience vary across city sizes, regions, and income groups based on a systematic review of scientific papers applying the ROSES standards. The first analysis included 3410 articles, and following multiple screening iterations, 398 papers were ultimately considered for in-depth review. Data extraction was supported by LLM-based software, and the results were verified through in-person checking. We find that administrative issues (institutional fragmentation and lack of cooperation) are mentioned most frequently as a challenge across regions. In contrast, land-use conflicts differ significantly between world regions, though less so between cities of different size. Differences also emerge, e.g. in terms of the use of nature-based approaches (NbA) and digital tools. NbA are more frequently discussed in the literature that refers to small and very small cities compared to megacities and large cities. NbA are not solely common in Europe, but also in Africa and Small Island States. IT and digital tools are more frequently mentioned in papers that deal with cities in high-income countries. This digital divide points to the fact that the resources available to invest in such tools and technology also depend on income levels and financial resources. Overall, the findings underscore that multi-level governance and development conditions are important factors that influence the challenges faced by urban planning and its capacity to support resilience building.",
+      "summary_zh": "越来越多的文献表明，城市是应对气候变化减缓与适应的关键参与者。然而，对于城市规划者在构建韧性过程中所采取的方法及面临的挑战，目前了解尚少。现有研究往往侧重于特定城市中的具体规划工具，而对全球不同地区及不同收入水平城市所面临的挑战及所采用工具的更广泛评估则关注不足。 本文基于对采用ROSES标准的科学论文的系统性综述，探讨了与城市规划相关的挑战及增强韧性的措施如何因城市规模、地区和收入水平的不同而有所差异。初步分析涵盖了3410篇文献，经过多次筛选迭代后，最终有398篇论文被纳入深入审查。 数据提取借助了基于大型语言模型（LLM）的软件，并通过人工核查对结果进行了验证。我们发现，行政问题（机构分散和缺乏合作）是各地区提及频率最高的挑战。相比之下，尽管不同规模的城市之间差异较小，但世界各地区之间的土地使用冲突却存在显著差异。 此外还存在其他差异，例如在基于自然的解决方案（NbA）和数字工具的应用方面。与特大城市和大城市相比，在涉及小城市和极小城市的文献中，基于自然的解决方案被讨论得更为频繁。基于自然的解决方案不仅在欧洲常见，在非洲和小岛屿国家也较为普遍。 在涉及高收入国家城市的论文中，信息技术（IT）和数字工具被提及的频率更高。这种数字鸿沟表明，用于投资此类工具和技术的可用资源也取决于收入水平和财政资源。 总体而言，研究结果强调，多层次治理和发展条件是影响城市规划所面临挑战及其支持韧性建设能力的重要因素。",
+      "link": "https://iopscience.iop.org/article/10.1088/1748-9326/ae9eb2",
+      "source": "Environmental Research Letters",
+      "published": "2026-09-10T23:00:00+00:00",
+      "hotness": 97.8,
+      "score": 97.8,
+      "score_v1": 22.52,
+      "score_v2": 97.8,
+      "score_breakdown": {
+        "algorithm": "v2",
+        "source_score": 25.0,
+        "keyword_idf_score": 6.81,
+        "resonance_score": 4.25,
+        "quality_score": 10.0,
+        "base": 46.06,
+        "time_factor": 0.7356,
+        "repeat_penalty": 1.0,
+        "cross_source_count": 2,
+        "raw": 33.88,
+        "display_score": 97.8
+      },
+      "score_v1_breakdown": {
+        "base": 5.0,
+        "source_score": 6.0,
+        "keyword_score": 2.0,
+        "time_score": 3.52,
+        "topic_bonus": 6.0,
+        "total": 22.52
+      },
+      "summary": "越来越多的文献表明，城市是应对气候变化减缓与适应的关键参与者。然而，对于城市规划者在构建韧性过程中所采取的方法及面临的挑战，目前了解尚少。现有研究往往侧重于特定城市中的具体规划工具，而对全球不同地区及不同收入水平城市所面临的挑战及所采用工具的更广泛评估则关注不足。 本文基于对采用ROSES标准的科学论文的系统性综述，探讨了与城市规划相关的挑战及增强韧性的措施如何因城市规模、地区和收入水平的不同而有所差异。初步分析涵盖了3410篇文献，经过多次筛选迭代后，最终有398篇论文被纳入深入审查。 数据提取借助了基于大型语言模型（LLM）的软件，并通过人工核查对结果进行了验证。我们发现，行政问题（机构分散和缺乏合作）是各地区提及频率最高的挑战。相比之下，尽管不同规模的城市之间差异较小，但世界各地区之间的土地使用冲突却存在显著差异。 此外还存在其他差异，例如在基于自然的解决方案（NbA）和数字工具的应用方面。与特大城市和大城市相比，在涉及小城市和极小城市的文献中，基于自然的解决方案被讨论得更为频繁。基于自然的解决方案不仅在欧洲常见，在非洲和小岛屿国家也较为普遍。 在涉及高收入国家城市的论文中，信息技术（IT）和数字工具被提及的频率更高。这种数字鸿沟表明，用于投资此类工具和技术的可用资源也取决于收入水平和财政资源。 总体而言，研究结果强调，多层次治理和发展条件是影响城市规划所面临挑战及其支持韧性建设能力的重要因素。",
+      "analysis": "该条目涉及【旨在增强应对极端气候事件韧性的城市规划】话题，因来源权威性高，热度上升。",
+      "topic_tags": [
+        "旨在增强应对极端气候事件韧性的城市规划"
+      ],
+      "category": "气候变化",
+      "matched_keywords": [
+        "气候变化"
+      ],
+      "keywords": [
+        "气候变化"
+      ]
+    },
+    {
+      "title": "Hydroclimatic-driven pulse enrichment amplifies riverine microplastic export in developing countries | Science",
+      "title_en": "Hydroclimatic-driven pulse enrichment amplifies riverine microplastic export in developing countries | Science",
+      "title_zh": "水文气候驱动的脉冲富集加剧了发展中国家河流微塑料的输出 | 《科学》",
+      "summary_en": "Rivers are key conduits in the global microplastic cycle, but how much they export to ` ocean and what controls this export remain unresolved. Here, we present a global daily dataset of riverine microplastic concentrations and exports and find that ...",
+      "summary_zh": "河流是全球微塑料循环中的关键通道，但它们向海洋输送了多少微塑料，以及什么因素控制着这种输送，这些问题至今尚未得到解决。在此，我们提供了一组关于河流中微塑料浓度和输送量的全球每日数据集，并发现……",
+      "link": "https://www.science.org/doi/10.1126/science.aeb4487",
+      "source": "Science",
+      "published": "2026-09-10T13:01:00+00:00",
+      "hotness": 95.6,
+      "score": 95.6,
+      "score_v1": 17.32,
+      "score_v2": 95.6,
+      "score_breakdown": {
+        "algorithm": "v2",
+        "source_score": 25.0,
+        "keyword_idf_score": 15.64,
+        "resonance_score": 0.0,
+        "quality_score": 10.0,
+        "base": 50.64,
+        "time_factor": 0.6632,
+        "repeat_penalty": 1.0,
+        "cross_source_count": 1,
+        "raw": 33.58,
+        "display_score": 95.6
+      },
+      "score_v1_breakdown": {
+        "base": 5.0,
+        "source_score": 6.0,
+        "keyword_score": 2.0,
+        "time_score": 2.32,
+        "topic_bonus": 2.0,
+        "total": 17.32
+      },
+      "summary": "河流是全球微塑料循环中的关键通道，但它们向海洋输送了多少微塑料，以及什么因素控制着这种输送，这些问题至今尚未得到解决。在此，我们提供了一组关于河流中微塑料浓度和输送量的全球每日数据集，并发现……",
       "analysis": "该条目涉及【微塑料】话题，因来源权威性高，热度上升。",
       "topic_tags": [
-        "微塑料",
-        "水文气候驱动"
+        "微塑料"
       ],
       "category": "污染治理",
       "matched_keywords": [
@@ -59,94 +152,43 @@
       ]
     },
     {
-      "title": "Projected amplification of global warming by warming-induced greenhouse gas emissions",
-      "title_en": "Projected amplification of global warming by warming-induced greenhouse gas emissions",
-      "title_zh": "预计由变暖引发的温室气体排放将加剧全球变暖",
-      "summary_en": "Warming-induced emissions (WIE) of greenhouse gases from natural sources are a large amplifying feedback that most climate models do not yet represent. This absence risks systematic underestimation of projected future warming and overestimation of remaining carbon budgets. To assess the potential magnitude of these feedbacks, we derived relationships between global temperature and WIE rates from process-based model estimates across three Shared Socioeconomic Pathways, SSP1-2.6, SSP2-4.5, and SSP4-6.0. The warming-induced methane emission rate from permafrost, wetlands, freshwaters, and wildfire combined increases with temperature at an estimated 97 ± 6 Tg CH4 yr−1 °C−1 across all three scenarios, while the warming-induced carbon dioxide emission rate from permafrost and wildfire combined increases at 7 ± 1 Pg CO2 yr−1 °C−1 in SSP2-4.5 and SSP4-6.0. Using the MAGICC climate model, we projected that WIE could add 0.2 °C–0.4 °C of warming by 2100 across scenarios, split roughly equally between carbon dioxide and methane, amplifying post-2020 anthropogenic warming by 20%–30%. Combined emission sensitivity and climate response 1σ uncertainties are ±0.2 °C on the added warming and ±10%–30% on the warming amplification.",
-      "summary_zh": "自然来源的温室气体“变暖诱导排放”（WIE）是一种重要的放大反馈机制，但大多数气候模型目前尚未将其纳入考虑。这一缺失可能导致对未来变暖预估的系统性低估，以及对剩余碳预算的系统性高估。 为了评估这些反馈的潜在规模，我们基于三个“共享社会经济路径”（SSP1-2.6、SSP2-4.5 和 SSP4-6.0）中基于过程的模型估算结果，推导出了全球温度与 WIE 速率之间的关系。 在所有三个情景中，由变暖诱导的来自永久冻土、湿地、淡水和野火的甲烷排放速率随温度升高而增加，估计值为 97 ± 6 Tg CH4 yr−1 °C−1；而变暖在SSP2-4.5和SSP4-6.0情景中，由变暖引起的永久冻土和野火综合二氧化碳排放速率以7 ± 1 Pg CO₂ yr⁻¹ °C⁻¹的速率增加。 利用 MAGICC 气候模型，我们预测到 2100 年，在所有情景下，WIE 可能导致额外变暖 0.2 °C–0.4 °C，其中二氧化碳和甲烷的贡献大致各占一半，这将使 2020 年后的人为变暖加剧 20%–30%。 排放敏感性与气候响应的1σ不确定性综合来看，额外变暖量的不确定性为±0.2 °C，变暖放大的不确定性为±10%–30%。",
-      "link": "https://iopscience.iop.org/article/10.1088/1748-9326/ae9e24",
-      "source": "Environmental Research Letters",
-      "published": "2026-09-09T23:00:00+00:00",
-      "hotness": 97.4,
-      "score": 97.4,
-      "score_v1": 20.52,
-      "score_v2": 97.4,
-      "score_breakdown": {
-        "algorithm": "v2",
-        "source_score": 25.0,
-        "keyword_idf_score": 18.4,
-        "resonance_score": 4.25,
-        "quality_score": 10.0,
-        "base": 57.65,
-        "time_factor": 0.7356,
-        "repeat_penalty": 1.0,
-        "cross_source_count": 2,
-        "raw": 42.41,
-        "display_score": 97.4
-      },
-      "score_v1_breakdown": {
-        "base": 5.0,
-        "source_score": 6.0,
-        "keyword_score": 2.0,
-        "time_score": 3.52,
-        "topic_bonus": 4.0,
-        "total": 20.52
-      },
-      "summary": "自然来源的温室气体“变暖诱导排放”（WIE）是一种重要的放大反馈机制，但大多数气候模型目前尚未将其纳入考虑。这一缺失可能导致对未来变暖预估的系统性低估，以及对剩余碳预算的系统性高估。 为了评估这些反馈的潜在规模，我们基于三个“共享社会经济路径”（SSP1-2.6、SSP2-4.5 和 SSP4-6.0）中基于过程的模型估算结果，推导出了全球温度与 WIE 速率之间的关系。 在所有三个情景中，由变暖诱导的来自永久冻土、湿地、淡水和野火的甲烷排放速率随温度升高而增加，估计值为 97 ± 6 Tg CH4 yr−1 °C−1；而变暖在SSP2-4.5和SSP4-6.0情景中，由变暖引起的永久冻土和野火综合二氧化碳排放速率以7 ± 1 Pg CO₂ yr⁻¹ °C⁻¹的速率增加。 利用 MAGICC 气候模型，我们预测到 2100 年，在所有情景下，WIE 可能导致额外变暖 0.2 °C–0.4 °C，其中二氧化碳和甲烷的贡献大致各占一半，这将使 2020 年后的人为变暖加剧 20%–30%。 排放敏感性与气候响应的1σ不确定性综合来看，额外变暖量的不确定性为±0.2 °C，变暖放大的不确定性为±10%–30%。",
-      "analysis": "该条目涉及【温室气体】话题，因来源权威性高，热度上升。",
-      "topic_tags": [
-        "温室气体",
-        "变暖诱导排放",
-        "气候模型"
-      ],
-      "category": "气候变化",
-      "matched_keywords": [
-        "碳排放"
-      ],
-      "keywords": [
-        "碳排放"
-      ]
-    },
-    {
       "title": "Climate ‘feedback loops’ could worsen global warming by 30%, study finds",
       "title_en": "Climate ‘feedback loops’ could worsen global warming by 30%, study finds",
       "title_zh": "研究发现，气候“反馈循环”可能使全球变暖加剧30%",
       "summary_en": "Emissions of planet-heating methane and CO2 from natural sources are worsening the climate crisis, paper saysRising global temperatures caused by the burning of fossil fuels are transforming the world’s forests, wetlands and tundra to the point they are releasing emissions that could further worsen global heating by as much as 30%, a new study has found.As the world heats up, permafrost in the high latitudes is thawing, fiercer wildfires are burning in drying forests and wetlands and lakes are warming. All of these changes are themselves causing the release of planet-heating methane and carbon dioxide locked in trees and soils, therefore worsening the climate crisis, the paper states. Continue reading...",
-      "summary_zh": "研究论文指出，来自自然来源的、导致地球变暖的甲烷和二氧化碳排放正在加剧气候危机。化石燃料燃烧导致的全球气温上升正在改变世界上的森林、湿地和苔原，以至于这些生态系统释放的温室气体可能使全球变暖程度进一步加剧多达30%， 一项最新研究发现。随着全球变暖，高纬度地区的永久冻土正在融化，日益干旱的森林和湿地中野火愈演愈烈，湖泊水温也在升高。 该论文指出，所有这些变化本身都在导致封存在树木和土壤中的、会加剧全球变暖的甲烷和二氧化碳释放，从而加剧了气候危机。继续阅读...",
+      "summary_zh": "研究论文指出，来自自然来源的、导致地球变暖的甲烷和二氧化碳排放正加剧气候危机。化石燃料燃烧导致的全球气温上升正在改变全球的森林、湿地和苔原，以至于这些生态系统释放的温室气体排放量可能使全球变暖程度进一步加剧多达30%， 一项新研究发现。随着全球变暖，高纬度地区的永久冻土正在融化，日益干旱的森林和湿地中野火愈演愈烈，湖泊水温也在升高。 该论文指出，所有这些变化本身都在导致封存在树木和土壤中的、会加剧全球变暖的甲烷和二氧化碳释放，从而加剧了气候危机。继续阅读...",
       "link": "https://www.theguardian.com/environment/2026/sep/10/climate-feedback-loops-global-warming-study",
       "source": "The Guardian Environment",
       "published": "2026-09-10T08:00:19+00:00",
-      "hotness": 94.8,
-      "score": 94.8,
-      "score_v1": 23.12,
-      "score_v2": 94.8,
+      "hotness": 93.3,
+      "score": 93.3,
+      "score_v1": 19.88,
+      "score_v2": 93.3,
       "score_breakdown": {
         "algorithm": "v2",
         "source_score": 15.0,
-        "keyword_idf_score": 22.23,
+        "keyword_idf_score": 21.37,
         "resonance_score": 4.25,
         "quality_score": 10.0,
-        "base": 51.49,
-        "time_factor": 0.8151,
+        "base": 50.62,
+        "time_factor": 0.6321,
         "repeat_penalty": 1.0,
         "cross_source_count": 2,
-        "raw": 41.97,
-        "display_score": 94.8
+        "raw": 32.0,
+        "display_score": 93.3
       },
       "score_v1_breakdown": {
         "base": 5.0,
         "source_score": 3.0,
         "keyword_score": 4.0,
-        "time_score": 5.12,
+        "time_score": 1.88,
         "topic_bonus": 6.0,
-        "total": 23.12
+        "total": 19.88
       },
-      "summary": "研究论文指出，来自自然来源的、导致地球变暖的甲烷和二氧化碳排放正在加剧气候危机。化石燃料燃烧导致的全球气温上升正在改变世界上的森林、湿地和苔原，以至于这些生态系统释放的温室气体可能使全球变暖程度进一步加剧多达30%， 一项最新研究发现。随着全球变暖，高纬度地区的永久冻土正在融化，日益干旱的森林和湿地中野火愈演愈烈，湖泊水温也在升高。 该论文指出，所有这些变化本身都在导致封存在树木和土壤中的、会加剧全球变暖的甲烷和二氧化碳释放，从而加剧了气候危机。继续阅读...",
-      "analysis": "该条目涉及【温室气体反馈循环】话题，因来源权威性高，热度上升。",
+      "summary": "研究论文指出，来自自然来源的、导致地球变暖的甲烷和二氧化碳排放正加剧气候危机。化石燃料燃烧导致的全球气温上升正在改变全球的森林、湿地和苔原，以至于这些生态系统释放的温室气体排放量可能使全球变暖程度进一步加剧多达30%， 一项新研究发现。随着全球变暖，高纬度地区的永久冻土正在融化，日益干旱的森林和湿地中野火愈演愈烈，湖泊水温也在升高。 该论文指出，所有这些变化本身都在导致封存在树木和土壤中的、会加剧全球变暖的甲烷和二氧化碳释放，从而加剧了气候危机。继续阅读...",
+      "analysis": "该条目涉及【环境资讯】话题，因来源权威性高，热度上升。",
       "topic_tags": [
-        "温室气体反馈循环",
-        "森林",
-        "湿地"
+        "环境资讯"
       ],
       "category": "气候变化",
       "matched_keywords": [
@@ -159,139 +201,138 @@
       ]
     },
     {
-      "title": "今年8月是有记录以来最热月份|厄尔尼诺现象|气候变化|全球变暖|欧盟|纪录_手机新浪网 - finance.sina.cn",
+      "title": "专家：臭氧成制约大气污染系统治理的关键污染物 - chinanews.com.cn",
       "title_en": "",
       "title_zh": "",
       "summary_en": "",
       "summary_zh": "",
-      "link": "https://news.google.com/rss/articles/CBMif0FVX3lxTE5oYzJiS2REWGhpWHZfWUpQZ0NhM1UtTFA0elhMOFhlMWljOU5DUWNfX1ZIMkZyQmJMdFVrRzZEUEZBRVZrdmRvdlBkZXBEeVpWczVpNHkwd3NGVjlsS0VQZFc4TGNZLVMwZHRRSTBrZzRsT1hwVlJna0ZDX1J5Mjg?oc=5",
-      "source": "Google News 气候变化",
-      "published": "2026-09-10T22:32:33+00:00",
-      "hotness": 92.2,
-      "score": 92.2,
-      "score_v1": 28.88,
-      "score_v2": 92.2,
+      "link": "https://news.google.com/rss/articles/CBMiaEFVX3lxTE5KZlJSVWtkVjh3QmJONXgwdTBsVEQzYTV0MFBnZmhNS0kxQkJ5d0g3cHRTQVB0QWV3YXJ1LVNVemlpRG9iYVZCWWhQNmh4MVI0NjdMZjVERHQzR0ZYMjRGLURTbXJuVXNX?oc=5",
+      "source": "Google News 环境污染",
+      "published": "2026-09-11T11:05:53+00:00",
+      "hotness": 91.1,
+      "score": 91.1,
+      "score_v1": 19.33,
+      "score_v2": 91.1,
       "score_breakdown": {
         "algorithm": "v2",
         "source_score": 20.0,
-        "keyword_idf_score": 6.79,
-        "resonance_score": 4.25,
+        "keyword_idf_score": 15.64,
+        "resonance_score": 0.0,
         "quality_score": 0.0,
-        "base": 31.05,
-        "time_factor": 0.9797,
+        "base": 35.64,
+        "time_factor": 0.8461,
         "repeat_penalty": 1.0,
-        "cross_source_count": 2,
-        "raw": 30.41,
-        "display_score": 92.2
+        "cross_source_count": 1,
+        "raw": 30.15,
+        "display_score": 91.1
       },
       "score_v1_breakdown": {
         "base": 5.0,
         "source_score": 4.5,
         "keyword_score": 2.0,
-        "time_score": 9.38,
-        "topic_bonus": 8.0,
-        "total": 28.88
+        "time_score": 5.83,
+        "topic_bonus": 2.0,
+        "total": 19.33
       },
-      "summary": "欧盟气候监测机构公报称，今年8月是有记录以来最热月份，全球平均气温达16.96℃，较工业化前升高1.65℃，打破气温纪录。",
-      "analysis": "该条目涉及【厄尔尼诺现象】话题，因来源权威性高，热度上升。",
+      "summary": "专家：臭氧成制约大气污染系统治理的关键污染物 - chinanews.com.cn",
+      "analysis": "该条目涉及【臭氧】话题，因来源权威性高，热度上升。",
       "topic_tags": [
-        "厄尔尼诺现象",
-        "欧盟气候监测机构",
-        "哥白尼气候变化服务局"
+        "臭氧",
+        "大气污染"
       ],
-      "category": "气候变化",
+      "category": "污染治理",
       "matched_keywords": [
-        "气候变化"
+        "大气污染"
       ],
       "keywords": [
-        "气候变化"
+        "大气污染"
       ]
     },
     {
-      "title": "联合国气候变化事务负责人：气候危机已成为欧洲经济安全紧急状况 - UN News",
+      "title": "团体一等奖！江门斩获省生态环境执法技能竞赛多项荣誉 - Sohu",
       "title_en": "",
       "title_zh": "",
       "summary_en": "",
       "summary_zh": "",
-      "link": "https://news.google.com/rss/articles/CBMiV0FVX3lxTE1Qb3ZaSTctZF9ianpKS3BESFBuZWx1elE3MXdGTlQ1Wm5nSWNpT3hxS1ZSSkVrTXlJRkdPWVBSeXRORlQzanozQU03LUhfVDJQdXJvMTJjWQ?oc=5",
-      "source": "Google News 气候变化",
-      "published": "2026-09-10T15:56:50+00:00",
-      "hotness": 89.6,
-      "score": 89.6,
-      "score_v1": 26.63,
-      "score_v2": 89.6,
+      "link": "https://news.google.com/rss/articles/CBMijAFBVV95cUxNRTNrNkE2Wm43R2pEODJNb3RZeW4xQ3U4U0psRHNRSDJKOVdGOGNSZFBfNWNFUDZCTVdqSDVxR3YtX2V6eG4tOWJOOXVEdm8wbHVxbFdoVzNCME96M0xGUWNIRHB6U3JERnRKWXdYM1lUaHRWZDBPT0NZcXlKRXZvOVItYmVlTmlMN0Q5YQ?oc=5",
+      "source": "Google News 环境竞赛",
+      "published": "2026-09-11T14:06:51+00:00",
+      "hotness": 88.9,
+      "score": 88.9,
+      "score_v1": 20.11,
+      "score_v2": 88.9,
       "score_breakdown": {
         "algorithm": "v2",
         "source_score": 20.0,
-        "keyword_idf_score": 6.79,
-        "resonance_score": 4.25,
+        "keyword_idf_score": 12.58,
+        "resonance_score": 0.0,
         "quality_score": 0.0,
-        "base": 31.05,
-        "time_factor": 0.8988,
+        "base": 32.58,
+        "time_factor": 0.8783,
         "repeat_penalty": 1.0,
-        "cross_source_count": 2,
-        "raw": 27.9,
-        "display_score": 89.6
+        "cross_source_count": 1,
+        "raw": 28.61,
+        "display_score": 88.9
       },
       "score_v1_breakdown": {
         "base": 5.0,
         "source_score": 4.5,
         "keyword_score": 2.0,
-        "time_score": 7.13,
-        "topic_bonus": 8.0,
-        "total": 26.63
+        "time_score": 6.61,
+        "topic_bonus": 2.0,
+        "total": 20.11
       },
-      "summary": "联合国气候变化事务负责人警告，气候危机已成为欧洲经济安全的紧急状况，呼吁采取紧急行动应对日益严峻的挑战。",
-      "analysis": "该条目涉及【气候危机】话题，因来源权威性高，热度上升。",
+      "summary": "团体一等奖！江门斩获省生态环境执法技能竞赛多项荣誉 - Sohu",
+      "analysis": "该条目涉及【江门斩获省生态环境执法技能竞赛多项荣誉】话题，因来源权威性高，热度上升。",
       "topic_tags": [
-        "气候危机"
+        "江门斩获省生态环境执法技能竞赛多项荣誉"
       ],
-      "category": "气候变化",
+      "category": "生态环境",
       "matched_keywords": [
-        "气候变化"
+        "竞赛"
       ],
       "keywords": [
-        "气候变化"
+        "竞赛"
       ]
     },
     {
-      "title": "August joint-hottest month on record as climate change and El Niño drive heat",
-      "title_en": "August joint-hottest month on record as climate change and El Niño drive heat",
-      "title_zh": "8月并列有记录以来最热的月份，气候变化和厄尔尼诺现象导致高温",
-      "summary_en": "Climate change and the rising influence of El Niño saw August reach the record for warmest month.",
-      "summary_zh": "受气候变化和厄尔尼诺现象影响加剧的影响，8月创下了有记录以来最热的月份。",
-      "link": "https://www.bbc.co.uk/news/articles/c93vde0n2l4o?at_medium=RSS&at_campaign=rss",
-      "source": "BBC 科学与环境",
-      "published": "2026-09-10T02:05:47+00:00",
-      "hotness": 87.0,
-      "score": 87.0,
-      "score_v1": 22.0,
-      "score_v2": 87.0,
+      "title": "服贸观澜｜共建跨领域标准体系，破解气候变化下的能源发展命题 - 北京商报",
+      "title_en": "",
+      "title_zh": "",
+      "summary_en": "",
+      "summary_zh": "",
+      "link": "https://news.google.com/rss/articles/CBMiXkFVX3lxTE9xUURib1Vhdl9qQzVPdzVfUzJMRXJBei1obDZsSlFBV1hpSk40LUEtME8wY043UjVsVXVMeXJBVGpBR0w5aGdVUkktX3RNZlBDRE9aczhGX3pNWXp2RkE?oc=5",
+      "source": "Google News 气候变化",
+      "published": "2026-09-11T15:13:35+00:00",
+      "hotness": 86.7,
+      "score": 86.7,
+      "score_v1": 24.42,
+      "score_v2": 86.7,
       "score_breakdown": {
         "algorithm": "v2",
-        "source_score": 15.0,
-        "keyword_idf_score": 6.79,
+        "source_score": 20.0,
+        "keyword_idf_score": 6.81,
         "resonance_score": 4.25,
-        "quality_score": 10.0,
-        "base": 36.05,
-        "time_factor": 0.7613,
+        "quality_score": 0.0,
+        "base": 31.06,
+        "time_factor": 0.8907,
         "repeat_penalty": 1.0,
         "cross_source_count": 2,
-        "raw": 27.44,
-        "display_score": 87.0
+        "raw": 27.66,
+        "display_score": 86.7
       },
       "score_v1_breakdown": {
         "base": 5.0,
-        "source_score": 3.0,
+        "source_score": 4.5,
         "keyword_score": 2.0,
-        "time_score": 4.0,
-        "topic_bonus": 8.0,
-        "total": 22.0
+        "time_score": 6.92,
+        "topic_bonus": 6.0,
+        "total": 24.42
       },
-      "summary": "受气候变化和厄尔尼诺现象影响加剧的影响，8月创下了有记录以来最热的月份。",
-      "analysis": "该条目涉及【气候变化和厄尔尼诺现象导致高温】话题，因来源权威性高，热度上升。",
+      "summary": "服贸观澜｜共建跨领域标准体系，破解气候变化下的能源发展命题 - 北京商报",
+      "analysis": "该条目涉及【破解气候变化下的能源发展命题】话题，因来源权威性高，热度上升。",
       "topic_tags": [
-        "气候变化和厄尔尼诺现象导致高温"
+        "破解气候变化下的能源发展命题"
       ],
       "category": "气候变化",
       "matched_keywords": [
@@ -302,18 +343,18 @@
       ]
     },
     {
-      "title": "AI researchers reckon with the $1.5 million ‘academia tax’",
-      "title_en": "AI researchers reckon with the $1.5 million ‘academia tax’",
-      "title_zh": "人工智能研究人员正面临150万美元的“学术税”",
-      "summary_en": "Nature, Published online: 10 September 2026; doi:10.1038/d41586-026-02026-1Academics explain that their research freedom beats the increased salary they would get in the corporate sector, but emerging hybrid models might allow them to get the best of both worlds.",
-      "summary_zh": "《自然》杂志，在线发表：2026年9月10日； doi:10.1038/d41586-026-02026-1学者们表示，相比在企业界可能获得的更高薪资，他们更看重学术研究的自由度，但新兴的混合模式或许能让他们两全其美。",
-      "link": "https://www.nature.com/articles/d41586-026-02026-1",
+      "title": "El Niño goes viral — and scientists learn what makes people care about the climate",
+      "title_en": "El Niño goes viral — and scientists learn what makes people care about the climate",
+      "title_zh": "“厄尔尼诺”现象引发热议——科学家们由此了解到是什么让人们关注气候问题",
+      "summary_en": "Nature, Published online: 11 September 2026; doi:10.1038/d41586-026-02763-3Evoking emotions is more likely to prompt people to engage with climate efforts than are data alone.",
+      "summary_zh": "《自然》杂志，在线发表于：2026年9月11日；doi:10.1038/d41586-026-02763-3 与仅靠数据相比，唤起情感更可能促使人们参与气候行动。",
+      "link": "https://www.nature.com/articles/d41586-026-02763-3",
       "source": "Nature",
-      "published": "2026-09-10T00:00:00+00:00",
-      "hotness": 84.3,
-      "score": 84.3,
+      "published": "2026-09-11T00:00:00+00:00",
+      "hotness": 84.4,
+      "score": 84.4,
       "score_v1": 14.67,
-      "score_v2": 84.3,
+      "score_v2": 84.4,
       "score_breakdown": {
         "algorithm": "v2",
         "source_score": 25.0,
@@ -325,7 +366,7 @@
         "repeat_penalty": 1.0,
         "cross_source_count": 1,
         "raw": 26.03,
-        "display_score": 84.3
+        "display_score": 84.4
       },
       "score_v1_breakdown": {
         "base": 5.0,
@@ -335,184 +376,139 @@
         "topic_bonus": 0.0,
         "total": 14.67
       },
-      "summary": "《自然》杂志， 学者们表示，相比在企业界可能获得的更高薪资，他们更看重学术研究的自由度，但新兴的混合模式或许能让他们两全其美。",
-      "analysis": "该条目涉及【人工智能】话题，因来源权威性高，热度上升。",
+      "summary": "《自然》杂志， 与仅靠数据相比，唤起情感更可能促使人们参与气候行动。",
+      "analysis": "该条目涉及【科学家们由此了解到是什么让人们关注气候问题】话题，因来源权威性高，热度上升。",
       "topic_tags": [
-        "人工智能"
+        "科学家们由此了解到是什么让人们关注气候问题"
       ],
-      "category": "科研学术",
+      "category": "气候变化",
       "matched_keywords": [],
       "keywords": []
     },
     {
-      "title": "Species 'at risk of vanishing' from area of Wales' largest national park",
-      "title_en": "Species 'at risk of vanishing' from area of Wales' largest national park",
-      "title_zh": "威尔士最大国家公园内的一种物种“面临灭绝风险”",
-      "summary_en": "The National Trust warns species are on the brink of extinction in a valley of Eryri National Park.",
-      "summary_zh": "国家信托基金会警告称，埃里里国家公园内一个山谷中的物种正濒临灭绝。",
-      "link": "https://www.bbc.co.uk/news/articles/cvgy04v7rkjo?at_medium=RSS&at_campaign=rss",
-      "source": "BBC 科学与环境",
-      "published": "2026-09-10T21:58:29+00:00",
-      "hotness": 81.7,
-      "score": 81.7,
-      "score_v1": 17.16,
-      "score_v2": 81.7,
+      "title": "Larger methane emissions from Indian paddies than expected: towards tracking wetland methane emissions over India using multi-satellite measurements and modeling, Part B (non-natural wetlands)",
+      "title_en": "Larger methane emissions from Indian paddies than expected: towards tracking wetland methane emissions over India using multi-satellite measurements and modeling, Part B (non-natural wetlands)",
+      "title_zh": "印度稻田的甲烷排放量高于预期：利用多卫星观测数据和建模方法追踪印度湿地甲烷排放研究（B部分：非天然湿地）",
+      "summary_en": "India is the world’s second-largest rice producer, accounting for 22% of global production from cultivating over 40 million hectares and exporting more than 15 million tons annually. This makes the country a key player in global food security, but a significant contributor to the global rice methane (CH ) emissions. Current estimates of Indian agricultural CH emissions are highly uncertain, exceeding 50%, and lack spatially explicit details across the region, which poses challenges in implementing sustainable mitigation strategies. This study developed a satellite-based method that resolves seasonal and subnational variability in rice CH emissions across India at 10 m resolution. By integrating Sentinel-1 SAR and Sentinel-2 multispectral observations with a semi-empirical, process-based model, we developed the first observationally-driven spatially explicit, multi-season dataset of rice CH emissions for 2019–2025 over India. The methodological evaluation achieved 90.12% pixel-level validation accuracy and demonstrated strong agreement with agricultural census statistics ( = 0.896) for rice extent mapping. By utilizing unprecedented details on rice extent, we estimated national annual mean emissions to be 9.73 2.03 Tg CH yr , which is larger than previously reported. We find a dominant contribution from the Kharif monsoon season (74.7% of annual emissions), followed by the Summer season (17.5%) and the Rabi winter season (7.8%), highlighting untapped mitigation opportunities in rice fields through targeted water-management practices during Kharif rice cultivation. A 18-member model ensemble configuration captures seasonal and spatial variability in emissions driven by temperature-dependent methanogenesis, heterotrophic respiration, and precipitation-modulated flooding dynamics, and enables the quantification of structural uncertainty arising from model parameters and environmental sensitivities. Thus, the study’s findings address key structural limitations in existing inventory approaches and provide robust, highly-resolved rice-based methane emission estimates for atmospheric inverse modeling applications, subnational mitigation targeting, and the evaluation of water management strategies. Overall, this study lays the foundation framework for assessing agricultural CH emissions and their mitigation efficiency in India, with the potential for adaptation in other regions.",
+      "summary_zh": "印度是全球第二大水稻生产国，种植面积超过4000万公顷，年产量占全球总产量的22%，年出口量超过1500万吨。这使得该国成为全球粮食安全的重要参与者，但同时也对全球水稻甲烷（CH₄）排放作出了显著贡献。 目前对印度农业CH排放量的估算存在极高不确定性（超过50%），且缺乏该地区范围内的空间明确细节，这给实施可持续减排策略带来了挑战。本研究开发了一种基于卫星的方法，能够以10米分辨率解析印度各地水稻CH排放的季节性和次国家层面的变异性。 通过将“哨兵-1”合成孔径雷达（SAR）和“哨兵-2”多光谱观测数据与半经验的、基于过程的模型相结合，我们建立了首个基于观测、空间明确的2019–2025年印度水稻CH排放多季节数据集。 方法学评估显示，像素级验证准确率达90.12%，且在水稻种植面积制图方面与农业普查统计数据高度一致（= 0.896）。 利用这些前所未有的水稻种植面积详细数据，我们估算出全国年均排放量为 9.73 ± 2.03 Tg CH yr，这一数值高于此前报告的数据。 我们发现，卡里夫（Kharif）季风季节的贡献占主导地位（占年排放量的74.7%），其次是夏季（17.5%）和拉比（Rabi）冬季（7.8%），这凸显了在卡里夫水稻种植期间，通过有针对性的水管理措施，稻田中存在尚未开发的减排机会。 一个由18个模型组成的集合配置，捕捉了由温度依赖性甲烷生成、异养呼吸以及降水调节的淹水动态所驱动的排放季节性和空间变异性，并能够量化由模型参数和环境敏感性引起的结构性不确定性。因此，本研究的发现解决了现有研究中的关键结构性局限性",
+      "link": "https://iopscience.iop.org/article/10.1088/1748-9326/aea2ac",
+      "source": "Environmental Research Letters",
+      "published": "2026-09-10T23:00:00+00:00",
+      "hotness": 82.2,
+      "score": 82.2,
+      "score_v1": 14.52,
+      "score_v2": 82.2,
       "score_breakdown": {
         "algorithm": "v2",
-        "source_score": 15.0,
+        "source_score": 25.0,
         "keyword_idf_score": 0.0,
         "resonance_score": 0.0,
         "quality_score": 10.0,
-        "base": 25.0,
-        "time_factor": 0.9723,
+        "base": 35.0,
+        "time_factor": 0.7356,
         "repeat_penalty": 1.0,
         "cross_source_count": 1,
-        "raw": 24.31,
-        "display_score": 81.7
+        "raw": 25.75,
+        "display_score": 82.2
       },
       "score_v1_breakdown": {
         "base": 5.0,
-        "source_score": 3.0,
+        "source_score": 6.0,
         "keyword_score": 0.0,
-        "time_score": 9.16,
+        "time_score": 3.52,
         "topic_bonus": 0.0,
-        "total": 17.16
+        "total": 14.52
       },
-      "summary": "国家信托基金会警告称，埃里里国家公园内一个山谷中的物种正濒临灭绝。",
-      "analysis": "该条目涉及【濒危物种】话题，因来源权威性高，热度上升。",
+      "summary": "印度是全球第二大水稻生产国，种植面积超过4000万公顷，年产量占全球总产量的22%，年出口量超过1500万吨。这使得该国成为全球粮食安全的重要参与者，但同时也对全球水稻甲烷（CH₄）排放作出了显著贡献。 目前对印度农业CH排放量的估算存在极高不确定性（超过50%），且缺乏该地区范围内的空间明确细节，这给实施可持续减排策略带来了挑战。本研究开发了一种基于卫星的方法，能够以10米分辨率解析印度各地水稻CH排放的季节性和次国家层面的变异性。 通过将“哨兵-1”合成孔径雷达（SAR）和“哨兵-2”多光谱观测数据与半经验的、基于过程的模型相结合，我们建立了首个基于观测、空间明确的2019–2025年印度水稻CH排放多季节数据集。 方法学评估显示，像素级验证准确率达90.12%，且在水稻种植面积制图方面与农业普查统计数据高度一致（= 0.896）。 利用这些前所未有的水稻种植面积详细数据，我们估算出全国年均排放量为 9.73 ± 2.03 Tg CH yr，这一数值高于此前报告的数据。 我们发现，卡里夫（Kharif）季风季节的贡献占主导地位（占年排放量的74.7%），其次是夏季（17.5%）和拉比（Rabi）冬季（7.8%），这凸显了在卡里夫水稻种植期间，通过有针对性的水管理措施，稻田中存在尚未开发的减排机会。 一个由18个模型组成的集合配置，捕捉了由温度依赖性甲烷生成、异养呼吸以及降水调节的淹水动态所驱动的排放季节性和空间变异性，并能够量化由模型参数和环境敏感性引起的结构性不确定性。因此，本研究的发现解决了现有研究中的关键结构性局限性",
+      "analysis": "该条目涉及【湿地】话题，因来源权威性高，热度上升。",
       "topic_tags": [
-        "濒危物种"
+        "湿地"
       ],
       "category": "生态环境",
       "matched_keywords": [],
       "keywords": []
     },
     {
-      "title": "Sargassum Superbloom: Seaweed Scourge or Ecological Boon?",
-      "title_en": "Sargassum Superbloom: Seaweed Scourge or Ecological Boon?",
-      "title_zh": "海藻暴发：海藻之灾还是生态福音？",
-      "summary_en": "Stretching from West Africa to the Gulf of Mexico, a massive bloom of sargassum seaweed is swamping beaches and killing coastal wildlife. But scientists have discovered the floating algae also shelters a vast array of ocean creatures, and some are now calling for its protection. Read more on E360 →",
-      "summary_zh": "从西非延伸至墨西哥湾，大片马尾藻大量繁殖，淹没了海滩，并导致沿海野生动物死亡。但科学家们发现，这些漂浮的海藻同时也为大量海洋生物提供了庇护所，因此现在有人呼吁对其进行保护。在 E360 上阅读更多内容 →",
-      "link": "https://e360.yale.edu/features/sargassum-belt",
-      "source": "Yale Environment 360",
-      "published": "2026-09-10T09:18:00+00:00",
-      "hotness": 79.1,
-      "score": 79.1,
-      "score_v1": 14.0,
-      "score_v2": 79.1,
+      "title": "The dynamic impact of land-use changes on soil organic carbon",
+      "title_en": "The dynamic impact of land-use changes on soil organic carbon",
+      "title_zh": "土地利用变化对土壤有机碳的动态影响",
+      "summary_en": "This study examines the response of soil organic carbon (SOC) to land-use changes (LUCs) across Europe. Using field data from the LUCAS survey and satellite-based Corine Land Cover data, we find that SOC losses due to conversions to cropland are immediate (63% occurs within the first 1.5 years) whereas SOC accumulation following conversions from cropland to grassland or forest is more gradual (10–20 years) but still with a notable peak in the first 1.5 years. Our dynamic approach reveals a potentially much higher carbon sequestration from LUC (an indicative 572 MtC between 1990 and 2021) than reported by current national inventories (76 MtC), although both approaches come with substantial limitations. These findings suggest that conservative IPCC Tier 1 estimates may understate the mitigation potential of land-use policies. We provide ready-to-use, country-specific emission factors to improve the precision of national greenhouse gas inventories and to support compliance with public regulation, though further validation is needed for forest-related LUCs due to small sample sizes and the possible incorporation of forest litter into topsoil measurements.",
+      "summary_zh": "本研究探讨了欧洲范围内土壤有机碳（SOC）对土地利用变化（LUCs）的响应。利用LUCAS调查的实地数据和基于卫星的Corine土地覆盖数据， 我们发现，因土地转为农田而导致的土壤有机碳损失是即时的（63%发生在前1.5年内），而农田转为草地或森林后的土壤有机碳积累则较为缓慢（10–20年），但在前1.5年内仍会出现显著的峰值。 我们的动态分析方法揭示，土地利用变化带来的碳封存潜力可能远高于当前国家清单报告的数值（1990年至2021年间约为572 MtC，而现有报告为76 MtC），尽管这两种方法都存在显著局限性。 这些发现表明，IPCC第一级（Tier 1）的保守估计可能低估了土地利用政策的减排潜力。 我们提供了可直接使用的、针对具体国家的排放因子，以提高国家温室气体清单的精确度并支持遵守公共法规，但由于样本量较小以及森林落叶可能被纳入表层土壤测量中，与森林相关的土地利用变化（LUC）仍需进一步验证。",
+      "link": "https://iopscience.iop.org/article/10.1088/1748-9326/ae9e50",
+      "source": "Environmental Research Letters",
+      "published": "2026-09-10T23:00:00+00:00",
+      "hotness": 80.0,
+      "score": 80.0,
+      "score_v1": 14.52,
+      "score_v2": 80.0,
       "score_breakdown": {
         "algorithm": "v2",
-        "source_score": 17.0,
+        "source_score": 25.0,
         "keyword_idf_score": 0.0,
         "resonance_score": 0.0,
         "quality_score": 10.0,
-        "base": 27.0,
-        "time_factor": 0.8279,
+        "base": 35.0,
+        "time_factor": 0.7356,
         "repeat_penalty": 1.0,
         "cross_source_count": 1,
-        "raw": 22.35,
-        "display_score": 79.1
+        "raw": 25.75,
+        "display_score": 80.0
       },
       "score_v1_breakdown": {
         "base": 5.0,
-        "source_score": 3.6,
+        "source_score": 6.0,
         "keyword_score": 0.0,
-        "time_score": 5.4,
+        "time_score": 3.52,
         "topic_bonus": 0.0,
-        "total": 14.0
+        "total": 14.52
       },
-      "summary": "从西非延伸至墨西哥湾，大片马尾藻大量繁殖，淹没了海滩，并导致沿海野生动物死亡。但科学家们发现，这些漂浮的海藻同时也为大量海洋生物提供了庇护所，因此现在有人呼吁对其进行保护。在 E360 上阅读更多内容 →",
-      "analysis": "该条目涉及【Sargassum】话题，因来源权威性高，热度上升。",
+      "summary": "本研究探讨了欧洲范围内土壤有机碳（SOC）对土地利用变化（LUCs）的响应。利用LUCAS调查的实地数据和基于卫星的Corine土地覆盖数据， 我们发现，因土地转为农田而导致的土壤有机碳损失是即时的（63%发生在前1.5年内），而农田转为草地或森林后的土壤有机碳积累则较为缓慢（10–20年），但在前1.5年内仍会出现显著的峰值。 我们的动态分析方法揭示，土地利用变化带来的碳封存潜力可能远高于当前国家清单报告的数值（1990年至2021年间约为572 MtC，而现有报告为76 MtC），尽管这两种方法都存在显著局限性。 这些发现表明，IPCC第一级（Tier 1）的保守估计可能低估了土地利用政策的减排潜力。 我们提供了可直接使用的、针对具体国家的排放因子，以提高国家温室气体清单的精确度并支持遵守公共法规，但由于样本量较小以及森林落叶可能被纳入表层土壤测量中，与森林相关的土地利用变化（LUC）仍需进一步验证。",
+      "analysis": "该条目涉及【土地利用变化对土壤有机碳的动态影响】话题，因来源权威性高，热度上升。",
       "topic_tags": [
-        "Sargassum",
-        "海洋生物",
-        "海洋生态系统"
+        "土地利用变化对土壤有机碳的动态影响"
       ],
-      "category": "能源与碳中和",
+      "category": "气候变化",
       "matched_keywords": [],
       "keywords": []
     },
     {
-      "title": "Chemical industry backed laws in three US states to restrict use of air pollution data",
-      "title_en": "Chemical industry backed laws in three US states to restrict use of air pollution data",
-      "title_zh": "美国三个州的法律在化工行业的支持下，对空气污染数据的使用作出了限制",
-      "summary_en": "As public air monitors disappear, federal rollbacks and state laws are making it harder than ever to know what’s in the airAs the US’s network for monitoring air pollution deteriorates, a Floodlight investigation has found that the chemical industry is going state-to-state to restrict one of the few options citizens have left for holding polluters accountable: low-cost air sensors.Over the past two years, the non-profit investigative newsroom determined, lawmakers in Louisiana, Kentucky and Ohio have passed strikingly similar laws barring regulators from acting on air-quality data that communities collect themselves – unless it comes from Environmental Protection Agency (EPA)-approved equipment that typically costs tens of thousands of dollars. Similar legislation has repeatedly been introduced in West Virginia. Continue reading...",
-      "summary_zh": "随着公共空气监测站的消失，联邦政策的倒退和各州法律的限制使得人们比以往任何时候都更难了解空气中的成分。随着美国空气污染监测网络的日益恶化，“Floodlight”的一项调查发现，化工行业正在各州游说，试图限制公民用来追究污染者责任的为数不多的途径之一： 低成本空气传感器。这家非营利性调查新闻机构查明，在过去两年中，路易斯安那州、肯塔基州和俄亥俄州的立法者通过了惊人相似的法律，禁止监管机构依据社区自行收集的空气质量数据采取行动——除非这些数据来自美国环境保护署（EPA）批准的设备，而此类设备通常价值数万美元。 西弗吉尼亚州也多次提出了类似的立法提案。继续阅读……",
-      "link": "https://www.theguardian.com/environment/2026/sep/10/us-chemical-industry-air-pollution-monitors",
-      "source": "The Guardian Environment",
-      "published": "2026-09-10T11:00:23+00:00",
-      "hotness": 76.5,
-      "score": 76.5,
-      "score_v1": 13.8,
-      "score_v2": 76.5,
-      "score_breakdown": {
-        "algorithm": "v2",
-        "source_score": 15.0,
-        "keyword_idf_score": 0.0,
-        "resonance_score": 0.0,
-        "quality_score": 10.0,
-        "base": 25.0,
-        "time_factor": 0.8451,
-        "repeat_penalty": 1.0,
-        "cross_source_count": 1,
-        "raw": 21.13,
-        "display_score": 76.5
-      },
-      "score_v1_breakdown": {
-        "base": 5.0,
-        "source_score": 3.0,
-        "keyword_score": 0.0,
-        "time_score": 5.8,
-        "topic_bonus": 0.0,
-        "total": 13.8
-      },
-      "summary": "随着公共空气监测站的消失，联邦政策的倒退和各州法律的限制使得人们比以往任何时候都更难了解空气中的成分。随着美国空气污染监测网络的日益恶化，“Floodlight”的一项调查发现，化工行业正在各州游说，试图限制公民用来追究污染者责任的为数不多的途径之一： 低成本空气传感器。这家非营利性调查新闻机构查明，在过去两年中，路易斯安那州、肯塔基州和俄亥俄州的立法者通过了惊人相似的法律，禁止监管机构依据社区自行收集的空气质量数据采取行动——除非这些数据来自美国环境保护署（EPA）批准的设备，而此类设备通常价值数万美元。 西弗吉尼亚州也多次提出了类似的立法提案。继续阅读……",
-      "analysis": "该条目涉及【空气污染数据】话题，因来源权威性高，热度上升。",
-      "topic_tags": [
-        "空气污染数据"
-      ],
-      "category": "污染治理",
-      "matched_keywords": [],
-      "keywords": []
-    },
-    {
-      "title": "新研究发现太阳活动“操控”深海气候变化 - 科学网—新闻",
+      "title": "气候变化将对个人造成危害 - AI at Meta",
       "title_en": "",
       "title_zh": "",
       "summary_en": "",
       "summary_zh": "",
-      "link": "https://news.google.com/rss/articles/CBMiZEFVX3lxTE9wak5nX1NtQmpXdnVjQ2lfTWF4VzhJdE5vX2xFXzgzUEZkQUZFOC1jSG51MUNZOVZQTmQtYjc5WkEzci1iMWdwRzhBRjZlWFdINGl5dTdsc1ltUFBTbzItcEV5QVQ?oc=5",
+      "link": "https://news.google.com/rss/articles/CBMijgFBVV95cUxQeWF1enpWN2xBRW1kQ29Jc1dTRkNGYmI4YWd0UkJrTUktMjliNG5Gbk9OdlhHU1l5M3ZJWVBTVmRVQXg4TEs1bTBiZFB6WkVGbjVDdHNmMFdFMnUtWVRjRmkyTTdxRkpRTVU2SGxLRFRBcGhQNDRJMXRDbHlnYnJHdjY3ZDZleTcxbzZaOTZR?oc=5",
       "source": "Google News 气候变化",
-      "published": "2026-09-09T13:59:55+00:00",
-      "hotness": 73.9,
-      "score": 73.9,
-      "score_v1": 21.92,
-      "score_v2": 73.9,
+      "published": "2026-09-10T23:29:17+00:00",
+      "hotness": 77.8,
+      "score": 77.8,
+      "score_v1": 21.09,
+      "score_v2": 77.8,
       "score_breakdown": {
         "algorithm": "v2",
         "source_score": 20.0,
-        "keyword_idf_score": 6.79,
+        "keyword_idf_score": 6.81,
         "resonance_score": 4.25,
         "quality_score": 0.0,
-        "base": 31.05,
-        "time_factor": 0.6696,
+        "base": 31.06,
+        "time_factor": 0.7395,
         "repeat_penalty": 1.0,
         "cross_source_count": 2,
-        "raw": 20.79,
-        "display_score": 73.9
+        "raw": 22.97,
+        "display_score": 77.8
       },
       "score_v1_breakdown": {
         "base": 5.0,
         "source_score": 4.5,
         "keyword_score": 2.0,
-        "time_score": 2.42,
-        "topic_bonus": 8.0,
-        "total": 21.92
+        "time_score": 3.59,
+        "topic_bonus": 6.0,
+        "total": 21.09
       },
-      "summary": "新研究表明太阳活动显著影响深海气候变化模型，为理解长期气候演变提供新的科学视角和理论依据。",
-      "analysis": "该条目涉及【深海气候变化】话题，因来源权威性高，热度上升。",
+      "summary": "气候变化将对个人造成危害 - AI at Meta",
+      "analysis": "该条目涉及【气候变化将对个人造成危害】话题，因来源权威性高，热度上升。",
       "topic_tags": [
-        "深海气候变化"
+        "气候变化将对个人造成危害"
       ],
       "category": "气候变化",
       "matched_keywords": [
@@ -523,18 +519,147 @@
       ]
     },
     {
-      "title": "从“治污”到“美丽”，上海“十五五”生态规划解锁城市新蓝图 - jfdaily.com",
+      "title": "Sheen says he was snubbed by FM over pollution claims",
+      "title_en": "Sheen says he was snubbed by FM over pollution claims",
+      "title_zh": "希恩称，因污染指控遭到外长冷遇",
+      "summary_en": "The actor urged MPs to back a national testing programme to make sure historic toxic dump sites were safe.",
+      "summary_zh": "这位演员敦促国会议员支持一项全国性的检测计划，以确保历史上的有毒废弃物倾倒场是安全的。",
+      "link": "https://www.bbc.co.uk/news/videos/cm2q8pp8epro?at_medium=RSS&at_campaign=rss",
+      "source": "BBC 科学与环境",
+      "published": "2026-09-11T10:29:19+00:00",
+      "hotness": 75.6,
+      "score": 75.6,
+      "score_v1": 13.68,
+      "score_v2": 75.6,
+      "score_breakdown": {
+        "algorithm": "v2",
+        "source_score": 15.0,
+        "keyword_idf_score": 0.0,
+        "resonance_score": 0.0,
+        "quality_score": 10.0,
+        "base": 25.0,
+        "time_factor": 0.8398,
+        "repeat_penalty": 1.0,
+        "cross_source_count": 1,
+        "raw": 21.0,
+        "display_score": 75.6
+      },
+      "score_v1_breakdown": {
+        "base": 5.0,
+        "source_score": 3.0,
+        "keyword_score": 0.0,
+        "time_score": 5.68,
+        "topic_bonus": 0.0,
+        "total": 13.68
+      },
+      "summary": "这位演员敦促国会议员支持一项全国性的检测计划，以确保历史上的有毒废弃物倾倒场是安全的。",
+      "analysis": "该条目涉及【因污染指控遭到外长冷遇】话题，因来源权威性高，热度上升。",
+      "topic_tags": [
+        "因污染指控遭到外长冷遇"
+      ],
+      "category": "污染治理",
+      "matched_keywords": [],
+      "keywords": []
+    },
+    {
+      "title": "El Niño likely to cause wetter and warmer-than-normal autumn",
+      "title_en": "El Niño likely to cause wetter and warmer-than-normal autumn",
+      "title_zh": "厄尔尼诺现象可能导致今年秋季降水增多且气温高于常年水平",
+      "summary_en": "A warmer and wetter-than-normal autumn is in store for the UK, according to the latest Met Office forecasts.",
+      "summary_zh": "根据英国气象局最新预报，英国今秋的气温将高于常年水平，降水量也将超过常年水平。",
+      "link": "https://www.bbc.co.uk/weather/articles/cqxv4wj8jxwo?at_medium=RSS&at_campaign=rss",
+      "source": "BBC 科学与环境",
+      "published": "2026-09-11T06:27:20+00:00",
+      "hotness": 73.3,
+      "score": 73.3,
+      "score_v1": 12.8,
+      "score_v2": 73.3,
+      "score_breakdown": {
+        "algorithm": "v2",
+        "source_score": 15.0,
+        "keyword_idf_score": 0.0,
+        "resonance_score": 0.0,
+        "quality_score": 10.0,
+        "base": 25.0,
+        "time_factor": 0.8004,
+        "repeat_penalty": 1.0,
+        "cross_source_count": 1,
+        "raw": 20.01,
+        "display_score": 73.3
+      },
+      "score_v1_breakdown": {
+        "base": 5.0,
+        "source_score": 3.0,
+        "keyword_score": 0.0,
+        "time_score": 4.8,
+        "topic_bonus": 0.0,
+        "total": 12.8
+      },
+      "summary": "根据英国气象局最新预报，英国今秋的气温将高于常年水平，降水量也将超过常年水平。",
+      "analysis": "该条目涉及【厄尔尼诺现象可能导致今年秋季降水增多且气温高于常年水平】话题，因来源权威性高，热度上升。",
+      "topic_tags": [
+        "厄尔尼诺现象可能导致今年秋季降水增多且气温高于常年水平"
+      ],
+      "category": "气候变化",
+      "matched_keywords": [],
+      "keywords": []
+    },
+    {
+      "title": "Species 'at risk of vanishing' from area of Wales' largest national park",
+      "title_en": "Species 'at risk of vanishing' from area of Wales' largest national park",
+      "title_zh": "威尔士最大国家公园内的一种物种“面临灭绝风险”",
+      "summary_en": "The National Trust warns species are on the brink of extinction in a valley of Eryri - Snowdonia - National Park.",
+      "summary_zh": "国家信托基金会警告称，在埃里里（斯诺多尼亚）国家公园的一处山谷中，某些物种正濒临灭绝。",
+      "link": "https://www.bbc.co.uk/news/articles/cvgy04v7rkjo?at_medium=RSS&at_campaign=rss",
+      "source": "BBC 科学与环境",
+      "published": "2026-09-11T05:00:16+00:00",
+      "hotness": 71.1,
+      "score": 71.1,
+      "score_v1": 12.52,
+      "score_v2": 71.1,
+      "score_breakdown": {
+        "algorithm": "v2",
+        "source_score": 15.0,
+        "keyword_idf_score": 0.0,
+        "resonance_score": 0.0,
+        "quality_score": 10.0,
+        "base": 25.0,
+        "time_factor": 0.787,
+        "repeat_penalty": 1.0,
+        "cross_source_count": 1,
+        "raw": 19.67,
+        "display_score": 71.1
+      },
+      "score_v1_breakdown": {
+        "base": 5.0,
+        "source_score": 3.0,
+        "keyword_score": 0.0,
+        "time_score": 4.52,
+        "topic_bonus": 0.0,
+        "total": 12.52
+      },
+      "summary": "国家信托基金会警告称，在埃里里（斯诺多尼亚）国家公园的一处山谷中，某些物种正濒临灭绝。",
+      "analysis": "该条目涉及【威尔士最大国家公园内的一种物种】话题，因来源权威性高，热度上升。",
+      "topic_tags": [
+        "威尔士最大国家公园内的一种物种"
+      ],
+      "category": "生态环境",
+      "matched_keywords": [],
+      "keywords": []
+    },
+    {
+      "title": "浙江拿下全国首届生态环境志愿服务大赛“一金一银”，凭什么？ - 央广网",
       "title_en": "",
       "title_zh": "",
       "summary_en": "",
       "summary_zh": "",
-      "link": "https://news.google.com/rss/articles/CBMiWkFVX3lxTE5wcGd1Sm9kU3A0Q2pNSGZDc0sxMUJZUlpyc2JqSnVJZUtLRHBpMVhaYjZPNkFxQkFwNVFuS1hBMjhvd2NITVdWQ1F5WTN0T05vTnBfU2pRWXF4dw?oc=5",
+      "link": "https://news.google.com/rss/articles/CBMiaEFVX3lxTE93OEFIaU9PTm1QSktEc1V0RTZfcWxYeXdaYjRjbEpwTkxvYUNCRkd4bnF0NVFZVzJrdXpCb0tYLWxXNV9ZWkg1cmxBLWF5MXRXLVVLZjNadXVDbi00T19LeTVYNFdwVG9K?oc=5",
       "source": "Google News 环境保护",
-      "published": "2026-09-10T22:45:00+00:00",
-      "hotness": 71.3,
-      "score": 71.3,
-      "score_v1": 18.97,
-      "score_v2": 71.3,
+      "published": "2026-09-11T19:02:35+00:00",
+      "hotness": 68.9,
+      "score": 68.9,
+      "score_v1": 17.61,
+      "score_v2": 68.9,
       "score_breakdown": {
         "algorithm": "v2",
         "source_score": 20.0,
@@ -542,85 +667,42 @@
         "resonance_score": 0.0,
         "quality_score": 0.0,
         "base": 20.0,
-        "time_factor": 0.9824,
+        "time_factor": 0.9354,
         "repeat_penalty": 1.0,
         "cross_source_count": 1,
-        "raw": 19.65,
-        "display_score": 71.3
+        "raw": 18.71,
+        "display_score": 68.9
       },
       "score_v1_breakdown": {
         "base": 5.0,
         "source_score": 4.5,
         "keyword_score": 0.0,
-        "time_score": 9.47,
+        "time_score": 8.11,
         "topic_bonus": 0.0,
-        "total": 18.97
+        "total": 17.61
       },
-      "summary": "上海发布‘十五五’生态规划，聚焦从单纯治污向城市美丽生态转型，规划构建新型城市蓝绿空间体系。",
-      "analysis": "该条目涉及【生态规划解锁城市新蓝图】话题，因来源权威性高，热度上升。",
+      "summary": "浙江拿下全国首届生态环境志愿服务大赛“一金一银”，凭什么？ - 央广网",
+      "analysis": "该条目涉及【浙江拿下全国首届生态环境志愿服务大赛】话题，因来源权威性高，热度上升。",
       "topic_tags": [
-        "生态规划解锁城市新蓝图"
+        "浙江拿下全国首届生态环境志愿服务大赛"
       ],
       "category": "生态环境",
       "matched_keywords": [],
       "keywords": []
     },
     {
-      "title": "旅顺生态环境部门实现监督执法常态化 - finance.sina.cn",
-      "title_en": "",
-      "title_zh": "",
+      "title": "Microplastics alter soil phosphatase activity and phosphorus mobilization: A global meta-analysis integrated with machine learning",
+      "title_en": "Microplastics alter soil phosphatase activity and phosphorus mobilization: A global meta-analysis integrated with machine learning",
+      "title_zh": "微塑料改变土壤磷酸酶活性及磷的 mobilization：一项结合机器学习的全球性荟萃分析",
       "summary_en": "",
       "summary_zh": "",
-      "link": "https://news.google.com/rss/articles/CBMieEFVX3lxTFBwQmlvSE5OZ1NMZzBXdm1XN3FFMkF3OVFfeTBlWllDa1hmbmFmdXhxa0ZyRF94RkFqX2ZFekhHbjY5YTFxX0xDcTgzT0JJNWIwcFdtME5VZW85YzllMUx2elNxNGUxTTBnNWpPTkZVSXJ3WHlYa1YtVg?oc=5",
-      "source": "Google News 生态环境",
-      "published": "2026-09-10T21:03:54+00:00",
-      "hotness": 68.7,
-      "score": 68.7,
-      "score_v1": 18.32,
-      "score_v2": 68.7,
-      "score_breakdown": {
-        "algorithm": "v2",
-        "source_score": 20.0,
-        "keyword_idf_score": 0.0,
-        "resonance_score": 0.0,
-        "quality_score": 0.0,
-        "base": 20.0,
-        "time_factor": 0.9606,
-        "repeat_penalty": 1.0,
-        "cross_source_count": 1,
-        "raw": 19.21,
-        "display_score": 68.7
-      },
-      "score_v1_breakdown": {
-        "base": 5.0,
-        "source_score": 4.5,
-        "keyword_score": 0.0,
-        "time_score": 8.82,
-        "topic_bonus": 0.0,
-        "total": 18.32
-      },
-      "summary": "旅顺生态环境部门推行监督执法常态化机制，强化执法力度，提升辖区污染源头治理和环境监管效能。",
-      "analysis": "该条目涉及【生态环境部】话题，因来源权威性高，热度上升。",
-      "topic_tags": [
-        "生态环境部"
-      ],
-      "category": "生态环境",
-      "matched_keywords": [],
-      "keywords": []
-    },
-    {
-      "title": "Making waves: Emerging risks as regulatory mismatch meets automation in llm-agents like openclaw for water treatment and environmental infrastructure",
-      "title_en": "Making waves: Emerging risks as regulatory mismatch meets automation in llm-agents like openclaw for water treatment and environmental infrastructure",
-      "title_zh": "掀起波澜：在OpenClaw等用于水处理和环境基础设施的大语言模型（LLM）代理中，监管失配与自动化相遇所引发的新兴风险",
-      "summary_en": "",
-      "summary_zh": "",
-      "link": "https://www.sciencedirect.com/science/article/pii/S0043135426015368?dgcid=rss_sd_all",
+      "link": "https://www.sciencedirect.com/science/article/pii/S0043135426015149?dgcid=rss_sd_all",
       "source": "Water Research",
-      "published": "2026-09-10T00:02:26.393536+00:00",
-      "hotness": 66.1,
-      "score": 66.1,
+      "published": "2026-09-11T00:02:20.662249+00:00",
+      "hotness": 66.7,
+      "score": 66.7,
       "score_v1": 14.67,
-      "score_v2": 66.1,
+      "score_v2": 66.7,
       "score_breakdown": {
         "algorithm": "v2",
         "source_score": 25.0,
@@ -632,7 +714,7 @@
         "repeat_penalty": 1.0,
         "cross_source_count": 1,
         "raw": 18.6,
-        "display_score": 66.1
+        "display_score": 66.7
       },
       "score_v1_breakdown": {
         "base": 5.0,
@@ -642,7 +724,137 @@
         "topic_bonus": 0.0,
         "total": 14.67
       },
-      "summary": "探讨LLM代理在水处理和环境基础设施中的监管滞后与自动化风险，分析技术应用中的监管错位与潜在新风险。",
+      "summary": "微塑料改变土壤磷酸酶活性及磷的 mobilization：一项结合机器学习的全球性荟萃分析",
+      "analysis": "该条目涉及【微塑料】话题，因来源权威性高，热度上升。",
+      "topic_tags": [
+        "微塑料",
+        "机器学习"
+      ],
+      "category": "污染治理",
+      "matched_keywords": [],
+      "keywords": []
+    },
+    {
+      "title": "Single-atom electrosynthesis of glycine from glyphosate wastewater",
+      "title_en": "Single-atom electrosynthesis of glycine from glyphosate wastewater",
+      "title_zh": "利用草甘膦废水通过单原子电合成法制备甘氨酸",
+      "summary_en": "",
+      "summary_zh": "",
+      "link": "https://www.sciencedirect.com/science/article/pii/S0043135426015484?dgcid=rss_sd_all",
+      "source": "Water Research",
+      "published": "2026-09-11T00:02:20.662249+00:00",
+      "hotness": 64.4,
+      "score": 64.4,
+      "score_v1": 14.67,
+      "score_v2": 64.4,
+      "score_breakdown": {
+        "algorithm": "v2",
+        "source_score": 25.0,
+        "keyword_idf_score": 0.0,
+        "resonance_score": 0.0,
+        "quality_score": 0.0,
+        "base": 25.0,
+        "time_factor": 0.744,
+        "repeat_penalty": 1.0,
+        "cross_source_count": 1,
+        "raw": 18.6,
+        "display_score": 64.4
+      },
+      "score_v1_breakdown": {
+        "base": 5.0,
+        "source_score": 6.0,
+        "keyword_score": 0.0,
+        "time_score": 3.67,
+        "topic_bonus": 0.0,
+        "total": 14.67
+      },
+      "summary": "利用草甘膦废水通过单原子电合成法制备甘氨酸",
+      "analysis": "该条目涉及【利用草甘膦废水通过单原子电合成法制备甘氨酸】话题，因来源权威性高，热度上升。",
+      "topic_tags": [
+        "利用草甘膦废水通过单原子电合成法制备甘氨酸"
+      ],
+      "category": "污染治理",
+      "matched_keywords": [],
+      "keywords": []
+    },
+    {
+      "title": "Dense Janus membrane with designed nanostructure and surface properties for sustainable desalination from hypersaline silica wastewater in membrane distillation",
+      "title_en": "Dense Janus membrane with designed nanostructure and surface properties for sustainable desalination from hypersaline silica wastewater in membrane distillation",
+      "title_zh": "一种具有特定纳米结构和表面特性的致密雅努斯膜，用于在膜蒸馏过程中对高盐度二氧化硅废水进行可持续脱盐",
+      "summary_en": "",
+      "summary_zh": "",
+      "link": "https://www.sciencedirect.com/science/article/pii/S004313542601568X?dgcid=rss_sd_all",
+      "source": "Water Research",
+      "published": "2026-09-11T00:02:20.662249+00:00",
+      "hotness": 62.2,
+      "score": 62.2,
+      "score_v1": 14.67,
+      "score_v2": 62.2,
+      "score_breakdown": {
+        "algorithm": "v2",
+        "source_score": 25.0,
+        "keyword_idf_score": 0.0,
+        "resonance_score": 0.0,
+        "quality_score": 0.0,
+        "base": 25.0,
+        "time_factor": 0.744,
+        "repeat_penalty": 1.0,
+        "cross_source_count": 1,
+        "raw": 18.6,
+        "display_score": 62.2
+      },
+      "score_v1_breakdown": {
+        "base": 5.0,
+        "source_score": 6.0,
+        "keyword_score": 0.0,
+        "time_score": 3.67,
+        "topic_bonus": 0.0,
+        "total": 14.67
+      },
+      "summary": "具有设计钠孔的致密雅努斯膜",
+      "analysis": "该条目涉及【用于在膜蒸馏过程中对高盐度二氧化硅废水进行可持续脱盐】话题，因来源权威性高，热度上升。",
+      "topic_tags": [
+        "用于在膜蒸馏过程中对高盐度二氧化硅废水进行可持续脱盐"
+      ],
+      "category": "污染治理",
+      "matched_keywords": [],
+      "keywords": []
+    },
+    {
+      "title": "Confined CuFe<sub>2</sub>O<sub>4</sub> spinel coated on hierarchical SiO<sub>2</sub> for enhanced continuous-flow Fenton-like wastewater treatment",
+      "title_en": "Confined CuFe<sub>2</sub>O<sub>4</sub> spinel coated on hierarchical SiO<sub>2</sub> for enhanced continuous-flow Fenton-like wastewater treatment",
+      "title_zh": "涂覆在分级SiO<sub>2</sub>上的限制型CuFe<sub>2</sub>O<sub>4</sub>尖晶石，用于增强连续流芬顿式废水处理",
+      "summary_en": "Confined CuFe<sub>2</sub>O<sub>4</sub> spinel coated on hierarchical SiO<sub>2</sub> for enhanced continuous-flow Fenton-like wastewater treatment…",
+      "summary_zh": "",
+      "link": "https://www.sciencedirect.com/science/article/pii/S0043135426015605?dgcid=rss_sd_all",
+      "source": "Water Research",
+      "published": "2026-09-11T00:02:20.662249+00:00",
+      "hotness": 60.0,
+      "score": 60.0,
+      "score_v1": 14.67,
+      "score_v2": 60.0,
+      "score_breakdown": {
+        "algorithm": "v2",
+        "source_score": 25.0,
+        "keyword_idf_score": 0.0,
+        "resonance_score": 0.0,
+        "quality_score": 0.0,
+        "base": 25.0,
+        "time_factor": 0.744,
+        "repeat_penalty": 1.0,
+        "cross_source_count": 1,
+        "raw": 18.6,
+        "display_score": 60.0
+      },
+      "score_v1_breakdown": {
+        "base": 5.0,
+        "source_score": 6.0,
+        "keyword_score": 0.0,
+        "time_score": 3.67,
+        "topic_bonus": 0.0,
+        "total": 14.67
+      },
+      "summary": "涂覆在分级SiO<sub>2</sub>上的封闭式CuFe<sub>2</sub>O<sub>4</sub>尖晶石，用于增强连续流芬顿式废水处理……",
       "analysis": "该条目涉及【水处理】话题，因来源权威性高，热度上升。",
       "topic_tags": [
         "水处理"
@@ -652,362 +864,18 @@
       "keywords": []
     },
     {
-      "title": "Draw solution contamination undermines FO-MD stability for transfer station leachate treatment",
-      "title_en": "Draw solution contamination undermines FO-MD stability for transfer station leachate treatment",
-      "title_zh": "抽取溶液的污染会削弱转运站渗滤液处理中FO-MD工艺的稳定性",
-      "summary_en": "",
-      "summary_zh": "",
-      "link": "https://www.sciencedirect.com/science/article/pii/S0043135426014776?dgcid=rss_sd_all",
-      "source": "Water Research",
-      "published": "2026-09-10T00:02:26.393536+00:00",
-      "hotness": 63.5,
-      "score": 63.5,
-      "score_v1": 14.67,
-      "score_v2": 63.5,
-      "score_breakdown": {
-        "algorithm": "v2",
-        "source_score": 25.0,
-        "keyword_idf_score": 0.0,
-        "resonance_score": 0.0,
-        "quality_score": 0.0,
-        "base": 25.0,
-        "time_factor": 0.744,
-        "repeat_penalty": 1.0,
-        "cross_source_count": 1,
-        "raw": 18.6,
-        "display_score": 63.5
-      },
-      "score_v1_breakdown": {
-        "base": 5.0,
-        "source_score": 6.0,
-        "keyword_score": 0.0,
-        "time_score": 3.67,
-        "topic_bonus": 0.0,
-        "total": 14.67
-      },
-      "summary": "研究FO-MD工艺中吸收剂污染对转站渗滤液处理稳定性的影响，揭示污染导致的膜分离效能下降与运行风险。",
-      "analysis": "该条目涉及【抽取溶液的污染会削弱转运站渗滤液处理中】话题，因来源权威性高，热度上升。",
-      "topic_tags": [
-        "抽取溶液的污染会削弱转运站渗滤液处理中"
-      ],
-      "category": "污染治理",
-      "matched_keywords": [],
-      "keywords": []
-    },
-    {
-      "title": "A source-informed framework for prioritizing emerging contaminants in complex watersheds: Hazard–exposure integration and field stress testing",
-      "title_en": "A source-informed framework for prioritizing emerging contaminants in complex watersheds: Hazard–exposure integration and field stress testing",
-      "title_zh": "一种基于污染源信息的框架，用于对复杂流域中新兴污染物进行优先级排序：危害与暴露的整合及现场压力测试",
-      "summary_en": "",
-      "summary_zh": "",
-      "link": "https://www.sciencedirect.com/science/article/pii/S0043135426015332?dgcid=rss_sd_all",
-      "source": "Water Research",
-      "published": "2026-09-10T00:02:26.393536+00:00",
-      "hotness": 60.9,
-      "score": 60.9,
-      "score_v1": 14.67,
-      "score_v2": 60.9,
-      "score_breakdown": {
-        "algorithm": "v2",
-        "source_score": 25.0,
-        "keyword_idf_score": 0.0,
-        "resonance_score": 0.0,
-        "quality_score": 0.0,
-        "base": 25.0,
-        "time_factor": 0.744,
-        "repeat_penalty": 1.0,
-        "cross_source_count": 1,
-        "raw": 18.6,
-        "display_score": 60.9
-      },
-      "score_v1_breakdown": {
-        "base": 5.0,
-        "source_score": 6.0,
-        "keyword_score": 0.0,
-        "time_score": 3.67,
-        "topic_bonus": 0.0,
-        "total": 14.67
-      },
-      "summary": "提出基于来源信息的新兴污染物优先级框架，整合危害-暴露耦合与现场压力测试，提升复杂流域污染物筛选效率。",
-      "analysis": "该条目涉及【用于对复杂流域中新兴污染物进行优先级排序】话题，因来源权威性高，热度上升。",
-      "topic_tags": [
-        "用于对复杂流域中新兴污染物进行优先级排序"
-      ],
-      "category": "污染治理",
-      "matched_keywords": [],
-      "keywords": []
-    },
-    {
-      "title": "Spatiotemporal dynamics and dual-transfer mechanisms of the riverine resistome under antibiotic and metal co-pollution in the Xiangjiang River Basin",
-      "title_en": "Spatiotemporal dynamics and dual-transfer mechanisms of the riverine resistome under antibiotic and metal co-pollution in the Xiangjiang River Basin",
-      "title_zh": "湘江流域在抗生素与重金属共污染条件下河流抗性基因组的时空动态及双重转移机制",
-      "summary_en": "",
-      "summary_zh": "",
-      "link": "https://www.sciencedirect.com/science/article/pii/S0043135426015216?dgcid=rss_sd_all",
-      "source": "Water Research",
-      "published": "2026-09-10T00:02:26.393536+00:00",
-      "hotness": 58.3,
-      "score": 58.3,
-      "score_v1": 14.67,
-      "score_v2": 58.3,
-      "score_breakdown": {
-        "algorithm": "v2",
-        "source_score": 25.0,
-        "keyword_idf_score": 0.0,
-        "resonance_score": 0.0,
-        "quality_score": 0.0,
-        "base": 25.0,
-        "time_factor": 0.744,
-        "repeat_penalty": 1.0,
-        "cross_source_count": 1,
-        "raw": 18.6,
-        "display_score": 58.3
-      },
-      "score_v1_breakdown": {
-        "base": 5.0,
-        "source_score": 6.0,
-        "keyword_score": 0.0,
-        "time_score": 3.67,
-        "topic_bonus": 0.0,
-        "total": 14.67
-      },
-      "summary": "分析湘江流域抗生素与金属共污染下河流抵抗ome的时空动态及双重传输机制，揭示耐药基因传播的环境驱动因素。",
-      "analysis": "该条目涉及【重金属】话题，因来源权威性高，热度上升。",
-      "topic_tags": [
-        "重金属"
-      ],
-      "category": "污染治理",
-      "matched_keywords": [],
-      "keywords": []
-    },
-    {
-      "title": "Reply to “Comment on ‘unveiling the environmental fate and risks of non-heterocyclic sulfacetamide: From a novel degradation mechanism to microecological effects [Water Research 294 (2026) 125520]: Towards practical implementation and risk mitigation’”",
-      "title_en": "Reply to “Comment on ‘unveiling the environmental fate and risks of non-heterocyclic sulfacetamide: From a novel degradation mechanism to microecological effects [Water Research 294 (2026) 125520]: Towards practical implementation and risk mitigation’”",
-      "title_zh": "对“关于《揭示非杂环磺胺乙酰胺的环境归趋与风险：从新型降解机制到微生态效应 [Water Research 294 (2026) 125520]：迈向实际应用与风险缓解》的评论”的回复",
-      "summary_en": "",
-      "summary_zh": "",
-      "link": "https://www.sciencedirect.com/science/article/pii/S0043135426015344?dgcid=rss_sd_all",
-      "source": "Water Research",
-      "published": "2026-09-10T00:02:26.393536+00:00",
-      "hotness": 55.7,
-      "score": 55.7,
-      "score_v1": 14.67,
-      "score_v2": 55.7,
-      "score_breakdown": {
-        "algorithm": "v2",
-        "source_score": 25.0,
-        "keyword_idf_score": 0.0,
-        "resonance_score": 0.0,
-        "quality_score": 0.0,
-        "base": 25.0,
-        "time_factor": 0.744,
-        "repeat_penalty": 1.0,
-        "cross_source_count": 1,
-        "raw": 18.6,
-        "display_score": 55.7
-      },
-      "score_v1_breakdown": {
-        "base": 5.0,
-        "source_score": 6.0,
-        "keyword_score": 0.0,
-        "time_score": 3.67,
-        "topic_bonus": 0.0,
-        "total": 14.67
-      },
-      "summary": "回应非异环状硫代酰胺类农药的环境命运与风险评论，总结其降解机制与微生态影响的实施路径与风险缓解策略。",
-      "analysis": "该条目涉及【揭示非杂环磺胺乙酰胺的环境归趋与风险】话题，因来源权威性高，热度上升。",
-      "topic_tags": [
-        "揭示非杂环磺胺乙酰胺的环境归趋与风险"
-      ],
-      "category": "环境健康",
-      "matched_keywords": [],
-      "keywords": []
-    },
-    {
-      "title": "北京拟立法防治噪声污染，夜间施工须主动告知附近居民 - 新浪网",
+      "title": "生态环境部党组书记孙金龙赴黑龙江省调研生态环境保护工作 - 中华人民共和国生态环境部",
       "title_en": "",
       "title_zh": "",
       "summary_en": "",
       "summary_zh": "",
-      "link": "https://news.google.com/rss/articles/CBMif0FVX3lxTFA2d3Z1VmZvSXQ1c0VNR0RSSEVHYk54UnQ0UHlNZmoyQXFTQTJuU21TTzBSM3Z3cEtLbm8yNGhOclRHNTJoVnpsR2VBLTFXcmp1M2tjeWhKenJHVVRIUEMydlFTbVpDVHJqVzBPbktXNFFtUGxGZ3lRNFBHb2lXbG8?oc=5",
-      "source": "Google News 环境污染",
-      "published": "2026-09-10T17:43:00+00:00",
-      "hotness": 53.0,
-      "score": 53.0,
-      "score_v1": 17.17,
-      "score_v2": 53.0,
-      "score_breakdown": {
-        "algorithm": "v2",
-        "source_score": 20.0,
-        "keyword_idf_score": 0.0,
-        "resonance_score": 0.0,
-        "quality_score": 0.0,
-        "base": 20.0,
-        "time_factor": 0.9194,
-        "repeat_penalty": 1.0,
-        "cross_source_count": 1,
-        "raw": 18.39,
-        "display_score": 53.0
-      },
-      "score_v1_breakdown": {
-        "base": 5.0,
-        "source_score": 4.5,
-        "keyword_score": 0.0,
-        "time_score": 7.67,
-        "topic_bonus": 0.0,
-        "total": 17.17
-      },
-      "summary": "北京拟立法防治噪声污染，夜间施工须主动告知附近居民",
-      "analysis": "该条目涉及【噪声污染】话题，因来源权威性高，热度上升。",
-      "topic_tags": [
-        "噪声污染"
-      ],
-      "category": "污染治理",
-      "matched_keywords": [],
-      "keywords": []
-    },
-    {
-      "title": "健康时间 - 何为生态焦虑？为何引发公共卫生部门关注？ - RFI",
-      "title_en": "",
-      "title_zh": "",
-      "summary_en": "",
-      "summary_zh": "",
-      "link": "https://news.google.com/rss/articles/CBMiggNBVV95cUxPSlZkSXNSc1hSbVI2RXRMb3EwcklCMFhVbTdWQzFkOUNuaHVLQnZpY3ZrTXFFamJCNkxKRFd1cTJLWDF4OU5wTkFGc2tpdHFQSFl2dlFTNE5DYU5FR09CWGVCaHkzbXNYcEl5R245cy1pNXBhaWtCcENKblRuLVdvT3B2bThnRnlBNzl3T2JBNVN3SUtaQnhkZ1VIVEY0emx4SUM5NzBRNjZtRFZoVXlIeHZueVl3TEt3d1JTZlJGZjlEV1JPUlM1M3FJdlE0UEZPRllqT0ZiNTJjNDhJaHZYbUREM2JpQ3hnbmdxN2NRQmNlYVJhcC1ibXJ5TkZlMzJnMkdjM1hPcjVCblp6c2s2c1pFd2lFTnJuUGcxWGllSWkwZ0RXaHgzc0hUdzZ3dUk0cEdyUEVVNWdhZE9zUmFqUGIzenFtSUFKR0VqdnAxeTY3M1I5MEJqQV9jRFVpUXNoX2ZwdW52ekFzb1lCRG5VMFlPNG1fbzhrNWpEcUJJNVhldw?oc=5",
-      "source": "Google News 气候变化",
-      "published": "2026-09-10T15:10:40+00:00",
-      "hotness": 50.4,
-      "score": 50.4,
-      "score_v1": 16.4,
-      "score_v2": 50.4,
-      "score_breakdown": {
-        "algorithm": "v2",
-        "source_score": 20.0,
-        "keyword_idf_score": 0.0,
-        "resonance_score": 0.0,
-        "quality_score": 0.0,
-        "base": 20.0,
-        "time_factor": 0.8901,
-        "repeat_penalty": 1.0,
-        "cross_source_count": 1,
-        "raw": 17.8,
-        "display_score": 50.4
-      },
-      "score_v1_breakdown": {
-        "base": 5.0,
-        "source_score": 4.5,
-        "keyword_score": 0.0,
-        "time_score": 6.9,
-        "topic_bonus": 0.0,
-        "total": 16.4
-      },
-      "summary": "健康时间节目讨论生态焦虑概念，分析其为何引发公共卫生部门关注",
-      "analysis": "该条目涉及【何为生态焦虑】话题，因来源权威性高，热度上升。",
-      "topic_tags": [
-        "何为生态焦虑"
-      ],
-      "category": "生态环境",
-      "matched_keywords": [],
-      "keywords": []
-    },
-    {
-      "title": "生态环境法典学习问答第二期，点击参与！ - 新浪网",
-      "title_en": "",
-      "title_zh": "",
-      "summary_en": "",
-      "summary_zh": "",
-      "link": "https://news.google.com/rss/articles/CBMif0FVX3lxTE1OdGd2ODVnVFZZOElfaFhYR0I5TXdPODJnMnpPeC1uWHpBVjU4ZWJRRkwzVmN3bmdGQUluQnBfSlUzX2lHY0Y3ZUFtcDR6Y0JsNjFlLUVVTENMTHdnNFkyT3U5bEFyVnR6YTZTdDdhNGlQbVZxb3N0VXd3SXVMdVU?oc=5",
-      "source": "Google News 生态环境",
-      "published": "2026-09-10T12:51:00+00:00",
-      "hotness": 47.8,
-      "score": 47.8,
-      "score_v1": 15.77,
-      "score_v2": 47.8,
-      "score_breakdown": {
-        "algorithm": "v2",
-        "source_score": 20.0,
-        "keyword_idf_score": 0.0,
-        "resonance_score": 0.0,
-        "quality_score": 0.0,
-        "base": 20.0,
-        "time_factor": 0.8645,
-        "repeat_penalty": 1.0,
-        "cross_source_count": 1,
-        "raw": 17.29,
-        "display_score": 47.8
-      },
-      "score_v1_breakdown": {
-        "base": 5.0,
-        "source_score": 4.5,
-        "keyword_score": 0.0,
-        "time_score": 6.27,
-        "topic_bonus": 0.0,
-        "total": 15.77
-      },
-      "summary": "生态环境法典学习问答第二期开启，公众可在线参与互动",
-      "analysis": "该条目涉及【生态环境法典学习问答第二期】话题，因来源权威性高，热度上升。",
-      "topic_tags": [
-        "生态环境法典学习问答第二期"
-      ],
-      "category": "生态环境",
-      "matched_keywords": [],
-      "keywords": []
-    },
-    {
-      "title": "【整治】生态环境局聚焦重点领域开展生态环境隐患排查整治 - Sohu",
-      "title_en": "",
-      "title_zh": "",
-      "summary_en": "",
-      "summary_zh": "",
-      "link": "https://news.google.com/rss/articles/CBMijAFBVV95cUxQVE9oYVFNSEg2cG94M3czZzZIaXhSbm1VV2R4N21YVGRlRkNmU2Y1bWhXMDZ1bkRFN3BxT2NQRTV1R0ZINGU0UlFlRkxPNE9ZSl83cUwxdnZFQVN6RzRFVmNDVWg0RzBCQXpkNEJabWFWMURRR01vWnNCeWsycmdwVERTSzBDRnJKbHh1Tw?oc=5",
-      "source": "Google News 生态环境",
-      "published": "2026-09-10T11:14:33+00:00",
-      "hotness": 45.2,
-      "score": 45.2,
-      "score_v1": 15.36,
-      "score_v2": 45.2,
-      "score_breakdown": {
-        "algorithm": "v2",
-        "source_score": 20.0,
-        "keyword_idf_score": 0.0,
-        "resonance_score": 0.0,
-        "quality_score": 0.0,
-        "base": 20.0,
-        "time_factor": 0.8476,
-        "repeat_penalty": 1.0,
-        "cross_source_count": 1,
-        "raw": 16.95,
-        "display_score": 45.2
-      },
-      "score_v1_breakdown": {
-        "base": 5.0,
-        "source_score": 4.5,
-        "keyword_score": 0.0,
-        "time_score": 5.86,
-        "topic_bonus": 0.0,
-        "total": 15.36
-      },
-      "summary": "重庆市生态环境局督导组开展化工企业和油料仓储企业安全隐患排查整治行动",
-      "analysis": "该条目涉及【生态环境局聚焦重点领域开展生态环境隐患排查整治】话题，因来源权威性高，热度上升。",
-      "topic_tags": [
-        "生态环境局聚焦重点领域开展生态环境隐患排查整治"
-      ],
-      "category": "生态环境",
-      "matched_keywords": [],
-      "keywords": []
-    },
-    {
-      "title": "省第六生态环境保护督察组现场督察工业企业绿色转型与水环境治理成效 - 娄底新闻网",
-      "title_en": "",
-      "title_zh": "",
-      "summary_en": "",
-      "summary_zh": "",
-      "link": "https://news.google.com/rss/articles/CBMiZEFVX3lxTE96ekJ3eVFHWG9GQ3BqeEk1TU9FTEdRNVhZZkh5MzR3S1QzU1gyckNLYzdOQmFmMnFld0twQ2JFZFVsSERvMEN1cHB1N09lRldFSm1iS3piWHh2REJTYl9XbkpnbWE?oc=5",
+      "link": "https://news.google.com/rss/articles/CBMidkFVX3lxTE9EUk5saUxsUUlaRzFkVU42WmFGNzZ3dHl1azRkZVY0bVVhOTR2d2xVYmEtX0xnVUMzaDMxWm00eElhbmM4OXoyMkJEQ1loTlZUclVqdEtod19PdUxlcFVFd1ZEWndUdnk3RVQ2amxOTWs2RWhsR3c?oc=5",
       "source": "Google News 环境保护",
-      "published": "2026-09-10T10:54:00+00:00",
-      "hotness": 42.6,
-      "score": 42.6,
-      "score_v1": 15.28,
-      "score_v2": 42.6,
+      "published": "2026-09-11T14:22:13+00:00",
+      "hotness": 57.8,
+      "score": 57.8,
+      "score_v1": 16.18,
+      "score_v2": 57.8,
       "score_breakdown": {
         "algorithm": "v2",
         "source_score": 20.0,
@@ -1015,24 +883,325 @@
         "resonance_score": 0.0,
         "quality_score": 0.0,
         "base": 20.0,
-        "time_factor": 0.844,
+        "time_factor": 0.8811,
         "repeat_penalty": 1.0,
         "cross_source_count": 1,
-        "raw": 16.88,
-        "display_score": 42.6
+        "raw": 17.62,
+        "display_score": 57.8
       },
       "score_v1_breakdown": {
         "base": 5.0,
         "source_score": 4.5,
         "keyword_score": 0.0,
-        "time_score": 5.78,
+        "time_score": 6.68,
         "topic_bonus": 0.0,
-        "total": 15.28
+        "total": 16.18
       },
-      "summary": "娄底市第六生态环境保护督察组现场督察工业企业绿色转型与水环境治理成效",
-      "analysis": "该条目涉及【省第六生态环境保护督察组现场督察工业企业绿色转型与水环境治理成效】话题，因来源权威性高，热度上升。",
+      "summary": "生态环境部党组书记孙金龙赴黑龙江省调研生态环境保护工作 - 中华人民共和国生态环境部",
+      "analysis": "该条目涉及【生态环境部】话题，因来源权威性高，热度上升。",
       "topic_tags": [
-        "省第六生态环境保护督察组现场督察工业企业绿色转型与水环境治理成效"
+        "生态环境部"
+      ],
+      "category": "生态环境",
+      "matched_keywords": [],
+      "keywords": []
+    },
+    {
+      "title": "Sargassum Superbloom: Seaweed Scourge or Ecological Boon?",
+      "title_en": "Sargassum Superbloom: Seaweed Scourge or Ecological Boon?",
+      "title_zh": "海藻大爆发：是海藻之祸还是生态之福？",
+      "summary_en": "Stretching from West Africa to the Gulf of Mexico, a massive bloom of sargassum seaweed is swamping beaches and killing coastal wildlife. But scientists have discovered the floating algae also shelters a vast array of ocean creatures, and some are now calling for its protection. Read more on E360 →",
+      "summary_zh": "从西非延伸至墨西哥湾，大片马尾藻的暴发正淹没海滩，并导致沿海野生动物死亡。但科学家们发现，这些漂浮的海藻同时也为大量海洋生物提供了庇护所，因此现在有人呼吁对其加以保护。在 E360 上阅读更多内容 →",
+      "link": "https://e360.yale.edu/features/sargassum-belt",
+      "source": "Yale Environment 360",
+      "published": "2026-09-10T09:18:00+00:00",
+      "hotness": 55.6,
+      "score": 55.6,
+      "score_v1": 10.59,
+      "score_v2": 55.6,
+      "score_breakdown": {
+        "algorithm": "v2",
+        "source_score": 17.0,
+        "keyword_idf_score": 0.0,
+        "resonance_score": 0.0,
+        "quality_score": 10.0,
+        "base": 27.0,
+        "time_factor": 0.6398,
+        "repeat_penalty": 1.0,
+        "cross_source_count": 1,
+        "raw": 17.28,
+        "display_score": 55.6
+      },
+      "score_v1_breakdown": {
+        "base": 5.0,
+        "source_score": 3.6,
+        "keyword_score": 0.0,
+        "time_score": 1.99,
+        "topic_bonus": 0.0,
+        "total": 10.59
+      },
+      "summary": "从西非延伸至墨西哥湾，大片马尾藻的暴发正淹没海滩，并导致沿海野生动物死亡。但科学家们发现，这些漂浮的海藻同时也为大量海洋生物提供了庇护所，因此现在有人呼吁对其加以保护。在 E360 上阅读更多内容 →",
+      "analysis": "该条目涉及【是海藻之祸还是生态之福】话题，因来源权威性高，热度上升。",
+      "topic_tags": [
+        "是海藻之祸还是生态之福"
+      ],
+      "category": "生态环境",
+      "matched_keywords": [],
+      "keywords": []
+    },
+    {
+      "title": "Chemical industry backed laws in three US states to restrict use of air pollution data",
+      "title_en": "Chemical industry backed laws in three US states to restrict use of air pollution data",
+      "title_zh": "美国三个州的法律在化工行业的支持下，限制了空气污染数据的使用",
+      "summary_en": "As public air monitors disappear, federal rollbacks and state laws are making it harder than ever to know what’s in the airAs the US’s network for monitoring air pollution deteriorates, a Floodlight investigation has found that the chemical industry is going state-to-state to restrict one of the few options citizens have left for holding polluters accountable: low-cost air sensors.Over the past two years, the non-profit investigative newsroom determined, lawmakers in Louisiana, Kentucky and Ohio have passed strikingly similar laws barring regulators from acting on air-quality data that communities collect themselves – unless it comes from Environmental Protection Agency (EPA)-approved equipment that typically costs tens of thousands of dollars. Similar legislation has repeatedly been introduced in West Virginia. Continue reading...",
+      "summary_zh": "随着公共空气监测站的消失，联邦政策的倒退和各州法律的限制使得人们比以往任何时候都更难了解空气中的成分。随着美国空气污染监测网络的恶化，Floodlight的一项调查发现，化学工业正逐州游说，试图限制公民为追究污染者责任所剩无几的途径之一： 低成本空气传感器。这家非营利性调查新闻机构发现，在过去两年中，路易斯安那州、肯塔基州和俄亥俄州的立法者通过了惊人相似的法律，禁止监管机构依据社区自行收集的空气质量数据采取行动——除非这些数据来自美国环境保护署（EPA）批准的设备，而此类设备通常价值数万美元。 西弗吉尼亚州也多次提出了类似的立法提案。继续阅读……",
+      "link": "https://www.theguardian.com/environment/2026/sep/10/us-chemical-industry-air-pollution-monitors",
+      "source": "The Guardian Environment",
+      "published": "2026-09-10T11:00:23+00:00",
+      "hotness": 53.3,
+      "score": 53.3,
+      "score_v1": 10.13,
+      "score_v2": 53.3,
+      "score_breakdown": {
+        "algorithm": "v2",
+        "source_score": 15.0,
+        "keyword_idf_score": 0.0,
+        "resonance_score": 0.0,
+        "quality_score": 10.0,
+        "base": 25.0,
+        "time_factor": 0.6503,
+        "repeat_penalty": 1.0,
+        "cross_source_count": 1,
+        "raw": 16.26,
+        "display_score": 53.3
+      },
+      "score_v1_breakdown": {
+        "base": 5.0,
+        "source_score": 3.0,
+        "keyword_score": 0.0,
+        "time_score": 2.13,
+        "topic_bonus": 0.0,
+        "total": 10.13
+      },
+      "summary": "随着公共空气监测站的消失，联邦政策的倒退和各州法律的限制使得人们比以往任何时候都更难了解空气中的成分。随着美国空气污染监测网络的恶化，Floodlight的一项调查发现，化学工业正逐州游说，试图限制公民为追究污染者责任所剩无几的途径之一： 低成本空气传感器。这家非营利性调查新闻机构发现，在过去两年中，路易斯安那州、肯塔基州和俄亥俄州的立法者通过了惊人相似的法律，禁止监管机构依据社区自行收集的空气质量数据采取行动——除非这些数据来自美国环境保护署（EPA）批准的设备，而此类设备通常价值数万美元。 西弗吉尼亚州也多次提出了类似的立法提案。继续阅读……",
+      "analysis": "该条目涉及【限制了空气污染数据的使用】话题，因来源权威性高，热度上升。",
+      "topic_tags": [
+        "限制了空气污染数据的使用"
+      ],
+      "category": "污染治理",
+      "matched_keywords": [],
+      "keywords": []
+    },
+    {
+      "title": "美丽长三角｜示范区发布2025年度生态环境质量报告，地表水环境质量持续保持优级水平 - 新浪网",
+      "title_en": "",
+      "title_zh": "",
+      "summary_en": "",
+      "summary_zh": "",
+      "link": "https://news.google.com/rss/articles/CBMieEFVX3lxTE82bVE2MFJiVWNLNElnNWxCZFJRa3E5LWlNMV9GSnRQU3dPNHctdFA5WHg4NnczdVBEUTAzdTJnc291dHlRQnlXMnF1bnZoempqdTloXzlnSEFnQzBnb1VoeFNJY1BZM01EMTBwYmxIVFRaZzdqbmg0ag?oc=5",
+      "source": "Google News 生态环境",
+      "published": "2026-09-11T04:07:37+00:00",
+      "hotness": 51.1,
+      "score": 51.1,
+      "score_v1": 13.86,
+      "score_v2": 51.1,
+      "score_breakdown": {
+        "algorithm": "v2",
+        "source_score": 20.0,
+        "keyword_idf_score": 0.0,
+        "resonance_score": 0.0,
+        "quality_score": 0.0,
+        "base": 20.0,
+        "time_factor": 0.779,
+        "repeat_penalty": 1.0,
+        "cross_source_count": 1,
+        "raw": 15.58,
+        "display_score": 51.1
+      },
+      "score_v1_breakdown": {
+        "base": 5.0,
+        "source_score": 4.5,
+        "keyword_score": 0.0,
+        "time_score": 4.36,
+        "topic_bonus": 0.0,
+        "total": 13.86
+      },
+      "summary": "美丽长三角｜示范区发布2025年度生态环境质量报告，地表水环境质量持续保持优级水平",
+      "analysis": "该条目涉及【地表水环境质量持续保持优级水平】话题，因来源权威性高，热度上升。",
+      "topic_tags": [
+        "地表水环境质量持续保持优级水平"
+      ],
+      "category": "水处理",
+      "matched_keywords": [],
+      "keywords": []
+    },
+    {
+      "title": "四川广元市生态环境局副局长舒伟赴剑阁县开展养殖核查与水质达标专项督导 - 中国网海丝频道",
+      "title_en": "",
+      "title_zh": "",
+      "summary_en": "",
+      "summary_zh": "",
+      "link": "https://news.google.com/rss/articles/CBMiZkFVX3lxTE1jZzRKLXpycVFNTEE3emVERE1nYlV3NUU1R01EZDM0WTdweWJwQU82UjEtQ3Q3SWJoRTZXbFk4c1NZVXJ0RFB2ZEFDQ0R5SFJqZkJBM0k0X25mVEJiZXJISFVUUG0wZw?oc=5",
+      "source": "Google News 生态环境",
+      "published": "2026-09-11T03:24:00+00:00",
+      "hotness": 48.9,
+      "score": 48.9,
+      "score_v1": 13.73,
+      "score_v2": 48.9,
+      "score_breakdown": {
+        "algorithm": "v2",
+        "source_score": 20.0,
+        "keyword_idf_score": 0.0,
+        "resonance_score": 0.0,
+        "quality_score": 0.0,
+        "base": 20.0,
+        "time_factor": 0.7726,
+        "repeat_penalty": 1.0,
+        "cross_source_count": 1,
+        "raw": 15.45,
+        "display_score": 48.9
+      },
+      "score_v1_breakdown": {
+        "base": 5.0,
+        "source_score": 4.5,
+        "keyword_score": 0.0,
+        "time_score": 4.23,
+        "topic_bonus": 0.0,
+        "total": 13.73
+      },
+      "summary": "四川广元市生态环境局副局长舒伟赴剑阁县开展养殖核查与水质达标专项督导",
+      "analysis": "该条目涉及【四川广元市生态环境局副局长舒伟赴剑阁县开展养殖核查与水质达标专项督导】话题，因来源权威性高，热度上升。",
+      "topic_tags": [
+        "四川广元市生态环境局副局长舒伟赴剑阁县开展养殖核查与水质达标专项督导"
+      ],
+      "category": "生态环境",
+      "matched_keywords": [],
+      "keywords": []
+    },
+    {
+      "title": "省第一生态环境保护督察组突击检查湘潭夜宵经营点位 - 湖南红网",
+      "title_en": "",
+      "title_zh": "",
+      "summary_en": "",
+      "summary_zh": "",
+      "link": "https://news.google.com/rss/articles/CBMiYkFVX3lxTE03NmNfZ25iWnQ4UHBfUWpXX3YzTC12dkxsdzhkOHM1ZG5nakc0dW9hb3RPQnV4LWlWOU80cGZLQi0yM2RScF80R1JhTVZ2Z2dQbUlyT3M3V0Y2XzVGbUVtbWtR?oc=5",
+      "source": "Google News 环境保护",
+      "published": "2026-09-11T02:24:45+00:00",
+      "hotness": 46.7,
+      "score": 46.7,
+      "score_v1": 13.56,
+      "score_v2": 46.7,
+      "score_breakdown": {
+        "algorithm": "v2",
+        "source_score": 20.0,
+        "keyword_idf_score": 0.0,
+        "resonance_score": 0.0,
+        "quality_score": 0.0,
+        "base": 20.0,
+        "time_factor": 0.764,
+        "repeat_penalty": 1.0,
+        "cross_source_count": 1,
+        "raw": 15.28,
+        "display_score": 46.7
+      },
+      "score_v1_breakdown": {
+        "base": 5.0,
+        "source_score": 4.5,
+        "keyword_score": 0.0,
+        "time_score": 4.06,
+        "topic_bonus": 0.0,
+        "total": 13.56
+      },
+      "summary": "省第一生态环境保护督察组突击检查湘潭夜宵经营点位 - 湖南红网",
+      "analysis": "该条目涉及【省第一生态环境保护督察组突击检查湘潭夜宵经营点位】话题，因来源权威性高，热度上升。",
+      "topic_tags": [
+        "省第一生态环境保护督察组突击检查湘潭夜宵经营点位"
+      ],
+      "category": "生态环境",
+      "matched_keywords": [],
+      "keywords": []
+    },
+    {
+      "title": "枣庄中院开展生态环境法典普法宣传活动 - 新浪财经",
+      "title_en": "",
+      "title_zh": "",
+      "summary_en": "",
+      "summary_zh": "",
+      "link": "https://news.google.com/rss/articles/CBMieEFVX3lxTFBIdGdlRXJITlZuWkRyRE85SkdBS0hXWUhKOVh6alA1VDJJanR4YTM1aWNlRzhiUVRGaEhHSDN2UTctc2d0MmYyMWlobFk1UWMxN0dpV0dtTWUwb2ZiRmkwUzFxcDc2TVE1RmNSUE1fMFItVzRlLVRaZA?oc=5",
+      "source": "Google News 生态环境",
+      "published": "2026-09-10T16:15:00+00:00",
+      "hotness": 44.4,
+      "score": 44.4,
+      "score_v1": 12.16,
+      "score_v2": 44.4,
+      "score_breakdown": {
+        "algorithm": "v2",
+        "source_score": 20.0,
+        "keyword_idf_score": 0.0,
+        "resonance_score": 0.0,
+        "quality_score": 0.0,
+        "base": 20.0,
+        "time_factor": 0.685,
+        "repeat_penalty": 1.0,
+        "cross_source_count": 1,
+        "raw": 13.7,
+        "display_score": 44.4
+      },
+      "score_v1_breakdown": {
+        "base": 5.0,
+        "source_score": 4.5,
+        "keyword_score": 0.0,
+        "time_score": 2.66,
+        "topic_bonus": 0.0,
+        "total": 12.16
+      },
+      "summary": "枣庄中院开展生态环境法典普法宣传活动",
+      "analysis": "该条目涉及【枣庄中院开展生态环境法典普法宣传活动】话题，因来源权威性高，热度上升。",
+      "topic_tags": [
+        "枣庄中院开展生态环境法典普法宣传活动"
+      ],
+      "category": "生态环境",
+      "matched_keywords": [],
+      "keywords": []
+    },
+    {
+      "title": "省第一生态环境保护督察组向湘潭市交办首批群众信访件 - 凤凰网",
+      "title_en": "",
+      "title_zh": "",
+      "summary_en": "",
+      "summary_zh": "",
+      "link": "https://news.google.com/rss/articles/CBMiTkFVX3lxTFBRZGxIbUF3akMwYXdvUFFKQmw2VUxxYWwwdjJwOUxDSGdyS1JYLW1FT3I3SFJFSlFuTVV4MDFKbkNCQ0dYMUdvelJ2R3B0dw?oc=5",
+      "source": "Google News 生态环境",
+      "published": "2026-09-10T11:10:06+00:00",
+      "hotness": 42.2,
+      "score": 42.2,
+      "score_v1": 11.65,
+      "score_v2": 42.2,
+      "score_breakdown": {
+        "algorithm": "v2",
+        "source_score": 20.0,
+        "keyword_idf_score": 0.0,
+        "resonance_score": 0.0,
+        "quality_score": 0.0,
+        "base": 20.0,
+        "time_factor": 0.6513,
+        "repeat_penalty": 1.0,
+        "cross_source_count": 1,
+        "raw": 13.03,
+        "display_score": 42.2
+      },
+      "score_v1_breakdown": {
+        "base": 5.0,
+        "source_score": 4.5,
+        "keyword_score": 0.0,
+        "time_score": 2.15,
+        "topic_bonus": 0.0,
+        "total": 11.65
+      },
+      "summary": "省第一生态环境保护督察组向湘潭市交办首批群众信访件",
+      "analysis": "该条目涉及【省第一生态环境保护督察组向湘潭市交办首批群众信访件】话题，因来源权威性高，热度上升。",
+      "topic_tags": [
+        "省第一生态环境保护督察组向湘潭市交办首批群众信访件"
       ],
       "category": "生态环境",
       "matched_keywords": [],
@@ -1045,11 +1214,11 @@
       "summary_en": "",
       "summary_zh": "",
       "link": "https://news.google.com/rss/articles/CBMiekFVX3lxTE5XV29FN1RxLS1QVnRsSGdSMmNkWk9kcVlMNXdxd09CLVd2SVdrdnktYW9kSTdUek1yUWF1VWlLbUJDVy1sRnB6UVVCXzloRENTc0JlYUF4czhnNkg3T3FCVnNIRHEtNFNQcnliVURTTFFwTmpaUENNdWxn?oc=5",
-      "source": "Google News 环境保护",
+      "source": "Google News 生态环境",
       "published": "2026-09-10T03:04:33+00:00",
       "hotness": 40.0,
       "score": 40.0,
-      "score_v1": 13.67,
+      "score_v1": 11.03,
       "score_v2": 40.0,
       "score_breakdown": {
         "algorithm": "v2",
@@ -1058,21 +1227,21 @@
         "resonance_score": 0.0,
         "quality_score": 0.0,
         "base": 20.0,
-        "time_factor": 0.7697,
+        "time_factor": 0.6046,
         "repeat_penalty": 1.0,
         "cross_source_count": 1,
-        "raw": 15.39,
+        "raw": 12.09,
         "display_score": 40.0
       },
       "score_v1_breakdown": {
         "base": 5.0,
         "source_score": 4.5,
         "keyword_score": 0.0,
-        "time_score": 4.17,
+        "time_score": 1.53,
         "topic_bonus": 0.0,
-        "total": 13.67
+        "total": 11.03
       },
-      "summary": "福州发布《十五五》生态环境保护规划，目标到2030年基本建成生态福地美丽福州，聚焦生态环境治理与可持续发展。",
+      "summary": "福州印发“十五五”生态环境保护规划 到2030年基本建成生态福地·美丽福州",
       "analysis": "该条目涉及【年基本建成生态福地】话题，因来源权威性高，热度上升。",
       "topic_tags": [
         "年基本建成生态福地"
@@ -1084,151 +1253,155 @@
   ],
   "keyword_analysis": [
     {
-      "keyword": "生态焦虑",
-      "count": 9,
-      "term": "生态焦虑",
-      "category": "生态环境"
-    },
-    {
-      "keyword": "噪声污染",
-      "count": 8,
-      "term": "噪声污染",
-      "category": "污染治理"
-    },
-    {
-      "keyword": "新兴污染物",
-      "count": 6,
-      "term": "新兴污染物",
-      "category": "污染治理"
-    },
-    {
-      "keyword": "水处理",
+      "keyword": "生态环境",
       "count": 5,
-      "term": "水处理",
-      "category": "水处理"
-    },
-    {
-      "keyword": "气候变化",
-      "count": 4,
-      "term": "气候变化",
-      "category": "气候变化"
-    },
-    {
-      "keyword": "生态规划",
-      "count": 4,
-      "term": "生态规划",
+      "term": "生态环境",
       "category": "生态环境"
     },
     {
-      "keyword": "碳排放",
-      "count": 2,
-      "term": "碳排放",
+      "keyword": "气候",
+      "count": 4,
+      "term": "气候",
       "category": "气候变化"
     },
     {
-      "keyword": "温室气体",
+      "keyword": "环境保护",
+      "count": 4,
+      "term": "环境保护",
+      "category": "环境政策"
+    },
+    {
+      "keyword": "厄尔尼诺",
       "count": 2,
-      "term": "温室气体",
+      "term": "厄尔尼诺",
       "category": "气候变化"
     },
     {
-      "keyword": "微塑料",
-      "count": 1,
-      "term": "微塑料",
+      "keyword": "湿地",
+      "count": 2,
+      "term": "湿地",
+      "category": "生态环境"
+    },
+    {
+      "keyword": "废水",
+      "count": 2,
+      "term": "废水",
       "category": "污染治理"
     },
     {
-      "keyword": "生态系统",
+      "keyword": "美丽",
+      "count": 2,
+      "term": "美丽",
+      "category": "其他"
+    },
+    {
+      "keyword": "环境质量",
+      "count": 2,
+      "term": "环境质量",
+      "category": "其他"
+    },
+    {
+      "keyword": "督察组",
+      "count": 2,
+      "term": "督察组",
+      "category": "环境政策"
+    },
+    {
+      "keyword": "environmental",
       "count": 1,
-      "term": "生态系统",
-      "category": "生态环境"
+      "term": "environmental",
+      "category": "其他"
     }
   ],
   "keywords": [
     {
-      "keyword": "生态焦虑",
-      "count": 9,
-      "term": "生态焦虑",
-      "category": "生态环境"
-    },
-    {
-      "keyword": "噪声污染",
-      "count": 8,
-      "term": "噪声污染",
-      "category": "污染治理"
-    },
-    {
-      "keyword": "新兴污染物",
-      "count": 6,
-      "term": "新兴污染物",
-      "category": "污染治理"
-    },
-    {
-      "keyword": "水处理",
+      "keyword": "生态环境",
       "count": 5,
-      "term": "水处理",
-      "category": "水处理"
-    },
-    {
-      "keyword": "气候变化",
-      "count": 4,
-      "term": "气候变化",
-      "category": "气候变化"
-    },
-    {
-      "keyword": "生态规划",
-      "count": 4,
-      "term": "生态规划",
+      "term": "生态环境",
       "category": "生态环境"
     },
     {
-      "keyword": "碳排放",
-      "count": 2,
-      "term": "碳排放",
+      "keyword": "气候",
+      "count": 4,
+      "term": "气候",
       "category": "气候变化"
     },
     {
-      "keyword": "温室气体",
+      "keyword": "环境保护",
+      "count": 4,
+      "term": "环境保护",
+      "category": "环境政策"
+    },
+    {
+      "keyword": "厄尔尼诺",
       "count": 2,
-      "term": "温室气体",
+      "term": "厄尔尼诺",
       "category": "气候变化"
     },
     {
-      "keyword": "微塑料",
-      "count": 1,
-      "term": "微塑料",
+      "keyword": "湿地",
+      "count": 2,
+      "term": "湿地",
+      "category": "生态环境"
+    },
+    {
+      "keyword": "废水",
+      "count": 2,
+      "term": "废水",
       "category": "污染治理"
     },
     {
-      "keyword": "生态系统",
+      "keyword": "美丽",
+      "count": 2,
+      "term": "美丽",
+      "category": "其他"
+    },
+    {
+      "keyword": "环境质量",
+      "count": 2,
+      "term": "环境质量",
+      "category": "其他"
+    },
+    {
+      "keyword": "督察组",
+      "count": 2,
+      "term": "督察组",
+      "category": "环境政策"
+    },
+    {
+      "keyword": "environmental",
       "count": 1,
-      "term": "生态系统",
-      "category": "生态环境"
+      "term": "environmental",
+      "category": "其他"
     }
   ],
-  "hot_summary": "今日热点围绕生态焦虑、噪声污染、新兴污染物、水处理、气候变化等话题，共聚合24条资讯。",
-  "summary": "今日热点围绕生态焦虑、噪声污染、新兴污染物、水处理、气候变化等话题，共聚合24条资讯。",
-  "weekly_summary": "近7天环境热点以气候变化和生态环境为主，污染治理与政策关注度相对平稳。",
-  "weekly_insight": "近7天热点主要集中在气候变化、生态环境、科研学术等方向，累计相关热点40条，整体呈现关注气候变化议题的态势，建议持续跟踪相关政策与技术进展。",
+  "hot_summary": "今日热点围绕生态环境、气候、环境保护、厄尔尼诺、湿地等话题，共聚合28条资讯。",
+  "summary": "今日热点围绕生态环境、气候、环境保护、厄尔尼诺、湿地等话题，共聚合28条资讯。",
+  "weekly_summary": "近7天热点集中在：气候变化（19条）、生态环境（9条）、科研学术（6条），共聚合42条环境领域资讯。",
+  "weekly_insight": "近7天热点主要集中在气候变化、生态环境、科研学术等方向，累计相关热点42条，整体呈现关注气候变化议题的态势，建议持续跟踪相关政策与技术进展。",
   "weekly_keywords": [
     {
       "term": "环境资讯",
       "count": 12
     },
     {
+      "term": "生态系统",
+      "count": 6
+    },
+    {
       "term": "考研",
       "count": 6
     },
     {
-      "term": "生态系统",
-      "count": 5
-    },
-    {
-      "term": "生物多样性",
+      "term": "微塑料",
       "count": 3
     },
     {
-      "term": "环评",
+      "term": "人工智能",
+      "count": 3
+    },
+    {
+      "term": "生物多样性",
       "count": 3
     },
     {
@@ -1236,37 +1409,19 @@
       "count": 3
     },
     {
+      "term": "碳排放",
+      "count": 2
+    },
+    {
       "term": "垃圾分类",
       "count": 2
     },
     {
-      "term": "人工智能",
-      "count": 2
-    },
-    {
-      "term": "水污染",
-      "count": 2
-    },
-    {
-      "term": "我们都是气候变化极端天气亲历者",
+      "term": "环评",
       "count": 2
     }
   ],
   "weekly_categories": [
-    {
-      "date": "2026-09-05",
-      "categories": {
-        "气候变化": 3,
-        "污染治理": 2,
-        "生态环境": 1,
-        "环境政策": 1,
-        "能源与碳中和": 0,
-        "水处理": 0,
-        "科研学术": 0,
-        "环境健康": 1,
-        "其他": 2
-      }
-    },
     {
       "date": "2026-09-06",
       "categories": {
@@ -1340,6 +1495,20 @@
     {
       "date": "2026-09-11",
       "categories": {
+        "气候变化": 5,
+        "污染治理": 2,
+        "生态环境": 1,
+        "环境政策": 0,
+        "能源与碳中和": 1,
+        "水处理": 0,
+        "科研学术": 1,
+        "环境健康": 0,
+        "其他": 0
+      }
+    },
+    {
+      "date": "2026-09-12",
+      "categories": {
         "气候变化": 0,
         "污染治理": 0,
         "生态环境": 0,
@@ -1355,40 +1524,23 @@
   "today_categories": [
     {
       "category": "生态环境",
-      "count": 8
-    },
-    {
-      "category": "污染治理",
-      "count": 6
+      "count": 11
     },
     {
       "category": "气候变化",
-      "count": 6
+      "count": 7
     },
     {
-      "category": "科研学术",
-      "count": 1
-    },
-    {
-      "category": "能源与碳中和",
-      "count": 1
+      "category": "污染治理",
+      "count": 7
     },
     {
       "category": "水处理",
-      "count": 1
-    },
-    {
-      "category": "环境健康",
-      "count": 1
+      "count": 3
     }
   ],
   "timeline": {
     "气候变化": [
-      {
-        "date": "2026-08-13",
-        "count": 0,
-        "total_heat": 0.0
-      },
       {
         "date": "2026-08-14",
         "count": 0,
@@ -1531,16 +1683,16 @@
       },
       {
         "date": "2026-09-11",
+        "count": 5,
+        "total_heat": 461.0
+      },
+      {
+        "date": "2026-09-12",
         "count": 0,
         "total_heat": 0.0
       }
     ],
     "污染治理": [
-      {
-        "date": "2026-08-13",
-        "count": 0,
-        "total_heat": 0.0
-      },
       {
         "date": "2026-08-14",
         "count": 0,
@@ -1683,16 +1835,16 @@
       },
       {
         "date": "2026-09-11",
+        "count": 2,
+        "total_heat": 176.5
+      },
+      {
+        "date": "2026-09-12",
         "count": 0,
         "total_heat": 0.0
       }
     ],
     "生态环境": [
-      {
-        "date": "2026-08-13",
-        "count": 0,
-        "total_heat": 0.0
-      },
       {
         "date": "2026-08-14",
         "count": 0,
@@ -1835,16 +1987,16 @@
       },
       {
         "date": "2026-09-11",
+        "count": 1,
+        "total_heat": 81.7
+      },
+      {
+        "date": "2026-09-12",
         "count": 0,
         "total_heat": 0.0
       }
     ],
     "环境政策": [
-      {
-        "date": "2026-08-13",
-        "count": 0,
-        "total_heat": 0.0
-      },
       {
         "date": "2026-08-14",
         "count": 0,
@@ -1989,14 +2141,14 @@
         "date": "2026-09-11",
         "count": 0,
         "total_heat": 0.0
+      },
+      {
+        "date": "2026-09-12",
+        "count": 0,
+        "total_heat": 0.0
       }
     ],
     "能源与碳中和": [
-      {
-        "date": "2026-08-13",
-        "count": 0,
-        "total_heat": 0.0
-      },
       {
         "date": "2026-08-14",
         "count": 0,
@@ -2139,16 +2291,16 @@
       },
       {
         "date": "2026-09-11",
+        "count": 1,
+        "total_heat": 79.1
+      },
+      {
+        "date": "2026-09-12",
         "count": 0,
         "total_heat": 0.0
       }
     ],
     "水处理": [
-      {
-        "date": "2026-08-13",
-        "count": 0,
-        "total_heat": 0.0
-      },
       {
         "date": "2026-08-14",
         "count": 0,
@@ -2293,14 +2445,14 @@
         "date": "2026-09-11",
         "count": 0,
         "total_heat": 0.0
+      },
+      {
+        "date": "2026-09-12",
+        "count": 0,
+        "total_heat": 0.0
       }
     ],
     "科研学术": [
-      {
-        "date": "2026-08-13",
-        "count": 0,
-        "total_heat": 0.0
-      },
       {
         "date": "2026-08-14",
         "count": 0,
@@ -2443,16 +2595,16 @@
       },
       {
         "date": "2026-09-11",
+        "count": 1,
+        "total_heat": 84.3
+      },
+      {
+        "date": "2026-09-12",
         "count": 0,
         "total_heat": 0.0
       }
     ],
     "环境健康": [
-      {
-        "date": "2026-08-13",
-        "count": 0,
-        "total_heat": 0.0
-      },
       {
         "date": "2026-08-14",
         "count": 0,
@@ -2597,14 +2749,14 @@
         "date": "2026-09-11",
         "count": 0,
         "total_heat": 0.0
+      },
+      {
+        "date": "2026-09-12",
+        "count": 0,
+        "total_heat": 0.0
       }
     ],
     "其他": [
-      {
-        "date": "2026-08-13",
-        "count": 0,
-        "total_heat": 0.0
-      },
       {
         "date": "2026-08-14",
         "count": 0,
@@ -2747,6 +2899,11 @@
       },
       {
         "date": "2026-09-11",
+        "count": 0,
+        "total_heat": 0.0
+      },
+      {
+        "date": "2026-09-12",
         "count": 0,
         "total_heat": 0.0
       }

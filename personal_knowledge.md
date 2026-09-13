@@ -2419,3 +2419,119 @@
   - 上下文：省第一生态环境保护督察组向湘潭市交办首批群众信访件 - 凤凰网
 
 ---
+## 2026-09-13
+
+**今日高频关键词**：`#生态环境` `#污染防治` `#水处理` `#执法技能` `#气候变化`
+
+**今日 Top10 热点**
+
+### 1. Five night sky events to look out for this autumn
+- **来源**：BBC 科学与环境
+- **热度**：100.0
+- **链接**：https://www.bbc.co.uk/news/articles/cvgy4w3mnpvo?at_medium=RSS&at_campaign=rss
+- **摘要**：从流星雨到11月的超级月亮，秋夜的天空中有许多令人叹为观止的奇观。
+- **分析**：该条目涉及【环境资讯】话题，因来源权威性高，热度上升。
+
+### 2. Record heatwaves in France set to make champagne stronger
+- **来源**：BBC 科学与环境
+- **热度**：97.3
+- **链接**：https://www.bbc.co.uk/news/articles/cvgydvrlep1o?at_medium=RSS&at_campaign=rss
+- **摘要**：由于今年葡萄收成不同寻常，产出的葡萄更甜，因此酿酒师们可以酿造出酒精度高达15%的起泡酒。
+- **分析**：该条目涉及【热浪】话题，因来源权威性高，热度上升。
+
+### 3. 团体一等奖！江门斩获省生态环境执法技能竞赛多项荣誉 - Sohu
+- **来源**：Google News 环境竞赛
+- **热度**：94.5
+- **链接**：https://news.google.com/rss/articles/CBMijAFBVV95cUxNRTNrNkE2Wm43R2pEODJNb3RZeW4xQ3U4U0psRHNRSDJKOVdGOGNSZFBfNWNFUDZCTVdqSDVxR3YtX2V6eG4tOWJOOXVEdm8wbHVxbFdoVzNCME96M0xGUWNIRHB6U3JERnRKWXdYM1lUaHRWZDBPT0NZcXlKRXZvOVItYmVlTmlMN0Q5YQ?oc=5
+- **摘要**：江门市生态环境局代表队在广东省生态环境执法技能竞赛中斩获团体一等奖，展现强劲执法实力。
+- **分析**：该条目涉及【生态环境执法技能竞赛】话题，因来源权威性高，热度上升。
+
+### 4. We know how to prevent black lung, so why are workers still dying?
+- **来源**：The Guardian Environment
+- **热度**：91.8
+- **链接**：https://www.theguardian.com/us-news/2026/sep/12/black-lung-worker-deaths
+- **摘要**：随着特朗普和煤炭行业对防护措施的抵制，矽肺病患者的年龄正日益年轻化。矽肺病是最古老的职业危害之一，公共卫生专家几十年来一直知道如何预防这种疾病。 然而，从阿巴拉契亚山脉的煤矿工人到拉丁裔台面加工工人，新一波劳动者正因该疾病而患病甚至死亡——与此同时，行业正抵制新的保护措施，而监管机构却未能捍卫那些本可保护他们的规定。约翰·罗宾逊的祖父患上了黑肺病。在那时，煤矿工人往往要在矿井中工作数十年才会被确诊，通常在60、70或80多岁时去世。 但曾在弗吉尼亚州西南部采煤的罗宾逊，却在47岁时就被确诊。他反映了阿巴拉契亚中部地区过去二十年来日益加剧的一种趋势：越来越多的煤矿工人正以更年轻的年龄患上黑肺病。继续阅读……
+- **分析**：该条目涉及【环境资讯】话题，因来源权威性高，热度上升。
+
+### 5. 攻坚克难强管控 锚定目标保水质——平谷区全力保障汛期水环境质量稳定 - 首都文明网
+- **来源**：Google News 环境污染
+- **热度**：89.1
+- **链接**：https://news.google.com/rss/articles/CBMiW0FVX3lxTFBRd0hCbnd2RWFZdEZyenM2NGVERDZfSk5mWlE5eXJmczVqbjE4M2lNSFV6ZnhoN1VUYjFFRy1PMllfRnhmeGJHNGktLWZ1azQteG9FNDdZU3B5RzQ?oc=5
+- **摘要**：平谷区聚焦汛期水环境质量，通过强化管控措施确保水体稳定达标，守护汛期水安全。
+- **分析**：该条目涉及【污染防治】话题，因来源权威性高，热度上升。
+
+### 6. Battle to save the tiny, gooey snail only found in one lake in the UK
+- **来源**：BBC 科学与环境
+- **热度**：86.4
+- **链接**：https://www.bbc.co.uk/news/articles/c1j4ngr05l8o?at_medium=RSS&at_campaign=rss
+- **摘要**：这种软体动物曾广泛分布于英国各地，如今仅在威尔士的一个湖中仍有发现。
+- **分析**：该条目涉及【环境资讯】话题，因来源权威性高，热度上升。
+
+### 7. 生态环境部一周要闻（9.6—9.12） - 新浪财经
+- **来源**：Google News 环境保护
+- **热度**：83.6
+- **链接**：https://news.google.com/rss/articles/CBMieEFVX3lxTE5uU1dhNW9LMkF0UnYzeWZLWkJ4TWZtazBkai10SFBwa1M4UW4xdTRGT2I1YzZxRnp1RThuRnNUdXQ0ck5LeHotNlNlZFN1NWVZdnRZMm5BUHY0UFJaMS1FVTNBQ1BNZE9CMHNMTTNZcWlueFFOVzRPRw?oc=5
+- **摘要**：生态环境部近一周要闻聚焦生态保护、污染防治及行业监管等核心议题，推进环境治理工作。
+- **分析**：该条目涉及【生态保护】话题，因来源权威性高，热度上升。
+
+### 8. Dual-gated interfacial oxidation enables dry purification of dye-wastewater recovery salt in a plasma fluidized bed
+- **来源**：Water Research
+- **热度**：80.9
+- **链接**：https://www.sciencedirect.com/science/article/pii/S0043135426015678?dgcid=rss_sd_all
+- **摘要**：研究表明等离子流化床干法技术可有效回收染料废水中的盐分，实现资源化处理与净化。
+- **分析**：该条目涉及【染料废水】话题，因来源权威性高，热度上升。
+
+### 9. Ultraviolet irradiation alters carbonyl structures to promote toxic halogenated carbonyl disinfection byproduct formation in drinking water
+- **来源**：Water Research
+- **热度**：78.2
+- **链接**：https://www.sciencedirect.com/science/article/pii/S0043135426015381?dgcid=rss_sd_all
+- **摘要**：紫外照射改变有机碳结构，促进饮用水中卤代碳氢化合物消毒副产物的生成，影响水质安全。
+- **分析**：该条目涉及【水质安全】话题，因来源权威性高，热度上升。
+
+### 10. Ferryl species-independent PMSO<sub>2</sub> formation: Multiple oxygen atom transfer pathways in Fe<sup>2+</sup>-based peroxide activation
+- **来源**：Water Research
+- **热度**：75.5
+- **链接**：https://www.sciencedirect.com/science/article/pii/S0043135426015514?dgcid=rss_sd_all
+- **摘要**：Fe²⁺基过氧化物活化过程中，氧原子转移路径独立于特定 ferryl 物种，展现出多种氧转移途径。
+- **分析**：该条目涉及【Fe²⁺基过氧化物活化】话题，因来源权威性高，热度上升。
+
+**今日自动提取候选新词**
+
+- **生态环境**（出现 4 次）
+  - 上下文：团体一等奖！江门斩获省生态环境执法技能竞赛多项荣誉 - Sohu
+  - 上下文：生态环境部一周要闻（9.6—9.12） - 新浪财经
+  - 上下文：生态环境部党组书记孙金龙赴黑龙江省调研生态环境保护工作 - 中华人民共和国生态环境部
+- **执法**（出现 3 次）
+  - 上下文：团体一等奖！江门斩获省生态环境执法技能竞赛多项荣誉 - Sohu
+  - 上下文：工地门前车辙泥印污染严重，南京江北新区综合行政执法部门及时规范 - 紫牛新闻
+  - 上下文：河北举办生态环境保护执法大练兵 | 图片新闻 - Sohu
+- **生态**（出现 3 次）
+  - 上下文：河北举办生态环境保护执法大练兵 | 图片新闻 - Sohu
+  - 上下文：生态环境部党组书记孙金龙赴黑龙江省调研生态环境保护工作 - 中华人民共和国生态环境部
+  - 上下文：省第三生态环境保护督察组深入现场推动问题整改 - QQ News
+- **autumn**（出现 2 次）
+  - 上下文：Five night sky events to look out for this autumn
+  - 上下文：El Niño likely to cause wetter and warmer-than-normal autumn
+- **Sohu**（出现 2 次）
+  - 上下文：团体一等奖！江门斩获省生态环境执法技能竞赛多项荣誉 - Sohu
+  - 上下文：河北举办生态环境保护执法大练兵 | 图片新闻 - Sohu
+- **财经**（出现 2 次）
+  - 上下文：生态环境部一周要闻（9.6—9.12） - 新浪财经
+  - 上下文：气候，无法回避的能源挑战 - 新浪财经
+- **purification**（出现 2 次）
+  - 上下文：Dual-gated interfacial oxidation enables dry purification of dye-wastewater recovery salt in a plasma fluidized bed
+  - 上下文：Interface-induced built-in electric field breaks the oxo wall for efficient water purification: Directional generation and essential mechanism of Co(IV)=O species
+- **formation**（出现 2 次）
+  - 上下文：Ultraviolet irradiation alters carbonyl structures to promote toxic halogenated carbonyl disinfection byproduct formation in drinking water
+  - 上下文：Ferryl species-independent PMSO<sub>2</sub> formation: Multiple oxygen atom transfer pathways in Fe<sup>2+</sup>-based peroxide activation
+- **water**（出现 2 次）
+  - 上下文：Ultraviolet irradiation alters carbonyl structures to promote toxic halogenated carbonyl disinfection byproduct formation in drinking water
+  - 上下文：Interface-induced built-in electric field breaks the oxo wall for efficient water purification: Directional generation and essential mechanism of Co(IV)=O species
+- **species**（出现 2 次）
+  - 上下文：Ferryl species-independent PMSO<sub>2</sub> formation: Multiple oxygen atom transfer pathways in Fe<sup>2+</sup>-based peroxide activation
+  - 上下文：Interface-induced built-in electric field breaks the oxo wall for efficient water purification: Directional generation and essential mechanism of Co(IV)=O species
+- **能源**（出现 2 次）
+  - 上下文：服贸观澜｜共建跨领域标准体系，破解气候变化下的能源发展命题 - 北京商报
+  - 上下文：气候，无法回避的能源挑战 - 新浪财经
+
+---

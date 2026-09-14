@@ -2535,3 +2535,117 @@
   - 上下文：气候，无法回避的能源挑战 - 新浪财经
 
 ---
+## 2026-09-14
+
+**今日高频关键词**：`#气候变化` `#全球变暖` `#冰川融化` `#水资源` `#零排放`
+
+**今日 Top10 热点**
+
+### 1. Global warming is breaking a 400-year climate link between two oceans
+- **来源**：ScienceDaily 环境科学
+- **热度**：100.0
+- **链接**：https://www.sciencedaily.com/releases/2026/09/260912220029.htm
+- **摘要**：几个世纪以来，印度洋和太平洋在气候上一直相互关联，但科学家表示，这种联系如今正以一种不同寻常的方式逐渐瓦解。古代气候记录表明，过去火山活动曾扰乱了这种联系，而如今，人为导致的全球变暖似乎正在引发一场更为异常的变化。
+- **分析**：该条目涉及【全球变暖】话题，因来源权威性高，热度上升。
+
+### 2. Scientists find water was fueling volcanoes 3 billion years ago
+- **来源**：ScienceDaily 环境科学
+- **热度**：97.3
+- **链接**：https://www.sciencedaily.com/releases/2026/09/260911214305.htm
+- **摘要**：西澳大利亚的古代岩石表明，早在30多亿年前——远在现代板块构造理论可能完全形成之前——水就已经渗入地球深处。研究人员提出，富含水的地壳碎片会通过一种被称为“滴落对流”的过程周期性地沉入地幔。随后，这些被埋藏的水有助于形成岩浆并引发火山喷发。
+- **分析**：该条目涉及【环境资讯】话题，因来源权威性高，热度上升。
+
+### 3. The Himalayas are melting faster - and India's economy is 'at risk'
+- **来源**：BBC 科学与环境
+- **热度**：94.5
+- **链接**：https://www.bbc.co.uk/news/articles/crm9ezvwjpno?at_medium=RSS&at_campaign=rss
+- **摘要**：一份新报告警告称，喜马拉雅冰川正在加速融化，这威胁到印度的水资源、经济和当地社区。
+- **分析**：该条目涉及【冰川融化】话题，因来源权威性高，热度上升。
+
+### 4. Summer wildfires caused catastrophic hidden damage, scientists warn
+- **来源**：BBC 科学与环境
+- **热度**：91.8
+- **链接**：https://www.bbc.co.uk/news/articles/cn07rzrq244o?at_medium=RSS&at_campaign=rss
+- **摘要**：班戈大学的研究人员表示，受损程度远比肉眼所见要严重得多。
+- **分析**：该条目涉及【wildfires】话题，因来源权威性高，热度上升。
+
+### 5. Identifying transformation of dissolved organic matter in treatment of coal chemical wastewater for zero liquid discharge
+- **来源**：Water Research
+- **热度**：89.1
+- **链接**：https://www.sciencedirect.com/science/article/pii/S0043135426015538?dgcid=rss_sd_all
+- **摘要**：研究煤化工废水零排放处理中溶解有机物转化机理，聚焦去除关键污染物路径
+- **分析**：该条目涉及【煤化工废水】话题，因来源权威性高，热度上升。
+
+### 6. Prevalence of emerging disinfection byproducts iodinated nucleosides in coastal drinking water
+- **来源**：Water Research
+- **热度**：86.4
+- **链接**：https://www.sciencedirect.com/science/article/pii/S0043135426015575?dgcid=rss_sd_all
+- **摘要**：分析海岸饮用水中新型消毒副产物碘代核苷的分布特征与潜在健康风险评估
+- **分析**：该条目涉及【饮用水】话题，因来源权威性高，热度上升。
+
+### 7. System-scale design and analysis of desalination systems for meeting water needs of data centers
+- **来源**：Water Research
+- **热度**：83.6
+- **链接**：https://www.sciencedirect.com/science/article/pii/S0043135426014223?dgcid=rss_sd_all
+- **摘要**：针对数据中心水需求，系统级设计与分析高效脱盐系统的能耗与工程可行性方案
+- **分析**：该条目涉及【数据中心】话题，因来源权威性高，热度上升。
+
+### 8. Humic acid promotes Fe(II) dynamics and hydroxyl radical generation via interfacial regulation on nanoscale zerovalent iron for imidacloprid degradation
+- **来源**：Water Research
+- **热度**：80.9
+- **链接**：https://www.sciencedirect.com/science/article/pii/S0043135426015654?dgcid=rss_sd_all
+- **摘要**：humic acid通过界面调控作用促进零价铁Fe(II)动力学与羟基自由基生成，提升对氰氟虫酯降解效率
+- **分析**：该条目涉及【氰氟虫酯降解】话题，因来源权威性高，热度上升。
+
+### 9. Mechanistic insight into the mechanical stability of anammox granular sludge: Roles of polarity, structure and function of extracellular proteins
+- **来源**：Water Research
+- **热度**：78.2
+- **链接**：https://www.sciencedirect.com/science/article/pii/S0043135426015836?dgcid=rss_sd_all
+- **摘要**：深入解析厌氧氨氧化颗粒污泥的机械稳定性，阐明极性、结构及胞外蛋白功能的耦合作用
+- **分析**：该条目涉及【环境资讯】话题，因来源权威性高，热度上升。
+
+### 10. Five night sky events to look out for this autumn
+- **来源**：BBC 科学与环境
+- **热度**：75.5
+- **链接**：https://www.bbc.co.uk/news/articles/cvgy4w3mnpvo?at_medium=RSS&at_campaign=rss
+- **摘要**：从流星雨到11月的超级月亮，秋日的夜空中有许多令人叹为观止的奇观值得欣赏。
+- **分析**：该条目涉及【环境资讯】话题，因来源权威性高，热度上升。
+
+**今日自动提取候选新词**
+
+- **财经**（出现 4 次）
+  - 上下文：徐华清：企业需共同承担气候变化责任，推动全社会绿色低碳转型 - 21财经
+  - 上下文：省第二生态环境保护督察组召开常德市秸秆综合利用和禁限烧工作会商会 - 新浪财经
+  - 上下文：江西省生态环境系统以学促干聚力共建美丽城市 - 新浪财经
+- **生态环境**（出现 4 次）
+  - 上下文：污染环境代价有多大？湖南公布10起生态环境损害赔偿典型案例 - hunan.voc.com.cn
+  - 上下文：生态环境部部长黄润秋赴江西省调研生态环境保护工作 - 凤凰网江西
+  - 上下文：江西省生态环境系统以学促干聚力共建美丽城市 - 新浪财经
+- **water**（出现 3 次）
+  - 上下文：Scientists find water was fueling volcanoes 3 billion years ago
+  - 上下文：Prevalence of emerging disinfection byproducts iodinated nucleosides in coastal drinking water
+  - 上下文：System-scale design and analysis of desalination systems for meeting water needs of data centers
+- **生态**（出现 3 次）
+  - 上下文：省第二生态环境保护督察组召开常德市秸秆综合利用和禁限烧工作会商会 - 新浪财经
+  - 上下文：生态环境部部长黄润秋赴江西省调研生态环境保护工作 - 凤凰网江西
+  - 上下文：省第一生态环境保护督察组实地检查路面尘土飞扬问题 - 凤凰网
+- **绿色**（出现 2 次）
+  - 上下文：徐华清：企业需共同承担气候变化责任，推动全社会绿色低碳转型 - 21财经
+  - 上下文：环保科普进社区 绿色理念润民心｜贵阳市绿色家园共建科普宣传走进白金社区 - Sohu
+- **共建**（出现 2 次）
+  - 上下文：环保科普进社区 绿色理念润民心｜贵阳市绿色家园共建科普宣传走进白金社区 - Sohu
+  - 上下文：江西省生态环境系统以学促干聚力共建美丽城市 - 新浪财经
+- **部长**（出现 2 次）
+  - 上下文：部长调研，现场取样检测 - 新京报
+  - 上下文：生态环境部部长黄润秋赴江西省调研生态环境保护工作 - 凤凰网江西
+- **调研**（出现 2 次）
+  - 上下文：部长调研，现场取样检测 - 新京报
+  - 上下文：生态环境部部长黄润秋赴江西省调研生态环境保护工作 - 凤凰网江西
+- **督察组**（出现 2 次）
+  - 上下文：省第二生态环境保护督察组召开常德市秸秆综合利用和禁限烧工作会商会 - 新浪财经
+  - 上下文：省第一生态环境保护督察组实地检查路面尘土飞扬问题 - 凤凰网
+- **江西省**（出现 2 次）
+  - 上下文：生态环境部部长黄润秋赴江西省调研生态环境保护工作 - 凤凰网江西
+  - 上下文：江西省生态环境系统以学促干聚力共建美丽城市 - 新浪财经
+
+---

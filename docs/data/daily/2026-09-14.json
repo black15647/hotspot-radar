@@ -1,0 +1,328 @@
+{
+  "report_date": "2026-09-14",
+  "site_name": "环境学子雷达",
+  "total_items": 10,
+  "total_sources": 21,
+  "success_sources": 21,
+  "failed_sources": 0,
+  "week_total_items": 142,
+  "week_new_keywords": 76,
+  "policy_ratio": 2.7,
+  "items": [
+    {
+      "title": "Global warming is breaking a 400-year climate link between two oceans",
+      "title_en": "Global warming is breaking a 400-year climate link between two oceans",
+      "title_zh": "全球变暖正在打破两大洋之间长达400年的气候联系",
+      "link": "https://www.sciencedaily.com/releases/2026/09/260912220029.htm",
+      "source": "ScienceDaily 环境科学",
+      "published": "2026-09-13T12:18:05+00:00",
+      "hotness": 100.0,
+      "score_v1": 16.53,
+      "score_v2": 100.0,
+      "score_breakdown": {
+        "algorithm": "v2",
+        "source_score": 23.0,
+        "keyword_idf_score": 0.0,
+        "resonance_score": 0.0,
+        "quality_score": 10.0,
+        "base": 33.0,
+        "time_factor": 0.8589,
+        "repeat_penalty": 1.0,
+        "cross_source_count": 1,
+        "raw": 28.34,
+        "display_score": 100.0
+      },
+      "summary": "几个世纪以来，印度洋和太平洋在气候上一直相互关联，但科学家表示，这种联系如今正以一种不同寻常的方式逐渐瓦解。古代气候记录表明，过去火山活动曾扰乱了这种联系，而如今，人为导致的全球变暖似乎正在引发一场更为异常的变化。",
+      "analysis": "该条目涉及【全球变暖】话题，因来源权威性高，热度上升。",
+      "topic_tags": [
+        "全球变暖",
+        "海洋",
+        "气候链接"
+      ],
+      "category": "气候变化",
+      "matched_keywords": []
+    },
+    {
+      "title": "Scientists find water was fueling volcanoes 3 billion years ago",
+      "title_en": "Scientists find water was fueling volcanoes 3 billion years ago",
+      "title_zh": "科学家发现，30亿年前水曾为火山提供能量",
+      "link": "https://www.sciencedaily.com/releases/2026/09/260911214305.htm",
+      "source": "ScienceDaily 环境科学",
+      "published": "2026-09-13T03:14:19+00:00",
+      "hotness": 97.3,
+      "score_v1": 14.6,
+      "score_v2": 97.3,
+      "score_breakdown": {
+        "algorithm": "v2",
+        "source_score": 23.0,
+        "keyword_idf_score": 0.0,
+        "resonance_score": 0.0,
+        "quality_score": 10.0,
+        "base": 33.0,
+        "time_factor": 0.7713,
+        "repeat_penalty": 1.0,
+        "cross_source_count": 1,
+        "raw": 25.45,
+        "display_score": 97.3
+      },
+      "summary": "西澳大利亚的古代岩石表明，早在30多亿年前——远在现代板块构造理论可能完全形成之前——水就已经渗入地球深处。研究人员提出，富含水的地壳碎片会通过一种被称为“滴落对流”的过程周期性地沉入地幔。随后，这些被埋藏的水有助于形成岩浆并引发火山喷发。",
+      "analysis": "该条目涉及【环境资讯】话题，因来源权威性高，热度上升。",
+      "topic_tags": [
+        "环境资讯"
+      ],
+      "category": "水处理",
+      "matched_keywords": []
+    },
+    {
+      "title": "The Himalayas are melting faster - and India's economy is 'at risk'",
+      "title_en": "The Himalayas are melting faster - and India's economy is 'at risk'",
+      "title_zh": "喜马拉雅冰川消融速度加快——印度经济“面临风险”",
+      "link": "https://www.bbc.co.uk/news/articles/crm9ezvwjpno?at_medium=RSS&at_campaign=rss",
+      "source": "BBC 科学与环境",
+      "published": "2026-09-13T22:07:22+00:00",
+      "hotness": 94.5,
+      "score_v1": 17.23,
+      "score_v2": 94.5,
+      "score_breakdown": {
+        "algorithm": "v2",
+        "source_score": 15.0,
+        "keyword_idf_score": 0.0,
+        "resonance_score": 0.0,
+        "quality_score": 10.0,
+        "base": 25.0,
+        "time_factor": 0.9744,
+        "repeat_penalty": 1.0,
+        "cross_source_count": 1,
+        "raw": 24.36,
+        "display_score": 94.5
+      },
+      "summary": "一份新报告警告称，喜马拉雅冰川正在加速融化，这威胁到印度的水资源、经济和当地社区。",
+      "analysis": "该条目涉及【冰川融化】话题，因来源权威性高，热度上升。",
+      "topic_tags": [
+        "冰川融化"
+      ],
+      "category": "气候变化",
+      "matched_keywords": []
+    },
+    {
+      "title": "Summer wildfires caused catastrophic hidden damage, scientists warn",
+      "title_en": "Summer wildfires caused catastrophic hidden damage, scientists warn",
+      "title_zh": "科学家警告称，夏季野火造成了灾难性的隐性破坏",
+      "link": "https://www.bbc.co.uk/news/articles/cn07rzrq244o?at_medium=RSS&at_campaign=rss",
+      "source": "BBC 科学与环境",
+      "published": "2026-09-13T06:12:26+00:00",
+      "hotness": 91.8,
+      "score_v1": 12.75,
+      "score_v2": 91.8,
+      "score_breakdown": {
+        "algorithm": "v2",
+        "source_score": 15.0,
+        "keyword_idf_score": 0.0,
+        "resonance_score": 0.0,
+        "quality_score": 10.0,
+        "base": 25.0,
+        "time_factor": 0.7982,
+        "repeat_penalty": 1.0,
+        "cross_source_count": 1,
+        "raw": 19.95,
+        "display_score": 91.8
+      },
+      "summary": "班戈大学的研究人员表示，受损程度远比肉眼所见要严重得多。",
+      "analysis": "该条目涉及【wildfires】话题，因来源权威性高，热度上升。",
+      "topic_tags": [
+        "wildfires",
+        "hidden damage"
+      ],
+      "category": "生态环境",
+      "matched_keywords": []
+    },
+    {
+      "title": "Identifying transformation of dissolved organic matter in treatment of coal chemical wastewater for zero liquid discharge",
+      "title_en": "Identifying transformation of dissolved organic matter in treatment of coal chemical wastewater for zero liquid discharge",
+      "title_zh": "在煤化工废水零液排放处理中识别溶解性有机物的转化过程",
+      "link": "https://www.sciencedirect.com/science/article/pii/S0043135426015538?dgcid=rss_sd_all",
+      "source": "Water Research",
+      "published": "2026-09-13T00:02:41.171784+00:00",
+      "hotness": 89.1,
+      "score_v1": 14.68,
+      "score_v2": 89.1,
+      "score_breakdown": {
+        "algorithm": "v2",
+        "source_score": 25.0,
+        "keyword_idf_score": 0.0,
+        "resonance_score": 0.0,
+        "quality_score": 0.0,
+        "base": 25.0,
+        "time_factor": 0.7442,
+        "repeat_penalty": 1.0,
+        "cross_source_count": 1,
+        "raw": 18.6,
+        "display_score": 89.1
+      },
+      "summary": "研究煤化工废水零排放处理中溶解有机物转化机理，聚焦去除关键污染物路径",
+      "analysis": "该条目涉及【煤化工废水】话题，因来源权威性高，热度上升。",
+      "topic_tags": [
+        "煤化工废水",
+        "零排放"
+      ],
+      "category": "污染治理",
+      "matched_keywords": []
+    },
+    {
+      "title": "Prevalence of emerging disinfection byproducts iodinated nucleosides in coastal drinking water",
+      "title_en": "Prevalence of emerging disinfection byproducts iodinated nucleosides in coastal drinking water",
+      "title_zh": "沿海饮用水中新兴消毒副产物——碘化核苷的检出率",
+      "link": "https://www.sciencedirect.com/science/article/pii/S0043135426015575?dgcid=rss_sd_all",
+      "source": "Water Research",
+      "published": "2026-09-13T00:02:41.171784+00:00",
+      "hotness": 86.4,
+      "score_v1": 14.68,
+      "score_v2": 86.4,
+      "score_breakdown": {
+        "algorithm": "v2",
+        "source_score": 25.0,
+        "keyword_idf_score": 0.0,
+        "resonance_score": 0.0,
+        "quality_score": 0.0,
+        "base": 25.0,
+        "time_factor": 0.7442,
+        "repeat_penalty": 1.0,
+        "cross_source_count": 1,
+        "raw": 18.6,
+        "display_score": 86.4
+      },
+      "summary": "分析海岸饮用水中新型消毒副产物碘代核苷的分布特征与潜在健康风险评估",
+      "analysis": "该条目涉及【饮用水】话题，因来源权威性高，热度上升。",
+      "topic_tags": [
+        "饮用水"
+      ],
+      "category": "水处理",
+      "matched_keywords": []
+    },
+    {
+      "title": "System-scale design and analysis of desalination systems for meeting water needs of data centers",
+      "title_en": "System-scale design and analysis of desalination systems for meeting water needs of data centers",
+      "title_zh": "满足数据中心用水需求的海水淡化系统的系统级设计与分析",
+      "link": "https://www.sciencedirect.com/science/article/pii/S0043135426014223?dgcid=rss_sd_all",
+      "source": "Water Research",
+      "published": "2026-09-13T00:02:41.171784+00:00",
+      "hotness": 83.6,
+      "score_v1": 14.68,
+      "score_v2": 83.6,
+      "score_breakdown": {
+        "algorithm": "v2",
+        "source_score": 25.0,
+        "keyword_idf_score": 0.0,
+        "resonance_score": 0.0,
+        "quality_score": 0.0,
+        "base": 25.0,
+        "time_factor": 0.7442,
+        "repeat_penalty": 1.0,
+        "cross_source_count": 1,
+        "raw": 18.6,
+        "display_score": 83.6
+      },
+      "summary": "针对数据中心水需求，系统级设计与分析高效脱盐系统的能耗与工程可行性方案",
+      "analysis": "该条目涉及【数据中心】话题，因来源权威性高，热度上升。",
+      "topic_tags": [
+        "数据中心",
+        "水需求"
+      ],
+      "category": "科研学术",
+      "matched_keywords": []
+    },
+    {
+      "title": "Humic acid promotes Fe(II) dynamics and hydroxyl radical generation via interfacial regulation on nanoscale zerovalent iron for imidacloprid degradation",
+      "title_en": "Humic acid promotes Fe(II) dynamics and hydroxyl radical generation via interfacial regulation on nanoscale zerovalent iron for imidacloprid degradation",
+      "title_zh": "腐植酸通过调节纳米级零价铁的界面行为，促进Fe(II)的动力学过程和羟基自由基的生成，从而促进吡虫啉的降解",
+      "link": "https://www.sciencedirect.com/science/article/pii/S0043135426015654?dgcid=rss_sd_all",
+      "source": "Water Research",
+      "published": "2026-09-13T00:02:41.171784+00:00",
+      "hotness": 80.9,
+      "score_v1": 14.68,
+      "score_v2": 80.9,
+      "score_breakdown": {
+        "algorithm": "v2",
+        "source_score": 25.0,
+        "keyword_idf_score": 0.0,
+        "resonance_score": 0.0,
+        "quality_score": 0.0,
+        "base": 25.0,
+        "time_factor": 0.7442,
+        "repeat_penalty": 1.0,
+        "cross_source_count": 1,
+        "raw": 18.6,
+        "display_score": 80.9
+      },
+      "summary": "humic acid通过界面调控作用促进零价铁Fe(II)动力学与羟基自由基生成，提升对氰氟虫酯降解效率",
+      "analysis": "该条目涉及【氰氟虫酯降解】话题，因来源权威性高，热度上升。",
+      "topic_tags": [
+        "氰氟虫酯降解"
+      ],
+      "category": "科研学术",
+      "matched_keywords": []
+    },
+    {
+      "title": "Mechanistic insight into the mechanical stability of anammox granular sludge: Roles of polarity, structure and function of extracellular proteins",
+      "title_en": "Mechanistic insight into the mechanical stability of anammox granular sludge: Roles of polarity, structure and function of extracellular proteins",
+      "title_zh": "对厌氧氨氧化颗粒污泥机械稳定性的机理研究：胞外蛋白的极性、结构与功能的作用",
+      "link": "https://www.sciencedirect.com/science/article/pii/S0043135426015836?dgcid=rss_sd_all",
+      "source": "Water Research",
+      "published": "2026-09-13T00:02:41.171784+00:00",
+      "hotness": 78.2,
+      "score_v1": 14.68,
+      "score_v2": 78.2,
+      "score_breakdown": {
+        "algorithm": "v2",
+        "source_score": 25.0,
+        "keyword_idf_score": 0.0,
+        "resonance_score": 0.0,
+        "quality_score": 0.0,
+        "base": 25.0,
+        "time_factor": 0.7442,
+        "repeat_penalty": 1.0,
+        "cross_source_count": 1,
+        "raw": 18.6,
+        "display_score": 78.2
+      },
+      "summary": "深入解析厌氧氨氧化颗粒污泥的机械稳定性，阐明极性、结构及胞外蛋白功能的耦合作用",
+      "analysis": "该条目涉及【环境资讯】话题，因来源权威性高，热度上升。",
+      "topic_tags": [
+        "环境资讯"
+      ],
+      "category": "水处理",
+      "matched_keywords": []
+    },
+    {
+      "title": "Five night sky events to look out for this autumn",
+      "title_en": "Five night sky events to look out for this autumn",
+      "title_zh": "今年秋季值得关注的五大夜空奇观",
+      "link": "https://www.bbc.co.uk/news/articles/cvgy4w3mnpvo?at_medium=RSS&at_campaign=rss",
+      "source": "BBC 科学与环境",
+      "published": "2026-09-12T23:53:07+00:00",
+      "hotness": 75.5,
+      "score_v1": 11.65,
+      "score_v2": 75.5,
+      "score_breakdown": {
+        "algorithm": "v2",
+        "source_score": 15.0,
+        "keyword_idf_score": 0.0,
+        "resonance_score": 0.0,
+        "quality_score": 10.0,
+        "base": 25.0,
+        "time_factor": 0.7429,
+        "repeat_penalty": 1.0,
+        "cross_source_count": 1,
+        "raw": 18.57,
+        "display_score": 75.5
+      },
+      "summary": "从流星雨到11月的超级月亮，秋日的夜空中有许多令人叹为观止的奇观值得欣赏。",
+      "analysis": "该条目涉及【环境资讯】话题，因来源权威性高，热度上升。",
+      "topic_tags": [
+        "环境资讯"
+      ],
+      "category": "能源与碳中和",
+      "matched_keywords": []
+    }
+  ]
+}

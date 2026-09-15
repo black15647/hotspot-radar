@@ -1,72 +1,122 @@
 {
-  "report_date": "2026-09-14",
-  "date": "2026-09-14",
+  "report_date": "2026-09-15",
+  "date": "2026-09-15",
   "site_name": "环境学子雷达",
-  "total_items": 23,
+  "total_items": 45,
   "total_sources": 21,
   "success_sources": 21,
   "failed_sources": 0,
-  "week_total_items": 142,
-  "week_new_keywords": 76,
-  "policy_ratio": 2.7,
+  "week_total_items": 187,
+  "week_new_keywords": 92,
+  "policy_ratio": 1.0,
   "items": [
     {
-      "title": "Global warming is breaking a 400-year climate link between two oceans",
-      "title_en": "Global warming is breaking a 400-year climate link between two oceans",
-      "title_zh": "全球变暖正在打破两大洋之间长达400年的气候联系",
-      "summary_en": "The Indian and Pacific oceans have been climatically linked for centuries, but scientists say that connection is now breaking down in an exceptional way. Ancient climate records suggest volcanoes disrupted the relationship in the past, while today human-caused warming appears to be driving a much more unusual shift.",
-      "summary_zh": "几个世纪以来，印度洋和太平洋在气候上一直相互关联，但科学家表示，这种联系如今正以一种不同寻常的方式逐渐瓦解。古代气候记录表明，过去火山活动曾扰乱了这种联系，而如今，人为导致的全球变暖似乎正在引发一场更为异常的变化。",
-      "link": "https://www.sciencedaily.com/releases/2026/09/260912220029.htm",
-      "source": "ScienceDaily 环境科学",
-      "published": "2026-09-13T12:18:05+00:00",
+      "title": "Scientists find nine new sponge species in glimpse of Alaska’s deep-sea diversity",
+      "title_en": "Scientists find nine new sponge species in glimpse of Alaska’s deep-sea diversity",
+      "title_zh": "科学家发现九种新海绵物种，一窥阿拉斯加深海生物多样性",
+      "summary_en": "But their habitat is threatened by bottom trawling in the region and Trump’s plan to expand seafloor miningScientists have discovered nine new deep-sea sponge species off Alaska, offering new insights into the region’s largely unexplored marine biodiversity.The National Oceanic and Atmospheric Administration (Noaa) announced the discovery on Thursday, saying the species were found in the Gulf of Alaska and the Aleutian Islands. The findings bring the total number of known sponge species in Alaska to 232. Continue reading...",
+      "summary_zh": "但该地区的底拖网捕捞以及特朗普扩大海底采矿的计划，正威胁着这些生物的栖息地。科学家们在阿拉斯加近海发现了九种新的深海海绵物种，这为该地区尚未被充分探索的海洋生物多样性提供了新的见解。美国国家海洋和大气管理局（NOAA）周四宣布了这一发现，称这些物种发现于阿拉斯加湾和阿留申群岛。这一发现使阿拉斯加已知海绵物种总数达到232种。继续阅读……",
+      "link": "https://www.theguardian.com/us-news/2026/sep/14/deep-sea-sponges-discovery-mining-fishing",
+      "source": "The Guardian Environment",
+      "published": "2026-09-14T11:30:56+00:00",
       "hotness": 100.0,
       "score": 100.0,
-      "score_v1": 16.53,
+      "score_v1": 17.93,
       "score_v2": 100.0,
       "score_breakdown": {
         "algorithm": "v2",
-        "source_score": 23.0,
-        "keyword_idf_score": 0.0,
+        "source_score": 15.0,
+        "keyword_idf_score": 16.04,
         "resonance_score": 0.0,
         "quality_score": 10.0,
-        "base": 33.0,
-        "time_factor": 0.8589,
+        "base": 41.04,
+        "time_factor": 0.8505,
         "repeat_penalty": 1.0,
         "cross_source_count": 1,
-        "raw": 28.34,
+        "raw": 34.91,
         "display_score": 100.0
       },
       "score_v1_breakdown": {
         "base": 5.0,
-        "source_score": 5.4,
-        "keyword_score": 0.0,
-        "time_score": 6.13,
-        "topic_bonus": 0.0,
-        "total": 16.53
+        "source_score": 3.0,
+        "keyword_score": 2.0,
+        "time_score": 5.93,
+        "topic_bonus": 2.0,
+        "total": 17.93
       },
-      "summary": "几个世纪以来，印度洋和太平洋在气候上一直相互关联，但科学家表示，这种联系如今正以一种不同寻常的方式逐渐瓦解。古代气候记录表明，过去火山活动曾扰乱了这种联系，而如今，人为导致的全球变暖似乎正在引发一场更为异常的变化。",
-      "analysis": "该条目涉及【全球变暖】话题，因来源权威性高，热度上升。",
+      "summary": "但该地区的底拖网捕捞以及特朗普扩大海底采矿的计划，正威胁着这些生物的栖息地。科学家们在阿拉斯加近海发现了九种新的深海海绵物种，这为该地区尚未被充分探索的海洋生物多样性提供了新的见解。美国国家海洋和大气管理局（）周四宣布了这一发现，称这些物种发现于阿拉斯加湾和阿留申群岛。这一发现使阿拉斯加已知海绵物种总数达到232种。继续阅读……",
+      "analysis": "该条目涉及【生物多样性】话题，因来源权威性高，热度上升。",
       "topic_tags": [
-        "全球变暖",
-        "海洋",
-        "气候链接"
+        "生物多样性"
       ],
-      "category": "气候变化",
-      "matched_keywords": [],
-      "keywords": []
+      "category": "生态环境",
+      "matched_keywords": [
+        "生物多样性"
+      ],
+      "keywords": [
+        "生物多样性"
+      ]
     },
     {
-      "title": "Scientists find water was fueling volcanoes 3 billion years ago",
-      "title_en": "Scientists find water was fueling volcanoes 3 billion years ago",
-      "title_zh": "科学家发现，30亿年前水曾为火山提供能量",
-      "summary_en": "Ancient rocks from Western Australia suggest water was reaching deep inside Earth more than three billion years ago, long before modern plate tectonics may have fully developed. Researchers propose that water-rich pieces of crust periodically sank into the mantle through a process they call “dripduction.” The buried water then helped produce magma and volcanic eruptions.",
-      "summary_zh": "西澳大利亚的古代岩石表明，早在30多亿年前——远在现代板块构造理论可能完全形成之前——水就已经渗入地球深处。研究人员提出，富含水的地壳碎片会通过一种被称为“滴落对流”的过程周期性地沉入地幔。随后，这些被埋藏的水有助于形成岩浆并引发火山喷发。",
-      "link": "https://www.sciencedaily.com/releases/2026/09/260911214305.htm",
+      "title": "生态修复竟致林地损坏 省第四生态环境保护督察组赴北湖区开展信访核查 - voc.com.cn",
+      "title_en": "",
+      "title_zh": "",
+      "summary_en": "",
+      "summary_zh": "",
+      "link": "https://news.google.com/rss/articles/CBMiX0FVX3lxTE55bW0xSFVhR3p2M0NobENoOEdjZTNpalhIOG5uTFlhM3ZLUk8tZWh1OVJQU2xuZWEtbW9nWGthaFVadVNJX21COUdGeWwxeldPb3NOano0a182cndXQlow?oc=5",
+      "source": "Google News 环境保护",
+      "published": "2026-09-14T13:31:51+00:00",
+      "hotness": 98.6,
+      "score": 98.6,
+      "score_v1": 19.95,
+      "score_v2": 98.6,
+      "score_breakdown": {
+        "algorithm": "v2",
+        "source_score": 20.0,
+        "keyword_idf_score": 18.79,
+        "resonance_score": 0.0,
+        "quality_score": 0.0,
+        "base": 38.79,
+        "time_factor": 0.872,
+        "repeat_penalty": 1.0,
+        "cross_source_count": 1,
+        "raw": 33.82,
+        "display_score": 98.6
+      },
+      "score_v1_breakdown": {
+        "base": 5.0,
+        "source_score": 4.5,
+        "keyword_score": 2.0,
+        "time_score": 6.45,
+        "topic_bonus": 2.0,
+        "total": 19.95
+      },
+      "summary": "督察组赴北湖区核查生态修复引发林地损坏问题，重点核查信访投诉情况。",
+      "analysis": "该条目涉及【生态修复】话题，因来源权威性高，热度上升。",
+      "topic_tags": [
+        "生态修复",
+        "督察组"
+      ],
+      "category": "生态环境",
+      "matched_keywords": [
+        "生态修复"
+      ],
+      "keywords": [
+        "生态修复"
+      ]
+    },
+    {
+      "title": "This German submarine sank in 1917. It’s still leaking TNT",
+      "title_en": "This German submarine sank in 1917. It’s still leaking TNT",
+      "title_zh": "这艘德国潜艇于1917年沉没。至今仍有TNT在泄漏。",
+      "summary_en": "A World War I submarine wreck off Denmark is leaking TNT into the surrounding water, seabed, and marine life more than a century after it sank. Scientists warn that thousands of similar wrecks could pose growing environmental risks as they continue to corrode.",
+      "summary_zh": "一艘沉没于丹麦近海的一战潜艇残骸，在沉没一个多世纪后，仍在向周围水域、海底及海洋生物中泄漏TNT。科学家警告称，随着这些残骸持续腐蚀，数千艘类似的沉船可能带来日益加剧的环境风险。",
+      "link": "https://www.sciencedaily.com/releases/2026/09/260913081919.htm",
       "source": "ScienceDaily 环境科学",
-      "published": "2026-09-13T03:14:19+00:00",
+      "published": "2026-09-14T13:30:51+00:00",
       "hotness": 97.3,
       "score": 97.3,
-      "score_v1": 14.6,
+      "score_v1": 16.84,
       "score_v2": 97.3,
       "score_breakdown": {
         "algorithm": "v2",
@@ -75,21 +125,454 @@
         "resonance_score": 0.0,
         "quality_score": 10.0,
         "base": 33.0,
-        "time_factor": 0.7713,
+        "time_factor": 0.8718,
         "repeat_penalty": 1.0,
         "cross_source_count": 1,
-        "raw": 25.45,
+        "raw": 28.77,
         "display_score": 97.3
       },
       "score_v1_breakdown": {
         "base": 5.0,
         "source_score": 5.4,
         "keyword_score": 0.0,
-        "time_score": 4.2,
+        "time_score": 6.44,
         "topic_bonus": 0.0,
-        "total": 14.6
+        "total": 16.84
       },
-      "summary": "西澳大利亚的古代岩石表明，早在30多亿年前——远在现代板块构造理论可能完全形成之前——水就已经渗入地球深处。研究人员提出，富含水的地壳碎片会通过一种被称为“滴落对流”的过程周期性地沉入地幔。随后，这些被埋藏的水有助于形成岩浆并引发火山喷发。",
+      "summary": "一艘沉没于丹麦近海的一战潜艇残骸，在沉没一个多世纪后，仍在向周围水域、海底及海洋生物中泄漏TNT。科学家警告称，随着这些残骸持续腐蚀，数千艘类似的沉船可能带来日益加剧的环境风险。",
+      "analysis": "该条目涉及【海洋污染】话题，因来源权威性高，热度上升。",
+      "topic_tags": [
+        "海洋污染"
+      ],
+      "category": "污染治理",
+      "matched_keywords": [],
+      "keywords": []
+    },
+    {
+      "title": "Minimizing climate change adaptation trade-offs in African rangelands",
+      "title_en": "Minimizing climate change adaptation trade-offs in African rangelands",
+      "title_zh": "最大限度地减少非洲牧场在应对气候变化方面的权衡取舍",
+      "summary_en": "Nature Sustainability, Published online: 14 September 2026; doi:10.1038/s41893-026-01938-0Changing rainfall patterns and intensity make adaptation a necessity for African pastoralists. Paired weather forecasting and risk smoothing help manage the trade-offs inherent to these adaptations.",
+      "summary_zh": "《自然·可持续性》，在线发表于：2026年9月14日；doi:10.1038/s41893-026-01938-0 降雨模式和强度的变化使得非洲游牧民必须采取适应措施。 将天气预报与风险平滑相结合，有助于管理这些适应措施中固有的权衡取舍。",
+      "link": "https://www.nature.com/articles/s41893-026-01938-0",
+      "source": "Nature Sustainability",
+      "published": "2026-09-14T00:00:00+00:00",
+      "hotness": 95.9,
+      "score": 95.9,
+      "score_v1": 14.67,
+      "score_v2": 95.9,
+      "score_breakdown": {
+        "algorithm": "v2",
+        "source_score": 25.0,
+        "keyword_idf_score": 0.0,
+        "resonance_score": 0.0,
+        "quality_score": 10.0,
+        "base": 35.0,
+        "time_factor": 0.7438,
+        "repeat_penalty": 1.0,
+        "cross_source_count": 1,
+        "raw": 26.03,
+        "display_score": 95.9
+      },
+      "score_v1_breakdown": {
+        "base": 5.0,
+        "source_score": 6.0,
+        "keyword_score": 0.0,
+        "time_score": 3.67,
+        "topic_bonus": 0.0,
+        "total": 14.67
+      },
+      "summary": "《自然·可持续性》， 降雨模式和强度的变化使得非洲游牧民必须采取适应措施。 将天气预报与风险平滑相结合，有助于管理这些适应措施中固有的权衡取舍。",
+      "analysis": "该条目涉及【非洲草原】话题，因来源权威性高，热度上升。",
+      "topic_tags": [
+        "非洲草原",
+        "气候变化适应",
+        "风险平滑"
+      ],
+      "category": "生态环境",
+      "matched_keywords": [],
+      "keywords": []
+    },
+    {
+      "title": "Donor-funded science is rising in Brazil ― upending a long tradition",
+      "title_en": "Donor-funded science is rising in Brazil ― upending a long tradition",
+      "title_zh": "巴西的捐赠资助型科学研究正日益兴起——这颠覆了一项长久以来的传统",
+      "summary_en": "Nature, Published online: 14 September 2026; doi:10.1038/d41586-026-02829-2Philanthropists are stepping up support for research in a country where scientists have relied on the government alone for funding.",
+      "summary_zh": "《自然》杂志，在线发表于：2026年9月14日；doi:10.1038/d41586-026-02829-2 在这个科学家们一直仅依赖政府资助的国家，慈善家们正在加大对科研的支持力度。",
+      "link": "https://www.nature.com/articles/d41586-026-02829-2",
+      "source": "Nature",
+      "published": "2026-09-14T00:00:00+00:00",
+      "hotness": 94.5,
+      "score": 94.5,
+      "score_v1": 14.67,
+      "score_v2": 94.5,
+      "score_breakdown": {
+        "algorithm": "v2",
+        "source_score": 25.0,
+        "keyword_idf_score": 0.0,
+        "resonance_score": 0.0,
+        "quality_score": 10.0,
+        "base": 35.0,
+        "time_factor": 0.7438,
+        "repeat_penalty": 1.0,
+        "cross_source_count": 1,
+        "raw": 26.03,
+        "display_score": 94.5
+      },
+      "score_v1_breakdown": {
+        "base": 5.0,
+        "source_score": 6.0,
+        "keyword_score": 0.0,
+        "time_score": 3.67,
+        "topic_bonus": 0.0,
+        "total": 14.67
+      },
+      "summary": "《自然》杂志， 在这个科学家们一直仅依赖政府资助的国家，慈善家们正在加大对科研的支持力度。",
+      "analysis": "该条目涉及【科研资助】话题，因来源权威性高，热度上升。",
+      "topic_tags": [
+        "科研资助"
+      ],
+      "category": "科研学术",
+      "matched_keywords": [],
+      "keywords": []
+    },
+    {
+      "title": "The pet trade puts reptiles and amphibians at risk: close legal gaps now",
+      "title_en": "The pet trade puts reptiles and amphibians at risk: close legal gaps now",
+      "title_zh": "宠物贸易使爬行动物和两栖动物面临风险：现在就应弥补法律漏洞",
+      "summary_en": "Nature, Published online: 14 September 2026; doi:10.1038/d41586-026-02852-3Patchy legislation means that animals are routinely taken from their natural habitats and sold in other countries. Fresh national and international measures could help to stop this exploitation.",
+      "summary_zh": "《自然》杂志，在线发表于2026年9月14日；doi:10.1038/d41586-026-02852-3 立法不完善导致动物经常被从自然栖息地捕获并销往其他国家。新的国内和国际措施或有助于制止这种剥削行为。",
+      "link": "https://www.nature.com/articles/d41586-026-02852-3",
+      "source": "Nature",
+      "published": "2026-09-14T00:00:00+00:00",
+      "hotness": 93.2,
+      "score": 93.2,
+      "score_v1": 14.67,
+      "score_v2": 93.2,
+      "score_breakdown": {
+        "algorithm": "v2",
+        "source_score": 25.0,
+        "keyword_idf_score": 0.0,
+        "resonance_score": 0.0,
+        "quality_score": 10.0,
+        "base": 35.0,
+        "time_factor": 0.7438,
+        "repeat_penalty": 1.0,
+        "cross_source_count": 1,
+        "raw": 26.03,
+        "display_score": 93.2
+      },
+      "score_v1_breakdown": {
+        "base": 5.0,
+        "source_score": 6.0,
+        "keyword_score": 0.0,
+        "time_score": 3.67,
+        "topic_bonus": 0.0,
+        "total": 14.67
+      },
+      "summary": "《自然》杂志， 立法不完善导致动物经常被从自然栖息地捕获并销往其他国家。新的国内和国际措施或有助于制止这种剥削行为。",
+      "analysis": "该条目涉及【自然栖息地】话题，因来源权威性高，热度上升。",
+      "topic_tags": [
+        "自然栖息地"
+      ],
+      "category": "生态环境",
+      "matched_keywords": [],
+      "keywords": []
+    },
+    {
+      "title": "How is climate change affecting conifers and their ability to sequester carbon?",
+      "title_en": "How is climate change affecting conifers and their ability to sequester carbon?",
+      "title_zh": "气候变化如何影响针叶树及其固碳能力？",
+      "summary_en": "Nature, Published online: 14 September 2026; doi:10.1038/d41586-026-02847-0Fresh evidence reveals that the interplay of several factors could affect the ability of these trees to grow.",
+      "summary_zh": "《自然》杂志，在线发表日期：2026年9月14日；doi:10.1038/d41586-026-02847-0 最新证据表明，多种因素的相互作用可能会影响这些树木的生长能力。",
+      "link": "https://www.nature.com/articles/d41586-026-02847-0",
+      "source": "Nature",
+      "published": "2026-09-14T00:00:00+00:00",
+      "hotness": 91.8,
+      "score": 91.8,
+      "score_v1": 14.67,
+      "score_v2": 91.8,
+      "score_breakdown": {
+        "algorithm": "v2",
+        "source_score": 25.0,
+        "keyword_idf_score": 0.0,
+        "resonance_score": 0.0,
+        "quality_score": 10.0,
+        "base": 35.0,
+        "time_factor": 0.7438,
+        "repeat_penalty": 1.0,
+        "cross_source_count": 1,
+        "raw": 26.03,
+        "display_score": 91.8
+      },
+      "score_v1_breakdown": {
+        "base": 5.0,
+        "source_score": 6.0,
+        "keyword_score": 0.0,
+        "time_score": 3.67,
+        "topic_bonus": 0.0,
+        "total": 14.67
+      },
+      "summary": "《自然》杂志， 最新证据表明，多种因素的相互作用可能会影响这些树木的生长能力。",
+      "analysis": "该条目涉及【carbon sequestration】话题，因来源权威性高，热度上升。",
+      "topic_tags": [
+        "carbon sequestration",
+        "climate change"
+      ],
+      "category": "气候变化",
+      "matched_keywords": [],
+      "keywords": []
+    },
+    {
+      "title": "The roots of astrology, the mysterious nature of time and more: Books in brief",
+      "title_en": "The roots of astrology, the mysterious nature of time and more: Books in brief",
+      "title_zh": "占星术的起源、时间的神秘本质等：图书简评",
+      "summary_en": "Nature, Published online: 14 September 2026; doi:10.1038/d41586-026-02908-4Andrew Robinson reviews five of the best science picks.",
+      "summary_zh": "《自然》杂志，在线发表于：2026年9月14日；doi:10.1038/d41586-026-02908-4 安德鲁·罗宾逊点评了五篇最值得关注的科学论文。",
+      "link": "https://www.nature.com/articles/d41586-026-02908-4",
+      "source": "Nature",
+      "published": "2026-09-14T00:00:00+00:00",
+      "hotness": 90.5,
+      "score": 90.5,
+      "score_v1": 14.67,
+      "score_v2": 90.5,
+      "score_breakdown": {
+        "algorithm": "v2",
+        "source_score": 25.0,
+        "keyword_idf_score": 0.0,
+        "resonance_score": 0.0,
+        "quality_score": 10.0,
+        "base": 35.0,
+        "time_factor": 0.7438,
+        "repeat_penalty": 1.0,
+        "cross_source_count": 1,
+        "raw": 26.03,
+        "display_score": 90.5
+      },
+      "score_v1_breakdown": {
+        "base": 5.0,
+        "source_score": 6.0,
+        "keyword_score": 0.0,
+        "time_score": 3.67,
+        "topic_bonus": 0.0,
+        "total": 14.67
+      },
+      "summary": "《自然》杂志， 安德鲁·罗宾逊点评了五篇最值得关注的科学论文。",
+      "analysis": "该条目涉及【环境资讯】话题，因来源权威性高，热度上升。",
+      "topic_tags": [
+        "环境资讯"
+      ],
+      "category": "其他",
+      "matched_keywords": [],
+      "keywords": []
+    },
+    {
+      "title": "Encoded and non-genetic protein variants expand human functional proteome",
+      "title_en": "Encoded and non-genetic protein variants expand human functional proteome",
+      "title_zh": "编码和非编码蛋白质变体拓展了人类功能性蛋白质组",
+      "summary_en": "Nature, Published online: 14 September 2026; doi:10.1038/s41586-026-11124-zEncoded and non-genetic protein variants expand human functional proteome",
+      "summary_zh": "《自然》杂志，在线发表日期：2026年9月14日；doi:10.1038/s41586-026-11124-z 编码和非遗传性蛋白质变体扩展了人类功能性蛋白质组",
+      "link": "https://www.nature.com/articles/s41586-026-11124-z",
+      "source": "Nature",
+      "published": "2026-09-14T00:00:00+00:00",
+      "hotness": 89.1,
+      "score": 89.1,
+      "score_v1": 14.67,
+      "score_v2": 89.1,
+      "score_breakdown": {
+        "algorithm": "v2",
+        "source_score": 25.0,
+        "keyword_idf_score": 0.0,
+        "resonance_score": 0.0,
+        "quality_score": 10.0,
+        "base": 35.0,
+        "time_factor": 0.7438,
+        "repeat_penalty": 1.0,
+        "cross_source_count": 1,
+        "raw": 26.03,
+        "display_score": 89.1
+      },
+      "score_v1_breakdown": {
+        "base": 5.0,
+        "source_score": 6.0,
+        "keyword_score": 0.0,
+        "time_score": 3.67,
+        "topic_bonus": 0.0,
+        "total": 14.67
+      },
+      "summary": "《自然》杂志， 编码和非遗传性蛋白质变体扩展了人类功能性蛋白质组",
+      "analysis": "该条目涉及【环境资讯】话题，因来源权威性高，热度上升。",
+      "topic_tags": [
+        "环境资讯"
+      ],
+      "category": "其他",
+      "matched_keywords": [],
+      "keywords": []
+    },
+    {
+      "title": "One Mount Etna eruption took weeks. Another happened in hours",
+      "title_en": "One Mount Etna eruption took weeks. Another happened in hours",
+      "title_zh": "埃特纳火山的一次喷发持续了数周，另一次则仅在数小时内就发生了",
+      "summary_en": "Mount Etna’s ancient eruptions followed radically different paths, with some magma lingering near the surface for weeks while other magma raced upward from nearly 30 kilometers deep in just hours. Scientists traced the difference to volcanic gases such as carbon dioxide and water, offering a powerful new way to understand and potentially anticipate explosive eruptions.",
+      "summary_zh": "埃特纳火山在远古时期的喷发方式截然不同：有些岩浆会在地表附近滞留数周，而另一些岩浆则能在短短数小时内从近30公里深处急速喷发至地表。科学家将这种差异归因于二氧化碳和水等火山气体，这为理解甚至可能预测爆炸性喷发提供了一种强有力的新途径。",
+      "link": "https://www.sciencedaily.com/releases/2026/09/260912220100.htm",
+      "source": "ScienceDaily 环境科学",
+      "published": "2026-09-14T03:18:35+00:00",
+      "hotness": 87.7,
+      "score": 87.7,
+      "score_v1": 14.61,
+      "score_v2": 87.7,
+      "score_breakdown": {
+        "algorithm": "v2",
+        "source_score": 23.0,
+        "keyword_idf_score": 0.0,
+        "resonance_score": 0.0,
+        "quality_score": 10.0,
+        "base": 33.0,
+        "time_factor": 0.7719,
+        "repeat_penalty": 1.0,
+        "cross_source_count": 1,
+        "raw": 25.47,
+        "display_score": 87.7
+      },
+      "score_v1_breakdown": {
+        "base": 5.0,
+        "source_score": 5.4,
+        "keyword_score": 0.0,
+        "time_score": 4.21,
+        "topic_bonus": 0.0,
+        "total": 14.61
+      },
+      "summary": "埃特纳火山在远古时期的喷发方式截然不同：有些岩浆会在地表附近滞留数周，而另一些岩浆则能在短短数小时内从近30公里深处急速喷发至地表。科学家将这种差异归因于二氧化碳和水等火山气体，这为理解甚至可能预测爆炸性喷发提供了一种强有力的新途径。",
+      "analysis": "该条目涉及【环境资讯】话题，因来源权威性高，热度上升。",
+      "topic_tags": [
+        "环境资讯"
+      ],
+      "category": "其他",
+      "matched_keywords": [],
+      "keywords": []
+    },
+    {
+      "title": "Back-to-back Arctic storms can double sea ice loss",
+      "title_en": "Back-to-back Arctic storms can double sea ice loss",
+      "title_zh": "接连不断的北极风暴可能使海冰损失量翻倍",
+      "summary_en": "Scientists have found that Arctic cyclones become especially destructive when several strike one after another. These storm clusters cause about twice as much sea ice loss as isolated cyclones, with impacts that persist roughly two and a half times longer. As Arctic ice becomes thinner and weaker, the damage from these storms appears to be increasing, potentially creating a feedback loop that accelerates future ice loss.",
+      "summary_zh": "科学家发现，当多个北极气旋接连袭来时，其破坏力会尤为剧烈。这些风暴群导致的海冰损失量约为孤立气旋的两倍，且其影响持续的时间约为孤立气旋的2.5倍。 随着北极海冰变得越来越薄、越来越脆弱，这些风暴造成的破坏似乎正在加剧，这可能会形成一个反馈循环，从而加速未来的冰层消融。",
+      "link": "https://www.sciencedaily.com/releases/2026/09/260912220045.htm",
+      "source": "ScienceDaily 环境科学",
+      "published": "2026-09-14T02:38:47+00:00",
+      "hotness": 86.4,
+      "score": 86.4,
+      "score_v1": 14.5,
+      "score_v2": 86.4,
+      "score_breakdown": {
+        "algorithm": "v2",
+        "source_score": 23.0,
+        "keyword_idf_score": 0.0,
+        "resonance_score": 0.0,
+        "quality_score": 10.0,
+        "base": 33.0,
+        "time_factor": 0.7661,
+        "repeat_penalty": 1.0,
+        "cross_source_count": 1,
+        "raw": 25.28,
+        "display_score": 86.4
+      },
+      "score_v1_breakdown": {
+        "base": 5.0,
+        "source_score": 5.4,
+        "keyword_score": 0.0,
+        "time_score": 4.1,
+        "topic_bonus": 0.0,
+        "total": 14.5
+      },
+      "summary": "科学家发现，当多个北极气旋接连袭来时，其破坏力会尤为剧烈。这些风暴群导致的海冰损失量约为孤立气旋的两倍，且其影响持续的时间约为孤立气旋的2.5倍。 随着北极海冰变得越来越薄、越来越脆弱，这些风暴造成的破坏似乎正在加剧，这可能会形成一个反馈循环，从而加速未来的冰层消融。",
+      "analysis": "该条目涉及【环境资讯】话题，因来源权威性高，热度上升。",
+      "topic_tags": [
+        "环境资讯"
+      ],
+      "category": "气候变化",
+      "matched_keywords": [],
+      "keywords": []
+    },
+    {
+      "title": "Texas governor threatens to penalize datacenters not obeying water laws",
+      "title_en": "Texas governor threatens to penalize datacenters not obeying water laws",
+      "title_zh": "得克萨斯州州长威胁要对不遵守水资源法律的数据中心处以罚款",
+      "summary_en": "Republican Greg Abbott says datacenters must help ‘protect’ drought-prone state and disclose water useGreg Abbott, the Texas governor, has directed state regulators to penalize datacenters that fail to comply with state laws requiring them to disclose their water use.“Data centers must share the duty to protect Texas water,” the Republican governor said on Monday. “The Texas Water Code requires a complete and accurate water use survey. I direct the Texas Water Development Board to use its enforcement authority to penalize past failures and to impose legal consequences for any future failure to comply,” he added. Continue reading...",
+      "summary_zh": "共和党人格雷格·阿博特表示，数据中心必须协助“保护”这一易受干旱影响的州，并披露用水情况。得克萨斯州州长格雷格·阿博特已指示州监管机构，对未能遵守州法律（该法律要求数据中心披露用水情况）的数据中心予以处罚。““数据中心必须共同承担保护得克萨斯州水资源的责任，”这位共和党州长周一表示。“《得克萨斯州水法》要求进行完整且准确的水资源使用调查。我指示得克萨斯州水资源开发委员会行使执法权，对过去的违规行为进行处罚，并对未来任何不遵守规定的行为追究法律责任，”他补充道。继续阅读...",
+      "link": "https://www.theguardian.com/us-news/2026/sep/14/greg-abbott-texas-datacenter-water-laws",
+      "source": "The Guardian Environment",
+      "published": "2026-09-14T22:57:15+00:00",
+      "hotness": 85.0,
+      "score": 85.0,
+      "score_v1": 17.55,
+      "score_v2": 85.0,
+      "score_breakdown": {
+        "algorithm": "v2",
+        "source_score": 15.0,
+        "keyword_idf_score": 0.0,
+        "resonance_score": 0.0,
+        "quality_score": 10.0,
+        "base": 25.0,
+        "time_factor": 0.9852,
+        "repeat_penalty": 1.0,
+        "cross_source_count": 1,
+        "raw": 24.63,
+        "display_score": 85.0
+      },
+      "score_v1_breakdown": {
+        "base": 5.0,
+        "source_score": 3.0,
+        "keyword_score": 0.0,
+        "time_score": 9.55,
+        "topic_bonus": 0.0,
+        "total": 17.55
+      },
+      "summary": "共和党人格雷格·阿博特表示，数据中心必须协助“保护”这一易受干旱影响的州，并披露用水情况。得克萨斯州州长格雷格·阿博特已指示州监管机构，对未能遵守州法律（该法律要求数据中心披露用水情况）的数据中心予以处罚。““数据中心必须共同承担保护得克萨斯州水资源的责任，”这位共和党州长周一表示。“《得克萨斯州水法》要求进行完整且准确的水资源使用调查。我指示得克萨斯州水资源开发委员会行使执法权，对过去的违规行为进行处罚，并对未来任何不遵守规定的行为追究法律责任，”他补充道。继续阅读...",
+      "analysis": "该条目涉及【得克萨斯州州长威胁要对不遵守水资源法律的数据中心处以罚款】话题，因来源权威性高，热度上升。",
+      "topic_tags": [
+        "得克萨斯州州长威胁要对不遵守水资源法律的数据中心处以罚款"
+      ],
+      "category": "水处理",
+      "matched_keywords": [],
+      "keywords": []
+    },
+    {
+      "title": "Giant jellyfish with '40ft tentacles' captured on camera off coast",
+      "title_en": "Giant jellyfish with '40ft tentacles' captured on camera off coast",
+      "title_zh": "海岸附近拍到一只“触手长达40英尺”的巨型水母",
+      "summary_en": "Iestyn Morgan has set out to make Welsh aquatic life \"more accessible\" for people to see.",
+      "summary_zh": "伊斯特恩·摩根致力于让人们“更容易”观赏到威尔士的水生生物。",
+      "link": "https://www.bbc.co.uk/news/articles/cvgynz9qz00o?at_medium=RSS&at_campaign=rss",
+      "source": "BBC 科学与环境",
+      "published": "2026-09-14T22:03:17+00:00",
+      "hotness": 83.6,
+      "score": 83.6,
+      "score_v1": 17.2,
+      "score_v2": 83.6,
+      "score_breakdown": {
+        "algorithm": "v2",
+        "source_score": 15.0,
+        "keyword_idf_score": 0.0,
+        "resonance_score": 0.0,
+        "quality_score": 10.0,
+        "base": 25.0,
+        "time_factor": 0.9734,
+        "repeat_penalty": 1.0,
+        "cross_source_count": 1,
+        "raw": 24.34,
+        "display_score": 83.6
+      },
+      "score_v1_breakdown": {
+        "base": 5.0,
+        "source_score": 3.0,
+        "keyword_score": 0.0,
+        "time_score": 9.2,
+        "topic_bonus": 0.0,
+        "total": 17.2
+      },
+      "summary": "伊斯特恩·摩根致力于让人们“更容易”观赏到威尔士的水生生物。",
       "analysis": "该条目涉及【环境资讯】话题，因来源权威性高，热度上升。",
       "topic_tags": [
         "环境资讯"
@@ -99,18 +582,18 @@
       "keywords": []
     },
     {
-      "title": "The Himalayas are melting faster - and India's economy is 'at risk'",
-      "title_en": "The Himalayas are melting faster - and India's economy is 'at risk'",
-      "title_zh": "喜马拉雅冰川消融速度加快——印度经济“面临风险”",
-      "summary_en": "A new report warns Himalayan glaciers are melting faster, threatening India’s water, economy and communities.",
-      "summary_zh": "一份新报告警告称，喜马拉雅冰川正在加速融化，这威胁到印度的水资源、经济和当地社区。",
-      "link": "https://www.bbc.co.uk/news/articles/crm9ezvwjpno?at_medium=RSS&at_campaign=rss",
+      "title": "US scraps limits on emissions from coal and gas power plants",
+      "title_en": "US scraps limits on emissions from coal and gas power plants",
+      "title_zh": "美国取消了对燃煤和燃气电厂排放量的限制",
+      "summary_en": "The Environment Protection Agency says the move will save the country billions of dollars and reduce energy prices.",
+      "summary_zh": "美国环境保护署表示，此举将为该国节省数十亿美元，并降低能源价格。",
+      "link": "https://www.bbc.co.uk/news/articles/cmly433ke05vo?at_medium=RSS&at_campaign=rss",
       "source": "BBC 科学与环境",
-      "published": "2026-09-13T22:07:22+00:00",
-      "hotness": 94.5,
-      "score": 94.5,
-      "score_v1": 17.23,
-      "score_v2": 94.5,
+      "published": "2026-09-14T22:04:14+00:00",
+      "hotness": 82.3,
+      "score": 82.3,
+      "score_v1": 17.21,
+      "score_v2": 82.3,
       "score_breakdown": {
         "algorithm": "v2",
         "source_score": 15.0,
@@ -118,42 +601,42 @@
         "resonance_score": 0.0,
         "quality_score": 10.0,
         "base": 25.0,
-        "time_factor": 0.9744,
+        "time_factor": 0.9736,
         "repeat_penalty": 1.0,
         "cross_source_count": 1,
-        "raw": 24.36,
-        "display_score": 94.5
+        "raw": 24.34,
+        "display_score": 82.3
       },
       "score_v1_breakdown": {
         "base": 5.0,
         "source_score": 3.0,
         "keyword_score": 0.0,
-        "time_score": 9.23,
+        "time_score": 9.21,
         "topic_bonus": 0.0,
-        "total": 17.23
+        "total": 17.21
       },
-      "summary": "一份新报告警告称，喜马拉雅冰川正在加速融化，这威胁到印度的水资源、经济和当地社区。",
-      "analysis": "该条目涉及【冰川融化】话题，因来源权威性高，热度上升。",
+      "summary": "美国环境保护署表示，此举将为该国节省数十亿美元，并降低能源价格。",
+      "analysis": "该条目涉及【美国取消了对燃煤和燃气电厂排放量的限制】话题，因来源权威性高，热度上升。",
       "topic_tags": [
-        "冰川融化"
+        "美国取消了对燃煤和燃气电厂排放量的限制"
       ],
       "category": "气候变化",
       "matched_keywords": [],
       "keywords": []
     },
     {
-      "title": "Summer wildfires caused catastrophic hidden damage, scientists warn",
-      "title_en": "Summer wildfires caused catastrophic hidden damage, scientists warn",
-      "title_zh": "科学家警告称，夏季野火造成了灾难性的隐性破坏",
-      "summary_en": "Bangor University researchers say the scale of damage is far greater than what is immediately visible.",
-      "summary_zh": "班戈大学的研究人员表示，受损程度远比肉眼所见要严重得多。",
-      "link": "https://www.bbc.co.uk/news/articles/cn07rzrq244o?at_medium=RSS&at_campaign=rss",
+      "title": "UK could 'unlock' 100 more oil and gas projects, say North Sea bosses",
+      "title_en": "UK could 'unlock' 100 more oil and gas projects, say North Sea bosses",
+      "title_zh": "北海行业高管称，英国或将“解锁”另外100个油气项目",
+      "summary_en": "The UK could supply half of its oil and gas needs without imports if the government showed more support for the sector, an OEUK report claims.",
+      "summary_zh": "英国石油与能源协会（OEUK）的一份报告称，如果政府能对该行业给予更多支持，英国的石油和天然气需求中有一半可无需进口即可满足。",
+      "link": "https://www.bbc.co.uk/news/articles/c65ym93p73xmo?at_medium=RSS&at_campaign=rss",
       "source": "BBC 科学与环境",
-      "published": "2026-09-13T06:12:26+00:00",
-      "hotness": 91.8,
-      "score": 91.8,
-      "score_v1": 12.75,
-      "score_v2": 91.8,
+      "published": "2026-09-14T21:59:02+00:00",
+      "hotness": 80.9,
+      "score": 80.9,
+      "score_v1": 17.17,
+      "score_v2": 80.9,
       "score_breakdown": {
         "algorithm": "v2",
         "source_score": 15.0,
@@ -161,114 +644,628 @@
         "resonance_score": 0.0,
         "quality_score": 10.0,
         "base": 25.0,
-        "time_factor": 0.7982,
+        "time_factor": 0.9725,
         "repeat_penalty": 1.0,
         "cross_source_count": 1,
-        "raw": 19.95,
-        "display_score": 91.8
+        "raw": 24.31,
+        "display_score": 80.9
       },
       "score_v1_breakdown": {
         "base": 5.0,
         "source_score": 3.0,
         "keyword_score": 0.0,
-        "time_score": 4.75,
+        "time_score": 9.17,
         "topic_bonus": 0.0,
-        "total": 12.75
+        "total": 17.17
       },
-      "summary": "班戈大学的研究人员表示，受损程度远比肉眼所见要严重得多。",
-      "analysis": "该条目涉及【wildfires】话题，因来源权威性高，热度上升。",
+      "summary": "英国石油与能源协会（OEUK）的一份报告称，如果政府能对该行业给予更多支持，英国的石油和天然气需求中有一半可无需进口即可满足。",
+      "analysis": "该条目涉及【环境资讯】话题，因来源权威性高，热度上升。",
       "topic_tags": [
-        "wildfires",
-        "hidden damage"
+        "环境资讯"
       ],
-      "category": "生态环境",
+      "category": "能源与碳中和",
       "matched_keywords": [],
       "keywords": []
     },
     {
-      "title": "Identifying transformation of dissolved organic matter in treatment of coal chemical wastewater for zero liquid discharge",
-      "title_en": "Identifying transformation of dissolved organic matter in treatment of coal chemical wastewater for zero liquid discharge",
-      "title_zh": "在煤化工废水零液排放处理中识别溶解性有机物的转化过程",
-      "summary_en": "",
-      "summary_zh": "",
-      "link": "https://www.sciencedirect.com/science/article/pii/S0043135426015538?dgcid=rss_sd_all",
-      "source": "Water Research",
-      "published": "2026-09-13T00:02:41.171784+00:00",
-      "hotness": 89.1,
-      "score": 89.1,
-      "score_v1": 14.68,
-      "score_v2": 89.1,
+      "title": "US ends limits on coal and gas plant emissions, removing key tool to battle climate crisis",
+      "title_en": "US ends limits on coal and gas plant emissions, removing key tool to battle climate crisis",
+      "title_zh": "美国取消了对燃煤和燃气电厂排放的限制，从而剥夺了应对气候危机的关键手段",
+      "summary_en": "Trump’s EPA strips itself of regulation ability, gutting Clean Air Act in what experts say is a gift to planet pollutersOn the heels of the hottest summer ever recorded in the US, the Trump administration has said it will erase any limits on emissions from coal and gas plants that are dangerously heating up our planet.The US Environmental Protection Agency said it will strip itself of its ability to regulate greenhouse gas emissions coming from power plants under the Clean Air Act, removing a key tool to address the climate crisis. Continue reading...",
+      "summary_zh": "特朗普领导的美国环保署剥夺自身监管权，实质上掏空了《清洁空气法》——专家称此举无异于给污染地球的企业送上大礼。在美国经历有记录以来最炎热的夏季之后，特朗普政府表示将取消对煤电厂和燃气电厂排放的任何限制，而这些电厂正导致地球温度危险地上升。美国环境保护署表示，将根据《清洁空气法》剥夺其对发电厂温室气体排放进行监管的权力，从而取消了应对气候危机的关键手段。继续阅读...",
+      "link": "https://www.theguardian.com/environment/2026/sep/14/trump-epa-repeal-pollution-standards-power-plants",
+      "source": "The Guardian Environment",
+      "published": "2026-09-14T21:17:19+00:00",
+      "hotness": 79.5,
+      "score": 79.5,
+      "score_v1": 16.91,
+      "score_v2": 79.5,
       "score_breakdown": {
         "algorithm": "v2",
-        "source_score": 25.0,
+        "source_score": 15.0,
         "keyword_idf_score": 0.0,
         "resonance_score": 0.0,
-        "quality_score": 0.0,
+        "quality_score": 10.0,
         "base": 25.0,
-        "time_factor": 0.7442,
+        "time_factor": 0.9636,
         "repeat_penalty": 1.0,
         "cross_source_count": 1,
-        "raw": 18.6,
-        "display_score": 89.1
+        "raw": 24.09,
+        "display_score": 79.5
       },
       "score_v1_breakdown": {
         "base": 5.0,
-        "source_score": 6.0,
+        "source_score": 3.0,
         "keyword_score": 0.0,
-        "time_score": 3.68,
+        "time_score": 8.91,
         "topic_bonus": 0.0,
-        "total": 14.68
+        "total": 16.91
       },
-      "summary": "研究煤化工废水零排放处理中溶解有机物转化机理，聚焦去除关键污染物路径",
-      "analysis": "该条目涉及【煤化工废水】话题，因来源权威性高，热度上升。",
+      "summary": "特朗普领导的美国环保署剥夺自身监管权，实质上掏空了《清洁空气法》——专家称此举无异于给污染地球的企业送上大礼。在美国经历有记录以来最炎热的夏季之后，特朗普政府表示将取消对煤电厂和燃气电厂排放的任何限制，而这些电厂正导致地球温度危险地上升。美国环境保护署表示，将根据《清洁空气法》剥夺其对发电厂温室气体排放进行监管的权力，从而取消了应对气候危机的关键手段。继续阅读...",
+      "analysis": "该条目涉及【美国取消了对燃煤和燃气电厂排放的限制】话题，因来源权威性高，热度上升。",
       "topic_tags": [
-        "煤化工废水",
-        "零排放"
+        "美国取消了对燃煤和燃气电厂排放的限制"
       ],
-      "category": "污染治理",
+      "category": "气候变化",
       "matched_keywords": [],
       "keywords": []
     },
     {
-      "title": "Prevalence of emerging disinfection byproducts iodinated nucleosides in coastal drinking water",
-      "title_en": "Prevalence of emerging disinfection byproducts iodinated nucleosides in coastal drinking water",
-      "title_zh": "沿海饮用水中新兴消毒副产物——碘化核苷的检出率",
-      "summary_en": "",
-      "summary_zh": "",
-      "link": "https://www.sciencedirect.com/science/article/pii/S0043135426015575?dgcid=rss_sd_all",
-      "source": "Water Research",
-      "published": "2026-09-13T00:02:41.171784+00:00",
-      "hotness": 86.4,
-      "score": 86.4,
-      "score_v1": 14.68,
-      "score_v2": 86.4,
+      "title": "Firefighters make progress to contain northern California’s Lucas fire",
+      "title_en": "Firefighters make progress to contain northern California’s Lucas fire",
+      "title_zh": "消防员在控制北加利福尼亚州卢卡斯大火方面取得进展",
+      "summary_en": "Cal Fire official says Sunday was ‘big turning point’ to reduce blaze in Lake county, now 30% containedFirefighters made progress toward containing northern California’s Lucas fire, state officials said on Sunday.Fire officials are still investigating the cause of the fire, which has burned more than 4,120 acres across Lake and Mendocino counties. The fire was 30% contained by Monday morning, according to the California department of forestry and fire protection, or Cal Fire. Continue reading...",
+      "summary_zh": "加州消防局官员称周日是莱克县火势得到控制的“重大转折点”，目前火势已得到30%控制。州政府官员周日表示，消防员在控制北加州的卢卡斯大火方面取得了进展。消防官员仍在调查这场大火的起因，该火灾已在莱克县和门多西诺县烧毁了超过4,120英亩的土地。据加州林业和消防局（Cal Fire）称，截至周一上午，火势已得到30%的控制。继续阅读...",
+      "link": "https://www.theguardian.com/us-news/2026/sep/14/northern-california-lucas-fire-containment",
+      "source": "The Guardian Environment",
+      "published": "2026-09-14T19:53:57+00:00",
+      "hotness": 78.2,
+      "score": 78.2,
+      "score_v1": 16.41,
+      "score_v2": 78.2,
       "score_breakdown": {
         "algorithm": "v2",
-        "source_score": 25.0,
+        "source_score": 15.0,
         "keyword_idf_score": 0.0,
         "resonance_score": 0.0,
-        "quality_score": 0.0,
+        "quality_score": 10.0,
         "base": 25.0,
-        "time_factor": 0.7442,
+        "time_factor": 0.9461,
         "repeat_penalty": 1.0,
         "cross_source_count": 1,
-        "raw": 18.6,
-        "display_score": 86.4
+        "raw": 23.65,
+        "display_score": 78.2
       },
       "score_v1_breakdown": {
         "base": 5.0,
-        "source_score": 6.0,
+        "source_score": 3.0,
         "keyword_score": 0.0,
-        "time_score": 3.68,
+        "time_score": 8.41,
         "topic_bonus": 0.0,
-        "total": 14.68
+        "total": 16.41
       },
-      "summary": "分析海岸饮用水中新型消毒副产物碘代核苷的分布特征与潜在健康风险评估",
-      "analysis": "该条目涉及【饮用水】话题，因来源权威性高，热度上升。",
+      "summary": "加州消防局官员称周日是莱克县火势得到控制的“重大转折点”，目前火势已得到30%控制。州政府官员周日表示，消防员在控制北加州的卢卡斯大火方面取得了进展。消防官员仍在调查这场大火的起因，该火灾已在莱克县和门多西诺县烧毁了超过4,120英亩的土地。据加州林业和消防局（Cal Fire）称，截至周一上午，火势已得到30%的控制。继续阅读...",
+      "analysis": "该条目涉及【环境资讯】话题，因来源权威性高，热度上升。",
       "topic_tags": [
-        "饮用水"
+        "环境资讯"
+      ],
+      "category": "科研学术",
+      "matched_keywords": [],
+      "keywords": []
+    },
+    {
+      "title": "Iceland, One of Three Countries That Still Hunts Whales, Considers Ban",
+      "title_en": "Iceland, One of Three Countries That Still Hunts Whales, Considers Ban",
+      "title_zh": "冰岛作为目前仍进行捕鲸的三个国家之一，正在考虑实施禁令",
+      "summary_en": "Iceland is one of just three countries, along with Norway and Japan, that still allows commercial whaling in its waters, but that may be about to change. The Icelandic government will put forward a bill in February that could ban the practice.Read more on E360 →",
+      "summary_zh": "冰岛是仅有的三个仍在其水域允许商业捕鲸的国家之一，另外两个是挪威和日本，但这种情况可能即将改变。冰岛政府将于2月提交一项法案，该法案可能会禁止这种做法。在E360上阅读更多内容 →",
+      "link": "https://e360.yale.edu/digest/iceland-whaling-ban",
+      "source": "Yale Environment 360",
+      "published": "2026-09-14T12:35:00+00:00",
+      "hotness": 76.8,
+      "score": 76.8,
+      "score_v1": 14.8,
+      "score_v2": 76.8,
+      "score_breakdown": {
+        "algorithm": "v2",
+        "source_score": 17.0,
+        "keyword_idf_score": 0.0,
+        "resonance_score": 0.0,
+        "quality_score": 10.0,
+        "base": 27.0,
+        "time_factor": 0.8618,
+        "repeat_penalty": 1.0,
+        "cross_source_count": 1,
+        "raw": 23.27,
+        "display_score": 76.8
+      },
+      "score_v1_breakdown": {
+        "base": 5.0,
+        "source_score": 3.6,
+        "keyword_score": 0.0,
+        "time_score": 6.2,
+        "topic_bonus": 0.0,
+        "total": 14.8
+      },
+      "summary": "冰岛是仅有的三个仍在其水域允许商业捕鲸的国家之一，另外两个是挪威和日本，但这种情况可能即将改变。冰岛政府将于2月提交一项法案，该法案可能会禁止这种做法。在E360上阅读更多内容 →",
+      "analysis": "该条目涉及【环境资讯】话题，因来源权威性高，热度上升。",
+      "topic_tags": [
+        "环境资讯"
+      ],
+      "category": "其他",
+      "matched_keywords": [],
+      "keywords": []
+    },
+    {
+      "title": "Maryland boy recovering from surgeries after rabid beaver attack at state park",
+      "title_en": "Maryland boy recovering from surgeries after rabid beaver attack at state park",
+      "title_zh": "马里兰州一名男孩在州立公园遭狂犬病海狸袭击后，目前正在术后康复中",
+      "summary_en": "Teen was swimming at a popular spot at the time of the attack, the latest in a string that have occurred in the stateA 13-year-old Maryland boy is reported to be recovering from multiple surgeries and nerve damage after being attacked by a rabid beaver.The teen, Dominick Cebula, was swimming at a popular spot in Cunningham Falls state park in Thurmont, Maryland, on 26 July when a beaver attacked his chest underwater, a relatively rare kind of encounter that more recently has been recurring, according to reporting from local news outlets. Continue reading...",
+      "summary_zh": "事发时，这名青少年正在一处热门景点游泳，这是该州近期发生的一系列类似事件中的最新一起。据报道，马里兰州一名13岁男孩在遭到一只狂犬病海狸袭击后，目前正在从多次手术和神经损伤中恢复。据当地媒体报道，7月26日，这名名为多米尼克·塞布拉（Dominick Cebula）的少年在马里兰州瑟蒙特市坎宁安瀑布州立公园的一处热门景点游泳时，被一只海狸在水下袭击了胸部。这种遭遇虽然相对罕见，但最近却屡有发生。继续阅读...",
+      "link": "https://www.theguardian.com/us-news/2026/sep/14/maryland-rabid-beaver-attack",
+      "source": "The Guardian Environment",
+      "published": "2026-09-14T17:38:59+00:00",
+      "hotness": 75.5,
+      "score": 75.5,
+      "score_v1": 15.66,
+      "score_v2": 75.5,
+      "score_breakdown": {
+        "algorithm": "v2",
+        "source_score": 15.0,
+        "keyword_idf_score": 0.0,
+        "resonance_score": 0.0,
+        "quality_score": 10.0,
+        "base": 25.0,
+        "time_factor": 0.9188,
+        "repeat_penalty": 1.0,
+        "cross_source_count": 1,
+        "raw": 22.97,
+        "display_score": 75.5
+      },
+      "score_v1_breakdown": {
+        "base": 5.0,
+        "source_score": 3.0,
+        "keyword_score": 0.0,
+        "time_score": 7.66,
+        "topic_bonus": 0.0,
+        "total": 15.66
+      },
+      "summary": "事发时，这名青少年正在一处热门景点游泳，这是该州近期发生的一系列类似事件中的最新一起。据报道，马里兰州一名13岁男孩在遭到一只狂犬病海狸袭击后，目前正在从多次手术和神经损伤中恢复。据当地媒体报道，7月26日，这名名为多米尼克·塞布拉（Dominick Cebula）的少年在马里兰州瑟蒙特市坎宁安瀑布州立公园的一处热门景点游泳时，被一只海狸在水下袭击了胸部。这种遭遇虽然相对罕见，但最近却屡有发生。继续阅读...",
+      "analysis": "该条目涉及【环境资讯】话题，因来源权威性高，热度上升。",
+      "topic_tags": [
+        "环境资讯"
+      ],
+      "category": "其他",
+      "matched_keywords": [],
+      "keywords": []
+    },
+    {
+      "title": "Flash flooding interrupts half-marathon, submerges cars",
+      "title_en": "Flash flooding interrupts half-marathon, submerges cars",
+      "title_zh": "山洪暴发导致半程马拉松比赛中断，多辆汽车被淹",
+      "summary_en": "Parts of New York, New Jersey and Connecticut were hit by flash flooding, leading to water rescues, stranded motorists and half-marathon runners battling the floodwaters.",
+      "summary_zh": "纽约、新泽西和康涅狄格的部分地区遭遇了突发性洪涝，导致需要进行水上救援，部分司机被困，半程马拉松选手则在洪水中奋力前行。",
+      "link": "https://www.bbc.co.uk/news/articles/cx1l6rzj86vgo?at_medium=RSS&at_campaign=rss",
+      "source": "BBC 科学与环境",
+      "published": "2026-09-14T15:01:28+00:00",
+      "hotness": 74.1,
+      "score": 74.1,
+      "score_v1": 14.86,
+      "score_v2": 74.1,
+      "score_breakdown": {
+        "algorithm": "v2",
+        "source_score": 15.0,
+        "keyword_idf_score": 0.0,
+        "resonance_score": 0.0,
+        "quality_score": 10.0,
+        "base": 25.0,
+        "time_factor": 0.8885,
+        "repeat_penalty": 1.0,
+        "cross_source_count": 1,
+        "raw": 22.21,
+        "display_score": 74.1
+      },
+      "score_v1_breakdown": {
+        "base": 5.0,
+        "source_score": 3.0,
+        "keyword_score": 0.0,
+        "time_score": 6.86,
+        "topic_bonus": 0.0,
+        "total": 14.86
+      },
+      "summary": "纽约、新泽西和康涅狄格的部分地区遭遇了突发性洪涝，导致需要进行水上救援，部分司机被困，半程马拉松选手则在洪水中奋力前行。",
+      "analysis": "该条目涉及【环境资讯】话题，因来源权威性高，热度上升。",
+      "topic_tags": [
+        "环境资讯"
+      ],
+      "category": "气候变化",
+      "matched_keywords": [],
+      "keywords": []
+    },
+    {
+      "title": "Global warming is breaking a 400-year climate link between two oceans",
+      "title_en": "Global warming is breaking a 400-year climate link between two oceans",
+      "title_zh": "全球变暖正在打破两大洋之间长达400年的气候联系",
+      "summary_en": "The Indian and Pacific oceans have been climatically linked for centuries, but scientists say that connection is now breaking down in an exceptional way. Ancient climate records suggest volcanoes disrupted the relationship in the past, while today human-caused warming appears to be driving a much more unusual shift.",
+      "summary_zh": "几个世纪以来，印度洋和太平洋在气候上一直相互关联，但科学家表示，这种联系如今正以一种不同寻常的方式逐渐瓦解。古代气候记录表明，过去火山活动曾扰乱了这种联系，而如今，人为导致的全球变暖似乎正在引发一场更为异常的变化。",
+      "link": "https://www.sciencedaily.com/releases/2026/09/260912220029.htm",
+      "source": "ScienceDaily 环境科学",
+      "published": "2026-09-13T12:18:05+00:00",
+      "hotness": 72.7,
+      "score": 72.7,
+      "score_v1": 12.65,
+      "score_v2": 72.7,
+      "score_breakdown": {
+        "algorithm": "v2",
+        "source_score": 23.0,
+        "keyword_idf_score": 0.0,
+        "resonance_score": 0.0,
+        "quality_score": 10.0,
+        "base": 33.0,
+        "time_factor": 0.6586,
+        "repeat_penalty": 1.0,
+        "cross_source_count": 1,
+        "raw": 21.73,
+        "display_score": 72.7
+      },
+      "score_v1_breakdown": {
+        "base": 5.0,
+        "source_score": 5.4,
+        "keyword_score": 0.0,
+        "time_score": 2.25,
+        "topic_bonus": 0.0,
+        "total": 12.65
+      },
+      "summary": "几个世纪以来，印度洋和太平洋在气候上一直相互关联，但科学家表示，这种联系如今正以一种不同寻常的方式逐渐瓦解。古代气候记录表明，过去火山活动曾扰乱了这种联系，而如今，人为导致的全球变暖似乎正在引发一场更为异常的变化。",
+      "analysis": "该条目涉及【年的气候联系】话题，因来源权威性高，热度上升。",
+      "topic_tags": [
+        "年的气候联系"
+      ],
+      "category": "气候变化",
+      "matched_keywords": [],
+      "keywords": []
+    },
+    {
+      "title": "Extreme-Scale Linear-Scaling Kohn-Sham DFT at 100 Million Atoms: Bridging Quantum Simulations and Experiments",
+      "title_en": "Extreme-Scale Linear-Scaling Kohn-Sham DFT at 100 Million Atoms: Bridging Quantum Simulations and Experiments",
+      "title_zh": "1亿原子规模的极端规模线性扩展Kohn-Sham密度泛函理论（DFT）：连接量子模拟与实验",
+      "summary_en": "arXiv:2609.13115v1 An: new Abstract: Kohn-Sham density functional theory (DFT) remains the workhorse of ab initio materials simulation, yet cubic computational and quadratic memory scaling have confined calculations to a few hundred to thousands of atoms, spanning only na: a 200-million-atom silicon crystal, twentyfold beyond the prior record. Our implementation achieves 96.6% weak-scaling efficiency and sustained 157.9 Pflop/s (FP64) for a 100-million-atom scaling study. We further simulate an 11-million-atom all-solid-state battery interface of unprecedented complexity, 1,000 times beyond prior DFT for such systems, revealing how lithium metal reacts with the solid electrolyte at atomic resolution, in quantitative agreement with spectroscopy experiments.",
+      "summary_zh": "",
+      "link": "https://arxiv.org/abs/2609.13115",
+      "source": "arXiv Environmental Engineering",
+      "published": "2026-09-14T04:00:00+00:00",
+      "hotness": 71.4,
+      "score": 71.4,
+      "score_v1": 12.94,
+      "score_v2": 71.4,
+      "score_breakdown": {
+        "algorithm": "v2",
+        "source_score": 17.0,
+        "keyword_idf_score": 0.0,
+        "resonance_score": 0.0,
+        "quality_score": 10.0,
+        "base": 27.0,
+        "time_factor": 0.778,
+        "repeat_penalty": 1.0,
+        "cross_source_count": 1,
+        "raw": 21.01,
+        "display_score": 71.4
+      },
+      "score_v1_breakdown": {
+        "base": 5.0,
+        "source_score": 3.6,
+        "keyword_score": 0.0,
+        "time_score": 4.34,
+        "topic_bonus": 0.0,
+        "total": 12.94
+      },
+      "summary": "arXiv:2609.13115v1 An: new Abstract: Kohn-Sham density functional theory (DFT) remains the workhorse of ab initio materials simulation, yet cubic computational and quadratic memory scaling have confined calculations to a few hundred to thousands of atoms, spanning only na: a 200-million-atom silicon crystal, twentyfold beyond the prior record. Our implementation achieves 96.6% weak-scaling efficiency and sustained 157.9 Pflop/s (FP64) for a 100-million-atom scaling study. We further simulate an 11-million-atom all-solid-state battery interface of unprecedented complexity, 1,000 times beyond prior DFT for such systems, revealing how lithium metal reacts with the solid electrolyte at atomic resolution, in quantitative agreement with spectroscopy experiments.",
+      "analysis": "该条目涉及【环境资讯】话题，因来源权威性高，热度上升。",
+      "topic_tags": [
+        "环境资讯"
+      ],
+      "category": "科研学术",
+      "matched_keywords": [],
+      "keywords": []
+    },
+    {
+      "title": "NFT-Based Reward Mechanisms: Sybil Farming, Vesting, and Stochastic Verification",
+      "title_en": "NFT-Based Reward Mechanisms: Sybil Farming, Vesting, and Stochastic Verification",
+      "title_zh": "基于 NFT 的奖励机制：西比尔挖矿、锁定期和随机验证",
+      "summary_en": "arXiv:2609.13064v1 An: new Abstract: We study NFT-based reward mechanisms in which a user can create multiple identities and submit fraudulent claims that mature a reward subject to vesting. We assume that the 's payoff is then : rewards increase linearly, while the probability of avoiding detection decreases geometrically. We characterise the optimal farming scale in the continuous relaxation of the problem. This allows us to derive a sufficient condition for deterrence and then consider the 's choice of reward vesting and claim verification. Vesting reduces the probability that a fraudulent claim is paid but also affects genuine participants, while verification is costly for the",
+      "summary_zh": "",
+      "link": "https://arxiv.org/abs/2609.13064",
+      "source": "arXiv Environmental Engineering",
+      "published": "2026-09-14T04:00:00+00:00",
+      "hotness": 70.0,
+      "score": 70.0,
+      "score_v1": 12.94,
+      "score_v2": 70.0,
+      "score_breakdown": {
+        "algorithm": "v2",
+        "source_score": 17.0,
+        "keyword_idf_score": 0.0,
+        "resonance_score": 0.0,
+        "quality_score": 10.0,
+        "base": 27.0,
+        "time_factor": 0.778,
+        "repeat_penalty": 1.0,
+        "cross_source_count": 1,
+        "raw": 21.01,
+        "display_score": 70.0
+      },
+      "score_v1_breakdown": {
+        "base": 5.0,
+        "source_score": 3.6,
+        "keyword_score": 0.0,
+        "time_score": 4.34,
+        "topic_bonus": 0.0,
+        "total": 12.94
+      },
+      "summary": "arXiv:2609.13064v1 An: new Abstract: We study NFT-based reward mechanisms in which a user can create multiple identities and submit fraudulent claims that mature a reward subject to vesting. We assume that the 's payoff is then : rewards increase linearly, while the probability of avoiding detection decreases geometrically. We characterise the optimal farming scale in the continuous relaxation of the problem. This allows us to derive a sufficient condition for deterrence and then consider the 's choice of reward vesting and claim verification. Vesting reduces the probability that a fraudulent claim is paid but also affects genuine participants, while verification is costly for the",
+      "analysis": "该条目涉及【环境资讯】话题，因来源权威性高，热度上升。",
+      "topic_tags": [
+        "环境资讯"
+      ],
+      "category": "其他",
+      "matched_keywords": [],
+      "keywords": []
+    },
+    {
+      "title": "Transducer Placement and the Limits of a Four-State Reduced Model in Post-Flutter Piezoelectric Energy Harvesting from a Pitch-Plunge-Flap Aerofoil",
+      "title_en": "Transducer Placement and the Limits of a Four-State Reduced Model in Post-Flutter Piezoelectric Energy Harvesting from a Pitch-Plunge-Flap Aerofoil",
+      "title_zh": "换能器放置位置及四态简化模型在俯仰-俯冲-襟翼翼型颤振后压电能量 harvesting 中的局限性",
+      "summary_en": "Transducer Placement and the Limits of a Four-State Reduced Model in Post-Flutter Piezoelectric Energy Harvesting from a Pitch-Plunge-Flap Aerofoil…",
+      "summary_zh": "",
+      "link": "https://arxiv.org/abs/2609.12788",
+      "source": "arXiv Environmental Engineering",
+      "published": "2026-09-14T04:00:00+00:00",
+      "hotness": 68.6,
+      "score": 68.6,
+      "score_v1": 12.94,
+      "score_v2": 68.6,
+      "score_breakdown": {
+        "algorithm": "v2",
+        "source_score": 17.0,
+        "keyword_idf_score": 0.0,
+        "resonance_score": 0.0,
+        "quality_score": 10.0,
+        "base": 27.0,
+        "time_factor": 0.778,
+        "repeat_penalty": 1.0,
+        "cross_source_count": 1,
+        "raw": 21.01,
+        "display_score": 68.6
+      },
+      "score_v1_breakdown": {
+        "base": 5.0,
+        "source_score": 3.6,
+        "keyword_score": 0.0,
+        "time_score": 4.34,
+        "topic_bonus": 0.0,
+        "total": 12.94
+      },
+      "summary": "换能器放置位置以及四态简化模型在俯仰-俯冲-襟翼翼型颤振后压电能量 harvesting 中的局限性……",
+      "analysis": "该条目涉及【环境资讯】话题，因来源权威性高，热度上升。",
+      "topic_tags": [
+        "环境资讯"
+      ],
+      "category": "能源与碳中和",
+      "matched_keywords": [],
+      "keywords": []
+    },
+    {
+      "title": "When Is Inaction a Mistake? Continuation-Aware Auditing of PPO Trading Policies",
+      "title_en": "When Is Inaction a Mistake? Continuation-Aware Auditing of PPO Trading Policies",
+      "title_zh": "何时不作为是一种错误？PPO交易策略的连续性感知审计",
+      "summary_en": "arXiv:2609.12536v1 An: new Abstract: An optimal reference may recommend trading when a learned policy chooses inaction, but the recommendation depends on information and future decisions. We introduce a four-stage audit for frozen proximal policy optimization policies without retraining. It examines deployment occupancy, matches current information, tests isolated deviations under incumbent continuation, and evaluates repeated deployment of observation-based alternatives. In controlled linear-Gaussian simulations, information matching explains part of the disagreement, while continuation changes its interpretation. At unit observation % of projected-hard missed-advantage mass; repeated projected-rule deployment improves all 50 policies. These comparisons distinguish isolated action changes from policy replacement. Historical Bitcoin/Tether (BTCUSDT) replay a",
+      "summary_zh": "",
+      "link": "https://arxiv.org/abs/2609.12536",
+      "source": "arXiv Environmental Engineering",
+      "published": "2026-09-14T04:00:00+00:00",
+      "hotness": 67.3,
+      "score": 67.3,
+      "score_v1": 12.94,
+      "score_v2": 67.3,
+      "score_breakdown": {
+        "algorithm": "v2",
+        "source_score": 17.0,
+        "keyword_idf_score": 0.0,
+        "resonance_score": 0.0,
+        "quality_score": 10.0,
+        "base": 27.0,
+        "time_factor": 0.778,
+        "repeat_penalty": 1.0,
+        "cross_source_count": 1,
+        "raw": 21.01,
+        "display_score": 67.3
+      },
+      "score_v1_breakdown": {
+        "base": 5.0,
+        "source_score": 3.6,
+        "keyword_score": 0.0,
+        "time_score": 4.34,
+        "topic_bonus": 0.0,
+        "total": 12.94
+      },
+      "summary": "arXiv:2609.12536v1 An: new Abstract: An optimal reference may recommend trading when a learned policy chooses inaction, but the recommendation depends on information and future decisions. We introduce a four-stage audit for frozen proximal policy optimization policies without retraining. It examines deployment occupancy, matches current information, tests isolated deviations under incumbent continuation, and evaluates repeated deployment of observation-based alternatives. In controlled linear-Gaussian simulations, information matching explains part of the disagreement, while continuation changes its interpretation. At unit observation % of projected-hard missed-advantage mass; repeated projected-rule deployment improves all 50 policies. These comparisons distinguish isolated action changes from policy replacement. Historical Bitcoin/Tether (BTCUSDT) replay a",
+      "analysis": "该条目涉及【环境资讯】话题，因来源权威性高，热度上升。",
+      "topic_tags": [
+        "环境资讯"
+      ],
+      "category": "其他",
+      "matched_keywords": [],
+      "keywords": []
+    },
+    {
+      "title": "TailWeather: from tail to extremes, a global climatological dataset for machine-learning weather forecasting",
+      "title_en": "TailWeather: from tail to extremes, a global climatological dataset for machine-learning weather forecasting",
+      "title_zh": "TailWeather：从尾值到极端事件，一个用于机器学习天气预报的全球气候学数据集",
+      "summary_en": "arXiv:2609.12496v1 An: new Abstract: Weather forecasting models commonly use the average forecast skill for short-range forecasts. However, it does climatological tails describe unusual weather without necessarily implying harm. We present TailWeather, a global 0.25-degree, land-only dataset derived from ERA5, covering 1981-2022 and extending into January 2023. It labels heatwaves, cold waves, heavy precipitation, and extreme wind daily, and meteorological drought monthly. Each event has an ordinal severity tier and a numerical intensity score referenced to the local 1991-2020 climate. The scores su",
+      "summary_zh": "",
+      "link": "https://arxiv.org/abs/2609.12496",
+      "source": "arXiv Environmental Engineering",
+      "published": "2026-09-14T04:00:00+00:00",
+      "hotness": 65.9,
+      "score": 65.9,
+      "score_v1": 12.94,
+      "score_v2": 65.9,
+      "score_breakdown": {
+        "algorithm": "v2",
+        "source_score": 17.0,
+        "keyword_idf_score": 0.0,
+        "resonance_score": 0.0,
+        "quality_score": 10.0,
+        "base": 27.0,
+        "time_factor": 0.778,
+        "repeat_penalty": 1.0,
+        "cross_source_count": 1,
+        "raw": 21.01,
+        "display_score": 65.9
+      },
+      "score_v1_breakdown": {
+        "base": 5.0,
+        "source_score": 3.6,
+        "keyword_score": 0.0,
+        "time_score": 4.34,
+        "topic_bonus": 0.0,
+        "total": 12.94
+      },
+      "summary": "arXiv:2609.12496v1 An: new Abstract: Weather forecasting models commonly use the average forecast skill for short-range forecasts. However, it does climatological tails describe unusual weather without necessarily implying harm. We present TailWeather, a global 0.25-degree, land-only dataset derived from ERA5, covering 1981-2022 and extending into January 2023. It labels heatwaves, cold waves, heavy precipitation, and extreme wind daily, and meteorological drought monthly. Each event has an ordinal severity tier and a numerical intensity score referenced to the local 1991-2020 climate. The scores su",
+      "analysis": "该条目涉及【机器学习】话题，因来源权威性高，热度上升。",
+      "topic_tags": [
+        "机器学习"
+      ],
+      "category": "科研学术",
+      "matched_keywords": [],
+      "keywords": []
+    },
+    {
+      "title": "Scientists find water was fueling volcanoes 3 billion years ago",
+      "title_en": "Scientists find water was fueling volcanoes 3 billion years ago",
+      "title_zh": "科学家发现，30亿年前水曾是火山活动的动力来源",
+      "summary_en": "Ancient rocks from Western Australia suggest water was reaching deep inside Earth more than three billion years ago, long before modern plate tectonics may have fully developed. Researchers propose that water-rich pieces of crust periodically sank into the mantle through a process they call “dripduction.” The buried water then helped produce magma and volcanic eruptions.",
+      "summary_zh": "西澳大利亚的远古岩石表明，早在30多亿年前——远在现代板块构造理论可能完全形成之前——水就已经渗入地球深处。研究人员提出，富含水的地壳碎片会通过一种被称为“滴落作用”的过程周期性地沉入地幔。随后，这些被埋藏的水促成了岩浆的形成和火山喷发。",
+      "link": "https://www.sciencedaily.com/releases/2026/09/260911214305.htm",
+      "source": "ScienceDaily 环境科学",
+      "published": "2026-09-13T03:14:19+00:00",
+      "hotness": 64.5,
+      "score": 64.5,
+      "score_v1": 11.95,
+      "score_v2": 64.5,
+      "score_breakdown": {
+        "algorithm": "v2",
+        "source_score": 23.0,
+        "keyword_idf_score": 0.0,
+        "resonance_score": 0.0,
+        "quality_score": 10.0,
+        "base": 33.0,
+        "time_factor": 0.6055,
+        "repeat_penalty": 1.0,
+        "cross_source_count": 1,
+        "raw": 19.98,
+        "display_score": 64.5
+      },
+      "score_v1_breakdown": {
+        "base": 5.0,
+        "source_score": 5.4,
+        "keyword_score": 0.0,
+        "time_score": 1.55,
+        "topic_bonus": 0.0,
+        "total": 11.95
+      },
+      "summary": "西澳大利亚的远古岩石表明，早在30多亿年前——远在现代板块构造理论可能完全形成之前——水就已经渗入地球深处。研究人员提出，富含水的地壳碎片会通过一种被称为“滴落作用”的过程周期性地沉入地幔。随后，这些被埋藏的水促成了岩浆的形成和火山喷发。",
+      "analysis": "该条目涉及【环境资讯】话题，因来源权威性高，热度上升。",
+      "topic_tags": [
+        "环境资讯"
       ],
       "category": "水处理",
+      "matched_keywords": [],
+      "keywords": []
+    },
+    {
+      "title": "英国“超级电网升级”项目面临大延期 - finance.sina.cn",
+      "title_en": "",
+      "title_zh": "",
+      "summary_en": "",
+      "summary_zh": "",
+      "link": "https://news.google.com/rss/articles/CBMieEFVX3lxTFA0UVp4R3NhTC1UaG9rc3FxTVRHX3lucVh0R2lFRzRJNlNkRjVILXVkQnBQbkFLX3FaYWw4aEhGMmFRb01JeG1VSWFlLTBpc1QxQVZ2WnB5akJPV21KdVd5YWFkSjNZT0ZzNWUwaDZUaTF6ZGt0TWJUUw?oc=5",
+      "source": "Google News 气候变化",
+      "published": "2026-09-14T22:35:23+00:00",
+      "hotness": 63.2,
+      "score": 63.2,
+      "score_v1": 18.91,
+      "score_v2": 63.2,
+      "score_breakdown": {
+        "algorithm": "v2",
+        "source_score": 20.0,
+        "keyword_idf_score": 0.0,
+        "resonance_score": 0.0,
+        "quality_score": 0.0,
+        "base": 20.0,
+        "time_factor": 0.9804,
+        "repeat_penalty": 1.0,
+        "cross_source_count": 1,
+        "raw": 19.61,
+        "display_score": 63.2
+      },
+      "score_v1_breakdown": {
+        "base": 5.0,
+        "source_score": 4.5,
+        "keyword_score": 0.0,
+        "time_score": 9.41,
+        "topic_bonus": 0.0,
+        "total": 18.91
+      },
+      "summary": "英国超级电网升级项目因技术或资金原因延期，面临建设周期大幅拉长挑战。",
+      "analysis": "该条目涉及【环境资讯】话题，因来源权威性高，热度上升。",
+      "topic_tags": [
+        "环境资讯"
+      ],
+      "category": "科研学术",
+      "matched_keywords": [],
+      "keywords": []
+    },
+    {
+      "title": "“那块地两天施了3300多吨”，人民日报曝光：一些地方沼液还田不规范 - 新浪网",
+      "title_en": "",
+      "title_zh": "",
+      "summary_en": "",
+      "summary_zh": "",
+      "link": "https://news.google.com/rss/articles/CBMif0FVX3lxTE9PSUFSWENBTGZ6SWgtRzdGSGlEcFdiRlVoMUkxRm1qNGlQeHhDNlRaX0phLVUyc0JhZFJ4TV96S0RoVXhYeFZoOEQ2eUZiMlRZbG96SWRFRXJqdF9VdHkySURNQjdMM2U5RGlfMVVLZHptZG8zbnMyajltSWsxNWc?oc=5",
+      "source": "Google News 环境污染",
+      "published": "2026-09-14T22:06:38+00:00",
+      "hotness": 61.8,
+      "score": 61.8,
+      "score_v1": 18.72,
+      "score_v2": 61.8,
+      "score_breakdown": {
+        "algorithm": "v2",
+        "source_score": 20.0,
+        "keyword_idf_score": 0.0,
+        "resonance_score": 0.0,
+        "quality_score": 0.0,
+        "base": 20.0,
+        "time_factor": 0.9742,
+        "repeat_penalty": 1.0,
+        "cross_source_count": 1,
+        "raw": 19.48,
+        "display_score": 61.8
+      },
+      "score_v1_breakdown": {
+        "base": 5.0,
+        "source_score": 4.5,
+        "keyword_score": 0.0,
+        "time_score": 9.22,
+        "topic_bonus": 0.0,
+        "total": 18.72
+      },
+      "summary": "人民日报曝光部分地区沼液还田违规行为，揭示每两天施用超3300吨沼液的非规范操作。",
+      "analysis": "该条目涉及【环境资讯】话题，因来源权威性高，热度上升。",
+      "topic_tags": [
+        "环境资讯"
+      ],
+      "category": "其他",
       "matched_keywords": [],
       "keywords": []
     },
@@ -280,11 +1277,11 @@
       "summary_zh": "",
       "link": "https://www.sciencedirect.com/science/article/pii/S0043135426014223?dgcid=rss_sd_all",
       "source": "Water Research",
-      "published": "2026-09-13T00:02:41.171784+00:00",
-      "hotness": 83.6,
-      "score": 83.6,
+      "published": "2026-09-14T00:02:25.448652+00:00",
+      "hotness": 60.5,
+      "score": 60.5,
       "score_v1": 14.68,
-      "score_v2": 83.6,
+      "score_v2": 60.5,
       "score_breakdown": {
         "algorithm": "v2",
         "source_score": 25.0,
@@ -292,11 +1289,11 @@
         "resonance_score": 0.0,
         "quality_score": 0.0,
         "base": 25.0,
-        "time_factor": 0.7442,
+        "time_factor": 0.7441,
         "repeat_penalty": 1.0,
         "cross_source_count": 1,
         "raw": 18.6,
-        "display_score": 83.6
+        "display_score": 60.5
       },
       "score_v1_breakdown": {
         "base": 5.0,
@@ -306,94 +1303,7 @@
         "topic_bonus": 0.0,
         "total": 14.68
       },
-      "summary": "针对数据中心水需求，系统级设计与分析高效脱盐系统的能耗与工程可行性方案",
-      "analysis": "该条目涉及【数据中心】话题，因来源权威性高，热度上升。",
-      "topic_tags": [
-        "数据中心",
-        "水需求"
-      ],
-      "category": "科研学术",
-      "matched_keywords": [],
-      "keywords": []
-    },
-    {
-      "title": "Humic acid promotes Fe(II) dynamics and hydroxyl radical generation via interfacial regulation on nanoscale zerovalent iron for imidacloprid degradation",
-      "title_en": "Humic acid promotes Fe(II) dynamics and hydroxyl radical generation via interfacial regulation on nanoscale zerovalent iron for imidacloprid degradation",
-      "title_zh": "腐植酸通过调节纳米级零价铁的界面行为，促进Fe(II)的动力学过程和羟基自由基的生成，从而促进吡虫啉的降解",
-      "summary_en": "humic acid通过界面调控作用促进零价铁Fe(II)动力学与羟基自由基生成，提升对氰氟虫酯降解效率",
-      "summary_zh": "",
-      "link": "https://www.sciencedirect.com/science/article/pii/S0043135426015654?dgcid=rss_sd_all",
-      "source": "Water Research",
-      "published": "2026-09-13T00:02:41.171784+00:00",
-      "hotness": 80.9,
-      "score": 80.9,
-      "score_v1": 14.68,
-      "score_v2": 80.9,
-      "score_breakdown": {
-        "algorithm": "v2",
-        "source_score": 25.0,
-        "keyword_idf_score": 0.0,
-        "resonance_score": 0.0,
-        "quality_score": 0.0,
-        "base": 25.0,
-        "time_factor": 0.7442,
-        "repeat_penalty": 1.0,
-        "cross_source_count": 1,
-        "raw": 18.6,
-        "display_score": 80.9
-      },
-      "score_v1_breakdown": {
-        "base": 5.0,
-        "source_score": 6.0,
-        "keyword_score": 0.0,
-        "time_score": 3.68,
-        "topic_bonus": 0.0,
-        "total": 14.68
-      },
-      "summary": "humic acid通过界面调控作用促进零价铁Fe(II)动力学与羟基自由基生成，提升对氰氟虫酯降解效率",
-      "analysis": "该条目涉及【氰氟虫酯降解】话题，因来源权威性高，热度上升。",
-      "topic_tags": [
-        "氰氟虫酯降解"
-      ],
-      "category": "科研学术",
-      "matched_keywords": [],
-      "keywords": []
-    },
-    {
-      "title": "Mechanistic insight into the mechanical stability of anammox granular sludge: Roles of polarity, structure and function of extracellular proteins",
-      "title_en": "Mechanistic insight into the mechanical stability of anammox granular sludge: Roles of polarity, structure and function of extracellular proteins",
-      "title_zh": "对厌氧氨氧化颗粒污泥机械稳定性的机理研究：胞外蛋白的极性、结构与功能的作用",
-      "summary_en": "",
-      "summary_zh": "",
-      "link": "https://www.sciencedirect.com/science/article/pii/S0043135426015836?dgcid=rss_sd_all",
-      "source": "Water Research",
-      "published": "2026-09-13T00:02:41.171784+00:00",
-      "hotness": 78.2,
-      "score": 78.2,
-      "score_v1": 14.68,
-      "score_v2": 78.2,
-      "score_breakdown": {
-        "algorithm": "v2",
-        "source_score": 25.0,
-        "keyword_idf_score": 0.0,
-        "resonance_score": 0.0,
-        "quality_score": 0.0,
-        "base": 25.0,
-        "time_factor": 0.7442,
-        "repeat_penalty": 1.0,
-        "cross_source_count": 1,
-        "raw": 18.6,
-        "display_score": 78.2
-      },
-      "score_v1_breakdown": {
-        "base": 5.0,
-        "source_score": 6.0,
-        "keyword_score": 0.0,
-        "time_score": 3.68,
-        "topic_bonus": 0.0,
-        "total": 14.68
-      },
-      "summary": "深入解析厌氧氨氧化颗粒污泥的机械稳定性，阐明极性、结构及胞外蛋白功能的耦合作用",
+      "summary": "研究系统分析海水淡化系统设计，旨在解决数据中心大规模用水需求的技术挑战。",
       "analysis": "该条目涉及【环境资讯】话题，因来源权威性高，热度上升。",
       "topic_tags": [
         "环境资讯"
@@ -403,40 +1313,40 @@
       "keywords": []
     },
     {
-      "title": "Five night sky events to look out for this autumn",
-      "title_en": "Five night sky events to look out for this autumn",
-      "title_zh": "今年秋季值得关注的五大夜空奇观",
-      "summary_en": "From meteor showers to a November supermoon, there are a number of impressive sights to behold in the autumn night sky.",
-      "summary_zh": "从流星雨到11月的超级月亮，秋日的夜空中有许多令人叹为观止的奇观值得欣赏。",
-      "link": "https://www.bbc.co.uk/news/articles/cvgy4w3mnpvo?at_medium=RSS&at_campaign=rss",
-      "source": "BBC 科学与环境",
-      "published": "2026-09-12T23:53:07+00:00",
-      "hotness": 75.5,
-      "score": 75.5,
-      "score_v1": 11.65,
-      "score_v2": 75.5,
+      "title": "Humic acid promotes Fe(II) dynamics and hydroxyl radical generation via interfacial regulation on nanoscale zerovalent iron for imidacloprid degradation",
+      "title_en": "Humic acid promotes Fe(II) dynamics and hydroxyl radical generation via interfacial regulation on nanoscale zerovalent iron for imidacloprid degradation",
+      "title_zh": "腐殖酸通过对纳米级零价铁的界面调控，促进Fe(II)的动力学行为和羟基自由基的生成，从而促进吡虫啉的降解",
+      "summary_en": "",
+      "summary_zh": "",
+      "link": "https://www.sciencedirect.com/science/article/pii/S0043135426015654?dgcid=rss_sd_all",
+      "source": "Water Research",
+      "published": "2026-09-14T00:02:25.448652+00:00",
+      "hotness": 59.1,
+      "score": 59.1,
+      "score_v1": 14.68,
+      "score_v2": 59.1,
       "score_breakdown": {
         "algorithm": "v2",
-        "source_score": 15.0,
+        "source_score": 25.0,
         "keyword_idf_score": 0.0,
         "resonance_score": 0.0,
-        "quality_score": 10.0,
+        "quality_score": 0.0,
         "base": 25.0,
-        "time_factor": 0.7429,
+        "time_factor": 0.7441,
         "repeat_penalty": 1.0,
         "cross_source_count": 1,
-        "raw": 18.57,
-        "display_score": 75.5
+        "raw": 18.6,
+        "display_score": 59.1
       },
       "score_v1_breakdown": {
         "base": 5.0,
-        "source_score": 3.0,
+        "source_score": 6.0,
         "keyword_score": 0.0,
-        "time_score": 3.65,
+        "time_score": 3.68,
         "topic_bonus": 0.0,
-        "total": 11.65
+        "total": 14.68
       },
-      "summary": "从流星雨到11月的超级月亮，秋日的夜空中有许多令人叹为观止的奇观值得欣赏。",
+      "summary": "纳米零价铁界面调控促进黄腐酸影响铁(II)动力学与羟基自由基生成，提升印迪克洛普利降解效率。",
       "analysis": "该条目涉及【环境资讯】话题，因来源权威性高，热度上升。",
       "topic_tags": [
         "环境资讯"
@@ -446,108 +1356,147 @@
       "keywords": []
     },
     {
-      "title": "徐华清：企业需共同承担气候变化责任，推动全社会绿色低碳转型 - 21财经",
-      "title_en": "",
-      "title_zh": "",
+      "title": "Mechanistic insight into the mechanical stability of anammox granular sludge: Roles of polarity, structure and function of extracellular proteins",
+      "title_en": "Mechanistic insight into the mechanical stability of anammox granular sludge: Roles of polarity, structure and function of extracellular proteins",
+      "title_zh": "对厌氧氨氧化颗粒污泥机械稳定性的机理探索：胞外蛋白的极性、结构与功能的作用",
       "summary_en": "",
       "summary_zh": "",
-      "link": "https://news.google.com/rss/articles/CBMilAFBVV95cUxQbFhhMkVhenRJczBZRk1EU1EtbXV0SF9mOERxSDlkeGFtbFA2YTFKd0FiWnV1NXRXLXRuSm1SeTM5Vng1eGprN3dILVdIaF9IOHl6YVMzZnZFWmlTRUNSUFY1QVhMSHNqYlZEX1dqbWNEMENtVmFJTU9jNWhVSXJ5TGF4QVZLemZaNlZtRGZYZzFXRHBk?oc=5",
-      "source": "Google News 气候变化",
-      "published": "2026-09-12T16:02:17+00:00",
-      "hotness": 72.7,
-      "score": 72.7,
-      "score_v1": 16.13,
-      "score_v2": 72.7,
+      "link": "https://www.sciencedirect.com/science/article/pii/S0043135426015836?dgcid=rss_sd_all",
+      "source": "Water Research",
+      "published": "2026-09-14T00:02:25.448652+00:00",
+      "hotness": 57.7,
+      "score": 57.7,
+      "score_v1": 14.68,
+      "score_v2": 57.7,
       "score_breakdown": {
         "algorithm": "v2",
-        "source_score": 20.0,
-        "keyword_idf_score": 6.83,
-        "resonance_score": 0.0,
-        "quality_score": 0.0,
-        "base": 26.83,
-        "time_factor": 0.6836,
-        "repeat_penalty": 1.0,
-        "cross_source_count": 1,
-        "raw": 18.34,
-        "display_score": 72.7
-      },
-      "score_v1_breakdown": {
-        "base": 5.0,
-        "source_score": 4.5,
-        "keyword_score": 2.0,
-        "time_score": 2.63,
-        "topic_bonus": 2.0,
-        "total": 16.13
-      },
-      "summary": "徐华清表示企业需共同承担气候变化责任，推动全社会绿色低碳转型，十五五期间是实现碳达峰的关键期攻坚期。",
-      "analysis": "该条目涉及【企业需共同承担气候变化责任】话题，因来源权威性高，热度上升。",
-      "topic_tags": [
-        "企业需共同承担气候变化责任"
-      ],
-      "category": "气候变化",
-      "matched_keywords": [
-        "气候变化"
-      ],
-      "keywords": [
-        "气候变化"
-      ]
-    },
-    {
-      "title": "环保科普进社区 绿色理念润民心｜贵阳市绿色家园共建科普宣传走进白金社区 - Sohu",
-      "title_en": "",
-      "title_zh": "",
-      "summary_en": "",
-      "summary_zh": "",
-      "link": "https://news.google.com/rss/articles/CBMijAFBVV95cUxOanAzc2tHTDhSOFVSOWZrbVlUcDJrOThSZ2lOaXpJYzZBOWZuREdrYjAwLWpOQkhtSmo4aEFNRlh2ZVVyZkoyRkpubloxNXdMcTNuZTRrQmlZdkRST3dhQ2p0d1F5QWgzWnh4SVdneXd0UnBMQko4MWx6Y09QbUFPUWkyeS1TQlFMRlllSw?oc=5",
-      "source": "Google News 环境保护",
-      "published": "2026-09-13T15:44:37+00:00",
-      "hotness": 70.0,
-      "score": 70.0,
-      "score_v1": 16.57,
-      "score_v2": 70.0,
-      "score_breakdown": {
-        "algorithm": "v2",
-        "source_score": 20.0,
+        "source_score": 25.0,
         "keyword_idf_score": 0.0,
         "resonance_score": 0.0,
         "quality_score": 0.0,
-        "base": 20.0,
-        "time_factor": 0.8967,
+        "base": 25.0,
+        "time_factor": 0.7441,
         "repeat_penalty": 1.0,
         "cross_source_count": 1,
-        "raw": 17.93,
-        "display_score": 70.0
+        "raw": 18.6,
+        "display_score": 57.7
       },
       "score_v1_breakdown": {
         "base": 5.0,
-        "source_score": 4.5,
+        "source_score": 6.0,
         "keyword_score": 0.0,
-        "time_score": 7.07,
+        "time_score": 3.68,
         "topic_bonus": 0.0,
-        "total": 16.57
+        "total": 14.68
       },
-      "summary": "贵阳市绿色家园科普宣传走进白金社区，普及生态环保知识倡导绿色低碳生活，构建全民参与生态环境保护格局。",
-      "analysis": "该条目涉及【贵阳市绿色家园共建科普宣传走进白金社区】话题，因来源权威性高，热度上升。",
+      "summary": "研究揭示厌氧氨氧化颗粒污泥的力学稳定性机制，分析了极性、结构及细胞外蛋白功能对其稳定性的影响。",
+      "analysis": "该条目涉及【环境资讯】话题，因来源权威性高，热度上升。",
       "topic_tags": [
-        "贵阳市绿色家园共建科普宣传走进白金社区"
+        "环境资讯"
       ],
-      "category": "环境政策",
+      "category": "水处理",
       "matched_keywords": [],
       "keywords": []
     },
     {
-      "title": "污染环境代价有多大？湖南公布10起生态环境损害赔偿典型案例 - hunan.voc.com.cn",
+      "title": "Electronically asymmetric Ru-O-Bi sites enable complementary peroxymonosulfate activation for integrated antimicrobial resistance control in wastewater",
+      "title_en": "Electronically asymmetric Ru-O-Bi sites enable complementary peroxymonosulfate activation for integrated antimicrobial resistance control in wastewater",
+      "title_zh": "电子非对称的Ru-O-Bi位点可实现过一硫酸盐的互补活化，从而在废水中实现综合抗菌药物耐药性控制",
+      "summary_en": "",
+      "summary_zh": "",
+      "link": "https://www.sciencedirect.com/science/article/pii/S0043135426015873?dgcid=rss_sd_all",
+      "source": "Water Research",
+      "published": "2026-09-14T00:02:25.448652+00:00",
+      "hotness": 56.4,
+      "score": 56.4,
+      "score_v1": 14.68,
+      "score_v2": 56.4,
+      "score_breakdown": {
+        "algorithm": "v2",
+        "source_score": 25.0,
+        "keyword_idf_score": 0.0,
+        "resonance_score": 0.0,
+        "quality_score": 0.0,
+        "base": 25.0,
+        "time_factor": 0.7441,
+        "repeat_penalty": 1.0,
+        "cross_source_count": 1,
+        "raw": 18.6,
+        "display_score": 56.4
+      },
+      "score_v1_breakdown": {
+        "base": 5.0,
+        "source_score": 6.0,
+        "keyword_score": 0.0,
+        "time_score": 3.68,
+        "topic_bonus": 0.0,
+        "total": 14.68
+      },
+      "summary": "电子不对称的Ru-O-Bi位点实现过氧单硫酸盐的互补激活，有效控制污水中抗生素耐药基因的传播与去除。",
+      "analysis": "该条目涉及【从而在废水中实现综合抗菌药物耐药性控制】话题，因来源权威性高，热度上升。",
+      "topic_tags": [
+        "从而在废水中实现综合抗菌药物耐药性控制"
+      ],
+      "category": "污染治理",
+      "matched_keywords": [],
+      "keywords": []
+    },
+    {
+      "title": "Nitrate removal by anammox-ZnS biohybrid system utilizing hydraulic kinetic energy",
+      "title_en": "Nitrate removal by anammox-ZnS biohybrid system utilizing hydraulic kinetic energy",
+      "title_zh": "利用水力动能的厌氧氨氧化-ZnS生物混合系统去除硝酸盐",
+      "summary_en": "",
+      "summary_zh": "",
+      "link": "https://www.sciencedirect.com/science/article/pii/S0043135426015812?dgcid=rss_sd_all",
+      "source": "Water Research",
+      "published": "2026-09-14T00:02:25.448652+00:00",
+      "hotness": 55.0,
+      "score": 55.0,
+      "score_v1": 14.68,
+      "score_v2": 55.0,
+      "score_breakdown": {
+        "algorithm": "v2",
+        "source_score": 25.0,
+        "keyword_idf_score": 0.0,
+        "resonance_score": 0.0,
+        "quality_score": 0.0,
+        "base": 25.0,
+        "time_factor": 0.7441,
+        "repeat_penalty": 1.0,
+        "cross_source_count": 1,
+        "raw": 18.6,
+        "display_score": 55.0
+      },
+      "score_v1_breakdown": {
+        "base": 5.0,
+        "source_score": 6.0,
+        "keyword_score": 0.0,
+        "time_score": 3.68,
+        "topic_bonus": 0.0,
+        "total": 14.68
+      },
+      "summary": "利用厌氧氨氧化-ZnS生物混合系统，通过水力动能驱动硫化锌参与硝酸盐的高效去除净化过程。",
+      "analysis": "该条目涉及【环境资讯】话题，因来源权威性高，热度上升。",
+      "topic_tags": [
+        "环境资讯"
+      ],
+      "category": "能源与碳中和",
+      "matched_keywords": [],
+      "keywords": []
+    },
+    {
+      "title": "【调研】孙金龙、黄润秋赴两省调研生态环境保护工作 - Sohu",
       "title_en": "",
       "title_zh": "",
       "summary_en": "",
       "summary_zh": "",
-      "link": "https://news.google.com/rss/articles/CBMiX0FVX3lxTE9pYlRzQTBNc19LclllVnlxV0dKaUV0aU9zTDFtN21YUXJHcVVhajNkLVRxLWZKWHAzR1BNcWZpUHJVakJtMldEYUFQZGFTR3hRNU1qZFI4MU1LbGVUOWhV?oc=5",
+      "link": "https://news.google.com/rss/articles/CBMijAFBVV95cUxPcTN0QVltVDRocUZkckZyMG1RR3I2ZUZwZmVQZ1VOM19YU1JxejNILVJQbE5laUdLamZaZUkxWVFYOE5fYWYxNnhhNmVXOTVIcmRrWEZEcTFaVnhleTFxT2Y2SjRQZldaeDJEbmc1RWcySzZ1ekxpWHRUREVkR05EY3R0M3JoVV9SVl9uSA?oc=5",
       "source": "Google News 环境污染",
-      "published": "2026-09-13T14:35:00+00:00",
-      "hotness": 67.3,
-      "score": 67.3,
-      "score_v1": 16.24,
-      "score_v2": 67.3,
+      "published": "2026-09-14T11:07:30+00:00",
+      "hotness": 53.6,
+      "score": 53.6,
+      "score_v1": 15.33,
+      "score_v2": 53.6,
       "score_breakdown": {
         "algorithm": "v2",
         "source_score": 20.0,
@@ -555,21 +1504,64 @@
         "resonance_score": 0.0,
         "quality_score": 0.0,
         "base": 20.0,
-        "time_factor": 0.8836,
+        "time_factor": 0.8465,
         "repeat_penalty": 1.0,
         "cross_source_count": 1,
-        "raw": 17.67,
-        "display_score": 67.3
+        "raw": 16.93,
+        "display_score": 53.6
       },
       "score_v1_breakdown": {
         "base": 5.0,
         "source_score": 4.5,
         "keyword_score": 0.0,
-        "time_score": 6.74,
+        "time_score": 5.83,
         "topic_bonus": 0.0,
-        "total": 16.24
+        "total": 15.33
       },
-      "summary": "湖南公布10起生态环境损害赔偿典型案例，揭示污染环境代价，通过典型案例引导责任主体履行赔偿义务。",
+      "summary": "生态环境部党组书记孙金龙赴黑龙江省调研生态环境保护工作，重点检查北大荒集团等企业秸秆资源化利用与清洁能源项目建设情况。",
+      "analysis": "该条目涉及【黄润秋赴两省调研生态环境保护工作】话题，因来源权威性高，热度上升。",
+      "topic_tags": [
+        "黄润秋赴两省调研生态环境保护工作"
+      ],
+      "category": "生态环境",
+      "matched_keywords": [],
+      "keywords": []
+    },
+    {
+      "title": "污染环境代价有多大？湖南公布10起生态环境损害赔偿典型案例 - 凤凰网",
+      "title_en": "",
+      "title_zh": "",
+      "summary_en": "",
+      "summary_zh": "",
+      "link": "https://news.google.com/rss/articles/CBMiTkFVX3lxTE1qbXB0eEpZTDFPSmswSmxXbFNWcGZRZi1vbldfMlRLTmJKQkRUa1VZYXk2MkxDQUU3NFFtbWNGYzJJTnpaLTdwcERST3ZvUQ?oc=5",
+      "source": "Google News 生态环境",
+      "published": "2026-09-14T10:57:09+00:00",
+      "hotness": 52.3,
+      "score": 52.3,
+      "score_v1": 15.29,
+      "score_v2": 52.3,
+      "score_breakdown": {
+        "algorithm": "v2",
+        "source_score": 20.0,
+        "keyword_idf_score": 0.0,
+        "resonance_score": 0.0,
+        "quality_score": 0.0,
+        "base": 20.0,
+        "time_factor": 0.8447,
+        "repeat_penalty": 1.0,
+        "cross_source_count": 1,
+        "raw": 16.89,
+        "display_score": 52.3
+      },
+      "score_v1_breakdown": {
+        "base": 5.0,
+        "source_score": 4.5,
+        "keyword_score": 0.0,
+        "time_score": 5.79,
+        "topic_bonus": 0.0,
+        "total": 15.29
+      },
+      "summary": "湖南省公布10起生态环境损害赔偿典型案例，揭示污染环境的经济代价与法律责任，推动生态修复与赔偿机制落实。",
       "analysis": "该条目涉及【起生态环境损害赔偿典型案例】话题，因来源权威性高，热度上升。",
       "topic_tags": [
         "起生态环境损害赔偿典型案例"
@@ -579,18 +1571,18 @@
       "keywords": []
     },
     {
-      "title": "部长调研，现场取样检测 - 新京报",
+      "title": "“4+3+2”九大举措落地！生态环境科创多元投入体系成型 - Sohu",
       "title_en": "",
       "title_zh": "",
       "summary_en": "",
       "summary_zh": "",
-      "link": "https://news.google.com/rss/articles/CBMiZEFVX3lxTFB3c3NCeFRadHV4V2NFTEdjdV9EbTFibHZFazBPWFZnV3JjcjZhTWRoRUx2aEFkM0RjWXNSSzgtOUphX0lCNy0yYm5pZzJmU0JDakNYcDBHYjQ4aHM0UmpTXzJXZGE?oc=5",
-      "source": "Google News 环境污染",
-      "published": "2026-09-13T14:08:00+00:00",
-      "hotness": 64.5,
-      "score": 64.5,
-      "score_v1": 16.11,
-      "score_v2": 64.5,
+      "link": "https://news.google.com/rss/articles/CBMijAFBVV95cUxNY0N6V2tRcWRCcW1UZk9lb055cnpsSnNLUXRTSElOYUMwblA1RGFoVlFYRlhlM3FtTzMxNmxLTklvU2FBUEZYYjE0cTZtVlBLeTRJbzRUSmpxU0k2QkJpeFlPT1NHZ1BIM2JqWW5ZdXA1RzZWM1VqVU5TWTRmRU80eHNUVUM4TXNlSDZ3UA?oc=5",
+      "source": "Google News 生态环境",
+      "published": "2026-09-14T10:40:00+00:00",
+      "hotness": 50.9,
+      "score": 50.9,
+      "score_v1": 15.22,
+      "score_v2": 50.9,
       "score_breakdown": {
         "algorithm": "v2",
         "source_score": 20.0,
@@ -598,85 +1590,42 @@
         "resonance_score": 0.0,
         "quality_score": 0.0,
         "base": 20.0,
-        "time_factor": 0.8787,
+        "time_factor": 0.8418,
         "repeat_penalty": 1.0,
         "cross_source_count": 1,
-        "raw": 17.57,
-        "display_score": 64.5
+        "raw": 16.84,
+        "display_score": 50.9
       },
       "score_v1_breakdown": {
         "base": 5.0,
         "source_score": 4.5,
         "keyword_score": 0.0,
-        "time_score": 6.61,
+        "time_score": 5.72,
         "topic_bonus": 0.0,
-        "total": 16.11
+        "total": 15.22
       },
-      "summary": "新京报部长现场调研并取样检测，重点督察生态环境保护工作，通过实地检测评估污染状况与治理效果。",
-      "analysis": "该条目涉及【环境资讯】话题，因来源权威性高，热度上升。",
+      "summary": "生态环境部等五部门联合印发《指导意见》，构建生态环境科创多元化投入体系，旨在优化科技创新资源配置，推动生态环境保护科技成果转化与应用。",
+      "analysis": "该条目涉及【生态环境科创多元投入体系成型】话题，因来源权威性高，热度上升。",
       "topic_tags": [
-        "环境资讯"
-      ],
-      "category": "科研学术",
-      "matched_keywords": [],
-      "keywords": []
-    },
-    {
-      "title": "省第二生态环境保护督察组召开常德市秸秆综合利用和禁限烧工作会商会 - 新浪财经",
-      "title_en": "",
-      "title_zh": "",
-      "summary_en": "",
-      "summary_zh": "",
-      "link": "https://news.google.com/rss/articles/CBMieEFVX3lxTE1Ga19fdkpsNXVyTW9yQmw2UkdmUDlnNEFlMGYwd2JqT3VpNi1vSS1CWWVySWZXSlotZkVRV1NJM1FtYVB6Y21ERlFXdlpCbnJ3RWp4U3NUR1o3TktBUGJoUWRLckt2eDhJSjFaSG5JdFdiQm9sT25MRQ?oc=5",
-      "source": "Google News 环境保护",
-      "published": "2026-09-13T13:12:00+00:00",
-      "hotness": 61.8,
-      "score": 61.8,
-      "score_v1": 15.86,
-      "score_v2": 61.8,
-      "score_breakdown": {
-        "algorithm": "v2",
-        "source_score": 20.0,
-        "keyword_idf_score": 0.0,
-        "resonance_score": 0.0,
-        "quality_score": 0.0,
-        "base": 20.0,
-        "time_factor": 0.8685,
-        "repeat_penalty": 1.0,
-        "cross_source_count": 1,
-        "raw": 17.37,
-        "display_score": 61.8
-      },
-      "score_v1_breakdown": {
-        "base": 5.0,
-        "source_score": 4.5,
-        "keyword_score": 0.0,
-        "time_score": 6.36,
-        "topic_bonus": 0.0,
-        "total": 15.86
-      },
-      "summary": "省第二生态环境保护督察组召开常德市秸秆综合利用和禁限烧工作会商会，推动秸秆综合利用禁烧治理。",
-      "analysis": "该条目涉及【省第二生态环境保护督察组召开常德市秸秆综合利用和禁限烧工作会商会】话题，因来源权威性高，热度上升。",
-      "topic_tags": [
-        "省第二生态环境保护督察组召开常德市秸秆综合利用和禁限烧工作会商会"
+        "生态环境科创多元投入体系成型"
       ],
       "category": "生态环境",
       "matched_keywords": [],
       "keywords": []
     },
     {
-      "title": "生态环境部部长黄润秋赴江西省调研生态环境保护工作 - 凤凰网江西",
+      "title": "以科创践初心，以AI护碧水，申城这群学生让污染溯源有了“智慧眼” - shobserver.com",
       "title_en": "",
       "title_zh": "",
       "summary_en": "",
       "summary_zh": "",
-      "link": "https://news.google.com/rss/articles/CBMiSkFVX3lxTFB1aDBmZF9xekkydWpwMmtESHZwYVRSb2NRbVpyMkZON3FPVmNfcFkyNUhuWnJZX1IyTVBjc3RBdTI5dllzNFAyU2lR?oc=5",
-      "source": "Google News 环境保护",
-      "published": "2026-09-13T13:01:29+00:00",
-      "hotness": 59.1,
-      "score": 59.1,
-      "score_v1": 15.82,
-      "score_v2": 59.1,
+      "link": "https://news.google.com/rss/articles/CBMiXkFVX3lxTE1VdldEM3lZVWMtSmdNTmpnTUcyNzFqZEo3T20wWlJTOWxOX2s4Y3I2YzVqcWJaaExuRk9tWWIwc0l1T0UxelRhR1JFWWU3THlCbEdJX1RHaUc2cFdXSHc?oc=5",
+      "source": "Google News 环境污染",
+      "published": "2026-09-14T07:03:00+00:00",
+      "hotness": 49.5,
+      "score": 49.5,
+      "score_v1": 14.42,
+      "score_v2": 49.5,
       "score_breakdown": {
         "algorithm": "v2",
         "source_score": 20.0,
@@ -684,21 +1633,279 @@
         "resonance_score": 0.0,
         "quality_score": 0.0,
         "base": 20.0,
-        "time_factor": 0.8666,
+        "time_factor": 0.8061,
         "repeat_penalty": 1.0,
         "cross_source_count": 1,
-        "raw": 17.33,
-        "display_score": 59.1
+        "raw": 16.12,
+        "display_score": 49.5
       },
       "score_v1_breakdown": {
         "base": 5.0,
         "source_score": 4.5,
         "keyword_score": 0.0,
-        "time_score": 6.32,
+        "time_score": 4.92,
         "topic_bonus": 0.0,
-        "total": 15.82
+        "total": 14.42
       },
-      "summary": "生态环境部部长黄润秋赴江西省调研生态环境保护工作，重点督察指导全省生态环境保护重点任务落实情况。",
+      "summary": "广州车主炸街扰民将面临扣驾驶证处罚，引发对《生态环境法》新法典适用性的讨论，突显交通执法对噪音污染的严厉打击力度。",
+      "analysis": "该条目涉及【申城这群学生让污染溯源有了】话题，因来源权威性高，热度上升。",
+      "topic_tags": [
+        "申城这群学生让污染溯源有了"
+      ],
+      "category": "污染治理",
+      "matched_keywords": [],
+      "keywords": []
+    },
+    {
+      "title": "炸街扰民被扣驾驶证|生态环境法典|中山市公安局交通警察支队车辆管理所_新浪新闻 - 新浪网",
+      "title_en": "",
+      "title_zh": "",
+      "summary_en": "",
+      "summary_zh": "",
+      "link": "https://news.google.com/rss/articles/CBMiY0FVX3lxTE1XTVUzN19hdi0xVXprLXVtYl8tNnB4cHVISWdnR2xGLVM2Y3RtV29WVEV3SlNIZG1xQy1DUGExRUQyNXMxRkJ5MEUzNk56RjM2RzJtY3pFU3ZQOGp5c3RkeHJTRQ?oc=5",
+      "source": "Google News 生态环境",
+      "published": "2026-09-14T04:00:00+00:00",
+      "hotness": 48.2,
+      "score": 48.2,
+      "score_v1": 13.84,
+      "score_v2": 48.2,
+      "score_breakdown": {
+        "algorithm": "v2",
+        "source_score": 20.0,
+        "keyword_idf_score": 0.0,
+        "resonance_score": 0.0,
+        "quality_score": 0.0,
+        "base": 20.0,
+        "time_factor": 0.778,
+        "repeat_penalty": 1.0,
+        "cross_source_count": 1,
+        "raw": 15.56,
+        "display_score": 48.2
+      },
+      "score_v1_breakdown": {
+        "base": 5.0,
+        "source_score": 4.5,
+        "keyword_score": 0.0,
+        "time_score": 4.34,
+        "topic_bonus": 0.0,
+        "total": 13.84
+      },
+      "summary": "福州市发布《十五五》生态环境保护规划，部署十个方面重点任务，旨在构建系统化、目标明确的未来五年环境保护蓝图与发展路径。",
+      "analysis": "该条目涉及【生态环境法典】话题，因来源权威性高，热度上升。",
+      "topic_tags": [
+        "生态环境法典"
+      ],
+      "category": "生态环境",
+      "matched_keywords": [],
+      "keywords": []
+    },
+    {
+      "title": "《福州市“十五五”生态环境保护规划》部署十个方面重点任务（全文+解读） - 福州市人民政府",
+      "title_en": "",
+      "title_zh": "",
+      "summary_en": "",
+      "summary_zh": "",
+      "link": "https://news.google.com/rss/articles/CBMiggFBVV95cUxQd3Q2Y19sSmxiTjF4bHh0ODRMWmlMbXpMUmdyMGMzd1daUEN2ampsZjZlWFptSlJoVW5keTFqd2VnUE5Hc09OdEFrUnBnVVBQQXpxbkxTd3QxNk9DaHl5LUctV3V5Y2VWaHY4NmY2OTlzU1lDN1B2TWphSTllZDJQQXJn?oc=5",
+      "source": "Google News 环境保护",
+      "published": "2026-09-14T01:33:00+00:00",
+      "hotness": 46.8,
+      "score": 46.8,
+      "score_v1": 13.41,
+      "score_v2": 46.8,
+      "score_breakdown": {
+        "algorithm": "v2",
+        "source_score": 20.0,
+        "keyword_idf_score": 0.0,
+        "resonance_score": 0.0,
+        "quality_score": 0.0,
+        "base": 20.0,
+        "time_factor": 0.7567,
+        "repeat_penalty": 1.0,
+        "cross_source_count": 1,
+        "raw": 15.13,
+        "display_score": 46.8
+      },
+      "score_v1_breakdown": {
+        "base": 5.0,
+        "source_score": 4.5,
+        "keyword_score": 0.0,
+        "time_score": 3.91,
+        "topic_bonus": 0.0,
+        "total": 13.41
+      },
+      "summary": "湖南第五生态环境保护督察组开展现场调研，深入江永、江华地区实地查看环境保护工作情况，推动督察落实与问题整改落地。",
+      "analysis": "该条目涉及【生态环境保护规划】话题，因来源权威性高，热度上升。",
+      "topic_tags": [
+        "生态环境保护规划"
+      ],
+      "category": "生态环境",
+      "matched_keywords": [],
+      "keywords": []
+    },
+    {
+      "title": "省第五生态环境保护督察组赴江永、江华开展现场调研 - 湖南红网",
+      "title_en": "",
+      "title_zh": "",
+      "summary_en": "",
+      "summary_zh": "",
+      "link": "https://news.google.com/rss/articles/CBMiYkFVX3lxTFA0NFRUaXF3dWhiQ1JJUGZUajNXbWJUSkFzMkxLajV1elpLYTVWcWoyaS1nSnFTQkpscmNBR3p4Y2Q4Z0hYLUltUm9OMFBmU0w2b3RpaWNSRllFN3c0OGlnMUFB?oc=5",
+      "source": "Google News 环境保护",
+      "published": "2026-09-14T00:55:20+00:00",
+      "hotness": 45.5,
+      "score": 45.5,
+      "score_v1": 13.31,
+      "score_v2": 45.5,
+      "score_breakdown": {
+        "algorithm": "v2",
+        "source_score": 20.0,
+        "keyword_idf_score": 0.0,
+        "resonance_score": 0.0,
+        "quality_score": 0.0,
+        "base": 20.0,
+        "time_factor": 0.7514,
+        "repeat_penalty": 1.0,
+        "cross_source_count": 1,
+        "raw": 15.03,
+        "display_score": 45.5
+      },
+      "score_v1_breakdown": {
+        "base": 5.0,
+        "source_score": 4.5,
+        "keyword_score": 0.0,
+        "time_score": 3.81,
+        "topic_bonus": 0.0,
+        "total": 13.31
+      },
+      "summary": "省第五生态环境保护督察组赴江永、江华开展现场调研 - 湖南红网",
+      "analysis": "该条目涉及【省第五生态环境保护督察组赴江永】话题，因来源权威性高，热度上升。",
+      "topic_tags": [
+        "省第五生态环境保护督察组赴江永"
+      ],
+      "category": "生态环境",
+      "matched_keywords": [],
+      "keywords": []
+    },
+    {
+      "title": "智库论见丨以生态环境生产率跃升夯实“十五五”高质量发展绿色根基 - Sohu",
+      "title_en": "",
+      "title_zh": "",
+      "summary_en": "",
+      "summary_zh": "",
+      "link": "https://news.google.com/rss/articles/CBMiiAFBVV95cUxPN2pKSkt0Mld0azVlRU9GbG9iQlhJUmIwUnRtM2FkWVVPTDFlRW1hc0lWbElJX3h2TFFpTi1GenkwQUpMZmg2UDR4VVVLZXRocm43VDIzU2tEVjJFQTBoQlZGX1NLaU1ZeUZvaGQ5cHh1c3BTSkdvUVI1eUYyX1BPVFZNc2pSWnRU?oc=5",
+      "source": "Google News 生态环境",
+      "published": "2026-09-14T00:49:41+00:00",
+      "hotness": 44.1,
+      "score": 44.1,
+      "score_v1": 13.3,
+      "score_v2": 44.1,
+      "score_breakdown": {
+        "algorithm": "v2",
+        "source_score": 20.0,
+        "keyword_idf_score": 0.0,
+        "resonance_score": 0.0,
+        "quality_score": 0.0,
+        "base": 20.0,
+        "time_factor": 0.7506,
+        "repeat_penalty": 1.0,
+        "cross_source_count": 1,
+        "raw": 15.01,
+        "display_score": 44.1
+      },
+      "score_v1_breakdown": {
+        "base": 5.0,
+        "source_score": 4.5,
+        "keyword_score": 0.0,
+        "time_score": 3.8,
+        "topic_bonus": 0.0,
+        "total": 13.3
+      },
+      "summary": "聚焦“十五五”规划，探讨生态环境生产率跃升路径，阐述以碳达峰碳中和为核心，协同推进降碳减污扩绿增长，夯实高质量发展绿色根基。",
+      "analysis": "该条目涉及【智库论见丨以生态环境生产率跃升夯实】话题，因来源权威性高，热度上升。",
+      "topic_tags": [
+        "智库论见丨以生态环境生产率跃升夯实"
+      ],
+      "category": "生态环境",
+      "matched_keywords": [],
+      "keywords": []
+    },
+    {
+      "title": "人民直击｜沼液还田，施肥不当致污染 - society.people.com.cn",
+      "title_en": "",
+      "title_zh": "",
+      "summary_en": "",
+      "summary_zh": "",
+      "link": "https://news.google.com/rss/articles/CBMicEFVX3lxTE45SGpDQ09IUElVSWw0c3RPY3RSTDhCX1JkcmVCVURCcmpsSnpQNmdhTUNCN1pCQjc1YzRBT3RUQ1dFRFpwdHRmYm1fQW41bGVlS0o0Z3NUX2RQdmhOVjVYa19fUGFnY3JoLU9kd2lOUmY?oc=5",
+      "source": "Google News 环境污染",
+      "published": "2026-09-13T23:17:00+00:00",
+      "hotness": 42.7,
+      "score": 42.7,
+      "score_v1": 13.06,
+      "score_v2": 42.7,
+      "score_breakdown": {
+        "algorithm": "v2",
+        "source_score": 20.0,
+        "keyword_idf_score": 0.0,
+        "resonance_score": 0.0,
+        "quality_score": 0.0,
+        "base": 20.0,
+        "time_factor": 0.7379,
+        "repeat_penalty": 1.0,
+        "cross_source_count": 1,
+        "raw": 14.76,
+        "display_score": 42.7
+      },
+      "score_v1_breakdown": {
+        "base": 5.0,
+        "source_score": 4.5,
+        "keyword_score": 0.0,
+        "time_score": 3.56,
+        "topic_bonus": 0.0,
+        "total": 13.06
+      },
+      "summary": "报道沼液还田施肥不当导致环境污染问题，强调科学施肥关键性，警示农业面源污染防控需强化技术指导与监管。",
+      "analysis": "该条目涉及【施肥不当致污染】话题，因来源权威性高，热度上升。",
+      "topic_tags": [
+        "施肥不当致污染"
+      ],
+      "category": "污染治理",
+      "matched_keywords": [],
+      "keywords": []
+    },
+    {
+      "title": "生态环境部部长黄润秋赴江西省调研生态环境保护工作 - finance.sina.cn",
+      "title_en": "",
+      "title_zh": "",
+      "summary_en": "",
+      "summary_zh": "",
+      "link": "https://news.google.com/rss/articles/CBMi2gFBVV95cUxPMjVVRlRjTURVLW5KQmxSMS1pd0pLLUtwU2F4YmlVXzI3YkJNelRZSU1oNW01b0lWYVlRXzl2aTdjUVBOLS1panViUG1CRmJFUldlRHhRTUFnbWk1UzlyWE9SaFNMQzhKYnVET21NWVpsc19VQ3Q3MmtDNV8zeVlMWUh2eTZvS0hCaVZsdW5EOGVnM3Z1LWN0UzVaTzdaZWc5ZFo1STVadW5IOC1RRzVOLURQRHZ3RW82UUVjLW56bkxIRDRaTzVNWG13NGhMM09GNENnM0tLWHo2Zw?oc=5",
+      "source": "Google News 生态环境",
+      "published": "2026-09-13T18:26:33+00:00",
+      "hotness": 41.4,
+      "score": 41.4,
+      "score_v1": 12.41,
+      "score_v2": 41.4,
+      "score_breakdown": {
+        "algorithm": "v2",
+        "source_score": 20.0,
+        "keyword_idf_score": 0.0,
+        "resonance_score": 0.0,
+        "quality_score": 0.0,
+        "base": 20.0,
+        "time_factor": 0.7007,
+        "repeat_penalty": 1.0,
+        "cross_source_count": 1,
+        "raw": 14.01,
+        "display_score": 41.4
+      },
+      "score_v1_breakdown": {
+        "base": 5.0,
+        "source_score": 4.5,
+        "keyword_score": 0.0,
+        "time_score": 2.91,
+        "topic_bonus": 0.0,
+        "total": 12.41
+      },
+      "summary": "生态环境部部长黄润秋赴江西调研，重点考察当地生态环境保护工作情况，督导落实碳达峰碳中和目标，推动美丽中国建设相关举措落地见效。",
       "analysis": "该条目涉及【生态环境部】话题，因来源权威性高，热度上升。",
       "topic_tags": [
         "生态环境部"
@@ -708,349 +1915,85 @@
       "keywords": []
     },
     {
-      "title": "江西省生态环境系统以学促干聚力共建美丽城市 - 新浪财经",
-      "title_en": "",
-      "title_zh": "",
-      "summary_en": "",
-      "summary_zh": "",
-      "link": "https://news.google.com/rss/articles/CBMi2AFBVV95cUxONWUwWFpEZmk3VTVnZk5BbGZBbGh6TkcyQmRXYmdmem1oNldnYVJUQzdoLXc0YnpXemxSYUVCdXoyR2RzUUJDeEtkRVQydmo1T1pHUlY2TlFSQnJvSUV6QmI5b21XeUlmZzY2T05icXFLMnhsWk9hdmZNcjZHM2F3RTkxRW1VSnp5MEgyWkZzWjRjbV9aSHNzOGV2eW92RUt1VGdKWE1yOTVDVklCMkRtXy1ZWXJCbk56ZWxuakdtLXYwZFM4MUdVWmtIMTYxNVpwaGlmeUFkdU8?oc=5",
-      "source": "Google News 生态环境",
-      "published": "2026-09-13T12:06:21+00:00",
-      "hotness": 56.4,
-      "score": 56.4,
-      "score_v1": 15.58,
-      "score_v2": 56.4,
-      "score_breakdown": {
-        "algorithm": "v2",
-        "source_score": 20.0,
-        "keyword_idf_score": 0.0,
-        "resonance_score": 0.0,
-        "quality_score": 0.0,
-        "base": 20.0,
-        "time_factor": 0.8568,
-        "repeat_penalty": 1.0,
-        "cross_source_count": 1,
-        "raw": 17.14,
-        "display_score": 56.4
-      },
-      "score_v1_breakdown": {
-        "base": 5.0,
-        "source_score": 4.5,
-        "keyword_score": 0.0,
-        "time_score": 6.08,
-        "topic_bonus": 0.0,
-        "total": 15.58
-      },
-      "summary": "江西省生态环境系统以学促干聚力共建美丽城市，聚焦美丽城市建设核心课题开展专业化、系统化辅导培训。",
-      "analysis": "该条目涉及【江西省生态环境系统以学促干聚力共建美丽城市】话题，因来源权威性高，热度上升。",
-      "topic_tags": [
-        "江西省生态环境系统以学促干聚力共建美丽城市"
-      ],
-      "category": "生态环境",
-      "matched_keywords": [],
-      "keywords": []
-    },
-    {
-      "title": "《扬州市长江水域船舶污染事故应急处置预案》修订发布 - 紫牛新闻",
-      "title_en": "",
-      "title_zh": "",
-      "summary_en": "",
-      "summary_zh": "",
-      "link": "https://news.google.com/rss/articles/CBMib0FVX3lxTE5fV2N4WldmZnQ5ZFZldUJxWlg1WDJfM2o3Z0lCQk1DRlM3TkE2dTExdUppV0R0V3h6cDBjNWhQUkpxakI2UjlhU3pmd3NFRHkwZjNjb2pOc2ZxWjc2QWhmbzNESnEwMHZDNUtPV2RCcw?oc=5",
-      "source": "Google News 环境污染",
-      "published": "2026-09-13T11:46:00+00:00",
-      "hotness": 53.6,
-      "score": 53.6,
-      "score_v1": 15.49,
-      "score_v2": 53.6,
-      "score_breakdown": {
-        "algorithm": "v2",
-        "source_score": 20.0,
-        "keyword_idf_score": 0.0,
-        "resonance_score": 0.0,
-        "quality_score": 0.0,
-        "base": 20.0,
-        "time_factor": 0.8532,
-        "repeat_penalty": 1.0,
-        "cross_source_count": 1,
-        "raw": 17.06,
-        "display_score": 53.6
-      },
-      "score_v1_breakdown": {
-        "base": 5.0,
-        "source_score": 4.5,
-        "keyword_score": 0.0,
-        "time_score": 5.99,
-        "topic_bonus": 0.0,
-        "total": 15.49
-      },
-      "summary": "扬州市发布长江水域船舶污染事故应急处置预案，旨在规范应急处置流程，提升水域船舶污染事故应对能力。",
-      "analysis": "该条目涉及【扬州市长江水域船舶污染事故应急处置预案】话题，因来源权威性高，热度上升。",
-      "topic_tags": [
-        "扬州市长江水域船舶污染事故应急处置预案"
-      ],
-      "category": "污染治理",
-      "matched_keywords": [],
-      "keywords": []
-    },
-    {
-      "title": "Record heatwaves in France set to make champagne stronger",
-      "title_en": "Record heatwaves in France set to make champagne stronger",
-      "title_zh": "法国创纪录的热浪将使香槟酒的酒精度更高",
-      "summary_en": "Winemakers can produce bubbly up to 15% ABV following an unusual harvest that produced sweeter grapes.",
-      "summary_zh": "由于今年收成不同寻常，葡萄甜度较高，酿酒师们可以酿造出酒精度高达15%的起泡酒。",
-      "link": "https://www.bbc.co.uk/news/articles/cvgydvrlep1o?at_medium=RSS&at_campaign=rss",
+      "title": "Flash flooding interrupts half-marathon, submerges cars",
+      "title_en": "Flash flooding interrupts half-marathon, submerges cars",
+      "title_zh": "山洪暴发导致半程马拉松比赛中断，多辆汽车被淹",
+      "summary_en": "Parts of New York, New Jersey and Connecticut were hit by flash flooding, leading to water rescues, stranded motorists and half-marathon runners battling the floodwaters.",
+      "summary_zh": "纽约、新泽西和康涅狄格的部分地区遭遇了突发性洪涝，导致需要进行水上救援，部分司机被困，半程马拉松选手则在洪水中奋力前行。",
+      "link": "https://www.bbc.co.uk/news/videos/cqdj48mpw8mro?at_medium=RSS&at_campaign=rss",
       "source": "BBC 科学与环境",
-      "published": "2026-09-12T13:00:32+00:00",
-      "hotness": 50.9,
-      "score": 50.9,
-      "score_v1": 10.32,
-      "score_v2": 50.9,
-      "score_breakdown": {
-        "algorithm": "v2",
-        "source_score": 15.0,
-        "keyword_idf_score": 0.0,
-        "resonance_score": 0.0,
-        "quality_score": 10.0,
-        "base": 25.0,
-        "time_factor": 0.6632,
-        "repeat_penalty": 1.0,
-        "cross_source_count": 1,
-        "raw": 16.58,
-        "display_score": 50.9
-      },
-      "score_v1_breakdown": {
-        "base": 5.0,
-        "source_score": 3.0,
-        "keyword_score": 0.0,
-        "time_score": 2.32,
-        "topic_bonus": 0.0,
-        "total": 10.32
-      },
-      "summary": "由于今年收成不同寻常，葡萄甜度较高，酿酒师们可以酿造出酒精度高达15%的起泡酒。",
-      "analysis": "该条目涉及【法国创纪录的热浪将使香槟酒的酒精度更高】话题，因来源权威性高，热度上升。",
-      "topic_tags": [
-        "法国创纪录的热浪将使香槟酒的酒精度更高"
-      ],
-      "category": "气候变化",
-      "matched_keywords": [],
-      "keywords": []
-    },
-    {
-      "title": "We know how to prevent black lung, so why are workers still dying?",
-      "title_en": "We know how to prevent black lung, so why are workers still dying?",
-      "title_zh": "我们明明知道如何预防黑肺病，那为什么工人还在死亡呢？",
-      "summary_en": "Silicosis sufferers are getting younger as Trump and the coal mining industry push back on protectionsSilicosis is one of the oldest workplace hazards and public health experts have known for decades how to prevent it. Yet a new wave of workers, from Appalachian coalminers to Latino countertop fabrication workers, are developing and dying from the disease as industry fights new protections and regulators fail to defend the rules that could protect them.John Robinson’s grandfather developed black lung back when coalminers could spend decades in the mines before being diagnosed with the disease, often dying in their 60s, 70s and 80s. But Robinson, who mined for coal in south-west Virginia, was diagnosed when he was 47. He’s part of a trend that has grown over the past two decades in central Appalachia, where more coalminers are developing black lung disease at younger ages. Continue reading...",
-      "summary_zh": "随着特朗普和煤炭行业对防护措施的抵制，矽肺病患者的年龄正日益年轻化。矽肺病是最古老的职业危害之一，数十年来，公共卫生专家早已掌握了预防方法。 然而，从阿巴拉契亚地区的煤矿工人到拉丁裔台面加工工人，新一波劳动者正因该疾病而患病甚至死亡——与此同时，行业正抵制新的保护措施，而监管机构却未能捍卫那些本可保护他们的法规。约翰·罗宾逊的祖父患上了黑肺病，那时煤矿工人往往要在矿井中工作数十年才会被确诊，通常在60、70或80多岁时去世。 但曾在弗吉尼亚州西南部采煤的罗宾逊，却在47岁时就被确诊。他反映了阿巴拉契亚中部地区过去二十年间日益加剧的一种趋势：越来越多的煤矿工人在更年轻的年龄就患上了黑肺病。继续阅读...",
-      "link": "https://www.theguardian.com/us-news/2026/sep/12/black-lung-worker-deaths",
-      "source": "The Guardian Environment",
-      "published": "2026-09-12T11:00:34+00:00",
-      "hotness": 48.2,
-      "score": 48.2,
-      "score_v1": 10.14,
-      "score_v2": 48.2,
-      "score_breakdown": {
-        "algorithm": "v2",
-        "source_score": 15.0,
-        "keyword_idf_score": 0.0,
-        "resonance_score": 0.0,
-        "quality_score": 10.0,
-        "base": 25.0,
-        "time_factor": 0.6504,
-        "repeat_penalty": 1.0,
-        "cross_source_count": 1,
-        "raw": 16.26,
-        "display_score": 48.2
-      },
-      "score_v1_breakdown": {
-        "base": 5.0,
-        "source_score": 3.0,
-        "keyword_score": 0.0,
-        "time_score": 2.14,
-        "topic_bonus": 0.0,
-        "total": 10.14
-      },
-      "summary": "随着特朗普和煤炭行业对防护措施的抵制，矽肺病患者的年龄正日益年轻化。矽肺病是最古老的职业危害之一，数十年来，公共卫生专家早已掌握了预防方法。 然而，从阿巴拉契亚地区的煤矿工人到拉丁裔台面加工工人，新一波劳动者正因该疾病而患病甚至死亡——与此同时，行业正抵制新的保护措施，而监管机构却未能捍卫那些本可保护他们的法规。约翰·罗宾逊的祖父患上了黑肺病，那时煤矿工人往往要在矿井中工作数十年才会被确诊，通常在60、70或80多岁时去世。 但曾在弗吉尼亚州西南部采煤的罗宾逊，却在47岁时就被确诊。他反映了阿巴拉契亚中部地区过去二十年间日益加剧的一种趋势：越来越多的煤矿工人在更年轻的年龄就患上了黑肺病。继续阅读...",
-      "analysis": "该条目涉及【环境资讯】话题，因来源权威性高，热度上升。",
-      "topic_tags": [
-        "环境资讯"
-      ],
-      "category": "能源与碳中和",
-      "matched_keywords": [],
-      "keywords": []
-    },
-    {
-      "title": "生态环境法典刚落地，他们就开启了排污许可版“华山论剑” - 新浪财经",
-      "title_en": "",
-      "title_zh": "",
-      "summary_en": "",
-      "summary_zh": "",
-      "link": "https://news.google.com/rss/articles/CBMidkFVX3lxTE9nTnlpSFJqbno4SFlDU3JyMUp3Nnp1QlA1bnkzN01RdTk3WnVlWmpsTmNxaW1CTWlfMk9vYUV0dHlidWVoZkhmYlc2UGxzMHRlcVpoeFpVbDZHZDk3LWY5MDJWOXNXbUl2TUJsSkZXMU1TOXB1Vmc?oc=5",
-      "source": "Google News 生态环境",
-      "published": "2026-09-13T07:00:00+00:00",
-      "hotness": 45.5,
-      "score": 45.5,
-      "score_v1": 14.41,
-      "score_v2": 45.5,
-      "score_breakdown": {
-        "algorithm": "v2",
-        "source_score": 20.0,
-        "keyword_idf_score": 0.0,
-        "resonance_score": 0.0,
-        "quality_score": 0.0,
-        "base": 20.0,
-        "time_factor": 0.8056,
-        "repeat_penalty": 1.0,
-        "cross_source_count": 1,
-        "raw": 16.11,
-        "display_score": 45.5
-      },
-      "score_v1_breakdown": {
-        "base": 5.0,
-        "source_score": 4.5,
-        "keyword_score": 0.0,
-        "time_score": 4.91,
-        "topic_bonus": 0.0,
-        "total": 14.41
-      },
-      "summary": "生态环境法典刚落地，相关部门即开启排污许可版‘华山论剑’，监管力度显著提升。",
-      "analysis": "该条目涉及【生态环境法典刚落地】话题，因来源权威性高，热度上升。",
-      "topic_tags": [
-        "生态环境法典刚落地"
-      ],
-      "category": "生态环境",
-      "matched_keywords": [],
-      "keywords": []
-    },
-    {
-      "title": "Battle to save the tiny, gooey snail only found in one lake in the UK",
-      "title_en": "Battle to save the tiny, gooey snail only found in one lake in the UK",
-      "title_zh": "为拯救这种仅分布于英国一个湖泊中的微小、黏糊糊的蜗牛而展开的保卫战",
-      "summary_en": "Once prevalent across the UK, this mollusc is now only found in one lake in Wales.",
-      "summary_zh": "这种软体动物曾广泛分布于英国各地，如今仅存于威尔士的一个湖泊中。",
-      "link": "https://www.bbc.co.uk/news/articles/c1j4ngr05l8o?at_medium=RSS&at_campaign=rss",
-      "source": "BBC 科学与环境",
-      "published": "2026-09-12T06:09:37+00:00",
-      "hotness": 42.7,
-      "score": 42.7,
-      "score_v1": 9.75,
-      "score_v2": 42.7,
-      "score_breakdown": {
-        "algorithm": "v2",
-        "source_score": 15.0,
-        "keyword_idf_score": 0.0,
-        "resonance_score": 0.0,
-        "quality_score": 10.0,
-        "base": 25.0,
-        "time_factor": 0.6216,
-        "repeat_penalty": 1.0,
-        "cross_source_count": 1,
-        "raw": 15.54,
-        "display_score": 42.7
-      },
-      "score_v1_breakdown": {
-        "base": 5.0,
-        "source_score": 3.0,
-        "keyword_score": 0.0,
-        "time_score": 1.75,
-        "topic_bonus": 0.0,
-        "total": 9.75
-      },
-      "summary": "这种软体动物曾广泛分布于英国各地，如今仅存于威尔士的一个湖泊中。",
-      "analysis": "该条目涉及【环境资讯】话题，因来源权威性高，热度上升。",
-      "topic_tags": [
-        "环境资讯"
-      ],
-      "category": "科研学术",
-      "matched_keywords": [],
-      "keywords": []
-    },
-    {
-      "title": "省第一生态环境保护督察组实地检查路面尘土飞扬问题 - 凤凰网",
-      "title_en": "",
-      "title_zh": "",
-      "summary_en": "",
-      "summary_zh": "",
-      "link": "https://news.google.com/rss/articles/CBMiTkFVX3lxTE1YdlVnTGQ2TkpIY1NCTW4zQnJDTUJOZ3dsYjNYV3R3YS11Rm9vTlJkVk1aSDNvcXlwdWJXRWJNM2xJMUpiUktjbmZlZjlMQQ?oc=5",
-      "source": "Google News 环境保护",
-      "published": "2026-09-12T11:36:30+00:00",
+      "published": "2026-09-14T16:53:26+00:00",
       "hotness": 40.0,
       "score": 40.0,
-      "score_v1": 11.69,
+      "score_v1": 15.42,
       "score_v2": 40.0,
       "score_breakdown": {
         "algorithm": "v2",
-        "source_score": 20.0,
+        "source_score": 15.0,
         "keyword_idf_score": 0.0,
         "resonance_score": 0.0,
-        "quality_score": 0.0,
-        "base": 20.0,
-        "time_factor": 0.6542,
-        "repeat_penalty": 1.0,
+        "quality_score": 10.0,
+        "base": 25.0,
+        "time_factor": 0.9098,
+        "repeat_penalty": 0.6,
         "cross_source_count": 1,
-        "raw": 13.08,
+        "raw": 13.65,
         "display_score": 40.0
       },
       "score_v1_breakdown": {
         "base": 5.0,
-        "source_score": 4.5,
+        "source_score": 3.0,
         "keyword_score": 0.0,
-        "time_score": 2.19,
+        "time_score": 7.42,
         "topic_bonus": 0.0,
-        "total": 11.69
+        "total": 15.42
       },
-      "summary": "省第一生态环境保护督察组实地检查路面尘土飞扬问题，督促相关部门落实扬尘治理措施，改善大气环境质量。",
-      "analysis": "该条目涉及【省第一生态环境保护督察组实地检查路面尘土飞扬问题】话题，因来源权威性高，热度上升。",
+      "summary": "纽约、新泽西和康涅狄格的部分地区遭遇了突发性洪涝，导致需要进行水上救援，部分司机被困，半程马拉松选手则在洪水中奋力前行。",
+      "analysis": "该条目涉及【环境资讯】话题，因来源权威性高，热度上升。",
       "topic_tags": [
-        "省第一生态环境保护督察组实地检查路面尘土飞扬问题"
+        "环境资讯"
       ],
-      "category": "生态环境",
+      "category": "气候变化",
       "matched_keywords": [],
       "keywords": []
     }
   ],
   "keyword_analysis": [
     {
-      "keyword": "气候变化",
+      "keyword": "生物多样性",
       "count": 1,
-      "term": "气候变化",
+      "term": "生物多样性",
+      "category": "生态环境"
+    },
+    {
+      "keyword": "生态修复",
+      "count": 1,
+      "term": "生态修复",
+      "category": "生态环境"
+    },
+    {
+      "keyword": "海绵物种",
+      "count": 1,
+      "term": "海绵物种",
+      "category": "生态环境"
+    },
+    {
+      "keyword": "气候变化适应",
+      "count": 1,
+      "term": "气候变化适应",
       "category": "气候变化"
     },
     {
-      "keyword": "全球变暖",
+      "keyword": "科研资助",
       "count": 1,
-      "term": "全球变暖",
-      "category": "气候变化"
-    },
-    {
-      "keyword": "冰川融化",
-      "count": 1,
-      "term": "冰川融化",
-      "category": "气候变化"
-    },
-    {
-      "keyword": "水资源",
-      "count": 1,
-      "term": "水资源",
-      "category": "水处理"
-    },
-    {
-      "keyword": "零排放",
-      "count": 1,
-      "term": "零排放",
-      "category": "其他"
-    },
-    {
-      "keyword": "氰氟虫酯降解",
-      "count": 1,
-      "term": "氰氟虫酯降解",
+      "term": "科研资助",
       "category": "科研学术"
     },
     {
-      "keyword": "生态环境保护",
+      "keyword": "树木碳汇",
       "count": 1,
-      "term": "生态环境保护",
-      "category": "生态环境"
+      "term": "树木碳汇",
+      "category": "气候变化"
     },
     {
       "keyword": "pm2.5",
@@ -1059,60 +2002,60 @@
       "category": "污染治理"
     },
     {
-      "keyword": "purification",
+      "keyword": "vocs",
       "count": 1,
-      "term": "purification",
-      "category": "其他"
+      "term": "vocs",
+      "category": "污染治理"
     },
     {
-      "keyword": "species",
+      "keyword": "water",
       "count": 1,
-      "term": "species",
-      "category": "生态环境"
+      "term": "water",
+      "category": "水处理"
+    },
+    {
+      "keyword": "健康风险",
+      "count": 1,
+      "term": "健康风险",
+      "category": "环境健康"
     }
   ],
   "keywords": [
     {
-      "keyword": "气候变化",
+      "keyword": "生物多样性",
       "count": 1,
-      "term": "气候变化",
+      "term": "生物多样性",
+      "category": "生态环境"
+    },
+    {
+      "keyword": "生态修复",
+      "count": 1,
+      "term": "生态修复",
+      "category": "生态环境"
+    },
+    {
+      "keyword": "海绵物种",
+      "count": 1,
+      "term": "海绵物种",
+      "category": "生态环境"
+    },
+    {
+      "keyword": "气候变化适应",
+      "count": 1,
+      "term": "气候变化适应",
       "category": "气候变化"
     },
     {
-      "keyword": "全球变暖",
+      "keyword": "科研资助",
       "count": 1,
-      "term": "全球变暖",
-      "category": "气候变化"
-    },
-    {
-      "keyword": "冰川融化",
-      "count": 1,
-      "term": "冰川融化",
-      "category": "气候变化"
-    },
-    {
-      "keyword": "水资源",
-      "count": 1,
-      "term": "水资源",
-      "category": "水处理"
-    },
-    {
-      "keyword": "零排放",
-      "count": 1,
-      "term": "零排放",
-      "category": "其他"
-    },
-    {
-      "keyword": "氰氟虫酯降解",
-      "count": 1,
-      "term": "氰氟虫酯降解",
+      "term": "科研资助",
       "category": "科研学术"
     },
     {
-      "keyword": "生态环境保护",
+      "keyword": "树木碳汇",
       "count": 1,
-      "term": "生态环境保护",
-      "category": "生态环境"
+      "term": "树木碳汇",
+      "category": "气候变化"
     },
     {
       "keyword": "pm2.5",
@@ -1121,30 +2064,36 @@
       "category": "污染治理"
     },
     {
-      "keyword": "purification",
+      "keyword": "vocs",
       "count": 1,
-      "term": "purification",
-      "category": "其他"
+      "term": "vocs",
+      "category": "污染治理"
     },
     {
-      "keyword": "species",
+      "keyword": "water",
       "count": 1,
-      "term": "species",
-      "category": "生态环境"
+      "term": "water",
+      "category": "水处理"
+    },
+    {
+      "keyword": "健康风险",
+      "count": 1,
+      "term": "健康风险",
+      "category": "环境健康"
     }
   ],
-  "hot_summary": "今日热点围绕气候变化、全球变暖、冰川融化、水资源、零排放等话题，共聚合23条资讯。",
-  "summary": "今日热点围绕气候变化、全球变暖、冰川融化、水资源、零排放等话题，共聚合23条资讯。",
-  "weekly_summary": "近7天环境热点以气候变化与生态环境为主，污染治理与能源碳中和关注度相对平稳，科研学术热度适中，整体呈现生态治理与气候行动并重的特征。",
-  "weekly_insight": "近期环境热点呈现“气候驱动下的生态修复”与“治理效能提升并行”的双轨趋势。气候变化与生态环境话题占比近七成，反映出公众对极端天气与生态安全的高度关注，而污染治理与能源碳中和的持续热度则显示治理体系的务实推进与技术路径的探索正在加速。总体来看，热点正从单一的污染治理向气候适应与绿色转型的系统性转变，",
+  "hot_summary": "今日热点围绕生物多样性、生态修复、海绵物种、气候变化适应、科研资助等话题，共聚合45条资讯。",
+  "summary": "今日热点围绕生物多样性、生态修复、海绵物种、气候变化适应、科研资助等话题，共聚合45条资讯。",
+  "weekly_summary": "近7天环境热点以气候变化为主，生态环境、污染治理等关注度显著，科研学术与水处理关注度相对平稳。",
+  "weekly_insight": "近7天环境热点呈现“气候变化与生态并重，污染治理与科研并进”的特点。气候变化与生态环境类条目占比近六成，显示公众对气候风险与生态安全的高度关注；污染治理与水处理等务实类热点虽占比较小，但体现了治理落实的刚性需求；科研学术与能源碳中和的关联度提升，反映出技术路径与政策目标正加速耦合，",
   "weekly_keywords": [
+    {
+      "term": "环境资讯",
+      "count": 8
+    },
     {
       "term": "生态系统",
       "count": 6
-    },
-    {
-      "term": "环境资讯",
-      "count": 5
     },
     {
       "term": "竞赛",
@@ -1180,20 +2129,6 @@
     }
   ],
   "weekly_categories": [
-    {
-      "date": "2026-09-08",
-      "categories": {
-        "气候变化": 0,
-        "污染治理": 0,
-        "生态环境": 0,
-        "环境政策": 0,
-        "能源与碳中和": 0,
-        "水处理": 0,
-        "科研学术": 0,
-        "环境健康": 0,
-        "其他": 0
-      }
-    },
     {
       "date": "2026-09-09",
       "categories": {
@@ -1267,6 +2202,20 @@
     {
       "date": "2026-09-14",
       "categories": {
+        "气候变化": 2,
+        "污染治理": 1,
+        "生态环境": 1,
+        "环境政策": 0,
+        "能源与碳中和": 1,
+        "水处理": 3,
+        "科研学术": 2,
+        "环境健康": 0,
+        "其他": 0
+      }
+    },
+    {
+      "date": "2026-09-15",
+      "categories": {
         "气候变化": 0,
         "污染治理": 0,
         "生态环境": 0,
@@ -1282,40 +2231,35 @@
   "today_categories": [
     {
       "category": "生态环境",
-      "count": 7
+      "count": 12
+    },
+    {
+      "category": "其他",
+      "count": 8
     },
     {
       "category": "气候变化",
-      "count": 4
+      "count": 7
     },
     {
       "category": "科研学术",
-      "count": 4
+      "count": 5
     },
     {
       "category": "水处理",
-      "count": 3
+      "count": 5
     },
     {
       "category": "污染治理",
-      "count": 2
+      "count": 4
     },
     {
       "category": "能源与碳中和",
-      "count": 2
-    },
-    {
-      "category": "环境政策",
-      "count": 1
+      "count": 4
     }
   ],
   "timeline": {
     "气候变化": [
-      {
-        "date": "2026-08-16",
-        "count": 0,
-        "total_heat": 0.0
-      },
       {
         "date": "2026-08-17",
         "count": 0,
@@ -1458,16 +2402,16 @@
       },
       {
         "date": "2026-09-14",
+        "count": 2,
+        "total_heat": 194.5
+      },
+      {
+        "date": "2026-09-15",
         "count": 0,
         "total_heat": 0.0
       }
     ],
     "污染治理": [
-      {
-        "date": "2026-08-16",
-        "count": 0,
-        "total_heat": 0.0
-      },
       {
         "date": "2026-08-17",
         "count": 0,
@@ -1610,16 +2554,16 @@
       },
       {
         "date": "2026-09-14",
+        "count": 1,
+        "total_heat": 89.1
+      },
+      {
+        "date": "2026-09-15",
         "count": 0,
         "total_heat": 0.0
       }
     ],
     "生态环境": [
-      {
-        "date": "2026-08-16",
-        "count": 0,
-        "total_heat": 0.0
-      },
       {
         "date": "2026-08-17",
         "count": 0,
@@ -1762,16 +2706,16 @@
       },
       {
         "date": "2026-09-14",
+        "count": 1,
+        "total_heat": 91.8
+      },
+      {
+        "date": "2026-09-15",
         "count": 0,
         "total_heat": 0.0
       }
     ],
     "环境政策": [
-      {
-        "date": "2026-08-16",
-        "count": 0,
-        "total_heat": 0.0
-      },
       {
         "date": "2026-08-17",
         "count": 0,
@@ -1916,14 +2860,14 @@
         "date": "2026-09-14",
         "count": 0,
         "total_heat": 0.0
+      },
+      {
+        "date": "2026-09-15",
+        "count": 0,
+        "total_heat": 0.0
       }
     ],
     "能源与碳中和": [
-      {
-        "date": "2026-08-16",
-        "count": 0,
-        "total_heat": 0.0
-      },
       {
         "date": "2026-08-17",
         "count": 0,
@@ -2066,16 +3010,16 @@
       },
       {
         "date": "2026-09-14",
+        "count": 1,
+        "total_heat": 75.5
+      },
+      {
+        "date": "2026-09-15",
         "count": 0,
         "total_heat": 0.0
       }
     ],
     "水处理": [
-      {
-        "date": "2026-08-16",
-        "count": 0,
-        "total_heat": 0.0
-      },
       {
         "date": "2026-08-17",
         "count": 0,
@@ -2218,16 +3162,16 @@
       },
       {
         "date": "2026-09-14",
+        "count": 3,
+        "total_heat": 261.9
+      },
+      {
+        "date": "2026-09-15",
         "count": 0,
         "total_heat": 0.0
       }
     ],
     "科研学术": [
-      {
-        "date": "2026-08-16",
-        "count": 0,
-        "total_heat": 0.0
-      },
       {
         "date": "2026-08-17",
         "count": 0,
@@ -2370,16 +3314,16 @@
       },
       {
         "date": "2026-09-14",
+        "count": 2,
+        "total_heat": 164.5
+      },
+      {
+        "date": "2026-09-15",
         "count": 0,
         "total_heat": 0.0
       }
     ],
     "环境健康": [
-      {
-        "date": "2026-08-16",
-        "count": 0,
-        "total_heat": 0.0
-      },
       {
         "date": "2026-08-17",
         "count": 0,
@@ -2524,14 +3468,14 @@
         "date": "2026-09-14",
         "count": 0,
         "total_heat": 0.0
+      },
+      {
+        "date": "2026-09-15",
+        "count": 0,
+        "total_heat": 0.0
       }
     ],
     "其他": [
-      {
-        "date": "2026-08-16",
-        "count": 0,
-        "total_heat": 0.0
-      },
       {
         "date": "2026-08-17",
         "count": 0,
@@ -2674,6 +3618,11 @@
       },
       {
         "date": "2026-09-14",
+        "count": 0,
+        "total_heat": 0.0
+      },
+      {
+        "date": "2026-09-15",
         "count": 0,
         "total_heat": 0.0
       }

@@ -2831,3 +2831,135 @@
   - 上下文：智库论见丨以生态环境生产率跃升夯实“十五五”高质量发展绿色根基 - Sohu
 
 ---
+## 2026-09-16
+
+**今日高频关键词**：`#气候变化` `#水处理` `#生态保护` `#生态环境执法` `#砷污染`
+
+**今日 Top10 热点**
+
+### 1. 广东生态环境执法技能竞赛收官，茂名代表队创历史最佳战绩 - Sohu
+- **来源**：Google News 环境竞赛
+- **热度**：100.0
+- **链接**：https://news.google.com/rss/articles/CBMijAFBVV95cUxOOUs5MmNRRjExZWo4VkdxTldQM0xyMEVSMzAtOG1lT25CSl80NDVCTmNyalNTVHh1Z2w4SzcwaC1VT2hsNzctWi16cTB1bkI3QzJHTEw5eWdSNTZUVWpqeVZxdjVPRl82YzUyNHFaM29tWFRXWG1mM0wyTGwzenJmdnBYY2ZNeGpPSzhuMA?oc=5
+- **摘要**：广东省生态环境执法技能竞赛在惠州收官，茂名代表队创历史最佳战绩。本次赛事由省生态环境厅、团省委、省妇联联合主办，汇聚全省执法骨干展开专业角逐。
+- **分析**：该条目涉及【广东生态环境执法技能竞赛】话题，因来源权威性高，热度上升。
+
+### 2. Why Nepal floods resulted in a disaster even after satellites spotted danger
+- **来源**：Nature
+- **热度**：97.5
+- **链接**：https://www.nature.com/articles/d41586-026-02907-5
+- **摘要**：《自然》杂志， 为何尼泊尔洪水在卫星已监测到危险的情况下仍演变成一场灾难
+- **分析**：该条目涉及【尼泊尔洪水】话题，因来源权威性高，热度上升。
+
+### 3. Global kilometer-scale climate simulations: new opportunities for climate services
+- **来源**：Environmental Research Letters
+- **热度**：95.0
+- **链接**：https://iopscience.iop.org/article/10.1088/1748-9326/aea00d
+- **摘要**：气候服务对于风险管理和经济规划至关重要。本文介绍了一项采用ARP-GEM全球大气模型、水平分辨率为2.6公里的百年模拟。该模拟专门设计用于补充和扩展法国最新版本气候服务中所使用的模拟数据集。 其关键特点在于以公里级分辨率实现全球覆盖，从而能够再现依赖于此类精细尺度的现象。这对法国气候服务尤为重要，因为许多过程——特别是岛屿及对分辨率敏感的区域——目前在全球模拟中往往被忽略。 此外，法国的海外领土分布于世界各地，这种方法使其能够在单一框架内进行模拟。该模拟的一个局限性在于，由于缺乏海洋耦合，不得不采用预设的海表温度；这一问题将在未来的研究中加以解决。 本研究证明了该方法的可行性，并突显了新一代气候模型对气候服务带来的益处。
+- **分析**：该条目涉及【气候模拟】话题，因来源权威性高，热度上升。
+
+### 4. 3M, DuPont and more to face lawsuit on Pfas in US firefighters’ protective gear
+- **来源**：The Guardian Environment
+- **热度**：92.5
+- **链接**：https://www.theguardian.com/us-news/2026/sep/15/connecticut-firefighters-pfas-lawsuit
+- **摘要**：康涅狄格州原告称，消防服中的“永久性化学物质”会通过吸收和吸入增加患癌风险。一名联邦法官周二表示，包括3M在内的20多家被告， 杜邦和霍尼韦尔在内的20余家被告，必须面对康涅狄格州消防员提出的索赔——这些消防员称，他们的防护服被有毒的“永久性化学物质”污染，从而增加了他们患癌症的风险。代表13个消防员工会组织和12名消防员个人的律师称，用于抵御极端高温和火焰的“消防服”会通过皮肤吸收、摄入和吸入等方式导致这些化学物质渗出。 ⁠他们称，此次拟提起的集体诉讼是首例专门针对含有全氟和多氟烷基物质（Pfas）的消防员装备的诉讼。继续阅读...
+- **分析**：该条目涉及【Pfas】话题，因来源权威性高，热度上升。
+
+### 5. 极端天气频发，巨灾保险如何兜底|气候变化|自然灾害|应急管理部|强降雨|干旱 - 新浪财经
+- **来源**：Google News 气候变化
+- **热度**：90.0
+- **链接**：https://news.google.com/rss/articles/CBMimAFBVV95cUxQUFFNa3YyU25NLXRnY0RTejFuS3Q3NzhqWEJFTzlRTVkzUjlKZTBfQUZvbnhfeDJ6QUFyb1liNHNCVDhKMG1nY1p2RDFZMnM1Qm0yVzFvSDJPUE9MZmMwaDUxT3dSRmJOTUxzX29COWtRN1NBclRIQlhDZlVWTWIwNEZRTmllYVhUbjBENWlBQUFTVWdhYlgxbA?oc=5
+- **摘要**：极端天气频发引发关注，巨灾保险成为应对自然灾害的关键兜底手段。文章探讨了强降雨、干旱等气候变化下的风险管理与应急策略。
+- **分析**：该条目涉及【干旱】话题，因来源权威性高，热度上升。
+
+### 6. 【专题报道】沙漠绿盾：红树林如何成为气候变化时代的天然防线 - UN News
+- **来源**：Google News 气候变化
+- **热度**：87.5
+- **链接**：https://news.google.com/rss/articles/CBMiV0FVX3lxTFBNVWhvZWM1SGNSSkZwMnlpVTZBM3pjamdWRHduN1hnR29xNldLOTU3NWdUQ3BZdmRWMWdTb1VsZVRMTXZaX1JPMDdDVFFaTktKQXo2Y20wQQ?oc=5
+- **摘要**：生态环境准入招商图谱正式上线公测，旨在规范生态准入与招商引资流程。该图谱将整合环保标准，提升项目准入效率与透明度。
+- **分析**：该条目涉及【红树林】话题，因来源权威性高，热度上升。
+
+### 7. UK could 'unlock' 100 more oil and gas projects, say North Sea bosses
+- **来源**：BBC 科学与环境
+- **热度**：85.0
+- **链接**：https://www.bbc.co.uk/news/articles/c65ym93p73xmo?at_medium=RSS&at_campaign=rss
+- **摘要**：英国石油与能源协会（OEUK）的一份报告称，如果政府能对该行业给予更多支持，英国的石油和天然气需求中有一半可以不依赖进口。
+- **分析**：该条目涉及【oil and gas projects】话题，因来源权威性高，热度上升。
+
+### 8. Back-to-back Arctic storms can double sea ice loss
+- **来源**：ScienceDaily 环境科学
+- **热度**：82.5
+- **链接**：https://www.sciencedaily.com/releases/2026/09/260912220045.htm
+- **摘要**：科学家发现，当多个北极气旋接连袭来时，其破坏力会尤为剧烈。这些风暴群导致的海冰损失量约为孤立气旋的两倍，且其影响持续时间约为后者的两倍半。 随着北极海冰变得越来越薄、越来越脆弱，这些风暴造成的破坏似乎也在加剧，这可能会形成一个反馈循环，从而加速未来海冰的消融。
+- **分析**：该条目涉及【环境资讯】话题，因来源权威性高，热度上升。
+
+### 9. 聚焦生态环境准入招商图谱上线公测 - 新浪网
+- **来源**：Google News 生态环境
+- **热度**：80.0
+- **链接**：https://news.google.com/rss/articles/CBMif0FVX3lxTE5vSDRHdXZLSEsxdlRrVTlCekpPM2FwcDByTHVja0g2UnozNU5QdHFVbEhOWFZzbGFZWXVuOWF1cXJvbV9YQkFhZTRSMHVVZlFZaEpURVZXN0V0YV9qR0E0bkN1ZTJFWk51TXJVQ0lPdUlEUUwyX2M5NkY1VTNzSTg?oc=5
+- **摘要**：研究提出一种利用水力动能的反硝化-氧化锌生物混合系统去除硝酸盐。该系统通过利用水流动能提升脱氮效率，展现出环境友好的水处理潜力。
+- **分析**：该条目涉及【水力动能】话题，因来源权威性高，热度上升。
+
+### 10. Mass nesting brings swarms of turtles to Mexican beach
+- **来源**：BBC 科学与环境
+- **热度**：77.5
+- **链接**：https://www.bbc.co.uk/news/videos/cm4gkvk7wzkpo?at_medium=RSS&at_campaign=rss
+- **摘要**：庇护所官员表示，短短48小时内，数千只海龟抵达了瓦哈卡州的拉埃斯科比利亚海滩。
+- **分析**：该条目涉及【环境资讯】话题，因来源权威性高，热度上升。
+
+**今日自动提取候选新词**
+
+- **生态环境**（出现 6 次）
+  - 上下文：广东生态环境执法技能竞赛收官，茂名代表队创历史最佳战绩 - Sohu
+  - 上下文：聚焦生态环境准入招商图谱上线公测 - 新浪网
+  - 上下文：【天眼关注】《生态环境法典》落地，城市“烟火”与居民“安宁”如何两全？ - Sohu
+- **Sohu**（出现 3 次）
+  - 上下文：广东生态环境执法技能竞赛收官，茂名代表队创历史最佳战绩 - Sohu
+  - 上下文：【天眼关注】《生态环境法典》落地，城市“烟火”与居民“安宁”如何两全？ - Sohu
+  - 上下文：县委生态文明建设排头兵暨生态环境保护 工作领导小组2026年第二次会议召开 - Sohu
+- **财经**（出现 3 次）
+  - 上下文：极端天气频发，巨灾保险如何兜底|气候变化|自然灾害|应急管理部|强降雨|干旱 - 新浪财经
+  - 上下文：美国环境保护署署长李・泽尔丁：美国提议废除适用于所有发电厂的全部主要温室气体排放标准。 - 新浪财经
+  - 上下文：美国环境保护署署长李・泽尔丁：今日提案将节省 3.7 亿美元的直接合规成本。 - 新浪财经
+- **中国**（出现 3 次）
+  - 上下文：气候官员谈全球领域碳市场建设：中国发挥了关键作用 - chinanews.com.cn
+  - 上下文：单原子铁实现“精准捕砷” 为水体砷污染治理开辟新路径 - 中国科技网
+  - 上下文：东海县青湖镇：普法护航绿色养殖 筑牢生态环保防线 - 中国江苏网
+- **发电厂**（出现 3 次）
+  - 上下文：美政府放松发电厂环保限制 被批气候政策“倒退” - 新华网
+  - 上下文：美国取消燃煤和燃气发电厂排放限制 - BBC
+  - 上下文：美国环境保护署署长李・泽尔丁：美国提议废除适用于所有发电厂的全部主要温室气体排放标准。 - 新浪财经
+- **环保**（出现 3 次）
+  - 上下文：美政府放松发电厂环保限制 被批气候政策“倒退” - 新华网
+  - 上下文：东海县青湖镇：普法护航绿色养殖 筑牢生态环保防线 - 中国江苏网
+  - 上下文：环保为民，口碑为证（连线评论员） - 人民日报
+- **美国**（出现 3 次）
+  - 上下文：美国取消燃煤和燃气发电厂排放限制 - BBC
+  - 上下文：美国环境保护署署长李・泽尔丁：美国提议废除适用于所有发电厂的全部主要温室气体排放标准。 - 新浪财经
+  - 上下文：美国环境保护署署长李・泽尔丁：今日提案将节省 3.7 亿美元的直接合规成本。 - 新浪财经
+- **climate**（出现 2 次）
+  - 上下文：Global kilometer-scale climate simulations: new opportunities for climate services
+  - 上下文：US ends limits on coal and gas plant emissions, removing key tool to battle climate crisis
+- **防线**（出现 2 次）
+  - 上下文：【专题报道】沙漠绿盾：红树林如何成为气候变化时代的天然防线 - UN News
+  - 上下文：东海县青湖镇：普法护航绿色养殖 筑牢生态环保防线 - 中国江苏网
+- **gas**（出现 2 次）
+  - 上下文：UK could 'unlock' 100 more oil and gas projects, say North Sea bosses
+  - 上下文：US ends limits on coal and gas plant emissions, removing key tool to battle climate crisis
+- **气候**（出现 2 次）
+  - 上下文：气候官员谈全球领域碳市场建设：中国发挥了关键作用 - chinanews.com.cn
+  - 上下文：美政府放松发电厂环保限制 被批气候政策“倒退” - 新华网
+- **生态**（出现 2 次）
+  - 上下文：县委生态文明建设排头兵暨生态环境保护 工作领导小组2026年第二次会议召开 - Sohu
+  - 上下文：东海县青湖镇：普法护航绿色养殖 筑牢生态环保防线 - 中国江苏网
+- **排放**（出现 2 次）
+  - 上下文：美国取消燃煤和燃气发电厂排放限制 - BBC
+  - 上下文：美国环境保护署署长李・泽尔丁：美国提议废除适用于所有发电厂的全部主要温室气体排放标准。 - 新浪财经
+- **署长**（出现 2 次）
+  - 上下文：美国环境保护署署长李・泽尔丁：美国提议废除适用于所有发电厂的全部主要温室气体排放标准。 - 新浪财经
+  - 上下文：美国环境保护署署长李・泽尔丁：今日提案将节省 3.7 亿美元的直接合规成本。 - 新浪财经
+- **泽尔丁**（出现 2 次）
+  - 上下文：美国环境保护署署长李・泽尔丁：美国提议废除适用于所有发电厂的全部主要温室气体排放标准。 - 新浪财经
+  - 上下文：美国环境保护署署长李・泽尔丁：今日提案将节省 3.7 亿美元的直接合规成本。 - 新浪财经
+
+---

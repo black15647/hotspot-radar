@@ -1,131 +1,132 @@
 # 环境学子雷达 - 每日热点报告
 
-**日期**：2026-09-15
-**总条目数**：45
+**日期**：2026-09-16
+**总条目数**：25
 
-**近7天见解**：近7天环境热点呈现“气候变化与生态并重，污染治理与科研并进”的特点。气候变化与生态环境类条目占比近六成，显示公众对气候风险与生态安全的高度关注；污染治理与水处理等务实类热点虽占比较小，但体现了治理落实的刚性需求；科研学术与能源碳中和的关联度提升，反映出技术路径与政策目标正加速耦合，
+**近7天见解**：近期环境热点呈现出“生态优先”与“治理刚需”并存的特征，气候变化与生态环境话题占比显著，反映出公众对长远生存空间的关注度提升；与此同时，污染治理与水处理等务实议题的热度维持在中高位，说明基层治理与资源安全问题依然是刚性需求，科研学术与能源碳中和的关注度相对稳定，显示出产学研用在生态文明建设中逐步深度融合的态势。
 
 ---
 
 ## 🔥 今日热点 TOP 10
 
-### 1. [Scientists find nine new sponge species in glimpse of Alaska’s deep-sea diversity](https://www.theguardian.com/us-news/2026/sep/14/deep-sea-sponges-discovery-mining-fishing)
+### 1. [广东生态环境执法技能竞赛收官，茂名代表队创历史最佳战绩 - Sohu](https://news.google.com/rss/articles/CBMijAFBVV95cUxOOUs5MmNRRjExZWo4VkdxTldQM0xyMEVSMzAtOG1lT25CSl80NDVCTmNyalNTVHh1Z2w4SzcwaC1VT2hsNzctWi16cTB1bkI3QzJHTEw5eWdSNTZUVWpqeVZxdjVPRl82YzUyNHFaM29tWFRXWG1mM0wyTGwzenJmdnBYY2ZNeGpPSzhuMA?oc=5)
+
+- **来源**：Google News 环境竞赛
+- **热度**：100.0
+- **发布时间**：2026-09-15T08:25:20+00:00
+- **关键词**：竞赛
+
+> 广东省生态环境执法技能竞赛在惠州收官，茂名代表队创历史最佳战绩。本次赛事由省生态环境厅、团省委、省妇联联合主办，汇聚全省执法骨干展开专业角逐。
+
+**📊 分析**：该条目涉及【广东生态环境执法技能竞赛】话题，因来源权威性高，热度上升。
+
+---
+
+### 2. [Why Nepal floods resulted in a disaster even after satellites spotted danger](https://www.nature.com/articles/d41586-026-02907-5)
+
+- **来源**：Nature
+- **热度**：97.5
+- **发布时间**：2026-09-15T00:00:00+00:00
+
+> 《自然》杂志， 为何尼泊尔洪水在卫星已监测到危险的情况下仍演变成一场灾难
+
+**📊 分析**：该条目涉及【尼泊尔洪水】话题，因来源权威性高，热度上升。
+
+---
+
+### 3. [Global kilometer-scale climate simulations: new opportunities for climate services](https://iopscience.iop.org/article/10.1088/1748-9326/aea00d)
+
+- **来源**：Environmental Research Letters
+- **热度**：95.0
+- **发布时间**：2026-09-14T23:00:00+00:00
+
+> 气候服务对于风险管理和经济规划至关重要。本文介绍了一项采用ARP-GEM全球大气模型、水平分辨率为2.6公里的百年模拟。该模拟专门设计用于补充和扩展法国最新版本气候服务中所使用的模拟数据集。 其关键特点在于以公里级分辨率实现全球覆盖，从而能够再现依赖于此类精细尺度的现象。这对法国气候服务尤为重要，因为许多过程——特别是岛屿及对分辨率敏感的区域——目前在全球模拟中往往被忽略。 此外，法国的海外领土分布于世界各地，这种方法使其能够在单一框架内进行模拟。该模拟的一个局限性在于，由于缺乏海洋耦合，不得不采用预设的海表温度；这一问题将在未来的研究中加以解决。 本研究证明了该方法的可行性，并突显了新一代气候模型对气候服务带来的益处。
+
+**📊 分析**：该条目涉及【气候模拟】话题，因来源权威性高，热度上升。
+
+---
+
+### 4. [3M, DuPont and more to face lawsuit on Pfas in US firefighters’ protective gear](https://www.theguardian.com/us-news/2026/sep/15/connecticut-firefighters-pfas-lawsuit)
 
 - **来源**：The Guardian Environment
-- **热度**：100.0
-- **发布时间**：2026-09-14T11:30:56+00:00
-- **关键词**：生物多样性
+- **热度**：92.5
+- **发布时间**：2026-09-15T21:06:55+00:00
 
-> 但该地区的底拖网捕捞以及特朗普扩大海底采矿的计划，正威胁着这些生物的栖息地。科学家们在阿拉斯加近海发现了九种新的深海海绵物种，这为该地区尚未被充分探索的海洋生物多样性提供了新的见解。美国国家海洋和大气管理局（）周四宣布了这一发现，称这些物种发现于阿拉斯加湾和阿留申群岛。这一发现使阿拉斯加已知海绵物种总数达到232种。继续阅读……
+> 康涅狄格州原告称，消防服中的“永久性化学物质”会通过吸收和吸入增加患癌风险。一名联邦法官周二表示，包括3M在内的20多家被告， 杜邦和霍尼韦尔在内的20余家被告，必须面对康涅狄格州消防员提出的索赔——这些消防员称，他们的防护服被有毒的“永久性化学物质”污染，从而增加了他们患癌症的风险。代表13个消防员工会组织和12名消防员个人的律师称，用于抵御极端高温和火焰的“消防服”会通过皮肤吸收、摄入和吸入等方式导致这些化学物质渗出。 ⁠他们称，此次拟提起的集体诉讼是首例专门针对含有全氟和多氟烷基物质（Pfas）的消防员装备的诉讼。继续阅读...
 
-**📊 分析**：该条目涉及【生物多样性】话题，因来源权威性高，热度上升。
-
----
-
-### 2. [生态修复竟致林地损坏 省第四生态环境保护督察组赴北湖区开展信访核查 - voc.com.cn](https://news.google.com/rss/articles/CBMiX0FVX3lxTE55bW0xSFVhR3p2M0NobENoOEdjZTNpalhIOG5uTFlhM3ZLUk8tZWh1OVJQU2xuZWEtbW9nWGthaFVadVNJX21COUdGeWwxeldPb3NOano0a182cndXQlow?oc=5)
-
-- **来源**：Google News 环境保护
-- **热度**：98.6
-- **发布时间**：2026-09-14T13:31:51+00:00
-- **关键词**：生态修复
-
-> 督察组赴北湖区核查生态修复引发林地损坏问题，重点核查信访投诉情况。
-
-**📊 分析**：该条目涉及【生态修复】话题，因来源权威性高，热度上升。
+**📊 分析**：该条目涉及【Pfas】话题，因来源权威性高，热度上升。
 
 ---
 
-### 3. [This German submarine sank in 1917. It’s still leaking TNT](https://www.sciencedaily.com/releases/2026/09/260913081919.htm)
+### 5. [极端天气频发，巨灾保险如何兜底|气候变化|自然灾害|应急管理部|强降雨|干旱 - 新浪财经](https://news.google.com/rss/articles/CBMimAFBVV95cUxQUFFNa3YyU25NLXRnY0RTejFuS3Q3NzhqWEJFTzlRTVkzUjlKZTBfQUZvbnhfeDJ6QUFyb1liNHNCVDhKMG1nY1p2RDFZMnM1Qm0yVzFvSDJPUE9MZmMwaDUxT3dSRmJOTUxzX29COWtRN1NBclRIQlhDZlVWTWIwNEZRTmllYVhUbjBENWlBQUFTVWdhYlgxbA?oc=5)
+
+- **来源**：Google News 气候变化
+- **热度**：90.0
+- **发布时间**：2026-09-15T11:44:38+00:00
+- **关键词**：气候变化
+
+> 极端天气频发引发关注，巨灾保险成为应对自然灾害的关键兜底手段。文章探讨了强降雨、干旱等气候变化下的风险管理与应急策略。
+
+**📊 分析**：该条目涉及【干旱】话题，因来源权威性高，热度上升。
+
+---
+
+### 6. [【专题报道】沙漠绿盾：红树林如何成为气候变化时代的天然防线 - UN News](https://news.google.com/rss/articles/CBMiV0FVX3lxTFBNVWhvZWM1SGNSSkZwMnlpVTZBM3pjamdWRHduN1hnR29xNldLOTU3NWdUQ3BZdmRWMWdTb1VsZVRMTXZaX1JPMDdDVFFaTktKQXo2Y20wQQ?oc=5)
+
+- **来源**：Google News 气候变化
+- **热度**：87.5
+- **发布时间**：2026-09-15T00:32:08+00:00
+- **关键词**：气候变化
+
+> 生态环境准入招商图谱正式上线公测，旨在规范生态准入与招商引资流程。该图谱将整合环保标准，提升项目准入效率与透明度。
+
+**📊 分析**：该条目涉及【红树林】话题，因来源权威性高，热度上升。
+
+---
+
+### 7. [UK could 'unlock' 100 more oil and gas projects, say North Sea bosses](https://www.bbc.co.uk/news/articles/c65ym93p73xmo?at_medium=RSS&at_campaign=rss)
+
+- **来源**：BBC 科学与环境
+- **热度**：85.0
+- **发布时间**：2026-09-15T06:45:12+00:00
+
+> 英国石油与能源协会（OEUK）的一份报告称，如果政府能对该行业给予更多支持，英国的石油和天然气需求中有一半可以不依赖进口。
+
+**📊 分析**：该条目涉及【oil and gas projects】话题，因来源权威性高，热度上升。
+
+---
+
+### 8. [Back-to-back Arctic storms can double sea ice loss](https://www.sciencedaily.com/releases/2026/09/260912220045.htm)
 
 - **来源**：ScienceDaily 环境科学
-- **热度**：97.3
-- **发布时间**：2026-09-14T13:30:51+00:00
+- **热度**：82.5
+- **发布时间**：2026-09-14T02:38:47+00:00
 
-> 一艘沉没于丹麦近海的一战潜艇残骸，在沉没一个多世纪后，仍在向周围水域、海底及海洋生物中泄漏TNT。科学家警告称，随着这些残骸持续腐蚀，数千艘类似的沉船可能带来日益加剧的环境风险。
-
-**📊 分析**：该条目涉及【海洋污染】话题，因来源权威性高，热度上升。
-
----
-
-### 4. [Minimizing climate change adaptation trade-offs in African rangelands](https://www.nature.com/articles/s41893-026-01938-0)
-
-- **来源**：Nature Sustainability
-- **热度**：95.9
-- **发布时间**：2026-09-14T00:00:00+00:00
-
-> 《自然·可持续性》， 降雨模式和强度的变化使得非洲游牧民必须采取适应措施。 将天气预报与风险平滑相结合，有助于管理这些适应措施中固有的权衡取舍。
-
-**📊 分析**：该条目涉及【非洲草原】话题，因来源权威性高，热度上升。
-
----
-
-### 5. [Donor-funded science is rising in Brazil ― upending a long tradition](https://www.nature.com/articles/d41586-026-02829-2)
-
-- **来源**：Nature
-- **热度**：94.5
-- **发布时间**：2026-09-14T00:00:00+00:00
-
-> 《自然》杂志， 在这个科学家们一直仅依赖政府资助的国家，慈善家们正在加大对科研的支持力度。
-
-**📊 分析**：该条目涉及【科研资助】话题，因来源权威性高，热度上升。
-
----
-
-### 6. [The pet trade puts reptiles and amphibians at risk: close legal gaps now](https://www.nature.com/articles/d41586-026-02852-3)
-
-- **来源**：Nature
-- **热度**：93.2
-- **发布时间**：2026-09-14T00:00:00+00:00
-
-> 《自然》杂志， 立法不完善导致动物经常被从自然栖息地捕获并销往其他国家。新的国内和国际措施或有助于制止这种剥削行为。
-
-**📊 分析**：该条目涉及【自然栖息地】话题，因来源权威性高，热度上升。
-
----
-
-### 7. [How is climate change affecting conifers and their ability to sequester carbon?](https://www.nature.com/articles/d41586-026-02847-0)
-
-- **来源**：Nature
-- **热度**：91.8
-- **发布时间**：2026-09-14T00:00:00+00:00
-
-> 《自然》杂志， 最新证据表明，多种因素的相互作用可能会影响这些树木的生长能力。
-
-**📊 分析**：该条目涉及【carbon sequestration】话题，因来源权威性高，热度上升。
-
----
-
-### 8. [The roots of astrology, the mysterious nature of time and more: Books in brief](https://www.nature.com/articles/d41586-026-02908-4)
-
-- **来源**：Nature
-- **热度**：90.5
-- **发布时间**：2026-09-14T00:00:00+00:00
-
-> 《自然》杂志， 安德鲁·罗宾逊点评了五篇最值得关注的科学论文。
+> 科学家发现，当多个北极气旋接连袭来时，其破坏力会尤为剧烈。这些风暴群导致的海冰损失量约为孤立气旋的两倍，且其影响持续时间约为后者的两倍半。 随着北极海冰变得越来越薄、越来越脆弱，这些风暴造成的破坏似乎也在加剧，这可能会形成一个反馈循环，从而加速未来海冰的消融。
 
 **📊 分析**：该条目涉及【环境资讯】话题，因来源权威性高，热度上升。
 
 ---
 
-### 9. [Encoded and non-genetic protein variants expand human functional proteome](https://www.nature.com/articles/s41586-026-11124-z)
+### 9. [聚焦生态环境准入招商图谱上线公测 - 新浪网](https://news.google.com/rss/articles/CBMif0FVX3lxTE5vSDRHdXZLSEsxdlRrVTlCekpPM2FwcDByTHVja0g2UnozNU5QdHFVbEhOWFZzbGFZWXVuOWF1cXJvbV9YQkFhZTRSMHVVZlFZaEpURVZXN0V0YV9qR0E0bkN1ZTJFWk51TXJVQ0lPdUlEUUwyX2M5NkY1VTNzSTg?oc=5)
 
-- **来源**：Nature
-- **热度**：89.1
-- **发布时间**：2026-09-14T00:00:00+00:00
+- **来源**：Google News 生态环境
+- **热度**：80.0
+- **发布时间**：2026-09-15T22:14:00+00:00
 
-> 《自然》杂志， 编码和非遗传性蛋白质变体扩展了人类功能性蛋白质组
+> 研究提出一种利用水力动能的反硝化-氧化锌生物混合系统去除硝酸盐。该系统通过利用水流动能提升脱氮效率，展现出环境友好的水处理潜力。
 
-**📊 分析**：该条目涉及【环境资讯】话题，因来源权威性高，热度上升。
+**📊 分析**：该条目涉及【水力动能】话题，因来源权威性高，热度上升。
 
 ---
 
-### 10. [One Mount Etna eruption took weeks. Another happened in hours](https://www.sciencedaily.com/releases/2026/09/260912220100.htm)
+### 10. [Mass nesting brings swarms of turtles to Mexican beach](https://www.bbc.co.uk/news/videos/cm4gkvk7wzkpo?at_medium=RSS&at_campaign=rss)
 
-- **来源**：ScienceDaily 环境科学
-- **热度**：87.7
-- **发布时间**：2026-09-14T03:18:35+00:00
+- **来源**：BBC 科学与环境
+- **热度**：77.5
+- **发布时间**：2026-09-15T01:08:55+00:00
 
-> 埃特纳火山在远古时期的喷发方式截然不同：有些岩浆会在地表附近滞留数周，而另一些岩浆则能在短短数小时内从近30公里深处急速喷发至地表。科学家将这种差异归因于二氧化碳和水等火山气体，这为理解甚至可能预测爆炸性喷发提供了一种强有力的新途径。
+> 庇护所官员表示，短短48小时内，数千只海龟抵达了瓦哈卡州的拉埃斯科比利亚海滩。
 
 **📊 分析**：该条目涉及【环境资讯】话题，因来源权威性高，热度上升。
 

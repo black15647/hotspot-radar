@@ -2963,3 +2963,120 @@
   - 上下文：美国环境保护署署长李・泽尔丁：今日提案将节省 3.7 亿美元的直接合规成本。 - 新浪财经
 
 ---
+## 2026-09-17
+
+**今日高频关键词**：`#气候变化` `#温室气体` `#生态系统` `#碳排放` `#海水淡化`
+
+**今日 Top10 热点**
+
+### 1. Irrigation’s climate benefit could equal 363 years of its own emissions
+- **来源**：ScienceDaily 环境科学
+- **热度**：100.0
+- **链接**：https://www.sciencedaily.com/releases/2026/09/260915232119.htm
+- **摘要**：美国的灌溉会产生一定量的温室气体排放，但最新研究表明，通过让农民在更少的土地上种植更多粮食，灌溉实际上防止了数量远超其排放量的温室气体排放。 如果没有灌溉，为了弥补作物减产造成的损失，可能需要将自然生态系统转化为农田，据估计这将释放6.86吉吨的温室气体。这相当于美国当前灌溉年排放量的约363年。
+- **分析**：该条目涉及【气候效益】话题，因来源权威性高，热度上升。
+
+### 2. 史上最强厄尔尼诺正在形成 南非专家：利用碳排放应对气候变化 - 荆楚网
+- **来源**：Google News 气候变化
+- **热度**：97.7
+- **链接**：https://news.google.com/rss/articles/CBMickFVX3lxTFAwTEx0WEVXTFRDeHRtaXFBZmpqYW8tOUpaNkRnNWUyQXoyMEktdUoySUJ4cDd5bEZlNERkTFVwSUlPeGRoWVRiQWh0eGZWRzN6V0ZSWmpBdnhXb2Y5YzBvN1gzZjFvRXc3X1J0MGcxMFVpdw?oc=5
+- **摘要**：南非专家指出史上最强厄尔尼诺形成，主张利用碳排放应对气候变化挑战。
+- **分析**：该条目涉及【厄尔尼诺】话题，因来源权威性高，热度上升。
+
+### 3. Scientists turn seawater into fresh water without harmful brine
+- **来源**：ScienceDaily 环境科学
+- **热度**：95.4
+- **链接**：https://www.sciencedaily.com/releases/2026/09/260915100137.htm
+- **摘要**：科学家们开发出一套太阳能驱动的海水淡化系统，该系统在将海水转化为淡水的同时，能将几乎所有的残留盐分以固体形式去除，从而避免产生有害的盐水。这项自清洁技术还能回收锂等有价值的矿物，有望将海水淡化产生的废物转化为有用的资源。
+- **分析**：该条目涉及【海水淡化】话题，因来源权威性高，热度上升。
+
+### 4. Scientists “truly astonished” by discovery that challenges Earth’s origin story
+- **来源**：ScienceDaily 环境科学
+- **热度**：93.1
+- **链接**：https://www.sciencedaily.com/releases/2026/09/260915232132.htm
+- **摘要**：一项新研究表明，地球几乎完全由太阳系内侧的物质形成，这挑战了“来自木星以外的富含水物质发挥了重要作用”这一观点。如果这一结论正确，地球上的水可能出现在距离年轻太阳比科学家此前认为的要近得多的地方。
+- **分析**：该条目涉及【环境资讯】话题，因来源权威性高，热度上升。
+
+### 5. 21专访丨生态环境部应对气候变化司副司长逯世泽：争取尽快引入首批金融机构参与碳市场 - 21财经
+- **来源**：Google News 气候变化
+- **热度**：90.8
+- **链接**：https://news.google.com/rss/articles/CBMihgFBVV95cUxPbjVDRTg5M3c0QzJkWW1wUndtUkpqTTdrd3BXd3QwN09JOUg0aENYM1BhOTlpUjI3LW1NZU9zd2k0QkJ6cDVGWi10X2twcTV3bFlDMzd0MlFxN3lqbU5BZUZkeHo0Y25YU01MUDQxWHYwSzBFN25hZy1aNzl5Z3Q2bXhCZTRDdw?oc=5
+- **摘要**：生态环境部应对气候变化司副司长逯世泽表示，正积极争取尽快引入首批金融机构参与碳市场建设。
+- **分析**：该条目涉及【应对气候变化】话题，因来源权威性高，热度上升。
+
+### 6. East Asian heatwaves intensify faster than they dissipate in a warming climate
+- **来源**：Environmental Research Letters
+- **热度**：88.5
+- **链接**：https://iopscience.iop.org/article/10.1088/1748-9326/aea00c
+- **摘要**：极端高温研究主要侧重于静态特征，而热浪的时间演变仍鲜有探讨。本研究利用观测数据（1979–2024年）和CMIP6模拟结果，从热浪的起始率和消退率两个方面，量化了东亚地区热浪生命周期的动态变化。 热浪的增强速度始终快于消退速度，且在高纬度地区这种不对称性更为显著。未来的变化在很大程度上取决于极端事件的定义方式。在固定基准框架下，随着气温升高，热浪的起始速率和消退速率均会增加，这主要与峰值气温的上升有关。 相比之下，采用移动基准框架会显著减弱中纬度地区的这种增长趋势，这表明预测的热浪生命周期变化对不断演变的气候参考状态较为敏感，且可能涉及气候变异性和大气环流过程的变化。这些结果凸显了在解读持续变暖背景下热浪生命周期特征可能发生的变化时，气候参考框架的重要性。
+- **分析**：该条目涉及【东亚热浪】话题，因来源权威性高，热度上升。
+
+### 7. 联大峰会在即：人工智能、气候变化和冲突成为古特雷斯议程的重点 - UN News
+- **来源**：Google News 气候变化
+- **热度**：86.2
+- **链接**：https://news.google.com/rss/articles/CBMiV0FVX3lxTE15QjVXRklHRTltY1VmNjA0QnZqN0RDTnlXakdVX29lSHpNQVU2SU91V1FiakJSbE9MYWNJWkplMmR0LUNwQnZpNmpab21zcFR5QWNVQTBMTQ?oc=5
+- **摘要**：联合国秘书长古特雷斯将人工智能、气候变化和冲突列为联大会议重点议题。
+- **分析**：该条目涉及【人工智能】话题，因来源权威性高，热度上升。
+
+### 8. At Least 124 Environmental Defenders Killed Worldwide Last Year
+- **来源**：Yale Environment 360
+- **热度**：83.8
+- **链接**：https://e360.yale.edu/digest/environmental-defenders-killed-2025
+- **摘要**：一份最新发布的严峻报告显示，去年至少有124人因保护森林、农田或水道免遭破坏或退化而遭杀害。该报告的作者指出，富裕国家大幅削减对外援助，削弱了支持环保捍卫者的人权组织。在E360上阅读更多内容 →
+- **分析**：该条目涉及【环境捍卫者】话题，因来源权威性高，热度上升。
+
+### 9. 国家能源局主要负责人会见新西兰气候变化部部长 - Sohu
+- **来源**：Google News 气候变化
+- **热度**：81.5
+- **链接**：https://news.google.com/rss/articles/CBMiiAFBVV95cUxPbWFYVTdlLWY0cmNVbk1Ib1RMQ290QlFfeFcwdDVLNzNuQUN0R0dDU3BSa3N4MFBqV2NWR0k3b0VBTHJIanJUR0xfcXVTcnVZeVFSVGpyVW1XaEZUUjAwbzQ2NHBhQUNXRkdmM3FhTWQ4dW9LMk5wR3lnT19wSlJwOG5sM0U0OThw?oc=5
+- **摘要**：国家能源局局长王宏志会见新西兰气候变化部部长，双方就中新能源领域合作交换意见。
+- **分析**：该条目涉及【国家能源局】话题，因来源权威性高，热度上升。
+
+### 10. Scientists stunned as volcano cloud starts destroying methane
+- **来源**：ScienceDaily 环境科学
+- **热度**：79.2
+- **链接**：https://www.sciencedaily.com/releases/2026/09/260915095750.htm
+- **摘要**：洪加通加火山喷发可能引发了一种出人意料的化学反应，该反应破坏了部分释放到大气中的甲烷。科学家表示，这一发现可能会重新调整对甲烷污染的估算，并为减缓近期全球变暖提供新的方法。
+- **分析**：该条目涉及【环境资讯】话题，因来源权威性高，热度上升。
+
+**今日自动提取候选新词**
+
+- **生态环境**（出现 4 次）
+  - 上下文：21专访丨生态环境部应对气候变化司副司长逯世泽：争取尽快引入首批金融机构参与碳市场 - 21财经
+  - 上下文：茂名生态环境执法队伍全省竞赛创历史最好成绩 - mm111.net
+  - 上下文：2026年中国碳市场大会在武汉举行 - 中华人民共和国生态环境部
+- **Scientists**（出现 3 次）
+  - 上下文：Scientists turn seawater into fresh water without harmful brine
+  - 上下文：Scientists “truly astonished” by discovery that challenges Earth’s origin story
+  - 上下文：Scientists stunned as volcano cloud starts destroying methane
+- **生态**（出现 3 次）
+  - 上下文：扛牢生态环境保护责任 凝心聚力守护清江碧水 - 四川日报
+  - 上下文：百余人走进北京市环境监测展厅 近距离探秘生态环境监测工作 - 北京市人民政府门户网站
+  - 上下文：深圳市生态环境局关于广东省生态环境保护工作先进集体和先进工作者深圳市拟推荐对象的公示 - sz.gov.cn
+- **中国**（出现 3 次）
+  - 上下文：2026年中国碳市场大会在武汉举行 - 中华人民共和国生态环境部
+  - 上下文：2026年中国—东盟博览会绿色低碳展将在广西南宁举办 - 新华网客户端
+  - 上下文：单原子铁实现“精准捕砷” 为水体砷污染治理开辟新路径 - 中国科技网
+- **climate**（出现 2 次）
+  - 上下文：Irrigation’s climate benefit could equal 363 years of its own emissions
+  - 上下文：East Asian heatwaves intensify faster than they dissipate in a warming climate
+- **emissions**（出现 2 次）
+  - 上下文：Irrigation’s climate benefit could equal 363 years of its own emissions
+  - 上下文：Methane and carbon dioxide emissions from wastewater treatment units linked to DOM stabilization and phosphonate-scavenging microbiomes
+- **应对**（出现 2 次）
+  - 上下文：史上最强厄尔尼诺正在形成 南非专家：利用碳排放应对气候变化 - 荆楚网
+  - 上下文：21专访丨生态环境部应对气候变化司副司长逯世泽：争取尽快引入首批金融机构参与碳市场 - 21财经
+- **water**（出现 2 次）
+  - 上下文：Scientists turn seawater into fresh water without harmful brine
+  - 上下文：Aging of biosolids in fields prolongs the release of biosolid-borne PFAS and promotes the release of select PFCA in water
+- **市场**（出现 2 次）
+  - 上下文：21专访丨生态环境部应对气候变化司副司长逯世泽：争取尽快引入首批金融机构参与碳市场 - 21财经
+  - 上下文：2026年中国碳市场大会在武汉举行 - 中华人民共和国生态环境部
+- **wastewater**（出现 2 次）
+  - 上下文：Non-target screening and resistome profiling of hospital wastewater in India: Transformation of contaminants of emerging concern and antimicrobial resistance risks
+  - 上下文：Methane and carbon dioxide emissions from wastewater treatment units linked to DOM stabilization and phosphonate-scavenging microbiomes
+- **stabilization**（出现 2 次）
+  - 上下文：Methane and carbon dioxide emissions from wastewater treatment units linked to DOM stabilization and phosphonate-scavenging microbiomes
+  - 上下文：Dual role of percarbonate in permanganate activation for micropollutants abatement: Reactive manganese species generation and stabilization
+
+---

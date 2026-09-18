@@ -1,0 +1,41 @@
+# ===== Python =====
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+dist/
+*.egg-info/
+.venv/
+venv/
+env/
+
+# ===== 敏感配置：API Key / 邮箱授权码只走环境变量或 GitHub Secrets =====
+# config.yaml 里包含 api_key / deepl_api_key / baidu_appid / baidu_secret_key /
+# email_config.password 等字段。运行本身需要它，所以不整体忽略；
+# 但如果你在本地往里面填过真实密钥（而不是用 NVIDIA_API_KEY 等环境变量），
+# 请取消下面两行的注释，避免 `git add .` 时把密钥提交上去。
+# config.yaml
+# config.local.yaml
+
+# ===== 本地临时产物 =====
+# UI 预览截图（.ui_preview/ 下由本地渲染脚本生成，不属于站点资源）
+.ui_preview/
+# 自动化脚本的临时报告
+_audit_*.txt
+_out.txt
+_*_out.txt
+
+# ===== 编辑器 / 系统 =====
+.vscode/
+.idea/
+*.swp
+*~
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# ===== 注意：docs/data/ 必须提交 =====
+# 它是站点运行的数据源，由 GitHub Actions 每日更新并 push 回来，
+# 因此这里绝不能忽略 docs/data/。

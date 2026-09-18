@@ -16,7 +16,7 @@
          但那样会与 style.css 形成两套并存的同名规则（改一处漏一处就表现不一致），
          而且内联的 `background: ... !important` 会盖掉 style.css 里
          `body.dark .card-rank` 的暗色适配，导致暗色模式下徽章背景失效。 -->
-    <link rel="stylesheet" href="style.css?v=20260918">
+    <link rel="stylesheet" href="style.css?v=20260918b">
     <!-- Chart.js 固定版本：写死 4.5.1（= 修复时的最新稳定版，与原先"不写版本、隐式取最新"的实际行为一致）。
          不写版本的 URL 会随上游发布漂移，一次破坏性变更就能让全部图表挂掉。 -->
     <script src="https://cdn.jsdelivr.net/npm/chart.js@4.5.1"></script>
@@ -55,12 +55,12 @@ var _hmt = _hmt || [];
                 </button>
                 <div class="srch-box">
                     <input type="text" id="searchInput" placeholder="搜索热点、学校、词条..." autocomplete="off">
-                    <span class="srch-icon">🔍</span>
+                    <span class="srch-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg></span>
                 </div>
                 <button class="icon-btn" id="savedIcon" title="我的收藏" aria-label="我的收藏">♥</button>
                 <button class="icon-btn" id="reloadIcon" title="刷新数据" aria-label="刷新数据">⟳</button>
-                <button class="icon-btn" id="themeToggle" title="夜间模式" aria-label="切换夜间模式">🌙</button>
-                <button class="icon-btn" id="feedbackIcon" title="用户反馈" aria-label="用户反馈">💬</button>
+                <button class="icon-btn" id="themeToggle" title="夜间模式" aria-label="切换夜间模式"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg></button>
+                <button class="icon-btn" id="feedbackIcon" title="用户反馈" aria-label="用户反馈"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg></button>
                 <button class="icon-btn" id="shareSiteBtn" title="分享网站" aria-label="分享网站">↗</button>
             </div>
         </div>
@@ -86,13 +86,13 @@ var _hmt = _hmt || [];
                 <!-- 左侧主列 -->
                 <div class="hotspot-main">
                     <section class="overview-card" id="summarySection">
-                        <span class="overview-label">📊 今日概览</span>
+                        <span class="overview-label">今日概览</span>
                         <p class="overview-text" id="summaryText"></p>
                     </section>
 
                     <section class="featured-block" id="featuredSection">
                         <div class="block-head">
-                            <h2 class="block-title">⭐ 今日焦点</h2>
+                            <h2 class="block-title">今日焦点</h2>
                         </div>
                         <div class="featured-list" id="featuredList"></div>
                     </section>
@@ -115,7 +115,7 @@ var _hmt = _hmt || [];
                     <!-- 近7天热点总结（底部统计卡） -->
                     <section class="weekly-card" id="weeklySummarySection">
                         <div class="weekly-head">
-                            <span class="weekly-title">📊 近 7 天热点总结</span>
+                            <span class="weekly-title">近 7 天热点总结</span>
                         </div>
                         <p class="weekly-text" id="weeklySummaryText">加载中...</p>
                         <p class="weekly-text weekly-insight" id="weeklyInsightText"></p>
@@ -145,7 +145,7 @@ var _hmt = _hmt || [];
                         <h3 class="word-term" id="dailyWordTerm">加载中...</h3>
                         <span class="word-cat" id="dailyWordCategory"></span>
                         <p class="word-def" id="dailyWordDefinition">正在获取今日词条...</p>
-                        <button class="word-refresh" id="dailyWordRefresh">🔄 换一个</button>
+                        <button class="word-refresh" id="dailyWordRefresh">换一个</button>
                     </section>
 
                     <section class="side-card">
@@ -158,7 +158,7 @@ var _hmt = _hmt || [];
                             <canvas id="trendChart"></canvas>
                         </div>
                         <div class="card-detail-actions">
-                            <button class="proxy-btn" id="timelineBtn">📈 查看事件时间线</button>
+                            <button class="proxy-btn" id="timelineBtn">查看事件时间线</button>
                         </div>
                     </section>
 
@@ -196,7 +196,7 @@ var _hmt = _hmt || [];
                 </div>
 
                 <div class="kaoyan-toolbar">
-                    <button class="btn-learning-path" id="learningBtn">🧭 学习路径</button>
+                    <button class="btn-learning-path" id="learningBtn">学习路径</button>
                     <span class="kaoyan-toolbar-hint">环境专业学习资源导航 · 大一必知 / 考研方向 / 考证清单</span>
                 </div>
 
@@ -321,7 +321,7 @@ var _hmt = _hmt || [];
                 <button class="footer-link" id="customizeBtn">主题定制</button>
                 <a class="footer-link" href="https://github.com/black15647/hotspot-radar/issues/new?title=网站反馈&body=请描述你的建议或问题：" target="_blank" rel="noopener">用户反馈</a>
                 <button class="footer-link" id="footerBackToTop">回到顶部</button>
-                <a class="footer-link support-link" href="https://afdian.com/a/swda15652" target="_blank" rel="noopener">☕ 支持作者</a>
+                <a class="footer-link support-link" href="https://afdian.com/a/swda15652" target="_blank" rel="noopener">支持作者</a>
             </div>
         </div>
         <p class="footer-copyright">© 2026 环境学子雷达 · 开源免费 · MIT License</p>
@@ -330,7 +330,7 @@ var _hmt = _hmt || [];
     <!-- ======================= 主题定制面板 ======================= -->
     <aside class="customize-panel" id="customizePanel">
         <div class="panel-head">
-            <span class="panel-title">🎨 主题定制</span>
+            <span class="panel-title">主题定制</span>
             <button class="panel-close" id="panelClose">✕</button>
         </div>
         <div class="panel-body">
@@ -434,7 +434,7 @@ var _hmt = _hmt || [];
         <div class="modal-overlay" id="historyOverlay"></div>
         <div class="modal-content modal-large">
             <div class="modal-head">
-                <h3 class="modal-title">📅 历史归档</h3>
+                <h3 class="modal-title">历史归档</h3>
                 <button class="modal-close" id="historyClose">✕</button>
             </div>
             <div class="modal-body">
@@ -458,7 +458,7 @@ var _hmt = _hmt || [];
         <div class="modal-overlay" id="glossaryOverlay"></div>
         <div class="modal-content modal-large">
             <div class="modal-head">
-                <h3 class="modal-title">📖 环境知识库</h3>
+                <h3 class="modal-title">环境知识库</h3>
                 <button class="modal-close" id="glossaryClose">✕</button>
             </div>
             <div class="modal-body">
@@ -468,7 +468,7 @@ var _hmt = _hmt || [];
                 </div>
                 <div class="glossary-recommend" id="glossaryRecommend">
                     <div class="glossary-recommend-head">
-                        <span class="glossary-recommend-title">✨ 推荐词条</span>
+                        <span class="glossary-recommend-title">推荐词条</span>
                         <button class="glossary-refresh-btn" id="glossaryRefreshBtn">换一批</button>
                     </div>
                     <div class="glossary-recommend-tags" id="glossaryRecommendTags"></div>
@@ -505,7 +505,7 @@ var _hmt = _hmt || [];
         <div class="modal-overlay" id="savedOverlay"></div>
         <div class="modal-content modal-large">
             <div class="modal-head">
-                <h3 class="modal-title">⭐ 我的收藏</h3>
+                <h3 class="modal-title">我的收藏</h3>
                 <button class="modal-close" id="savedClose">✕</button>
             </div>
             <div class="modal-body">
@@ -521,7 +521,7 @@ var _hmt = _hmt || [];
         <div class="modal-overlay" id="learningOverlay"></div>
         <div class="modal-content modal-large">
             <div class="modal-head">
-                <h3 class="modal-title">🧭 学习路径</h3>
+                <h3 class="modal-title">学习路径</h3>
                 <button class="modal-close" id="learningClose">✕</button>
             </div>
             <div class="modal-body">
@@ -537,7 +537,7 @@ var _hmt = _hmt || [];
         <div class="modal-overlay" id="timelineOverlay"></div>
         <div class="modal-content modal-large">
             <div class="modal-head">
-                <h3 class="modal-title">📈 事件时间线</h3>
+                <h3 class="modal-title">事件时间线</h3>
                 <button class="modal-close" id="timelineClose">✕</button>
             </div>
             <div class="modal-body">
@@ -564,7 +564,7 @@ var _hmt = _hmt || [];
         <div class="modal-overlay" data-close-modal></div>
         <div class="modal-content score-breakdown-content">
             <div class="modal-head">
-                <h3 class="modal-title">🔥 热度分数明细</h3>
+                <h3 class="modal-title">热度分数明细</h3>
                 <button class="modal-close" data-close-modal>&times;</button>
             </div>
             <div class="modal-body">
@@ -580,7 +580,7 @@ var _hmt = _hmt || [];
         <div class="modal-overlay" id="sourceHealthOverlay"></div>
         <div class="modal-content modal-large">
             <div class="modal-head">
-                <h3 class="modal-title">📡 源健康度</h3>
+                <h3 class="modal-title">源健康度</h3>
                 <button class="modal-close" id="sourceHealthClose">✕</button>
             </div>
             <div class="modal-body">
@@ -600,7 +600,7 @@ var _hmt = _hmt || [];
             </div>
             <div class="modal-body">
                 <div class="keyword-detail-actions">
-                    <button class="btn-primary" id="followKeywordBtn">⭐ 关注这个词</button>
+                    <button class="btn-primary" id="followKeywordBtn">关注这个词</button>
                 </div>
                 <div class="keyword-detail-section">
                     <div class="keyword-detail-glossary" id="keywordDetailGlossary"><p class="text-muted">暂无解释</p></div>
@@ -650,7 +650,7 @@ var _hmt = _hmt || [];
 
     <div class="error-container" id="errorContainer">
         <div class="error-card">
-            <span class="error-icon">⚠️</span>
+            <span class="error-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 8v4M12 16h.01"/></svg></span>
             <p class="error-text">数据加载失败，请检查网络或稍后重试</p>
             <button class="btn-primary" id="errorReloadBtn">重新加载</button>
         </div>

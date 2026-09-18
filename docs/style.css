@@ -170,6 +170,12 @@ button:active { transform: scale(0.95); transition: transform 0.1s; }
 }
 .srch-box .srch-icon { position: absolute; right: 11px; font-size: 14px; pointer-events: none; }
 
+/* 内联 SVG 图标的尺寸与配色（替代原先直接写 emoji 字符的写法）。
+   图标尺寸集中在这里控制，这样以后调整图标大小不必去动 HTML。 */
+.srch-box .srch-icon svg { width: 14px; height: 14px; display: block; }
+.empty-state-icon svg { width: 40px; height: 40px; display: block; margin: 0 auto; color: var(--clr-muted); }
+.error-icon svg { width: 40px; height: 40px; display: block; margin: 0 auto; color: var(--clr-danger); }
+
 .icon-btn {
     width: 34px;
     height: 34px;

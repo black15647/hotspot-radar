@@ -41,6 +41,17 @@
     };
     function categoryColor(cat) { return CATEGORY_COLORS[cat] || CATEGORY_COLORS['其他']; }
 
+    // 内联 SVG 图标：替代原先用作图标的 emoji 字符。
+    // 这几个位置图标承载识别功能（主题切换、空状态告示），直接删除会留下空按钮或
+    // 纯文字退化，所以改用与顶栏同一套 24x24 线性 SVG，尺寸由 CSS 控制。
+    const ICONS = {
+        moon: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>',
+        sun: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/></svg>',
+        book: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>',
+        inbox: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M22 12h-6l-2 3h-4l-2-3H2"/><path d="M5.45 5.11 2 12v6a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2v-6l-3.45-6.89A2 2 0 0 0 16.76 4H7.24a2 2 0 0 0-1.79 1.11z"/></svg>',
+        radio: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="2"/><path d="M16.24 7.76a6 6 0 0 1 0 8.49M7.76 16.24a6 6 0 0 1 0-8.49M19.07 4.93a10 10 0 0 1 0 14.14M4.93 19.07a10 10 0 0 1 0-14.14"/></svg>',
+    };
+
     // 默认主题配置
     const defaultTheme = {
         primaryColor: '#10B981',
@@ -698,7 +709,7 @@
         const shareBtn = document.createElement('button');
         shareBtn.className = 'share-btn';
         shareBtn.title = '分享';
-        shareBtn.innerHTML = '🔗';
+        shareBtn.innerHTML = '↗';
         shareBtn.addEventListener('click', (e) => {
             e.stopPropagation();
             handleShare(item);
@@ -737,7 +748,7 @@
         const hotness = getHeatScore(item);
         hotnessEl.className = `hotness-badge hotness-score ${getHotnessClass(item)}`;
         // 用 textContent 而不是 innerHTML：hotness 来自 JSON 数据，innerHTML 会解释其中的标签
-        hotnessEl.textContent = `🔥 ${hotness}`;
+        hotnessEl.textContent = String(hotness);
         hotnessEl.title = '点击查看热度明细';
         hotnessEl.addEventListener('click', (e) => {
             e.stopPropagation();
@@ -804,7 +815,7 @@
         readOriginalBtn.href = item.link || '#';
         readOriginalBtn.target = '_blank';
         readOriginalBtn.rel = 'noopener noreferrer';
-        readOriginalBtn.innerHTML = '📖 阅读原文';
+        readOriginalBtn.innerHTML = '阅读原文';
         detailActions.appendChild(readOriginalBtn);
 
         // 代理访问按钮
@@ -814,7 +825,7 @@
             proxyBtn.href = 'https://translate.google.com/translate?hl=zh-CN&sl=auto&tl=zh-CN&u=' + encodeURIComponent(item.link);
             proxyBtn.target = '_blank';
             proxyBtn.rel = 'noopener noreferrer';
-            proxyBtn.innerHTML = '🌐 代理访问';
+            proxyBtn.innerHTML = '代理访问';
             detailActions.appendChild(proxyBtn);
         }
 
@@ -1024,7 +1035,7 @@
 
             const hotnessEl = document.createElement('span');
             hotnessEl.className = 'saved-hotness';
-            hotnessEl.textContent = '🔥 ' + (item.hotness || 0);
+            hotnessEl.textContent = String(item.hotness || 0);
             meta.appendChild(hotnessEl);
 
             body.appendChild(meta);
@@ -1054,7 +1065,7 @@
                 readBtn.href = item.link;
                 readBtn.target = '_blank';
                 readBtn.rel = 'noopener noreferrer';
-                readBtn.innerHTML = '📖 阅读原文';
+                readBtn.innerHTML = '阅读原文';
                 actions.appendChild(readBtn);
 
                 const proxyBtn = document.createElement('a');
@@ -1062,7 +1073,7 @@
                 proxyBtn.href = 'https://translate.google.com/translate?hl=zh-CN&sl=auto&tl=zh-CN&u=' + encodeURIComponent(item.link);
                 proxyBtn.target = '_blank';
                 proxyBtn.rel = 'noopener noreferrer';
-                proxyBtn.innerHTML = '🌐 代理访问';
+                proxyBtn.innerHTML = '代理访问';
                 actions.appendChild(proxyBtn);
             }
 
@@ -1334,7 +1345,7 @@
     // ============================================================
     function openKeywordChart(keyword) {
         state.currentKeyword = keyword;
-        els.keywordModalTitle.textContent = `📈 "${keyword}" 历史热度趋势`;
+        els.keywordModalTitle.textContent = `"${keyword}" 历史热度趋势`;
         openModal(els.keywordModal);
 
         // 延迟渲染，确保 canvas 可见
@@ -1515,7 +1526,7 @@
     function toggleDarkMode() {
         document.body.classList.toggle('dark');
         const isDark = document.body.classList.contains('dark');
-        els.themeToggle.textContent = isDark ? '☀️' : '🌙';
+        els.themeToggle.innerHTML = isDark ? ICONS.sun : ICONS.moon;
         saveTheme();
         // 重新渲染图表以适配颜色
         if (state.trendChart) renderTrendChart();
@@ -1588,7 +1599,7 @@
         }
         if (theme.dark) {
             document.body.classList.add('dark');
-            els.themeToggle.textContent = '☀️';
+            els.themeToggle.innerHTML = ICONS.sun;
         }
     }
 
@@ -1613,7 +1624,7 @@
     function resetTheme() {
         applyTheme(defaultTheme);
         document.body.classList.remove('dark');
-        els.themeToggle.textContent = '🌙';
+        els.themeToggle.innerHTML = ICONS.moon;
         saveTheme();
         if (state.trendChart) renderTrendChart();
         showToast('已恢复默认主题');
@@ -2077,7 +2088,7 @@
 
         const title = document.createElement('div');
         title.className = 'history-top10-title';
-        title.textContent = `📅 ${dateStr} 热点 TOP ${items.length}`;
+        title.textContent = `${dateStr} 热点 TOP ${items.length}`;
 
         const backBtn = document.createElement('button');
         backBtn.className = 'history-back-btn';
@@ -2132,7 +2143,7 @@
             const hotnessEl = document.createElement('span');
             hotnessEl.className = `hotness-badge hotness-score ${getHotnessClass(item)}`;
             // 同上：JSON 数据一律走 textContent，避免 HTML 被解释
-            hotnessEl.textContent = `🔥 ${hotness}`;
+            hotnessEl.textContent = String(hotness);
             meta.appendChild(hotnessEl);
 
             body.appendChild(titleEl);
@@ -2226,14 +2237,17 @@
             renderLearningPath();
         } catch (err) {
             console.error('学习路径加载失败:', err);
-            els.learningList.innerHTML = '<div class="empty-state"><div class="empty-state-icon">📚</div><p class="empty-state-text">学习路径加载失败</p><button class="btn-primary" onclick="location.reload()">重试</button></div>';
+            els.learningList.innerHTML = '<div class="empty-state"><div class="empty-state-icon">' + ICONS.book + '</div><p class="empty-state-text">学习路径加载失败</p><button class="btn-primary" type="button" id="learningRetryBtn">重试</button></div>';
+            // 原为内联 onclick，改为事件监听：内联处理器无法被 CSP 约束，也不便调试
+            const learningRetryBtn = document.getElementById('learningRetryBtn');
+            if (learningRetryBtn) learningRetryBtn.addEventListener('click', () => location.reload());
         }
     }
 
     function renderLearningPath() {
         if (!els.learningList) return;
         if (!Array.isArray(state.learningData) || state.learningData.length === 0) {
-            els.learningList.innerHTML = '<div class="empty-state"><div class="empty-state-icon">📭</div><p class="empty-state-text">暂无学习路径数据</p></div>';
+            els.learningList.innerHTML = '<div class="empty-state"><div class="empty-state-icon">' + ICONS.inbox + '</div><p class="empty-state-text">暂无学习路径数据</p></div>';
             return;
         }
         const frag = document.createDocumentFragment();
@@ -2450,22 +2464,6 @@
         return safeText.replace(regex, '<span class="highlight">$1</span>');
     }
 
-    // ---------- 空状态工具 ----------
-    function showEmptyState(container, icon, text, hint, linkText, linkUrl) {
-        if (!container) return;
-        const linkHtml = linkText && linkUrl
-            ? `<a href="${safeUrl(linkUrl)}" target="_blank" rel="noopener" class="empty-state-link">${escapeHtml(linkText)}</a>`
-            : '';
-        container.innerHTML = `
-            <div class="empty-state">
-                <div class="empty-state-icon">${icon || '📭'}</div>
-                <p class="empty-state-text">${escapeHtml(text || '暂无数据')}</p>
-                ${hint ? `<p class="empty-state-hint">${escapeHtml(hint)}</p>` : ''}
-                ${linkHtml}
-            </div>
-        `;
-    }
-
     // ============================================================
     // v5.0 新增功能
     // ============================================================
@@ -2512,7 +2510,7 @@
             renderSourceHealth();
         } catch (err) {
             console.error('源健康度加载失败:', err);
-            els.sourceHealthList.innerHTML = '<div class="empty-state"><div class="empty-state-icon">📡</div><p class="empty-state-text">暂无源健康度数据</p></div>';
+            els.sourceHealthList.innerHTML = '<div class="empty-state"><div class="empty-state-icon">' + ICONS.radio + '</div><p class="empty-state-text">暂无源健康度数据</p></div>';
         }
     }
 
@@ -2547,10 +2545,13 @@
             const item = document.createElement('div');
             const statusClass = src.critical ? 'critical' : (src.success ? '' : 'failed');
             item.className = 'source-health-item ' + statusClass;
-            const statusIcon = src.success ? '✅' : '❌';
+            // style.css 里已定义 .source-health-status 的 ok/fail 配色，但原先没被用上，
+            // 颜色完全靠 emoji 自身携带；改为几何符号后必须显式带上状态 class 才能保留语义配色
+            const statusState = src.success ? 'ok' : 'fail';
+            const statusIcon = src.success ? '✓' : '✕';
             const criticalBadge = src.critical ? '<span class="source-health-badge critical">连续失败</span>' : '';
             item.innerHTML = `
-                <span class="source-health-status">${statusIcon}</span>
+                <span class="source-health-status ${statusState}">${statusIcon}</span>
                 <div class="source-health-info">
                     <div class="source-health-name">${escapeHtml(src.name || '未知源')}</div>
                     <div class="source-health-meta">${src.elapsed_seconds || 0}s · ${src.item_count || 0} 条 · ${src.last_check ? new Date(src.last_check).toLocaleString('zh-CN') : '未知'}</div>
@@ -2568,7 +2569,7 @@
     function openKeywordDetail(keyword) {
         if (!els.keywordDetailModal) return;
         state.currentDetailKeyword = keyword;
-        if (els.keywordDetailTitle) els.keywordDetailTitle.textContent = '🔍 ' + keyword;
+        if (els.keywordDetailTitle) els.keywordDetailTitle.textContent = keyword;
         // 更新关注按钮状态
         updateFollowButtonState();
         openModal(els.keywordDetailModal);
@@ -2702,7 +2703,7 @@
         if (!els.followKeywordBtn) return;
         const kw = state.currentDetailKeyword;
         const followed = state.followedKeywords.includes(kw);
-        els.followKeywordBtn.textContent = followed ? '⭐ 已关注（点击取消）' : '⭐ 关注这个词';
+        els.followKeywordBtn.textContent = followed ? '已关注（点击取消）' : '关注这个词';
         els.followKeywordBtn.classList.toggle('followed', followed);
     }
 
@@ -2717,7 +2718,7 @@
             bar.className = 'followed-keywords-bar';
             els.cardList.parentNode.insertBefore(bar, els.cardList);
         }
-        bar.innerHTML = '<span class="followed-keywords-label">⭐ 已关注：</span>' +
+        bar.innerHTML = '<span class="followed-keywords-label">已关注：</span>' +
             state.followedKeywords.map((kw) =>
                 `<span class="followed-keyword-tag" data-kw="${escapeHtml(kw)}">${escapeHtml(kw)} <span class="remove">×</span></span>`
             ).join('');
@@ -3089,7 +3090,7 @@
     }
 
 
-    // 绑定考研院校入口（🎓 工具按钮 → 切换到高校考研窗口，统一入口）
+    // 绑定考研院校入口（工具按钮 → 切换到高校考研窗口，统一入口）
     function bindSchoolsEvents() {
         const schoolsBtn = document.getElementById('schoolsBtn');
         if (schoolsBtn) {
@@ -3381,11 +3382,11 @@
                     '<div class="school-score-line"><strong>近年复试线：</strong>' + school.score_lines + '</div>' +
                     '<div class="school-expand-hint">点击查看完整信息 ▼</div>' +
                     '<div class="school-detail">' +
-                        '<div class="school-detail-section"><div class="school-detail-title">📚 参考书目</div><div class="school-detail-content">' + school.books + '</div></div>' +
-                        '<div class="school-detail-section"><div class="school-detail-title">📝 复试内容</div><div class="school-detail-content">' + school.retest + '</div></div>' +
-                        '<div class="school-detail-section"><div class="school-detail-title">📊 招生人数</div><div class="school-detail-content">' + school.enrollment + '</div></div>' +
-                        '<div class="school-detail-section"><div class="school-detail-title">🏷️ 院校标签</div><div class="school-detail-content">' + school.tags.map(t => '<span class="school-tag">' + t + '</span>').join(' ') + '</div></div>' +
-                        '<div class="school-detail-section"><div class="school-detail-title">📅 数据更新日期</div><div class="school-detail-content">' + (school.last_updated || '未知') + '</div></div>' +
+                        '<div class="school-detail-section"><div class="school-detail-title">参考书目</div><div class="school-detail-content">' + school.books + '</div></div>' +
+                        '<div class="school-detail-section"><div class="school-detail-title">复试内容</div><div class="school-detail-content">' + school.retest + '</div></div>' +
+                        '<div class="school-detail-section"><div class="school-detail-title">招生人数</div><div class="school-detail-content">' + school.enrollment + '</div></div>' +
+                        '<div class="school-detail-section"><div class="school-detail-title">院校标签</div><div class="school-detail-content">' + school.tags.map(t => '<span class="school-tag">' + t + '</span>').join(' ') + '</div></div>' +
+                        '<div class="school-detail-section"><div class="school-detail-title">数据更新日期</div><div class="school-detail-content">' + (school.last_updated || '未知') + '</div></div>' +
                     '</div>' +
                 '</div>';
         }).join('');

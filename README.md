@@ -3,7 +3,9 @@
 > 面向环境专业学生的开源热点聚合平台 —— 每日自动聚合 15+ 权威信息源，用透明的热度算法为你筛选最值得关注的环境领域资讯。
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
-[![GitHub Pages](https://img.shields.io/badge/Deploy-GitHub%20Pages-blue.svg)](https://pages.github.com/)
+[![GitHub Pages](https://img.shields.io/badge/Deploy-GitHub%20Pages-blue.svg)](https://black15647.github.io/hotspot-radar/)
+
+🔗 **在线访问**：<https://black15647.github.io/hotspot-radar/>
 
 ---
 
@@ -82,7 +84,7 @@
 - **百度统计集成**：预留百度统计脚本位置，替换 ID 即可启用网站访问统计
 - **自动备份与失败通知**：每日自动备份关键数据到 GitHub Release，工作流失败时通过 ntfy.sh 推送通知
 - **代码模块化重构**：后端函数职责单一，便于维护和扩展
-- **单元测试**：25个测试用例覆盖摘要清洗、关键词匹配、热度计算、JSON生成等核心功能
+- **单元测试**：42 个测试用例覆盖摘要清洗、关键词匹配、热度计算、URL 安全校验、CSV 注入防护、JSON 生成等核心功能
 
 ---
 
@@ -232,23 +234,27 @@ score_v1 = 5 + 来源权重×3 + 关键词匹配数×关键词加分 + 主题聚
 
 ---
 
-## 💬 配置反馈功能
+## 💬 反馈功能
 
 本项目使用 **GitHub Issues** 处理用户反馈，无需第三方服务，无需自建后端。
 
-### 配置步骤
+反馈入口共 3 处，均已指向本仓库 `black15647/hotspot-radar` 的 Issues 创建页：
 
-1. **打开 `docs/index.html`**，找到反馈按钮的链接：
+| 位置 | 说明 |
+|---|---|
+| `docs/index.html` 页脚「用户反馈」 | 页脚链接 |
+| `docs/index.html` 右上角 💬 图标 | 由 `docs/script.js` 绑定，调用 `window.open` |
+| `docs/script.js` 词汇页「提交收录」 | 术语缺失时出现，标题会预填词条名 |
 
-   ```html
-   <a href="https://github.com/你的用户名/你的仓库名/issues/new?title=网站反馈&body=请描述你的建议或问题：" target="_blank">💬 反馈</a>
-   ```
+预填链接的格式为：
 
-2. **替换占位符**：将 `你的用户名` 和 `你的仓库名` 替换为你的 GitHub 用户名和仓库名。
+```html
+<a href="https://github.com/black15647/hotspot-radar/issues/new?title=网站反馈&body=请描述你的建议或问题：" target="_blank" rel="noopener">用户反馈</a>
+```
 
-3. **提交并推送**：将修改推送到 GitHub，反馈功能即可生效。
+用户点击后会在新标签页打开 Issues 创建页面，标题与正文已预填，只需补充具体内容即可提交。
 
-用户点击反馈按钮后，会在新标签页打开 GitHub Issues 创建页面，标题和正文已预填，用户只需补充具体内容即可提交。
+> 若将本项目 fork 到其他账号，需把上述 3 处的 `black15647/hotspot-radar` 替换为自己的用户名与仓库名。历史版本曾把 `docs/script.js` 词汇页那处漏改成占位符，导致点击进入 404 页面。
 
 ---
 
@@ -331,7 +337,7 @@ python -m http.server 8000
 
 ### 运行单元测试
 
-项目包含 25 个单元测试用例，覆盖摘要清洗、关键词匹配、热度计算、JSON 生成等核心功能。
+项目包含 42 个单元测试用例，覆盖摘要清洗、关键词匹配、热度计算、URL 安全校验（SSRF 防护）、CSV 公式注入防护、JSON 生成等核心功能。
 
 ```bash
 # 运行所有测试（详细输出）
@@ -368,9 +374,13 @@ GitHub Actions 工作流每日运行时会自动执行以下备份操作：
 
 ```
 hotspot-radar/
-├── config.yaml                  # 配置文件（唯一需修改）
+├── config.yaml                  # 配置文件（RSS 源、来源权重、算法参数）
+├── requirements.txt             # Python 依赖（固定版本，CI 与本地共用）
 ├── daily_report.py              # 每日报告生成脚本
-├── test_daily_report.py         # 单元测试（25个测试用例）
+├── test_daily_report.py         # 单元测试（42 个测试用例）
+├── _test_relevance.py           # 相关性过滤冒烟测试
+├── .gitignore                   # 排除缓存与本地预览产物
+├── LICENSE                      # MIT 开源协议
 ├── .github/
 │   └── workflows/
 │       └── main.yml             # GitHub Actions 自动更新 + 备份 + 通知
@@ -379,6 +389,8 @@ hotspot-radar/
 │   ├── style.css                # 样式表
 │   ├── script.js                # 前端脚本
 │   ├── favicon.svg              # 网站图标
+│   ├── robots.txt               # 爬虫指令
+│   ├── sitemap.xml              # 站点地图
 │   └── data/                    # 生成的数据（自动更新）
 │       ├── latest.json          # 今日热点完整数据
 │       ├── daily_report.md      # Top10 可读报告
@@ -406,7 +418,7 @@ hotspot-radar/
 
 - 🏷️ **关键词归类与大类趋势图**：新增 `classify_keyword()` 函数，将关键词映射到 8 个大类（气候变化、污染治理、生态环境、环境政策、能源与碳中和、水处理、科研学术、环境健康）；每条热点新增 `category` 字段；趋势图改为展示近 7 天各大类条目数量变化（`weekly_categories`），替代原关键词趋势
 - 📊 **近 7 天总结基于大类统计**：`generate_weekly_summary()` 优先基于各大类条目数生成，格式如"近 7 天热点集中在：气候变化（12 条）、污染治理（9 条）…"；AI 可用时生成自然语言总结，不可用时使用规则模板
-- 🩺 **模型健康检查**：新增 `check_model_health()`，每次运行开始用极短文本测试模型可用性；返回 404 或连续失败 2 次则当天跳过所有 AI 功能，日志提示"模型不可用，今日使用规则模式"；自动尝试备用模型
+- 🩺 **模型健康检查**：新增 `check_model_health()`，用极短文本测试模型端点可用性；返回 404 或连续失败 2 次则跳过当天 AI 功能，自动尝试备用模型。**注：该函数当前为预留能力，尚未接入主流程**（`daily_report.py` 中只有定义、无调用点），实际生效的降级路径是 `generate_ai_summary()` 内部的异常捕获与 `_fallback_rule_summary()` 规则兜底
 - 🔙 **模型改回 deepseek-v4-flash**：`config.yaml` 中 `summary_api.model` 改回 `deepseek-ai/deepseek-v4-flash-0731`（旧的可用模型），`fallback_model` 设为同一模型，避免 nemotron 新模型 404 导致 AI 功能全部失效
 - 🛡️ **放宽相关性过滤**：过滤后剩余条目少于 20 条时自动取消过滤（原阈值 10 条），避免误杀环境类新闻；英文环境词表扩充至 80+ 词（新增 recycling、toxic、contamination、fossil fuel、deforestation、sewage、eutrophication 等）；过滤日志明确输出匹配到的关键词
 - 🌐 **翻译服务优化**：新增翻译缓存（`TRANSLATION_CACHE`）避免重复翻译；每日翻译上限 20 条（`TRANSLATION_MAX_DAILY`），超出保留原文；百度翻译保持 1.2 秒限速 + 54003 错误 3 秒重试；DeepL → 百度 → Google 三级降级不变

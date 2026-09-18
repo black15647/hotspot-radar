@@ -7,6 +7,11 @@ on:
   workflow_dispatch:
     # 允许手动触发
 
+# 同一时刻只保留一个运行实例，避免定时任务与手动触发并发时产生 git push 冲突
+concurrency:
+  group: daily-hotspot-report
+  cancel-in-progress: false
+
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -23,11 +28,16 @@ jobs:
         uses: actions/setup-python@v5
         with:
           python-version: '3.10'
+          # 缓存 pip 下载包，显著缩短重复运行的依赖安装耗时
+          cache: 'pip'
 
       - name: Install dependencies
         run: |
           pip install --upgrade pip
-          pip install feedparser pyyaml jieba readability-lxml html2text requests trafilatura
+          # 依赖清单统一放在 requirements.txt（已固定版本），避免 CI 每天静默装上
+          # 上游最新版导致"昨天能跑、今天突然失败"。trafilatura 为主正文提取器，
+          # readability-lxml / html2text 为其失败时的降级链。
+          pip install -r requirements.txt
 
       - name: Run daily report generator
         env:
@@ -86,9 +96,17 @@ jobs:
 
       - name: Failure notification (ntfy.sh)
         if: failure()
+        # 通知主题从仓库 Secret 读取：未配置则明确跳过。
+        # 注意：切勿把主题名硬编码进工作流——ntfy 的公共主题任何人订阅即可读，会泄漏仓库信息。
+        env:
+          NTFY_TOPIC: ${{ secrets.NTFY_TOPIC }}
         run: |
-          curl -s -X POST "https://ntfy.sh/your-topic" \
+          if [ -z "$NTFY_TOPIC" ]; then
+            echo "未配置 secret NTFY_TOPIC，跳过失败通知（如需启用：仓库 Settings > Secrets 添加 NTFY_TOPIC）"
+            exit 0
+          fi
+          curl -s -X POST "https://ntfy.sh/$NTFY_TOPIC" \
             -H "Title: 环境学子雷达 - 工作流失败" \
             -H "Priority: high" \
             -d "每日热点报告生成失败，请检查 GitHub Actions 日志。仓库: ${{ github.repository }}" \
-            || echo "通知发送失败（可能是 ntfy.sh 未配置）"
+            || echo "通知发送失败（ntfy.sh 不可达）"

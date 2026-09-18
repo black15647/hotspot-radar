@@ -204,6 +204,16 @@
     }
 
     function bindEvents() {
+        // 数据加载失败卡片里的"重新加载"按钮。
+        // 原先写在 index.html 的内联 onclick 上，改成这里统一绑定：
+        // 事件处理集中在一处便于排查，也不再需要放宽 CSP 的 script-src。
+        const errorReloadBtn = document.getElementById('errorReloadBtn');
+        if (errorReloadBtn) {
+            on(errorReloadBtn, 'click', function () {
+                window.location.reload();
+            });
+        }
+
         // 通用模态框关闭：所有带 data-close-modal 属性的元素（关闭按钮、遮罩层）
         document.querySelectorAll('[data-close-modal]').forEach((el) => {
             el.addEventListener('click', (e) => {
@@ -227,8 +237,8 @@
         on(els.searchInput, 'input', handleSearch);
 
         // 移动端圆形搜索按钮：点击展开/收起搜索框
-        var searchToggleBtn = document.getElementById('searchToggleBtn');
-        var srchBox = document.querySelector('.srch-box');
+        const searchToggleBtn = document.getElementById('searchToggleBtn');
+        const srchBox = document.querySelector('.srch-box');
         if (searchToggleBtn && srchBox) {
             on(searchToggleBtn, 'click', function () {
                 srchBox.classList.toggle('show');
@@ -246,8 +256,8 @@
         }
 
         // 就业方向：查看更多招聘 → 展开四个招聘网站面板
-        var jobsMoreBtn = document.getElementById('jobsMoreBtn');
-        var jobsMorePanel = document.getElementById('jobsMorePanel');
+        const jobsMoreBtn = document.getElementById('jobsMoreBtn');
+        const jobsMorePanel = document.getElementById('jobsMorePanel');
         if (jobsMoreBtn && jobsMorePanel) {
             on(jobsMoreBtn, 'click', function () {
                 jobsMorePanel.classList.toggle('show');
@@ -529,6 +539,8 @@
                 const shRes = await fetch('data/source_health.json');
                 if (shRes.ok) state.sourceHealthData = await shRes.json();
             } catch (e) {
+                // 可选数据，失败不影响主功能；但原先是完全静默的，出问题无从排查
+                console.warn('source_health.json 加载失败，顶部源统计将回退到默认值：', e);
                 state.sourceHealthData = null;
             }
 
@@ -722,12 +734,10 @@
         meta.appendChild(timeEl);
 
         const hotnessEl = document.createElement('span');
-        const hotness = item.hotness || 0;
-        let hotnessClass = 'hotness-low';
-        if (hotness >= 20) hotnessClass = 'hotness-high';
-        else if (hotness >= 12) hotnessClass = 'hotness-medium';
-        hotnessEl.className = `hotness-badge hotness-score ${hotnessClass}`;
-        hotnessEl.innerHTML = `🔥 ${hotness}`;
+        const hotness = getHeatScore(item);
+        hotnessEl.className = `hotness-badge hotness-score ${getHotnessClass(item)}`;
+        // 用 textContent 而不是 innerHTML：hotness 来自 JSON 数据，innerHTML 会解释其中的标签
+        hotnessEl.textContent = `🔥 ${hotness}`;
         hotnessEl.title = '点击查看热度明细';
         hotnessEl.addEventListener('click', (e) => {
             e.stopPropagation();
@@ -1729,10 +1739,43 @@
         renderGlossaryList(query);
     }
 
+    // 复用一个隐藏 div 做 HTML 转义。
+    // 原先每次调用都 createElement 一个新 div，而本函数在渲染循环里被大量调用
+    // （例如知识库列表：每个词条的 term/category/definition 各一次），
+    // 会产生上千次无谓的 DOM 元素分配。复用同一个元素后输出完全一致。
+    let _escapeHtmlDiv = null;
+
     function escapeHtml(text) {
-        const div = document.createElement('div');
-        div.textContent = text;
-        return div.innerHTML;
+        if (_escapeHtmlDiv === null) {
+            _escapeHtmlDiv = document.createElement('div');
+        }
+        _escapeHtmlDiv.textContent = text;
+        return _escapeHtmlDiv.innerHTML;
+    }
+
+    /**
+     * 链接净化：只放行 http/https 与站内相对路径，其余协议一律返回 '#'。
+     *
+     * 为什么需要它：escapeHtml 只转义 HTML 特殊字符，对 `javascript:alert(1)`
+     * 这种不含特殊字符的字符串完全不起作用——而 link 字段来自外部 RSS，
+     * 属于不可信输入。凡是把变量写进 href 的地方都必须先过这里。
+     */
+    function safeUrl(url) {
+        if (!url || typeof url !== 'string') return '#';
+        const trimmed = url.trim();
+        // 站内相对路径（./x、../x、/x）与页内锚点直接放行
+        if (/^(?:\.{0,2}\/|#|\?)/.test(trimmed)) return trimmed;
+        try {
+            const parsed = new URL(trimmed, window.location.href);
+            if (parsed.protocol === 'http:' || parsed.protocol === 'https:') {
+                return trimmed;
+            }
+        } catch (err) {
+            // 无法解析（例如夹杂空格的脏链接）：按不可用处理
+            return '#';
+        }
+        // 其余协议（javascript:/data:/file:/vbscript: 等）全部拒绝
+        return '#';
     }
 
     function renderGlossaryCategories() {
@@ -1867,6 +1910,33 @@
         } catch (err) {
             return '未知时间';
         }
+    }
+
+    // 热度分级：优先采用后端下发的 hotness_level —— 分级与算法同源，不会再出现
+    // "算法量纲从 10-31 改成 40-100、前端阈值还停在 12/20" 这类前后端漂移。
+    // 仅当数据里没有该字段（旧快照）时，才回退到与 40-100 量纲一致的阈值。
+    const HOTNESS_LEVEL_HIGH = 80;
+    const HOTNESS_LEVEL_MEDIUM = 60;
+
+    function getHotnessClass(item) {
+        const level = item && item.hotness_level;
+        if (level === 'high' || level === 'medium' || level === 'low') {
+            return 'hotness-' + level;
+        }
+        const score = getHeatScore(item);
+        if (score >= HOTNESS_LEVEL_HIGH) return 'hotness-high';
+        if (score >= HOTNESS_LEVEL_MEDIUM) return 'hotness-medium';
+        return 'hotness-low';
+    }
+
+    // 热度分数统一取值口径：后端展示分 score_v2 -> hotness -> 旧字段 score。
+    // 修复：原先多处直接读 item.score，而现行后端已不再写该字段，读取恒为 undefined。
+    function getHeatScore(item) {
+        if (!item) return 0;
+        if (item.score_v2 !== undefined && item.score_v2 !== null) return item.score_v2;
+        if (item.hotness !== undefined && item.hotness !== null) return item.hotness;
+        if (item.score !== undefined && item.score !== null) return item.score;
+        return 0;
     }
 
     function showToast(message) {
@@ -2058,13 +2128,11 @@
             timeEl.textContent = formatRelativeTime(item.published);
             meta.appendChild(timeEl);
 
-            const hotness = item.hotness || 0;
-            let hotnessClass = 'hotness-low';
-            if (hotness >= 20) hotnessClass = 'hotness-high';
-            else if (hotness >= 12) hotnessClass = 'hotness-medium';
+            const hotness = getHeatScore(item);
             const hotnessEl = document.createElement('span');
-            hotnessEl.className = `hotness-badge ${hotnessClass}`;
-            hotnessEl.innerHTML = `🔥 ${hotness}`;
+            hotnessEl.className = `hotness-badge hotness-score ${getHotnessClass(item)}`;
+            // 同上：JSON 数据一律走 textContent，避免 HTML 被解释
+            hotnessEl.textContent = `🔥 ${hotness}`;
             meta.appendChild(hotnessEl);
 
             body.appendChild(titleEl);
@@ -2361,9 +2429,9 @@
         html.push('<div class="timeline-day-items">');
         items.forEach((it, i) => {
             const title = it.title_zh || it.title || '无标题';
-            const heat = it.score_v2 || it.hotness || it.score || 0;
+            const heat = getHeatScore(it);
             const link = it.link || '#';
-            html.push(`<a class="timeline-day-item" href="${escapeHtml(link)}" target="_blank" rel="noopener">
+            html.push(`<a class="timeline-day-item" href="${safeUrl(link)}" target="_blank" rel="noopener">
                 <span class="timeline-day-rank">${i + 1}</span>
                 <span class="timeline-day-name">${escapeHtml(title)}</span>
                 <span class="timeline-day-heat">${Number(heat).toFixed(0)}</span>
@@ -2386,7 +2454,7 @@
     function showEmptyState(container, icon, text, hint, linkText, linkUrl) {
         if (!container) return;
         const linkHtml = linkText && linkUrl
-            ? `<a href="${escapeHtml(linkUrl)}" target="_blank" class="empty-state-link">${escapeHtml(linkText)}</a>`
+            ? `<a href="${safeUrl(linkUrl)}" target="_blank" rel="noopener" class="empty-state-link">${escapeHtml(linkText)}</a>`
             : '';
         container.innerHTML = `
             <div class="empty-state">
@@ -2539,7 +2607,7 @@
                         <div class="keyword-detail-hotspot-title">${escapeHtml(item.title || '')}</div>
                         <div class="keyword-detail-hotspot-meta">
                             <span>${escapeHtml(item.source || '')}</span>
-                            <span>热度 ${Math.round(item.score || 0)}</span>
+                            <span>热度 ${Math.round(getHeatScore(item))}</span>
                         </div>
                     `;
                     frag.appendChild(div);
@@ -2607,7 +2675,11 @@
     function saveFollowedKeywords() {
         try {
             localStorage.setItem('followed_keywords', JSON.stringify(state.followedKeywords));
-        } catch (e) {}
+        } catch (e) {
+            // 隐私模式或存储配额不足时写入会失败。内存中的关注状态仍然有效，
+            // 但刷新页面后就会丢失——原先这里完全静默，用户会以为关注已保存。
+            console.warn('关注关键词持久化失败（刷新后可能丢失）：', e);
+        }
     }
 
     function toggleFollowKeyword() {
@@ -2755,7 +2827,7 @@
     // ---------- 为什么是热点 ----------
     function generateWhyHot(item) {
         const reasons = [];
-        const score = item.score || item.hotness || 0;
+        const score = getHeatScore(item);
         const source = item.source || '';
         const keywords = item.matched_keywords || item.keywords || [];
         const published = item.published || '';
@@ -2777,37 +2849,32 @@
                 if (hoursAgo < 24) {
                     reasons.push('发布时间新鲜（约' + Math.round(hoursAgo) + '小时前）');
                 }
-            } catch (e) {}
+            } catch (e) {
+                // new Date() 遇到非法字符串返回 Invalid Date 而不会抛错，
+                // 这里只作为极端情况的防御分支；记录原因而不是静默吞掉。
+                console.warn('解析发布时间失败，已跳过新鲜度判断：', published, e);
+            }
         }
         // 热度分数
         let level = '中等热度';
-        if (score >= 20) level = '高热度';
-        else if (score < 12) level = '一般热度';
+        if (score >= HOTNESS_LEVEL_HIGH) level = '高热度';
+        else if (score < HOTNESS_LEVEL_MEDIUM) level = '一般热度';
         const kw = keywords.length > 0 ? '#' + keywords[0] + ' ' : '';
         return kw + '近24小时' + level + '（' + Math.round(score) + '分），主要因为：' +
             (reasons.length > 0 ? reasons.map((r, i) => (i + 1) + '. ' + r).join('；') : '综合因素驱动') + '。';
     }
 
-    // ---------- 重写关键词标签点击行为（打开详情而非趋势图） ----------
-    // 在 renderCards 中绑定的关键词标签点击事件会调用 openKeywordDetail
-    // 这里保留原有的 openKeywordChart 函数，但关键词标签默认打开详情
+    // ---------- 关键词标签点击行为 ----------
+    // 关键词标签点击默认打开详情（openKeywordDetail）而非趋势图；
+    // openKeywordChart 保留给"关键词趋势图"入口使用。
 
-    // ---------- 初始化 v5.0 功能 ----------
-    function initV5() {
-        loadFollowedKeywords();
-        // 在数据加载完成后渲染今日焦点和关注关键词
-        const origRenderAll = renderAll;
-        // 重写 renderAll 以包含新功能
-        window._renderAllV5 = function() {
-            origRenderAll();
-            renderFeatured();
-            renderFollowedKeywordsBar();
-        };
-    }
-
-    // 在 init 中调用 initV5
-    const _origInit = init;
-    // 注意：init 已经定义，我们通过在 loadData 完成后调用新功能来实现
+    // 说明：此处原先还有一段 v5.0 的 initV5() 脚手架——
+    //   function initV5() { ... window._renderAllV5 = function(){ ... } }
+    //   const _origInit = init;
+    // 经核查，initV5() 从未被调用，window._renderAllV5 也没有任何引用，
+    // 而"今日焦点 / 关注关键词"实际是在 loadData() 中直接调用的
+    // （见 loadData 里的 loadFollowedKeywords() / renderFeatured() / renderFollowedKeywordsBar()）。
+    // 这段死代码的注释还写着"在 init 中调用 initV5"，与事实相反，属于误导，故删除。
 
     // ============================================================
     // v6.0 热度分数明细
@@ -2887,7 +2954,7 @@
             } else if (breakdown && breakdown.total !== undefined) {
                 total = breakdown.total;
             } else {
-                total = item.score_v2 || item.hotness || item.score || 0;
+                total = getHeatScore(item);
             }
             els.scoreBreakdownTotal.innerHTML = `<span>热度分(v2)</span><span>${Number(total).toFixed(1)}</span>`;
         }

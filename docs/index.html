@@ -11,36 +11,15 @@
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://black15647.github.io/hotspot-radar/" />
     <link rel="icon" type="image/svg+xml" href="favicon.svg">
-    <link rel="stylesheet" href="style.css">
-    <!-- 排名徽章覆盖样式（内联兜底，保证最新样式在任何缓存环境下生效） -->
-    <style>
-    .card-rank {
-        position: absolute !important;
-        top: 12px !important;
-        left: 12px !important;
-        width: 26px !important;
-        height: 26px !important;
-        display: flex !important;
-        align-items: center !important;
-        justify-content: center !important;
-        border-radius: 50% !important;
-        font-size: 13px !important;
-        font-weight: 800 !important;
-        color: #fff !important;
-        background: rgba(107, 114, 128, 0.16) !important;
-        box-shadow: 0 1px 3px rgba(15, 23, 42, 0.2) !important;
-        flex-shrink: 0 !important;
-        z-index: 1 !important;
-    }
-    .card-rank.rank-1 { background: linear-gradient(135deg, #F59E0B, #F97316) !important; }
-    .card-rank.rank-2 { background: linear-gradient(135deg, #C3CBD6, #8A94A3) !important; }
-    .card-rank.rank-3 { background: linear-gradient(135deg, #D97706, #A16207) !important; }
-    .card-rank.rank-other { background: rgba(107, 114, 128, 0.16) !important; color: var(--clr-muted) !important; box-shadow: none !important; }
-    @media (max-width: 640px) {
-        .card-rank { top: 10px !important; left: 10px !important; width: 24px !important; height: 24px !important; font-size: 12px !important; }
-    }
-    </style>
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <!-- 样式版本号：样式改动后递增即可穿透浏览器/CDN 缓存。
+         原先这里内联了一份带 !important 的 .card-rank 覆盖样式用来对付缓存，
+         但那样会与 style.css 形成两套并存的同名规则（改一处漏一处就表现不一致），
+         而且内联的 `background: ... !important` 会盖掉 style.css 里
+         `body.dark .card-rank` 的暗色适配，导致暗色模式下徽章背景失效。 -->
+    <link rel="stylesheet" href="style.css?v=20260918">
+    <!-- Chart.js 固定版本：写死 4.5.1（= 修复时的最新稳定版，与原先"不写版本、隐式取最新"的实际行为一致）。
+         不写版本的 URL 会随上游发布漂移，一次破坏性变更就能让全部图表挂掉。 -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.5.1"></script>
     <!-- 百度统计 -->
     <script>
 var _hmt = _hmt || [];
@@ -420,7 +399,7 @@ var _hmt = _hmt || [];
                 <button class="modal-close" id="algoClose">✕</button>
             </div>
             <div class="modal-body">
-                <p class="formula">基础分 base = 来源权威分(0-25) + 关键词IDF饱和分(0-25) + 跨源共振分(0-15) + 内容质量分(0-10)<br>时间衰减 T = 0.35 + 0.65 × e<sup>(−hours/48)</sup><br>原始分 raw = base × T × 重复惩罚(0.6)<br>展示分 = 当日百分位映射到 40–100</p>
+                <p class="formula">基础分 base = 来源权威分(0-25) + 关键词IDF饱和分(0-25) + 跨源共振分(0-15) + 内容质量分(0-10)<br>时间衰减 T = 0.35 + 0.65 × e<sup>(−hours/48)</sup><br>原始分 raw = base × T × 重复惩罚(0.6)<br>展示分 = 40 + 60 × (raw − 当日最低 raw) ÷ (当日最高 raw − 当日最低 raw)</p>
                 <ul class="algo-list">
                     <li><strong>来源权威分（0-25）</strong>：按来源权重线性映射，权威期刊与官方机构得分更高。</li>
                     <li><strong>关键词IDF饱和分（0-25）</strong>：采用 IDF 加权，越具体的环境关键词贡献越大，“环境/污染”等常见泛词自动降权。</li>
@@ -428,7 +407,8 @@ var _hmt = _hmt || [];
                     <li><strong>内容质量分（0-10）</strong>：摘要完整有效（≥20 字）得 10 分，否则 0 分。</li>
                     <li><strong>时间衰减</strong>：保留 35% 长尾、48 小时半衰期，兼顾新闻时效与知识长期价值。</li>
                     <li><strong>重复惩罚</strong>：同一事件被多个来源报道时，仅保留最高分条目，其余 ×0.6，避免刷屏。</li>
-                    <li><strong>展示分</strong>：将 raw 分数按当日百分位映射到 40–100，更直观且跨天可比。</li>
+                    <li><strong>展示分</strong>：把当日 raw 线性映射到 40–100。<strong>同 raw 必然同分</strong>，因此展示分表达的是该条目在<em>当天的相对热度位置</em>——它适合当天排序与分级，不适合跨天直接比较（跨天比较请用 raw 分）。</li>
+                    <li><strong>中英双语对齐</strong>：英文标题会通过英文别名或其中文译文参与关键词匹配，因此英文来源同样能获得关键词分与跨源共振分；同一事件的中英报道也会被识别为重复。</li>
                 </ul>
             </div>
         </div>
@@ -672,7 +652,7 @@ var _hmt = _hmt || [];
         <div class="error-card">
             <span class="error-icon">⚠️</span>
             <p class="error-text">数据加载失败，请检查网络或稍后重试</p>
-            <button class="btn-primary" onclick="location.reload()">重新加载</button>
+            <button class="btn-primary" id="errorReloadBtn">重新加载</button>
         </div>
     </div>
 

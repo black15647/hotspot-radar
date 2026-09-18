@@ -2586,7 +2586,7 @@
                 `;
             } else {
                 els.keywordDetailGlossary.innerHTML = `
-                    <p class="text-muted">暂无解释，可<a href="https://github.com/你的用户名/你的仓库名/issues/new?title=建议收录词条：${encodeURIComponent(keyword)}&body=请解释这个环境专业术语：" target="_blank" class="empty-state-link">提交收录</a></p>
+                    <p class="text-muted">暂无解释，可<a href="https://github.com/black15647/hotspot-radar/issues/new?title=建议收录词条：${encodeURIComponent(keyword)}&body=请解释这个环境专业术语：" target="_blank" rel="noopener" class="empty-state-link">提交收录</a></p>
                 `;
             }
         }

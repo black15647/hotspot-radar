@@ -5406,7 +5406,7 @@ def generate_daily_report_md(items, config, weekly_insight=""):
         lines.append(f"")
     lines.append(f"---")
     lines.append(f"")
-    lines.append(f"## 🔥 今日热点 TOP 10")
+    lines.append(f"## 今日热点 TOP 10")
     lines.append(f"")
 
     top10 = items[:10]
@@ -5433,7 +5433,7 @@ def generate_daily_report_md(items, config, weekly_insight=""):
             lines.append(f"")
         analysis = item.get("analysis", "")
         if analysis:
-            lines.append(f"**📊 分析**：{analysis}")
+            lines.append(f"**分析**：{analysis}")
             lines.append(f"")
         lines.append(f"---")
         lines.append(f"")
@@ -5626,7 +5626,7 @@ def send_email(config, report_path, critical_sources=None):
 
         # 如有连续失败的源，在正文顶部附加警告
         if critical_sources:
-            warning = "⚠️ 以下 RSS 源连续两次失败，请及时检查和处理：\n"
+            warning = "以下 RSS 源连续两次失败，请及时检查和处理：\n"
             for src in critical_sources:
                 name = src.get("name", "未知源")
                 error = src.get("error", "未知错误")

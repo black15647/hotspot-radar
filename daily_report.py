@@ -12,12 +12,20 @@ import csv
 import math
 import re
 import time
+import traceback                    # 顶层异常兜底：打印完整调用栈，便于定位挂在哪一步
+import html as html_module          # 用于 clean_html 解码 HTML 实体
+import hashlib                      # 用于百度翻译签名
+import random                       # 用于百度翻译 salt
 import smtplib
+import socket                       # 用于给 RSS 抓取设置 socket 超时，避免失效源导致脚本挂起
+import ipaddress                    # SSRF 防护：判断待抓取 URL 的主机是否为内网/保留地址
+import urllib.parse                 # 翻译接口需要 urllib.parse.quote 编码
 from email.mime.text import MIMEText
 from email.header import Header
+from email.utils import parsedate_to_datetime
+from urllib.parse import urlparse
 from datetime import datetime, timedelta, timezone
 from collections import Counter, defaultdict
-import socket  # 用于给 RSS 抓取设置 socket 超时，避免失效源导致脚本挂起
 
 # 可选依赖：用于原文提取和 AI 摘要
 try:
@@ -76,24 +84,24 @@ STOP_WORDS = set([
     "因为", "所以", "如果", "虽然", "但是", "然而", "因此", "于是", "从而", "进而",
     "通过", "进行", "实现", "开展", "推进", "加强", "提升", "提高", "改善", "完善",
     "建立", "建设", "构建", "营造", "打造", "形成", "成为", "作为", "属于", "关于",
-    "对于", "基于", "根据", "按照", "依照", "通过", "经过", "由于", "鉴于", "关于",
+    "对于", "基于", "根据", "按照", "依照", "经过", "由于", "鉴于",
     "目前", "当前", "如今", "现在", "今天", "昨天", "明天", "今年", "去年", "明年",
     "近日", "日前", "近期", "最近", "以来", "以后", "之前", "之中", "之内", "之外",
-    "以上", "以下", "以内", "以外", "以前", "以后", "以上", "以下", "之一", "之一",
-    "等", "等等", "之类", "等等", "什么的", "的话", "的话", "呢", "吧", "啊", "呀",
-    "哦", "嗯", "哈", "嘿", "哎", "唉", "喂", "嗯", "的话", "的话", "这个", "那个",
+    "以上", "以下", "以内", "以外", "以前", "之一",
+    "等", "等等", "之类", "什么的", "的话", "呢", "吧", "啊", "呀",
+    "哦", "嗯", "哈", "嘿", "哎", "唉", "喂", "这个", "那个",
     "这些", "那些", "这样", "那样", "这么", "那么", "这里", "那里", "此处", "彼处",
-    "该", "此", "其", "之", "乎", "者", "也", "矣", "焉", "哉", "乎", "尔", "汝",
-    "若", "如", "似", "像", "同", "跟", "和", "与", "及", "或", "或者", "还是",
+    "该", "此", "其", "之", "乎", "者", "矣", "焉", "哉", "尔", "汝",
+    "若", "如", "似", "像", "同", "跟", "或者", "还是",
     "要么", "与其", "不如", "宁可", "也不", "即使", "就算", "哪怕", "任凭", "无论",
     "不管", "不论", "凡是", "所有", "一切", "全部", "整个", "整体", "总体", "总共",
     "合计", "共计", "约", "大约", "大概", "大致", "差不多", "几乎", "将近", "接近",
-    "左右", "上下", "前后", "早晚", "迟早", "早晚", "终于", "最终", "最后", "起初",
+    "左右", "上下", "前后", "早晚", "迟早", "终于", "最终", "最后", "起初",
     "开始", "结束", "停止", "继续", "持续", "不断", "一直", "始终", "永远", "永久",
-    "长期", "短期", "近期", "远期", "中期", "周期", "期间", "时期", "时代", "时间",
-    "时候", "时刻", "时分", "时候", "功夫", "工夫", "精力", "精神", "力量", "力气",
+    "长期", "短期", "远期", "中期", "周期", "期间", "时期", "时代", "时间",
+    "时候", "时刻", "时分", "功夫", "工夫", "精力", "精神", "力量", "力气",
     "能力", "本事", "本领", "才华", "才能", "才智", "智谋", "智慧", "智力", "智商",
-    "情商", "胆商", "逆商", "财商", "健商", "心商", "灵商", "德商", "志商", "健商",
+    "情商", "胆商", "逆商", "财商", "健商", "心商", "灵商", "德商", "志商",
 ])
 
 # ============================================================
@@ -108,7 +116,7 @@ PENDING_TERM_BLOCKLIST = set([
     "科技日报", "法治日报", "解放军报", "中国教育报", "中国环境报", "中国自然资源报",
     "中国能源报", "中国水利报", "中国气象报", "中国海洋报", "中国绿色时报",
     # 媒体名称（英文）
-    "BBC", "CNN", "Guardian", "Reuters", "AFP", "AP", "AP News", "CNN", "Fox", "Fox News",
+    "BBC", "CNN", "Guardian", "Reuters", "AFP", "AP", "AP News", "Fox", "Fox News",
     "NBC", "ABC", "CBS", "MSNBC", "Bloomberg", "Forbes", "WSJ", "New York Times", "NYT",
     "Washington Post", "WaPo", "Economist", "Time", "Newsweek", "US News", "HuffPost",
     "BuzzFeed", "Vice", "Vox", "Slate", "Salon", "Mother Jones", "Nation", "Atlantic",
@@ -127,7 +135,7 @@ PENDING_TERM_BLOCKLIST = set([
     "within", "along", "across", "behind", "below", "beneath", "beside", "beyond",
     "near", "onto", "toward", "upon", "via", "per", "etc", "vs", "etc.", "i.e.", "e.g.",
     "mr", "mrs", "ms", "dr", "prof", "sr", "jr", "inc", "ltd", "co", "corp", "dept",
-    "gov", "edu", "org", "com", "net", "org", "info", "biz", "tv", "radio", "press",
+    "gov", "edu", "org", "com", "net", "info", "biz", "tv", "radio", "press",
     # 其他非专业词（中文）
     "今天", "昨天", "报道", "新闻", "记者", "编辑", "评论", "视频", "图片", "来源", "作者",
     "日期", "时间", "发布", "点击", "阅读", "查看", "全文", "摘要", "原文", "链接", "相关",
@@ -135,11 +143,9 @@ PENDING_TERM_BLOCKLIST = set([
     "刚刚", "最新", "关注", "热议", "火了", "爆了", "疯传", "刷屏", "围观", "速看", "扩散",
     "转发", "收藏", "点赞", "订阅", "扫码", "下载", "客户端", "APP", "网站", "公众号",
     "微博", "微信", "抖音", "快手", "B站", "知乎", "豆瓣", "小红书", "视频号", "头条",
-    "百度", "阿里", "腾讯", "字节", "美团", "京东", "拼多多", "网易", "新浪", "搜狐",
-    "凤凰", "澎湃", "界面", "财新", "第一财经", "每日经济新闻", "21世纪经济报道",
-    "经济观察报", "证券时报", "中国证券报", "上海证券报", "参考消息", "联合早报",
-    "央视", "央视网", "人民网", "新华网", "中新网", "中国网", "环球网", "凤凰网",
-    "搜狐", "网易", "新浪", "腾讯", "百度", "阿里", "字节", "美团", "京东", "拼多多",
+    "百度", "阿里", "字节", "美团", "京东", "拼多多", "搜狐",
+    "凤凰", "界面", "财新",
+    "央视",
     "公司", "企业", "集团", "有限公司", "股份", "控股", "投资", "融资", "上市", "退市",
     "并购", "重组", "破产", "清算", "拍卖", "招标", "投标", "中标", "签约", "合作",
     "协议", "合同", "备忘录", "意向书", "框架", "战略", "战术", "策略", "规划", "计划",
@@ -150,14 +156,14 @@ PENDING_TERM_BLOCKLIST = set([
     "试验", "测试", "检验", "检测", "监测", "监控", "监督", "管理", "治理", "整治",
     "整顿", "规范", "标准", "指标", "参数", "数据", "信息", "知识", "技术", "技能",
     "能力", "水平", "质量", "数量", "规模", "范围", "领域", "行业", "产业", "事业",
-    "企业", "公司", "单位", "机构", "组织", "团体", "协会", "学会", "联盟", "联合会",
+    "单位", "机构", "组织", "团体", "协会", "学会", "联盟", "联合会",
     "委员会", "办公室", "部门", "处", "科", "室", "组", "队", "班", "级", "届", "次",
     "年度", "季度", "月度", "周度", "日度", "时刻", "时段", "时期", "时代", "阶段",
     "步骤", "环节", "过程", "流程", "程序", "顺序", "次序", "先后", "前后", "左右",
     "上下", "高低", "大小", "多少", "长短", "宽窄", "厚薄", "轻重", "快慢", "远近",
     "深浅", "浓淡", "强弱", "软硬", "新旧", "老幼", "男女", "老少", "中外", "古今",
-    "东西", "南北", "前后", "左右", "上下", "内外", "表里", "本末", "始终", "因果",
-    "是非", "对错", "好坏", "优劣", "美丑", "善恶", "真假", "虚实", "有无", "多少",
+    "东西", "南北", "内外", "表里", "本末", "始终", "因果",
+    "是非", "对错", "好坏", "优劣", "美丑", "善恶", "真假", "虚实", "有无",
     "盈亏", "涨跌", "升降", "增减", "进退", "攻守", "胜负", "成败", "得失", "利弊",
     "取舍", "选择", "抉择", "决定", "决策", "决议", "结论", "总结", "概括", "归纳",
     "演绎", "分析", "综合", "比较", "对比", "对照", "类比", "比喻", "象征", "代表",
@@ -165,17 +171,17 @@ PENDING_TERM_BLOCKLIST = set([
     "问题", "答案", "疑问", "疑惑", "困惑", "迷茫", "茫然", "不解", "难懂", "深奥",
     "浅显", "通俗", "易懂", "简单", "复杂", "繁琐", "繁杂", "庞杂", "杂乱", "凌乱",
     "整齐", "整洁", "干净", "清洁", "卫生", "健康", "安全", "危险", "风险", "隐患",
-    "危机", "灾难", "灾害", "灾祸", "事故", "事件", "事情", "事务", "事项", "项目",
-    "条目", "条款", "款项", "项目", "科目", "类别", "种类", "类型", "形式", "形态",
+    "危机", "灾难", "灾害", "灾祸", "事故", "事件", "事情", "事务", "事项",
+    "条目", "条款", "款项", "科目", "类别", "种类", "类型", "形式", "形态",
     "形状", "形象", "样貌", "外貌", "外观", "外表", "表面", "里面", "内部", "内在",
-    "内涵", "含义", "意义", "意思", "定义", "概念", "范畴", "领域", "范围", "边界",
+    "内涵", "含义", "意义", "意思", "定义", "概念", "范畴", "边界",
     "界限", "限制", "约束", "束缚", "桎梏", "枷锁", "牢笼", "陷阱", "圈套", "骗局",
     "欺诈", "欺骗", "诈骗", "造假", "仿冒", "假冒", "伪劣", "劣质", "次品", "废品",
     "垃圾", "废物", "废料", "废渣", "废水", "废气", "噪声", "噪音", "辐射", "放射",
-    "污染", "净化", "治理", "整治", "整顿", "清理", "清除", "消除", "消灭", "灭绝",
+    "污染", "净化", "清理", "清除", "消除", "消灭", "灭绝",
     "绝种", "濒危", "珍稀", "珍贵", "宝贵", "重要", "关键", "核心", "重点", "要点",
-    "难点", "疑点", "焦点", "热点", "亮点", "特点", "特征", "特色", "特性", "属性",
-    "性质", "本质", "实质", "内容", "形式", "表象", "现象", "迹象", "征兆", "预兆",
+    "难点", "疑点", "焦点", "亮点", "特点", "特征", "特色", "特性", "属性",
+    "性质", "本质", "实质", "内容", "表象", "现象", "迹象", "征兆", "预兆",
     "预言", "预测", "预报", "预警", "预告", "通知", "通告", "公告", "布告", "告示",
     "声明", "宣言", "口号", "标语", "题词", "留言", "寄语", "祝词", "贺词", "悼词",
     "颂词", "赞词", "贬词", "褒词", "名词", "动词", "形容词", "副词", "介词", "连词",
@@ -183,20 +189,20 @@ PENDING_TERM_BLOCKLIST = set([
     "语用", "语境", "语感", "语调", "语气", "口音", "方言", "土语", "俗语", "谚语",
     "成语", "典故", "寓言", "神话", "传说", "故事", "小说", "散文", "诗歌", "戏剧",
     "电影", "电视", "广播", "报纸", "杂志", "期刊", "图书", "文献", "资料", "档案",
-    "记录", "记载", "记述", "描述", "描写", "描绘", "刻画", "塑造", "创造", "创作",
-    "制作", "制造", "生产", "加工", "处理", "处置", "办理", "料理", "整理", "整顿",
-    "治理", "管理", "管辖", "监管", "监督", "监察", "检察", "检查", "检验", "检测",
-    "测验", "测试", "试验", "实验", "实践", "实习", "实训", "实操", "实战", "实务",
+    "记录", "记载", "记述", "描述", "描写", "描绘", "刻画", "塑造", "创作",
+    "制作", "制造", "生产", "加工", "处理", "处置", "办理", "料理", "整理",
+    "管辖", "监管", "监察", "检察", "检查",
+    "测验", "实习", "实训", "实操", "实战", "实务",
     "实际", "现实", "现状", "态势", "形势", "局势", "局面", "场景", "情景", "情境",
     "环境", "氛围", "气氛", "气场", "磁场", "电场", "引力场", "量子场", "规范场",
     "量子", "粒子", "原子", "分子", "离子", "电子", "质子", "中子", "核子", "夸克",
     "弦", "膜", "维", "度", "量", "数", "值", "率", "比", "例", "式", "型", "类",
-    "种", "属", "科", "目", "纲", "门", "界", "域", "系", "族", "组", "群", "团",
-    "队", "班", "排", "连", "营", "团", "旅", "师", "军", "兵团", "集团军", "方面军",
+    "种", "属", "目", "纲", "门", "界", "域", "系", "族", "群", "团",
+    "排", "连", "营", "旅", "师", "军", "兵团", "集团军", "方面军",
     "军区", "战区", "司令部", "指挥部", "参谋部", "政治部", "后勤部", "装备部", "技术部",
     "情报部", "通信部", "电子部", "网络部", "信息部", "数据部", "算法部", "工程部",
     "产品部", "设计部", "市场部", "销售部", "客服部", "人事部", "财务部", "法务部",
-    "行政部", "办公室", "秘书处", "档案室", "资料室", "图书室", "阅览室", "展览室",
+    "行政部", "秘书处", "档案室", "资料室", "图书室", "阅览室", "展览室",
     "陈列室", "标本室", "实验室", "化验室", "检测室", "监测室", "控制室", "操作室",
     "机房", "配电室", "锅炉房", "水泵房", "风机房", "空压机房", "制冷机房", "换热站",
     "变电站", "开关站", "配电站", "变电所", "发电站", "水电站", "火电站", "核电站",
@@ -204,20 +210,18 @@ PENDING_TERM_BLOCKLIST = set([
     "垃圾电站", "焚烧厂", "填埋场", "堆肥厂", "污水处理厂", "净水厂", "自来水厂",
     "供水厂", "排水厂", "泵站", "闸站", "坝", "堤", "堰", "渠", "管", "沟", "池",
     "塘", "湖", "河", "江", "海", "洋", "湾", "峡", "岛", "礁", "滩", "涂", "岸",
-    "滨", "港", "湾", "埠", "码头", "渡口", "车站", "机场", "港口", "码头", "仓库",
+    "滨", "港", "埠", "码头", "渡口", "车站", "机场", "港口", "仓库",
     "货场", "堆场", "停车场", "加油站", "加气站", "充电站", "换电站", "服务区", "休息区",
     "收费站", "检查站", "卡子", "关卡", "关隘", "要塞", "堡垒", "城堡", "城池", "城墙",
     "城门", "城楼", "钟楼", "鼓楼", "塔", "阁", "楼", "台", "榭", "轩", "斋", "堂",
     "馆", "所", "院", "园", "苑", "囿", "圃", "田", "地", "土", "山", "水", "林",
     "草", "花", "鸟", "兽", "虫", "鱼", "虾", "蟹", "贝", "螺", "蚌", "蛤", "蛎",
-    "蚬", "蛏", "蚶", "蛤", "蚝", "鲍", "参", "翅", "肚", "掌", "筋", "皮", "毛",
+    "蚬", "蛏", "蚶", "蚝", "鲍", "参", "翅", "肚", "掌", "筋", "皮", "毛",
     "发", "角", "牙", "齿", "舌", "唇", "鼻", "耳", "眼", "眉", "额", "脸", "面",
     "头", "颈", "肩", "胸", "腹", "背", "腰", "臀", "腿", "膝", "脚", "手", "指",
-    "掌", "腕", "肘", "臂", "腋", "肋", "肝", "胆", "脾", "胃", "肠", "肾", "膀胱",
-    "心", "肺", "脑", "髓", "骨", "筋", "脉", "血", "肉", "皮", "毛", "发", "甲",
-    "爪", "蹄", "角", "牙", "齿", "喙", "嘴", "口", "鼻", "耳", "眼", "眉", "额",
-    "脸", "面", "头", "颈", "肩", "胸", "腹", "背", "腰", "臀", "腿", "膝", "脚",
-    "手", "指", "掌", "腕", "肘", "臂", "腋", "肋",
+    "腕", "肘", "臂", "腋", "肋", "肝", "胆", "脾", "胃", "肠", "肾", "膀胱",
+    "心", "肺", "脑", "髓", "骨", "脉", "血", "肉", "甲",
+    "爪", "蹄", "喙", "嘴", "口",
 ])
 
 # ============================================================
@@ -236,6 +240,46 @@ DEFAULT_KEYWORDS = [
     "考研", "招聘", "实习", "竞赛", "水处理", "土壤修复",
     "环境工程", "环境科学"
 ]
+
+# 中文关键词的英文别名表：用于让英文标题也能命中关键词（站内约 2/3 信源为英文刊/媒体）。
+# 命中任一英文别名即视为命中对应的中文关键词——这样 matched_keywords 始终保持中文，
+# 前端展示、标签云、IDF、跨源共振均无需改动即可正常生效。
+# 注意：别名使用单词边界匹配（见 _keyword_english_pattern），因此单复数需分别列出。
+KEYWORD_EN_ALIASES = {
+    "气候变化": ("climate change", "global warming", "climate crisis"),
+    "碳中和": ("carbon neutrality", "carbon neutral", "net zero", "net-zero"),
+    "碳排放": ("carbon emission", "carbon emissions", "carbon footprint",
+               "co2 emissions", "co2 emission", "greenhouse gas emissions"),
+    "水污染": ("water pollution", "water contamination", "water quality"),
+    "大气污染": ("air pollution", "atmospheric pollution", "air quality"),
+    "土壤污染": ("soil pollution", "soil contamination"),
+    "微塑料": ("microplastic", "microplastics", "nanoplastic", "nanoplastics"),
+    "新污染物": ("emerging contaminant", "emerging contaminants", "pfas"),
+    "重金属": ("heavy metal", "heavy metals"),
+    "生物多样性": ("biodiversity", "biological diversity"),
+    "生态修复": ("ecological restoration", "ecosystem restoration"),
+    "生态系统": ("ecosystem", "ecosystems"),
+    "可再生能源": ("renewable energy", "renewable energies", "renewables"),
+    "清洁能源": ("clean energy", "clean power"),
+    "循环经济": ("circular economy", "circularity"),
+    "环保督察": ("environmental inspection", "environmental supervision"),
+    "环评": ("environmental impact assessment", "environmental impact assessments"),
+    "绿色金融": ("green finance", "sustainable finance"),
+    "可持续发展": ("sustainable development", "sustainability"),
+    "环境健康": ("environmental health", "public health"),
+    "垃圾分类": ("waste sorting", "garbage classification", "waste segregation"),
+    "塑料污染": ("plastic pollution", "plastic waste", "plastics treaty"),
+    "海洋保护": ("marine conservation", "ocean conservation",
+                 "marine protection", "ocean protection"),
+    "考研": ("postgraduate entrance", "graduate entrance exam"),
+    "招聘": ("recruitment", "hiring", "job opening", "job vacancy"),
+    "实习": ("internship", "internships"),
+    "竞赛": ("competition", "competitions", "contest"),
+    "水处理": ("water treatment", "wastewater treatment", "water purification"),
+    "土壤修复": ("soil remediation", "soil restoration"),
+    "环境工程": ("environmental engineering",),
+    "环境科学": ("environmental science", "environmental sciences"),
+}
 
 DEFAULT_SOURCE_WEIGHTS = {
     "Nature": 2.0,
@@ -298,6 +342,21 @@ DEFAULT_CONFIG = {
 # ============================================================
 # 工具函数
 # ============================================================
+
+# ---------------- 调试日志 ----------------
+# 默认关闭：只有设置环境变量 RADAR_DEBUG=1 时才输出，保证正常运行时的控制台输出不变。
+# 背景：脚本里有相当多的 except 分支是"静默兜底"（例如"可选数据文件读不出来就用空集合"）。
+# 正常运行时这样处理没问题，但一旦 glossary.json 之类的文件被写坏或被清空，
+# 白名单会静默变空、算法分数静默失真，排查时没有任何线索。
+# 所以这里保留原有的静默语义，只额外开一个显式开关用于定位问题。
+DEBUG_ENABLED = os.environ.get("RADAR_DEBUG", "").strip().lower() in ("1", "true", "yes", "on")
+
+
+def _debug(message):
+    """输出调试信息；默认不输出。"""
+    if DEBUG_ENABLED:
+        print(f"[调试] {message}")
+
 
 def ensure_data_dir():
     """确保 data 目录及子目录存在"""
@@ -368,7 +427,7 @@ def load_config():
 
 
 def parse_published_time(entry):
-    """解析条目的发布时间，返回 datetime 对象（UTC）"""
+    """解析条目的发布时间，返回 datetime 对象（UTC）；解析不出来返回 None"""
     time_struct = None
     for attr in ("published_parsed", "updated_parsed", "created_parsed"):
         if hasattr(entry, attr) and getattr(entry, attr):
@@ -378,23 +437,31 @@ def parse_published_time(entry):
     if time_struct:
         try:
             return datetime(*time_struct[:6], tzinfo=timezone.utc)
-        except Exception:
-            pass
+        except (TypeError, ValueError) as e:
+            # 结构体字段异常（如月份为 0）：继续尝试下面的字符串分支
+            _debug(f"published_parsed 解析失败：{e}")
 
-    # 尝试解析字符串
+    # 尝试解析字符串（parsedate_to_datetime 已在模块顶部导入）
     for attr in ("published", "updated", "created"):
         val = getattr(entry, attr, None)
         if val:
             try:
-                from email.utils import parsedate_to_datetime
                 dt = parsedate_to_datetime(val)
                 if dt.tzinfo is None:
                     dt = dt.replace(tzinfo=timezone.utc)
                 return dt.astimezone(timezone.utc)
-            except Exception:
-                pass
+            except (TypeError, ValueError) as e:
+                # 时间字符串格式不规范：忽略该字段，继续试下一个
+                _debug(f"{attr} 时间字符串解析失败：{val!r} ({e})")
 
     return None
+
+
+# clean_html 用到的正则：clean_html 在每条 RSS 条目上都会被调用（且历史上被重复调用），
+# 放在模块级只编译一次，不要每次调用重新编译。
+_RE_SCRIPT_STYLE = re.compile(r"<(script|style)[^>]*>.*?</\1>", re.DOTALL | re.IGNORECASE)
+_RE_HTML_TAG = re.compile(r"<[^>]+>")
+_RE_WHITESPACE = re.compile(r"\s+")
 
 
 def clean_html(text):
@@ -402,14 +469,13 @@ def clean_html(text):
     if not text:
         return ""
     # 移除 script 和 style 内容
-    text = re.sub(r"<(script|style)[^>]*>.*?</\1>", "", text, flags=re.DOTALL | re.IGNORECASE)
+    text = _RE_SCRIPT_STYLE.sub("", text)
     # 移除 HTML 标签
-    text = re.sub(r"<[^>]+>", "", text)
-    # 解码 HTML 实体
-    import html as html_module
+    text = _RE_HTML_TAG.sub("", text)
+    # 解码 HTML 实体（html 模块已在顶部导入）
     text = html_module.unescape(text)
     # 合并空白
-    text = re.sub(r"\s+", " ", text).strip()
+    text = _RE_WHITESPACE.sub(" ", text).strip()
     return text
 
 
@@ -472,12 +538,15 @@ def is_likely_metadata(text):
     return False
 
 
+_RE_SENTENCE_SPLIT = re.compile(r"(?<=[。！？.!?])\s+")
+
+
 def extract_first_long_sentence(text):
     """从文本中提取第一个较长的句子（>=30字符），用于元数据混杂时提取真正摘要"""
     if not text:
         return ""
     # 按句子结束符分割
-    sentences = re.split(r"(?<=[。！？.!?])\s+", text)
+    sentences = _RE_SENTENCE_SPLIT.split(text)
     for sent in sentences:
         sent = sent.strip()
         if len(sent) >= 30:
@@ -518,13 +587,20 @@ def extract_summary(entry):
             raw_text = " ".join(parts)
 
     # 第二步：content 太短则尝试 description
-    if len(clean_html(raw_text)) < 50:
+    # 性能：clean_html 每次要跑 3 遍正则 + 实体解码，这里把已经算过的长度缓存下来，
+    # 避免对同一段文本重复清洗（原实现对同一 raw_text 会连洗三次）。
+    # 判定逻辑与原来完全一致：只有 raw_text 被替换时才重新计算长度。
+    cleaned_len = len(clean_html(raw_text))
+    if cleaned_len < 50:
         description = getattr(entry, "description", "") or ""
-        if description and len(clean_html(description)) >= 50:
-            raw_text = description
+        if description:
+            desc_len = len(clean_html(description))
+            if desc_len >= 50:
+                raw_text = description
+                cleaned_len = desc_len
 
     # 第三步：仍太短则使用 summary
-    if len(clean_html(raw_text)) < 50:
+    if cleaned_len < 50:
         summary = getattr(entry, "summary", "") or ""
         if summary:
             raw_text = summary
@@ -610,12 +686,35 @@ def clean_summary_inline(text):
     return text.strip()
 
 
-def match_keywords(text, keywords):
+# match_keywords 是按条目调用的，每次都要遍历全部关键词（条目数 × 关键词数）。
+# 关键词在一次运行内基本固定，所以把"是否纯英文"的判定正则放在模块级只编译一次，
+# 并把每个英文关键词的单词边界正则缓存起来，避免对同一个词反复 re.compile。
+_RE_KEYWORD_IS_ENGLISH = re.compile(r'^[a-zA-Z\s\-]+$')
+_KEYWORD_PATTERN_CACHE = {}
+_KEYWORD_PATTERN_CACHE_MAX = 2048
+
+
+def _keyword_english_pattern(kw_lower):
+    """取得英文关键词的单词边界匹配正则（带缓存）。"""
+    pattern = _KEYWORD_PATTERN_CACHE.get(kw_lower)
+    if pattern is None:
+        # 缓存上限保护：正常关键词量远小于此值，仅防止极端情况下无界增长
+        if len(_KEYWORD_PATTERN_CACHE) >= _KEYWORD_PATTERN_CACHE_MAX:
+            _KEYWORD_PATTERN_CACHE.clear()
+        pattern = re.compile(r'\b' + re.escape(kw_lower.strip()) + r'\b')
+        _KEYWORD_PATTERN_CACHE[kw_lower] = pattern
+    return pattern
+
+
+def match_keywords(text, keywords, en_aliases=None):
     """
     在文本中匹配关键词，返回匹配到的关键词列表
     - 不区分英文大小写
     - 中文关键词：直接包含匹配
     - 英文关键词：使用单词边界匹配（避免 water 匹配 waterfall）
+    - en_aliases：可选，形如 {中文关键词: (英文别名, ...)}。当某个中文关键词未在文本中
+      直接出现时，再尝试它的英文别名；一旦命中别名，返回的仍是那个**中文关键词**。
+      这样 matched_keywords 的语言始终统一，标签云 / IDF / 跨源共振均无需改动。
     """
     if not text:
         return []
@@ -626,15 +725,21 @@ def match_keywords(text, keywords):
             continue
         kw_lower = kw.lower()
         # 判断是否为纯英文（含空格、连字符的英文短语也按英文处理）
-        if re.match(r'^[a-zA-Z\s\-]+$', kw_lower):
+        if _RE_KEYWORD_IS_ENGLISH.match(kw_lower):
             # 英文关键词：使用单词边界匹配
-            pattern = r'\b' + re.escape(kw_lower.strip()) + r'\b'
-            if re.search(pattern, text_lower):
+            if _keyword_english_pattern(kw_lower).search(text_lower):
                 matched.append(kw)
-        else:
-            # 中文或混合关键词：直接包含匹配（不区分大小写）
-            if kw_lower in text_lower:
-                matched.append(kw)
+            continue
+        # 中文或混合关键词：直接包含匹配（不区分大小写）
+        if kw_lower in text_lower:
+            matched.append(kw)
+            continue
+        # 中文词未直接命中：回退到英文别名（英文标题场景）
+        if en_aliases:
+            for alias in en_aliases.get(kw, ()):
+                if _keyword_english_pattern(alias).search(text_lower):
+                    matched.append(kw)
+                    break
     return matched
 
 
@@ -647,6 +752,13 @@ def get_source_weight(source_name, source_weights):
 # 核心逻辑
 # ============================================================
 
+# 摘要与标题的归一化比较用（去掉全部空白与非单词字符）
+_RE_NON_WORD = re.compile(r"[\s\W_]+")
+
+# RSS 抓取的 socket 级超时（秒）：防止失效源（被墙/无响应）导致脚本永久挂起
+RSS_SOCKET_TIMEOUT = 20
+
+
 def fetch_all_feeds(config, max_items_per_source):
     """
     抓取所有 RSS 源，返回 (条目列表, 源健康度列表)
@@ -655,6 +767,10 @@ def fetch_all_feeds(config, max_items_per_source):
     rss_feeds = config.get("rss_feeds", {})
     all_items = []
     source_health = []
+
+    # socket.setdefaulttimeout 是进程级设置，只需在开始抓取前设置一次。
+    # （原实现在每个源的循环体内重复设置，效果相同但属于无用重复。）
+    socket.setdefaulttimeout(RSS_SOCKET_TIMEOUT)
 
     for source_name, url in rss_feeds.items():
         start_time = time.time()
@@ -665,9 +781,6 @@ def fetch_all_feeds(config, max_items_per_source):
 
         try:
             print(f"[抓取] {source_name} ...")
-            # 设置 socket 默认超时：防止失效源（如部分被墙/无响应源）导致脚本永久挂起，
-            # 从而保证 GitHub Actions 定时任务能稳定跑完
-            socket.setdefaulttimeout(20)
             feed = None
             if REQUESTS_AVAILABLE:
                 try:
@@ -677,7 +790,10 @@ def fetch_all_feeds(config, max_items_per_source):
                     })
                     if resp.ok and resp.content:
                         feed = feedparser.parse(resp.content)
-                except Exception:
+                except Exception as e:
+                    # 直连失败属于预期情况（部分源会拒绝普通请求），下面会回退到 feedparser 自行抓取。
+                    # 记录原因但不中断：正常运行时默认不输出。
+                    _debug(f"{source_name} 直接请求失败，改用 feedparser 抓取：{type(e).__name__}: {e}")
                     feed = None
             if feed is None:
                 feed = feedparser.parse(url)
@@ -689,8 +805,12 @@ def fetch_all_feeds(config, max_items_per_source):
                 entries = feed.entries[:max_items_per_source]
 
                 for entry in entries:
-                    title = getattr(entry, "title", "").strip()
-                    link = getattr(entry, "link", "").strip()
+                    # 注意：feedparser 在遇到 `<title/>`、`<link/>` 这类空标签时，
+                    # 属性值会是 None 而不是 ""。此时直接 .strip() 会抛 AttributeError，
+                    # 被外层 except 捕获后整个源都会被误判为"抓取失败"。
+                    # 因此这里统一用 `or ""` 兜底（标题为空的条目会在下面被跳过）。
+                    title = (getattr(entry, "title", "") or "").strip()
+                    link = (getattr(entry, "link", "") or "").strip()
 
                     if not title:
                         continue
@@ -700,8 +820,8 @@ def fetch_all_feeds(config, max_items_per_source):
 
                     # 摘要有效性：去标点后与标题一致，或过短（<20字符），视为无效并置空
                     if summary:
-                        norm_s = re.sub(r"[\s\W_]+", "", summary)
-                        norm_t = re.sub(r"[\s\W_]+", "", title)
+                        norm_s = _RE_NON_WORD.sub("", summary)
+                        norm_t = _RE_NON_WORD.sub("", title)
                         if norm_s == norm_t or len(summary.strip()) < 20:
                             summary = ""
 
@@ -821,11 +941,14 @@ def _load_keyword_history_days():
                             if kw:
                                 keyword_days[str(kw)].add(date)
                     for kw in day.get("keywords", []):
-                        term = kw.get("keyword", "") or kw.get("term", "") if isinstance(kw, dict) else str(kw)
+                        # 显式加括号明确分组：先取 keyword/term，非 dict 时退化为 str(kw)。
+                        # 原写法依赖 or 与三元表达式的优先级隐式分组，容易误读。
+                        term = (kw.get("keyword", "") or kw.get("term", "")) if isinstance(kw, dict) else str(kw)
                         if term:
                             keyword_days[term].add(date)
-        except Exception:
-            pass
+        except Exception as e:
+            # history.json 损坏时 IDF 会退化为"全为 1"，此处记录原因便于定位
+            _debug(f"读取 history.json 失败，IDF 历史统计将不完整：{type(e).__name__}: {e}")
 
     # 来源2：daily/*.json 每日快照（补充 topic_tags / matched_keywords）
     daily_dir = os.path.join(DATA_DIR, "daily")
@@ -839,7 +962,9 @@ def _load_keyword_history_days():
                 try:
                     with open(fpath, "r", encoding="utf-8") as f:
                         ddata = json.load(f)
-                except Exception:
+                except Exception as e:
+                    # 单个快照损坏：跳过该文件即可，不影响其余日期的统计
+                    _debug(f"跳过损坏的每日快照 {fname}：{type(e).__name__}: {e}")
                     continue
                 all_dates.add(date)
                 for it in ddata.get("items", []):
@@ -849,12 +974,39 @@ def _load_keyword_history_days():
                     for tag in it.get("topic_tags", []):
                         if tag:
                             keyword_days[str(tag)].add(date)
-        except Exception:
-            pass
+        except Exception as e:
+            _debug(f"遍历 daily 快照目录失败，IDF 历史统计将不完整：{type(e).__name__}: {e}")
 
     keyword_day_count = {kw: len(dates) for kw, dates in keyword_days.items()}
     total_days = len(all_dates)
     return keyword_day_count, total_days
+
+
+def _load_terms_from_json(path):
+    """
+    从 JSON 文件读取词条（term）集合，兼容两种结构：
+      - [{"term": "..."}, ...]   标准词条列表
+      - ["...", ...]             纯字符串列表
+
+    只保留去空白后长度 >= 2 的词条。
+    文件不存在、内容损坏或结构不符时返回空集合（与历史行为一致，不中断主流程），
+    但会通过 _debug 留下线索——否则白名单会静默变空、算法分数静默失真。
+    """
+    terms = set()
+    if not os.path.exists(path):
+        return terms
+    try:
+        with open(path, "r", encoding="utf-8") as f:
+            data = json.load(f)
+        if isinstance(data, list):
+            for entry in data:
+                term = entry.get("term", "") if isinstance(entry, dict) else str(entry)
+                term = str(term).strip()
+                if term and len(term) >= 2:
+                    terms.add(term)
+    except Exception as e:
+        _debug(f"读取词条文件失败，按空集合处理：{path}（{type(e).__name__}: {e}）")
+    return terms
 
 
 def _load_domain_whitelist():
@@ -862,33 +1014,8 @@ def _load_domain_whitelist():
     加载领域白名单（v2 关键词保护分用）
     来源：glossary.json 的 term + pending_terms.json 的 term
     """
-    whitelist = set()
-    # glossary.json
-    gp = os.path.join(DATA_DIR, "glossary.json")
-    if os.path.exists(gp):
-        try:
-            with open(gp, "r", encoding="utf-8") as f:
-                glossary = json.load(f)
-            if isinstance(glossary, list):
-                for entry in glossary:
-                    term = entry.get("term", "") if isinstance(entry, dict) else str(entry)
-                    if term and len(str(term).strip()) >= 2:
-                        whitelist.add(str(term).strip())
-        except Exception:
-            pass
-    # pending_terms.json（人工确认过的词）
-    pp = os.path.join(DATA_DIR, "pending_terms.json")
-    if os.path.exists(pp):
-        try:
-            with open(pp, "r", encoding="utf-8") as f:
-                pending = json.load(f)
-            if isinstance(pending, list):
-                for entry in pending:
-                    term = entry.get("term", "") if isinstance(entry, dict) else str(entry)
-                    if term and len(str(term).strip()) >= 2:
-                        whitelist.add(str(term).strip())
-        except Exception:
-            pass
+    whitelist = _load_terms_from_json(os.path.join(DATA_DIR, "glossary.json"))
+    whitelist |= _load_terms_from_json(os.path.join(DATA_DIR, "pending_terms.json"))
     return whitelist
 
 
@@ -906,13 +1033,16 @@ def _title_token_set(title):
     if zh:
         if JIEBA_AVAILABLE:
             try:
+                # _init_jieba_env() 已做幂等处理（实测重复注入不改变 jieba.cut 结果），
+                # 此处保留调用作为守卫，保证本函数被独立调用时词典也已就绪。
                 _init_jieba_env()
                 for w in jieba.cut(zh):
                     w = w.strip()
                     if len(w) >= 2 and w not in STOP_WORDS:
                         tokens.add(w)
-            except Exception:
-                pass
+            except Exception as e:
+                # 分词失败：该标题退化为"只用英文词"的 token 集合，不影响其他条目
+                _debug(f"jieba 分词失败，该标题仅使用英文词 tokens：{type(e).__name__}: {e}")
         else:
             for i in range(len(zh) - 1):
                 tokens.add(zh[i:i + 2])
@@ -968,6 +1098,30 @@ def calculate_heat_v1(item, keyword_item_count, source_weights, keyword_bonus=2.
     return round(score, 2), breakdown, source_weight, hours_ago
 
 
+# ============================================================
+# 热度算法 v2 的可调参数（集中定义，避免散落在函数体内的魔法数字）
+# ============================================================
+DUPLICATE_JACCARD_THRESHOLD = 0.45   # 标题 Jaccard 达到该值视为"同一事件"，仅留最高分条目
+DUPLICATE_PENALTY = 0.6              # 同一事件中非代表条目的 raw 惩罚系数
+DISPLAY_SCORE_MIN = 40.0             # 展示分下限
+DISPLAY_SCORE_MAX = 100.0            # 展示分上限
+DISPLAY_SCORE_MID = 70.0             # 全部条目无实质差异时的中性展示分
+# 相对跨度保护：raw 极差 / raw_max 低于该比例时视为"无实质差异"，整体给中性分，
+# 避免把极小分差放大成满量程的展示差
+DISPLAY_MIN_RELATIVE_SPAN = 0.05
+HOTNESS_LEVEL_HIGH = 80.0            # 展示分 >= 该值 -> 高热度
+HOTNESS_LEVEL_MEDIUM = 60.0          # 展示分 >= 该值 -> 中热度，其余为低热度
+
+
+def _hotness_level(display_score):
+    """把 40-100 的展示分映射为前端分级标识（与算法同源，避免前后端阈值漂移）"""
+    if display_score >= HOTNESS_LEVEL_HIGH:
+        return "high"
+    if display_score >= HOTNESS_LEVEL_MEDIUM:
+        return "medium"
+    return "low"
+
+
 def calculate_heat_v2(items, config, keyword_item_count=None):
     """
     新热度算法 v2（完整实现），直接在 items 上写入：
@@ -1011,10 +1165,15 @@ def calculate_heat_v2(items, config, keyword_item_count=None):
             for kw in set(it.get("matched_keywords", [])):
                 keyword_authoritative_sources[kw].add(it.get("source", ""))
 
-    # ---- Jaccard 轻量聚类，标记重复事件（保留最高分，其余惩罚0.6）----
-    token_sets = [_title_token_set(it.get("title", "")) for it in items]
+    # ---- Jaccard 轻量聚类，标记重复事件（保留最高分，其余惩罚 DUPLICATE_PENALTY）----
+    # token 抽取优先使用中文译文 title_zh：让"同一事件的英文报道与中文报道"落在同一
+    # 语义空间（否则中文 tokens 与英文 tokens 交集恒为空，跨语言重复永远检测不出来）。
+    # 没有译文时退回原标题，与修复前行为一致。
+    token_sets = [
+        _title_token_set(it.get("title_zh") or it.get("title", ""))
+        for it in items
+    ]
     repeat_penalty = [1.0] * len(items)
-    cluster_keep_idx = {}  # 聚类代表索引
     # 先按来源权重+时间粗排，权威且新的优先作为代表
     order = sorted(range(len(items)),
                    key=lambda i: (-get_source_weight(items[i].get("source", ""), source_weights),
@@ -1023,18 +1182,22 @@ def calculate_heat_v2(items, config, keyword_item_count=None):
     for i in order:
         placed = False
         for rep_idx, members in assigned.items():
-            if _jaccard(token_sets[i], token_sets[rep_idx]) >= 0.45:
+            if _jaccard(token_sets[i], token_sets[rep_idx]) >= DUPLICATE_JACCARD_THRESHOLD:
                 members.append(i)
                 placed = True
                 break
         if not placed:
             assigned[i] = [i]
+    _dup_clusters = [m for m in assigned.values() if len(m) > 1]
+    _debug(f"重复聚类：{len(items)} 条 -> {len(assigned)} 簇，"
+           f"其中多成员簇 {len(_dup_clusters)} 个（阈值 {DUPLICATE_JACCARD_THRESHOLD}），"
+           f"受惩罚条目 {sum(len(m) - 1 for m in _dup_clusters)} 条")
     for rep_idx, members in assigned.items():
         if len(members) > 1:
             # 聚类内除代表外，其余重复惩罚（代表在 raw 计算后再按分数确定，这里先标记候选）
             for m in members:
                 if m != rep_idx:
-                    repeat_penalty[m] = 0.6
+                    repeat_penalty[m] = DUPLICATE_PENALTY
 
     # ---- 逐条计算 raw 分 ----
     for idx, item in enumerate(items):
@@ -1108,24 +1271,33 @@ def calculate_heat_v2(items, config, keyword_item_count=None):
                 if m != best:
                     # 重新应用惩罚
                     it = items[m]
-                    it["_v2_repeat_penalty"] = 0.6
-                    it["_v2_raw"] = round(it["_v2_base"] * it["_v2_time_factor"] * 0.6, 2)
+                    it["_v2_repeat_penalty"] = DUPLICATE_PENALTY
+                    it["_v2_raw"] = round(it["_v2_base"] * it["_v2_time_factor"] * DUPLICATE_PENALTY, 2)
                 else:
                     items[m]["_v2_repeat_penalty"] = 1.0
 
-    # ---- 百分位归一化到 40-100 ----
+    # ---- 展示分归一化到 40-100 ----
+    # 修复：原实现以"排序名次 /(n-1)"作为百分位，导致 raw 完全相同的条目因排序位置不同
+    # 而拿到不同展示分（实测 5 条同 raw 条目被拉开 48 分），分数不可复现、依赖输入顺序，
+    # "热度分"因此失去可信度。改为按 raw 值做 min-max 映射：同 raw 必同分，且保留原始分差比例。
     n = len(items)
-    sorted_by_raw = sorted(range(n), key=lambda i: items[i]["_v2_raw"])
-    rank_of_idx = {idx: r for r, idx in enumerate(sorted_by_raw)}
+    raws = [items[i]["_v2_raw"] for i in range(n)]
+    raw_min = min(raws) if raws else 0.0
+    raw_max = max(raws) if raws else 0.0
+    span = raw_max - raw_min
+    # 相对跨度保护：整体差异过小时视为"无实质差异"，统一给中性分，
+    # 避免把千分之几的分差放大成满量程展示差
+    flat = (raw_max <= 0) or (span / raw_max < DISPLAY_MIN_RELATIVE_SPAN)
     for idx, item in enumerate(items):
-        if n <= 1:
-            percentile = 1.0
+        if flat:
+            display_score = DISPLAY_SCORE_MID
         else:
-            # 百分位排名（0-1）
-            percentile = rank_of_idx[idx] / (n - 1)
-        display_score = 40.0 + 60.0 * percentile
+            display_score = (DISPLAY_SCORE_MIN
+                             + (DISPLAY_SCORE_MAX - DISPLAY_SCORE_MIN)
+                             * (item["_v2_raw"] - raw_min) / span)
         item["score_v2_raw"] = item["_v2_raw"]
         item["score_v2"] = round(display_score, 1)
+        item["hotness_level"] = _hotness_level(display_score)
         # v2 明细（供前端热度弹窗展示）
         item["score_breakdown"] = {
             "algorithm": "v2",
@@ -1160,9 +1332,15 @@ def calculate_hotness(items, config):
     now = datetime.now(timezone.utc)
 
     # 第一步：为每个条目匹配关键词
+    # 英文标题通过两条路径命中关键词：① 已有中文译文（title_zh）直接匹配中文词
+    # ② 无译文时回退到英文别名表。两条路径都把结果归一到中文关键词。
     for item in items:
-        text = item.get("title", "") + " " + item.get("summary", "")
-        item["matched_keywords"] = match_keywords(text, keywords)
+        text = " ".join(filter(None, [
+            item.get("title", ""),
+            item.get("title_zh", ""),
+            item.get("summary", ""),
+        ]))
+        item["matched_keywords"] = match_keywords(text, keywords, KEYWORD_EN_ALIASES)
 
     # 第二步：统计每个关键词在多少个条目中出现（主题聚合 / 跨源共振用）
     keyword_item_count = defaultdict(int)
@@ -1254,6 +1432,13 @@ def generate_analysis(item, config):
     return analysis
 
 
+# 候选新词提取（generate_pending_terms）用到的逐词过滤正则
+# 它们是按"每个标题的每个词"调用的，放在模块级避免重复编译。
+_RE_STRIP_EDGE_PUNCT = re.compile(r'^[\s\W_]+|[\s\W_]+$')
+_RE_ONLY_SYMBOLS = re.compile(r'^[\d\s\W]+$')
+_RE_EN_SHORT_WORD = re.compile(r'^[a-zA-Z]{1,2}$')
+
+
 def generate_pending_terms(items, config):
     """
     使用 jieba 分词从标题中提取候选新词，生成 pending_terms.json
@@ -1273,12 +1458,13 @@ def generate_pending_terms(items, config):
         try:
             with open(glossary_path, "r", encoding="utf-8") as f:
                 glossary = json.load(f)
-                if isinstance(glossary, list):
-                    for item in glossary:
-                        if isinstance(item, dict) and item.get("term"):
-                            existing_terms.add(item["term"].lower())
-        except Exception:
-            pass
+            if isinstance(glossary, list):
+                for entry in glossary:
+                    if isinstance(entry, dict) and entry.get("term"):
+                        existing_terms.add(entry["term"].lower())
+        except Exception as e:
+            # 读不到就当作"没有已有词条"，新词可能因此与知识库重复，值得留个线索
+            _debug(f"读取 glossary.json 失败，已有词条视为空：{type(e).__name__}: {e}")
 
     # 配置中的关键词也排除
     config_keywords = set([kw.lower() for kw in config.get("keywords", DEFAULT_KEYWORDS)])
@@ -1296,7 +1482,7 @@ def generate_pending_terms(items, config):
         for word in words:
             word = word.strip()
             # 去除首尾标点
-            word = re.sub(r'^[\s\W_]+|[\s\W_]+$', '', word)
+            word = _RE_STRIP_EDGE_PUNCT.sub('', word)
             # 过滤：长度 >= 2
             if len(word) < 2:
                 continue
@@ -1307,13 +1493,10 @@ def generate_pending_terms(items, config):
             if word.lower() in PENDING_TERM_BLOCKLIST or word in PENDING_TERM_BLOCKLIST:
                 continue
             # 过滤：纯数字/标点/空白
-            if re.match(r'^[\d\s\W]+$', word):
+            if _RE_ONLY_SYMBOLS.match(word):
                 continue
-            # 过滤：纯英文单字母
-            if re.match(r'^[a-zA-Z]$', word):
-                continue
-            # 过滤：纯英文且长度<=2的无意义词（如 to, in, on, at 等已在屏蔽词表，这里兜底）
-            if re.match(r'^[a-zA-Z]{1,2}$', word):
+            # 过滤：纯英文且长度 <= 2 的无意义词（如 to, in, on, at 等已在屏蔽词表中，这里兜底）
+            if _RE_EN_SHORT_WORD.match(word):
                 continue
             # 排除已存在于知识库或配置中的词
             word_lower = word.lower()
@@ -1382,17 +1565,100 @@ def get_api_config(config):
     }
 
 
+# Markdown 清洗用正则（按顺序应用，顺序不可调换：先删图片，再处理链接）
+_RE_MD_IMAGE = re.compile(r'!\[[^\]]*\]\([^)]*\)')
+_RE_MD_LINK = re.compile(r'\[([^\]]*)\]\([^)]*\)')
+_RE_MD_HEADING = re.compile(r'#{1,6}\s*')
+_RE_MD_EMPHASIS = re.compile(r'[*_>`~]+')
+_RE_MD_LIST_ITEM = re.compile(r'^\s*[-*+]\s+', re.M)
+_RE_MD_BLANK_LINES = re.compile(r'\n{3,}')
+
+
 def _md_to_text(md):
     """粗略将 Markdown 转为纯文本（去除标题符号、链接、图片、强调等语法）"""
     if not md:
         return ""
-    text = re.sub(r'!\[[^\]]*\]\([^)]*\)', '', md)          # 图片
-    text = re.sub(r'\[([^\]]*)\]\([^)]*\)', r'\1', text)     # 链接
-    text = re.sub(r'#{1,6}\s*', '', text)                     # 标题
-    text = re.sub(r'[*_>`~]+', '', text)                      # 强调/代码符号
-    text = re.sub(r'^\s*[-*+]\s+', '', text, flags=re.M)      # 列表项
-    text = re.sub(r'\n{3,}', '\n\n', text)
+    text = _RE_MD_IMAGE.sub('', md)             # 图片
+    text = _RE_MD_LINK.sub(r'\1', text)         # 链接
+    text = _RE_MD_HEADING.sub('', text)         # 标题
+    text = _RE_MD_EMPHASIS.sub('', text)        # 强调/代码符号
+    text = _RE_MD_LIST_ITEM.sub('', text)       # 列表项
+    text = _RE_MD_BLANK_LINES.sub('\n\n', text)
     return text.strip()
+
+
+def _mark_domain_failed(domain, message):
+    """
+    记录某个域名的原文提取失败，并打印一次原因。
+
+    同一域名只提示一次（避免逐条刷屏）。
+    原实现把这段 3 行的判断在各兜底分支里几乎逐字重复了 9 遍，统一到这里。
+    """
+    if domain not in FAILED_DOMAINS:
+        FAILED_DOMAINS.add(domain)
+        print(message)
+
+
+# ============================================================
+# SSRF 防护：正文提取的目标 URL 来自 RSS 条目（外部输入），不能直接请求
+# ============================================================
+# 背景：extract_article_text 会把条目里的 link 原样交给 requests / trafilatura /
+# Firecrawl 去抓。RSS 属于外部数据，只要某个源被投毒（或条目 link 被人为指向内网），
+# 脚本就会代替攻击者发起请求。在 GitHub Actions 这类云环境里，这会命中
+# 169.254.169.254 之类的云元数据端点；更糟的是抓回来的正文会被写进
+# docs/data 并提交到公开仓库，等于把探测结果对外发布。
+# 这里只做最小必要收口：协议白名单 + 环回/私网/链路本地/保留地址黑名单。
+
+ALLOWED_URL_SCHEMES = ("http", "https")
+
+# 已知元数据服务主机名，以及常见内网专用后缀
+BLOCKED_HOSTNAMES = frozenset({
+    "localhost", "localhost.localdomain", "ip6-localhost", "ip6-loopback",
+    "metadata.google.internal",   # GCP 元数据
+    "metadata.goog",
+    "instance-data",              # AWS 兼容写入
+    "metadata",                   # Azure / OpenStack
+    "100.100.100.200",            # 阿里云元数据
+    "169.254.169.254",            # AWS/GCP/Azure 通用 IMDS
+    "fd00:ec2::254",              # AWS IMDS IPv6
+})
+BLOCKED_HOST_SUFFIXES = (".local", ".internal", ".localhost", ".home.arpa")
+
+
+def _is_private_ip(host):
+    """host 是 IP 字面量时，判断它是否属于内网/环回/链路本地/保留/组播地址"""
+    try:
+        ip = ipaddress.ip_address(host)
+    except ValueError:
+        # 不是 IP 字面量（普通域名），交由主机名黑名单分支处理
+        return False
+    return (ip.is_private or ip.is_loopback or ip.is_link_local
+            or ip.is_reserved or ip.is_multicast or ip.is_unspecified)
+
+
+def _is_safe_public_url(url):
+    """
+    判断 URL 是否可以安全抓取（SSRF 防护的唯一入口）。
+
+    返回 True 仅当：协议为 http/https、主机名非空、且主机既不在元数据主机名
+    黑名单中，也不是环回/私网/链路本地/保留地址。
+    """
+    if not url or not isinstance(url, str):
+        return False
+    try:
+        parsed = urlparse(url.strip())
+    except (ValueError, TypeError):
+        return False
+    if parsed.scheme.lower() not in ALLOWED_URL_SCHEMES:
+        return False
+    host = (parsed.hostname or "").lower()
+    if not host:
+        return False
+    if host in BLOCKED_HOSTNAMES or host.endswith(BLOCKED_HOST_SUFFIXES):
+        return False
+    if _is_private_ip(host):
+        return False
+    return True
 
 
 def extract_article_text(url, api_config):
@@ -1407,20 +1673,26 @@ def extract_article_text(url, api_config):
     if not api_config["reader_enabled"] or not REQUESTS_AVAILABLE:
         return None
 
-    # 提取域名，用于判断是否为反爬严格的域名
+    # 提取域名，用于判断是否为反爬严格的域名（urlparse 已在顶部导入）
     try:
-        from urllib.parse import urlparse
         domain = urlparse(url).netloc.lower()
-    except Exception:
+    except Exception as e:
+        _debug(f"URL 解析域名失败，按无域名处理：{url!r}（{type(e).__name__}: {e}）")
         domain = ""
+
+    # SSRF 防护：url 来自 RSS 条目（外部输入），必须先确认目标是公网 http/https 地址，
+    # 否则一个被投毒的源就能让脚本去请求内网服务或云元数据端点。
+    # 这是所有抓取分支（trafilatura / readability / Firecrawl / Jina）的必经入口，
+    # 校验放在这里可以一次性覆盖全部路径。
+    if not _is_safe_public_url(url):
+        _mark_domain_failed(domain or "(无域名)", f"[原文提取] 拒绝抓取非公网地址（SSRF 防护）：{url!r}")
+        return None
 
     # 对已知反爬严格的域名，如果没有配置 Jina key，直接跳过所有本地提取
     has_jina = bool(api_config.get("jina_key"))
     is_strict = any(sd in domain for sd in STRICT_DOMAINS)
     if is_strict and not has_jina:
-        if domain not in FAILED_DOMAINS:
-            FAILED_DOMAINS.add(domain)
-            print(f"[原文提取] 跳过反爬严格域名：{domain}")
+        _mark_domain_failed(domain, f"[原文提取] 跳过反爬严格域名：{domain}")
         return None
 
     # 更真实的请求头（readability 本地抓取用）
@@ -1436,20 +1708,16 @@ def extract_article_text(url, api_config):
     # 第一步：trafilatura 本地提取（优先，正文质量高）
     if TRAFILATURA_AVAILABLE:
         try:
-            html = trafilatura.fetch_url(url)
-            if html:
-                text = trafilatura.extract(html)
+            page_html = trafilatura.fetch_url(url)
+            if page_html:
+                text = trafilatura.extract(page_html)
                 if text and len(text.strip()) > 200:
                     print(f"[原文提取] trafilatura 成功 ({domain})")
                     return text.strip()[:5000]
                 elif text and len(text.strip()) > 50:
-                    if domain not in FAILED_DOMAINS:
-                        FAILED_DOMAINS.add(domain)
-                        print(f"[原文提取] trafilatura 提取文本过短 ({domain})")
+                    _mark_domain_failed(domain, f"[原文提取] trafilatura 提取文本过短 ({domain})")
         except Exception as e:
-            if domain not in FAILED_DOMAINS:
-                FAILED_DOMAINS.add(domain)
-                print(f"[原文提取] trafilatura 失败: {str(e)[:50]} ({domain})")
+            _mark_domain_failed(domain, f"[原文提取] trafilatura 失败: {str(e)[:50]} ({domain})")
 
     # 第二步：readability + html2text 本地提取
     if api_config["local_extraction"] and READABILITY_AVAILABLE and HTML2TEXT_AVAILABLE:
@@ -1457,9 +1725,7 @@ def extract_article_text(url, api_config):
             resp = requests.get(url, timeout=15, headers=headers)
             # 403/401/405 不重试，但继续尝试后续兜底
             if resp.status_code in (401, 403, 405):
-                if domain not in FAILED_DOMAINS:
-                    FAILED_DOMAINS.add(domain)
-                    print(f"[原文提取] 跳过：{resp.status_code} Forbidden ({domain})")
+                _mark_domain_failed(domain, f"[原文提取] 跳过：{resp.status_code} Forbidden ({domain})")
             else:
                 resp.raise_for_status()
                 doc = Document(resp.text)
@@ -1472,13 +1738,9 @@ def extract_article_text(url, api_config):
                     return text[:5000]
         except requests.exceptions.HTTPError as e:
             status_code = e.response.status_code if e.response is not None else "unknown"
-            if domain not in FAILED_DOMAINS:
-                FAILED_DOMAINS.add(domain)
-                print(f"[原文提取] HTTP错误 {status_code} ({domain})")
+            _mark_domain_failed(domain, f"[原文提取] HTTP错误 {status_code} ({domain})")
         except Exception as e:
-            if domain not in FAILED_DOMAINS:
-                FAILED_DOMAINS.add(domain)
-                print(f"[原文提取] 本地提取失败: {str(e)[:50]} ({domain})")
+            _mark_domain_failed(domain, f"[原文提取] 本地提取失败: {str(e)[:50]} ({domain})")
 
     # 第三步：Firecrawl keyless 兜底
     if api_config.get("firecrawl_enabled", True):
@@ -1496,13 +1758,9 @@ def extract_article_text(url, api_config):
                 print(f"[原文提取] Firecrawl 成功 ({domain})")
                 return _md_to_text(md)[:5000]
             elif md:
-                if domain not in FAILED_DOMAINS:
-                    FAILED_DOMAINS.add(domain)
-                    print(f"[原文提取] Firecrawl 内容过短 ({domain})")
+                _mark_domain_failed(domain, f"[原文提取] Firecrawl 内容过短 ({domain})")
         except Exception as e:
-            if domain not in FAILED_DOMAINS:
-                FAILED_DOMAINS.add(domain)
-                print(f"[原文提取] Firecrawl 失败: {str(e)[:50]} ({domain})")
+            _mark_domain_failed(domain, f"[原文提取] Firecrawl 失败: {str(e)[:50]} ({domain})")
 
     # 第四步：Jina Reader 兜底
     if api_config["jina_key"]:
@@ -1516,9 +1774,7 @@ def extract_article_text(url, api_config):
             if len(text) >= 50:
                 return text[:5000]
         except Exception as e:
-            if domain not in FAILED_DOMAINS:
-                FAILED_DOMAINS.add(domain)
-                print(f"[原文提取] Jina 提取失败: {str(e)[:50]} ({domain})")
+            _mark_domain_failed(domain, f"[原文提取] Jina 提取失败: {str(e)[:50]} ({domain})")
 
     return None
 
@@ -1724,6 +1980,10 @@ IRRELEVANT_EN = [
     "phd", "programme", "program", "scholarship",
 ]
 
+# 相关性过滤的安全下限：过滤后保留条数低于该值时，整体取消过滤（放宽阈值，避免误杀）
+# 集中定义，避免出现"注释写 10、代码写 20"这类漂移
+MIN_KEPT_ITEMS = 20
+
 # 明显非环境领域的关键词黑名单（财经/泛化/营销/时政套话等），命中即丢弃
 NON_ENV_BLACKLIST = {
     "保险", "系统性", "重塑", "财经", "金融", "股市", "股票", "基金", "债券", "理财",
@@ -1760,8 +2020,9 @@ def _env_term_whitelist():
                     t = str(e.get("term", "")).strip()
                     if t:
                         wl.add(t.lower())
-    except Exception:
-        pass
+    except Exception as e:
+        # 环境术语白名单读不到：相关性判断会更宽松，可能放进非环境内容
+        _debug(f"读取 glossary.json 环境术语失败，白名单偏紧：{type(e).__name__}: {e}")
     try:
         pp = os.path.join(DATA_DIR, "pending_terms.json")
         if os.path.exists(pp):
@@ -1771,8 +2032,8 @@ def _env_term_whitelist():
                 t = str(e.get("term", "")).strip()
                 if t:
                     wl.add(t.lower())
-    except Exception:
-        pass
+    except Exception as e:
+        _debug(f"读取 pending_terms.json 环境术语失败：{type(e).__name__}: {e}")
     _ENV_TERM_WHITELIST_CACHE = wl
     return wl
 
@@ -1849,13 +2110,12 @@ STOP_WORDS_EN = set([
     "a", "an", "of", "to", "in", "on", "at", "as", "is", "be", "been",
     "these", "those", "it", "we", "you", "he", "she", "they", "them",
     "whom", "whose", "no", "yes", "so", "if", "up", "down", "out", "off",
-    "again", "further", "once", "here", "all", "any", "both", "each", "few",
+    "again", "further", "once", "all", "any", "both", "each", "few",
     "other", "some", "own", "same", "too", "above", "below", "through",
     "because", "until", "while", "itself", "himself", "herself", "themselves",
-    "am", "do", "does", "did", "done", "being", "has", "were", "been", "very",
+    "am", "do", "does", "did", "done", "being",
     "lots", "much", "many", "every", "everyone", "someone", "nobody", "anyone",
-    "something", "anything", "nothing", "everything", "us", "me", "him", "her",
-    "them", "there", "their", "they", "this", "those", "these", "than",
+    "something", "anything", "nothing", "everything", "us", "me", "him",
 ])
 
 # 媒体名称黑名单（关键词/标签提取时过滤）
@@ -1878,7 +2138,7 @@ WIDE_ZH_WORDS = set([
     "方面", "相关", "记者", "编辑", "日前", "近日", "今年", "昨日", "今日",
     "专家", "表示", "称", "说", "显示", "预计", "或将", "引发", "行动",
     "现象", "加剧", "措施", "方案", "计划", "项目", "结果", "进展", "趋势",
-    "消息", "动态", "内容", "平台", "论坛", "峰会", "会议", "活动", "开展",
+    "消息", "动态", "内容", "平台", "论坛", "峰会", "会议", "活动",
     "生态", "多地", "遭遇", "期间", "当中", "其中",
     # 新增：无意义词/媒体栏目名/人名
     "锚点", "袁岚峰", "风闻", "科普", "工作坊", "观察者", "网易", "新浪", "搜狐", "腾讯", "凤凰", "澎湃", "头条", "知乎", "视频", "直播", "网友", "评论",
@@ -1892,10 +2152,10 @@ WIDE_ZH_WORDS = set([
     "城市", "地区", "区域", "地方", "全省", "全市", "全县", "全镇",
     "首次", "再次", "多次", "不断", "持续", "进一步", "深入", "全面",
     "重要", "重大", "重点", "主要", "关键", "核心", "基本", "根本",
-    "通过", "进行", "实现", "开展", "推进", "加强", "提升", "提高", "改善",
-    "建立", "建设", "构建", "营造", "打造", "形成", "成为", "作为", "属于",
+    "通过", "进行", "实现", "加强", "提升", "提高", "改善",
+    "建立", "构建", "营造", "打造", "形成", "成为", "作为", "属于",
     # 补充：过于通用的词（任务四点名）
-    "极端", "数据", "资源", "天气", "情况", "问题", "现象", "水平", "能力", "体系",
+    "极端", "数据", "资源", "天气", "情况", "水平", "能力", "体系",
     "系统", "机制", "模式", "方式", "类型", "领域", "行业", "产业", "经济",
 ])
 
@@ -1985,7 +2245,8 @@ def _get_translation_config():
     if _TRANSLATION_CFG_CACHE is None:
         try:
             cfg = load_config().get("translation_api", {}) or {}
-        except Exception:
+        except Exception as e:
+            _debug(f"读取 translation_api 配置失败：{type(e).__name__}: {e}")
             cfg = {}
         # 环境变量 DEEPL_API_KEY 优先级高于 config.yaml
         env_deepl = os.environ.get("DEEPL_API_KEY", "").strip()
@@ -2027,7 +2288,8 @@ def _deepl_translate(text, api_key):
     is_free_key = api_key.endswith(":fx")
 
     try:
-        import urllib.parse
+        # 说明：这里原有一行 `import urllib.parse`，但本函数最终以 data=payload（字典）
+        # 交给 requests 做表单编码，从未用到该模块，属于死导入，已移除。
         payload = {
             "auth_key": api_key,
             "text": text[:2000],
@@ -2119,10 +2381,7 @@ def _baidu_translate(text, appid, secret_key):
         wait_time = 1.2 - elapsed
         time.sleep(wait_time)
 
-    import hashlib
-    import random
-    import urllib.parse
-
+    # hashlib / random / urllib.parse 均已在模块顶部导入
     text_to_translate = text[:2000]
     headers = {"User-Agent": BROWSER_UA}
 
@@ -2181,7 +2440,7 @@ def _baidu_translate(text, appid, secret_key):
 def _google_translate(text):
     """调用 Google 免费翻译接口（gtx）英文->中文；失败返回空字符串；带3次重试（5/10/20秒）"""
     try:
-        import urllib.parse
+        # urllib.parse 已在模块顶部导入
         q = urllib.parse.quote(text[:2000])
         url = (f"https://translate.googleapis.com/translate_a/single"
                f"?client=gtx&sl=en&tl=zh-CN&dt=t&q={q}")
@@ -2203,7 +2462,8 @@ def _google_translate(text):
                     for seg in data[0]:
                         if seg and seg[0]:
                             parts.append(seg[0])
-                except Exception:
+                except Exception as e:
+                    _debug(f"翻译 API 响应结构解析失败：{type(e).__name__}: {e}")
                     return ""
                 translated = "".join(parts).strip()
                 if translated and len(translated) >= 2 and translated != text:
@@ -2267,8 +2527,9 @@ def translate_en_to_zh(text):
                 external_glossary = json.load(f)
             if text_lower in external_glossary:
                 return external_glossary[text_lower]
-        except Exception:
-            pass
+        except Exception as e:
+            # 外部词表读不到时回退到内置词表，翻译能力略降
+            _debug(f"读取外部翻译词表失败，回退内置词表：{type(e).__name__}: {e}")
 
     # 第二步：检查翻译缓存
     if text_lower in TRANSLATION_CACHE:
@@ -2348,7 +2609,8 @@ def _extract_ai_content(result):
         if content is None:
             return ""
         return str(content).strip()
-    except Exception:
+    except Exception as e:
+        _debug(f"AI 响应内容解析失败：{type(e).__name__}: {e}")
         return ""
 
 
@@ -2431,7 +2693,8 @@ def _extract_json_object(text, label="AI", quiet=False):
     def _try_loads(s):
         try:
             return json.loads(s)
-        except Exception:
+        except Exception as e:
+            _debug(f"JSON 解析失败：{type(e).__name__}: {e}")
             return None
 
     # 1) 整体直接解析
@@ -2493,7 +2756,9 @@ def _extract_ai_list(text, keys=(), label="AI"):
             obj = json.loads(frag)
             if isinstance(obj, dict):
                 rescued.append(obj)
-        except Exception:
+        except Exception as e:
+            # 逐个片段抢救 JSON：单个片段损坏属预期，跳过继续
+            _debug(f"AI 返回片段不是合法 JSON，已跳过：{frag[:60]!r}（{type(e).__name__}）")
             continue
     if rescued:
         print(f"[{label}] 外层JSON不完整（疑似被截断），已抢救出 {len(rescued)} 条完整记录")
@@ -2513,6 +2778,9 @@ def _extract_ai_list(text, keys=(), label="AI"):
     return None
 
 
+# [注意：当前无调用点] main() 已改为"每个 AI 功能各自按 [5,15,30] 秒重试、
+# 连续失败 3 次后独立熔断"，不再做启动时的统一健康检查，因此本函数目前没有调用方。
+# 保留它是因为手动排查"模型 / 密钥是否可用"时依然好用；若确认不再需要可整段删除。
 def check_model_health(api_config):
     """
     模型健康检查：用最小请求（ping, max_tokens=1）探测模型端点是否可达
@@ -2671,8 +2939,9 @@ def _load_domain_category_whitelist():
                 raw_cat = str(entry.get("category", "")).strip()
                 if term and raw_cat in _GLOSSARY_CAT_NORMALIZE:
                     wl[term.lower()] = _GLOSSARY_CAT_NORMALIZE[raw_cat]
-    except Exception:
-        pass
+    except Exception as e:
+        # 读不到就退化为"无领域大类白名单"，所有词条走规则分类
+        _debug(f"读取领域大类白名单失败：{type(e).__name__}: {e}")
     _DOMAIN_CATEGORY_WHITELIST = wl
     return wl
 
@@ -2732,8 +3001,9 @@ def classify_keyword(keyword, allow_translate=True):
                 cat = _rule_match_category(translated)
                 if cat != "其他":
                     return cat
-        except Exception:
-            pass
+        except Exception as e:
+            # 翻译失败/网络异常：不改分类结果，继续走下面的英文映射表
+            _debug(f"关键词 {kw!r} 翻译分类失败：{type(e).__name__}: {e}")
     # 翻译失败/不允许翻译：用英文映射表
     return _rule_match_category(kw)
 
@@ -2768,8 +3038,9 @@ def classify_item(item, allow_translate=True):
                 cat = _rule_match_category(tz)
                 if cat != "其他":
                     return cat
-        except Exception:
-            pass
+        except Exception as e:
+            # 翻译失败：该条归类为"其他"，不影响其他条目
+            _debug(f"标题 {title[:40]!r} 翻译分类失败：{type(e).__name__}: {e}")
     return "其他"
 
 
@@ -2987,7 +3258,7 @@ def _zh_relevance_keep(title):
     1. 含任一强环境相关词（含 AI/人工智能/机器学习等交叉领域）-> 保留
     2. 命中明显无关词（体育/游戏/娱乐等）-> 过滤
     3. 既不含强环境词也不含明显无关词 -> 过滤（严格模式，避免无关热点混入）
-    注意：filter_environmental_relevance 会在剩余不足10条时取消过滤，保留全部
+    注意：filter_environmental_relevance 会在剩余不足 MIN_KEPT_ITEMS 条时取消过滤，保留全部
     """
     title_lower = title.lower()
     # 1. 无关黑名单优先：博彩/体育/娱乐/教育等即使夹带"环境/ESG/AI"字样也先过滤
@@ -3001,7 +3272,7 @@ def _zh_relevance_keep(title):
                 return True
         elif kw in title:
             return True
-    # 3. 严格模式：不含强环境词 -> 过滤（由上层在不足10条时放宽）
+    # 3. 严格模式：不含强环境词 -> 过滤（由上层在不足 MIN_KEPT_ITEMS 条时放宽）
     return False
 
 
@@ -3035,7 +3306,7 @@ def filter_environmental_relevance(items, config, api_config):
     2. AI 不可用或调用失败，规则降级：
        - 只过滤明显无关内容（体育/游戏/娱乐等）
        - 含环境相关词（中/英）的必须保留，无法判断的默认保留
-    3. 过滤后剩余不足10条则取消过滤，保留全部
+    3. 过滤后剩余不足 MIN_KEPT_ITEMS 条则取消过滤，保留全部
     4. 每条结果写入日志（保留/过滤 + 标题前20字）
     返回过滤后的条目列表
     """
@@ -3100,9 +3371,9 @@ def filter_environmental_relevance(items, config, api_config):
             item["irrelevant"] = True
             print(f"[过滤] 无关内容（缺少环境强相关词）：{title[:20]}")
 
-    # 过滤后剩余不足20条 -> 取消过滤，保留全部（放宽阈值，避免误杀）
-    if len(kept) < 20 and len(kept) < len(items):
-        print(f"[过滤] 过滤后仅剩 {len(kept)} 条（少于20条），取消过滤，保留全部 {len(items)} 条")
+    # 过滤后剩余不足 MIN_KEPT_ITEMS 条 -> 取消过滤，保留全部（放宽阈值，避免误杀）
+    if len(kept) < MIN_KEPT_ITEMS and len(kept) < len(items):
+        print(f"[过滤] 过滤后仅剩 {len(kept)} 条（少于{MIN_KEPT_ITEMS}条），取消过滤，保留全部 {len(items)} 条")
         for item in items:
             item.pop("irrelevant", None)
         return items
@@ -3178,8 +3449,9 @@ def calculate_weekly_categories():
                         cat_counts[cat] += 1
                     else:
                         cat_counts["其他"] += 1
-            except Exception:
-                pass
+            except Exception as e:
+                # 单个快照统计失败：该日大类计数不完整，但不影响其余日期
+                _debug(f"统计 {date_str} 领域大类失败：{type(e).__name__}: {e}")
         result.append({"date": date_str, "categories": cat_counts})
     return result
 
@@ -3218,7 +3490,8 @@ def calculate_week_stats(today_items=None):
             d = rec.get("date")
             if d:
                 history_map[d] = rec
-    except Exception:
+    except Exception as e:
+        _debug(f"读取历史记录失败，改用空映射：{type(e).__name__}: {e}")
         history_map = {}
 
     def date_str(offset):
@@ -3232,7 +3505,8 @@ def calculate_week_stats(today_items=None):
                 with open(p, "r", encoding="utf-8") as f:
                     snap = json.load(f)
                 return snap.get("items", []) if isinstance(snap, dict) else []
-            except Exception:
+            except Exception as e:
+                _debug(f"读取历史快照失败：{type(e).__name__}: {e}")
                 return None
         return None
 
@@ -3321,10 +3595,12 @@ def generate_timeline_data(days=30):
                         heat = item.get("score_v2", item.get("hotness", item.get("score", 0))) or 0
                         try:
                             per_cat[cat]["total_heat"] += float(heat)
-                        except (TypeError, ValueError):
-                            pass
-            except Exception:
-                pass
+                        except (TypeError, ValueError) as e:
+                            # heat 字段异常（如 None / 非数字字符串）：该项热度不计入合计
+                            _debug(f"时间线热度累加跳过非法值 {heat!r}：{e}")
+            except Exception as e:
+                # 该日快照读取或遍历失败：这一天的时间线计数保留初始值（0）
+                _debug(f"读取时间线快照 {snapshot_path} 失败：{type(e).__name__}: {e}")
         for cat in timeline_cats:
             timeline[cat].append({
                 "date": date_str,
@@ -3350,7 +3626,7 @@ def calculate_weekly_keywords():
     也从 history.json 中提取关键词作为补充
     返回 [{term, count}, ...]，按出现次数降序排列，取前10个
     """
-    from datetime import datetime, timedelta
+    # datetime / timedelta 已在模块顶部导入（此处原有重复的函数内导入，已移除）
     keyword_counter = Counter()
 
     # 方法一：从最近7天的每日快照文件中提取 topic_tags
@@ -3374,7 +3650,9 @@ def calculate_weekly_keywords():
                     for kw in matched:
                         if kw and len(str(kw).strip()) >= 2:
                             keyword_counter[str(kw).strip()] += 1
-            except Exception:
+            except Exception as e:
+                # 该日快照读取失败：跳过这一天，其余日期继续统计
+                _debug(f"统计近7天高频词时跳过快照 {daily_path}：{type(e).__name__}: {e}")
                 continue
 
     # 方法二：从 history.json 中提取关键词作为补充
@@ -3396,8 +3674,9 @@ def calculate_weekly_keywords():
                             count = 1
                         if term and len(term.strip()) >= 2:
                             keyword_counter[term.strip()] += count
-        except Exception:
-            pass
+        except Exception as e:
+            # 该数据源（history）读取失败：近7天高频词统计会缺少这一部分
+            _debug(f"统计近7天高频词时读取 history 失败：{type(e).__name__}: {e}")
 
     # 过滤宽泛词
     banned = {"环境", "污染", "保护", "气候变化", "环保", "生态", "可持续发展", "环境领域", "环境保护", "环境问题", "环境科学", "环境工程", "环境动态"}
@@ -3596,8 +3875,9 @@ def generate_topic_tags(item, api_config):
             extracted = extract_article_text(link, api_config)
             if extracted:
                 article_text = extracted[:150]
-        except Exception:
-            pass
+        except Exception as e:
+            # 正文提取失败时退回仅用标题/摘要构造 prompt，不影响标签生成
+            _debug(f"话题标签的正文提取失败：{type(e).__name__}: {e}")
 
     # 构建输入内容（精简：只发标题和摘要前 150 字）
     if article_text:
@@ -3635,6 +3915,99 @@ def generate_topic_tags(item, api_config):
     return []
 
 
+# ============================================================
+# 规则降级路径：话题标签提取用的静态资源
+# 这些字面量原先写在 extract_tags_from_title() 内部，而该函数是按条目调用的，
+# 于是每次调用都要重新构造约 100 条正则字符串、join 成一条大正则再 compile，
+# 并且重建若干集合与列表。它们的取值与入参无关，因此上提到模块级只构建一次。
+# ============================================================
+
+# 环境英文缩写（命中后按大写形式输出）
+_TAG_ENV_ABBR = {
+    "ai", "esg", "epa", "vocs", "pm2.5", "pm10", "cop", "ghg", "lca",
+    "bmp", "wwtp", "cod", "bod", "toc", "tss", "tn", "tp", "ph", "do",
+    "ec", "tds", "ipcc", "unep", "iea", "who",
+}
+
+# 环境复合短语（优先整体匹配，命中后其组成词不再单独成标签）
+_TAG_ENV_PHRASES = [
+    "climate change", "carbon neutral", "carbon neutrality", "net zero",
+    "global warming", "air pollution", "water pollution", "soil pollution",
+    "microplastics", "heavy metal", "biodiversity", "renewable energy",
+    "fossil fuel", "greenhouse gas", "ozone layer", "acid rain",
+    "solar power", "wind power", "waste water", "wastewater treatment",
+    "water treatment", "circular economy", "ecosystem service",
+    "environmental protection", "sustainable development",
+    "el nino", "la nina", "clean energy", "carbon emission",
+    "sea level", "coral reef", "drinking water", "groundwater",
+]
+
+# 宽泛基础英文词：单独出现不作为标签（太泛），只有组成短语才有意义
+_TAG_GENERIC_EN = {
+    "water", "air", "carbon", "climate", "energy", "gas", "green",
+    "environment", "environmental", "new", "research", "study", "science",
+    "scientific", "nature", "natural", "world", "global", "national",
+    "international", "report", "analysis", "effect", "effects", "impact",
+    "level", "levels", "system", "systems", "process", "model", "data",
+    "change", "development", "protection", "management", "quality",
+    "treatment", "pollution", "emission", "emissions", "waste", "soil",
+    "ocean", "marine", "forest", "ecology", "ecological", "ecosystem",
+    "chemical", "industrial", "human", "health", "risk", "assessment",
+}
+
+# 中文噪声词正则（整段匹配，用于剔除时间词/量词/媒体栏目名等无意义片段）
+_TAG_NOISE_PATTERNS = [
+    r"^第[一二三四五六七八九十百千零\d]+次?$",
+    r"^第[一二三四五六七八九十百千零\d]+[届轮期季批]$",
+    r"^\d{4}年$", r"^\d{1,2}月$", r"^\d{1,2}日$",
+    r"^今天$", r"^昨天$", r"^明天$", r"^近日$", r"^日前$",
+    r"^今年$", r"^去年$", r"^明年$", r"^本周$", r"^本月$",
+    r"^个$", r"^名$", r"^位$", r"^项$", r"^条$", r"^件$", r"^种$", r"^类$",
+    r"^课堂$", r"^小伙$", r"^安置$", r"^效果$", r"^怎么样$", r"^如何$",
+    r"^为什么$", r"^什么$", r"^哪里$", r"^哪个$", r"^多少$", r"^几$",
+    r"^记者$", r"^编辑$", r"^通讯员$", r"^作者$", r"^来源$",
+    r"^视频$", r"^图片$", r"^全文$", r"^详情$", r"^快讯$", r"^重磅$",
+    r"^突发$", r"^刚刚$", r"^最新$", r"^关注$", r"^热议$", r"^火了$",
+    r"^爆了$", r"^疯传$", r"^刷屏$", r"^围观$", r"^速看$", r"^扩散$",
+    r"^转发$", r"^收藏$", r"^点赞$", r"^订阅$", r"^扫码$", r"^下载$",
+    r"^客户端$", r"^APP$", r"^网站$", r"^公众号$", r"^微博$", r"^微信$",
+    r"^抖音$", r"^快手$", r"^B站$", r"^知乎$", r"^豆瓣$",
+    r"^报道$", r"^新闻$", r"^资讯$", r"^动态$", r"^消息$", r"^专题$",
+    r"^独家$", r"^原创$", r"^首发$", r"^发布$", r"^点击$", r"^阅读$",
+    r"^查看$", r"^摘要$", r"^原文$", r"^链接$", r"^相关$", r"^热点$",
+]
+_TAG_NOISE_RE = re.compile("|".join(_TAG_NOISE_PATTERNS))
+
+# 媒体名噪声集合（来自 MEDIA_BLACKLIST，只读使用）
+_TAG_MEDIA_NOISE = set(MEDIA_BLACKLIST)
+
+# 中文标题优先匹配的环境领域具体关键词（含 AI 等交叉领域）
+_TAG_SPECIFIC_KEYWORDS = [
+    "碳中和", "碳达峰", "碳关税", "碳交易", "碳汇", "碳排放",
+    "微塑料", "新污染物", "重金属", "PM2.5", "VOCs", "臭氧",
+    "水污染", "大气污染", "土壤污染", "噪声污染", "光污染",
+    "生物多样性", "生态修复", "生态系统", "湿地", "荒漠化", "红树林",
+    "可再生能源", "清洁能源", "新能源", "光伏", "风电", "氢能",
+    "循环经济", "绿色金融", "环保督察", "环评", "垃圾分类",
+    "塑料污染", "海洋保护", "富营养化", "酸雨", "臭氧层",
+    "水处理", "污水处理", "土壤修复", "固废处理", "环境监测",
+    "光催化", "吸附", "膜分离", "高级氧化", "生物降解",
+    "联合国", "COP", "巴黎协定", "京都议定书", "蒙特利尔议定书",
+    "生态环境部", "环保部", "国家发改委", "国务院",
+    "人工智能", "机器学习", "深度学习", "智能环境", "环境大数据",
+    "环境工程", "环境科学", "生态学", "市政工程", "给排水",
+    "大气污染控制", "环境健康", "环境政策", "环境技术", "环境管理",
+]
+
+# 提取中文连续片段、剔除"第 N 次/届"前缀、切分英文词的辅助正则
+_RE_ZH_SEGMENT = re.compile(r'[\u4e00-\u9fa5]{4,}')
+_RE_LEADING_ORDINAL = re.compile(r'^第[一二三四五六七八九十百千零\d]+[次届轮期季批]')
+_RE_EN_WORD = re.compile(r"[A-Za-z][A-Za-z\-\.0-9]{1,}")
+
+# ENV_RELATED_ZH 中长度 >= 2 的词（用于判断片段是否含环境词），预先算好避免每次重新过滤
+_TAG_ENV_ZH_KEYWORDS = [kw for kw in ENV_RELATED_ZH if len(kw) >= 2]
+
+
 def extract_tags_from_title(title):
     """
     从标题中提取话题标签作为降级方案（增强版）
@@ -3654,40 +4027,11 @@ def extract_tags_from_title(title):
         if zh and zh != title and is_chinese(zh):
             return extract_tags_from_title(zh)
         # 翻译失败：只提取环境强相关复合短语/专有名词/缩写
-        env_abbr = {
-            "ai", "esg", "epa", "vocs", "pm2.5", "pm10", "cop", "ghg", "lca",
-            "bmp", "wwtp", "cod", "bod", "toc", "tss", "tn", "tp", "ph", "do",
-            "ec", "tds", "ipcc", "unep", "iea", "who",
-        }
-        # 环境复合短语（优先整体匹配，命中后其组成词不再单独成标签）
-        env_phrases = [
-            "climate change", "carbon neutral", "carbon neutrality", "net zero",
-            "global warming", "air pollution", "water pollution", "soil pollution",
-            "microplastics", "heavy metal", "biodiversity", "renewable energy",
-            "fossil fuel", "greenhouse gas", "ozone layer", "acid rain",
-            "solar power", "wind power", "waste water", "wastewater treatment",
-            "water treatment", "circular economy", "ecosystem service",
-            "environmental protection", "sustainable development",
-            "el nino", "la nina", "clean energy", "carbon emission",
-            "sea level", "coral reef", "drinking water", "groundwater",
-        ]
-        # 宽泛基础英文词：单独出现不作为标签（太泛），只有组成短语才有意义
-        generic_en = {
-            "water", "air", "carbon", "climate", "energy", "gas", "green",
-            "environment", "environmental", "new", "research", "study", "science",
-            "scientific", "nature", "natural", "world", "global", "national",
-            "international", "report", "analysis", "effect", "effects", "impact",
-            "level", "levels", "system", "systems", "process", "model", "data",
-            "change", "development", "protection", "management", "quality",
-            "treatment", "pollution", "emission", "emissions", "waste", "soil",
-            "ocean", "marine", "forest", "ecology", "ecological", "ecosystem",
-            "chemical", "industrial", "human", "health", "risk", "assessment",
-        }
         title_lower = title.lower()
         tags = []
         covered_words = set()  # 已被复合短语覆盖的单词
         # 先匹配复合短语
-        for phrase in env_phrases:
+        for phrase in _TAG_ENV_PHRASES:
             if phrase in title_lower:
                 mapped = EN_ZH_REVERSE.get(phrase)
                 tag = mapped if mapped else phrase.title()
@@ -3696,17 +4040,17 @@ def extract_tags_from_title(title):
                 for w in phrase.split():
                     covered_words.add(w)
         # 再匹配单词级：只保留缩写、专有名词；宽泛基础词跳过
-        en_words = re.findall(r"[A-Za-z][A-Za-z\-\.0-9]{1,}", title)
+        en_words = _RE_EN_WORD.findall(title)
         seen = set()
         for w in en_words:
             wl = w.lower().strip("-").strip(".")
             if wl in seen or len(wl) < 2:
                 continue
             seen.add(wl)
-            if wl in STOP_WORDS_EN or wl in generic_en or wl in covered_words:
+            if wl in STOP_WORDS_EN or wl in _TAG_GENERIC_EN or wl in covered_words:
                 continue
             # 环境缩写：保留大写形式
-            if wl in env_abbr:
+            if wl in _TAG_ENV_ABBR:
                 up = w.upper()
                 if up not in tags:
                     tags.append(up)
@@ -3721,63 +4065,23 @@ def extract_tags_from_title(title):
         return ["环境资讯"]
 
     # === 中文标题处理 ===
-    noise_patterns = [
-        r"^第[一二三四五六七八九十百千零\d]+次?$",
-        r"^第[一二三四五六七八九十百千零\d]+[届轮期季批]$",
-        r"^\d{4}年$", r"^\d{1,2}月$", r"^\d{1,2}日$",
-        r"^今天$", r"^昨天$", r"^明天$", r"^近日$", r"^日前$",
-        r"^今年$", r"^去年$", r"^明年$", r"^本周$", r"^本月$",
-        r"^个$", r"^名$", r"^位$", r"^项$", r"^条$", r"^件$", r"^种$", r"^类$",
-        r"^课堂$", r"^小伙$", r"^安置$", r"^效果$", r"^怎么样$", r"^如何$",
-        r"^为什么$", r"^什么$", r"^哪里$", r"^哪个$", r"^多少$", r"^几$",
-        r"^记者$", r"^编辑$", r"^通讯员$", r"^作者$", r"^来源$",
-        r"^视频$", r"^图片$", r"^全文$", r"^详情$", r"^快讯$", r"^重磅$",
-        r"^突发$", r"^刚刚$", r"^最新$", r"^关注$", r"^热议$", r"^火了$",
-        r"^爆了$", r"^疯传$", r"^刷屏$", r"^围观$", r"^速看$", r"^扩散$",
-        r"^转发$", r"^收藏$", r"^点赞$", r"^订阅$", r"^扫码$", r"^下载$",
-        r"^客户端$", r"^APP$", r"^网站$", r"^公众号$", r"^微博$", r"^微信$",
-        r"^抖音$", r"^快手$", r"^B站$", r"^知乎$", r"^豆瓣$",
-        r"^报道$", r"^新闻$", r"^资讯$", r"^动态$", r"^消息$", r"^专题$",
-        r"^独家$", r"^原创$", r"^首发$", r"^发布$", r"^点击$", r"^阅读$",
-        r"^查看$", r"^摘要$", r"^原文$", r"^链接$", r"^相关$", r"^热点$",
-    ]
-    noise_re = re.compile("|".join(noise_patterns))
-    media_noise = set(MEDIA_BLACKLIST)
-
-    specific_keywords = [
-        "碳中和", "碳达峰", "碳关税", "碳交易", "碳汇", "碳排放",
-        "微塑料", "新污染物", "重金属", "PM2.5", "VOCs", "臭氧",
-        "水污染", "大气污染", "土壤污染", "噪声污染", "光污染",
-        "生物多样性", "生态修复", "生态系统", "湿地", "荒漠化", "红树林",
-        "可再生能源", "清洁能源", "新能源", "光伏", "风电", "氢能",
-        "循环经济", "绿色金融", "环保督察", "环评", "垃圾分类",
-        "塑料污染", "海洋保护", "富营养化", "酸雨", "臭氧层",
-        "水处理", "污水处理", "土壤修复", "固废处理", "环境监测",
-        "光催化", "吸附", "膜分离", "高级氧化", "生物降解",
-        "联合国", "COP", "巴黎协定", "京都议定书", "蒙特利尔议定书",
-        "生态环境部", "环保部", "国家发改委", "国务院",
-        "人工智能", "机器学习", "深度学习", "智能环境", "环境大数据",
-        "环境工程", "环境科学", "生态学", "市政工程", "给排水",
-        "大气污染控制", "环境健康", "环境政策", "环境技术", "环境管理",
-    ]
-
     matched = []
-    for kw in specific_keywords:
+    for kw in _TAG_SPECIFIC_KEYWORDS:
         if kw in title:
             matched.append(kw)
     if matched:
         return matched
 
-    chinese_segments = re.findall(r'[\u4e00-\u9fa5]{4,}', title)
+    chinese_segments = _RE_ZH_SEGMENT.findall(title)
     env_segments = []
     for seg in chinese_segments:
-        if any(m in seg for m in media_noise):
+        if any(m in seg for m in _TAG_MEDIA_NOISE):
             continue
-        if noise_re.match(seg):
+        if _TAG_NOISE_RE.match(seg):
             continue
-        has_env = any(kw in seg for kw in ENV_RELATED_ZH if len(kw) >= 2)
+        has_env = any(kw in seg for kw in _TAG_ENV_ZH_KEYWORDS)
         if has_env:
-            seg = re.sub(r'^第[一二三四五六七八九十百千零\d]+[次届轮期季批]', '', seg)
+            seg = _RE_LEADING_ORDINAL.sub('', seg)
             if len(seg) >= 4:
                 env_segments.append(seg)
     if env_segments:
@@ -3785,6 +4089,19 @@ def extract_tags_from_title(title):
         return [longest]
 
     return ["环境资讯"]
+
+
+# 规则摘要用：常见媒体来源后缀与标题分隔符
+# 注意：分隔符的顺序有意义——按顺序尝试，第一个命中的生效（原实现即如此）。
+_SUMMARY_SRC_SUFFIXES = [
+    "搜狐", "新浪财经", "新浪", "腾讯", "网易", "凤凰网", "凤凰", "澎湃新闻", "澎湃",
+    "央视网", "新华网", "人民网", "环球网", "中国网", "光明网", "界面新闻",
+    "第一财经", "每经网", "中国新闻网", "中新网",
+]
+_SUMMARY_SRC_SEPARATORS = [" - ", "_", " | ", " – ", " — ", "-", "|"]
+
+# 截断时视为句读的标点
+_SUMMARY_TRUNC_PUNCT = "，,。.、；;：:"
 
 
 def _fallback_rule_summary(title):
@@ -3803,14 +4120,11 @@ def _fallback_rule_summary(title):
         cleaned_title = title.strip()
 
     # 去掉来源后缀（如 "- 搜狐"、"_新浪财经"、"| 网易"）
-    _src_suffixes = ["搜狐", "新浪财经", "新浪", "腾讯", "网易", "凤凰网", "凤凰", "澎湃新闻", "澎湃",
-                     "央视网", "新华网", "人民网", "环球网", "中国网", "光明网", "界面新闻",
-                     "第一财经", "每经网", "中国新闻网", "中新网"]
-    for _sep in [" - ", "_", " | ", " – ", " — ", "-", "|"]:
+    for _sep in _SUMMARY_SRC_SEPARATORS:
         if _sep in cleaned_title:
             _parts = cleaned_title.split(_sep)
             _tail = _parts[-1].strip()
-            if any(_tail.startswith(_s) or _s in _tail for _s in _src_suffixes) and len(_parts) > 1:
+            if any(_tail.startswith(_s) or _s in _tail for _s in _SUMMARY_SRC_SUFFIXES) and len(_parts) > 1:
                 cleaned_title = _sep.join(_parts[:-1])
                 break
     cleaned_title = cleaned_title.strip(" -_|–—")
@@ -3823,7 +4137,8 @@ def _fallback_rule_summary(title):
         translated = ""
         try:
             translated = translate_en_to_zh(cleaned_title)
-        except Exception:
+        except Exception as e:
+            _debug(f"规则摘要的英文标题翻译失败，保留原英文：{type(e).__name__}: {e}")
             translated = ""
         if translated and translated != cleaned_title and is_chinese(translated) and len(translated) >= 10:
             summary = translated.strip()
@@ -3831,10 +4146,10 @@ def _fallback_rule_summary(title):
                 # 在50字附近的标点处截断
                 cut = 50
                 for i in range(50, min(60, len(summary))):
-                    if summary[i] in "，,。.、；;：:":
+                    if summary[i] in _SUMMARY_TRUNC_PUNCT:
                         cut = i
                         break
-                summary = summary[:cut].rstrip("，,。.、；;：:") + "…"
+                summary = summary[:cut].rstrip(_SUMMARY_TRUNC_PUNCT) + "…"
             return summary
         # 翻译失败：保留英文标题前80字符，在单词边界截断，不截断单词
         if len(cleaned_title) <= 80:
@@ -3856,10 +4171,10 @@ def _fallback_rule_summary(title):
         # 在50字附近的标点处截断，避免截断词语
         trunc_point = 50
         for i in range(50, min(60, len(cleaned_title))):
-            if cleaned_title[i] in "，,。.、；;：:":
+            if cleaned_title[i] in _SUMMARY_TRUNC_PUNCT:
                 trunc_point = i
                 break
-        summary = cleaned_title[:trunc_point].rstrip("，,。.、；;：:")
+        summary = cleaned_title[:trunc_point].rstrip(_SUMMARY_TRUNC_PUNCT)
         if len(cleaned_title) > trunc_point:
             summary += "…"
 
@@ -3875,6 +4190,20 @@ def _apply_rule_summaries(candidates):
         item["summary"] = _fallback_rule_summary(item.get("title", ""))
 
 
+# 无信息量摘要模板（AI/规则都可能产出，需在最终校验时清除）
+_BAD_SUMMARY_PATTERNS = [
+    re.compile(r"^标题涉及[「\"'].*?[\"'」]，?请点击查看详情。?$"),
+    re.compile(r"^关于[「\"'].*?[\"'」]的资讯.*$"),
+    re.compile(r"^点击查看详情。?$"),
+    re.compile(r"^请点击查看详情。?$"),
+    re.compile(r"^暂无摘要，?点击查看详情。?$"),
+    re.compile(r"^暂无摘要。?$"),
+]
+
+# 英文摘要截断修复：判断末词是否为完整英文单词
+_RE_EN_WORD_TAIL = re.compile(r'[a-zA-Z]{2,}$')
+
+
 def _finalize_summary(item):
     """
     摘要最终校验与修复：确保非空、有信息量、与标题不同、长度足够
@@ -3888,16 +4217,8 @@ def _finalize_summary(item):
     summary = (item.get("summary") or "").strip()
 
     # 1. 清除无信息量模板
-    bad_patterns = [
-        r"^标题涉及[「\"'].*?[\"'」]，?请点击查看详情。?$",
-        r"^关于[「\"'].*?[\"'」]的资讯.*$",
-        r"^点击查看详情。?$",
-        r"^请点击查看详情。?$",
-        r"^暂无摘要，?点击查看详情。?$",
-        r"^暂无摘要。?$",
-    ]
-    for pat in bad_patterns:
-        if re.match(pat, summary):
+    for pattern in _BAD_SUMMARY_PATTERNS:
+        if pattern.match(summary):
             summary = ""
             break
 
@@ -3922,7 +4243,7 @@ def _finalize_summary(item):
             words = clean.split()
             if words:
                 last_word = words[-1]
-                if len(last_word) < 3 or not re.match(r'[a-zA-Z]{2,}$', last_word):
+                if len(last_word) < 3 or not _RE_EN_WORD_TAIL.match(last_word):
                     words = words[:-1]
                     summary = " ".join(words).strip()
                     if summary:
@@ -4005,8 +4326,9 @@ def generate_batch_summaries(items, api_config):
                 if extracted:
                     # 精简 prompt：只发送正文前 150 字，避免过长导致超时
                     article_text = extracted[:150]
-            except Exception:
-                pass
+            except Exception as e:
+                # 正文提取失败时退回仅用标题/摘要，不中断批量摘要流程
+                _debug(f"批量摘要的正文提取失败：{type(e).__name__}: {e}")
         if article_text:
             print(f"[摘要] 基于原文生成：{title[:40]}")
         else:
@@ -4412,7 +4734,8 @@ def generate_source_health(source_health):
                     for item in old_data:
                         if item.get("name"):
                             last_health[item["name"]] = item
-        except Exception:
+        except Exception as e:
+            _debug(f"读取上次源健康度失败，连续失败计数将重新累计：{type(e).__name__}: {e}")
             last_health = {}
 
     # 处理本次状态，标记连续失败
@@ -4471,7 +4794,8 @@ def generate_personal_knowledge():
         try:
             with open(pending_path, "r", encoding="utf-8") as f:
                 pending_terms = json.load(f)
-        except Exception:
+        except Exception as e:
+            _debug(f"读取待收录术语文件失败：{type(e).__name__}: {e}")
             pending_terms = []
 
     # 生成当天内容
@@ -4538,7 +4862,8 @@ def generate_personal_knowledge():
         try:
             with open(knowledge_path, "r", encoding="utf-8") as f:
                 existing_content = f.read()
-        except Exception:
+        except Exception as e:
+            _debug(f"读取现有 personal_knowledge.md 失败，将按空文件重建：{type(e).__name__}: {e}")
             existing_content = ""
 
     # 检查当天是否已存在
@@ -4578,8 +4903,20 @@ def generate_personal_knowledge():
         print(f"[个人知识库] 写入失败：{e}")
 
 
+_JIEBA_ENV_INITIALIZED = False
+
+
 def _init_jieba_env():
-    """将环境专业词加入 jieba 词典，避免组合词被拆开（如 微塑料、碳关税）"""
+    """将环境专业词加入 jieba 词典，避免组合词被拆开（如 微塑料、碳关税）
+
+    幂等：同一进程内只真正注入一次。
+    实测依据——连续调用本函数 1/2/…/8 次后，对同一文本 jieba.cut 的结果完全一致，
+    说明重复 add_word 并不改变分词结果。因此幂等与"逐次注入"行为等价，
+    同时避免了每条标题都重读 glossary.json、重跑数百次 add_word 的重复开销。
+    """
+    global _JIEBA_ENV_INITIALIZED
+    if _JIEBA_ENV_INITIALIZED:
+        return
     if not JIEBA_AVAILABLE:
         return
     words = set()
@@ -4598,14 +4935,18 @@ def _init_jieba_env():
                     term = str(entry.get("term", "")).strip()
                     if term and len(term) >= 2:
                         words.add(term)
-    except Exception:
-        pass
+    except Exception as e:
+        # 读不到就只用内置词汇，分词时组合词可能被拆开（如"微塑料"）
+        _debug(f"初始化 jieba 词典时读取 glossary.json 失败：{type(e).__name__}: {e}")
     for w in words:
         try:
             if len(w) >= 2:
                 jieba.add_word(w)
-        except Exception:
+        except Exception as e:
+            # 个别词加入失败（如含异常字符）：跳过该词，其余继续
+            _debug(f"jieba.add_word 失败，已跳过 {w!r}：{type(e).__name__}: {e}")
             continue
+    _JIEBA_ENV_INITIALIZED = True
 
 
 def extract_specific_keywords_jieba(items, config):
@@ -4622,7 +4963,8 @@ def extract_specific_keywords_jieba(items, config):
     _init_jieba_env()
     try:
         import jieba.posseg as pseg
-    except Exception:
+    except Exception as e:
+        _debug(f"jieba.posseg 词性标注不可用，改按普通分词抽取：{type(e).__name__}: {e}")
         pseg = None
     # 需要排除的词性前缀（动词/形容词/副词/介词/连词/助词/代词/数词/量词/时间/方位/语气/叹词/拟声/标点/语素）
     # 注意：vn（名动词）单独放行，x/j/i（专名/简称/成语）与 n* 一并保留
@@ -5032,7 +5374,8 @@ def generate_monthly_archive(items, config):
                 existing = json.load(f)
                 if isinstance(existing, list):
                     archive_data = existing
-        except Exception:
+        except Exception as e:
+            _debug(f"读取历史归档失败，将重建：{type(e).__name__}: {e}")
             archive_data = []
 
     # 按日期去重更新
@@ -5103,7 +5446,7 @@ def generate_daily_report_md(items, config, weekly_insight=""):
 
 
 def load_history():
-    """加载历史记录"""
+    """加载历史记录；文件缺失或损坏时返回空列表"""
     path = os.path.join(DATA_DIR, "history.json")
     if not os.path.exists(path):
         return []
@@ -5112,8 +5455,9 @@ def load_history():
             data = json.load(f)
             if isinstance(data, list):
                 return data
-    except Exception:
-        pass
+    except Exception as e:
+        # 返回空列表等价于"历史为空"，但会导致冷启动判断和累计统计失真，需要留线索
+        _debug(f"读取 history.json 失败，按无历史处理：{type(e).__name__}: {e}")
     return []
 
 
@@ -5184,6 +5528,20 @@ def update_history(items, config, backfill=False):
     return history
 
 
+def _csv_safe(value):
+    """
+    CSV 公式注入（Formula Injection）防护。
+
+    以 = + - @ 或制表符/回车开头的单元格，被 Excel / WPS / Google Sheets 打开时
+    会被当作公式解析（例如 `=HYPERLINK(...)`、`=cmd|'/c calc'!A1`）。
+    这里给这类值加一个前导单引号，强制按纯文本处理。
+    """
+    text = "" if value is None else str(value)
+    if text[:1] in ("=", "+", "-", "@", "\t", "\r"):
+        return "'" + text
+    return text
+
+
 def generate_history_csv(history):
     """生成 data/history.csv"""
     path = os.path.join(DATA_DIR, "history.csv")
@@ -5194,7 +5552,8 @@ def generate_history_csv(history):
             date = record.get("date", "")
             total = record.get("total_items", 0)
             keywords = ", ".join(record.get("keywords", []))
-            writer.writerow([date, total, keywords])
+            # 文本字段过一遍公式注入防护；条目数保持数字类型，便于表格直接计算
+            writer.writerow([_csv_safe(date), total, _csv_safe(keywords)])
     print(f"[生成] {path}")
 
 
@@ -5303,6 +5662,8 @@ def send_email(config, report_path, critical_sources=None):
 # 主函数
 # ============================================================
 
+# [注意：当前无调用点] 站点展示的院校难度来自静态数据 docs/data/schools.json
+# （其中已手动给出 difficulty_index，前端直接使用），运行期不调用本函数。
 def calculate_difficulty(school):
     """
     计算考研院校难度指数（0-100）。
@@ -5378,7 +5739,8 @@ def main():
             with open(history_path, "r", encoding="utf-8") as f:
                 data = json.load(f)
                 history_empty = not (isinstance(data, list) and len(data) > 0)
-        except Exception:
+        except Exception as e:
+            _debug(f"读取 history.json 失败，按空历史处理（将触发回填）：{type(e).__name__}: {e}")
             history_empty = True
 
     backfill = (not history_exists) or history_empty
@@ -5562,4 +5924,21 @@ def main():
 
 
 if __name__ == "__main__":
-    main()
+    # 顶层兜底：main() 内部大量使用"静默兜底"，但仍有少量未捕获分支（例如
+    # 磁盘写满、配置结构异常）。原先这些异常会直接冒成裸堆栈，既看不出挂在哪一步，
+    # 也分不清是"脚本自身崩溃"还是"某个数据源不可用"。
+    # 这里补上统一的收尾：打印异常类型 + 完整调用栈，并保持非零退出码
+    # （GitHub Actions 依赖非零退出码把任务标记为失败并触发通知，不能吞掉）。
+    try:
+        main()
+    except KeyboardInterrupt:
+        print()
+        print("[中断] 收到 Ctrl+C，已停止")
+        sys.exit(130)
+    except Exception as exc:
+        print()
+        print("=" * 60)
+        print(f"[致命错误] 运行中断：{type(exc).__name__}: {exc}")
+        print("=" * 60)
+        traceback.print_exc()
+        sys.exit(1)

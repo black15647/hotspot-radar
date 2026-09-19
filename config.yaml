@@ -12,6 +12,11 @@ rss_feeds:
   "Google News 环保招聘": "https://news.google.com/rss/search?q=环保招聘&hl=zh-CN&gl=CN&ceid=CN:zh-Hans"
   "Google News 环境考研": "https://news.google.com/rss/search?q=环境考研&hl=zh-CN&gl=CN&ceid=CN:zh-Hans"
   "Google News 环境竞赛": "https://news.google.com/rss/search?q=环境竞赛&hl=zh-CN&gl=CN&ceid=CN:zh-Hans"
+  # 招聘类专用源：recruit.json 的候选池。注意 generate_recruit_json() 在环境相关性
+  # 过滤**之前**单独捞一遍招聘候选，因为招聘条目天然不含「水污染/碳达峰」这类领域词，
+  # 过滤后会整条丢掉。这两条源就是为了把校招/实习与体制内公开招聘捞回来。
+  "Google News 环境校招实习": "https://news.google.com/rss/search?q=环境+校园招聘+OR+实习&hl=zh-CN&gl=CN&ceid=CN:zh-Hans"
+  "Google News 生态环境局招聘": "https://news.google.com/rss/search?q=生态环境局+OR+环境监测站+公开招聘&hl=zh-CN&gl=CN&ceid=CN:zh-Hans"
   # 国际权威媒体（稳定）
   "The Guardian Environment": "https://www.theguardian.com/environment/rss"
   "Yale Environment 360": "https://e360.yale.edu/feed.xml"

@@ -300,6 +300,8 @@ DEFAULT_RSS_FEEDS = {
     "Google News 生态环境": "https://news.google.com/rss/search?q=生态环境&hl=zh-CN&gl=CN&ceid=CN:zh-Hans",
     "Google News 环境污染": "https://news.google.com/rss/search?q=环境污染&hl=zh-CN&gl=CN&ceid=CN:zh-Hans",
     "Google News 环保招聘": "https://news.google.com/rss/search?q=环保招聘&hl=zh-CN&gl=CN&ceid=CN:zh-Hans",
+    "Google News 环境校招实习": "https://news.google.com/rss/search?q=环境+校园招聘+OR+实习&hl=zh-CN&gl=CN&ceid=CN:zh-Hans",
+    "Google News 生态环境局招聘": "https://news.google.com/rss/search?q=生态环境局+OR+环境监测站+公开招聘&hl=zh-CN&gl=CN&ceid=CN:zh-Hans",
     "Google News 环境考研": "https://news.google.com/rss/search?q=环境考研&hl=zh-CN&gl=CN&ceid=CN:zh-Hans",
     "Google News 环境竞赛": "https://news.google.com/rss/search?q=环境竞赛&hl=zh-CN&gl=CN&ceid=CN:zh-Hans",
     "The Guardian Environment": "https://www.theguardian.com/environment/rss",
@@ -1437,6 +1439,106 @@ def generate_analysis(item, config):
 _RE_STRIP_EDGE_PUNCT = re.compile(r'^[\s\W_]+|[\s\W_]+$')
 _RE_ONLY_SYMBOLS = re.compile(r'^[\d\s\W]+$')
 _RE_EN_SHORT_WORD = re.compile(r'^[a-zA-Z]{1,2}$')
+
+
+# ============================================================
+# 招聘 / 实习资讯（就业方向窗口的自动数据源）
+# ============================================================
+# 为什么单独抽一份候选池：招聘类条目天然不含环境领域词，会被「环境领域相关性过滤」
+# 判为无关而整条丢弃。必须在过滤之前把它们捞出来，就业窗口才可能每日自动更新，
+# 而不是长期停留在手工维护的静态文件上。
+
+RECRUIT_SOURCE_HINTS = ("招聘", "就业", "实习", "校招", "人才")
+RECRUIT_TITLE_HINTS = (
+    "招聘", "招募", "诚聘", "招人", "岗位", "校招", "校园招聘", "社会招聘",
+    "实习", "应届生", "毕业生", "人才引进", "事业单位", "公开招聘", "选调",
+)
+RECRUIT_CAMPUS_HINTS = ("校招", "校园招聘", "应届", "毕业生", "在校")
+
+
+def _classify_recruit_type(text):
+    """按标题语义判定招聘类型：实习 / 校招 / 社招。"""
+    t = text or ""
+    if "实习" in t:
+        return "实习"
+    if any(k in t for k in RECRUIT_CAMPUS_HINTS):
+        return "校招"
+    return "社招"
+
+
+def _recruit_iso_date(value):
+    """把 published 归一成 YYYY-MM-DD。
+
+    管线内部把发布时间统一成了 ISO 8601（如 2026-08-28T04:00:00+00:00），
+    但也兼容 RSS 原生的 RFC 822 写法——招聘候选池有可能在归一化之前就被取用。
+    """
+    v = (value or "").strip()
+    if not v:
+        return ""
+    if re.match(r"^\d{4}-\d{2}-\d{2}", v):
+        return v[:10]
+    try:
+        return parsedate_to_datetime(v).strftime("%Y-%m-%d")
+    except (TypeError, ValueError, IndexError):
+        return ""
+
+
+def extract_recruit_candidates(items):
+    """从（尚未做环境相关性过滤的）条目池里挑出招聘/实习资讯。"""
+    out = []
+    seen = set()
+    for item in items:
+        if not isinstance(item, dict):
+            continue
+        source = item.get("source", "") or ""
+        title = item.get("title", "") or ""
+        hit = (any(k in source for k in RECRUIT_SOURCE_HINTS)
+               or any(k in title for k in RECRUIT_TITLE_HINTS))
+        if not hit:
+            continue
+        link = item.get("link", "") or ""
+        key = link or title
+        if not key or key in seen:
+            continue
+        seen.add(key)
+        out.append({
+            "title": title,
+            "title_zh": item.get("title_zh") or "",
+            "url": link,
+            "source": source or "未标注来源",
+            "published_at": _recruit_iso_date(item.get("published")),
+            "type": _classify_recruit_type(title),
+            "tags": list(item.get("topic_tags") or [])[:4],
+        })
+    out.sort(key=lambda x: x.get("published_at") or "", reverse=True)
+    return out[:30]
+
+
+def generate_recruit_json(recruit_pool, items, config):
+    """生成 docs/data/recruit.json —— 就业窗口「最新招聘资讯」的数据源。"""
+    # 并入通过环境相关性过滤、语义上仍属招聘的条目；两类可能重叠，按 url/标题去重
+    merged = []
+    seen = set()
+    for rec in list(recruit_pool) + extract_recruit_candidates(items):
+        key = rec.get("url") or rec.get("title")
+        if not key or key in seen:
+            continue
+        seen.add(key)
+        merged.append(rec)
+
+    payload = {
+        "generated_at": datetime.now().strftime("%Y-%m-%d"),
+        "total": len(merged),
+        "note": "由每日 RSS 流水线自动聚合，仅提供标题与原文链接，不转载正文",
+        "items": merged,
+    }
+    path = os.path.join(DATA_DIR, "recruit.json")
+    safe_json_dump(payload, path)
+    by_type = Counter(x["type"] for x in merged)
+    print(f"[生成] {path}（招聘资讯 {len(merged)} 条："
+          f"实习 {by_type.get('实习', 0)} / 校招 {by_type.get('校招', 0)} / "
+          f"社招 {by_type.get('社招', 0)}）")
+    return payload
 
 
 def generate_pending_terms(items, config):
@@ -5807,6 +5909,11 @@ def main():
     print(f"[统计] 过滤后 {len(all_items)} 条")
     print()
 
+    # 3.2 招聘/实习资讯候选池：必须在环境相关性过滤之前留一份（理由见 extract_recruit_candidates）
+    recruit_pool = extract_recruit_candidates(all_items)
+    print(f"[招聘] 招聘/实习候选 {len(recruit_pool)} 条（来自含招聘语义的源与标题）")
+    print()
+
     # 3.5 环境领域相关性过滤（时间过滤后、热度计算前，保证不相关内容不进榜单）
     print("--- 第三步补充：环境领域相关性过滤 ---")
     api_config = get_api_config(config)
@@ -5935,6 +6042,7 @@ def main():
     generate_daily_snapshot(all_items, config, source_health=source_health, week_stats=week_stats)
     generate_monthly_archive(all_items, config)
     generate_pending_terms(all_items, config)
+    generate_recruit_json(recruit_pool, all_items, config)
     critical_sources = generate_source_health(source_health)
 
     # 7. 生成 daily_report.md

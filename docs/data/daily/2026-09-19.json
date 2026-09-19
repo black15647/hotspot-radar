@@ -1,0 +1,343 @@
+{
+  "report_date": "2026-09-19",
+  "site_name": "环境学子雷达",
+  "total_items": 10,
+  "total_sources": 21,
+  "success_sources": 21,
+  "failed_sources": 0,
+  "week_total_items": 193,
+  "week_new_keywords": 93,
+  "policy_ratio": 1.2,
+  "items": [
+    {
+      "title": "Wastewater treatment-induced carbonate chemistry alteration and its implications for ocean alkalinity enhancement",
+      "title_en": "Wastewater treatment-induced carbonate chemistry alteration and its implications for ocean alkalinity enhancement",
+      "title_zh": "污水处理引发的碳酸盐化学变化及其对海洋碱度升高的影响",
+      "link": "https://iopscience.iop.org/article/10.1088/1748-9326/aea177",
+      "source": "Environmental Research Letters",
+      "published": "2026-09-17T23:00:00+00:00",
+      "hotness": 100.0,
+      "score_v1": 20.52,
+      "score_v2": 100.0,
+      "score_breakdown": {
+        "algorithm": "v2",
+        "source_score": 25.0,
+        "keyword_idf_score": 17.57,
+        "resonance_score": 4.25,
+        "quality_score": 10.0,
+        "base": 56.82,
+        "time_factor": 0.7356,
+        "repeat_penalty": 1.0,
+        "cross_source_count": 2,
+        "raw": 41.8,
+        "display_score": 100.0
+      },
+      "summary": "市政污水处理厂（WWTPs）是城市碳循环的重要组成部分，已被提议作为增强海洋碱度（OAE）的潜在平台。然而，在全规模处理过程中碳酸盐系统的转化情况仍缺乏充分的约束。 本文针对台湾某全规模沿海污水处理厂的五个连续处理单元，呈现了总碱度（TA）、溶解无机碳（DIC）、pH值、pCO₂、溶解甲烷（CH₄）及溶解一氧化二氮（N₂O）的工艺解析瞬态数据。 从进水渠到氯化处理单元，总碱度（TA）和溶解无机碳（DIC）分别下降了94.5%和84.0%，同时伴随着酸化及持续的二氧化碳过饱和现象。这些模式与硝化过程中的碱度消耗，以及与曝气和其他内部处理过程相关的DIC转化相一致。 曝气后，溶解甲烷（CH₄）浓度显著下降，而一氧化二氮（N₂O）在曝气池中达到最高浓度，并在最终出水中仍保持较高水平。采用传统基于风速的参数化方法和有限风程参数化方法估算的二氧化碳交换量，与相邻处理阶段之间观测到的溶解碳酸盐（DIC）平衡值存在显著差异。 这种差异凸显了在密闭且机械曝气的处理单元中估算二氧化碳交换时存在显著的方法学不确定性。因此，本研究主要依据观测到的浓度变化和碳酸盐体系转化来解释结果，而非将其视为确凿的排放估算值。 各处理阶段间显著的化学差异为评估碱度添加在何处以及如何与废水处理过程相互作用提供了经验性约束。需要通过重复观测、直接气体通量测量以及碱度质量平衡分析，才能确定基于废水的OAE（氧化碱度）的净碳去除潜力。",
+      "analysis": "该条目涉及【污水处理厂】话题，因来源权威性高，热度上升。",
+      "topic_tags": [
+        "污水处理厂",
+        "总碱度",
+        "海洋碱度增强"
+      ],
+      "category": "水处理",
+      "matched_keywords": [
+        "水处理"
+      ]
+    },
+    {
+      "title": "US veterans have greater levels of Pfas in their blood than civilians, new study finds",
+      "title_en": "US veterans have greater levels of Pfas in their blood than civilians, new study finds",
+      "title_zh": "最新研究发现，美国退伍军人的血液中全氟烷基物质（Pfas）含量高于平民",
+      "link": "https://www.theguardian.com/environment/2026/sep/18/pfas-veterans-blood-forever-chemicals",
+      "source": "The Guardian Environment",
+      "published": "2026-09-18T14:00:19+00:00",
+      "hotness": 93.6,
+      "score_v1": 18.58,
+      "score_v2": 93.6,
+      "score_breakdown": {
+        "algorithm": "v2",
+        "source_score": 15.0,
+        "keyword_idf_score": 19.1,
+        "resonance_score": 0.0,
+        "quality_score": 10.0,
+        "base": 44.1,
+        "time_factor": 0.8772,
+        "repeat_penalty": 1.0,
+        "cross_source_count": 1,
+        "raw": 38.68,
+        "display_score": 93.6
+      },
+      "summary": "军事基地周边的土壤和水体中，由于灭火泡沫中使用的化学物质，全氟烷基和多氟烷基物质（PFAS）的污染水平偏高。一项新的经同行评审的研究发现，许多美国退伍军人的血液中PFAS（即“永久性化学物质”）的含量远高于非退伍军人， 一项经同行评审的新研究发现，这引发了更多关于美国军人曾在受污染基地服役后所面临健康风险的疑问。由于训练和紧急情况下使用的灭火泡沫中含有这些化学物质，军事基地周边的地下水、地表水和土壤中的PFA污染水平位居全美最高之列。 尽管这一问题十多年来已十分明显，但由布朗大学牵头开展的这项新研究是首次将退伍军人的血液中PFA水平与平民进行对比。继续阅读...",
+      "analysis": "该条目涉及【Pfas】话题，因来源权威性高，热度上升。",
+      "topic_tags": [
+        "Pfas"
+      ],
+      "category": "污染治理",
+      "matched_keywords": [
+        "新污染物"
+      ]
+    },
+    {
+      "title": "Equitable cooperation deepens the solution space for high ambition pathways",
+      "title_en": "Equitable cooperation deepens the solution space for high ambition pathways",
+      "title_zh": "公平的合作拓宽了实现高目标路径的解决方案空间",
+      "link": "https://iopscience.iop.org/article/10.1088/1748-9326/aea34d",
+      "source": "Environmental Research Letters",
+      "published": "2026-09-17T23:00:00+00:00",
+      "hotness": 93.5,
+      "score_v1": 18.52,
+      "score_v2": 93.5,
+      "score_breakdown": {
+        "algorithm": "v2",
+        "source_score": 25.0,
+        "keyword_idf_score": 17.57,
+        "resonance_score": 0.0,
+        "quality_score": 10.0,
+        "base": 52.57,
+        "time_factor": 0.7356,
+        "repeat_penalty": 1.0,
+        "cross_source_count": 1,
+        "raw": 38.67,
+        "display_score": 93.5
+      },
+      "summary": "用于指导全球气候减排目标的综合评估模型情景，通常将公平与合作视为建模过程之外的因素，这加剧了公平分担减排责任与为将气温升幅控制在1.5 °C以内所需采取的紧急集体行动之间看似存在的矛盾。 本文提出了一个可推广的框架，将基于原则的公平分担考量直接嵌入到情景生成过程中。该框架生成的情景变体在保持全球温升峰值和本世纪末气候结果不变的同时，重新配置了转型路径。 我们从分配方法、转移限额和合作机制等维度探索了这一空间，并提出了一种新的“最低可行转移”情景变体作为其边界。我们考察了这一新变体所蕴含的综合系统转变，并将其与通过事后评估和无限额资金转移来探索公平性的常见做法进行了对比。 我们观察到，在所有公平分担变体中，可再生能源部署和电气化轨迹基本保持不变，而将转移量限制在最低可行水平则加速了全球化石燃料消耗的下降。 即使在区域间合作侧重于为地质封存二氧化碳提供资金的情况下，这一效应依然显著——此时，责任较重的地区主要通过国内总排放量削减来履行其公平份额义务。 以全球成本效益最优的2℃（>67%）情景为例——该情景下，与“无新政策”基准情景相比，折现后消费量减少约0.8%——当转移支付限制在最低可行规模时，纳入公平分担考量后，这一减少幅度最多可升至1.3%。 值得注意的是，这一总和在分配上具有累进性，即责任较轻的地区相较于成本效益型基准情景获得了更多收益。即使在严格的1.5 °C目标下，这一拓宽的解决方案空间依然存在——尽管责任差异将越来越多地通过资金机制来解决——并揭示了动态变化",
+      "analysis": "该条目涉及【气候减排】话题，因来源权威性高，热度上升。",
+      "topic_tags": [
+        "气候减排"
+      ],
+      "category": "气候变化",
+      "matched_keywords": [
+        "可再生能源"
+      ]
+    },
+    {
+      "title": "Microplastics in Soil a ‘Trojan Horse’ for Toxins",
+      "title_en": "Microplastics in Soil a ‘Trojan Horse’ for Toxins",
+      "title_zh": "土壤中的微塑料是毒素的“特洛伊木马”",
+      "link": "https://e360.yale.edu/digest/microplastics-soil",
+      "source": "Yale Environment 360",
+      "published": "2026-09-18T09:32:00+00:00",
+      "hotness": 86.8,
+      "score_v1": 18.06,
+      "score_v2": 86.8,
+      "score_breakdown": {
+        "algorithm": "v2",
+        "source_score": 17.0,
+        "keyword_idf_score": 15.64,
+        "resonance_score": 0.0,
+        "quality_score": 10.0,
+        "base": 42.64,
+        "time_factor": 0.8303,
+        "repeat_penalty": 1.0,
+        "cross_source_count": 1,
+        "raw": 35.4,
+        "display_score": 86.8
+      },
+      "summary": "一项为期五年的多国联合研究发现，微塑料如同“特洛伊木马”一般，通过土壤输送污染物、农药和细菌。在 E360 上阅读更多内容 →",
+      "analysis": "该条目涉及【微塑料】话题，因来源权威性高，热度上升。",
+      "topic_tags": [
+        "微塑料",
+        "土壤污染",
+        "多国研究"
+      ],
+      "category": "污染治理",
+      "matched_keywords": [
+        "微塑料"
+      ]
+    },
+    {
+      "title": "Adaptive carbon sponge filters for low-energy decentralized water purification",
+      "title_en": "Adaptive carbon sponge filters for low-energy decentralized water purification",
+      "title_zh": "适用于低能耗分散式水处理的自适应碳海绵过滤器",
+      "link": "https://www.sciencedirect.com/science/article/pii/S0043135426015502?dgcid=rss_sd_all",
+      "source": "Water Research",
+      "published": "2026-09-18T00:02:34.290675+00:00",
+      "hotness": 85.6,
+      "score_v1": 20.68,
+      "score_v2": 85.6,
+      "score_breakdown": {
+        "algorithm": "v2",
+        "source_score": 25.0,
+        "keyword_idf_score": 17.57,
+        "resonance_score": 4.25,
+        "quality_score": 0.0,
+        "base": 46.82,
+        "time_factor": 0.7441,
+        "repeat_penalty": 1.0,
+        "cross_source_count": 2,
+        "raw": 34.84,
+        "display_score": 85.6
+      },
+      "summary": "研究报告指出，气候变化导致冰川变薄、高山永久冻土融化，破坏山坡稳定性，引发尼泊尔致命泥石流灾害。",
+      "analysis": "该条目涉及【低能耗水净化】话题，因来源权威性高，热度上升。",
+      "topic_tags": [
+        "低能耗水净化",
+        "去中心化水处理"
+      ],
+      "category": "水处理",
+      "matched_keywords": [
+        "水处理"
+      ]
+    },
+    {
+      "title": "Scientists just discovered why Arctic sea ice moves so strangely",
+      "title_en": "Scientists just discovered why Arctic sea ice moves so strangely",
+      "title_zh": "科学家刚刚发现了北极海冰为何会如此奇怪地移动",
+      "link": "https://www.sciencedaily.com/releases/2026/09/260917003708.htm",
+      "source": "ScienceDaily 环境科学",
+      "published": "2026-09-18T02:13:16+00:00",
+      "hotness": 65.7,
+      "score_v1": 14.43,
+      "score_v2": 65.7,
+      "score_breakdown": {
+        "algorithm": "v2",
+        "source_score": 23.0,
+        "keyword_idf_score": 0.0,
+        "resonance_score": 0.0,
+        "quality_score": 10.0,
+        "base": 33.0,
+        "time_factor": 0.7624,
+        "repeat_penalty": 1.0,
+        "cross_source_count": 1,
+        "raw": 25.16,
+        "display_score": 65.7
+      },
+      "summary": "北极海冰可能会以出人意料的方式移动，因为单个浮冰之间不断发生碰撞并传递能量。研究人员发现，这一简单过程可以解释关于海冰移动和扩散速度的几个长期未解之谜。",
+      "analysis": "该条目涉及【海洋过程】话题，因来源权威性高，热度上升。",
+      "topic_tags": [
+        "海洋过程"
+      ],
+      "category": "生态环境",
+      "matched_keywords": []
+    },
+    {
+      "title": "As forests burn, can we replant trees ready for a warmer world?",
+      "title_en": "As forests burn, can we replant trees ready for a warmer world?",
+      "title_zh": "当森林大火肆虐时，我们能否重新种植适合更温暖世界生长的树木？",
+      "link": "https://www.science.org/content/article/forests-burn-can-we-replant-trees-ready-warmer-world",
+      "source": "Science",
+      "published": "2026-09-17T19:00:00+00:00",
+      "hotness": 64.6,
+      "score_v1": 13.98,
+      "score_v2": 64.6,
+      "score_breakdown": {
+        "algorithm": "v2",
+        "source_score": 25.0,
+        "keyword_idf_score": 0.0,
+        "resonance_score": 0.0,
+        "quality_score": 10.0,
+        "base": 35.0,
+        "time_factor": 0.7048,
+        "repeat_penalty": 1.0,
+        "cross_source_count": 1,
+        "raw": 24.67,
+        "display_score": 64.6
+      },
+      "summary": "正在测试“辅助迁移”的生态学家们将幼苗推向极限——并发现地点至关重要",
+      "analysis": "该条目涉及【森林火灾】话题，因来源权威性高，热度上升。",
+      "topic_tags": [
+        "森林火灾",
+        "气候变暖"
+      ],
+      "category": "生态环境",
+      "matched_keywords": []
+    },
+    {
+      "title": "研究报告指出，气候变化可能导致尼泊尔致命泥石流 - sohu.com",
+      "title_en": "",
+      "title_zh": "",
+      "link": "https://news.google.com/rss/articles/CBMiiAFBVV95cUxPVmtONEw2WGJaaWw4S1pHX0lRcF9kWDBMX3I2b09BQ1UwSExteDNkaWsxdUdXeldjbzVYWEd3b1gyczY3SlMzRUp1RnNRY0g5bzRUUG1Zb182OWdfNjhxc21Yb1lXMXBIY0hzYUxOVmFTSVoyUjFDbGN2bW0zOEJlOExOV1Uta2Nr?oc=5",
+      "source": "Google News 气候变化",
+      "published": "2026-09-18T13:00:00+00:00",
+      "hotness": 62.1,
+      "score_v1": 23.81,
+      "score_v2": 62.1,
+      "score_breakdown": {
+        "algorithm": "v2",
+        "source_score": 20.0,
+        "keyword_idf_score": 7.09,
+        "resonance_score": 0.0,
+        "quality_score": 0.0,
+        "base": 27.09,
+        "time_factor": 0.8662,
+        "repeat_penalty": 1.0,
+        "cross_source_count": 1,
+        "raw": 23.46,
+        "display_score": 62.1
+      },
+      "summary": "近海提质焕新行动守护海洋生态，提升水质环境，保护一片蔚蓝海域。",
+      "analysis": "该条目涉及【尼泊尔】话题，因来源权威性高，热度上升。",
+      "topic_tags": [
+        "尼泊尔",
+        "泥石流",
+        "冰川融化"
+      ],
+      "category": "气候变化",
+      "matched_keywords": [
+        "气候变化"
+      ]
+    },
+    {
+      "title": "Atmospheric methane lifetime during the Last Glacial Maximum was reduced owing to dust-mediated chlorine chemistry | Science",
+      "title_en": "Atmospheric methane lifetime during the Last Glacial Maximum was reduced owing to dust-mediated chlorine chemistry | Science",
+      "title_zh": "由于尘埃介导的氯化学作用，末次冰期极盛期大气甲烷的寿命缩短了 | 《科学》",
+      "link": "https://www.science.org/doi/10.1126/science.aec4071",
+      "source": "Science",
+      "published": "2026-09-17T13:01:00+00:00",
+      "hotness": 61.6,
+      "score_v1": 13.32,
+      "score_v2": 61.6,
+      "score_breakdown": {
+        "algorithm": "v2",
+        "source_score": 25.0,
+        "keyword_idf_score": 0.0,
+        "resonance_score": 0.0,
+        "quality_score": 10.0,
+        "base": 35.0,
+        "time_factor": 0.6632,
+        "repeat_penalty": 1.0,
+        "cross_source_count": 1,
+        "raw": 23.21,
+        "display_score": 61.6
+      },
+      "summary": "大气中的甲烷（CH₄）在地球气候中起着核心作用，但在冰期（如最后一次冰期极盛期（LGM））尘埃浓度较高的条件下，导致其浓度下降的驱动因素仍不明确。以往的解释认为这是由排放源驱动的……",
+      "analysis": "该条目涉及【大气甲烷寿命】话题，因来源权威性高，热度上升。",
+      "topic_tags": [
+        "大气甲烷寿命"
+      ],
+      "category": "污染治理",
+      "matched_keywords": []
+    },
+    {
+      "title": "47th Adaptation Fund Board Meeting",
+      "title_en": "47th Adaptation Fund Board Meeting",
+      "title_zh": "适应基金董事会第47次会议",
+      "link": "https://www.adaptation-fund.org/47th-adaptation-fund-board-meeting/",
+      "source": "Adaptation Fund",
+      "published": "2026-09-18T14:53:59+00:00",
+      "hotness": 59.5,
+      "score_v1": 14.83,
+      "score_v2": 59.5,
+      "score_breakdown": {
+        "algorithm": "v2",
+        "source_score": 15.0,
+        "keyword_idf_score": 0.0,
+        "resonance_score": 0.0,
+        "quality_score": 10.0,
+        "base": 25.0,
+        "time_factor": 0.8871,
+        "repeat_penalty": 1.0,
+        "cross_source_count": 1,
+        "raw": 22.18,
+        "display_score": 59.5
+      },
+      "summary": "适应基金董事会第47次会议将于2026年10月19日至23日举行，会议时间为每天上午9:00至下午5:00（中欧时间）。 观察员仅可在10月19日以及10月22日至23日期间，以现场或线上方式参加董事会会议。 观察员注册将于9月28日开始。第1天——10月19日 第2天——10月[…] 文章《第47届适应基金董事会会议》首发于适应基金官网。",
+      "analysis": "该条目涉及【适应基金】话题，因来源权威性高，热度上升。",
+      "topic_tags": [
+        "适应基金"
+      ],
+      "category": "科研学术",
+      "matched_keywords": []
+    }
+  ]
+}

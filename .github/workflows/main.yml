@@ -49,6 +49,13 @@ jobs:
         run: |
           python daily_report.py
 
+      # 数据文件结构校验：三个手工维护的 JSON（schools / careers / jobs）与
+      # 流水线新产出的 recruit.json 都在这里过一遍。放「提交之前」是为了让坏数据
+      # 根本进不了仓库——历史上曾因为 schools.json 少一个字段导致整页白屏，
+      # 而且只有用户打开网页才会发现。校验不过直接失败，不提交。
+      - name: Validate data files
+        run: python validate_data.py
+
       - name: Commit and push data changes
         run: |
           git config --local user.email "github-actions[bot]@users.noreply.github.com"

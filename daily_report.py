@@ -2882,7 +2882,8 @@ def check_model_health(api_config):
 # ============================================================
 CATEGORY_KEYWORDS = {
     "气候变化": ["气候", "气温", "变暖", "升温", "降温", "热浪", "寒潮", "温室", "碳排放", "碳达峰", "碳中和", "碳汇", "极端天气", "气象灾害", "台风", "飓风", "暴雨", "洪涝", "干旱", "厄尔尼诺", "拉尼娜", "海平面", "冰川", "全球变暖", "防灾", "减灾", "climate", "warming", "temperature", "heatwave", "greenhouse", "carbon", "emission", "el nino", "la nina", "sea level", "glacier", "hurricane", "storm", "typhoon", "wildfire", "flood", "drought", "extreme weather"],
-    "污染治理": ["污染", "大气", "空气", "废气", "废水", "固废", "垃圾", "重金属", "微塑料", "新污染物", "pm2.5", "雾霾", "酸雨", "臭氧", "voc", "烟气", "颗粒物", "土壤污染", "地下水污染", "pollution", "waste", "sewage", "effluent", "microplastic", "heavy metal", "contamination", "smog", "ozone", "landfill"],
+    "污染治理": ["污染", "大气", "空气", "废气", "废水", "固废", "垃圾", "重金属", "微塑料", "新污染物",
+                 "pfas", "pfos", "全氟", "多氟", "持久性有机污染物", "内分泌干扰物", "pm2.5", "雾霾", "酸雨", "臭氧", "voc", "烟气", "颗粒物", "土壤污染", "地下水污染", "pollution", "waste", "sewage", "effluent", "microplastic", "heavy metal", "contamination", "smog", "ozone", "landfill"],
     "生态环境": ["生态", "生物多样性", "湿地", "森林", "海洋", "荒漠", "草原", "保护区", "濒危", "物种", "栖息地", "入侵物种", "生态修复", "退耕还林", "ecology", "biodiversity", "wetland", "forest", "ocean", "desert", "grassland", "reserve", "endangered", "species", "habitat", "invasive", "conservation", "ecosystem", "wildlife", "coral", "reef", "mangrove"],
     "环境政策": ["环保", "环评", "督察", "政策", "法规", "立法", "标准", "规划", "治理", "监管", "执法", "处罚", "整改", "碳关税", "双碳", "environment policy", "regulation", "legislation", "standard", "planning", "governance", "supervision", "enforcement", "esg", "carbon tariff"],
     "能源与碳中和": ["能源", "新能源", "光伏", "风电", "水电", "核电", "储能", "氢能", "电池", "电动汽车", "充电桩", "化石能源", "煤炭", "石油", "天然气", "碳中和", "碳达峰", "净零", "energy", "renewable", "solar", "wind", "hydro", "nuclear", "storage", "hydrogen", "battery", "ev", "electric vehicle", "fossil", "coal", "oil", "gas", "net zero", "carbon neutral"],
@@ -2896,6 +2897,19 @@ CATEGORY_ORDER = ["气候变化", "污染治理", "生态环境", "环境政策"
 # 关键词归类优先级：一个关键词同时命中多个大类时，按此顺序选择最相关类别（"其他"最后）
 CATEGORY_PRIORITY = ["气候变化", "污染治理", "生态环境", "能源与碳中和", "水处理",
                      "环境政策", "科研学术", "环境健康", "其他"]
+
+# 强政策词：只在政策/法规语境出现，命中即判定为"环境政策"，不受 CATEGORY_PRIORITY
+# 顺序影响。修正政策类标题被气候/生态/污染主题词劫持的问题（实测 11 条典型政策
+# 标题有 4 条被误分，导致"政策类占比"长期接近 0）。"政策/标准/规划/治理/监管"
+# 这类泛词不收，仍走原优先级判定，避免误抢普通资讯。
+CATEGORY_STRONG_POLICY_KEYWORDS = (
+    # 监管机构与执法动作
+    "环保", "环评", "督察", "法规", "立法", "执法", "处罚", "整改", "碳关税", "双碳",
+    "regulation", "legislation", "enforcement", "supervision", "carbon tariff",
+    # 政策文件与立改废流程（政策类标题几乎必然出现其中之一）
+    "条例", "草案", "修订", "防治法", "排污许可", "排放标准", "征求意见", "印发", "出台",
+    "禁令", "禁塑", "配额",
+)
 
 
 # glossary.json 中使用的类别名 -> 8大类归一化（基础概念不直接映射，交回规则判断）
@@ -2949,12 +2963,15 @@ def _load_domain_category_whitelist():
 def _rule_match_category(text):
     """
     按 CATEGORY_KEYWORDS 做包含匹配：
-    - 收集所有命中的大类，再按 CATEGORY_PRIORITY 固定优先级选最相关的一个
+    - 先判强政策词，命中即归"环境政策"
+    - 其余收集所有命中的大类，再按 CATEGORY_PRIORITY 固定优先级选最相关的一个
     - 无任何命中返回"其他"
     """
     if not text:
         return "其他"
     t = text.lower()
+    if any(k in t for k in CATEGORY_STRONG_POLICY_KEYWORDS):
+        return "环境政策"
     hit = set()
     for category, kws in CATEGORY_KEYWORDS.items():
         for k in kws:
@@ -3088,8 +3105,10 @@ def call_nvidia_api(prompt, api_config, max_tokens=None, json_mode=False, featur
     retry_delays = AI_RETRY_DELAYS
     for attempt in range(4):
         try:
-            # 超时设置：20 秒（nemotron 模型响应较快）
-            timeout = 20
+            # 超时设置：45 秒。原为 20 秒，实测 NIM 免费层部分请求落在冷 worker 上，
+            # 首字节延迟超过 20 秒（日志里"请求超时（第1次尝试）"几乎每次调用都出现，
+            # 重试后成功耗时 14~18 秒），既白等 5 秒退避，严重时还把内容降级成规则生成。
+            timeout = 45
             t0 = time.time()
             resp = requests.post(url, headers=headers, json=data, timeout=timeout)
             elapsed = time.time() - t0
@@ -3701,15 +3720,22 @@ def _weekly_cat_totals(weekly_categories):
     return cat_totals, total_items
 
 
-def generate_weekly_summary(api_config, weekly_keywords=None, weekly_categories=None):
+def generate_weekly_summary(api_config, weekly_keywords=None, weekly_categories=None,
+                            total_items_override=None):
     """
     生成近7天热度总结（一句中文，不超过80字）
     优先基于大类统计；AI 可用时生成自然语言总结，并强制后处理为纯中文，失败回退规则模板
+
+    total_items_override：首页统计卡的权威"近7天热点总数"（calculate_week_stats 口径）。
+    不传时退回 daily 快照口径（只含 Top10、且排除"其他"），两者相差约 3.6 倍，
+    会让总结里的条数与下方统计卡数字互相矛盾。
     """
     if weekly_categories is None:
         weekly_categories = calculate_weekly_categories()
 
     cat_totals, total_items = _weekly_cat_totals(weekly_categories)
+    if total_items_override:
+        total_items = total_items_override
     top_cats = cat_totals.most_common(5)
 
     def _rule_summary():
@@ -3729,8 +3755,10 @@ def generate_weekly_summary(api_config, weekly_keywords=None, weekly_categories=
         prompt = (
             "你是环境领域分析助手。根据近7天环境热点分类统计，写一句中文总结。\n"
             "严格要求：只输出最终结果，不要输出思考过程、分析步骤、任何解释或英文；"
-            "直接输出中文，不超过80字，只写这一句总结，不要分点、不要加标题。\n\n"
-            f"分类统计：{cat_str}\n总条目数：{total_items}"
+            "直接输出中文，不超过80字，只写这一句总结，不要分点、不要加标题。\n"
+            "可以概括热度最高的几个方向，但不要罗列各分类的条数；如需提到条目数量，"
+            "只能原样使用下方给出的近7天条目总数，不得自行推算或编造数字。\n\n"
+            f"分类分布：{cat_str}\n近7天条目总数：{total_items}"
         )
         result = call_nvidia_api(prompt, api_config, max_tokens=120, feature="近7天总结")
         cleaned = _sanitize_chinese_ai_text(result, max_len=80)
@@ -3742,14 +3770,18 @@ def generate_weekly_summary(api_config, weekly_keywords=None, weekly_categories=
     return _rule_summary()
 
 
-def generate_weekly_insight(api_config, weekly_keywords=None, weekly_categories=None):
+def generate_weekly_insight(api_config, weekly_keywords=None, weekly_categories=None,
+                            total_items_override=None):
     """
     生成近7天分析见解（2-4句中文）
     优先基于大类统计；AI 结果强制后处理为纯中文，失败回退规则模板
+    total_items_override：同 generate_weekly_summary，用于统一"近7天条数"口径。
     """
     if weekly_categories is None:
         weekly_categories = calculate_weekly_categories()
     cat_totals, total_items = _weekly_cat_totals(weekly_categories)
+    if total_items_override:
+        total_items = total_items_override
     top_cats = cat_totals.most_common(6)
 
     if weekly_keywords is None:
@@ -3780,8 +3812,9 @@ def generate_weekly_insight(api_config, weekly_keywords=None, weekly_categories=
             "你是环境领域观察者。根据近7天环境热点的分类统计，写一段2-4句的中文见解，"
             "分析近期热点趋势与特点，要有观察和总结，不要只罗列分类。\n"
             "严格要求：只输出最终结果，不要输出思考过程、分析步骤、任何解释或英文；"
-            "直接输出中文，不超过160字，不要分点、不要加标题、不要Markdown。\n\n"
-            f"分类统计：{cat_str}\n累计条目数：{total_items}"
+            "直接输出中文，不超过160字，不要分点、不要加标题、不要Markdown。\n"
+            "如需提到条目数量，只能原样使用下方给出的近7天条目总数，不得自行推算或编造数字。\n\n"
+            f"分类分布：{cat_str}\n近7天条目总数：{total_items}"
         )
         result = call_nvidia_api(prompt, api_config, max_tokens=220, feature="近7天见解")
         cleaned = _sanitize_chinese_ai_text(result, max_len=160)
@@ -5868,23 +5901,32 @@ def main():
     if summary_fixed:
         print(f"[摘要] 统一兜底校验：修复/补全 {summary_fixed} 条摘要")
 
+    # 首页底部近7天统计（总数/新增关键词/政策类占比），当天条目计入。
+    # 必须在生成总结/见解之前算好：总结里的"条数"与统计卡共用同一口径，
+    # 否则会出现"文字说 53 条、紧邻的统计卡写 193 条"这种自相矛盾。
+    week_stats = calculate_week_stats(all_items)
+    print(f"[统计] 近7天：热点{week_stats['week_total_items']}条，新增关键词{week_stats['week_new_keywords']}个，政策类占比{week_stats['policy_ratio']}%")
+
     # 生成近7天热度总结（基于大类统计）
     weekly_keywords = calculate_weekly_keywords()
     if weekly_keywords:
         print(f"[统计] 近7天高频词：{', '.join(kw['term'] for kw in weekly_keywords[:5])}")
     weekly_categories = calculate_weekly_categories()
-    weekly_summary = generate_weekly_summary(api_config, weekly_keywords=weekly_keywords, weekly_categories=weekly_categories)
+    weekly_summary = generate_weekly_summary(
+        api_config, weekly_keywords=weekly_keywords, weekly_categories=weekly_categories,
+        total_items_override=week_stats["week_total_items"],
+    )
     if weekly_summary:
         print(f"[AI] 近7天总结: {weekly_summary[:60]}...")
-    weekly_insight = generate_weekly_insight(api_config, weekly_keywords=weekly_keywords, weekly_categories=weekly_categories)
+    weekly_insight = generate_weekly_insight(
+        api_config, weekly_keywords=weekly_keywords, weekly_categories=weekly_categories,
+        total_items_override=week_stats["week_total_items"],
+    )
     if weekly_insight:
         print(f"[AI] 近7天见解: {weekly_insight[:60]}...")
 
     # 近30天大类事件时间线（写入 timeline.json，并内嵌到 latest.json）
     timeline_data = generate_timeline_data(days=30)
-    # 首页底部近7天统计（总数/新增关键词/政策类占比），当天条目计入
-    week_stats = calculate_week_stats(all_items)
-    print(f"[统计] 近7天：热点{week_stats['week_total_items']}条，新增关键词{week_stats['week_new_keywords']}个，政策类占比{week_stats['policy_ratio']}%")
     latest_data = generate_latest_json(
         all_items, config, weekly_summary=weekly_summary,
         weekly_keywords=weekly_keywords, weekly_insight=weekly_insight,

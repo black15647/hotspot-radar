@@ -12,8 +12,16 @@
     <meta property="og:site_name" content="环境学子雷达" />
     <meta property="og:locale" content="zh_CN" />
     <meta property="og:url" content="https://black15647.github.io/hotspot-radar/" />
-    <meta property="og:image" content="https://black15647.github.io/hotspot-radar/screenshots/01-home.jpg" />
+    <!-- og:image 必须指向站点根（= 仓库 docs/）下的文件。原先指向 screenshots/01-home.jpg，
+         但 screenshots/ 在仓库根目录、不在 docs/ 下，GitHub Pages 只发布 docs/，
+         实测该 URL 返回 404 —— 分享到微信 / QQ / 微博时没有缩略图。
+         现改为 docs/og-cover.jpg（1200×630，由首页截图居中裁剪生成）。 -->
+    <meta property="og:image" content="https://black15647.github.io/hotspot-radar/og-cover.jpg" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="环境学子雷达首页：今日环境热点榜单" />
     <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:image" content="https://black15647.github.io/hotspot-radar/og-cover.jpg" />
     <meta name="theme-color" content="#10B981">
     <meta name="author" content="环境学子雷达">
     <meta name="robots" content="index,follow">
@@ -24,7 +32,7 @@
          但那样会与 style.css 形成两套并存的同名规则（改一处漏一处就表现不一致），
          而且内联的 `background: ... !important` 会盖掉 style.css 里
          `body.dark .card-rank` 的暗色适配，导致暗色模式下徽章背景失效。 -->
-    <link rel="stylesheet" href="style.css?v=20260919c">
+    <link rel="stylesheet" href="style.css?v=20260919d">
     <!-- Chart.js 固定版本：写死 4.5.1（= 修复时的最新稳定版，与原先"不写版本、隐式取最新"的实际行为一致）。
          不写版本的 URL 会随上游发布漂移，一次破坏性变更就能让全部图表挂掉。 -->
     <script src="https://cdn.jsdelivr.net/npm/chart.js@4.5.1"></script>
@@ -724,6 +732,6 @@ var _hmt = _hmt || [];
         </div>
     </div>
 
-    <script src="script.js?v=20260919c"></script>
+    <script src="script.js?v=20260919d"></script>
 </body>
 </html>

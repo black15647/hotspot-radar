@@ -156,7 +156,9 @@
         els.termTrendBtn = document.getElementById('termTrendBtn');
         els.currentTerm = null;
         // 收藏榜
-        els.savedBtn = document.getElementById('savedBtn');
+        // 注意：收藏入口按钮的 id 是 savedIcon（顶栏），不是 savedBtn。
+        // 这里原先写 getElementById('savedBtn')，永远取到 null 且后续从未被使用，
+        // 属于失效引用，已删除以免误导。
         els.savedModal = document.getElementById('savedModal');
         els.savedOverlay = document.getElementById('savedOverlay');
         els.savedClose = document.getElementById('savedClose');
@@ -2952,15 +2954,6 @@
         els.timelineDayList.innerHTML = html.join('');
     }
 
-    // ---------- 搜索高亮工具 ----------
-    function highlightText(text, keyword) {
-        if (!text || !keyword) return escapeHtml(text || '');
-        const safeText = escapeHtml(text);
-        const safeKeyword = escapeHtml(keyword).replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
-        const regex = new RegExp('(' + safeKeyword + ')', 'gi');
-        return safeText.replace(regex, '<span class="highlight">$1</span>');
-    }
-
     // ============================================================
     // v5.0 新增功能
     // ============================================================
@@ -3312,46 +3305,6 @@
             fontSize: parseInt(els.fontSizeSlider.value),
             dark: document.body.classList.contains('dark'),
         };
-    }
-
-    // ---------- 为什么是热点 ----------
-    function generateWhyHot(item) {
-        const reasons = [];
-        const score = getHeatScore(item);
-        const source = item.source || '';
-        const keywords = item.matched_keywords || item.keywords || [];
-        const published = item.published || '';
-        // 来源权重
-        if (source.includes('Nature') || source.includes('Water Research')) {
-            reasons.push('来源权威性高（' + source + '）');
-        } else if (source.includes('Google News')) {
-            reasons.push('来源为聚合新闻（' + source + '）');
-        }
-        // 关键词匹配
-        if (keywords.length > 0) {
-            reasons.push('匹配 ' + keywords.length + ' 个环境专业关键词（' + keywords.slice(0, 3).join('、') + '）');
-        }
-        // 时间新鲜度
-        if (published) {
-            try {
-                const pubDate = new Date(published);
-                const hoursAgo = (Date.now() - pubDate.getTime()) / 3600000;
-                if (hoursAgo < 24) {
-                    reasons.push('发布时间新鲜（约' + Math.round(hoursAgo) + '小时前）');
-                }
-            } catch (e) {
-                // new Date() 遇到非法字符串返回 Invalid Date 而不会抛错，
-                // 这里只作为极端情况的防御分支；记录原因而不是静默吞掉。
-                console.warn('解析发布时间失败，已跳过新鲜度判断：', published, e);
-            }
-        }
-        // 热度分数
-        let level = '中等热度';
-        if (score >= HOTNESS_LEVEL_HIGH) level = '高热度';
-        else if (score < HOTNESS_LEVEL_MEDIUM) level = '一般热度';
-        const kw = keywords.length > 0 ? '#' + keywords[0] + ' ' : '';
-        return kw + '近24小时' + level + '（' + Math.round(score) + '分），主要因为：' +
-            (reasons.length > 0 ? reasons.map((r, i) => (i + 1) + '. ' + r).join('；') : '综合因素驱动') + '。';
     }
 
     // ---------- 关键词标签点击行为 ----------

@@ -9,14 +9,22 @@
     <meta property="og:title" content="环境学子雷达" />
     <meta property="og:description" content="面向环境专业学生的免费信息聚合与学习平台" />
     <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="环境学子雷达" />
+    <meta property="og:locale" content="zh_CN" />
     <meta property="og:url" content="https://black15647.github.io/hotspot-radar/" />
+    <meta property="og:image" content="https://black15647.github.io/hotspot-radar/screenshots/01-home.jpg" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="theme-color" content="#10B981">
+    <meta name="author" content="环境学子雷达">
+    <meta name="robots" content="index,follow">
+    <link rel="canonical" href="https://black15647.github.io/hotspot-radar/">
     <link rel="icon" type="image/svg+xml" href="favicon.svg">
     <!-- 样式版本号：样式改动后递增即可穿透浏览器/CDN 缓存。
          原先这里内联了一份带 !important 的 .card-rank 覆盖样式用来对付缓存，
          但那样会与 style.css 形成两套并存的同名规则（改一处漏一处就表现不一致），
          而且内联的 `background: ... !important` 会盖掉 style.css 里
          `body.dark .card-rank` 的暗色适配，导致暗色模式下徽章背景失效。 -->
-    <link rel="stylesheet" href="style.css?v=20260919">
+    <link rel="stylesheet" href="style.css?v=20260919c">
     <!-- Chart.js 固定版本：写死 4.5.1（= 修复时的最新稳定版，与原先"不写版本、隐式取最新"的实际行为一致）。
          不写版本的 URL 会随上游发布漂移，一次破坏性变更就能让全部图表挂掉。 -->
     <script src="https://cdn.jsdelivr.net/npm/chart.js@4.5.1"></script>
@@ -518,6 +526,7 @@ var _hmt = _hmt || [];
                     <div class="glossary-recommend-tags" id="glossaryRecommendTags"></div>
                 </div>
                 <div class="glossary-categories" id="glossary-categories"></div>
+                <div class="glossary-meta" id="glossaryMeta"></div>
                 <div class="glossary-list" id="glossary-list"></div>
             </div>
         </div>
@@ -553,9 +562,10 @@ var _hmt = _hmt || [];
                 <button class="modal-close" id="savedClose">✕</button>
             </div>
             <div class="modal-body">
-                <div class="saved-list" id="savedList">
-                    <div class="saved-empty">暂无收藏，快去收藏你关心的热点吧！</div>
-                </div>
+                <!-- 内容全部由 renderSavedList() 生成：空态、工具条（汇总/排序/导出/清空）、
+                     热点与院校/就业方向分区。此处刻意不再写死一份空态文案，
+                     否则会和脚本里的文案各说一套。 -->
+                <div class="saved-list" id="savedList"></div>
             </div>
         </div>
     </div>
@@ -714,6 +724,6 @@ var _hmt = _hmt || [];
         </div>
     </div>
 
-    <script src="script.js?v=20260919"></script>
+    <script src="script.js?v=20260919c"></script>
 </body>
 </html>

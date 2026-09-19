@@ -16,7 +16,15 @@
         glossaryData: [],
         glossaryMap: {},
         glossaryCategory: 'all',
+        // 知识库检索索引（小写化后缓存，避免每次按键对 384 条词条重复 toLowerCase）
+        glossaryIndex: [],
+        // 知识库当前已渲染条数（分批渲染，避免一次性注入近 400 张卡片）
+        glossaryShown: 0,
         recommendedTerms: [],
+        // 热门词条：[{ item, count }]，由历史关键词 + 当日条目统计得出
+        hotTerms: [],
+        // 复习清单：用户星标的术语名数组（localStorage 持久化）
+        reviewTerms: [],
         savedHotspots: [],
         // v4.1 新增
         dailyWordHistory: [],
@@ -62,6 +70,11 @@
         dark: false,
     };
 
+    // 环境知识库：分批渲染条数。
+    // 词条数已达 384 条，原先一次性把全部卡片写进 DOM（含筛选后的全量重建），
+    // 每次按键都要重建上百个节点；改为每批 60 条 + 「加载更多」。
+    const GLOSSARY_PAGE_SIZE = 60;
+
     // DOM 元素引用
     const els = {};
 
@@ -74,7 +87,6 @@
         loadSavedHotspots();
         loadWindowFavorites();
         bindEvents();
-        bindSchoolsEvents();
         bindWindowEvents();
         loadData();
     }
@@ -124,7 +136,6 @@
         els.historyViewBtn = document.getElementById('historyViewBtn');
         els.historyDateInput = document.getElementById('historyDateInput');
         els.historyContent = document.getElementById('historyContent');
-        els.glossaryBtn = document.getElementById('glossaryBtn');
         els.glossaryModal = document.getElementById('glossaryModal');
         els.glossaryOverlay = document.getElementById('glossaryOverlay');
         els.glossaryClose = document.getElementById('glossaryClose');
@@ -133,6 +144,7 @@
         els.glossaryRecommendTags = document.getElementById('glossaryRecommendTags');
         els.glossaryRefreshBtn = document.getElementById('glossaryRefreshBtn');
         els.glossaryCategories = document.getElementById('glossary-categories');
+        els.glossaryMeta = document.getElementById('glossaryMeta');
         els.glossaryList = document.getElementById('glossary-list');
         els.termModal = document.getElementById('termModal');
         els.termOverlay = document.getElementById('termOverlay');
@@ -394,25 +406,41 @@
         });
 
         // 知识库
-        on(els.glossaryBtn, 'click', openGlossaryModal);
         on(els.glossaryOverlay, 'click', () => closeModal(els.glossaryModal));
         on(els.glossaryClose, 'click', () => closeModal(els.glossaryModal));
-        on(els.glossarySearch, 'input', renderGlossaryList);
         on(els.glossaryRefreshBtn, 'click', () => {
             generateRecommendedTerms();
             renderRecommendedTerms();
         });
+        // 搜索：input 上只绑一个处理器。
+        // 原先同时绑了 renderGlossaryList 与 handleGlossarySearchInput，而后者结尾
+        // 又调用一次 renderGlossaryList —— 每次按键把列表完整重建两遍；更糟的是
+        // 直接把 renderGlossaryList 当处理器会把「事件对象」当成搜索词传进去，
+        // 触发 searchTerm.trim is not a function，每敲一个键报一次错。
+        on(els.glossarySearch, 'input', onGlossaryInput);
+        on(els.glossarySearch, 'keydown', (e) => {
+            if (e.key === 'Enter') {
+                e.preventDefault();
+                const first = els.glossarySuggestions &&
+                    els.glossarySuggestions.querySelector('.glossary-suggestion-item');
+                if (first) first.click();
+            } else if (e.key === 'Escape') {
+                e.preventDefault();
+                els.glossarySearch.value = '';
+                if (els.glossarySuggestions) els.glossarySuggestions.style.display = 'none';
+                renderGlossaryList('', true);
+                els.glossarySearch.blur();
+            }
+        });
 
-        // 收藏榜
-        on(els.savedBtn, 'click', openSavedModal);
+        // 收藏
         on(els.savedOverlay, 'click', () => closeModal(els.savedModal));
         on(els.savedClose, 'click', () => closeModal(els.savedModal));
 
-        // 知识库搜索建议
-        on(els.glossarySearch, 'input', handleGlossarySearchInput);
-        on(els.glossarySearch, 'focus', handleGlossarySearchInput);
+        // 知识库搜索建议：点击外部收起（只在有下拉时处理，避免无谓的 DOM 读取）
         document.addEventListener('click', (e) => {
-            if (els.glossarySuggestions && !e.target.closest('.glossary-search-box')) {
+            if (els.glossarySuggestions && els.glossarySuggestions.style.display !== 'none' &&
+                !e.target.closest('.glossary-search-box')) {
                 els.glossarySuggestions.style.display = 'none';
             }
         });
@@ -421,7 +449,11 @@
         on(els.termOverlay, 'click', () => closeModal(els.termModal));
         on(els.termClose, 'click', () => closeModal(els.termModal));
         on(els.termCopyBtn, 'click', () => {
-            if (els.currentTerm) { copyToClipboard(els.currentTerm); }
+            if (els.currentTerm) {
+                // 这里复制的是术语名，不是链接——默认 Toast 文案是「链接已复制！」，
+                // 直接沿用会误导使用者，所以显式传一条术语文案。
+                copyToClipboard(els.currentTerm, '已复制术语：' + els.currentTerm);
+            }
         });
         on(els.termTrendBtn, 'click', () => {
             if (els.currentTerm) {
@@ -539,11 +571,14 @@
                                 state.glossaryMap[item.term] = item;
                             }
                         });
+                        buildGlossaryIndex();
                     }
                 } catch (e) {
                     console.warn('glossary.json 解析失败，跳过：', e);
                     state.glossaryData = [];
                 }
+                computeHotTerms();
+                loadReviewTerms();
             }
 
             // 预取源健康度（可选）：顶部 RSS 源统计优先使用它的 success_count
@@ -991,118 +1026,259 @@
         document.body.style.overflow = 'hidden';
     }
 
+    // 收藏排序偏好（热点区）：hotness 按热度、time 按收藏时间
+    let savedSort = 'hotness';
+
+    /** 收藏总数（热点 + 院校 + 就业方向） */
+    function savedTotalCount() {
+        return state.savedHotspots.length + savedSchools.length + savedDirections.length;
+    }
+
+    /** 收藏为空时的引导文案。三处（热点/院校/方向）共用一个说法，避免各写一份。 */
+    function buildSavedEmpty() {
+        const box = document.createElement('div');
+        box.className = 'saved-empty';
+        const t = document.createElement('div');
+        t.className = 'saved-empty-title';
+        t.textContent = '收藏夹还是空的';
+        const h = document.createElement('div');
+        h.className = 'saved-empty-hint';
+        h.textContent = '在热点、院校或就业方向的卡片上点 ☆ 即可收藏。收藏只保存在你自己的浏览器里，不会上传。';
+        box.appendChild(t);
+        box.appendChild(h);
+        return box;
+    }
+
+    /** 导出全部收藏为 JSON 文件，便于换设备 / 换浏览器时迁移 */
+    function exportSavedData() {
+        const payload = {
+            exported_at: new Date().toISOString(),
+            version: 1,
+            saved_hotspots: state.savedHotspots,
+            saved_schools: savedSchools,
+            saved_directions: savedDirections,
+        };
+        try {
+            const blob = new Blob([JSON.stringify(payload, null, 2)], { type: 'application/json' });
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = 'hotspot-radar-favorites-' + new Date().toISOString().slice(0, 10) + '.json';
+            document.body.appendChild(a);
+            a.click();
+            document.body.removeChild(a);
+            setTimeout(() => URL.revokeObjectURL(url), 1000);
+            showToast('已导出收藏（' + savedTotalCount() + ' 项）');
+        } catch (err) {
+            console.error('导出收藏失败：', err);
+            showToast('导出失败，请改用「复制」方式备份');
+        }
+    }
+
+    /** 清空全部收藏（先二次确认，避免误触） */
+    function clearAllSaved() {
+        const total = savedTotalCount();
+        if (total === 0) return;
+        if (!window.confirm('确定清空全部 ' + total + ' 项收藏吗？此操作不可撤销。')) return;
+        state.savedHotspots = [];
+        savedSchools = [];
+        savedDirections = [];
+        saveSavedHotspots();
+        writeJsonArray(SAVED_SCHOOLS_KEY, savedSchools);
+        writeJsonArray(SAVED_DIRECTIONS_KEY, savedDirections);
+        if (currentWindow === 'schools') renderSchoolsListPage();
+        if (currentWindow === 'jobs') renderJobsPage();
+        renderCards(els.searchInput ? els.searchInput.value : '');
+        renderSavedList();
+        showToast('已清空收藏');
+    }
+
     function renderSavedList() {
         if (!els.savedList) return;
-        if (state.savedHotspots.length === 0) {
-            els.savedList.innerHTML = '<div class="saved-empty">暂无收藏的热点，快去收藏你关心的内容吧！</div>';
-            renderSavedExtras();
+        els.savedList.innerHTML = '';
+
+        const total = savedTotalCount();
+        if (total === 0) {
+            els.savedList.appendChild(buildSavedEmpty());
             return;
         }
 
-        // 按热度分数从高到低排序
-        const sorted = [...state.savedHotspots].sort((a, b) => (b.hotness || 0) - (a.hotness || 0));
+        // ---- 工具条：汇总 + 排序 + 导出 + 清空 ----
+        const bar = document.createElement('div');
+        bar.className = 'saved-toolbar';
 
-        els.savedList.innerHTML = '';
-        sorted.forEach((item, index) => {
-            const card = document.createElement('div');
-            card.className = 'saved-card';
+        const info = document.createElement('span');
+        info.className = 'saved-toolbar-info';
+        info.textContent = '共 ' + total + ' 项 · 热点 ' + state.savedHotspots.length +
+            ' · 院校 ' + savedSchools.length + ' · 就业方向 ' + savedDirections.length;
+        bar.appendChild(info);
 
-            const rankEl = document.createElement('div');
-            rankEl.className = 'saved-rank';
-            rankEl.textContent = index + 1;
-            card.appendChild(rankEl);
+        const actions = document.createElement('div');
+        actions.className = 'saved-toolbar-actions';
 
-            const body = document.createElement('div');
-            body.className = 'saved-body';
-
-            const titleEl = document.createElement('div');
-            titleEl.className = 'saved-title';
-            titleEl.textContent = item.title || '无标题';
-            titleEl.title = '点击展开详情';
-            titleEl.addEventListener('click', () => {
-                const detail = card.querySelector('.saved-detail');
-                if (detail) {
-                    detail.classList.toggle('show');
-                }
+        if (state.savedHotspots.length > 1) {
+            const sortBtn = document.createElement('button');
+            sortBtn.type = 'button';
+            sortBtn.className = 'saved-tool-btn';
+            sortBtn.textContent = savedSort === 'hotness' ? '按热度' : '按收藏时间';
+            sortBtn.title = '切换热点排序方式';
+            sortBtn.addEventListener('click', () => {
+                savedSort = savedSort === 'hotness' ? 'time' : 'hotness';
+                renderSavedList();
             });
-            body.appendChild(titleEl);
+            actions.appendChild(sortBtn);
+        }
 
-            const meta = document.createElement('div');
-            meta.className = 'saved-meta';
+        const exportBtn = document.createElement('button');
+        exportBtn.type = 'button';
+        exportBtn.className = 'saved-tool-btn';
+        exportBtn.textContent = '导出';
+        exportBtn.title = '导出全部收藏为 JSON，便于换设备迁移';
+        exportBtn.addEventListener('click', exportSavedData);
+        actions.appendChild(exportBtn);
 
-            const sourceEl = document.createElement('span');
-            sourceEl.className = 'saved-source';
-            sourceEl.textContent = item.source || '未知';
-            meta.appendChild(sourceEl);
+        const clearBtn = document.createElement('button');
+        clearBtn.type = 'button';
+        clearBtn.className = 'saved-tool-btn is-danger';
+        clearBtn.textContent = '清空';
+        clearBtn.title = '清空全部收藏';
+        clearBtn.addEventListener('click', clearAllSaved);
+        actions.appendChild(clearBtn);
 
-            const hotnessEl = document.createElement('span');
-            hotnessEl.className = 'saved-hotness';
-            hotnessEl.textContent = String(item.hotness || 0);
-            meta.appendChild(hotnessEl);
+        bar.appendChild(actions);
+        els.savedList.appendChild(bar);
 
-            body.appendChild(meta);
+        // ---- 热点分区 ----
+        if (state.savedHotspots.length > 0) {
+            const sec = document.createElement('div');
+            sec.className = 'saved-section';
+            const h = document.createElement('div');
+            h.className = 'saved-section-title';
+            h.textContent = '热点（' + state.savedHotspots.length + '）';
+            sec.appendChild(h);
 
-            // 详情区域
-            const detail = document.createElement('div');
-            detail.className = 'saved-detail';
-
-            const summaryEl = document.createElement('div');
-            summaryEl.className = 'saved-summary';
-            summaryEl.textContent = item.summary && item.summary.trim() ? item.summary.trim() : '暂无摘要内容。';
-            detail.appendChild(summaryEl);
-
-            if (item.analysis) {
-                const analysisEl = document.createElement('div');
-                analysisEl.className = 'saved-analysis';
-                analysisEl.textContent = item.analysis;
-                detail.appendChild(analysisEl);
-            }
-
-            const actions = document.createElement('div');
-            actions.className = 'saved-detail-actions';
-
-            if (item.link) {
-                const readBtn = document.createElement('a');
-                readBtn.className = 'read-original-btn';
-                readBtn.href = item.link;
-                readBtn.target = '_blank';
-                readBtn.rel = 'noopener noreferrer';
-                readBtn.innerHTML = '阅读原文';
-                actions.appendChild(readBtn);
-
-                const proxyBtn = document.createElement('a');
-                proxyBtn.className = 'proxy-btn';
-                proxyBtn.href = 'https://translate.google.com/translate?hl=zh-CN&sl=auto&tl=zh-CN&u=' + encodeURIComponent(item.link);
-                proxyBtn.target = '_blank';
-                proxyBtn.rel = 'noopener noreferrer';
-                proxyBtn.innerHTML = '代理访问';
-                actions.appendChild(proxyBtn);
-            }
-
-            const removeBtn = document.createElement('button');
-            removeBtn.className = 'saved-remove-btn';
-            removeBtn.textContent = '取消收藏';
-            removeBtn.addEventListener('click', (e) => {
-                e.stopPropagation();
-                const idx = state.savedHotspots.findIndex((s) => s.link === item.link);
-                if (idx >= 0) {
-                    state.savedHotspots.splice(idx, 1);
-                    saveSavedHotspots();
-                    renderSavedList();
-                    // 同步更新主榜单的收藏按钮状态
-                    renderCards(els.searchInput ? els.searchInput.value : '');
-                    showToast('已取消收藏');
+            const sorted = [...state.savedHotspots].sort((a, b) => {
+                if (savedSort === 'time') {
+                    return String(b.saved_at || '').localeCompare(String(a.saved_at || ''));
                 }
+                return (b.hotness || 0) - (a.hotness || 0);
             });
-            actions.appendChild(removeBtn);
 
-            detail.appendChild(actions);
-            body.appendChild(detail);
-            card.appendChild(body);
-            els.savedList.appendChild(card);
-        });
+            sorted.forEach((item, index) => {
+                sec.appendChild(buildSavedHotspotCard(item, index));
+            });
+            els.savedList.appendChild(sec);
+        }
 
         renderSavedExtras();
+    }
+
+    /** 单张热点收藏卡：取消收藏入口常驻在信息行，不必先展开详情 */
+    function buildSavedHotspotCard(item, index) {
+        const card = document.createElement('div');
+        card.className = 'saved-card';
+
+        const rankEl = document.createElement('div');
+        rankEl.className = 'saved-rank';
+        rankEl.textContent = index + 1;
+        card.appendChild(rankEl);
+
+        const body = document.createElement('div');
+        body.className = 'saved-body';
+
+        const titleEl = document.createElement('div');
+        titleEl.className = 'saved-title';
+        titleEl.textContent = item.title || '无标题';
+        titleEl.title = '点击展开 / 收起详情';
+        titleEl.addEventListener('click', () => {
+            const detail = card.querySelector('.saved-detail');
+            if (detail) detail.classList.toggle('show');
+        });
+        body.appendChild(titleEl);
+
+        const meta = document.createElement('div');
+        meta.className = 'saved-meta';
+
+        const sourceEl = document.createElement('span');
+        sourceEl.className = 'saved-source';
+        sourceEl.textContent = item.source || '未知来源';
+        meta.appendChild(sourceEl);
+
+        const hotnessEl = document.createElement('span');
+        hotnessEl.className = 'saved-hotness';
+        hotnessEl.textContent = String(item.hotness || 0);
+        meta.appendChild(hotnessEl);
+
+        if (item.saved_at) {
+            const timeEl = document.createElement('span');
+            timeEl.className = 'saved-time';
+            timeEl.textContent = '收藏于 ' + formatRelativeTime(item.saved_at);
+            meta.appendChild(timeEl);
+        }
+
+        // 取消收藏常驻（院校 / 就业方向两个分区本来就是常驻，这里对齐）
+        const removeBtn = document.createElement('button');
+        removeBtn.type = 'button';
+        removeBtn.className = 'saved-remove-inline';
+        removeBtn.textContent = '✕';
+        removeBtn.title = '取消收藏';
+        removeBtn.setAttribute('aria-label', '取消收藏');
+        removeBtn.addEventListener('click', (e) => {
+            e.stopPropagation();
+            const idx = state.savedHotspots.findIndex((s) => s.link === item.link);
+            if (idx >= 0) {
+                state.savedHotspots.splice(idx, 1);
+                saveSavedHotspots();
+                renderSavedList();
+                renderCards(els.searchInput ? els.searchInput.value : '');
+                showToast('已取消收藏');
+            }
+        });
+        meta.appendChild(removeBtn);
+
+        body.appendChild(meta);
+
+        // 详情区域（默认收起，点击标题展开）
+        const detail = document.createElement('div');
+        detail.className = 'saved-detail';
+
+        const summaryEl = document.createElement('div');
+        summaryEl.className = 'saved-summary';
+        summaryEl.textContent = item.summary && item.summary.trim() ? item.summary.trim() : '暂无摘要内容。';
+        detail.appendChild(summaryEl);
+
+        if (item.analysis) {
+            const analysisEl = document.createElement('div');
+            analysisEl.className = 'saved-analysis';
+            analysisEl.textContent = item.analysis;
+            detail.appendChild(analysisEl);
+        }
+
+        const actions = document.createElement('div');
+        actions.className = 'saved-detail-actions';
+
+        if (item.link) {
+            const readBtn = document.createElement('a');
+            readBtn.className = 'read-original-btn';
+            readBtn.href = safeUrl(item.link);
+            readBtn.target = '_blank';
+            readBtn.rel = 'noopener noreferrer';
+            readBtn.textContent = '阅读原文';
+            actions.appendChild(readBtn);
+
+            const proxyBtn = document.createElement('a');
+            proxyBtn.className = 'proxy-btn';
+            proxyBtn.href = 'https://translate.google.com/translate?hl=zh-CN&sl=auto&tl=zh-CN&u=' + encodeURIComponent(item.link);
+            proxyBtn.target = '_blank';
+            proxyBtn.rel = 'noopener noreferrer';
+            proxyBtn.textContent = '代理访问';
+            actions.appendChild(proxyBtn);
+        }
+
+        detail.appendChild(actions);
+        body.appendChild(detail);
+        card.appendChild(body);
+        return card;
     }
 
     // ============================================================
@@ -1513,9 +1689,26 @@
     // ============================================================
     // 搜索
     // ============================================================
+    /**
+     * 全局搜索框：按当前窗口决定搜索对象。
+     * 原先无论处在哪个窗口都只过滤「今日热点」卡片，而占位符承诺的是
+     * 「搜索热点、学校、词条…」，属于承诺与行为不一致。现在改成：
+     * 热点窗口过滤热点卡片，高校考研窗口过滤院校，就业方向窗口过滤方向。
+     */
     function handleSearch(e) {
         const text = e.target.value.trim();
-        renderCards(text);
+        if (currentWindow === 'schools') {
+            const inp = document.getElementById('schoolsSearch2');
+            if (inp) inp.value = text;
+            filterSchoolsPage();
+        } else if (currentWindow === 'jobs') {
+            const inp = document.getElementById('jobsSearch');
+            if (inp) inp.value = text;
+            jobsFilter.q = text.toLowerCase();
+            renderJobsPage();
+        } else {
+            renderCards(text);
+        }
     }
 
     function toggleExpand() {
@@ -1643,11 +1836,40 @@
     function openGlossaryModal() {
         openModal(els.glossaryModal);
         state.glossaryCategory = 'all';
-        els.glossarySearch.value = '';
+        if (els.glossarySearch) els.glossarySearch.value = '';
+        if (els.glossarySuggestions) els.glossarySuggestions.style.display = 'none';
+        state.glossaryShown = GLOSSARY_PAGE_SIZE;
         generateRecommendedTerms();
         renderRecommendedTerms();
         renderGlossaryCategories();
-        renderGlossaryList();
+        renderGlossaryList('', true);
+    }
+
+    /**
+     * 建立检索索引：把小写化的检索字段预先算好。
+     * 384 条词条 × 每次按键对 term/definition 各做一次 toLowerCase，
+     * 在输入时是纯粹的重复计算，放到加载后一次性完成。
+     */
+    function buildGlossaryIndex() {
+        state.glossaryIndex = (state.glossaryData || []).map((item) => ({
+            ref: item,
+            term: String(item.term || '').toLowerCase(),
+            def: String(item.definition || '').toLowerCase(),
+            cat: String(item.category || '').toLowerCase(),
+        }));
+    }
+
+    /**
+     * 知识库输入防抖：按键只在停止输入 140ms 后触发一次筛选，
+     * 避免连续输入时反复重建列表。
+     */
+    let glossaryInputTimer = null;
+    function onGlossaryInput() {
+        if (glossaryInputTimer) clearTimeout(glossaryInputTimer);
+        glossaryInputTimer = setTimeout(() => {
+            glossaryInputTimer = null;
+            handleGlossarySearchInput();
+        }, 140);
     }
 
     /**
@@ -1681,77 +1903,87 @@
             tag.textContent = item.term;
             tag.title = item.definition;
             tag.addEventListener('click', () => {
-                // 填入搜索框并触发搜索
+                // 填入搜索框并筛选到该词条
+                if (els.glossarySuggestions) els.glossarySuggestions.style.display = 'none';
                 els.glossarySearch.value = item.term;
-                renderGlossaryList(item.term);
-                // 高亮匹配的卡片
-                setTimeout(() => {
-                    const cards = els.glossaryList.querySelectorAll('.glossary-card');
-                    cards.forEach((card) => {
-                        const termEl = card.querySelector('.glossary-card-term');
-                        if (termEl && termEl.textContent === item.term) {
-                            card.classList.add('highlight');
-                            card.scrollIntoView({ behavior: 'smooth', block: 'center' });
-                            setTimeout(() => card.classList.remove('highlight'), 2000);
-                        }
-                    });
-                }, 100);
+                renderGlossaryList(item.term, true);
+                highlightGlossaryCard(item.term);
             });
             els.glossaryRecommendTags.appendChild(tag);
         });
     }
 
     function handleGlossarySearchInput() {
-        const query = els.glossarySearch.value.trim().toLowerCase();
+        const query = (els.glossarySearch && els.glossarySearch.value ? els.glossarySearch.value : '')
+            .trim().toLowerCase();
         if (!els.glossarySuggestions) return;
 
         if (!query) {
             els.glossarySuggestions.style.display = 'none';
-            renderGlossaryList();
+            renderGlossaryList('', true);
             return;
         }
 
-        // 模糊匹配词条
-        const matches = state.glossaryData.filter((item) => {
-            return (
-                item.term.toLowerCase().includes(query) ||
-                item.definition.toLowerCase().includes(query)
-            );
-        }).slice(0, 8);
+        // 模糊匹配：词条名 / 释义 / 分类三个字段都能命中。
+        // 建议列表与下方结果列表用同一套筛选条件（含分类限制），避免
+        // 「下拉里点得到、列表里找不到」的割裂。
+        const matches = getGlossaryFiltered(query).slice(0, 8);
+        const typed = els.glossarySearch.value.trim();
 
         if (matches.length === 0) {
-            els.glossarySuggestions.innerHTML = '<div class="glossary-suggestion-empty">暂无匹配词条，可提交收录</div>';
+            els.glossarySuggestions.innerHTML =
+                '<div class="glossary-suggestion-empty">暂无匹配词条，可提交收录</div>';
         } else {
             els.glossarySuggestions.innerHTML = '';
             matches.forEach((item) => {
                 const suggestion = document.createElement('div');
                 suggestion.className = 'glossary-suggestion-item';
                 suggestion.innerHTML = `
-                    <span class="glossary-suggestion-term">${escapeHtml(item.term)}</span>
-                    <span class="glossary-suggestion-cat">${escapeHtml(item.category)}</span>
+                    <span class="glossary-suggestion-term">${highlightTerm(item.term, query)}</span>
+                    <span class="glossary-suggestion-cat">${escapeHtml(item.category || '')}</span>
                 `;
                 suggestion.addEventListener('click', () => {
                     els.glossarySearch.value = item.term;
                     els.glossarySuggestions.style.display = 'none';
-                    renderGlossaryList(item.term);
-                    // 高亮匹配卡片
-                    setTimeout(() => {
-                        const cards = els.glossaryList.querySelectorAll('.glossary-card');
-                        cards.forEach((card) => {
-                            const termEl = card.querySelector('.glossary-card-term');
-                            if (termEl && termEl.textContent === item.term) {
-                                card.classList.add('highlight');
-                                card.scrollIntoView({ behavior: 'smooth', block: 'center' });
-                                setTimeout(() => card.classList.remove('highlight'), 2000);
-                            }
-                        });
-                    }, 100);
+                    renderGlossaryList(item.term, true);
+                    highlightGlossaryCard(item.term);
                 });
                 els.glossarySuggestions.appendChild(suggestion);
             });
         }
         els.glossarySuggestions.style.display = 'block';
-        renderGlossaryList(query);
+        renderGlossaryList(typed, true);
+    }
+
+    /** 定位并高亮某张词条卡（推荐词条 / 搜索建议点选后调用） */
+    function highlightGlossaryCard(term) {
+        setTimeout(() => {
+            if (!els.glossaryList) return;
+            const cards = els.glossaryList.querySelectorAll('.glossary-card');
+            for (let i = 0; i < cards.length; i++) {
+                const termEl = cards[i].querySelector('.glossary-card-term');
+                if (termEl && termEl.textContent === term) {
+                    cards[i].classList.add('highlight');
+                    cards[i].scrollIntoView({ behavior: 'smooth', block: 'center' });
+                    setTimeout(() => cards[i].classList.remove('highlight'), 2000);
+                    break;
+                }
+            }
+        }, 60);
+    }
+
+    /**
+     * 搜索结果里把命中的片段用 <mark> 标出来。
+     * 先切片再转义：直接对已转义文本做替换会在 &amp; 这类实体上错位。
+     */
+    function highlightTerm(term, query) {
+        const text = String(term || '');
+        if (!query) return escapeHtml(text);
+        const idx = text.toLowerCase().indexOf(query);
+        if (idx < 0) return escapeHtml(text);
+        return escapeHtml(text.slice(0, idx)) +
+            '<mark class="glossary-hit">' + escapeHtml(text.slice(idx, idx + query.length)) + '</mark>' +
+            escapeHtml(text.slice(idx + query.length));
     }
 
     // 复用一个隐藏 div 做 HTML 转义。
@@ -1793,85 +2025,346 @@
         return '#';
     }
 
+    /**
+     * 按「分类 + 关键词」取出命中词条。
+     * 过滤走预建的小写索引（state.glossaryIndex），不做重复的 toLowerCase。
+     */
+    function getGlossaryFiltered(searchText) {
+        if (state.glossaryIndex.length !== state.glossaryData.length) buildGlossaryIndex();
+        const cat = state.glossaryCategory;
+        const q = searchText || '';
+
+        // 热门视图：返回按热度排序的词条（同时允许在结果内继续搜索）
+        if (cat === '__hot__') {
+            return state.hotTerms
+                .map((h) => h.item)
+                .filter((item) => {
+                    if (!q) return true;
+                    const t = String(item.term || '').toLowerCase();
+                    const d = String(item.definition || '').toLowerCase();
+                    const c = String(item.category || '').toLowerCase();
+                    return t.includes(q) || d.includes(q) || c.includes(q);
+                });
+        }
+        // 复习视图：只返回星标过的术语
+        if (cat === '__review__') {
+            return state.glossaryData.filter((item) =>
+                isReviewed(item.term) &&
+                (!q ||
+                    String(item.term || '').toLowerCase().includes(q) ||
+                    String(item.definition || '').toLowerCase().includes(q) ||
+                    String(item.category || '').toLowerCase().includes(q))
+            );
+        }
+
+        return state.glossaryIndex
+            .filter((e) => cat === 'all' || e.ref.category === cat)
+            .filter((e) => !q || e.term.includes(q) || e.def.includes(q) || e.cat.includes(q))
+            .map((e) => e.ref);
+    }
+
+    /**
+     * 热门词条：统计每个术语在「历史 30 天关键词 + 当日条目」中出现的次数，
+     * 按热度降序取前 12 个。这是知识库「热门」标签的数据来源——
+     * 让复习优先覆盖最近真的在热点里出现过的概念，而不是随机推荐。
+     */
+    function computeHotTerms() {
+        state.hotTerms = [];
+        if (!Array.isArray(state.glossaryData) || state.glossaryData.length === 0) return;
+
+        const counts = {};
+        const bump = (term, weight) => {
+            if (term) counts[term] = (counts[term] || 0) + weight;
+        };
+
+        // 历史 30 天：每天的 keywords 数组里出现一次记 2 分（跨天的持续热度更有价值）
+        (Array.isArray(state.historyData) ? state.historyData : []).forEach((day) => {
+            (day && day.keywords ? day.keywords : []).forEach((kw) => bump(kw, 2));
+        });
+
+        // 当日条目：命中关键词记 1 分，标题命中的记 3 分（标题级热度最直接）
+        const items = (state.latestData && state.latestData.items) || [];
+        items.forEach((it) => {
+            (it.matched_keywords || it.keywords || []).forEach((kw) => bump(kw, 1));
+            const title = String(it.title || '');
+            state.glossaryData.forEach((g) => {
+                if (g.term && g.term.length >= 2 && title.indexOf(g.term) !== -1) bump(g.term, 3);
+            });
+        });
+
+        state.hotTerms = state.glossaryData
+            .filter((g) => counts[g.term])
+            .map((g) => ({ item: g, count: counts[g.term] }))
+            .sort((a, b) => b.count - a.count)
+            .slice(0, 12);
+    }
+
+    const GLOSSARY_REVIEW_KEY = 'glossary_review_terms';
+
+    function loadReviewTerms() {
+        try {
+            const raw = localStorage.getItem(GLOSSARY_REVIEW_KEY);
+            state.reviewTerms = raw ? (JSON.parse(raw) || []) : [];
+            if (!Array.isArray(state.reviewTerms)) state.reviewTerms = [];
+        } catch (e) {
+            state.reviewTerms = [];
+        }
+    }
+
+    function saveReviewTerms() {
+        try {
+            localStorage.setItem(GLOSSARY_REVIEW_KEY, JSON.stringify(state.reviewTerms));
+        } catch (e) { /* 隐身模式等场景下写不进 localStorage，功能静默降级 */ }
+    }
+
+    function isReviewed(term) {
+        return state.reviewTerms.indexOf(term) !== -1;
+    }
+
+    /** 星标 / 取消星标一个术语，并同步刷新分类计数与列表 */
+    function toggleReviewTerm(term) {
+        const idx = state.reviewTerms.indexOf(term);
+        if (idx >= 0) {
+            state.reviewTerms.splice(idx, 1);
+            showToast('已从复习清单移除：' + term);
+        } else {
+            state.reviewTerms.push(term);
+            showToast('已加入复习清单：' + term);
+        }
+        saveReviewTerms();
+        renderGlossaryCategories();
+        renderGlossaryList(els.glossarySearch ? els.glossarySearch.value.trim() : '', false);
+    }
+
     function renderGlossaryCategories() {
-        const categories = [...new Set(state.glossaryData.map(item => item.category))];
-        categories.sort();
+        const cats = state.glossaryData.map(item => item.category).filter(Boolean);
+        const categories = [...new Set(cats)].sort();
+        // 各分类下的词条数：分类按钮直接带上条数，用户不用点进去才知道有多少
+        const counts = {};
+        cats.forEach((c) => { counts[c] = (counts[c] || 0) + 1; });
         els.glossaryCategories.innerHTML = '';
 
         const allBtn = document.createElement('button');
+        allBtn.type = 'button';
         allBtn.className = 'glossary-cat-btn' + (state.glossaryCategory === 'all' ? ' active' : '');
-        allBtn.textContent = '全部';
+        allBtn.innerHTML = '全部<span class="glossary-cat-count">' + state.glossaryData.length + '</span>';
         allBtn.addEventListener('click', () => {
             state.glossaryCategory = 'all';
             renderGlossaryCategories();
-            renderGlossaryList();
+            renderGlossaryList('', true);
         });
         els.glossaryCategories.appendChild(allBtn);
 
+        // 热门：按近 30 天关键词 + 当日条目出现次数排序的词条
+        const hotBtn = document.createElement('button');
+        hotBtn.type = 'button';
+        hotBtn.className = 'glossary-cat-btn glossary-cat-hot' + (state.glossaryCategory === '__hot__' ? ' active' : '');
+        hotBtn.title = '近 30 天热点与今日资讯中出现过的术语';
+        hotBtn.innerHTML = '热门<span class="glossary-cat-count">' + state.hotTerms.length + '</span>';
+        hotBtn.addEventListener('click', () => {
+            state.glossaryCategory = '__hot__';
+            renderGlossaryCategories();
+            renderGlossaryList('', true);
+        });
+        els.glossaryCategories.appendChild(hotBtn);
+
+        // 复习：用户星标的术语清单（收藏复习）
+        const reviewBtn = document.createElement('button');
+        reviewBtn.type = 'button';
+        reviewBtn.className = 'glossary-cat-btn glossary-cat-review' + (state.glossaryCategory === '__review__' ? ' active' : '');
+        reviewBtn.title = '我星标待复习的术语';
+        reviewBtn.innerHTML = '复习<span class="glossary-cat-count">' + state.reviewTerms.length + '</span>';
+        reviewBtn.addEventListener('click', () => {
+            state.glossaryCategory = '__review__';
+            renderGlossaryCategories();
+            renderGlossaryList('', true);
+        });
+        els.glossaryCategories.appendChild(reviewBtn);
+
         categories.forEach((cat) => {
             const btn = document.createElement('button');
+            btn.type = 'button';
             btn.className = 'glossary-cat-btn' + (state.glossaryCategory === cat ? ' active' : '');
-            btn.textContent = cat;
+            btn.innerHTML = escapeHtml(cat) + '<span class="glossary-cat-count">' + counts[cat] + '</span>';
             btn.addEventListener('click', () => {
                 state.glossaryCategory = cat;
                 renderGlossaryCategories();
-                renderGlossaryList();
+                renderGlossaryList('', true);
             });
             els.glossaryCategories.appendChild(btn);
         });
     }
 
-    function renderGlossaryList(searchTerm) {
-        const searchText = (searchTerm !== undefined ? searchTerm : els.glossarySearch.value).trim().toLowerCase();
-        let filtered = state.glossaryData;
+    /**
+     * 渲染知识库列表。
+     * @param {string} searchTerm  搜索词；传入非字符串（例如误把 event 传进来）时回退读输入框
+     * @param {boolean} resetPage  是否重置到第一页（筛选条件变化时为 true）
+     *
+     * 原先一次性 forEach 全部命中词条，384 条时每次按键都要重建数百个 DOM 节点；
+     * 现在每批 GLOSSARY_PAGE_SIZE 条，底部给「加载更多」。
+     */
+    function renderGlossaryList(searchTerm, resetPage) {
+        if (!els.glossaryList) return;
 
-        if (state.glossaryCategory !== 'all') {
-            filtered = filtered.filter(item => item.category === state.glossaryCategory);
+        const raw = (typeof searchTerm === 'string')
+            ? searchTerm
+            : ((els.glossarySearch && typeof els.glossarySearch.value === 'string') ? els.glossarySearch.value : '');
+        const typed = raw.trim();
+        const searchText = typed.toLowerCase();
+
+        if (resetPage) state.glossaryShown = GLOSSARY_PAGE_SIZE;
+        if (!state.glossaryShown || state.glossaryShown < GLOSSARY_PAGE_SIZE) {
+            state.glossaryShown = GLOSSARY_PAGE_SIZE;
         }
 
-        if (searchText) {
-            filtered = filtered.filter(item =>
-                item.term.toLowerCase().includes(searchText) ||
-                item.definition.toLowerCase().includes(searchText)
-            );
+        const filtered = getGlossaryFiltered(searchText);
+        const total = filtered.length;
+        if (state.glossaryShown > total) state.glossaryShown = total;
+
+        // 结果计数：让用户知道筛掉了多少
+        if (els.glossaryMeta) {
+            if (total === 0) {
+                els.glossaryMeta.textContent = '';
+            } else {
+                const parts = ['共 ' + total + ' 条'];
+                if (typed) parts.push('关键词「' + typed + '」');
+                if (state.glossaryCategory === '__hot__') {
+                    parts.push('按近 30 天热度排序');
+                } else if (state.glossaryCategory === '__review__') {
+                    parts.push('复习清单');
+                } else if (state.glossaryCategory !== 'all') {
+                    parts.push('分类「' + state.glossaryCategory + '」');
+                }
+                els.glossaryMeta.textContent = parts.join(' · ') +
+                    (total > state.glossaryShown ? '，已显示 ' + state.glossaryShown + ' 条' : '');
+            }
         }
 
         els.glossaryList.innerHTML = '';
 
-        if (filtered.length === 0) {
+        if (total === 0) {
             const empty = document.createElement('div');
             empty.className = 'glossary-empty';
-            empty.textContent = '未找到匹配的词条';
+            const hasFilter = !!typed || state.glossaryCategory !== 'all';
+            if (state.glossaryCategory === '__review__' && !typed) {
+                empty.textContent = '复习清单还是空的——点词条卡右上角的 ☆ 收进要复习的术语';
+            } else {
+                empty.textContent = hasFilter
+                    ? '未找到匹配的词条'
+                    : '知识库数据未加载，请刷新页面重试';
+            }
             els.glossaryList.appendChild(empty);
+            if (hasFilter) {
+                const resetBtn = document.createElement('button');
+                resetBtn.type = 'button';
+                resetBtn.className = 'glossary-more-btn';
+                resetBtn.textContent = '清除筛选条件';
+                resetBtn.addEventListener('click', () => {
+                    state.glossaryCategory = 'all';
+                    if (els.glossarySearch) els.glossarySearch.value = '';
+                    renderGlossaryCategories();
+                    renderGlossaryList('', true);
+                });
+                els.glossaryList.appendChild(resetBtn);
+            }
             return;
         }
 
-        filtered.forEach((item) => {
+        filtered.slice(0, state.glossaryShown).forEach((item) => {
             const card = document.createElement('div');
             card.className = 'glossary-card';
 
             const header = document.createElement('div');
-            const termEl = document.createElement('span');
+            header.className = 'glossary-card-head';
+
+            // 词条名做成按钮：点击打开释义弹窗（含「复制术语」「查看趋势」），
+            // 原先是点击即复制、不打开弹窗，导致术语弹窗在知识库内不可达。
+            const termEl = document.createElement('button');
+            termEl.type = 'button';
             termEl.className = 'glossary-card-term';
-            termEl.textContent = item.term;
-            termEl.addEventListener('click', () => {
-                copyToClipboard(item.term);
-            });
+            termEl.title = '查看释义与热度趋势';
+            termEl.innerHTML = highlightTerm(item.term, searchText);
+            termEl.addEventListener('click', () => openTermModal(item.term));
             header.appendChild(termEl);
+
+            // 热门视图：给词条标出近 30 天出现次数
+            if (state.glossaryCategory === '__hot__') {
+                const hotEl = document.createElement('span');
+                hotEl.className = 'glossary-hot-badge';
+                const hotItem = state.hotTerms.find((h) => h.item.term === item.term);
+                hotEl.textContent = (hotItem ? hotItem.count : 0) + ' 次';
+                hotEl.title = '近 30 天热点与今日资讯中的出现次数';
+                header.appendChild(hotEl);
+            }
 
             const catEl = document.createElement('span');
             catEl.className = 'glossary-card-cat';
-            catEl.textContent = item.category;
+            catEl.textContent = item.category || '';
             header.appendChild(catEl);
 
+            // 复习星标：点 ☆ 收进复习清单，点 ★ 移出
+            const starBtn = document.createElement('button');
+            starBtn.type = 'button';
+            starBtn.className = 'glossary-card-star' + (isReviewed(item.term) ? ' is-on' : '');
+            starBtn.textContent = isReviewed(item.term) ? '★' : '☆';
+            starBtn.title = isReviewed(item.term) ? '从复习清单移除' : '加入复习清单';
+            starBtn.setAttribute('aria-label', starBtn.title);
+            starBtn.addEventListener('click', (e) => {
+                e.stopPropagation();
+                toggleReviewTerm(item.term);
+            });
+            header.appendChild(starBtn);
+
+            const copyBtn = document.createElement('button');
+            copyBtn.type = 'button';
+            copyBtn.className = 'glossary-card-copy';
+            copyBtn.textContent = '复制';
+            copyBtn.title = '复制术语名称';
+            copyBtn.addEventListener('click', (e) => {
+                e.stopPropagation();
+                copyToClipboard(item.term, '已复制术语：' + item.term);
+            });
+            header.appendChild(copyBtn);
+
+            // 释义：长释义默认截断为 3 行并给「展开全文」按钮。
+            // 384 条词条如果每条都把释义铺开，列表会长到无法扫读。
             const defEl = document.createElement('p');
             defEl.className = 'glossary-card-def';
             defEl.textContent = item.definition;
 
             card.appendChild(header);
             card.appendChild(defEl);
+
+            if (String(item.definition || '').length > 88) {
+                defEl.classList.add('is-clampable');
+                const toggle = document.createElement('button');
+                toggle.type = 'button';
+                toggle.className = 'glossary-def-toggle';
+                toggle.textContent = '展开全文';
+                toggle.setAttribute('aria-expanded', 'false');
+                toggle.addEventListener('click', () => {
+                    const open = defEl.classList.toggle('is-open');
+                    toggle.textContent = open ? '收起' : '展开全文';
+                    toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+                });
+                card.appendChild(toggle);
+            }
+
             els.glossaryList.appendChild(card);
         });
+
+        const remaining = total - state.glossaryShown;
+        if (remaining > 0) {
+            const more = document.createElement('button');
+            more.type = 'button';
+            more.className = 'glossary-more-btn';
+            more.textContent = '加载更多（还有 ' + remaining + ' 条）';
+            more.addEventListener('click', () => {
+                state.glossaryShown += GLOSSARY_PAGE_SIZE;
+                renderGlossaryList(typed, false);
+            });
+            els.glossaryList.appendChild(more);
+        }
     }
 
     function openTermModal(term) {
@@ -2796,21 +3289,13 @@
                 window.scrollTo({ top: 0, behavior: 'smooth' });
                 break;
             case 'glossary':
-                if (typeof openGlossaryModal === 'function') {
-                    openGlossaryModal();
-                } else if (els.glossaryBtn) {
-                    els.glossaryBtn.click();
-                }
+                openGlossaryModal();
                 break;
             case 'history':
                 if (els.historyBtn) els.historyBtn.click();
                 break;
             case 'saved':
-                if (typeof openSavedModal === 'function') {
-                    openSavedModal();
-                } else if (els.savedBtn) {
-                    els.savedBtn.click();
-                }
+                openSavedModal();
                 break;
         }
     }
@@ -3074,16 +3559,6 @@
     // ============================================================
     // 考研院校分析模块
     // ============================================================
-
-    // 绑定考研院校入口（工具按钮 → 切换到高校考研窗口，统一入口）
-    function bindSchoolsEvents() {
-        const schoolsBtn = document.getElementById('schoolsBtn');
-        if (schoolsBtn) {
-            schoolsBtn.addEventListener('click', () => {
-                switchWindow('schools');
-            });
-        }
-    }
 
 
 // ============================================================
@@ -3528,7 +4003,9 @@
                 const meta = document.createElement('div');
                 meta.className = 'saved-meta';
                 meta.textContent = [s.level, s.discipline_grade ? '学科 ' + s.discipline_grade : '',
-                                    (s.directions || []).slice(0, 2).join(' / ')].filter(Boolean).join(' · ');
+                                    (s.directions || []).slice(0, 2).join(' / '),
+                                    s.saved_at ? '收藏于 ' + formatRelativeTime(s.saved_at) : '']
+                    .filter(Boolean).join(' · ');
                 body.appendChild(meta);
                 const actions = document.createElement('div');
                 actions.className = 'saved-detail-actions';
@@ -3583,7 +4060,9 @@
                 body.appendChild(title);
                 const meta = document.createElement('div');
                 meta.className = 'saved-meta';
-                meta.textContent = [d.demand, d.salary_label].filter(Boolean).join(' · ');
+                meta.textContent = [d.demand, d.salary_label,
+                                    d.saved_at ? '收藏于 ' + formatRelativeTime(d.saved_at) : '']
+                    .filter(Boolean).join(' · ');
                 body.appendChild(meta);
                 const actions = document.createElement('div');
                 actions.className = 'saved-detail-actions';
@@ -3640,6 +4119,26 @@
 
     const SCHOOLS_PAGE_SIZE = 6;
 
+    // 全局搜索框占位符：随当前窗口变化，保证「承诺」与「实际搜索范围」一致
+    const SEARCH_PLACEHOLDER = {
+        hotspot: '搜索今日热点…',
+        schools: '搜索院校 / 专业方向…',
+        jobs: '搜索方向 / 岗位…',
+    };
+
+    function updateSearchPlaceholder() {
+        if (els.searchInput) {
+            els.searchInput.placeholder = SEARCH_PLACEHOLDER[currentWindow] || '搜索…';
+        }
+    }
+
+    // 把全局搜索框里的词应用到当前窗口（切换窗口时保持一致体验）
+    function applyGlobalSearch() {
+        if (!els.searchInput) return;
+        if (!els.searchInput.value.trim()) return;
+        handleSearch({ target: els.searchInput });
+    }
+
     // 切换窗口
     function switchWindow(windowName) {
         currentWindow = windowName;
@@ -3662,6 +4161,8 @@
             document.getElementById('jobsWindow').classList.add('is-active');
             if (!jobsRendered) loadJobsData();
         }
+        updateSearchPlaceholder();
+        applyGlobalSearch();
     }
 
     // 字段规范化（K-2）：缺字段/类型不对都不阻断渲染，一行坏数据不再让整页白屏
@@ -4164,25 +4665,9 @@
                 if (tab.dataset.window) {
                     switchWindow(tab.dataset.window);
                 } else if (tab.dataset.target === 'glossary') {
-                    if (typeof openGlossaryModal === 'function') {
-                        openGlossaryModal();
-                    } else {
-                        const gModal = document.getElementById('glossaryModal');
-                        if (gModal) {
-                            gModal.classList.add('active');
-                            document.body.style.overflow = 'hidden';
-                        }
-                    }
+                    openGlossaryModal();
                 } else if (tab.dataset.target === 'saved') {
-                    if (typeof openSavedModal === 'function') {
-                        openSavedModal();
-                    } else {
-                        const sModal = document.getElementById('savedModal');
-                        if (sModal) {
-                            sModal.classList.add('active');
-                            document.body.style.overflow = 'hidden';
-                        }
-                    }
+                    openSavedModal();
                 }
             });
         });

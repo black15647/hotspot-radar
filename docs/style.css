@@ -2294,3 +2294,259 @@ body.dark .highlight { background: rgba(245, 158, 11, 0.4); }
     .compare-table td { padding: 6px 8px; }
     .data-note { font-size: 11.5px; }
 }
+
+/* ============================================================
+   知识库（glossary）改版：结果计数 / 分类条数 / 词条卡操作条 /
+   命中高亮 / 释义折叠 / 分批加载
+   ============================================================ */
+.glossary-meta {
+    min-height: 18px;
+    margin: -6px 0 12px;
+    font-size: 12.5px;
+    color: var(--clr-muted);
+}
+
+.glossary-cat-count {
+    display: inline-block;
+    margin-left: 6px;
+    font-size: 11px;
+    font-weight: 600;
+    opacity: .7;
+}
+
+/* 词条卡顶部操作条：词条名 + 分类 + 复制 */
+.glossary-card-head {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 6px;
+}
+
+/* 词条名由 span 改为 button：清掉浏览器默认按钮外观，只保留文字观感 */
+.glossary-card-term {
+    flex: 1;
+    min-width: 0;
+    padding: 0;
+    border: 0;
+    background: none;
+    font-family: inherit;
+    font-size: 15px;
+    font-weight: 700;
+    color: var(--clr-text);
+    text-align: left;
+    cursor: pointer;
+    transition: color .15s;
+}
+.glossary-card-term:hover { color: var(--clr-brand-deep); }
+.glossary-card-term:focus-visible { outline: 2px solid var(--clr-brand); outline-offset: 2px; border-radius: 4px; }
+
+.glossary-card-copy {
+    flex-shrink: 0;
+    font-size: 11.5px;
+    line-height: 1;
+    padding: 5px 10px;
+    border-radius: 12px;
+    border: 1px solid var(--clr-border);
+    background: var(--clr-surface);
+    color: var(--clr-muted);
+    cursor: pointer;
+    transition: all .18s;
+}
+.glossary-card-copy:hover {
+    color: var(--clr-brand-deep);
+    border-color: var(--clr-brand);
+    background: var(--clr-brand-soft);
+}
+
+/* 搜索命中片段高亮 */
+.glossary-hit {
+    background: var(--clr-brand-soft);
+    color: var(--clr-brand-deep);
+    border-radius: 3px;
+    padding: 0 1px;
+}
+
+/* 释义折叠：仅对超长释义启用，短释义原样显示 */
+.glossary-card-def.is-clampable {
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+.glossary-card-def.is-clampable.is-open {
+    display: block;
+    -webkit-line-clamp: unset;
+    line-clamp: unset;
+    overflow: visible;
+}
+
+.glossary-def-toggle {
+    margin-top: 6px;
+    padding: 0;
+    border: 0;
+    background: none;
+    font-family: inherit;
+    font-size: 12px;
+    color: var(--clr-brand-deep);
+    cursor: pointer;
+}
+.glossary-def-toggle:hover { text-decoration: underline; }
+
+/* 分批加载 / 清除筛选：都是列表内的整行按钮 */
+.glossary-more-btn {
+    grid-column: 1 / -1;
+    margin-top: 4px;
+    padding: 11px;
+    border-radius: var(--r-sm);
+    border: 1px dashed var(--clr-border);
+    background: var(--clr-surface);
+    color: var(--clr-brand-deep);
+    font-family: inherit;
+    font-size: 13px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all .18s;
+}
+.glossary-more-btn:hover { border-color: var(--clr-brand); background: var(--clr-brand-soft); }
+
+/* ============================================================
+   收藏（saved）改版：工具条 / 分区标题 / 常驻取消 / 空态引导
+   ============================================================ */
+.saved-toolbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 8px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid var(--clr-border);
+}
+.saved-toolbar-info { font-size: 12.5px; color: var(--clr-muted); }
+.saved-toolbar-actions { display: flex; gap: 8px; flex-wrap: wrap; }
+
+.saved-tool-btn {
+    font-size: 12.5px;
+    line-height: 1;
+    padding: 6px 13px;
+    border-radius: 14px;
+    border: 1px solid var(--clr-border);
+    background: var(--clr-bg);
+    color: var(--clr-muted);
+    font-family: inherit;
+    cursor: pointer;
+    transition: all .18s;
+}
+.saved-tool-btn:hover {
+    color: var(--clr-brand-deep);
+    border-color: var(--clr-brand);
+    background: var(--clr-brand-soft);
+}
+.saved-tool-btn.is-danger { color: var(--clr-danger); border-color: var(--clr-danger); }
+.saved-tool-btn.is-danger:hover { background: var(--clr-danger); color: #fff; }
+
+.saved-empty-title {
+    font-size: 15px;
+    font-weight: 700;
+    color: var(--clr-text);
+    margin-bottom: 6px;
+}
+.saved-empty-hint {
+    font-size: 13px;
+    line-height: 1.7;
+    color: var(--clr-muted);
+    max-width: 430px;
+    margin: 0 auto;
+}
+
+/* 收藏时间 */
+.saved-time { color: var(--clr-muted); }
+
+/* 取消收藏常驻在信息行右侧（原先藏在展开区里，必须先把卡片展开才点得到） */
+.saved-remove-inline {
+    margin-left: auto;
+    width: 22px;
+    height: 22px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+    border-radius: 50%;
+    border: 1px solid var(--clr-border);
+    background: transparent;
+    color: var(--clr-muted);
+    font-size: 12px;
+    line-height: 1;
+    cursor: pointer;
+    transition: all .18s;
+}
+.saved-remove-inline:hover {
+    border-color: var(--clr-danger);
+    color: var(--clr-danger);
+    background: var(--clr-danger-soft, rgba(239, 68, 68, .1));
+}
+
+/* 分区改为纵向 flex，让分区内卡片之间保持与顶层一致的 10px 间距 */
+.saved-section {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+.saved-section-title { margin-bottom: 0; }
+
+@media (max-width: 640px) {
+    .saved-toolbar { flex-direction: column; align-items: flex-start; }
+    .saved-remove-inline { width: 26px; height: 26px; }
+    .glossary-card-copy { padding: 6px 11px; }
+}
+
+/* --- 知识库：复习星标（收藏复习） --- */
+.glossary-card-star {
+    flex: 0 0 auto;
+    padding: 4px 10px;
+    border: 1px solid var(--clr-border);
+    border-radius: 8px;
+    background: transparent;
+    color: var(--clr-muted);
+    font-size: 13px;
+    line-height: 1.2;
+    cursor: pointer;
+    transition: all .18s;
+}
+.glossary-card-star:hover {
+    border-color: #F59E0B;
+    color: #F59E0B;
+    background: rgba(245, 158, 11, .08);
+}
+.glossary-card-star.is-on {
+    border-color: #F59E0B;
+    color: #F59E0B;
+    background: rgba(245, 158, 11, .12);
+    font-weight: 600;
+}
+
+/* --- 知识库：热门词条出现次数徽标 --- */
+.glossary-hot-badge {
+    flex: 0 0 auto;
+    padding: 3px 9px;
+    border-radius: 999px;
+    background: rgba(239, 68, 68, .1);
+    color: var(--clr-danger);
+    font-size: 11.5px;
+    font-weight: 600;
+    line-height: 1.3;
+    white-space: nowrap;
+}
+
+/* --- 知识库：热门 / 复习 特殊分类按钮 --- */
+.glossary-cat-btn.glossary-cat-hot.active {
+    background: rgba(239, 68, 68, .1);
+    border-color: var(--clr-danger);
+    color: var(--clr-danger);
+}
+.glossary-cat-btn.glossary-cat-review.active {
+    background: rgba(245, 158, 11, .12);
+    border-color: #F59E0B;
+    color: #B45309;
+}
+

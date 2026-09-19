@@ -16,7 +16,7 @@
          但那样会与 style.css 形成两套并存的同名规则（改一处漏一处就表现不一致），
          而且内联的 `background: ... !important` 会盖掉 style.css 里
          `body.dark .card-rank` 的暗色适配，导致暗色模式下徽章背景失效。 -->
-    <link rel="stylesheet" href="style.css?v=20260918b">
+    <link rel="stylesheet" href="style.css?v=20260919">
     <!-- Chart.js 固定版本：写死 4.5.1（= 修复时的最新稳定版，与原先"不写版本、隐式取最新"的实际行为一致）。
          不写版本的 URL 会随上游发布漂移，一次破坏性变更就能让全部图表挂掉。 -->
     <script src="https://cdn.jsdelivr.net/npm/chart.js@4.5.1"></script>
@@ -77,7 +77,7 @@ var _hmt = _hmt || [];
                     <p class="page-sub" id="pageDate">每日聚合 · 数据自动更新</p>
                 </div>
                 <div class="page-head-side">
-                    <a href="#" class="algo-entry" id="algoLink">透明热度算法</a>
+                    <button type="button" class="algo-entry" id="algoLink">透明热度算法</button>
                     <button class="refresh-entry" id="refreshDataBtn">⟳ 刷新数据</button>
                 </div>
             </div>
@@ -187,11 +187,11 @@ var _hmt = _hmt || [];
                 <div class="page-head">
                     <div class="page-head-main">
                         <h1 class="page-title">高校考研</h1>
-                        <p class="page-sub">18 所高校 · 难度一目了然</p>
+                        <p class="page-sub">广东省环境类专业招生院校 · 难度一目了然</p>
                     </div>
                     <div class="page-head-side">
                         <p class="province-status-txt">当前开放：广东省</p>
-                        <p class="province-status-sub">已开放省份 1 / 7 · 其余敬请期待</p>
+                        <p class="province-status-sub">已开放省份 1 / 7 · 其余省份可点击登记需求</p>
                     </div>
                 </div>
 
@@ -206,22 +206,22 @@ var _hmt = _hmt || [];
                         <button class="province-card is-active" data-province="guangdong">
                             <span class="province-name">广东</span>
                         </button>
-                        <button class="province-card is-locked" data-province="jiangsu">
+                        <button class="province-card is-locked" data-province="jiangsu" title="江苏院校数据整理中，点击可登记需求" aria-label="江苏（院校数据整理中，点击可登记需求）">
                             <span class="province-name">江苏</span>
                         </button>
-                        <button class="province-card is-locked" data-province="beijing">
+                        <button class="province-card is-locked" data-province="beijing" title="北京院校数据整理中，点击可登记需求" aria-label="北京（院校数据整理中，点击可登记需求）">
                             <span class="province-name">北京</span>
                         </button>
-                        <button class="province-card is-locked" data-province="shanghai">
+                        <button class="province-card is-locked" data-province="shanghai" title="上海院校数据整理中，点击可登记需求" aria-label="上海（院校数据整理中，点击可登记需求）">
                             <span class="province-name">上海</span>
                         </button>
-                        <button class="province-card is-locked" data-province="zhejiang">
+                        <button class="province-card is-locked" data-province="zhejiang" title="浙江院校数据整理中，点击可登记需求" aria-label="浙江（院校数据整理中，点击可登记需求）">
                             <span class="province-name">浙江</span>
                         </button>
-                        <button class="province-card is-locked" data-province="hubei">
+                        <button class="province-card is-locked" data-province="hubei" title="湖北院校数据整理中，点击可登记需求" aria-label="湖北（院校数据整理中，点击可登记需求）">
                             <span class="province-name">湖北</span>
                         </button>
-                        <button class="province-card is-locked" data-province="shaanxi">
+                        <button class="province-card is-locked" data-province="shaanxi" title="陕西院校数据整理中，点击可登记需求" aria-label="陕西（院校数据整理中，点击可登记需求）">
                             <span class="province-name">陕西</span>
                         </button>
                     </div>
@@ -232,17 +232,17 @@ var _hmt = _hmt || [];
                         <div class="filter-item filter-tags">
                             <span class="filter-label">层次</span>
                             <button class="school-filter-btn school-level-btn is-active" data-level="all">全部</button>
-                            <button class="school-filter-btn school-level-btn" data-level="985">985</button>
-                            <button class="school-filter-btn school-level-btn" data-level="211">211</button>
-                            <button class="school-filter-btn school-level-btn" data-level="双一流">双一流</button>
-                            <button class="school-filter-btn school-level-btn" data-level="普通">普通</button>
+                            <button class="school-filter-btn school-level-btn" data-level="985" title="985 工程院校">985</button>
+                            <button class="school-filter-btn school-level-btn" data-level="211" title="211 工程院校">211</button>
+                            <button class="school-filter-btn school-level-btn" data-level="双一流" title="双一流建设院校">双一流</button>
+                            <button class="school-filter-btn school-level-btn" data-level="普通" title="非 985 / 211 / 双一流">普通</button>
                         </div>
                         <div class="filter-item filter-tags">
                             <span class="filter-label">难度</span>
                             <button class="school-filter-btn school-diff-btn is-active" data-diff="all">全部</button>
-                            <button class="school-filter-btn school-diff-btn" data-diff="hard">高难度</button>
-                            <button class="school-filter-btn school-diff-btn" data-diff="medium">中难度</button>
-                            <button class="school-filter-btn school-diff-btn" data-diff="easy">低难度</button>
+                            <button class="school-filter-btn school-diff-btn" data-diff="hard" title="难度指数 80 及以上">高难度</button>
+                            <button class="school-filter-btn school-diff-btn" data-diff="medium" title="难度指数 50 - 79">中难度</button>
+                            <button class="school-filter-btn school-diff-btn" data-diff="easy" title="难度指数 50 以下">低难度</button>
                         </div>
                         <div class="filter-item filter-tags">
                             <span class="filter-label">排序</span>
@@ -250,15 +250,17 @@ var _hmt = _hmt || [];
                             <button class="school-filter-btn school-sort-btn" data-sort="asc">难度升序</button>
                         </div>
                         <div class="filter-item">
-                            <input type="text" id="schoolsSearch2" placeholder="搜索学校 / 专业..." autocomplete="off">
+                            <input type="text" id="schoolsSearch2" placeholder="搜索学校 / 专业方向..." autocomplete="off">
                         </div>
                     </div>
                     <div class="schools-stats" id="schoolsStats2"></div>
                     <div class="schools-list" id="schoolsList2">
                         <div class="loading-text">加载中...</div>
                     </div>
+                    <div class="schools-more" id="schoolsMore"></div>
                 </div>
             </div>
+            <div class="compare-bar" id="compareBar"></div>
         </section>
 
         <!-- ============ 就业方向窗口 ============ -->
@@ -267,13 +269,13 @@ var _hmt = _hmt || [];
                 <div class="page-head">
                     <div class="page-head-main">
                         <h1 class="page-title">环保就业方向</h1>
-                        <p class="page-sub">10 大方向 · 120+ 岗位 · 从科研到产业的完整就业地图</p>
+                        <p class="page-sub" id="jobsPageSub">10 大方向 · 从科研到产业的完整就业地图</p>
                     </div>
                     <div class="page-head-side">
                         <div class="jobs-stats">
-                            <span class="jobs-stat-item"><strong>10</strong> 大分类</span>
-                            <span class="jobs-stat-item"><strong>120+</strong> 岗位</span>
-                            <span class="jobs-stat-item"><strong>每日</strong> 聚合招聘与实习资讯</span>
+                            <span class="jobs-stat-item"><strong id="jobsStatDirections">10</strong> 大分类</span>
+                            <span class="jobs-stat-item"><strong id="jobsStatPositions">0</strong> 个岗位</span>
+                            <span class="jobs-stat-item"><strong id="jobsStatFeed">0</strong> <span id="jobsStatFeedLabel">条精选招聘</span></span>
                         </div>
                     </div>
                 </div>
@@ -281,8 +283,34 @@ var _hmt = _hmt || [];
                 <section class="jobs-block">
                     <div class="block-head">
                         <h2 class="block-title">十大就业方向</h2>
-                        <a href="#" class="block-link">查看岗位详情 →</a>
+                        <span class="block-note">可按需求程度、方向属性筛选，或直接搜索岗位关键词</span>
                     </div>
+                    <div class="schools-filters jobs-filters">
+                        <div class="filter-item filter-tags">
+                            <span class="filter-label">需求</span>
+                            <button class="school-filter-btn job-demand-btn is-active" data-demand="all">全部</button>
+                            <button class="school-filter-btn job-demand-btn" data-demand="high">需求高</button>
+                            <button class="school-filter-btn job-demand-btn" data-demand="mid-high">需求中高</button>
+                            <button class="school-filter-btn job-demand-btn" data-demand="medium">需求中</button>
+                        </div>
+                        <div class="filter-item filter-tags">
+                            <span class="filter-label">方向</span>
+                            <button class="school-filter-btn job-cat-btn is-active" data-cat="all">全部</button>
+                            <button class="school-filter-btn job-cat-btn" data-cat="技术">技术类</button>
+                            <button class="school-filter-btn job-cat-btn" data-cat="咨询">咨询类</button>
+                            <button class="school-filter-btn job-cat-btn" data-cat="体制内">体制内</button>
+                            <button class="school-filter-btn job-cat-btn" data-cat="交叉">交叉领域</button>
+                        </div>
+                        <div class="filter-item filter-tags">
+                            <span class="filter-label">排序</span>
+                            <button class="school-filter-btn job-sort-btn is-active" data-sort="demand">需求优先</button>
+                            <button class="school-filter-btn job-sort-btn" data-sort="salary">薪资优先</button>
+                        </div>
+                        <div class="filter-item">
+                            <input type="text" id="jobsSearch" placeholder="搜索方向 / 岗位 / 关键词..." autocomplete="off">
+                        </div>
+                    </div>
+                    <div class="schools-stats" id="jobsStats"></div>
                     <div class="jobs-grid" id="jobsGrid">
                         <div class="loading-text">加载中...</div>
                     </div>
@@ -291,7 +319,17 @@ var _hmt = _hmt || [];
                 <section class="jobs-block">
                     <div class="block-head">
                         <h2 class="block-title">最新招聘资讯</h2>
-                        <button class="block-link jobs-more-btn" id="jobsMoreBtn" type="button">查看更多招聘 →</button>
+                        <span class="block-note">由每日流水线自动聚合，点击标题进入原文</span>
+                    </div>
+                    <div class="recruit-grid" id="recruitGrid">
+                        <div class="loading-text">加载中...</div>
+                    </div>
+                </section>
+
+                <section class="jobs-block">
+                    <div class="block-head">
+                        <h2 class="block-title">精选岗位（人工整理）</h2>
+                        <button class="block-link jobs-more-btn" id="jobsMoreBtn" type="button">更多招聘平台 →</button>
                     </div>
                     <div class="jobs-more-panel" id="jobsMorePanel">
                         <a href="https://hbgcjob.bjx.com.cn/" target="_blank" rel="noopener" class="jobs-more-link">北极星环保招聘网</a>
@@ -299,10 +337,16 @@ var _hmt = _hmt || [];
                         <a href="https://www.yingjiesheng.com" target="_blank" rel="noopener" class="jobs-more-link">应届生求职网</a>
                         <a href="https://www.guopin.com" target="_blank" rel="noopener" class="jobs-more-link">国聘</a>
                     </div>
-                    <div class="recruit-grid" id="recruitGrid">
+                    <div class="recruit-grid" id="curatedGrid">
                         <div class="loading-text">加载中...</div>
                     </div>
                 </section>
+
+                <p class="data-note">
+                    <strong>数据说明</strong>
+                    本模块的方向介绍、岗位名称、薪资区间与需求程度，由公开招聘平台（北极星环保招聘网、高校人才网、国聘、应届生求职网）的在招信息与公开行业报告整理归纳，属方向性参考，非官方统计口径。
+                    「需求程度」依据公开招聘岗位数量、薪资中位数与相关政策文件密度综合标注；「精选岗位」为人工整理，薪资与在招状态会随时间变动，请以招聘平台实时信息为准。招聘资讯由每日流水线自动聚合，仅提供标题与原文链接，不转载正文。
+                </p>
             </div>
         </section>
     </main>
@@ -516,6 +560,20 @@ var _hmt = _hmt || [];
         </div>
     </div>
 
+    <!-- ======================= 模态框：院校对比 ======================= -->
+    <div class="modal" id="compareModal">
+        <div class="modal-overlay" id="compareOverlay"></div>
+        <div class="modal-content modal-large">
+            <div class="modal-head">
+                <h3 class="modal-title">院校对比</h3>
+                <button class="modal-close" id="compareClose">✕</button>
+            </div>
+            <div class="modal-body">
+                <div class="compare-wrap" id="compareBody"></div>
+            </div>
+        </div>
+    </div>
+
     <!-- ======================= 模态框：学习路径 ======================= -->
     <div class="modal" id="learningModal">
         <div class="modal-overlay" id="learningOverlay"></div>
@@ -656,6 +714,6 @@ var _hmt = _hmt || [];
         </div>
     </div>
 
-    <script src="script.js"></script>
+    <script src="script.js?v=20260919"></script>
 </body>
 </html>

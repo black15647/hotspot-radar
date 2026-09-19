@@ -72,6 +72,7 @@
         cacheElements();
         loadTheme();
         loadSavedHotspots();
+        loadWindowFavorites();
         bindEvents();
         bindSchoolsEvents();
         bindWindowEvents();
@@ -993,7 +994,8 @@
     function renderSavedList() {
         if (!els.savedList) return;
         if (state.savedHotspots.length === 0) {
-            els.savedList.innerHTML = '<div class="saved-empty">暂无收藏，快去收藏你关心的热点吧！</div>';
+            els.savedList.innerHTML = '<div class="saved-empty">暂无收藏的热点，快去收藏你关心的内容吧！</div>';
+            renderSavedExtras();
             return;
         }
 
@@ -1099,6 +1101,8 @@
             card.appendChild(body);
             els.savedList.appendChild(card);
         });
+
+        renderSavedExtras();
     }
 
     // ============================================================
@@ -3071,25 +3075,6 @@
     // 考研院校分析模块
     // ============================================================
 
-    // 获取难度等级
-    function getDifficultyLevel(score) {
-        if (score >= 80) return 'high';
-        if (score >= 65) return 'medium-high';
-        if (score >= 50) return 'medium';
-        if (score >= 35) return 'low';
-        return 'easy';
-    }
-
-    // 获取难度等级文字
-    function getDifficultyText(score) {
-        if (score >= 80) return '高难度';
-        if (score >= 65) return '中高难度';
-        if (score >= 50) return '中等难度';
-        if (score >= 35) return '低难度';
-        return '容易';
-    }
-
-
     // 绑定考研院校入口（工具按钮 → 切换到高校考研窗口，统一入口）
     function bindSchoolsEvents() {
         const schoolsBtn = document.getElementById('schoolsBtn');
@@ -3116,126 +3101,530 @@
     // ============================================================
     let jobsRendered = false;
 
-    // 就业方向数据（从 data/careers.json、data/jobs.json 加载，失败降级为内置示例）
+    // 就业方向数据（data/careers.json）、人工精选岗位（data/jobs.json）、
+    // 流水线每日产出的招聘资讯（data/recruit.json）
     let jobDirections = [];
-    let recruitData = [];
+    let jobsCurated = [];
+    let jobsFeed = [];
+    let jobsFeedMeta = null;
+    let jobsLoadState = 'idle';       // idle | loading | ok | error
+    let jobsFilter = { demand: 'all', category: 'all', sort: 'demand', q: '' };
+    let jobsDetailText = {};          // J-9：详情文本按需插入，不预渲染进 DOM
 
-    // 需求程度样式
+    // 需求程度档位（J-7）：数据里已带显式枚举 demand_level，这里只做映射，
+    // 不再用 indexOf('高') 这种模糊判断——它会把「需求中高」吞成「需求高」。
+    const DEMAND_CLASS = {
+        'high': 'demand-high',
+        'mid-high': 'demand-mid-high',
+        'medium': 'demand-medium',
+        'low': 'demand-low',
+    };
+    const DEMAND_TEXT = {
+        'high': '需求高',
+        'mid-high': '需求中高',
+        'medium': '需求中',
+        'low': '需求低',
+    };
+    const DEMAND_ORDER = { 'high': 3, 'mid-high': 2, 'medium': 1, 'low': 0 };
+
+    // 老数据没有 demand_level 时，用「精确匹配」退化（不用 indexOf）
+    function normalizeDemandLevel(item) {
+        const raw = item && item.demand_level;
+        if (raw && DEMAND_CLASS[raw]) return raw;
+        const text = (item && item.demand) || '';
+        const exact = { '需求高': 'high', '需求中高': 'mid-high', '需求中': 'medium', '需求低': 'low' };
+        if (exact[text]) return exact[text];
+        console.warn('[就业] 未识别的需求档位:', text, '-> 按 medium 处理');
+        return 'medium';
+    }
+
     function getDemandClass(level) {
-        if (level === 'high') return 'demand-high';
-        if (level === 'medium') return 'demand-medium';
-        return 'demand-low';
+        return DEMAND_CLASS[level] || 'demand-medium';
     }
-    function getDemandLevel(demand) {
-        if (!demand) return 'low';
-        if (demand.indexOf('高') >= 0) return 'high';
-        if (demand.indexOf('中') >= 0) return 'medium';
-        return 'low';
-    }
-
-    // 内置示例数据（fetch 失败时兜底）
-    const fallbackDirections = [
-        { name: '环境监测与评价', desc: '环评、监测、第三方检测机构核心岗位', jobs: '环评工程师 · 监测员', demand: '需求高' },
-        { name: '水处理与给排水', desc: '市政水务、工业废水处理、膜技术方向', jobs: '工艺工程师 · 运维', demand: '需求高' },
-        { name: '大气治理与气候', desc: '脱硫脱硝、碳减排、气候政策研究', jobs: '大气工程师 · 碳管理', demand: '需求中高' },
-        { name: '固废与资源循环', desc: '垃圾分类、危废处置、再生资源利用', jobs: '固废工程师 · 资源化', demand: '需求中' },
-        { name: '生态修复与保护', desc: '土壤修复、湿地保护、生物多样性', jobs: '修复工程师 · 生态员', demand: '需求中' },
-        { name: '环境咨询与ESG', desc: 'ESG报告、碳核查、绿色咨询', jobs: 'ESG顾问 · 咨询师', demand: '需求高' },
-        { name: '环保技术研发', desc: '环保装备、新材料、智慧环保算法', jobs: '研发工程师 · 算法', demand: '需求中高' },
-        { name: '环境与公共卫生', desc: '环境健康、毒理、职业健康', jobs: '公卫研究员 · 毒理', demand: '需求中' },
-        { name: '环境政策与规划', desc: '生态环境规划、政策研究、行政管理', jobs: '规划师 · 公务员', demand: '需求中' },
-        { name: '绿色金融与碳管理', desc: '碳交易、绿色债券、气候投融资', jobs: '碳交易员 · 分析师', demand: '需求高' }
-    ];
-    const fallbackRecruit = [
-        { company: '某环境监测中心', salary: '8-12K', job: '环评工程师', meta: '广州 · 1-3年 · 全职急招' },
-        { company: '某水务集团', salary: '10-15K', job: '水处理工艺工程师', meta: '深圳 · 3-5年 · 国企' },
-        { company: '某碳中和研究院', salary: '12-18K', job: '碳资产管理', meta: '北京 · 经验不限 · 研究岗' },
-        { company: '某环保科技公司', salary: '9-14K', job: 'ESG咨询顾问', meta: '上海 · 1-3年 · 成长快' }
-    ];
 
     // 渲染就业方向页面
     function renderJobsPage() {
         const grid = document.getElementById('jobsGrid');
-        const recruitGrid = document.getElementById('recruitGrid');
-        if (!grid || !recruitGrid) return;
+        if (!grid) return;
 
-        // 渲染十大方向卡片（从 careers.json 读取；positions 为数组，detail 可展开）
-        grid.innerHTML = (jobDirections.length ? jobDirections : fallbackDirections).map((dir, i) => {
-            const detailId = 'jobDetail' + i;
-            const title = dir.direction || dir.name || '';
-            const intro = dir.intro || dir.desc || '';
-            const roles = Array.isArray(dir.positions)
-                ? (dir.positions || []).join(' · ')
-                : (dir.jobs || '');
-            const demandText = dir.demand || '';
-            return '' +
-                '<div class="job-card">' +
-                    '<h3 class="job-card-title">' + escapeHtml(title) + '</h3>' +
-                    '<p class="job-card-desc">' + escapeHtml(intro) + '</p>' +
-                    (roles ? '<p class="job-card-roles">岗位：' + escapeHtml(roles) + '</p>' : '') +
-                    '<div class="job-card-foot">' +
-                        '<span class="job-demand ' + getDemandClass(getDemandLevel(demandText)) + '">' + escapeHtml(demandText) + '</span>' +
-                        (dir.detail ? '<button type="button" class="job-detail-btn" data-target="' + detailId + '">查看岗位详情</button>' : '') +
-                    '</div>' +
-                    (dir.detail ? '<div class="job-detail" id="' + detailId + '">' + escapeHtml(dir.detail) + '</div>' : '') +
-                '</div>';
-        }).join('');
+        // --- J-1：页头统计数字全部由数据动态计算，不再硬编码「120+」 ---
+        updateJobsHeadStats();
 
-        // 详情展开/收起（同一时间只展开一个）
+        const dirs = jobDirections;
+        if (!dirs.length) {
+            grid.innerHTML = '';
+            grid.appendChild(buildEmptyState('就业方向数据加载失败，请检查网络后重试。', '重新加载', () => loadJobsData(true)));
+            // 必须同时把下面两个招聘区块也刷成失败态，否则它们会一直停在「加载中...」
+            renderJobsFeeds(true);
+            return;
+        }
+
+        // --- J-5：筛选 + 搜索 ---
+        const list = dirs.filter((dir) => {
+            if (jobsFilter.demand !== 'all' && normalizeDemandLevel(dir) !== jobsFilter.demand) return false;
+            if (jobsFilter.category !== 'all' && (dir.category || '') !== jobsFilter.category) return false;
+            const q = jobsFilter.q;
+            if (q) {
+                const hay = [
+                    dir.direction || '', dir.intro || '',
+                    (dir.positions || []).join(' '),
+                    dir.detail || '', dir.category || '',
+                ].join(' ').toLowerCase();
+                if (hay.indexOf(q) < 0) return false;
+            }
+            return true;
+        });
+
+        if (jobsFilter.sort === 'salary') {
+            list.sort((a, b) => (b.salary_level || 0) - (a.salary_level || 0));
+        } else if (jobsFilter.sort === 'demand') {
+            list.sort((a, b) => DEMAND_ORDER[normalizeDemandLevel(b)] - DEMAND_ORDER[normalizeDemandLevel(a)]);
+        }
+
+        jobsDetailText = {};
+        const jobsStatsEl = document.getElementById('jobsStats');
+        if (jobsStatsEl) {
+            jobsStatsEl.innerHTML = '共 <strong>' + list.length + '</strong> 个方向（全部 ' +
+                dirs.length + ' 个）' +
+                (jobsFilter.sort === 'salary' ? ' | 按薪资档位排序' : ' | 按需求程度排序');
+        }
+        if (!list.length) {
+            grid.innerHTML = '<div class="schools-empty">没有符合当前筛选条件的就业方向</div>';
+        } else {
+            grid.innerHTML = list.map((dir, i) => {
+                const detailId = 'jobDetail' + i;
+                const title = dir.direction || dir.name || '';
+                const intro = dir.intro || dir.desc || '';
+                const roles = Array.isArray(dir.positions)
+                    ? dir.positions.join(' · ')
+                    : (dir.positions || dir.jobs || '');
+                const lv = normalizeDemandLevel(dir);
+                const demandText = dir.demand || DEMAND_TEXT[lv] || '';
+                const saved = isDirectionSaved(title);
+                jobsDetailText[detailId] = dir.detail || '';
+                return '' +
+                    '<div class="job-card">' +
+                        '<div class="job-card-top">' +
+                            '<h3 class="job-card-title">' + escapeHtml(title) + '</h3>' +
+                            '<button type="button" class="fav-btn' + (saved ? ' saved' : '') + '"' +
+                                ' data-fav-dir="' + escapeHtml(title) + '"' +
+                                ' title="' + (saved ? '取消收藏' : '收藏') + '"' +
+                                ' aria-label="' + (saved ? '取消收藏' : '收藏') + '">' + (saved ? '★' : '☆') + '</button>' +
+                        '</div>' +
+                        '<p class="job-card-desc">' + escapeHtml(intro) + '</p>' +
+                        (roles ? '<p class="job-card-roles">岗位：' + escapeHtml(roles) + '</p>' : '') +
+                        '<p class="job-card-salary">' + escapeHtml(dir.salary_label || '') + '</p>' +
+                        '<div class="job-card-foot">' +
+                            '<span class="job-demand ' + getDemandClass(lv) + '">' + escapeHtml(demandText) + '</span>' +
+                            (dir.category ? '<span class="job-cat-tag">' + escapeHtml(dir.category) + '</span>' : '') +
+                            (dir.detail ? '<button type="button" class="job-detail-btn" data-target="' + detailId + '" aria-expanded="false">查看岗位详情</button>' : '') +
+                        '</div>' +
+                        (dir.detail ? '<div class="job-detail" id="' + detailId + '"></div>' : '') +
+                    '</div>';
+            }).join('');
+        }
+
+        // 详情展开/收起（同一时间只展开一个）；J-9：首次展开才写入内容
         grid.querySelectorAll('.job-detail-btn').forEach((btn) => {
             btn.addEventListener('click', () => {
                 const target = document.getElementById(btn.getAttribute('data-target'));
                 if (!target) return;
                 const isOpen = target.classList.contains('show');
                 grid.querySelectorAll('.job-detail.show').forEach((d) => d.classList.remove('show'));
-                grid.querySelectorAll('.job-detail-btn.open').forEach((b) => b.classList.remove('open'));
+                grid.querySelectorAll('.job-detail-btn.open').forEach((b) => {
+                    b.classList.remove('open');
+                    b.setAttribute('aria-expanded', 'false');
+                });
                 if (!isOpen) {
+                    if (!target.dataset.filled) {
+                        target.textContent = jobsDetailText[target.id] || '';
+                        target.dataset.filled = '1';
+                    }
                     target.classList.add('show');
                     btn.classList.add('open');
+                    btn.setAttribute('aria-expanded', 'true');
                 }
             });
         });
 
-        // 渲染招聘资讯（从 jobs.json 读取；字段 company/salary/position/location/experience/tags）
-        const jobs = recruitData.length ? recruitData : fallbackRecruit;
-        recruitGrid.innerHTML = jobs.map((rec) => {
-            const meta = [rec.location, rec.experience, (rec.tags || []).slice(0, 4).join(' · ')]
-                .filter(Boolean).join(' · ');
-            return '' +
-                '<div class="recruit-card">' +
-                    '<div class="recruit-card-header">' +
-                        '<span class="recruit-company">' + escapeHtml(rec.company) + '</span>' +
-                        '<span class="recruit-salary">' + escapeHtml(rec.salary) + '</span>' +
-                    '</div>' +
-                    '<p class="recruit-job">岗位：' + escapeHtml(rec.position || rec.job) + '</p>' +
-                    '<p class="recruit-meta">' + escapeHtml(meta) + '</p>' +
-                '</div>';
-        }).join('');
+        // 收藏（复用热点收藏那套 localStorage 习惯）
+        grid.querySelectorAll('[data-fav-dir]').forEach((btn) => {
+            btn.addEventListener('click', () => toggleDirectionSave(btn.getAttribute('data-fav-dir'), btn));
+        });
 
+        renderJobsFeeds();
         jobsRendered = true;
     }
 
-    // 加载就业方向与招聘数据（fetch，失败降级内置示例）
-    function loadJobsData() {
-        Promise.all([
-            fetch('data/careers.json').then((r) => (r.ok ? r.json() : Promise.reject(new Error('careers')))).catch(() => null),
-            fetch('data/jobs.json').then((r) => (r.ok ? r.json() : Promise.reject(new Error('jobs')))).catch(() => null)
-        ]).then(([careers, jobs]) => {
-            if (Array.isArray(careers) && careers.length) {
-                jobDirections = careers;
+    // 页头统计：全部来自数据本身（J-1）
+    function updateJobsHeadStats() {
+        const totalPositions = jobDirections.reduce(
+            (n, d) => n + (Array.isArray(d.positions) ? d.positions.length : 0), 0);
+        const el = document.getElementById('jobsStatPositions');
+        if (el) el.textContent = String(totalPositions);
+        const elDir = document.getElementById('jobsStatDirections');
+        if (elDir) elDir.textContent = String(jobDirections.length);
+        // 第三格 = 人工精选岗位条数（data/jobs.json）。
+        // 原先这里写的是 '每日' / '待接入' 两个词，会把这个 <strong> 从数字覆盖成文字，
+        // 与 <strong id="jobsStatFeed">4</strong> 条精选招聘 的结构对不上；改成纯计数。
+        // 「招聘资讯」是否已接入，由下方资讯区块的标题与空态去表达，不挤在页头数字里。
+        const el2 = document.getElementById('jobsStatFeed');
+        const curatedCount = Array.isArray(jobsCurated) ? jobsCurated.length : 0;
+        if (el2) el2.textContent = String(curatedCount);
+        const sub = document.getElementById('jobsPageSub');
+        if (sub) {
+            sub.textContent = jobDirections.length + ' 大方向 · ' + totalPositions +
+                ' 个岗位 · ' + (jobsFeed.length ? '招聘资讯每日更新' : '行业信息整理');
+        }
+    }
+
+    // 招聘资讯（流水线每日产出）+ 精选岗位（人工整理）
+    // failed = true 表示接口失败，此时要如实说「加载失败」，不能与「尚未产出」混为一谈
+    function renderJobsFeeds(failed) {
+        const feedGrid = document.getElementById('recruitGrid');
+        const curatedGrid = document.getElementById('curatedGrid');
+
+        if (feedGrid) {
+            if (jobsFeed.length) {
+                feedGrid.innerHTML = jobsFeed.map((rec) => {
+                    const title = rec.title_zh || rec.title || '';
+                    const link = safeUrl(rec.url);
+                    const metaBits = [rec.source, rec.published_at ? fmtDate(rec.published_at) : '', rec.type || '']
+                        .filter(Boolean).join(' · ');
+                    return '' +
+                        '<div class="recruit-card">' +
+                            '<div class="recruit-card-header">' +
+                                '<span class="recruit-company">' + escapeHtml(rec.source || '招聘资讯') + '</span>' +
+                                (rec.type ? '<span class="recruit-type">' + escapeHtml(rec.type) + '</span>' : '') +
+                            '</div>' +
+                            '<p class="recruit-job"><a href="' + link + '" target="_blank" rel="noopener noreferrer">' +
+                                escapeHtml(title) + '</a></p>' +
+                            '<p class="recruit-meta">' + escapeHtml(metaBits) + '</p>' +
+                            '<a class="recruit-apply" href="' + link + '" target="_blank" rel="noopener noreferrer">查看原招聘 →</a>' +
+                        '</div>';
+                }).join('');
+            } else {
+                feedGrid.innerHTML = '';
+                feedGrid.appendChild(failed
+                    ? buildEmptyState('招聘资讯加载失败，请检查网络后重试。', '重新加载', () => loadJobsData(true))
+                    : buildEmptyState(
+                        '招聘资讯由每日流水线自动聚合，当前还没有产出。可先看下方人工精选岗位，或直接前往招聘平台检索。',
+                        null, null));
             }
-            if (Array.isArray(jobs) && jobs.length) {
-                recruitData = jobs.map((x) => ({
-                    company: x.company,
-                    salary: x.salary,
-                    position: x.position,
-                    location: x.location,
-                    experience: x.experience,
-                    tags: x.tags || []
-                }));
+        }
+
+        if (curatedGrid) {
+            if (jobsCurated.length) {
+                curatedGrid.innerHTML = jobsCurated.map((rec) => {
+                    const meta = [rec.location, rec.experience, (rec.tags || []).slice(0, 4).join(' · ')]
+                        .filter(Boolean).join(' · ');
+                    const url = rec.url ? safeUrl(rec.url) : '';
+                    // J-3：没有原始链接时不做假，退化为「去平台检索」，并如实标注来源与采集日期
+                    const action = url
+                        ? '<a class="recruit-apply" href="' + url + '" target="_blank" rel="noopener noreferrer">查看原招聘 →</a>'
+                        : '<a class="recruit-apply" href="https://hbgcjob.bjx.com.cn/" target="_blank" rel="noopener noreferrer">去招聘平台检索 →</a>';
+                    const provenance = [rec.source || '来源未标注',
+                                        rec.collected_at ? '采集于 ' + rec.collected_at : '采集日期未标注']
+                        .join(' · ');
+                    return '' +
+                        '<div class="recruit-card">' +
+                            '<div class="recruit-card-header">' +
+                                '<span class="recruit-company">' + escapeHtml(rec.company || '') + '</span>' +
+                                '<span class="recruit-salary">' + escapeHtml(rec.salary || '') + '</span>' +
+                            '</div>' +
+                            '<p class="recruit-job">岗位：' + escapeHtml(rec.position || rec.job || '') + '</p>' +
+                            '<p class="recruit-meta">' + escapeHtml(meta) + '</p>' +
+                            '<p class="recruit-prov">' + escapeHtml(provenance) +
+                                (rec.type ? ' · <span class="recruit-type">' + escapeHtml(rec.type) + '</span>' : '') + '</p>' +
+                            action +
+                        '</div>';
+                }).join('');
+            } else {
+                curatedGrid.innerHTML = '';
+                curatedGrid.appendChild(buildEmptyState('精选岗位数据加载失败，请重试。', '重新加载', () => loadJobsData(true)));
             }
+        }
+    }
+
+    // 通用空态（带可选重试按钮）
+    function buildEmptyState(text, retryLabel, retryFn) {
+        const box = document.createElement('div');
+        box.className = 'schools-empty';
+        const p = document.createElement('div');
+        p.className = 'is-empty-text';
+        p.textContent = text;
+        box.appendChild(p);
+        if (retryLabel && retryFn) {
+            const btn = document.createElement('button');
+            btn.type = 'button';
+            btn.className = 'retry-btn';
+            btn.textContent = retryLabel;
+            btn.addEventListener('click', retryFn);
+            box.appendChild(btn);
+        }
+        return box;
+    }
+
+    // 加载就业数据：careers.json（方向）+ jobs.json（精选岗位）+ recruit.json（每日资讯）
+    // J-8：去掉虚构兜底数据——加载失败就如实显示空态与重试，不再伪装成成功。
+    function loadJobsData(force) {
+        if (jobsLoadState === 'loading') return;
+        if (jobsLoadState === 'ok' && !force) return;
+        jobsLoadState = 'loading';
+        const grid = document.getElementById('jobsGrid');
+        if (grid) grid.innerHTML = '<div class="loading-text">加载中...</div>';
+
+        const getJson = (file) => fetch(file, { cache: 'no-cache' })
+            .then((r) => (r.ok ? r.json() : Promise.reject(new Error(file + ' HTTP ' + r.status))))
+            .catch((err) => { console.warn('[就业] 加载失败:', err.message); return null; });
+
+        return Promise.all([
+            getJson('data/careers.json'),
+            getJson('data/jobs.json'),
+            getJson('data/recruit.json'),
+        ]).then(([careers, jobs, recruit]) => {
+            jobDirections = Array.isArray(careers) ? careers : [];
+            jobsCurated = Array.isArray(jobs) ? jobs : [];
+            if (recruit && Array.isArray(recruit.items)) {
+                jobsFeed = recruit.items;
+                jobsFeedMeta = recruit;
+            } else if (Array.isArray(recruit)) {
+                jobsFeed = recruit;
+                jobsFeedMeta = { generated_at: '' };
+            } else {
+                jobsFeed = [];
+                jobsFeedMeta = null;
+            }
+            jobsLoadState = jobDirections.length ? 'ok' : 'error';
             renderJobsPage();
         });
+    }
+
+    // ============================================================
+    // 收藏：院校 / 就业方向（C-1）
+    // 存储结构沿用热点收藏的习惯（localStorage + 数组），收藏弹窗里分区展示
+    // ============================================================
+    const SAVED_SCHOOLS_KEY = 'saved_schools';
+    const SAVED_DIRECTIONS_KEY = 'saved_directions';
+    let savedSchools = [];
+    let savedDirections = [];
+
+    function readJsonArray(key) {
+        try {
+            const raw = localStorage.getItem(key);
+            const arr = raw ? JSON.parse(raw) : [];
+            return Array.isArray(arr) ? arr : [];
+        } catch (e) {
+            console.error('读取本地数据失败:', key, e);
+            return [];
+        }
+    }
+
+    function writeJsonArray(key, arr) {
+        try {
+            localStorage.setItem(key, JSON.stringify(arr));
+        } catch (e) {
+            console.error('保存本地数据失败:', key, e);
+        }
+    }
+
+    function loadWindowFavorites() {
+        savedSchools = readJsonArray(SAVED_SCHOOLS_KEY);
+        savedDirections = readJsonArray(SAVED_DIRECTIONS_KEY);
+    }
+
+    function isSchoolSaved(name) {
+        return savedSchools.some((s) => s.name === name);
+    }
+
+    function isDirectionSaved(name) {
+        return savedDirections.some((s) => s.name === name);
+    }
+
+    function toggleSchoolSave(school, btnEl) {
+        const name = typeof school === 'string' ? school : school.name;
+        const idx = savedSchools.findIndex((s) => s.name === name);
+        if (idx >= 0) {
+            savedSchools.splice(idx, 1);
+            if (btnEl) {
+                btnEl.classList.remove('saved');
+                btnEl.textContent = '☆';
+                btnEl.title = '收藏';
+                btnEl.setAttribute('aria-label', '收藏');
+            }
+            showToast('已取消收藏');
+        } else {
+            const src = typeof school === 'string' ? { name: name } : school;
+            savedSchools.push({
+                name: name,
+                level: src.level || '',
+                difficulty_index: src.difficulty_index || 0,
+                discipline_grade: src.discipline_grade || '',
+                directions: src.directions || [],
+                saved_at: new Date().toISOString(),
+            });
+            if (btnEl) {
+                btnEl.classList.add('saved');
+                btnEl.textContent = '★';
+                btnEl.title = '取消收藏';
+                btnEl.setAttribute('aria-label', '取消收藏');
+            }
+            showToast('已收藏该院校');
+        }
+        writeJsonArray(SAVED_SCHOOLS_KEY, savedSchools);
+    }
+
+    function toggleDirectionSave(name, btnEl) {
+        const idx = savedDirections.findIndex((s) => s.name === name);
+        const src = jobDirections.find((d) => (d.direction || d.name) === name) || {};
+        if (idx >= 0) {
+            savedDirections.splice(idx, 1);
+            if (btnEl) {
+                btnEl.classList.remove('saved');
+                btnEl.textContent = '☆';
+                btnEl.title = '收藏';
+                btnEl.setAttribute('aria-label', '收藏');
+            }
+            showToast('已取消收藏');
+        } else {
+            savedDirections.push({
+                name: name,
+                demand: src.demand || '',
+                demand_level: normalizeDemandLevel(src),
+                salary_label: src.salary_label || '',
+                saved_at: new Date().toISOString(),
+            });
+            if (btnEl) {
+                btnEl.classList.add('saved');
+                btnEl.textContent = '★';
+                btnEl.title = '取消收藏';
+                btnEl.setAttribute('aria-label', '取消收藏');
+            }
+            showToast('已收藏该就业方向');
+        }
+        writeJsonArray(SAVED_DIRECTIONS_KEY, savedDirections);
+    }
+
+    // 收藏弹窗里的「院校 / 就业方向」分区（由 renderSavedList 在渲染完热点后调用）
+    function renderSavedExtras() {
+        if (!els.savedList) return;
+
+        if (savedSchools.length) {
+            const sec = document.createElement('div');
+            sec.className = 'saved-section';
+            const h = document.createElement('div');
+            h.className = 'saved-section-title';
+            h.textContent = '考研院校（' + savedSchools.length + '）';
+            sec.appendChild(h);
+            savedSchools.forEach((s) => {
+                const card = document.createElement('div');
+                card.className = 'saved-card saved-card-plain';
+                const body = document.createElement('div');
+                body.className = 'saved-body';
+                const title = document.createElement('div');
+                title.className = 'saved-title';
+                title.textContent = s.name + (s.difficulty_index ? '  难度 ' + s.difficulty_index : '');
+                body.appendChild(title);
+                const meta = document.createElement('div');
+                meta.className = 'saved-meta';
+                meta.textContent = [s.level, s.discipline_grade ? '学科 ' + s.discipline_grade : '',
+                                    (s.directions || []).slice(0, 2).join(' / ')].filter(Boolean).join(' · ');
+                body.appendChild(meta);
+                const actions = document.createElement('div');
+                actions.className = 'saved-detail-actions';
+                const goBtn = document.createElement('button');
+                goBtn.type = 'button';
+                goBtn.className = 'read-original-btn';
+                goBtn.textContent = '去考研窗口查看';
+                goBtn.addEventListener('click', () => {
+                    closeSavedModal();
+                    switchWindow('schools');
+                    const inp = document.getElementById('schoolsSearch2');
+                    if (inp) {
+                        inp.value = s.name;
+                        filterSchoolsPage();
+                    }
+                });
+                actions.appendChild(goBtn);
+                const rm = document.createElement('button');
+                rm.type = 'button';
+                rm.className = 'saved-remove-btn';
+                rm.textContent = '取消收藏';
+                rm.addEventListener('click', () => {
+                    savedSchools = savedSchools.filter((x) => x.name !== s.name);
+                    writeJsonArray(SAVED_SCHOOLS_KEY, savedSchools);
+                    renderSavedList();
+                    if (currentWindow === 'schools') renderSchoolsListPage();
+                    showToast('已取消收藏');
+                });
+                actions.appendChild(rm);
+                body.appendChild(actions);
+                card.appendChild(body);
+                sec.appendChild(card);
+            });
+            els.savedList.appendChild(sec);
+        }
+
+        if (savedDirections.length) {
+            const sec = document.createElement('div');
+            sec.className = 'saved-section';
+            const h = document.createElement('div');
+            h.className = 'saved-section-title';
+            h.textContent = '就业方向（' + savedDirections.length + '）';
+            sec.appendChild(h);
+            savedDirections.forEach((d) => {
+                const card = document.createElement('div');
+                card.className = 'saved-card saved-card-plain';
+                const body = document.createElement('div');
+                body.className = 'saved-body';
+                const title = document.createElement('div');
+                title.className = 'saved-title';
+                title.textContent = d.name;
+                body.appendChild(title);
+                const meta = document.createElement('div');
+                meta.className = 'saved-meta';
+                meta.textContent = [d.demand, d.salary_label].filter(Boolean).join(' · ');
+                body.appendChild(meta);
+                const actions = document.createElement('div');
+                actions.className = 'saved-detail-actions';
+                const goBtn = document.createElement('button');
+                goBtn.type = 'button';
+                goBtn.className = 'read-original-btn';
+                goBtn.textContent = '去就业窗口查看';
+                goBtn.addEventListener('click', () => {
+                    closeSavedModal();
+                    switchWindow('jobs');
+                    const inp = document.getElementById('jobsSearch');
+                    if (inp) {
+                        inp.value = d.name;
+                        jobsFilter.q = d.name.toLowerCase();
+                        renderJobsPage();
+                    }
+                });
+                actions.appendChild(goBtn);
+                const rm = document.createElement('button');
+                rm.type = 'button';
+                rm.className = 'saved-remove-btn';
+                rm.textContent = '取消收藏';
+                rm.addEventListener('click', () => {
+                    savedDirections = savedDirections.filter((x) => x.name !== d.name);
+                    writeJsonArray(SAVED_DIRECTIONS_KEY, savedDirections);
+                    renderSavedList();
+                    if (currentWindow === 'jobs') renderJobsPage();
+                    showToast('已取消收藏');
+                });
+                actions.appendChild(rm);
+                body.appendChild(actions);
+                card.appendChild(body);
+                sec.appendChild(card);
+            });
+            els.savedList.appendChild(sec);
+        }
+    }
+
+    function closeSavedModal() {
+        if (els.savedModal) els.savedModal.classList.remove('show');
+        document.body.style.overflow = '';
     }
 
     // ============================================================
@@ -3244,69 +3633,144 @@
     let currentWindow = 'hotspot';
     let schoolsDataPage = [];
     let filteredSchoolsPage = [];
-    let schoolsLoaded = false;
+    let schoolsLoadState = 'idle';     // idle | loading | ok | error
+    let schoolsBatchDate = '';         // K-7：整批数据的更新时间
+    let schoolsShown = 0;              // C-3：当前已渲染条数（分页）
+    let compareSet = [];               // C-3：对比集合（院校名）
+
+    const SCHOOLS_PAGE_SIZE = 6;
 
     // 切换窗口
     function switchWindow(windowName) {
         currentWindow = windowName;
-        // 更新标签状态
-        document.querySelectorAll('.nav-tab').forEach(tab => {
+        document.querySelectorAll('.nav-tab').forEach((tab) => {
             if (tab.dataset.window === windowName) {
                 tab.classList.add('is-active');
             } else {
                 tab.classList.remove('is-active');
             }
         });
-        // 更新面板显示
-        document.querySelectorAll('.window-pane').forEach(pane => {
+        document.querySelectorAll('.window-pane').forEach((pane) => {
             pane.classList.remove('is-active');
         });
         if (windowName === 'hotspot') {
             document.getElementById('hotspotWindow').classList.add('is-active');
         } else if (windowName === 'schools') {
             document.getElementById('schoolsWindow').classList.add('is-active');
-            // 首次进入高校考研窗口时加载数据
-            if (!schoolsLoaded) {
-                loadSchoolsDataPage();
-            }
+            if (schoolsLoadState === 'idle') loadSchoolsDataPage();
         } else if (windowName === 'jobs') {
             document.getElementById('jobsWindow').classList.add('is-active');
-            // 首次进入就业方向窗口时加载并渲染数据
-            if (!jobsRendered) {
-                loadJobsData();
-            }
+            if (!jobsRendered) loadJobsData();
         }
     }
 
+    // 字段规范化（K-2）：缺字段/类型不对都不阻断渲染，一行坏数据不再让整页白屏
+    function normalizeSchool(raw) {
+        const s = Object.assign({}, raw);
+        const str = (v) => (v === null || v === undefined ? '' : String(v));
+        const arr = (v) => (Array.isArray(v) ? v.filter((x) => x !== null && x !== undefined).map(String) : []);
+        s.name = str(s.name) || '未命名院校';
+        s.level = str(s.level);
+        s.discipline_grade = str(s.discipline_grade);
+        s.discipline_note = str(s.discipline_note);
+        s.directions = arr(s.directions);
+        s.tags = arr(s.tags);
+        s.score_series = Array.isArray(s.score_series) ? s.score_series : [];
+        s.exam_subjects = str(s.exam_subjects);
+        s.books = str(s.books);
+        s.retest = str(s.retest);
+        s.enrollment = str(s.enrollment);
+        s.score_lines = str(s.score_lines);
+        s.last_updated = str(s.last_updated);
+        const n = Number(s.difficulty_index);
+        s.difficulty_index = Number.isFinite(n) ? n : 0;
+        return s;
+    }
+
     // 加载学校数据（页面版）
+    // K-2 修复要点：异常不再把「已加载」标记置位，错误态带重试按钮，可恢复。
     async function loadSchoolsDataPage() {
+        if (schoolsLoadState === 'loading') return false;
+        schoolsLoadState = 'loading';
+        const listEl = document.getElementById('schoolsList2');
+        const statsEl = document.getElementById('schoolsStats2');
+        if (listEl) listEl.innerHTML = '<div class="loading-text">加载中...</div>';
+        if (statsEl) statsEl.textContent = '';
+
         try {
-            const response = await fetch('data/schools.json');
-            if (!response.ok) throw new Error('加载失败');
-            schoolsDataPage = await response.json();
-            filteredSchoolsPage = [...schoolsDataPage];
-            schoolsLoaded = true;
+            const response = await fetch('data/schools.json', { cache: 'no-cache' });
+            if (!response.ok) throw new Error('HTTP ' + response.status);
+            const json = await response.json();
+            if (!Array.isArray(json) || json.length === 0) throw new Error('数据格式异常或为空');
+
+            const normalized = [];
+            json.forEach((row, i) => {
+                try {
+                    normalized.push(normalizeSchool(row));
+                } catch (e) {
+                    console.warn('[考研] 第 ' + (i + 1) + ' 条数据被跳过:', e);
+                }
+            });
+            if (!normalized.length) throw new Error('全部数据均无法解析');
+
+            schoolsDataPage = normalized;
+            schoolsBatchDate = normalized.reduce(
+                (m, s) => (s.last_updated > m ? s.last_updated : m), '');
+            schoolsLoadState = 'ok';
+            filteredSchoolsPage = schoolsDataPage.slice();
+            schoolsShown = 0;
             filterSchoolsPage();
             return true;
         } catch (err) {
             console.error('加载院校数据失败:', err);
-            document.getElementById('schoolsList2').innerHTML = '<div class="schools-empty">院校数据加载失败，请稍后重试</div>';
+            schoolsLoadState = 'error';
+            renderSchoolsError(err);
             return false;
         }
     }
 
+    function renderSchoolsError(err) {
+        const listEl = document.getElementById('schoolsList2');
+        const statsEl = document.getElementById('schoolsStats2');
+        if (!listEl) return;
+        listEl.innerHTML = '';
+        const box = document.createElement('div');
+        box.className = 'schools-empty';
+        const p = document.createElement('div');
+        p.className = 'is-empty-text';
+        p.textContent = '院校数据加载失败（' + (err && err.message ? err.message : '未知错误') + '）。';
+        box.appendChild(p);
+        const btn = document.createElement('button');
+        btn.type = 'button';
+        btn.className = 'retry-btn';
+        btn.textContent = '重新加载';
+        btn.addEventListener('click', () => loadSchoolsDataPage());
+        box.appendChild(btn);
+        listEl.appendChild(box);
+        if (statsEl) statsEl.textContent = '';
+    }
+
+    // 难度档位与筛选按钮的对应关系（K-1）
+    // 数据里有 5 档（高/中高/中/低/容易），筛选按钮只有 3 档。
+    // 原实现拿 5 档去 includes 3 档，'high' 永远匹配不上 -> 「高难度」恒为空，
+    // 且难档与易档各有一批院校任何按钮都筛不到（例如佛山大学 35）。
+    // 这里改成显式的桶映射：3 个按钮覆盖全部 5 档，且并集不重叠、无遗漏。
+    const DIFF_BUCKET = {
+        'hard': ['high'],                       // >= 80
+        'medium': ['medium-high', 'medium'],    // 50 ~ 79
+        'easy': ['low', 'easy'],                // < 50
+    };
+
     // 筛选学校（页面版）
     function filterSchoolsPage() {
         const searchText = document.getElementById('schoolsSearch2');
-        if (!searchText) return;
-        const searchVal = searchText.value.toLowerCase();
-        // 层次多选：收集所有选中的具体层次（不含"全部"）
+        const rawVal = searchText ? searchText.value.trim().toLowerCase() : '';
+
         const selLevels = [];
         document.querySelectorAll('.school-level-btn.is-active').forEach((b) => {
             const lv = b.dataset.level;
             if (lv && lv !== 'all') selLevels.push(lv);
         });
-        // 难度多选：收集所有选中的具体难度（不含"全部"）
         const selDiffs = [];
         document.querySelectorAll('.school-diff-btn.is-active').forEach((b) => {
             const d = b.dataset.diff;
@@ -3314,35 +3778,107 @@
         });
 
         filteredSchoolsPage = schoolsDataPage.filter((school) => {
-            // 层次筛选（并集）：命中任一选中层次即通过
+            // 层次筛选（并集）
             if (selLevels.length > 0) {
                 const ok = selLevels.some((lv) => {
                     if (lv === '普通') {
-                        return !(school.level.includes('985') || school.level.includes('211') || school.level.includes('双一流'));
+                        return !(school.level.indexOf('985') >= 0 ||
+                                 school.level.indexOf('211') >= 0 ||
+                                 school.level.indexOf('双一流') >= 0);
                     }
-                    return school.level.includes(lv);
+                    return school.level.indexOf(lv) >= 0;
                 });
                 if (!ok) return false;
             }
-            // 难度筛选（并集）
+            // 难度筛选（并集，按桶映射）
             if (selDiffs.length > 0) {
                 const lv = getDifficultyLevel(school.difficulty_index);
-                if (!selDiffs.includes(lv)) return false;
+                const hit = selDiffs.some((d) => (DIFF_BUCKET[d] || []).indexOf(lv) >= 0);
+                if (!hit) return false;
             }
-            // 搜索
-            if (searchVal && !school.name.toLowerCase().includes(searchVal)) return false;
+            // 搜索（K-4）：校名 + 专业方向 + 学科 + 标签 + 层次，与输入框的承诺一致
+            if (rawVal) {
+                const hay = [
+                    school.name, school.level, school.discipline_grade, school.discipline_note,
+                    school.directions.join(' '), school.tags.join(' '), school.exam_subjects,
+                ].join(' ').toLowerCase();
+                if (hay.indexOf(rawVal) < 0) return false;
+            }
             return true;
         });
 
         sortSchoolsPage();
+        schoolsShown = Math.min(SCHOOLS_PAGE_SIZE, filteredSchoolsPage.length);
         renderSchoolsListPage();
     }
 
-    // 排序学校（页面版）：难度升序 / 降序按钮
+    // 排序学校（页面版）
     function sortSchoolsPage() {
         const ascBtn = document.querySelector('.school-sort-btn[data-sort="asc"]');
         const isAsc = ascBtn && ascBtn.classList.contains('is-active');
-        filteredSchoolsPage.sort((a, b) => (isAsc ? a.difficulty_index - b.difficulty_index : b.difficulty_index - a.difficulty_index));
+        filteredSchoolsPage.sort((a, b) => (isAsc
+            ? a.difficulty_index - b.difficulty_index
+            : b.difficulty_index - a.difficulty_index));
+    }
+
+    // 难度等级（5 档，用于角标配色）
+    function getDifficultyLevel(score) {
+        if (score >= 80) return 'high';
+        if (score >= 65) return 'medium-high';
+        if (score >= 50) return 'medium';
+        if (score >= 35) return 'low';
+        return 'easy';
+    }
+
+    // 难度等级文字
+    function getDifficultyText(score) {
+        if (score >= 80) return '高难度';
+        if (score >= 65) return '中高难度';
+        if (score >= 50) return '中等难度';
+        if (score >= 35) return '低难度';
+        return '容易';
+    }
+
+    // 日期工具：把 'YYYY-MM-DD' 或 RFC 时间转成 'MM-DD'
+    function fmtDate(v) {
+        const s = String(v || '');
+        if (/^\d{4}-\d{2}-\d{2}/.test(s)) return s.slice(5, 10);
+        const t = Date.parse(s);
+        if (Number.isNaN(t)) return s.slice(0, 10);
+        const d = new Date(t);
+        return String(d.getMonth() + 1).padStart(2, '0') + '-' + String(d.getDate()).padStart(2, '0');
+    }
+
+    // 距今天数；解析失败返回 null
+    function daysAgo(v) {
+        const t = Date.parse(String(v || '') + (String(v || '').length === 10 ? 'T00:00:00' : ''));
+        if (Number.isNaN(t)) return null;
+        return Math.floor((Date.now() - t) / 86400000);
+    }
+
+    // 复试线结构化渲染（K-9）
+    function renderScoreSeries(school) {
+        const parts = [];
+        if (school.score_series.length) {
+            school.score_series.forEach((g) => {
+                const years = (g.years || []).slice(0, 3);
+                if (!years.length) return;
+                const chips = years.map((y, i) => {
+                    const latest = i === 0;
+                    return '<span class="score-chip' + (latest ? ' is-latest' : '') + '">' +
+                        '<span class="score-year">' + y.year + '</span>' +
+                        '<span class="score-val">' + escapeHtml(y.text) + '</span></span>';
+                }).join('');
+                parts.push('<div class="score-group">' +
+                    (g.label ? '<span class="score-group-label">' + escapeHtml(g.label) + '</span>' : '') +
+                    '<span class="score-chips">' + chips + '</span></div>');
+            });
+        }
+        if (!parts.length && school.score_lines) {
+            parts.push('<div class="score-group"><span class="score-chips">' +
+                escapeHtml(school.score_lines) + '</span></div>');
+        }
+        return parts.length ? parts.join('') : '<div class="score-group"><span class="is-empty-text">未收录</span></div>';
     }
 
     // 渲染学校列表（页面版）
@@ -3351,70 +3887,283 @@
         const statsEl = document.getElementById('schoolsStats2');
         if (!listEl || !statsEl) return;
 
-        if (filteredSchoolsPage.length === 0) {
+        if (!filteredSchoolsPage.length) {
             listEl.innerHTML = '<div class="schools-empty">没有符合条件的院校</div>';
             statsEl.textContent = '';
             return;
         }
 
-        const avgDifficulty = (filteredSchoolsPage.reduce((sum, s) => sum + s.difficulty_index, 0) / filteredSchoolsPage.length).toFixed(1);
-        const highCount = filteredSchoolsPage.filter(s => s.difficulty_index >= 80).length;
-        const easyCount = filteredSchoolsPage.filter(s => s.difficulty_index < 35).length;
-        statsEl.innerHTML = '共 <strong>' + filteredSchoolsPage.length + '</strong> 所院校 | 平均难度指数 <strong>' + avgDifficulty + '</strong> | 高难度 <strong>' + highCount + '</strong> 所 | 容易 <strong>' + easyCount + '</strong> 所';
+        const visible = filteredSchoolsPage.slice(0, schoolsShown);
+        const avgDifficulty = (filteredSchoolsPage.reduce((sum, s) => sum + s.difficulty_index, 0) /
+            filteredSchoolsPage.length).toFixed(1);
+        const highCount = filteredSchoolsPage.filter((s) => s.difficulty_index >= 80).length;
+        const easyCount = filteredSchoolsPage.filter((s) => s.difficulty_index < 50).length;
 
-        const html = filteredSchoolsPage.map((school, index) => {
+        // K-7：数据时效不再藏在展开区里，放到统计条；超过 90 天给出「待更新」提示
+        const age = daysAgo(schoolsBatchDate);
+        const stale = age !== null && age > 90;
+        statsEl.innerHTML = '共 <strong>' + filteredSchoolsPage.length + '</strong> 所院校' +
+            ' | 平均难度指数 <strong>' + avgDifficulty + '</strong>' +
+            ' | 高难度 <strong>' + highCount + '</strong> 所' +
+            ' | 低难度 <strong>' + easyCount + '</strong> 所' +
+            (schoolsBatchDate
+                ? ' | <span class="stats-age' + (stale ? ' is-stale' : '') + '">数据更新于 ' +
+                  escapeHtml(schoolsBatchDate) + (age !== null ? '（' + age + ' 天前）' : '') +
+                  (stale ? ' · 待更新' : '') + '</span>'
+                : '');
+
+        const html = visible.map((school) => {
             const diffLevel = getDifficultyLevel(school.difficulty_index);
-            const levelClass = school.level.includes('985') ? 'level-985' :
-                              school.level.includes('211') ? 'level-211' :
-                              school.level.includes('双一流') ? 'level-双一流' : '';
+            const levelClass = school.level.indexOf('985') >= 0 ? 'level-985' :
+                              school.level.indexOf('211') >= 0 ? 'level-211' :
+                              school.level.indexOf('双一流') >= 0 ? 'level-双一流' : '';
+            const saved = isSchoolSaved(school.name);
+            const inCompare = compareSet.indexOf(school.name) >= 0;
+            // K-8：学科评估拆成「等级」与「补充说明」，等级为空时不渲染成空标签
+            const discTag = school.discipline_grade
+                ? '<span class="school-tag">学科评估 ' + escapeHtml(school.discipline_grade) + '</span>'
+                : '<span class="school-tag is-muted">学科评估未公开</span>';
+            const discNote = school.discipline_note
+                ? '<div class="school-disc-note">' + escapeHtml(school.discipline_note) + '</div>'
+                : '';
+            const dirPreview = school.directions.length
+                ? '<div class="school-dir-preview">' + escapeHtml(school.directions.slice(0, 2).join(' / ')) +
+                  (school.directions.length > 2 ? ' 等 ' + school.directions.length + ' 个方向' : '') + '</div>'
+                : '';
             return '' +
-                '<div class="school-card" data-index="' + index + '">' +
+                '<div class="school-card' + (inCompare ? ' in-compare' : '') + '" data-school="' + escapeHtml(school.name) + '">' +
                     '<div class="school-card-header">' +
-                        '<h4 class="school-name">' + school.name + '</h4>' +
-                        '<span class="difficulty-badge difficulty-' + diffLevel + '" title="' + getDifficultyText(school.difficulty_index) + '">' + school.difficulty_index + '</span>' +
+                        '<h4 class="school-name">' + escapeHtml(school.name) + '</h4>' +
+                        '<span class="difficulty-badge difficulty-' + diffLevel + '" title="' +
+                            escapeHtml(getDifficultyText(school.difficulty_index)) + '">' +
+                            school.difficulty_index + '</span>' +
+                        '<button type="button" class="fav-btn' + (saved ? ' saved' : '') + '"' +
+                            ' data-fav-school="' + escapeHtml(school.name) + '"' +
+                            ' title="' + (saved ? '取消收藏' : '收藏') + '"' +
+                            ' aria-label="' + (saved ? '取消收藏' : '收藏') + '">' + (saved ? '★' : '☆') + '</button>' +
                     '</div>' +
                     '<div class="school-info-row">' +
-                        '<span class="school-tag ' + levelClass + '">' + school.level + '</span>' +
-                        '<span class="school-tag">学科评估：' + school.discipline + '</span>' +
+                        (school.level ? '<span class="school-tag ' + levelClass + '">' + escapeHtml(school.level) + '</span>' : '') +
+                        discTag +
                     '</div>' +
-                    '<div class="school-directions"><strong>专业方向：</strong>' + school.directions.join('、') + '</div>' +
-                    '<div class="school-exam"><strong>初试科目：</strong>' + school.exam_subjects.substring(0, 80) + (school.exam_subjects.length > 80 ? '...' : '') + '</div>' +
-                    '<div class="school-score-line"><strong>近年复试线：</strong>' + school.score_lines + '</div>' +
-                    '<div class="school-expand-hint">点击查看完整信息 ▼</div>' +
+                    discNote +
+                    dirPreview +
+                    '<div class="school-card-actions">' +
+                        '<button type="button" class="school-expand-btn" aria-expanded="false" ' +
+                            'aria-controls="schoolDetail">' +
+                            '<span class="expand-text">查看完整信息</span>' +
+                            '<span class="expand-caret" aria-hidden="true">▼</span>' +
+                        '</button>' +
+                        '<label class="compare-check">' +
+                            '<input type="checkbox" data-compare="' + escapeHtml(school.name) + '"' +
+                                (inCompare ? ' checked' : '') + '>' +
+                            '<span>对比</span>' +
+                        '</label>' +
+                    '</div>' +
                     '<div class="school-detail">' +
-                        '<div class="school-detail-section"><div class="school-detail-title">参考书目</div><div class="school-detail-content">' + school.books + '</div></div>' +
-                        '<div class="school-detail-section"><div class="school-detail-title">复试内容</div><div class="school-detail-content">' + school.retest + '</div></div>' +
-                        '<div class="school-detail-section"><div class="school-detail-title">招生人数</div><div class="school-detail-content">' + school.enrollment + '</div></div>' +
-                        '<div class="school-detail-section"><div class="school-detail-title">院校标签</div><div class="school-detail-content">' + school.tags.map(t => '<span class="school-tag">' + t + '</span>').join(' ') + '</div></div>' +
-                        '<div class="school-detail-section"><div class="school-detail-title">数据更新日期</div><div class="school-detail-content">' + (school.last_updated || '未知') + '</div></div>' +
+                        '<div class="school-detail-section"><div class="school-detail-title">专业方向</div>' +
+                            '<div class="school-detail-content">' +
+                            (school.directions.length ? escapeHtml(school.directions.join('、')) : '未收录') +
+                            '</div></div>' +
+                        '<div class="school-detail-section"><div class="school-detail-title">复试线</div>' +
+                            '<div class="school-detail-content">' + renderScoreSeries(school) + '</div></div>' +
+                        '<div class="school-detail-section"><div class="school-detail-title">初试科目</div>' +
+                            '<div class="school-detail-content">' + escapeHtml(school.exam_subjects || '未收录') +
+                            '</div></div>' +
+                        '<div class="school-detail-section"><div class="school-detail-title">参考书目</div>' +
+                            '<div class="school-detail-content">' + escapeHtml(school.books || '未收录') + '</div></div>' +
+                        '<div class="school-detail-section"><div class="school-detail-title">复试内容</div>' +
+                            '<div class="school-detail-content">' + escapeHtml(school.retest || '未收录') + '</div></div>' +
+                        '<div class="school-detail-section"><div class="school-detail-title">招生人数</div>' +
+                            '<div class="school-detail-content">' + escapeHtml(school.enrollment || '未收录') + '</div></div>' +
+                        '<div class="school-detail-section"><div class="school-detail-title">院校标签</div>' +
+                            '<div class="school-detail-content">' +
+                            (school.tags.length
+                                ? school.tags.map((t) => '<span class="school-tag">' + escapeHtml(t) + '</span>').join(' ')
+                                : '<span class="is-empty-text">未收录</span>') +
+                            '</div></div>' +
+                        '<div class="school-detail-section"><div class="school-detail-title">数据更新日期</div>' +
+                            '<div class="school-detail-content">' + escapeHtml(school.last_updated || '未知') +
+                            '</div></div>' +
                     '</div>' +
                 '</div>';
         }).join('');
 
         listEl.innerHTML = html;
 
-        listEl.querySelectorAll('.school-card').forEach(card => {
-            card.addEventListener('click', () => {
-                card.classList.toggle('expanded');
-                const hint = card.querySelector('.school-expand-hint');
-                if (card.classList.contains('expanded')) {
-                    hint.textContent = '点击收起 ▲';
+        // K-6：展开改由独立的 <button> 承担——键盘可达（原生按钮），
+        // 且不再让整张 366x249 的卡片成为热区，移动端滑动不会误触展开。
+        listEl.querySelectorAll('.school-card').forEach((card) => {
+            const btn = card.querySelector('.school-expand-btn');
+            const name = card.getAttribute('data-school');
+            const school = schoolsDataPage.find((s) => s.name === name);
+            if (btn) {
+                btn.addEventListener('click', () => {
+                    const expanded = card.classList.toggle('expanded');
+                    btn.setAttribute('aria-expanded', expanded ? 'true' : 'false');
+                    const text = btn.querySelector('.expand-text');
+                    const caret = btn.querySelector('.expand-caret');
+                    if (text) text.textContent = expanded ? '收起信息' : '查看完整信息';
+                    if (caret) caret.textContent = expanded ? '▲' : '▼';
+                });
+            }
+            const fav = card.querySelector('[data-fav-school]');
+            if (fav) {
+                fav.addEventListener('click', (e) => {
+                    e.stopPropagation();
+                    toggleSchoolSave(school || name, fav);
+                });
+            }
+            const cb = card.querySelector('[data-compare]');
+            if (cb) {
+                cb.addEventListener('change', () => toggleCompare(cb.getAttribute('data-compare'), cb.checked, cb));
+            }
+        });
+
+        renderSchoolsMore();
+        renderCompareBar();
+    }
+
+    // C-3：加载更多（移动端 18 张卡一次全渲染 = 6 屏长滚动）
+    function renderSchoolsMore() {
+        const el = document.getElementById('schoolsMore');
+        if (!el) return;
+        const total = filteredSchoolsPage.length;
+        if (schoolsShown >= total) {
+            el.innerHTML = total > SCHOOLS_PAGE_SIZE
+                ? '<span class="more-hint">已显示全部 ' + total + ' 所</span>' : '';
+            return;
+        }
+        el.innerHTML = '<button type="button" class="load-more-schools">加载更多（还有 ' +
+            (total - schoolsShown) + ' 所）</button>';
+        const btn = el.querySelector('.load-more-schools');
+        if (btn) {
+            btn.addEventListener('click', () => {
+                schoolsShown = Math.min(schoolsShown + SCHOOLS_PAGE_SIZE, filteredSchoolsPage.length);
+                renderSchoolsListPage();
+            });
+        }
+    }
+
+    // C-3：院校对比（勾选 2~4 所，并排比较）
+    function toggleCompare(name, checked, cb) {
+        if (checked) {
+            if (compareSet.length >= 4) {
+                showToast('最多同时对比 4 所院校');
+                if (cb) cb.checked = false;
+                return;
+            }
+            if (compareSet.indexOf(name) < 0) compareSet.push(name);
+        } else {
+            compareSet = compareSet.filter((n) => n !== name);
+        }
+        filteredSchoolsPage.forEach((s) => {
+            if (s.name === name) {
+                const card = document.querySelector('.school-card[data-school="' + name.replace(/"/g, '\\"') + '"]');
+                if (card) card.classList.toggle('in-compare', checked);
+            }
+        });
+        renderCompareBar();
+    }
+
+    function renderCompareBar() {
+        const bar = document.getElementById('compareBar');
+        if (!bar) return;
+        if (compareSet.length < 2) {
+            bar.classList.remove('show');
+            bar.innerHTML = '';
+            return;
+        }
+        bar.classList.add('show');
+        bar.innerHTML = '<span class="compare-bar-text">已选 <strong>' + compareSet.length +
+            '</strong> 所院校</span>' +
+            '<button type="button" class="compare-bar-go">开始对比</button>' +
+            '<button type="button" class="compare-bar-clear">清空</button>';
+        bar.querySelector('.compare-bar-go').addEventListener('click', openCompareModal);
+        bar.querySelector('.compare-bar-clear').addEventListener('click', () => {
+            compareSet = [];
+            renderSchoolsListPage();
+        });
+    }
+
+    function openCompareModal() {
+        const modal = document.getElementById('compareModal');
+        const body = document.getElementById('compareBody');
+        if (!modal || !body) return;
+        const picked = compareSet
+            .map((n) => schoolsDataPage.find((s) => s.name === n))
+            .filter(Boolean);
+        if (picked.length < 2) return;
+
+        const row = (label, fn) => '<tr><th>' + label + '</th>' +
+            picked.map((s) => '<td>' + fn(s) + '</td>').join('') + '</tr>';
+        const latestScore = (s) => {
+            const g = s.score_series[0];
+            if (!g || !(g.years || []).length) return '<span class="is-empty-text">未收录</span>';
+            return '<span class="score-chip is-latest"><span class="score-year">' + g.years[0].year +
+                '</span><span class="score-val">' + escapeHtml(g.years[0].text) + '</span></span>';
+        };
+        body.innerHTML = '<table class="compare-table">' +
+            '<thead><tr><th>项目</th>' + picked.map((s) => '<th>' + escapeHtml(s.name) + '</th>').join('') + '</tr></thead>' +
+            '<tbody>' +
+            row('难度指数', (s) => '<strong>' + s.difficulty_index + '</strong>（' +
+                escapeHtml(getDifficultyText(s.difficulty_index)) + '）') +
+            row('院校层次', (s) => escapeHtml(s.level || '未收录')) +
+            row('学科评估', (s) => escapeHtml(s.discipline_grade || '未公开') +
+                (s.discipline_note ? '<div class="school-disc-note">' + escapeHtml(s.discipline_note) + '</div>' : '')) +
+            row('最新复试线', latestScore) +
+            row('专业方向', (s) => escapeHtml(s.directions.join('、') || '未收录')) +
+            row('初试科目', (s) => escapeHtml(s.exam_subjects || '未收录')) +
+            row('招生人数', (s) => escapeHtml(s.enrollment || '未收录')) +
+            row('数据更新', (s) => escapeHtml(s.last_updated || '未知')) +
+            '</tbody></table>';
+        modal.classList.add('show');
+        document.body.style.overflow = 'hidden';
+    }
+
+    // 通用筛选标签组：点击「全部」清空该组，点击具体项切换选中，
+    // 具体项全不选时自动回到「全部」。
+    // 考研与就业两个窗口共用（J-5 要求抽成一份，避免两套相似代码）
+    function bindFilterTags(cfg) {
+        document.querySelectorAll(cfg.selector).forEach((btn) => {
+            btn.addEventListener('click', () => {
+                const v = btn.dataset[cfg.dataKey];
+                const allSel = cfg.selector + '[data-' + cfg.attr + '="all"]';
+                if (v === 'all') {
+                    document.querySelectorAll(cfg.selector).forEach((x) => x.classList.remove('is-active'));
+                    btn.classList.add('is-active');
                 } else {
-                    hint.textContent = '点击查看完整信息 ▼';
+                    btn.classList.toggle('is-active');
+                    document.querySelectorAll(allSel).forEach((x) => x.classList.remove('is-active'));
+                    const activeSel = cfg.selector + '.is-active:not([data-' + cfg.attr + '="all"])';
+                    if (document.querySelectorAll(activeSel).length === 0) {
+                        document.querySelectorAll(allSel).forEach((x) => x.classList.add('is-active'));
+                    }
                 }
+                cfg.onChange();
             });
         });
     }
 
+    // 读某一组筛选标签的当前选中值（排除「全部」）
+    function readFilter(selector, dataKey) {
+        const out = [];
+        document.querySelectorAll(selector).forEach((b) => {
+            if (b.classList.contains('is-active')) {
+                const v = b.dataset[dataKey];
+                if (v && v !== 'all') out.push(v);
+            }
+        });
+        return out;
+    }
+
     // 绑定双窗口事件
     function bindWindowEvents() {
-        // 窗口切换标签（data-window 切换窗口，data-target 打开模态框）
-        document.querySelectorAll('.nav-tab').forEach(tab => {
+        document.querySelectorAll('.nav-tab').forEach((tab) => {
             tab.addEventListener('click', () => {
                 if (tab.dataset.window) {
                     switchWindow(tab.dataset.window);
                 } else if (tab.dataset.target === 'glossary') {
-                    // 打开知识库模态框
                     if (typeof openGlossaryModal === 'function') {
                         openGlossaryModal();
                     } else {
@@ -3425,7 +4174,6 @@
                         }
                     }
                 } else if (tab.dataset.target === 'saved') {
-                    // 打开收藏模态框
                     if (typeof openSavedModal === 'function') {
                         openSavedModal();
                     } else {
@@ -3439,44 +4187,31 @@
             });
         });
 
-        // 省份卡片点击
-        document.querySelectorAll('.province-card').forEach(card => {
+        // 省份卡片（K-5）：锁定省份不再是一次「死点击」——
+        // 给出 toast 解释、title 悬停说明、aria-disabled，并记录用户意向（localStorage）
+        document.querySelectorAll('.province-card').forEach((card) => {
             card.addEventListener('click', () => {
+                const province = card.querySelector('.province-name');
+                const label = province ? province.textContent.trim() : '该省份';
                 if (card.classList.contains('is-locked')) {
+                    showToast(label + '院校数据正在整理中，敬请期待（已记下你的需求）');
+                    recordProvinceDemand(card.dataset.province || label);
                     return;
                 }
-                document.querySelectorAll('.province-card').forEach(c => c.classList.remove('is-active'));
+                document.querySelectorAll('.province-card').forEach((c) => c.classList.remove('is-active'));
                 card.classList.add('is-active');
             });
         });
 
-        // 高校考研页面筛选事件（层次/难度多选标签 + 排序按钮 + 搜索）
-        function toggleFilterTags(selector, allSelector, activeSel) {
-            document.querySelectorAll(selector).forEach((b) => {
-                b.addEventListener('click', () => {
-                    const v = b.dataset.level || b.dataset.diff;
-                    if (v === 'all') {
-                        // 点击"全部"：清除该组所有选中，仅保留"全部"
-                        document.querySelectorAll(selector).forEach((x) => x.classList.remove('is-active'));
-                        b.classList.add('is-active');
-                    } else {
-                        // 点击具体标签：切换选中
-                        b.classList.toggle('is-active');
-                        // 若选中了具体标签，取消"全部"
-                        document.querySelectorAll(allSelector).forEach((x) => x.classList.remove('is-active'));
-                        // 若没有任何具体标签选中，恢复"全部"
-                        const any = document.querySelectorAll(activeSel).length;
-                        if (any === 0) {
-                            document.querySelectorAll(allSelector).forEach((x) => x.classList.add('is-active'));
-                        }
-                    }
-                    filterSchoolsPage();
-                });
-            });
-        }
-        toggleFilterTags('.school-level-btn', '.school-level-btn[data-level="all"]', '.school-level-btn.is-active:not([data-level="all"])');
-        toggleFilterTags('.school-diff-btn', '.school-diff-btn[data-diff="all"]', '.school-diff-btn.is-active:not([data-diff="all"])');
-        // 排序按钮（单选，点击切换）
+        // 考研筛选
+        bindFilterTags({
+            selector: '.school-level-btn', dataKey: 'level', attr: 'level',
+            onChange: filterSchoolsPage,
+        });
+        bindFilterTags({
+            selector: '.school-diff-btn', dataKey: 'diff', attr: 'diff',
+            onChange: filterSchoolsPage,
+        });
         document.querySelectorAll('.school-sort-btn').forEach((b) => {
             b.addEventListener('click', () => {
                 document.querySelectorAll('.school-sort-btn').forEach((x) => x.classList.remove('is-active'));
@@ -3487,17 +4222,56 @@
         const schoolsSearch2 = document.getElementById('schoolsSearch2');
         if (schoolsSearch2) schoolsSearch2.addEventListener('input', filterSchoolsPage);
 
-        // 就业窗口"查看岗位详情"（仍为 #）点击平滑滚动到对应区块；"查看更多招聘"为真实外链则不拦截
-        document.querySelectorAll('.block-link').forEach((link) => {
-            if (link.getAttribute('href') === '#') {
-                link.addEventListener('click', (e) => {
-                    e.preventDefault();
-                    const targetId = link.textContent.indexOf('招聘') >= 0 ? 'recruitGrid' : 'jobsGrid';
-                    const el = document.getElementById(targetId);
-                    if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
-                });
-            }
+        // 就业筛选（J-5）：需求程度 / 方向属性 / 排序 / 搜索
+        bindFilterTags({
+            selector: '.job-demand-btn', dataKey: 'demand', attr: 'demand',
+            onChange: () => { jobsFilter.demand = readFilter('.job-demand-btn', 'demand')[0] || 'all'; renderJobsPage(); },
         });
+        bindFilterTags({
+            selector: '.job-cat-btn', dataKey: 'cat', attr: 'cat',
+            onChange: () => { jobsFilter.category = readFilter('.job-cat-btn', 'cat')[0] || 'all'; renderJobsPage(); },
+        });
+        document.querySelectorAll('.job-sort-btn').forEach((b) => {
+            b.addEventListener('click', () => {
+                document.querySelectorAll('.job-sort-btn').forEach((x) => x.classList.remove('is-active'));
+                b.classList.add('is-active');
+                jobsFilter.sort = b.dataset.sort || 'demand';
+                renderJobsPage();
+            });
+        });
+        const jobsSearch = document.getElementById('jobsSearch');
+        if (jobsSearch) {
+            jobsSearch.addEventListener('input', () => {
+                jobsFilter.q = jobsSearch.value.trim().toLowerCase();
+                renderJobsPage();
+            });
+        }
+
+        // 对比弹窗关闭
+        const compareModal = document.getElementById('compareModal');
+        if (compareModal) {
+            const overlay = document.getElementById('compareOverlay');
+            const close = document.getElementById('compareClose');
+            const closeFn = () => {
+                compareModal.classList.remove('show');
+                document.body.style.overflow = '';
+            };
+            if (overlay) overlay.addEventListener('click', closeFn);
+            if (close) close.addEventListener('click', closeFn);
+        }
+    }
+
+    // 记录用户对未开放省份的意向（轻量、本地、不外发）
+    function recordProvinceDemand(key) {
+        try {
+            const arr = readJsonArray('province_demand');
+            if (arr.indexOf(key) < 0) {
+                arr.push(key);
+                writeJsonArray('province_demand', arr);
+            }
+        } catch (e) {
+            /* 本地记录失败不影响交互 */
+        }
     }
 
 })();

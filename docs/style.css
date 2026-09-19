@@ -1986,3 +1986,311 @@ body.dark .highlight { background: rgba(245, 158, 11, 0.4); }
         transition-duration: 0.01ms !important;
     }
 }
+
+/* ============================================================
+   考研 / 就业窗口 · 本轮优化新增样式
+   对应审查报告：K-1 ~ K-9、J-1 ~ J-9、C-1 ~ C-3
+   ============================================================ */
+
+/* --- 文字型入口按钮：原为 <a href="#">，改为真按钮后需清掉浏览器默认外观 --- */
+.algo-entry {
+    background: none;
+    border: 0;
+    padding: 0;
+    font-family: inherit;
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--clr-brand-deep);
+    cursor: pointer;
+}
+
+/* --- 空态与重试（K-2 / J-8：加载失败如实告知，不再用虚构数据伪装成功） --- */
+.is-empty-text { color: var(--clr-muted); line-height: 1.6; }
+.schools-empty .is-empty-text { max-width: 560px; margin: 0 auto; }
+.retry-btn {
+    margin-top: 12px;
+    padding: 7px 20px;
+    font-family: inherit;
+    font-size: 13px;
+    color: var(--clr-brand-deep);
+    background: var(--clr-brand-soft);
+    border: 1px solid transparent;
+    border-radius: 16px;
+    cursor: pointer;
+    transition: background .2s, color .2s;
+}
+.retry-btn:hover { background: var(--clr-brand); color: #fff; }
+
+/* --- 收藏（C-1）：院校卡与就业方向卡共用 --- */
+.fav-btn {
+    flex-shrink: 0;
+    width: 26px;
+    height: 26px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 15px;
+    line-height: 1;
+    color: var(--clr-muted);
+    background: none;
+    border: 0;
+    padding: 0;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: color .2s, background .2s, transform .15s;
+}
+.fav-btn:hover { color: var(--clr-warn); background: rgba(245, 158, 11, 0.12); }
+.fav-btn:active { transform: scale(0.9); }
+.fav-btn.saved { color: var(--clr-warn); }
+
+/* 收藏弹窗里的分区（C-1） */
+.saved-section { margin-top: 18px; }
+.saved-section-title {
+    font-size: 12.5px;
+    font-weight: 700;
+    color: var(--clr-brand-deep);
+    padding-bottom: 6px;
+    margin-bottom: 10px;
+    border-bottom: 1px solid var(--clr-border);
+}
+.saved-card-plain { border-left: 3px solid var(--clr-brand); }
+
+/* --- 数据时效（K-7）：从展开区提到统计条，过期给出柔和提示 --- */
+.stats-age { color: var(--clr-muted); }
+.stats-age.is-stale { color: var(--clr-warn); font-weight: 600; }
+
+/* --- 学科评估语义拆分（K-8） --- */
+.school-tag.is-muted { opacity: 0.72; }
+.school-disc-note { font-size: 11.5px; color: var(--clr-muted); margin-bottom: 8px; }
+.school-dir-preview { font-size: 12px; color: var(--clr-muted); margin-bottom: 10px; line-height: 1.5; }
+
+/* --- 卡片操作区（K-6）：展开改由独立按钮承担，整卡不再是热区 --- */
+.school-card { cursor: default; }
+/* 同一行卡片等高、操作按钮贴底对齐：有的院校带「学科评估补充说明」会把卡片撑高，
+   不这样处理会出现按钮悬在半空、下方留一块空白 */
+.school-card { display: flex; flex-direction: column; }
+.school-card-actions { margin-top: auto; }
+.school-card-header .school-name { flex: 1; }
+.school-card.in-compare { border-color: var(--clr-brand); box-shadow: 0 0 0 2px var(--clr-brand-soft); }
+.school-card-actions {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+    margin-top: 2px;
+}
+.school-expand-btn {
+    flex: 1;
+    min-height: 38px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    font-family: inherit;
+    font-size: 12.5px;
+    color: var(--clr-brand-deep);
+    background: var(--clr-brand-faint);
+    border: 1px solid var(--clr-border);
+    border-radius: var(--r-sm);
+    cursor: pointer;
+    transition: background .2s, border-color .2s;
+}
+.school-expand-btn:hover { background: var(--clr-brand-soft); border-color: var(--clr-brand); }
+.school-expand-btn:focus-visible { outline: 2px solid var(--clr-brand); outline-offset: 2px; }
+.school-expand-btn .expand-caret { font-size: 10px; }
+.compare-check {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    font-size: 12px;
+    color: var(--clr-muted);
+    cursor: pointer;
+    white-space: nowrap;
+    user-select: none;
+}
+.compare-check input { width: 15px; height: 15px; accent-color: var(--clr-brand); cursor: pointer; margin: 0; }
+
+/* --- 结构化复试线（K-9）：多年并排，最近一年加粗高亮 --- */
+.score-group { display: flex; flex-wrap: wrap; align-items: center; gap: 6px; margin-bottom: 6px; }
+.score-group:last-child { margin-bottom: 0; }
+.score-group-label { font-size: 11.5px; color: var(--clr-muted); }
+.score-chips { display: inline-flex; flex-wrap: wrap; gap: 6px; }
+.score-chip {
+    display: inline-flex;
+    align-items: baseline;
+    gap: 4px;
+    padding: 2px 8px;
+    border-radius: 8px;
+    background: var(--clr-bg);
+    border: 1px solid var(--clr-border);
+    font-size: 12px;
+}
+.score-chip .score-year { font-size: 11px; color: var(--clr-muted); }
+.score-chip .score-val { color: var(--clr-text); }
+.score-chip.is-latest { border-color: var(--clr-brand); background: var(--clr-brand-soft); }
+.score-chip.is-latest .score-val { font-weight: 700; color: var(--clr-brand-deep); }
+
+/* --- 加载更多（C-3）：移动端不再一次性渲染 18 张卡 --- */
+.schools-more { margin-top: 16px; text-align: center; }
+.load-more-schools {
+    padding: 9px 26px;
+    font-family: inherit;
+    font-size: 13px;
+    color: var(--clr-brand-deep);
+    background: var(--clr-surface);
+    border: 1px solid var(--clr-border);
+    border-radius: 20px;
+    cursor: pointer;
+    transition: border-color .2s, box-shadow .2s;
+}
+.load-more-schools:hover { border-color: var(--clr-brand); box-shadow: var(--sh-sm); }
+.more-hint { font-size: 12.5px; color: var(--clr-muted); }
+
+/* --- 院校对比（C-3） --- */
+.compare-bar {
+    display: none;
+    position: fixed;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: 24px;
+    z-index: 60;
+    align-items: center;
+    gap: 12px;
+    padding: 10px 16px;
+    background: var(--clr-surface);
+    border: 1px solid var(--clr-border);
+    border-radius: 24px;
+    box-shadow: var(--sh-lg);
+}
+.compare-bar.show { display: flex; }
+.compare-bar-text { font-size: 13px; color: var(--clr-text); white-space: nowrap; }
+.compare-bar-go {
+    padding: 6px 18px;
+    font-family: inherit;
+    font-size: 13px;
+    font-weight: 600;
+    color: #fff;
+    background: var(--clr-brand);
+    border: 0;
+    border-radius: 16px;
+    cursor: pointer;
+    white-space: nowrap;
+}
+.compare-bar-go:hover { background: var(--clr-brand-deep); }
+.compare-bar-clear {
+    padding: 6px 4px;
+    font-family: inherit;
+    font-size: 13px;
+    color: var(--clr-muted);
+    background: none;
+    border: 0;
+    cursor: pointer;
+    white-space: nowrap;
+}
+.compare-bar-clear:hover { color: var(--clr-text); }
+
+.compare-wrap { overflow-x: auto; }
+.compare-table { width: 100%; border-collapse: collapse; font-size: 12.5px; }
+.compare-table th,
+.compare-table td {
+    border: 1px solid var(--clr-border);
+    padding: 8px 10px;
+    text-align: left;
+    vertical-align: top;
+    line-height: 1.6;
+}
+.compare-table thead th { background: var(--clr-bg); font-weight: 700; white-space: nowrap; }
+.compare-table tbody th {
+    background: var(--clr-brand-faint);
+    color: var(--clr-muted);
+    font-weight: 600;
+    white-space: nowrap;
+}
+.compare-table td { min-width: 118px; }
+
+/* --- 就业窗口：筛选区与卡片补充（J-5 / J-7 / J-9） --- */
+.jobs-filters { margin-bottom: 16px; }
+.job-card-top {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 8px;
+    margin-bottom: 6px;
+}
+.job-card-top .job-card-title { flex: 1; margin-bottom: 0; }
+.job-card-salary { font-size: 12px; font-weight: 600; color: var(--clr-brand-deep); margin-top: 6px; }
+.job-cat-tag {
+    font-size: 11px;
+    color: var(--clr-muted);
+    background: var(--clr-bg);
+    border: 1px solid var(--clr-border);
+    padding: 2px 10px;
+    border-radius: 10px;
+}
+.job-card-foot .job-demand { margin-top: 0; }
+/* J-7：补上「需求中高」这一档，并让三档拿到三个不同文字色。
+   色阶沿用本页难度角标那套（warn 给中高、#D97706 给中），全站视觉口径一致。 */
+.job-demand.demand-mid-high { color: var(--clr-warn); background: rgba(245, 158, 11, 0.16); }
+.job-demand.demand-medium { color: #D97706; }
+
+/* --- 招聘资讯 / 精选岗位：来源与时效（J-2 / J-3） --- */
+.recruit-type {
+    font-size: 10.5px;
+    font-weight: 600;
+    color: var(--clr-brand-deep);
+    background: var(--clr-brand-soft);
+    padding: 1px 8px;
+    border-radius: 8px;
+    white-space: nowrap;
+}
+.recruit-job a { color: var(--clr-text); text-decoration: none; }
+.recruit-job a:hover { color: var(--clr-brand-deep); text-decoration: underline; }
+.recruit-prov {
+    font-size: 11px;
+    color: var(--clr-muted);
+    margin-top: 6px;
+    padding-top: 6px;
+    border-top: 1px dashed var(--clr-border);
+}
+.recruit-apply {
+    display: inline-block;
+    margin-top: 8px;
+    font-size: 11.5px;
+    font-weight: 600;
+    color: var(--clr-brand-deep);
+    text-decoration: none;
+}
+.recruit-apply:hover { text-decoration: underline; }
+
+/* --- 数据说明（J-6）：给量化断言一个可解释的口径 --- */
+.data-note {
+    margin-top: 22px;
+    padding: 14px 16px;
+    font-size: 12px;
+    line-height: 1.75;
+    color: var(--clr-muted);
+    background: var(--clr-brand-faint);
+    border-left: 3px solid var(--clr-brand);
+    border-radius: 0 var(--r-sm) var(--r-sm) 0;
+}
+.data-note strong { color: var(--clr-text); margin-right: 6px; }
+
+/* --- 移动端（C-3）：对比条上移到导航之上，避免被底部导航盖住 --- */
+@media (max-width: 640px) {
+    .schools-more { margin-top: 12px; }
+    .compare-bar {
+        bottom: 76px;
+        max-width: calc(100vw - 24px);
+        padding: 9px 12px;
+        gap: 8px;
+    }
+    .compare-bar-text { font-size: 12px; }
+    .compare-bar-go { padding: 6px 14px; font-size: 12.5px; }
+    .compare-bar-clear { font-size: 12.5px; }
+    .job-card-top .fav-btn { width: 30px; height: 30px; }
+    .school-expand-btn { min-height: 42px; }
+    .compare-table { font-size: 12px; }
+    .compare-table th,
+    .compare-table td { padding: 6px 8px; }
+    .data-note { font-size: 11.5px; }
+}

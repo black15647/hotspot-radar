@@ -818,5 +818,110 @@ class TestKeywordCoverageForChineseVertical(unittest.TestCase):
                             "关键词零命中：%s" % t)
 
 
+class TestSafeGetRedirectGuard(unittest.TestCase):
+    """_safe_get 逐跳校验重定向 —— 堵住「入口 URL 合法、重定向指向内网」的绕过路径。
+
+    为什么必须单独测这一层：只测 _is_safe_public_url 是**测不到**这个缺陷的。
+    requests 默认 allow_redirects=True，会把 302 一路跟到底，于是校验只看过那个
+    合法的公网 URL，真正被请求的却是内网地址。本用例的核心断言不是「返回 None」，
+    而是「那个内网地址**一次都没有被请求过**」——即请求根本没发出去。
+    """
+
+    def setUp(self):
+        self.calls = []
+        self._orig_get = dr.requests.get
+
+    def tearDown(self):
+        dr.requests.get = self._orig_get
+
+    @staticmethod
+    def _resp(status, location=None):
+        return SimpleNamespace(
+            status_code=status,
+            headers={"Location": location} if location else {},
+            text="ok",
+        )
+
+    def _patch(self, mapping):
+        def fake_get(u, **kwargs):
+            self.calls.append({"url": u, "allow_redirects": kwargs.get("allow_redirects")})
+            if u not in mapping:
+                raise AssertionError(f"不应请求该地址：{u}")
+            return mapping[u]
+        dr.requests.get = fake_get
+
+    def test_follows_legitimate_redirect(self):
+        """正常跳转必须照常跟到底（否则正文提取整体失效）"""
+        self._patch({
+            "https://a.example.com/x": self._resp(302, "https://b.example.com/y"),
+            "https://b.example.com/y": self._resp(200),
+        })
+        resp, blocked = dr._safe_get("https://a.example.com/x")
+        self.assertIsNone(blocked)
+        self.assertEqual(resp.status_code, 200)
+        self.assertEqual([c["url"] for c in self.calls],
+                         ["https://a.example.com/x", "https://b.example.com/y"])
+
+    def test_never_enables_auto_redirect(self):
+        """每一跳都必须 allow_redirects=False：只要有一跳交回给 requests 自动跟随，防线即失效"""
+        self._patch({
+            "https://a.example.com/x": self._resp(302, "https://b.example.com/y"),
+            "https://b.example.com/y": self._resp(200),
+        })
+        dr._safe_get("https://a.example.com/x")
+        self.assertTrue(self.calls, "应当发起过请求")
+        for c in self.calls:
+            self.assertIs(c["allow_redirects"], False,
+                          f"{c['url']} 未显式关闭自动重定向")
+
+    def test_metadata_redirect_target_is_never_requested(self):
+        """核心回归：302 指向云元数据端点时，那个地址绝不能被请求"""
+        self._patch({
+            "https://evil.example.com/x": self._resp(302, "http://169.254.169.254/latest/meta-data/"),
+        })
+        resp, blocked = dr._safe_get("https://evil.example.com/x")
+        self.assertIsNone(resp, "被拦截时不应返回响应")
+        self.assertEqual(blocked, "http://169.254.169.254/latest/meta-data/")
+        self.assertEqual(len(self.calls), 1, "只应请求过最初那个公网地址")
+
+    def test_relative_location_is_resolved_before_check(self):
+        """相对 Location 必须先解析成绝对地址再校验，否则私网重定向会漏过"""
+        self._patch({
+            "https://a.example.com/x": self._resp(302, "../../../etc"),
+            "https://a.example.com/etc": self._resp(200),
+        })
+        resp, blocked = dr._safe_get("https://a.example.com/x")
+        self.assertIsNone(blocked)
+        self.assertEqual(self.calls[-1]["url"], "https://a.example.com/etc")
+
+    def test_redirect_to_private_host_is_blocked(self):
+        for target in ["http://127.0.0.1/admin",
+                       "http://10.1.2.3/",
+                       "http://metadata.google.internal/x",
+                       "file:///etc/passwd"]:
+            self.calls = []
+            self._patch({"https://a.example.com/x": self._resp(302, target)})
+            resp, blocked = dr._safe_get("https://a.example.com/x")
+            self.assertIsNone(resp, f"应拦截：{target}")
+            self.assertEqual(blocked, target)
+            self.assertEqual(len(self.calls), 1, f"不应请求：{target}")
+
+    def test_redirect_loop_is_bounded(self):
+        """自指环必须在上限内停止，不能无限跟下去"""
+        self._patch({"https://a.example.com/x": self._resp(302, "https://a.example.com/x")})
+        resp, blocked = dr._safe_get("https://a.example.com/x")
+        self.assertIsNone(resp)
+        self.assertIsNone(blocked)
+        self.assertEqual(len(self.calls), dr.SAFE_GET_MAX_REDIRECTS + 1)
+
+    def test_existing_behaviour_for_plain_200(self):
+        """无重定向的老路径行为不变：一次请求、原样返回响应"""
+        self._patch({"https://a.example.com/x": self._resp(200)})
+        resp, blocked = dr._safe_get("https://a.example.com/x")
+        self.assertEqual(resp.status_code, 200)
+        self.assertIsNone(blocked)
+        self.assertEqual(len(self.calls), 1)
+
+
 if __name__ == "__main__":
     unittest.main(verbosity=2)

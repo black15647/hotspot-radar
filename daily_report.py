@@ -23,7 +23,7 @@ import urllib.parse                 # 翻译接口需要 urllib.parse.quote 编�
 from email.mime.text import MIMEText
 from email.header import Header
 from email.utils import parsedate_to_datetime
-from urllib.parse import urlparse
+from urllib.parse import urlparse, urljoin
 from datetime import datetime, timedelta, timezone
 from collections import Counter, defaultdict
 
@@ -2032,6 +2032,40 @@ def _is_safe_public_url(url):
     return True
 
 
+# 手动跟跳的最大重定向次数。requests 默认是 30 跳，对新闻站来说远超实际需要
+# （正常 0-3 跳），收紧一点可以少绕几圈，也避免恶意链故意拉长跳数拖时间。
+SAFE_GET_MAX_REDIRECTS = 10
+
+
+def _safe_get(url, timeout=15, headers=None):
+    """
+    带「逐跳 SSRF 校验」的 GET 请求。
+
+    为什么不能直接用 requests.get：requests 默认 allow_redirects=True，会把重定向
+    一路跟到底。于是 `_is_safe_public_url` 这层入口校验是**可以被绕过的**——只要源里
+    给出一个合法公网 URL，让它 302 到 http://169.254.169.254/ ，真正被请求的就是内网
+    地址，而拦截逻辑从头到尾只看到过那个公网 URL。
+    这里改为 allow_redirects=False，自己手动跟跳，并在**每一跳**重新做公网校验。
+
+    返回 (response, blocked_url)：
+      (response, None)  正常结束（4xx/5xx 交给调用方按原有逻辑处理）
+      (None, url)       某一跳指向被禁止的地址 —— 该请求**没有发出**
+      (None, None)      跳数超过 SAFE_GET_MAX_REDIRECTS（此时各跳均为合法公网地址）
+    """
+    current = url
+    for _ in range(SAFE_GET_MAX_REDIRECTS + 1):
+        if not _is_safe_public_url(current):
+            return None, current
+        resp = requests.get(current, timeout=timeout, headers=headers, allow_redirects=False)
+        location = resp.headers.get("Location")
+        if resp.status_code in (301, 302, 303, 307, 308) and location:
+            # 相对 Location（如 "/new-path"）按 RFC 用 urljoin 解析成绝对地址后再校验
+            current = urljoin(current, location)
+            continue
+        return resp, None
+    return None, None
+
+
 def extract_article_text(url, api_config):
     """
     提取文章正文纯文本（多级兜底，任一成功即返回）：
@@ -2077,6 +2111,15 @@ def extract_article_text(url, api_config):
     }
 
     # 第一步：trafilatura 本地提取（优先，正文质量高）
+    # ⚠️ 已知残留风险（2026-09-20 审查）：本分支用的是 trafilatura 自带的下载器，它会
+    # 自行跟随重定向，而我们无法在其内部逐跳校验——也就是说上面 _safe_get 堵住的那条
+    # 「公网 URL 302 到内网」的绕过路径，走本分支时仍然存在。
+    # 之所以暂不改：本机没有安装 trafilatura（只有 CI 装），无法在做改动前后做提取质量
+    # 的对照实测；而这是**首个**尝试的分支，一旦改坏会直接影响全站摘要质量。
+    # 彻底修法（需在 CI 或本地装好 trafilatura 后验证再上）：
+    #   html_bytes, blocked = 用 _safe_get 抓 url
+    #   若 blocked 则直接放弃；否则 text = trafilatura.extract(html_bytes)
+    #   仅当「非拦截类失败」时才回退到 trafilatura.fetch_url，且回退前再查一次重定向。
     if TRAFILATURA_AVAILABLE:
         try:
             page_html = trafilatura.fetch_url(url)
@@ -2093,9 +2136,17 @@ def extract_article_text(url, api_config):
     # 第二步：readability + html2text 本地提取
     if api_config["local_extraction"] and READABILITY_AVAILABLE and HTML2TEXT_AVAILABLE:
         try:
-            resp = requests.get(url, timeout=15, headers=headers)
+            resp, blocked = _safe_get(url, timeout=15, headers=headers)
+            # 重定向链条上出现内网/元数据地址：与入口校验同等级对待，直接放弃该条
+            if blocked is not None:
+                _mark_domain_failed(
+                    domain,
+                    f"[原文提取] 拒绝跟随重定向到非公网地址（SSRF 防护）：{blocked!r}",
+                )
+            elif resp is None:
+                _mark_domain_failed(domain, f"[原文提取] 重定向次数超过上限 ({domain})")
             # 403/401/405 不重试，但继续尝试后续兜底
-            if resp.status_code in (401, 403, 405):
+            elif resp.status_code in (401, 403, 405):
                 _mark_domain_failed(domain, f"[原文提取] 跳过：{resp.status_code} Forbidden ({domain})")
             else:
                 resp.raise_for_status()
@@ -3055,6 +3106,11 @@ def _extract_json_array(text, label="AI"):
     从可能夹带推理过程/解释/markdown 的 AI 文本中，稳健提取第一个 JSON 数组。
     流程：去代码块 -> 定位第一个 '[' 与最后一个 ']' -> json.loads。
     成功返回 list；失败返回 None（调用方回退规则），并打印前200字便于排查。
+
+    [注意：当前无调用点] 2026-09-20 全库检索确认无引用。现有调用方都走
+    _extract_ai_list / _extract_json_object（对象与数组统一走列表解析），
+    本函数属于早期独立实现。保留是因为它更宽松的「首尾方括号」策略在少数
+    夹带说明文字的响应上仍可能有价值；删前请先确认 _extract_ai_list 能覆盖。
     """
     if not text:
         return None
@@ -5040,6 +5096,9 @@ def generate_batch_summaries(items, api_config):
     return items
 
 
+# [注意：当前无调用点] main() 现在是「Top10 逐条调用 generate_topic_tags + 其余走
+# extract_tags_from_title 规则」，不再使用批量版本（逐条调用便于单条失败时独立降级，
+# 不会因为一次响应格式异常就丢掉全部标签）。本函数保留但无调用方。
 def generate_batch_topic_tags(items, api_config):
     """
     批量生成话题标签：将所有条目合并成一次 API 请求

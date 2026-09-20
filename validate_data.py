@@ -100,8 +100,12 @@ def need_str(f, obj, path, keys, allow_empty=()):
             err(f, path + "." + k, "应为字符串，实际是 %s" % type(v).__name__)
         elif not v.strip() and k not in allow_empty:
             err(f, path + "." + k, "不应为空")
-        elif "\r" in v or "\n" in v and k != "detail":
+        elif ("\r" in v or "\n" in v) and k != "detail":
             # 换行会让 JSON 与前端渲染出现不可预期差异，detail 允许分行
+            # 注意括号：原写法 `"\r" in v or "\n" in v and k != "detail"` 因 and 优先级更高，
+            # 实际等价于 `"\r" in v or ("\n" in v and k != "detail")`
+            # ——于是 detail 的豁免只对 \n 生效、对 \r 不生效：
+            # detail 里出现 \r 会被误报为「含有换行符」。
             warn(f, path + "." + k, "含有换行符")
 
 
@@ -181,7 +185,12 @@ def check_schools(data, f="schools.json"):
         # 层次与标签一致性：K-2 / K-8 那一类语义漂移的自动化拦截
         level = s.get("level", "")
         if isinstance(level, str):
-            if level == "普通" and any(x in level for x in ("985", "211", "双一流")):
+            # ⚠️ 原写法是 `any(x in level for x in (...))`，而进入本分支的前提正是
+            # level == "普通" —— "985"/"211"/"双一流" 不可能是 "普通" 的子串，
+            # 所以这个判断**恒为假**，这条一致性检查从未生效过（死条件）。
+            # 要拦的语义漂移在 tags 里：level 写「普通」但标签却声称 985/211/双一流。
+            if level == "普通" and isinstance(tags, list) and any(
+                    x in tags for x in ("985", "211", "双一流")):
                 err(f, p + ".level", "层次为「普通」却含 985/211/双一流")
             if level in ("985", "211", "双一流") and isinstance(tags, list):
                 # 层次标签与 tags 里的一致性：985 必然也是 211/双一流，缺了多半是漏填

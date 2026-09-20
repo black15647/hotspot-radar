@@ -1,0 +1,59 @@
+name: Probe Source Reachability
+
+# 为什么单独开一个工作流：
+#   本地开发机在国内，流水线跑在 Azure 境外 IP。中文站对海外 IP 的地域封锁
+#   （或海外站对国内 IP 的封锁）只能靠真实 runner 验证。本工作流**只探测、不写库**，
+#   不会产数据、不会 commit、不会碰 docs/data。跑完看 Job Summary 即可。
+#
+# 触发方式：仓库 Actions 页 → 左侧选 "Probe Source Reachability" → Run workflow。
+
+on:
+  workflow_dispatch:
+    inputs:
+      with_config:
+        description: "同时探测 config.yaml 里在用的源"
+        type: boolean
+        default: true
+
+jobs:
+  probe:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python 3.10
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.10'
+
+      - name: Install minimal deps
+        # 只装探测需要的两个库：探针验证的是「网络能不能通、feed 能不能解析」，
+        # 与 trafilatura/jieba 等正文提取依赖无关，装全量会白等几分钟。
+        run: pip install requests feedparser pyyaml
+
+      - name: Show runner egress IP
+        run: |
+          echo "### Runner 出口 IP" >> $GITHUB_STEP_SUMMARY
+          echo '```' >> $GITHUB_STEP_SUMMARY
+          curl -s --max-time 15 https://api.ipify.org || echo "(ipify 不可达)"
+          echo
+          curl -s --max-time 15 https://ipinfo.io/json || echo "(ipinfo 不可达)"
+          echo '```' >> $GITHUB_STEP_SUMMARY
+
+      - name: Probe sources
+        run: |
+          if [ "${{ inputs.with_config }}" = "true" ]; then
+            python tools/probe_sources.py --with-config
+          else
+            python tools/probe_sources.py
+          fi
+
+      - name: Upload result
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: probe-result
+          path: tools/probe_result.json
+          if-no-files-found: warn

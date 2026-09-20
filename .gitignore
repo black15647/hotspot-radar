@@ -22,6 +22,8 @@ env/
 # ===== 本地临时产物 =====
 # UI 预览截图（.ui_preview/ 下由本地渲染脚本生成，不属于站点资源）
 .ui_preview/
+# 源可达性探针的输出（在 Actions 上跑完即弃，只作为 artifact 上传）
+tools/probe_result.json
 # 自动化脚本的临时报告
 _audit_*.txt
 _out.txt

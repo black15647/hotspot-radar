@@ -232,13 +232,53 @@ BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 DATA_DIR = os.path.join(BASE_DIR, "docs", "data")
 CONFIG_PATH = os.path.join(BASE_DIR, "config.yaml")
 
+# 内置默认关键词表（config.yaml 未配置 keywords: 时生效）。
+#
+# ⚠️ 2026-09-20 扩容：原表仅 32 词，实测线上 28 条里 **22 条零命中**——
+# matched_keywords 为空 → 关键词 IDF 分（满分 25，v2 第二大因子）恒为 0、
+# 跨源共振分（满分 15）恒为 0、白名单保护（≥5 分）也不触发，
+# 排序实际退化成「来源权重 + 时间衰减」两因子。
+# 根因是缺词而非匹配逻辑：中文标题高频出现「生态环境」「环境保护」「环境监测」
+# 「督察」等词，原表都没有（"生态环境保护督察" 也不含子串 "环保督察"）；
+# 中文条目又没有英文别名可回退，于是整条判零。
+# 扩到 52 词后，同一批线上数据命中率 6/28 → 14/28。
+# 2026-09-20 晚再补 6 词（碳市场/碳交易/垃圾焚烧/污泥/环境法典/排污许可，共 58 词）——
+# 起因是接入中文环境垂直源后实测发现新源的高频主题词不在表内，见各分组内的注释。
+#
+# 收录标准：只收**有环境语义的复合词**，不收「污染 / 排放 / 气候」这类过泛单字级词——
+# 它们在几乎每条环境新闻里都出现，会让 s_keyword 对所有人一起饱和，反而丧失区分度。
 DEFAULT_KEYWORDS = [
-    "气候变化", "碳中和", "碳排放", "水污染", "大气污染", "土壤污染",
-    "微塑料", "新污染物", "重金属", "生物多样性", "生态修复", "生态系统",
-    "可再生能源", "清洁能源", "循环经济", "环保督察", "环评", "绿色金融",
-    "可持续发展", "环境健康", "垃圾分类", "塑料污染", "海洋保护",
-    "考研", "招聘", "实习", "竞赛", "水处理", "土壤修复",
-    "环境工程", "环境科学"
+    # 气候与碳
+    "气候变化", "碳中和", "碳达峰", "碳排放", "温室气体", "能源转型",
+    # 碳市场（2026-09-20 新增）：接入中国环境网/人民网环保频道后实测发现，
+    # 「全国碳市场扩围至钢铁水泥铝冶炼行业」这类重大政策标题不含原有的任何碳相关词
+    # （词表里只有碳中和/碳达峰/碳排放），关键词 IDF 分为 0，排序吃亏。
+    "碳市场", "碳交易",
+    # 水
+    "水污染", "水处理", "饮用水", "地下水", "流域",
+    # 大气
+    "大气污染", "臭氧",
+    # 土壤与固废
+    "土壤污染", "土壤修复", "固废", "危废", "垃圾分类",
+    # 固废细分（2026-09-20 新增）：北极星环保网/生态环境部的高频主题
+    "垃圾焚烧", "污泥",
+    # 污染物
+    "微塑料", "新污染物", "重金属", "塑料污染",
+    # 生态与自然
+    "生态环境", "生态保护", "生态修复", "生态系统", "生态安全",
+    "生物多样性", "湿地", "海洋保护",
+    # 治理与管理
+    "环境保护", "污染治理", "污染防治", "环境治理", "环境监测",
+    "环评", "环保督察", "督察", "环境政策",
+    # 法规与制度（2026-09-20 新增）：属于"政策原文"类源的核心词汇
+    "环境法典", "排污许可",
+    # 绿色发展与健康
+    "可再生能源", "清洁能源", "循环经济", "绿色低碳", "绿色金融",
+    "可持续发展", "环境健康",
+    # 学生关注方向
+    "考研", "招聘", "实习", "竞赛",
+    # 学科词
+    "环境工程", "环境科学",
 ]
 
 # 中文关键词的英文别名表：用于让英文标题也能命中关键词（站内约 2/3 信源为英文刊/媒体）。
@@ -279,19 +319,44 @@ KEYWORD_EN_ALIASES = {
     "土壤修复": ("soil remediation", "soil restoration"),
     "环境工程": ("environmental engineering",),
     "环境科学": ("environmental science", "environmental sciences"),
+    # ---- 2026-09-20 随 DEFAULT_KEYWORDS 扩容同步补齐（英文刊/媒体约占 2/3 信源）----
+    "碳达峰": ("carbon peak", "carbon peaking", "peak emissions"),
+    "温室气体": ("greenhouse gas", "greenhouse gases", "ghg"),
+    "能源转型": ("energy transition", "energy transitions"),
+    "饮用水": ("drinking water", "tap water"),
+    "地下水": ("groundwater", "ground water"),
+    "流域": ("watershed", "watersheds", "river basin", "catchment"),
+    "臭氧": ("ozone",),
+    "固废": ("solid waste", "municipal solid waste"),
+    "危废": ("hazardous waste",),
+    "生态环境": ("ecological environment",),
+    "生态保护": ("ecological protection", "nature conservation"),
+    "生态安全": ("ecological security",),
+    "湿地": ("wetland", "wetlands"),
+    "环境保护": ("environmental protection",),
+    "污染治理": ("pollution control", "pollution treatment", "pollution remediation"),
+    "污染防治": ("pollution prevention",),
+    "环境治理": ("environmental governance",),
+    "环境监测": ("environmental monitoring",),
+    "环境政策": ("environmental policy", "environmental policies"),
+    "绿色低碳": ("low-carbon", "low carbon", "decarbonization", "decarbonisation"),
 }
 
+# 内置默认来源权重表（config.yaml 的 weights.source_weights 一旦存在，本表完全不生效）。
+# 2026-09-20 清理：删掉「Nature 环境科学」——该信源并不存在，属于僵尸键；
+# 同时把宽泛聚合查询从 1.5 下调到 1.2，消除"泛聚合查询比专业环境媒体更权威"的倒挂。
 DEFAULT_SOURCE_WEIGHTS = {
     "Nature": 2.0,
     "Nature Sustainability": 2.0,
-    "Nature 环境科学": 2.0,
-    "Google News 环境保护": 1.5,
-    "Google News 气候变化": 1.5,
-    "Google News 生态环境": 1.5,
-    "Google News 环境污染": 1.5,
-    "Google News 环保招聘": 1.5,
-    "Google News 环境考研": 1.5,
-    "Google News 环境竞赛": 1.5,
+    "Google News 环境保护": 1.2,
+    "Google News 气候变化": 1.2,
+    "Google News 生态环境": 1.2,
+    "Google News 环境污染": 1.2,
+    "Google News 环保招聘": 1.4,
+    "Google News 环境考研": 1.4,
+    "Google News 环境竞赛": 1.4,
+    "Google News 环境校招实习": 1.4,
+    "Google News 生态环境局招聘": 1.4,
 }
 
 DEFAULT_RSS_FEEDS = {
@@ -783,22 +848,37 @@ def fetch_all_feeds(config, max_items_per_source):
 
         try:
             print(f"[抓取] {source_name} ...")
-            feed = None
-            if REQUESTS_AVAILABLE:
-                try:
-                    resp = requests.get(url, timeout=(10, 20), headers={
-                        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 "
-                                      "(KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
-                    })
-                    if resp.ok and resp.content:
-                        feed = feedparser.parse(resp.content)
-                except Exception as e:
-                    # 直连失败属于预期情况（部分源会拒绝普通请求），下面会回退到 feedparser 自行抓取。
-                    # 记录原因但不中断：正常运行时默认不输出。
-                    _debug(f"{source_name} 直接请求失败，改用 feedparser 抓取：{type(e).__name__}: {e}")
-                    feed = None
-            if feed is None:
-                feed = feedparser.parse(url)
+
+            def _fetch_feed():
+                """单次抓取：先直连（带 UA），失败再交给 feedparser 自行抓。"""
+                f = None
+                if REQUESTS_AVAILABLE:
+                    try:
+                        resp = requests.get(url, timeout=(10, 20), headers={
+                            "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 "
+                                          "(KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
+                        })
+                        if resp.ok and resp.content:
+                            f = feedparser.parse(resp.content)
+                    except Exception as e:
+                        # 直连失败属于预期情况（部分源会拒绝普通请求），下面会回退到 feedparser 自行抓取。
+                        # 记录原因但不中断：正常运行时默认不输出。
+                        _debug(f"{source_name} 直接请求失败，改用 feedparser 抓取：{type(e).__name__}: {e}")
+                        f = None
+                if f is None:
+                    f = feedparser.parse(url)
+                return f
+
+            feed = _fetch_feed()
+
+            # 解析失败重试一次：源端偶发返回被截断/被网关改写的响应时，feedparser 会抛
+            # "not well-formed (invalid token)"。这类失败是瞬时的（实测 PNAS 源下次抓取即可正常解析
+            # 出 20 条），不该直接记成一次「源失败」污染健康度。
+            # 只对「解析失败」重试；网络异常走外层 except，不重试（避免失效源把耗时翻倍）。
+            if feed.bozo and not feed.entries:
+                print("  [重试] 首次解析失败，重新抓取一次 ...")
+                _debug(f"{source_name} 首次解析失败：{feed.bozo_exception}")
+                feed = _fetch_feed()
 
             if feed.bozo and not feed.entries:
                 error_msg = f"解析失败：{feed.bozo_exception}"
@@ -1103,8 +1183,13 @@ def calculate_heat_v1(item, keyword_item_count, source_weights, keyword_bonus=2.
 # ============================================================
 # 热度算法 v2 的可调参数（集中定义，避免散落在函数体内的魔法数字）
 # ============================================================
-DUPLICATE_JACCARD_THRESHOLD = 0.45   # 标题 Jaccard 达到该值视为"同一事件"，仅留最高分条目
+DUPLICATE_JACCARD_THRESHOLD = 0.45   # 标题 Jaccard 达到该值视为"同一事件"；代表条目保留满分，
+                                     # 其余成员 raw × DUPLICATE_PENALTY（不是删除，榜单会保留多条）
 DUPLICATE_PENALTY = 0.6              # 同一事件中非代表条目的 raw 惩罚系数
+# 跨源共振分只统计"权威来源"。旧实现在这里写的是 `sw >= 1.0`，而所有来源权重都 >= 1.0
+# （未列出的源默认 1.0）→ 该条件恒真，"只统计权威来源"名不副实，等于把所有源都算进来。
+# 这里改成真实门槛，与 config.yaml 的权重分档对齐（>=1.3 视为权威）。
+RESONANCE_MIN_SOURCE_WEIGHT = 1.3
 DISPLAY_SCORE_MIN = 40.0             # 展示分下限
 DISPLAY_SCORE_MAX = 100.0            # 展示分上限
 DISPLAY_SCORE_MID = 70.0             # 全部条目无实质差异时的中性展示分
@@ -1113,6 +1198,143 @@ DISPLAY_SCORE_MID = 70.0             # 全部条目无实质差异时的中性�
 DISPLAY_MIN_RELATIVE_SPAN = 0.05
 HOTNESS_LEVEL_HIGH = 80.0            # 展示分 >= 该值 -> 高热度
 HOTNESS_LEVEL_MEDIUM = 60.0          # 展示分 >= 该值 -> 中热度，其余为低热度
+
+
+# ============================================================
+# 内容信息密度评估（v2.1 新增，作为乘性系数参与 raw 计算）
+# ============================================================
+# 为什么单独做：原「内容质量分」只判断"摘要字段够不够长"，识别不了
+# "这一条到底有没有实质信息"。实测线上榜尾 4 条地方政务通稿与高密度科研进展
+# 在旧口径下拿到的质量分可以完全相同（只要都有摘要）。
+# 这里的判据与长度无关，只看标题里是"程序性动作/宣传口号"还是"实质议题"。
+DENSITY_BOILERPLATE_FACTOR = 0.65   # 地方政务通稿：有机构、有会议、无实质议题
+DENSITY_THIN_FACTOR = 0.85          # 薄内容：短标题且无任何领域词与研究信号
+DENSITY_POLICY_FACTOR = 1.10        # 国家级政策文件：信息密度最高的一类
+DENSITY_NORMAL_FACTOR = 1.0
+
+# 地方行政层级。刻意不含「盟/旗」：实测"东盟""旗"（如"红旗"）会误触发，
+# 而"自治州"这类真实场景由「州」覆盖，去掉后召回无损、精度更高。
+_RE_LOCAL_GAZ = re.compile(r"(省|市|县|区|州|镇|乡|街道)")
+# 生态环境类机构（局/厅/委/办/站/所/队/中心/督察…）
+_RE_ENV_ORG = re.compile(
+    r"(生态环境|环境保护|环保|环境)[\u4e00-\u9fa5]{0,6}"
+    r"(局|厅|委|办|站|所|队|中心|督察|支队|分局)")
+# 生态/环境类题材词。不写"环境"二字也可以是很明确的环保政务
+# （实测"永州市溶洞污染排查整治工作推进会召开"整条标题不含"环境"）。
+_RE_ENV_SUBJECT = re.compile(
+    r"(生态环境|环境保护|环保|生态|环境|污染|气候|水务|水利|林业|园林|"
+    r"自然资源|市容|环境卫生|绿化|大气|水质)")
+# 国家级/部委级主体：仅在与"规范性文件词"同时出现时才认定为高密度政策文件
+NATIONAL_LEVEL_WORDS = (
+    "生态环境部", "中共中央", "国务院", "国家发展改革委", "国家发改委",
+    "全国人大", "国家标准", "最高人民法院", "最高人民检察院", "多部门联合",
+)
+POLICY_DOC_WORDS = (
+    "方案", "办法", "条例", "规划", "标准", "指导意见", "意见", "通知",
+    "行动计划", "政策", "指南", "清单", "细则", "规定", "修正案", "白皮书",
+)
+# 程序性动作词：会议、行程、表态类，几乎不含可迁移信息
+BOILERPLATE_PROC = (
+    "推进会", "部署会", "现场会", "反馈会", "座谈会", "见面会", "动员会",
+    "专题会", "工作会", "会议召开", "调研", "督导", "视察", "信访",
+    "表态", "揭牌", "走访", "慰问", "培训班", "宣讲", "约谈", "挂牌",
+    "点评会", "汇报会", "调度会", "党组会", "常委会",
+)
+# 宣传/通讯体裁词：地方工作通讯的典型标题特征
+BOILERPLATE_SLOGAN = (
+    "共建共治", "绘新篇", "新篇章", "提质效", "提档升级", "在行动", "纪实",
+    "侧记", "剪影", "风采", "综述", "系列报道", "谱新篇", "开新局",
+    "见闻", "走笔", "巡礼", "谱新章", "写好", "打赢打好",
+)
+# 研究/技术信号：出现即认为有实质信息，不判为通稿
+RESEARCH_SIGNAL = (
+    "研究", "发现", "揭示", "论文", "科学家", "机制", "模型", "实验",
+    "技术", "评估", "核算", "数据", "浓度", "排放量", "去除率", "降解",
+    "成果", "突破", "创新", "专利", "标准限值", "监测网络",
+)
+
+
+def evaluate_content_density(title):
+    """评估标题的信息密度，返回 (乘性系数, 判定说明)。
+
+    判据与标题长度无关，只看"程序性内容"与"实质议题"的比例：
+
+    1. 国家级/部委级主体 + 规范性文件词  -> 1.10（政策文件，信息密度最高）
+    2. 地方行政层级 + 环境机构/程序动作/宣传体裁 且无研究信号 -> 0.65（政务通稿）
+    3. 短标题且无领域词也无研究信号      -> 0.85（薄内容）
+    4. 其余                              -> 1.00
+
+    仅对中文标题生效：英文源（顶刊/国际媒体）不产出中文政务通稿，
+    强行套用中文规则只会产生误判。
+    """
+    if not title or not is_chinese(title):
+        return DENSITY_NORMAL_FACTOR, ""
+
+    hit_national = any(w in title for w in NATIONAL_LEVEL_WORDS)
+    hit_policy_doc = any(w in title for w in POLICY_DOC_WORDS)
+    if hit_national and hit_policy_doc:
+        return DENSITY_POLICY_FACTOR, "国家级政策文件"
+
+    has_gaz = bool(_RE_LOCAL_GAZ.search(title))
+    has_org = bool(_RE_ENV_ORG.search(title))
+    has_subject = bool(_RE_ENV_SUBJECT.search(title))
+    has_proc = any(w in title for w in BOILERPLATE_PROC)
+    has_slogan = any(w in title for w in BOILERPLATE_SLOGAN)
+    has_research = any(w in title for w in RESEARCH_SIGNAL)
+
+    # 地方政务通稿：地方层级打底，且满足"机构 / 程序动作 / 宣传体裁"之一
+    if has_gaz and has_subject and not has_research and (has_org or has_proc or has_slogan):
+        return DENSITY_BOILERPLATE_FACTOR, "地方政务通稿"
+
+    if has_research:
+        return DENSITY_NORMAL_FACTOR, ""
+
+    # 薄内容：短标题、无领域词、也没命中任何环境语素——通常只有一句口号或会议通知
+    if (len(title) < 16
+            and not match_keywords(title, DEFAULT_KEYWORDS, KEYWORD_EN_ALIASES)
+            and not is_env_relevant_term(title)):
+        return DENSITY_THIN_FACTOR, "薄内容"
+
+    return DENSITY_NORMAL_FACTOR, ""
+
+
+def limit_low_density_items(items, config):
+    """按配额移除多余的「地方政务通稿」（配置项 content_density.max_boilerplate）。
+
+    与"降权"是两件不同的事：
+      - 降权（density_factor=0.65）：把通稿压到榜尾，但它们**仍然占着版面**。
+        实测线上一次运行有 5 条通稿，占 28 条榜单的 5 个槽位。
+      - 限量（本函数）：把超出配额的直接移出榜单，用"少而精"换"多而杂"。
+
+    默认 -1 = 只降权、不删（保守，不改变榜单条数）；
+    设为 N>=0 时最多保留 N 条通稿。这是产品口味问题，交给使用者决定。
+    """
+    cfg = config.get("content_density") or {}
+    if cfg.get("enabled") is False:
+        return items
+    try:
+        limit = int(cfg.get("max_boilerplate", -1))
+    except (TypeError, ValueError):
+        return items
+    if limit < 0:
+        return items
+
+    verdicts = [(it, evaluate_content_density(it.get("title", ""))[1]) for it in items]
+    n_boiler = sum(1 for _, note in verdicts if note == "地方政务通稿")
+    if n_boiler <= limit:
+        return items
+
+    kept, used = [], 0
+    for it, note in verdicts:
+        if note == "地方政务通稿":
+            if used >= limit:
+                continue
+            used += 1
+        kept.append(it)
+    print(f"[密度限量] 地方政务通稿 {n_boiler} 条 -> 保留 {limit} 条"
+          f"（移除 {n_boiler - limit} 条；配额由 content_density.max_boilerplate 控制）")
+    return kept
+
 
 
 def _hotness_level(display_score):
@@ -1126,18 +1348,22 @@ def _hotness_level(display_score):
 
 def calculate_heat_v2(items, config, keyword_item_count=None):
     """
-    新热度算法 v2（完整实现），直接在 items 上写入：
+    新热度算法 v2.1（在 v2 基础上加入信息密度系数），直接在 items 上写入：
       score_v2_raw、score_v2（展示分）、score_breakdown（v2 明细）、repeat_penalty
     返回 items（已附加 v2 字段）
 
     组件：
       1. 来源权威分 0-25（权重2.0→25，1.0→15 线性映射）
       2. 关键词 IDF 饱和分 0-25：25*(1-exp(-sum_idf/3))，白名单保护
-      3. 跨源共振分 0-15：15*(1-exp(-(N-1)/3))，只统计权威来源(权重>=1.0)
-      4. 内容质量分 0-10（摘要非空且>=20字符得10）
+      3. 跨源共振分 0-15：15*(1-exp(-(N-1)/3))，只统计权威来源
+      4. 内容质量分 0-10（按摘要长度分档，见下方注释）
       5. 时间衰减（乘性）：T=0.35+0.65*exp(-hours/48)
-      6. raw = base*T*repeat_penalty（Jaccard 聚类重复惩罚 0.6）
-      7. 百分位归一化到 40-100 作为展示分 score_v2
+      6. 信息密度（乘性，v2.1 新增）：地方政务通稿 0.65 / 薄内容 0.85 /
+         国家级政策文件 1.10，见 evaluate_content_density()
+      7. raw = base*T*density_factor*repeat_penalty（Jaccard 聚类重复惩罚 0.6）
+      8. min-max 归一化到 40-100 作为展示分 score_v2
+
+    base 满分 = 25+25+15+10 = 75（与前端口径一致）；密度与时间、重复惩罚一样是乘性系数。
     """
     weights = config.get("weights", {})
     source_weights = weights.get("source_weights", DEFAULT_SOURCE_WEIGHTS)
@@ -1163,7 +1389,7 @@ def calculate_heat_v2(items, config, keyword_item_count=None):
     keyword_authoritative_sources = defaultdict(set)  # kw -> {source,...}
     for it in items:
         sw = get_source_weight(it.get("source", ""), source_weights)
-        if sw >= 1.0:  # 只统计权威来源
+        if sw >= RESONANCE_MIN_SOURCE_WEIGHT:  # 只统计权威来源（见常量处的说明）
             for kw in set(it.get("matched_keywords", [])):
                 keyword_authoritative_sources[kw].add(it.get("source", ""))
 
@@ -1236,9 +1462,39 @@ def calculate_heat_v2(items, config, keyword_item_count=None):
                 max_sources = n_src
         s_resonance = 15.0 * (1 - math.exp(-(max_sources - 1) / 3.0))
 
-        # 4. 内容质量分
+        # 4. 内容质量分（0-10，按摘要长度分档）
+        # 旧实现是 "len(summary) >= 20 就给满分 10" 的二值判断：实测线上 28 条里
+        # 16 条恰好 =0、12 条恰好 =10，全部堆在两端，等于只回答"有没有摘要"，
+        # 完全区分不出 44 字短讯与 298 字深度报道。改为按长度分档，保留 0-10 量纲。
+        # 注意：此处 summary 是**翻译后的 RSS 描述**（AI 摘要在这一步之后才生成），
+        # 所以它衡量的是"原文信息可得性"——没有 RSS 描述的源（全部中文查询源）天然为 0，
+        # 这是已知偏差，已记入待办。
         summary = (item.get("summary") or "").strip()
-        s_quality = 10.0 if (summary and len(summary) >= 20) else 0.0
+        _slen = len(summary)
+        if _slen >= 200:
+            s_quality = 10.0
+        elif _slen >= 100:
+            s_quality = 7.0
+        elif _slen >= 40:
+            s_quality = 4.0
+        elif _slen > 0:
+            s_quality = 2.0
+        else:
+            s_quality = 0.0
+
+        # 4.5 信息密度系数（乘性）：识别地方政务通稿 / 薄内容 / 国家级政策文件
+        density_cfg = config.get("content_density") or {}
+        density_factor, density_note = evaluate_content_density(item.get("title", ""))
+        if density_cfg.get("enabled") is False:
+            density_factor, density_note = DENSITY_NORMAL_FACTOR, ""
+        else:
+            if density_note == "地方政务通稿":
+                density_factor = float(density_cfg.get("boilerplate_penalty", DENSITY_BOILERPLATE_FACTOR))
+            elif density_note == "薄内容":
+                density_factor = float(density_cfg.get("thin_penalty", DENSITY_THIN_FACTOR))
+            elif density_note == "国家级政策文件":
+                density_factor = float(density_cfg.get("policy_bonus", DENSITY_POLICY_FACTOR))
+        density_factor = max(0.1, min(2.0, density_factor))
 
         # 5. 时间衰减（乘性）
         published_dt = item.get("published_dt")
@@ -1252,13 +1508,15 @@ def calculate_heat_v2(items, config, keyword_item_count=None):
 
         base = s_source + s_keyword + s_resonance + s_quality
         penalty = repeat_penalty[idx]
-        raw = base * time_factor * penalty
+        raw = base * time_factor * density_factor * penalty
 
         item["_v2_source"] = round(s_source, 2)
         item["_v2_keyword"] = round(s_keyword, 2)
         item["_v2_resonance"] = round(s_resonance, 2)
         item["_v2_quality"] = round(s_quality, 2)
         item["_v2_time_factor"] = round(time_factor, 4)
+        item["_v2_density_factor"] = round(density_factor, 4)
+        item["_v2_density_note"] = density_note
         item["_v2_repeat_penalty"] = penalty
         item["_v2_base"] = round(base, 2)
         item["_v2_raw"] = round(raw, 2)
@@ -1271,10 +1529,12 @@ def calculate_heat_v2(items, config, keyword_item_count=None):
             best = max(members, key=lambda i: items[i]["_v2_raw"])
             for m in members:
                 if m != best:
-                    # 重新应用惩罚
+                    # 重新应用惩罚（必须带上密度系数，否则这一步会把密度降权覆盖掉）
                     it = items[m]
                     it["_v2_repeat_penalty"] = DUPLICATE_PENALTY
-                    it["_v2_raw"] = round(it["_v2_base"] * it["_v2_time_factor"] * DUPLICATE_PENALTY, 2)
+                    it["_v2_raw"] = round(
+                        it["_v2_base"] * it["_v2_time_factor"]
+                        * it["_v2_density_factor"] * DUPLICATE_PENALTY, 2)
                 else:
                     items[m]["_v2_repeat_penalty"] = 1.0
 
@@ -1302,13 +1562,15 @@ def calculate_heat_v2(items, config, keyword_item_count=None):
         item["hotness_level"] = _hotness_level(display_score)
         # v2 明细（供前端热度弹窗展示）
         item["score_breakdown"] = {
-            "algorithm": "v2",
+            "algorithm": "v2.1",
             "source_score": item["_v2_source"],
             "keyword_idf_score": item["_v2_keyword"],
             "resonance_score": item["_v2_resonance"],
             "quality_score": item["_v2_quality"],
             "base": item["_v2_base"],
             "time_factor": item["_v2_time_factor"],
+            "density_factor": item["_v2_density_factor"],
+            "density_note": item["_v2_density_note"],
             "repeat_penalty": item["_v2_repeat_penalty"],
             "cross_source_count": item["_v2_cross_sources"],
             "raw": item["_v2_raw"],
@@ -1454,6 +1716,13 @@ RECRUIT_TITLE_HINTS = (
     "实习", "应届生", "毕业生", "人才引进", "事业单位", "公开招聘", "选调",
 )
 RECRUIT_CAMPUS_HINTS = ("校招", "校园招聘", "应届", "毕业生", "在校")
+
+# 招聘候选的独立时效窗口（小时）。
+# 为什么不用主流程的 48 小时：招聘公告/校招简章发布后长期有效，Google News 的招聘类查询
+# 返回结果也普遍偏旧；套用 48 小时窗口会把它们**全部**砍掉——实测 2026-09-20 那次运行
+# 3 个招聘源各抓 5 条，时间过滤后招聘候选 0 条，recruit.json 恒为空数组，
+# 就业窗口「最新招聘资讯」长期停在空态。这里放宽到 14 天。
+RECRUIT_WINDOW_HOURS = 336
 
 
 def _classify_recruit_type(text):
@@ -2020,6 +2289,13 @@ ENV_RELATED_ZH = [
     "环境政策", "环境技术", "环境管理",
     # 气象/气候灾害与气温信号
     "气温", "升温", "降温", "热浪", "寒潮", "气象灾害", "防灾", "减灾", "极端天气",
+    # 碳市场与制度类（2026-09-20 新增）：接入中文环境垂直源后实测出的漏词——
+    # 「全国碳市场扩围至钢铁水泥铝冶炼行业」原判定**不含任何多字环境词**而被整条剔除，
+    # 属系统性误杀（垂直源标题未必含"环境""生态"字样）。同批漏掉的还有"排放权""排污许可"。
+    "碳市场", "碳交易", "碳排放权", "碳资产", "碳关税",
+    "排污许可", "环境法典", "环境标准", "环境司法",
+    # 工程与设施类：水务/固废类标题常用说法（"矿井水提标治理""EPC 项目"）
+    "矿井水", "中水回用", "污泥", "垃圾焚烧", "焚烧发电", "渗滤液", "供水",
 ]
 # 中文环境单字弱信号（如"水""碳""核"，过于宽泛，不单独触发保留，仅作提示）
 ENV_RELATED_ZH_SINGLE = set("水碳核")
@@ -2138,6 +2414,43 @@ def _env_term_whitelist():
         _debug(f"读取 pending_terms.json 环境术语失败：{type(e).__name__}: {e}")
     _ENV_TERM_WHITELIST_CACHE = wl
     return wl
+
+
+# ============================================================
+# 导航页 / 占位标题过滤
+# ============================================================
+#
+# 实测（2026-09-20）：Google News 的 site: 查询、以及部分站点的 feed，会把**非文章页**
+# 当作条目返回 —— 例：「首页 /申请前信息公开」（生态环境部）、「上市」（中国水网）、
+# 「要闻」（北极星环保网）。这类条目进榜没有任何信息价值，还会因为来源权重高而排到前面。
+_JUNK_TITLE_EXACT = {
+    "首页", "要闻", "上市", "导航", "登录", "注册", "更多", "返回",
+    "上一页", "下一页", "网站地图", "联系我们", "关于我们",
+}
+_RE_JUNK_TITLE = re.compile(
+    r"(申请前信息公开|版权所有|违法和不良信息|网站地图|联系方式|^首页\s*[/|·])"
+)
+# 短于该长度的标题一律视为占位内容：实测这类极短标题（"上市""要闻"）全部是栏目名或导航项，
+# 而真实的新闻标题（中文）极少短于 6 个字。
+JUNK_TITLE_MIN_LEN = 6
+
+
+def is_junk_title(title):
+    """判断标题是否为导航页 / 占位内容（True = 应丢弃）。
+
+    只覆盖"明显不是一篇文章"的情况，刻意**不做**"含某词就丢"的宽泛规则 ——
+    真实新闻标题形态太多，宁可漏掉几个垃圾页，也不要误杀正常条目。
+    """
+    t = (title or "").strip()
+    if not t:
+        return True
+    if t in _JUNK_TITLE_EXACT:
+        return True
+    if len(t) < JUNK_TITLE_MIN_LEN:
+        return True
+    if _RE_JUNK_TITLE.search(t):
+        return True
+    return False
 
 
 def is_env_relevant_term(term):
@@ -3340,13 +3653,19 @@ def _ai_relevance_irrelevant(items, api_config):
     for idx, item in enumerate(items):
         title = item.get("title", "")
         if title:
-            # 只发送标题前40字符，减少输入长度，避免超时
-            lines.append(f"{idx}. {title[:40]}")
+            # 只发送标题前60字符：40 字符会把带副标题的学术标题（如期刊论文）截成残句，
+            # 导致 AI 无法判断领域而误判为无关，这里放宽到 60。
+            lines.append(f"{idx}. {title[:60]}")
     if not lines:
         return None
     prompt = (
-        "请判断以下新闻标题是否与环境领域相关（包括气候变化、污染治理、生态保护、"
-        "资源能源、环境政策、可持续发展、环境健康、环境技术等）。"
+        "请判断以下新闻标题是否与环境领域相关。判定口径：\n"
+        "【判「是」】气候变化、污染治理、生态保护、资源能源、环境政策、可持续发展、"
+        "环境健康、环境技术；环境科学/工程/生态的学术研究即使标题技术化（涉及微生物、"
+        "脱盐、氮磷养分、生物膜、水处理工艺、污染物归趋等）也应判「是」；"
+        "以生态环境保护督察、环境治理、环境监测为主体的地方政务报道也应判「是」。\n"
+        "【判「否」】纯时政与选举、军事与边境、体育与电竞、娱乐与明星、动物趣闻与摄影比赛、"
+        "农产品价格与农业经济、金融股市、与生态环境无关的科技产品发布。\n"
         "只输出一个 JSON 对象，不要输出思考过程、解释或 Markdown。"
         "格式：{\"results\":[{\"id\":0,\"relevant\":\"是\"},{\"id\":1,\"relevant\":\"否\"}]}，"
         "每条只回答\"是\"或\"否\"。\n\n"
@@ -3371,6 +3690,30 @@ def _ai_relevance_irrelevant(items, api_config):
         return irrelevant_set
     print("[相关性过滤] AI 结果解析失败，降级为规则判断")
     return None
+
+
+# 环境垂直源白名单（按源名包含匹配）
+#
+# 这些源整站/整频道就跑环境口 —— 机关报、部委官方发布、环保行业媒体、官方媒体环境频道。
+# 它们的内容标题里**没有"环境/生态"字样也不代表无关**，而规则模式第 3 条是
+# "不含强环境相关词就剔除"，对这些源是系统性误杀。实测（2026-09-20）：
+#   · 人民网环保频道「全国碳市场扩围至钢铁水泥铝冶炼行业」→ 被整条剔除（词表缺"碳市场"）
+#   · 中国水网「国能水务中标神东煤炭矿井水提标治理EPC项目」→ 被整条剔除（是"矿井水"不是"污水"）
+# 对白名单源，相关性判定只作参考、不作否决。
+TRUSTED_ENV_SOURCE_HINTS = (
+    "中国环境网",      # 生态环境部机关报
+    "生态环境部",      # 部委官方发布
+    "北极星环保",      # 环保行业媒体
+    "中国水网",        # 水务垂直媒体
+    "人民网 环保",     # 人民网环保频道（原生 RSS）
+    "人民网环保",
+)
+
+
+def is_trusted_env_source(source_name):
+    """判断是否属于环境垂直源（其条目不受"标题必须含环境词"的规则约束）。"""
+    s = source_name or ""
+    return any(h in s for h in TRUSTED_ENV_SOURCE_HINTS)
 
 
 def _zh_relevance_keep(title):
@@ -3427,7 +3770,9 @@ def filter_environmental_relevance(items, config, api_config):
     2. AI 不可用或调用失败，规则降级：
        - 只过滤明显无关内容（体育/游戏/娱乐等）
        - 含环境相关词（中/英）的必须保留，无法判断的默认保留
-    3. 过滤后剩余不足 MIN_KEPT_ITEMS 条则取消过滤，保留全部
+    3. 兜底按判决来源区分：
+       - AI 模式：被判无关的保持剔除，只救回"确实命中环境词"的（AI 误杀保护）；不足下限也不放回
+       - 规则模式：过滤后剩余不足 MIN_KEPT_ITEMS 条则取消过滤，保留全部
     4. 每条结果写入日志（保留/过滤 + 标题前20字）
     返回过滤后的条目列表
     """
@@ -3443,12 +3788,21 @@ def filter_environmental_relevance(items, config, api_config):
     kept = []
     for idx, item in enumerate(items):
         title = item.get("title", "")
+        source = item.get("source", "")
+        trusted = is_trusted_env_source(source)
         if not title:
             kept.append(item)
             continue
         # AI 判断可用：只移除明确判为无关的条目
         if irrelevant_set is not None:
             if idx in irrelevant_set:
+                # 环境垂直源例外：AI 偶尔会把政策/工程类标题判成无关
+                # （实测「全国碳排放权交易市场配额分配方案」这类标题容易被判"非新闻"）
+                if trusted:
+                    item.pop("irrelevant", None)
+                    kept.append(item)
+                    print(f"[保留] 环境垂直源（AI 判否，源可信）：{title[:22]}")
+                    continue
                 item["irrelevant"] = True
                 print(f"[过滤] 无关内容（AI判断）：{title[:20]}")
                 continue
@@ -3456,8 +3810,11 @@ def filter_environmental_relevance(items, config, api_config):
             continue
         # 规则降级（严格）：必须含强环境相关词才保留，其余过滤
         keep = _zh_relevance_keep(title) if is_chinese(title) else _en_relevance_keep(title)
+        # 环境垂直源例外（同上）
+        if not keep and trusted:
+            keep = True
+            print(f"[保留] 环境垂直源（标题无环境词，源可信）：{title[:22]}")
         # 特殊处理：来源为"环境考研"的条目，除"考研"外必须包含环境专业方向词
-        source = item.get("source", "")
         if keep and "考研" in source:
             env_major_words = [
                 "环境工程", "环境科学", "生态学", "市政工程", "给排水",
@@ -3492,8 +3849,26 @@ def filter_environmental_relevance(items, config, api_config):
             item["irrelevant"] = True
             print(f"[过滤] 无关内容（缺少环境强相关词）：{title[:20]}")
 
-    # 过滤后剩余不足 MIN_KEPT_ITEMS 条 -> 取消过滤，保留全部（放宽阈值，避免误杀）
+    # 兜底策略——**必须区分 AI 判决与规则判决**，否则 AI 的判断会被整体作废：
+    #
+    # 旧实现在这里无条件「取消过滤、保留全部」。2026-09-20 那次运行：28 条里 AI 已明确判 10 条无关，
+    # 剩 18 条 < MIN_KEPT_ITEMS(20) 触发兜底 —— 那 10 条**已经被判无关的内容照样上台**，
+    # 首页出现 Fat Bear Week、特朗普组建 AI 部队、国赛上分这类与环境无关的条目。
+    #
+    # 现在的口径：
+    # - AI 模式：AI 判「否」即最终判决。不足 MIN_KEPT_ITEMS 也**不放回**——宁少勿滥，
+    #   榜单短一点好过混进无关内容（AI 可用时它同时给了每条判词，是可信判决）。
+    #   这里刻意**不做关键词救援**：ENV_RELATED_EN 里含 artificial intelligence / regulation /
+    #   agreement / wind / air 这类过宽词，救援会把时政、法律、产品类标题一并捞回来
+    #   （实测「Trump says US will form 'AI Force'」会命中 artificial intelligence 而被救回），
+    #   反而破坏 AI 判决的可信度；AI 误杀学术标题的问题由提示词的判定口径（见 _ai_relevance_irrelevant）
+    #   从源头解决。
+    # - 规则模式：规则第 3 条很严（不含环境词就砍），误杀风险高，保留原来的整体取消过滤行为。
     if len(kept) < MIN_KEPT_ITEMS and len(kept) < len(items):
+        if irrelevant_set is not None:
+            print(f"[过滤] AI 模式：保留 {len(kept)} 条（不足 {MIN_KEPT_ITEMS} 条也不放回被判无关的内容）")
+            return kept
+
         print(f"[过滤] 过滤后仅剩 {len(kept)} 条（少于{MIN_KEPT_ITEMS}条），取消过滤，保留全部 {len(items)} 条")
         for item in items:
             item.pop("irrelevant", None)
@@ -4224,6 +4599,49 @@ def extract_tags_from_title(title):
         return [longest]
 
     return ["环境资讯"]
+
+
+# 话题标签长度上限。docstring 里写的范围是"连续片段 4-15 字"，但原实现只判了
+# `len(seg) >= 4`，没有上限——实测线上出现过把整条 27 字标题
+# （"东盟绿色循环产业与国际环境公约履约平行论坛在南宁举行"）当标签的情况。
+# 中文按 15 字封顶；纯英文标签按 24 字符（"forever chemicals" 17 字符属正常标签，
+# 用同一个 15 会把它误杀）。
+TAG_MAX_LEN = 15
+TAG_MAX_LEN_EN = 24
+_RE_TAG_HAS_CJK = re.compile(r"[\u4e00-\u9fa5]")
+
+
+def normalize_topic_tags(tags, title=""):
+    """话题标签统一清洗（AI 生成与规则提取都要过这一道）。
+
+    实测线上标签的四类毛病：
+      1. 整句标题当标签（27 字）——长度无上限；
+      2. 截断残词（"大气污染控制费" 从"费效与达标评估"里切出来）；
+      3. 大小写重复（同一批里同时出现 "Pfas" 与 "PFAS"，被当成两个标签）；
+      4. 与标题完全相同的"标签"，等于没有信息增量。
+
+    这里只做"去噪"，不做"生成"：清洗后若为空，按前端既有契约回落 ["环境资讯"]
+    （script.js 在摘要为空时用标签做提示，空数组会让卡片少一块信息）。
+    """
+    if not tags:
+        return ["环境资讯"]
+    cleaned = []
+    seen = set()
+    for raw in tags:
+        t = str(raw).strip().strip("《》\"'“”‘’")
+        if not t or len(t) < 2:
+            continue
+        limit = TAG_MAX_LEN if _RE_TAG_HAS_CJK.search(t) else TAG_MAX_LEN_EN
+        if len(t) > limit:
+            continue
+        if title and t == title.strip():
+            continue
+        key = t.lower()
+        if key in seen:
+            continue
+        seen.add(key)
+        cleaned.append(t)
+    return cleaned[:3] if cleaned else ["环境资讯"]
 
 
 # 规则摘要用：常见媒体来源后缀与标题分隔符
@@ -5903,15 +6321,29 @@ def main():
     print(f"[统计] 去重后 {len(all_items)} 条")
     print()
 
+    # 2.5 导航页 / 占位标题过滤
+    # 实测：Google News 的 site: 查询与部分站点 feed 会把**非文章页**当条目返回
+    #（「首页 /申请前信息公开」「上市」「要闻」）。这类标题极短或是栏目名，进榜没有信息价值，
+    # 还会因为来源权重高而排到前面。放在去重之后、招聘池抽取之前 —— 招聘池也是从
+    # all_items 里捞的，必须先清干净。
+    _before_junk = len(all_items)
+    all_items = [it for it in all_items if not is_junk_title(it.get("title", ""))]
+    _junk_n = _before_junk - len(all_items)
+    if _junk_n:
+        print(f"[过滤] 剔除 {_junk_n} 条导航/占位标题（首页、要闻、上市…）")
+        print()
+
+    # 3.2 招聘/实习资讯候选池：在**时间过滤之前**用独立的长窗口捞出（理由见 RECRUIT_WINDOW_HOURS），
+    # 并且必须在环境相关性过滤之前——招聘条目天然不含环境领域词，过滤后会整条丢掉。
+    recruit_pool = extract_recruit_candidates(filter_by_time(all_items, hours=RECRUIT_WINDOW_HOURS))
+    print(f"[招聘] 招聘/实习候选 {len(recruit_pool)} 条"
+          f"（来自含招聘语义的源与标题，独立窗口 {RECRUIT_WINDOW_HOURS // 24} 天）")
+    print()
+
     # 3. 时间过滤（48小时）
     print("--- 第三步：时间过滤（最近48小时）---")
     all_items = filter_by_time(all_items, hours=48)
     print(f"[统计] 过滤后 {len(all_items)} 条")
-    print()
-
-    # 3.2 招聘/实习资讯候选池：必须在环境相关性过滤之前留一份（理由见 extract_recruit_candidates）
-    recruit_pool = extract_recruit_candidates(all_items)
-    print(f"[招聘] 招聘/实习候选 {len(recruit_pool)} 条（来自含招聘语义的源与标题）")
     print()
 
     # 3.5 环境领域相关性过滤（时间过滤后、热度计算前，保证不相关内容不进榜单）
@@ -5924,6 +6356,11 @@ def main():
     print(f"[统计] 相关性过滤后 {len(all_items)} 条")
     # 相关性过滤后再统一翻译候选池英文标题/摘要（抓取阶段不翻译，节省配额）
     all_items = translate_candidate_pool(all_items)
+
+    # 3.8 低信息密度内容限量（可选，默认不限量、只由 v2.1 的密度系数降权）
+    # 与"降权"是两件事：降权把它们压到榜尾但仍占着版面（实测线上 5 条通稿占 5/28 槽位），
+    # 限量则直接把多余的移出榜单，用"少而精"换掉"多而杂"。默认 -1 = 只降权不删。
+    all_items = limit_low_density_items(all_items, config)
     print()
 
     # 4. 热度计算
@@ -5980,6 +6417,16 @@ def main():
             cur_summary = (item.get("summary") or "").strip()
             if not cur_summary or len(cur_summary) < 10 or cur_summary == item.get("title", ""):
                 item["summary"] = _fallback_rule_summary(item.get("title", ""))
+
+    # 话题标签统一清洗（AI 逐条生成 / 批量生成 / 规则提取三条路径都要过这一道）
+    _tag_before = sum(len(it.get("topic_tags") or []) for it in all_items)
+    _long_before = sum(1 for it in all_items for t in (it.get("topic_tags") or [])
+                       if len(str(t)) > TAG_MAX_LEN)
+    for item in all_items:
+        item["topic_tags"] = normalize_topic_tags(item.get("topic_tags"), item.get("title", ""))
+    _tag_after = sum(len(it.get("topic_tags") or []) for it in all_items)
+    print(f"[标签清洗] 标签数 {_tag_before} -> {_tag_after}"
+          f"（清理超长/残词/大小写重复；其中超长标签 {_long_before} 个）")
 
     # 翻译英文摘要为中文（优先翻译热度高、来源权威的条目）
     translated_summaries = 0

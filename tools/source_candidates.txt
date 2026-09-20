@@ -1,0 +1,46 @@
+# 候选 RSS 源清单（供 tools/probe_sources.py 探测）
+#
+# 格式：源名称 <TAB> URL    （# 开头为注释行）
+#
+# 为什么要这个清单：
+#   本项目在国内开发，流水线跑在 GitHub Actions 的 ubuntu-latest（Azure 境外 IP）。
+#   中文站对海外 IP 是否放行，本地测出来的结论**不成立**，只能用真实 runner 验证。
+#   每次往 config.yaml 加中文源之前，先把候选写到这里跑一次探针。
+#
+# 用法：仓库 Actions 页 → 左侧选 "Probe Source Reachability" → Run workflow
+#      结果直接显示在 Job Summary（含 runner 出口 IP、每源 HTTP 码、字节数、条目数）。
+
+# ---------- A. 本次已写入 config.yaml，用探针做最终确认 ----------
+Google News 中国环境网	https://news.google.com/rss/search?q=site:cenews.com.cn+when:7d&hl=zh-CN&gl=CN&ceid=CN:zh-Hans
+Google News 北极星环保网	https://news.google.com/rss/search?q=site:huanbao.bjx.com.cn+when:7d&hl=zh-CN&gl=CN&ceid=CN:zh-Hans
+Google News 中国水网	https://news.google.com/rss/search?q=site:h2o-china.com+when:7d&hl=zh-CN&gl=CN&ceid=CN:zh-Hans
+Google News 生态环境部	https://news.google.com/rss/search?q=site:mee.gov.cn+when:30d&hl=zh-CN&gl=CN&ceid=CN:zh-Hans
+人民网 环保频道	http://www.people.com.cn/rss/env.xml
+
+# ---------- B. 待定候选（本地已验有效性，境外可达性未定） ----------
+# 综合媒体的滚动 feed：本地实测有效（中新网 30 条 / 界面 30 条 / 人民网要闻·科技各 100 条），
+# 但都是全站 feed，环境浓度低，接入后大部分条目会被相关性过滤砍掉，白占抓取配额。
+# 除非要做「泛资讯」板块，否则不建议加。
+中新网-滚动	https://www.chinanews.com.cn/rss/scroll-news.xml
+界面-新闻	https://a.jiemian.com/index.php?m=article&a=rss
+人民网-要闻	http://www.people.com.cn/rss/politics.xml
+人民网-科技	http://www.people.com.cn/rss/scitech.xml
+# 能源基金会：本地 HTTP 500（服务端故障），过段时间可复测。
+能源基金会	https://www.efchina.org/rss.xml
+# Bing News RSS：本地抓不到 feed（可能被重定向），但境外 IP 行为可能不同，值得在 runner 上试。
+# 若可用，可作 Google News 之外的第二个聚合通道，降低单一依赖。
+Bing News 环境	https://www.bing.com/news/search?q=%E7%8E%AF%E5%A2%83&format=RSS&count=20
+Bing News 中国环境报	https://www.bing.com/news/search?q=site%3Acenews.com.cn&format=RSS&count=20
+
+# ---------- C. 已排除（留档，避免重复踩坑） ----------
+# 中国环境网 https://www.cenews.com.cn/rss.xml  -> 404，站点不提供 RSS
+# 北极星环保 https://news.bjx.com.cn/rss/        -> 200 但返回 HTML，解析 0 条
+# 环保在线 https://www.hbzhan.com/rss.html       -> 404；且 site:hbzhan.com 在 Google News
+#                                                   索引到的是电商产品页（"求购白板纸"），不可用
+# 中国水网 http://www.h2o-china.com/rss          -> 404（改用 Google News site: 查询）
+# 中国固废网、中国环境监测总站、知乎日报、果壳、科学网 -> 均无可用 RSS
+# RSSHub 公共实例 rsshub.app                      -> 本机 ConnectTimeout、境外出口亦被拦
+#                                                   （数据中心 IP 触发其反爬），不可依赖
+# allorigins / codetabs / corsproxy 三个 CORS 代理 -> 对**对照 URL（google.com、github.com）**
+#                                                   同样返回 522/403，属代理自身故障，**不能**用来判断
+#                                                   「目标站是否封锁海外 IP」。判断境外可达性必须带对照。

@@ -17,6 +17,35 @@ rss_feeds:
   # 过滤后会整条丢掉。这两条源就是为了把校招/实习与体制内公开招聘捞回来。
   "Google News 环境校招实习": "https://news.google.com/rss/search?q=环境+校园招聘+OR+实习&hl=zh-CN&gl=CN&ceid=CN:zh-Hans"
   "Google News 生态环境局招聘": "https://news.google.com/rss/search?q=生态环境局+OR+环境监测站+公开招聘&hl=zh-CN&gl=CN&ceid=CN:zh-Hans"
+
+  # ---- 中文环境垂直媒体（2026-09-20 新增，site: 定向查询）----
+  # 为什么走 Google News 而不是直接订阅这些站：
+  #   对 20 个中文环境类站点做了首页 RSS 自动发现 + 逐条路径实测 —— 中国环境网、北极星、
+  #   环保在线、中国水网、固废网、澎湃、界面、果壳、科学网**全部不提供可用 RSS**
+  #   （要吗 404、要吗返回 HTML 页面，feedparser 解析出 0 条）。RSSHub 公共实例
+  #   rsshub.app 在本机与境外出口**双重不可达**（数据中心 IP 被其反爬拦截）。
+  #   而 site: 查询复用本项目已在 Actions 稳定运行 30 天的 Google News 通道，
+  #   不引入任何新域名的地域封锁风险。
+  #
+  # when: 窗口为什么是 7d / 30d（实测）：
+  #   when:1d 与 when:3d 均返回**空**（Google News 对该站的索引有滞后），when:7d 才稳定出内容
+  #   （中国环境网 14 条 / 北极星环保 31 条 / 中国水网 34 条）。而不加 when: 反而返回 7 月的
+  #   高相关旧闻（默认按相关性而非时间排序）——所以窗口是必需的。
+  #   生态环境部官网更新频率低（7 天内常为 0 条）故用 30d，它只在真有新政时贡献条目，
+  #   时效由流水线自己的 48h 过滤把关。
+  #
+  # 北极星用**子域 huanbao.bjx.com.cn**：父域 bjx.com.cn 的结果里混着「北极星电力网」
+  #   「北极星太阳能光伏网」等能源内容，子域限定后才是纯环保行业资讯。
+  "Google News 中国环境网": "https://news.google.com/rss/search?q=site:cenews.com.cn+when:7d&hl=zh-CN&gl=CN&ceid=CN:zh-Hans"
+  "Google News 北极星环保网": "https://news.google.com/rss/search?q=site:huanbao.bjx.com.cn+when:7d&hl=zh-CN&gl=CN&ceid=CN:zh-Hans"
+  "Google News 中国水网": "https://news.google.com/rss/search?q=site:h2o-china.com+when:7d&hl=zh-CN&gl=CN&ceid=CN:zh-Hans"
+  "Google News 生态环境部": "https://news.google.com/rss/search?q=site:mee.gov.cn+when:30d&hl=zh-CN&gl=CN&ceid=CN:zh-Hans"
+
+  # 人民网环保频道：本次实测中**唯一**可用的中文环境垂直原生 RSS
+  # （HTTP 200 / 417KB / 解析 100 条 / 无 bozo；境外出口两路均确认海外 IP 可正常抓取）。
+  # 频道级 feed 精度高，不像综合媒体的滚动 feed 那样混入体育娱乐内容。
+  "人民网 环保频道": "http://www.people.com.cn/rss/env.xml"
+
   # 国际权威媒体（稳定）
   "The Guardian Environment": "https://www.theguardian.com/environment/rss"
   "Yale Environment 360": "https://e360.yale.edu/feed.xml"
@@ -36,38 +65,65 @@ rss_feeds:
   "Adaptation Fund": "https://www.adaptation-fund.org/feed/"
 
 # ---------- 可选：关键词列表 ----------
-# 用于热度计算和标签云，覆盖环境专业核心概念和学生关注点
-# 不填写则使用内置默认列表
+# 用于热度计算（关键词 IDF 分）和标签云，覆盖环境专业核心概念和学生关注点。
+# 整段不填写 → 使用 daily_report.py 的 DEFAULT_KEYWORDS（58 词，唯一权威来源）。
+# 一旦取消注释，就**以这里为准**，代码默认表不再生效——两边会漂移，改词请只改一处。
+#
+# ⚠️ 2026-09-20 实测：旧默认表只有 32 词且缺「生态环境」「环境保护」「环境监测」
+# 「督察」等中文高频领域词，导致线上 28 条中 22 条零命中，关键词 IDF 分（满分 25）
+# 与跨源共振分（满分 15）几乎全体为 0，排序退化成「来源权重 + 时间衰减」。
+# 扩到 52 词后同一批数据命中率 6/28 → 14/28。以下为当前内置默认表：
 # keywords:
 #   - 气候变化
 #   - 碳中和
+#   - 碳达峰
 #   - 碳排放
+#   - 温室气体
+#   - 能源转型
 #   - 水污染
+#   - 水处理
+#   - 饮用水
+#   - 地下水
+#   - 流域
 #   - 大气污染
+#   - 臭氧
 #   - 土壤污染
+#   - 土壤修复
+#   - 固废
+#   - 危废
+#   - 垃圾分类
 #   - 微塑料
 #   - 新污染物
 #   - 重金属
-#   - 生物多样性
+#   - 塑料污染
+#   - 生态环境
+#   - 生态保护
 #   - 生态修复
 #   - 生态系统
+#   - 生态安全
+#   - 生物多样性
+#   - 湿地
+#   - 海洋保护
+#   - 环境保护
+#   - 污染治理
+#   - 污染防治
+#   - 环境治理
+#   - 环境监测
+#   - 环评
+#   - 环保督察
+#   - 督察
+#   - 环境政策
 #   - 可再生能源
 #   - 清洁能源
 #   - 循环经济
-#   - 环保督察
-#   - 环评
+#   - 绿色低碳
 #   - 绿色金融
 #   - 可持续发展
 #   - 环境健康
-#   - 垃圾分类
-#   - 塑料污染
-#   - 海洋保护
 #   - 考研
 #   - 招聘
 #   - 实习
 #   - 竞赛
-#   - 水处理
-#   - 土壤修复
 #   - 环境工程
 #   - 环境科学
 
@@ -79,37 +135,71 @@ rss_feeds:
 #   - 环境工程
 
 # ---------- 可选：热度权重配置 ----------
+# ⚠️ 只要这里写了 source_weights，daily_report.py 里的 DEFAULT_SOURCE_WEIGHTS 就**完全不生效**
+# （与 rss_feeds 同款机制）。新增信源后务必在这里补一行，否则该源会悄悄落到默认值 1.0。
+# 权重会线性映射成「来源权威分」：w=1.0→15 分，w=1.5→20 分，w=2.0→25 分（0-25 截断）。
+# 同时 >=1.3 才会被计入「跨源共振分」的权威来源（见 RESONANCE_MIN_SOURCE_WEIGHT）。
 weights:
   source_weights:
-    # 顶刊来源权重 2.0
+    # 顶刊（学术前沿，环境专业核心参考）2.0 → 25 分
     "Nature": 2.0
     "Nature Sustainability": 2.0
     "Science": 2.0
     "PNAS 环境科学": 2.0
     "Environmental Research Letters": 2.0
     "Water Research": 2.0
-    # 科技新闻/科研机构来源权重 1.8
-    "ScienceDaily 环境科学": 1.8
-    "IISD SDG": 1.8
-    "Berkeley Earth": 1.8
-    # Google News 来源权重 1.5
-    "Google News 环境保护": 1.5
-    "Google News 气候变化": 1.5
-    "Google News 生态环境": 1.5
-    "Google News 环境污染": 1.5
-    "Google News 环保招聘": 1.5
-    "Google News 环境考研": 1.5
-    "Google News 环境竞赛": 1.5
-    # 学术机构来源权重 1.2
-    "Yale Environment 360": 1.2
+    # 专业环境媒体 / 科普（有完整编辑流程与正文摘要，信息密度高）1.5 → 20 分
+    "The Guardian Environment": 1.5
+    "BBC 科学与环境": 1.5
+    "Yale Environment 360": 1.5
+    "ScienceDaily 环境科学": 1.5
+    # 中文环境垂直媒体（2026-09-20 新增）1.5/1.4/1.3 → 20/19/18 分
+    #   依据：这些是环境领域**有编辑流程的专业媒体与官方发布**，与卫报/BBC 的环境频道同级，
+    #   理应高于「宽泛聚合查询」的 1.2（此前正是那几个泛查询在产地方政务通稿）。
+    "Google News 中国环境网": 1.5      # 生态环境部机关报
+    "Google News 生态环境部": 1.5      # 官方政策原文（还会叠加 content_density 的政策加分）
+    "Google News 北极星环保网": 1.4    # 环保行业资讯
+    "Google News 中国水网": 1.3        # 水务垂直
+    "人民网 环保频道": 1.3             # 官方媒体环境频道（原生 RSS，100 条）
+    # 精准主题查询（结果本身就是学生要的考研/竞赛/招聘信息）1.4 → 19 分
+    "Google News 环境考研": 1.4
+    "Google News 环境竞赛": 1.4
+    "Google News 环保招聘": 1.4
+    "Google News 环境校招实习": 1.4
+    "Google News 生态环境局招聘": 1.4
+    # 学术机构 / 国际组织 1.2
     "arXiv Environmental Engineering": 1.2
-    # 普通来源权重 1.0
-    "The Guardian Environment": 1.0
-    "BBC 科学与环境": 1.0
-    "Adaptation Fund": 1.0
-    # 其他未列出的来源默认权重 1.0
+    "IISD SDG": 1.2
+    "Berkeley Earth": 1.2
+    "Adaptation Fund": 1.2
+    # 宽泛聚合查询 1.2 → 17 分
+    # 2026-09-20 由 1.5 下调：这四个查询词（环境保护/气候变化/生态环境/环境污染）结果
+    # 与真实环境议题的重合度最低，实测线上 28 条里它们贡献了全部 4 条地方政务通稿。
+    # 原值 1.5 高于卫报/BBC 的 1.0，属权重倒挂——泛聚合查询不该比专业环境媒体更权威。
+    "Google News 环境保护": 1.2
+    "Google News 气候变化": 1.2
+    "Google News 生态环境": 1.2
+    "Google News 环境污染": 1.2
+    # 其他未列出的来源默认权重 1.0 → 15 分
   time_decay: 0.8        # 时间衰减系数
   keyword_bonus: 2.0     # 每个匹配关键词的加分
+
+# ---------- 可选：内容信息密度配置（v2.1 新增的乘性系数）----------
+# 与标题长度无关，只看"程序性内容"与"实质议题"的比例（见 evaluate_content_density）：
+#   国家级/部委级主体 + 方案/办法/规划/标准等规范性文件词  -> policy_bonus
+#   地方行政层级 + 环境机构/会议调研动作/宣传体裁 且无研究信号 -> boilerplate_penalty
+#   短标题且无领域词也无研究信号                          -> thin_penalty
+# 只想关掉它就把 enabled 设为 False。
+content_density:
+  enabled: True
+  boilerplate_penalty: 0.65   # 地方政务通稿（省督察组调研督导、XX局网友见面会…）
+  thin_penalty: 0.85          # 薄内容
+  policy_bonus: 1.10          # 国家级政策文件（重拳整治监测数据造假、新污染物治理行动方案…）
+  # 通稿配额：-1 = 只降权、不删（默认，榜单条数不变）；
+  #           0 = 通稿全部不上榜；N = 每天最多保留 N 条。
+  # 降权解决"排哪儿"，本项解决"上不上榜"——实测一次运行可能有 5 条通稿占 5/28 个槽位。
+  max_boilerplate: -1
+
 
 # ---------- 可选：AI 摘要生成配置 ----------
 summary_api:

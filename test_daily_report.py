@@ -494,5 +494,329 @@ class TestCsvFormulaInjection(unittest.TestCase):
         self.assertEqual(dr._csv_safe(None), "")
 
 
+class TestRelevanceFallback(unittest.TestCase):
+    """相关性过滤的兜底口径：AI 判决不得被整体作废
+
+    背景（2026-09-20 线上事故）：28 条里 AI 判 10 条无关，剩 18 条低于 MIN_KEPT_ITEMS(20)，
+    旧兜底把**全部 28 条**原样放回，首页出现 Fat Bear Week、特朗普组建 AI 部队、国赛上分
+    这类与环境无关的条目。修复后：AI 判「否」即最终判决；规则模式仍保留原有整体放宽行为。
+    """
+
+    def setUp(self):
+        if not dr.REQUESTS_AVAILABLE:
+            self.skipTest("requests 不可用，AI 分支无法验证")
+        self._orig_ai = dr._ai_relevance_irrelevant
+        self._orig_disabled = dr._ai_func_disabled
+        self._orig_req = dr.REQUESTS_AVAILABLE
+        dr.REQUESTS_AVAILABLE = True
+        dr._ai_func_disabled = lambda *a, **k: False   # 不受全局降级标记影响
+        self.api = {"summary_enabled": True, "api_key": "test-key"}
+
+    def tearDown(self):
+        dr._ai_relevance_irrelevant = self._orig_ai
+        dr._ai_func_disabled = self._orig_disabled
+        dr.REQUESTS_AVAILABLE = self._orig_req
+
+    def _items(self, n_env, extra):
+        items = [{"title": f"某地推进生态环境保护督察整改第{i}期"} for i in range(n_env)]
+        items += [{"title": t} for t in extra]
+        return items
+
+    def test_ai_rejections_survive_below_floor(self):
+        """低于下限时，AI 判无关的条目也必须保持剔除（核心回归点）"""
+        junk = ["Fat Bear Week has returned and the salmon are swimming",
+                "Trump says US will form AI Force and appoint a czar"]
+        items = self._items(18, junk)          # 18 < MIN_KEPT_ITEMS(20)
+        ai_rejected = {18, 19}
+        dr._ai_relevance_irrelevant = lambda its, cfg: ai_rejected
+
+        kept = dr.filter_environmental_relevance(items, {}, self.api)
+        titles = [i["title"] for i in kept]
+
+        self.assertEqual(len(kept), 18, "AI 判无关的条目不应被兜底放回")
+        for t in junk:
+            self.assertNotIn(t, titles)
+        self.assertFalse(any(i.get("irrelevant") for i in kept),
+                         "被保留的条目不应带 irrelevant 标记")
+
+    def test_ai_mode_kept_count_is_lower_than_input(self):
+        """AI 模式下最终条数 = 输入数 - AI 判无关数，不做任何补偿"""
+        items = self._items(3, ["A polar bear diary, week 12", "Local team wins the cup"])
+        dr._ai_relevance_irrelevant = lambda its, cfg: {3, 4}
+
+        kept = dr.filter_environmental_relevance(items, {}, self.api)
+        self.assertEqual(len(kept), 3)
+        self.assertEqual(len(items), 5)
+
+    def test_rule_mode_still_relaxes_on_small_sample(self):
+        """规则模式（AI 不可用）下小样本仍整体放宽——避免规则误杀把当天内容清空"""
+        items = [{"title": "欧盟推进碳边境调节机制，专家分析对出口影响"},
+                 {"title": "今日沪深股市收评：两市震荡整理"},
+                 {"title": "英超联赛周末战报：曼城客场取胜"}]
+        dr._ai_relevance_irrelevant = lambda its, cfg: None   # 模拟 AI 调用失败
+
+        kept = dr.filter_environmental_relevance(items, {}, self.api)
+        self.assertEqual(len(kept), len(items), "规则模式小样本应整体放宽")
+        self.assertFalse(any(i.get("irrelevant") for i in kept))
+
+
+class TestContentDensity(unittest.TestCase):
+    """信息密度判据（v2.1）。
+
+    背景：线上榜尾混进多条地方政务通稿（省督察组调研督导信访、昆山生态环境局
+    网友见面会、永州溶洞整治推进会、中央督察组反馈会表态发言），它们与高密度
+    科研进展在旧口径下拿到的"内容质量分"可以完全一样。这里锁定判据行为：
+    通稿降权 / 政策文件加分 / 纯时政与娱乐类判断为正常不放行也不误伤。
+    """
+
+    def test_local_boilerplate_is_downweighted(self):
+        cases = [
+            "省第二生态环境保护督察组调研督导信访工作 - finance.sina.com.cn",
+            "苏州市昆山生态环境局举办网友见面会 - Sohu",
+            "永州市溶洞污染排查整治工作推进会召开 - 湖南红网",
+            "黄坤明在中央第四生态环境保护督察组督察广东省情况反馈会上作表态发言",
+            "江西省生态环境厅第三轮“利剑行动”启动",
+        ]
+        for t in cases:
+            factor, note = dr.evaluate_content_density(t)
+            self.assertEqual(note, "地方政务通稿", f"应判为地方政务通稿：{t}")
+            self.assertLess(factor, 1.0, f"通稿必须降权：{t}")
+
+    def test_title_without_the_word_huanjing_still_caught(self):
+        """标题不含"环境"二字也可以是明确的地方环保政务（靠 地方层级+污染+推进会 命中）"""
+        factor, note = dr.evaluate_content_density("永州市溶洞污染排查整治工作推进会召开")
+        self.assertEqual(note, "地方政务通稿")
+        self.assertLess(factor, 1.0)
+
+    def test_national_policy_document_is_boosted(self):
+        t = ("生态环境部环评司有关负责人就《排污许可证申请与核发技术规范 火电》"
+             "等六项国家生态环境标准修订答记者问")
+        factor, note = dr.evaluate_content_density(t)
+        self.assertEqual(note, "国家级政策文件")
+        self.assertGreater(factor, 1.0)
+
+    def test_high_density_content_is_not_penalized(self):
+        """国家层面部署、学术会议、国际论坛、科研发现都不能被误判为通稿"""
+        cases = [
+            "生态环境部部长黄润秋：重拳整治！ - finance.sina.com.cn",
+            "分三阶段整治！多部门联合部署深入打击生态环境监测机构弄虚作假",
+            "大气污染控制费效与达标评估暨大气霾化学国际学术研讨会召开 - 科学网",
+            "中国—东盟绿色循环产业与国际环境公约履约平行论坛在南宁举行 - 央广网",
+        ]
+        for t in cases:
+            factor, note = dr.evaluate_content_density(t)
+            self.assertEqual(factor, 1.0, f"不应被降权：{t}（判为 {note}）")
+
+    def test_english_titles_are_never_flagged(self):
+        """判据只对中文生效：英文源不产出中文政务通稿，套用会误判"""
+        for t in ["Microplastics in Soil a ‘Trojan Horse’ for Toxic Chemicals",
+                  "Trump says US will form 'AI Force' and appoint an army"]:
+            factor, note = dr.evaluate_content_density(t)
+            self.assertEqual((factor, note), (1.0, ""))
+
+    def test_density_factor_can_be_disabled_by_config(self):
+        """config 里 content_density.enabled=false 时应完全失效"""
+        item = {"title": "省第二生态环境保护督察组调研督导信访工作",
+                "source": "Google News 生态环境", "published": "2026-09-20T00:00:00+00:00"}
+        items = dr.calculate_heat_v2([dict(item)], {"content_density": {"enabled": False}})
+        self.assertEqual(items[0]["score_breakdown"]["density_factor"], 1.0)
+        self.assertEqual(items[0]["score_breakdown"]["density_note"], "")
+
+    def test_density_factor_recorded_in_breakdown(self):
+        """密度系数与判定说明必须进入 score_breakdown，供前端热度弹窗展示"""
+        items = dr.calculate_heat_v2(
+            [{"title": "省第二生态环境保护督察组调研督导信访工作",
+              "source": "Google News 生态环境", "published": "2026-09-20T00:00:00+00:00"},
+             {"title": "Microplastics in Soil a ‘Trojan Horse’ for Toxic Chemicals",
+              "source": "Yale Environment 360", "published": "2026-09-20T00:00:00+00:00"}],
+            {})
+        bd = items[0]["score_breakdown"]
+        self.assertEqual(bd["algorithm"], "v2.1")
+        self.assertLess(bd["density_factor"], 1.0)
+        self.assertEqual(bd["density_note"], "地方政务通稿")
+        self.assertEqual(items[1]["score_breakdown"]["density_factor"], 1.0)
+
+    def test_boilerplate_cap_removes_excess(self):
+        """配额生效：最多保留 N 条通稿，非通稿一条都不动"""
+        items = [
+            {"title": "省第二生态环境保护督察组调研督导信访工作"},
+            {"title": "苏州市昆山生态环境局举办网友见面会"},
+            {"title": "永州市溶洞污染排查整治工作推进会召开"},
+            {"title": "生态环境部部长黄润秋：重拳整治！"},
+        ]
+        kept = dr.limit_low_density_items(items, {"content_density": {"max_boilerplate": 1}})
+        self.assertEqual(len(kept), 2)
+        self.assertIn("生态环境部部长黄润秋：重拳整治！", [k["title"] for k in kept])
+
+    def test_boilerplate_cap_zero_drops_all(self):
+        items = [{"title": "省第二生态环境保护督察组调研督导信访工作"},
+                 {"title": "Microplastics in Soil a ‘Trojan Horse’"}]
+        kept = dr.limit_low_density_items(items, {"content_density": {"max_boilerplate": 0}})
+        self.assertEqual([k["title"] for k in kept], ["Microplastics in Soil a ‘Trojan Horse’"])
+
+    def test_boilerplate_cap_default_is_no_op(self):
+        """默认 -1：只降权不删，榜单条数不变（避免默认行为改变上线表现）"""
+        items = [{"title": "省第二生态环境保护督察组调研督导信访工作"},
+                 {"title": "苏州市昆山生态环境局举办网友见面会"}]
+        for cfg in ({}, {"content_density": {}}, {"content_density": {"max_boilerplate": -1}},
+                    {"content_density": {"max_boilerplate": "abc"}}):
+            self.assertEqual(len(dr.limit_low_density_items(items, cfg)), 2)
+
+
+class TestKeywordCoverage(unittest.TestCase):
+    """关键词表覆盖度。
+
+    线上 28 条里 22 条 matched_keywords 为空（79%），导致关键词 IDF 分（满分 25）
+    与跨源共振分（满分 15）几乎全体为 0，排序退化成「来源权重 + 时间衰减」。
+    根因是默认词表缺「生态环境」「环境保护」「环境监测」「督察」等中文高频领域词
+    —— "生态环境保护督察" 也不含子串 "环保督察"。
+    """
+
+    def test_high_frequency_cn_domain_words_are_covered(self):
+        must_have = ["生态环境", "环境保护", "环境监测", "督察", "污染治理",
+                     "碳达峰", "温室气体", "固废", "地下水", "饮用水", "流域",
+                     "湿地", "臭氧", "生态安全", "环境政策", "绿色低碳", "能源转型"]
+        for w in must_have:
+            self.assertIn(w, dr.DEFAULT_KEYWORDS, f"默认词表缺高频领域词：{w}")
+
+    def test_real_titles_from_live_site_now_match(self):
+        """线上实测零命中的 5 条中文标题，扩词后必须至少命中一个关键词"""
+        cases = [
+            "生态环境部部长黄润秋：重拳整治！",
+            "分三阶段整治！多部门联合部署深入打击生态环境监测机构弄虚作假",
+            "打赢打好漓江生态环境提档升级总体战丨阳朔镇：精治细护提质效",
+            "省第二生态环境保护督察组调研督导信访工作",
+            "苏州市昆山生态环境局举办网友见面会",
+        ]
+        for t in cases:
+            got = dr.match_keywords(t, dr.DEFAULT_KEYWORDS, dr.KEYWORD_EN_ALIASES)
+            self.assertTrue(got, f"扩词后仍零命中：{t}")
+
+    def test_bare_over_generic_words_are_excluded(self):
+        """过泛的单字级词会让 s_keyword 对所有人一起饱和，必须排除"""
+        for w in ["污染", "排放", "气候", "环境", "生态"]:
+            self.assertNotIn(w, dr.DEFAULT_KEYWORDS, f"过泛词不应收录：{w}")
+
+    def test_no_duplicate_keywords(self):
+        self.assertEqual(len(dr.DEFAULT_KEYWORDS), len(set(dr.DEFAULT_KEYWORDS)),
+                         "默认词表存在重复词")
+
+    def test_every_keyword_has_english_alias_or_is_only_cn(self):
+        """至少 2/3 信源为英文，新增词应尽量配英文别名（未配的须是有意为之）"""
+        missing = [w for w in dr.DEFAULT_KEYWORDS if w not in dr.KEYWORD_EN_ALIASES]
+        # 允许少量纯中文政务词无英文对应，但不允许大面积缺失
+        self.assertLess(len(missing), 8, f"缺英文别名的词过多：{missing}")
+
+
+class TestTopicTagNormalization(unittest.TestCase):
+    """话题标签清洗。实测线上四类毛病：整句标题当标签、截断残词、
+    大小写重复（Pfas/PFAS）、与标题完全相同的空信息标签。"""
+
+    def test_overlong_tag_is_dropped(self):
+        tags = ["东盟绿色循环产业与国际环境公约履约平行论坛在南宁举行", "微塑料"]
+        self.assertEqual(dr.normalize_topic_tags(tags), ["微塑料"])
+
+    def test_case_duplicates_are_merged(self):
+        self.assertEqual(dr.normalize_topic_tags(["Pfas", "PFAS", "pfas"]), ["Pfas"])
+
+    def test_english_long_tag_is_kept(self):
+        """"forever chemicals" 17 字符属正常英文标签，不能被中文的 15 字上限误杀"""
+        self.assertIn("forever chemicals", dr.normalize_topic_tags(["forever chemicals"]))
+
+    def test_tag_equal_to_title_is_dropped(self):
+        t = "生态环境部部长黄润秋：重拳整治！"
+        self.assertEqual(dr.normalize_topic_tags([t], t), ["环境资讯"])
+
+    def test_empty_falls_back_to_contract_value(self):
+        """清洗后为空必须回落 ["环境资讯"]：前端在摘要为空时用它做提示"""
+        for empty in ([], None, [""], ["短"]):
+            self.assertEqual(dr.normalize_topic_tags(empty), ["环境资讯"])
+
+    def test_capped_at_three(self):
+        got = dr.normalize_topic_tags(["微塑料", "气候变化", "碳中和", "臭氧", "湿地"])
+        self.assertEqual(len(got), 3)
+        self.assertEqual(got, ["微塑料", "气候变化", "碳中和"])
+
+
+class TestJunkTitleFilter(unittest.TestCase):
+    """导航页 / 占位标题过滤（2026-09-20 接入中文垂直源后新增）
+
+    实测来源：Google News 的 site: 查询与部分站点 feed 会把非文章页当条目返回 ——
+    「首页 /申请前信息公开」（生态环境部）、「上市」（中国水网）、「要闻」（北极星环保网）。
+    这类条目标题极短或是栏目名，进榜没有信息价值，还会因来源权重高而排到前面。
+    """
+
+    def test_placeholder_titles_are_dropped(self):
+        for t in ["首页", "要闻", "上市", "更多", "首页 /申请前信息公开",
+                  "版权所有 © 中国水网", "", "   "]:
+            self.assertTrue(dr.is_junk_title(t), "应判为占位标题：%r" % t)
+
+    def test_real_titles_are_not_mistaken(self):
+        """宁可漏掉几个垃圾页，也不要误杀正常条目"""
+        for t in ["全国碳市场扩围至钢铁水泥铝冶炼行业",
+                  "宁夏固体废物污染防治“十五五”规划",
+                  "我国绿色贷款余额超40万亿元",
+                  "Microplastics in Soil a ‘Trojan Horse’ for Toxic Chemicals"]:
+            self.assertFalse(dr.is_junk_title(t), "不应误杀：%r" % t)
+
+
+class TestTrustedEnvSource(unittest.TestCase):
+    """环境垂直源白名单（2026-09-20 新增）
+
+    这些源整站/整频道就跑环境口，标题里没有"环境/生态"字样**不代表**内容无关。
+    实测误杀：人民网环保频道的「全国碳市场扩围至钢铁水泥铝冶炼行业」、
+    中国水网的「国能水务中标神东煤炭矿井水提标治理EPC项目」都被规则整条剔除。
+    """
+
+    def setUp(self):
+        # filter_environmental_relevance 需要一个 api_config；这里只用来判断"AI 是否可用"，
+        # 真正的 AI 调用在下面被 mock 掉了。
+        self.api = {"summary_enabled": True, "api_key": "test-key"}
+
+    def test_vertical_sources_are_trusted(self):
+        for s in ["Google News 中国环境网", "Google News 生态环境部",
+                  "Google News 北极星环保网", "Google News 中国水网",
+                  "人民网 环保频道"]:
+            self.assertTrue(dr.is_trusted_env_source(s), s)
+
+    def test_broad_queries_are_not_trusted(self):
+        """放宽不能外溢到泛聚合查询源——它们正是低密度通稿的来源"""
+        for s in ["Google News 环境保护", "Google News 生态环境",
+                  "Google News 气候变化", "The Guardian Environment", ""]:
+            self.assertFalse(dr.is_trusted_env_source(s), s)
+
+    def test_trusted_source_rescued_in_rule_mode(self):
+        """规则模式下：标题不含环境词的条目，来自垂直源 -> 保留；来自泛查询源 -> 剔除"""
+        # 20 条正常条目垫底，避免触发"不足 MIN_KEPT_ITEMS 就整体放宽"的兜底
+        filler = [{"title": "某地推进水污染治理工作取得阶段性进展", "source": "Google News 环境保护"}
+                  for _ in range(20)]
+        title = "湖北大悟守护秋收蓝天"
+        trusted = {"title": title, "source": "Google News 中国环境网"}
+        untrusted = {"title": title, "source": "Google News 环境保护"}
+        dr._ai_relevance_irrelevant = lambda its, cfg: None      # 模拟 AI 不可用 -> 规则模式
+
+        kept = dr.filter_environmental_relevance(filler + [trusted, untrusted], {}, self.api)
+        self.assertTrue(any(i is trusted for i in kept), "垂直源应被白名单放行")
+        self.assertTrue(untrusted.get("irrelevant"), "泛查询源不应享受白名单")
+
+
+class TestKeywordCoverageForChineseVertical(unittest.TestCase):
+    """中文垂直源高频主题必须在词表内（否则关键词 IDF 分恒为 0，排序吃亏）"""
+
+    def test_new_domain_words_present(self):
+        for kw in ["碳市场", "碳交易", "垃圾焚烧", "污泥", "环境法典", "排污许可"]:
+            self.assertIn(kw, dr.DEFAULT_KEYWORDS, "词表缺少 %s" % kw)
+
+    def test_real_headlines_hit_keywords(self):
+        cases = [
+            "全国碳市场扩围至钢铁水泥铝冶炼行业",
+            "宁夏固体废物污染防治“十五五”规划",
+            "关于印发《全国碳排放权交易市场2025、2026年度发电行业配额总量和分配方案》的通知",
+        ]
+        for t in cases:
+            self.assertTrue(dr.match_keywords(t, dr.DEFAULT_KEYWORDS, dr.KEYWORD_EN_ALIASES),
+                            "关键词零命中：%s" % t)
+
+
 if __name__ == "__main__":
     unittest.main(verbosity=2)

@@ -402,7 +402,11 @@ body.dark .card-rank.rank-other { background: rgba(148, 163, 184, 0.2); color: #
     border-radius: 14px;
     border: 1px solid var(--clr-border);
     color: var(--clr-muted);
-    background: var(--clr-card);
+    /* 原为 var(--clr-card)：该变量在全站从未定义，也没有 fallback，
+       于是这条声明在计算值阶段失效（背景退化成 transparent）。
+       父容器 .hotspot-card 用的就是 --clr-surface，改回它与原视觉等价，
+       同时把「这里想要的是卡片底色」这层意图写明确。 */
+    background: var(--clr-surface);
     cursor: pointer;
     transition: all .15s;
     margin-top: 2px;

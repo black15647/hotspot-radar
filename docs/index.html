@@ -32,7 +32,7 @@
          但那样会与 style.css 形成两套并存的同名规则（改一处漏一处就表现不一致），
          而且内联的 `background: ... !important` 会盖掉 style.css 里
          `body.dark .card-rank` 的暗色适配，导致暗色模式下徽章背景失效。 -->
-    <link rel="stylesheet" href="style.css?v=20260919d">
+    <link rel="stylesheet" href="style.css?v=20260921a">
     <!-- Chart.js 固定版本：写死 4.5.1（= 修复时的最新稳定版，与原先"不写版本、隐式取最新"的实际行为一致）。
          不写版本的 URL 会随上游发布漂移，一次破坏性变更就能让全部图表挂掉。 -->
     <script src="https://cdn.jsdelivr.net/npm/chart.js@4.5.1"></script>
@@ -455,20 +455,21 @@ var _hmt = _hmt || [];
         <div class="modal-overlay" id="algoOverlay"></div>
         <div class="modal-content">
             <div class="modal-head">
-                <h3 class="modal-title">透明热度算法 <span class="algo-ver">v2</span></h3>
+                <h3 class="modal-title">透明热度算法 <span class="algo-ver">v3.0</span></h3>
                 <button class="modal-close" id="algoClose">✕</button>
             </div>
             <div class="modal-body">
-                <p class="formula">基础分 base = 来源权威分(0-25) + 关键词IDF饱和分(0-25) + 跨源共振分(0-15) + 内容质量分(0-10)<br>时间衰减 T = 0.35 + 0.65 × e<sup>(−hours/48)</sup><br>原始分 raw = base × T × 重复惩罚(0.6)<br>展示分 = 40 + 60 × (raw − 当日最低 raw) ÷ (当日最高 raw − 当日最低 raw)</p>
+                <p class="formula">基础分 base = 权威度(0-18) + 话题分(0-18) + 事件共振(0-18) + 信息量(0-16)<br>时间衰减 T = 0.35 + 0.65 × e<sup>(−hours/48)</sup><br>原始分 raw = base × T × 信息密度 × 重复惩罚<br>展示分 = 40 + 60 × (1 − e<sup>(−raw/20)</sup>)</p>
                 <ul class="algo-list">
-                    <li><strong>来源权威分（0-25）</strong>：按来源权重线性映射，权威期刊与官方机构得分更高。</li>
-                    <li><strong>关键词IDF饱和分（0-25）</strong>：采用 IDF 加权，越具体的环境关键词贡献越大，“环境/污染”等常见泛词自动降权。</li>
-                    <li><strong>跨源共振分（0-15）</strong>：同一关键词被多个权威来源同时报道时加分，反映真实关注热度。</li>
-                    <li><strong>内容质量分（0-10）</strong>：摘要完整有效（≥20 字）得 10 分，否则 0 分。</li>
+                    <li><strong>权威度（0-18）</strong>：谁在说。按 <code>18 × √(来源权重 − 1)</code> 映射，开方用于压缩高权重端的优势、避免少数顶刊源垄断前列，且没有常数底分。</li>
+                    <li><strong>话题分（0-18）</strong>：说的是不是当下有价值的题。IDF 稀缺度（0-12）+ 当日聚集度（0-6）+ 零命中兜底（3），越具体的环境词贡献越大，"环境/污染"等泛词自动降权。</li>
+                    <li><strong>事件共振（0-18）</strong>：多少家<em>不同媒体</em>在报道同一件事。同一事件按标题重叠系数聚类，统计独立报道方数量，反映真实关注热度。</li>
+                    <li><strong>信息量（0-16）</strong>：说得多具体。量化信息 + 具体主体 + 研究信号 + 可读描述，中英文判据对等，不依赖 AI 摘要。</li>
                     <li><strong>时间衰减</strong>：保留 35% 长尾、48 小时半衰期，兼顾新闻时效与知识长期价值。</li>
+                    <li><strong>信息密度</strong>：国家级主体与规范性文件体裁加分，地方行政宣传稿降权。</li>
                     <li><strong>重复惩罚</strong>：同一事件被多个来源报道时，仅保留最高分条目，其余 ×0.6，避免刷屏。</li>
-                    <li><strong>展示分</strong>：把当日 raw 线性映射到 40–100。<strong>同 raw 必然同分</strong>，因此展示分表达的是该条目在<em>当天的相对热度位置</em>——它适合当天排序与分级，不适合跨天直接比较（跨天比较请用 raw 分）。</li>
-                    <li><strong>中英双语对齐</strong>：英文标题会通过英文别名或其中文译文参与关键词匹配，因此英文来源同样能获得关键词分与跨源共振分；同一事件的中英报道也会被识别为重复。</li>
+                    <li><strong>展示分</strong>：<strong>绝对标定</strong>，同一个 raw 在任何一天都得到同一个分，因此热度分<strong>可跨日比较</strong>；"今天没什么热点"会如实显示为整榜分数偏低，而不会像逐日百分位那样必然占满 40–100 两端。</li>
+                    <li><strong>中英双语对齐</strong>：英文标题会通过英文别名或其中文译文参与关键词匹配，因此英文来源同样能获得话题分与事件共振分；同一事件的中英报道也会被识别为重复。</li>
                 </ul>
             </div>
         </div>
@@ -732,6 +733,6 @@ var _hmt = _hmt || [];
         </div>
     </div>
 
-    <script src="script.js?v=20260919d"></script>
+    <script src="script.js?v=20260921a"></script>
 </body>
 </html>

@@ -3335,41 +3335,90 @@
         if (listEl) {
             listEl.innerHTML = '';
             const fmt = (v) => Number(v).toFixed(1);
-            const addRow = (label, value, prefix = '+') => {
+            const addRow = (label, value, prefix = '+', digits = 1) => {
+                // 只渲染有限数值：后端新增字段或字符串值时不再产生 `+NaN` 行
+                if (typeof value !== 'number' || !isFinite(value)) return;
                 const itemEl = document.createElement('div');
                 itemEl.className = 'score-breakdown-item';
-                itemEl.innerHTML = `<span class="score-breakdown-item-label">${label}</span><span class="score-breakdown-item-value">${prefix}${fmt(value)}</span>`;
+                itemEl.innerHTML = `<span class="score-breakdown-item-label">${label}</span>`
+                    + `<span class="score-breakdown-item-value">${prefix}${Number(value).toFixed(digits)}</span>`;
                 listEl.appendChild(itemEl);
             };
             if (breakdown && typeof breakdown === 'object') {
-                if (breakdown.algorithm === 'v2' || breakdown.keyword_idf_score !== undefined) {
-                    // ===== 新算法 v2 明细 =====
-                    addRow('来源权威分', breakdown.source_score || 0);
-                    addRow('关键词IDF分', breakdown.keyword_idf_score || 0);
-                    addRow('跨源共振分', breakdown.resonance_score || 0);
-                    addRow('内容质量分', breakdown.quality_score || 0);
-                    addRow('基础分(满分75)', breakdown.base || 0);
-                    if (breakdown.time_factor !== undefined) {
-                        addRow('时间衰减系数', breakdown.time_factor, '×');
-                    }
-                    if (breakdown.repeat_penalty !== undefined && breakdown.repeat_penalty < 1) {
-                        addRow('重复事件惩罚', breakdown.repeat_penalty, '×');
-                    }
-                    if (breakdown.cross_source_count !== undefined) {
-                        addRow('权威来源数', breakdown.cross_source_count, '');
-                    }
-                    if (breakdown.raw !== undefined) {
-                        addRow('原始分', breakdown.raw, '=');
-                    }
-                    // v1/v2 对比
-                    if (item.score_v1 !== undefined && item.score_v1 !== null) {
-                        const cmp = document.createElement('div');
-                        cmp.className = 'score-breakdown-item score-breakdown-compare';
-                        cmp.innerHTML = `<span class="score-breakdown-item-label">旧算法(v1)分</span><span class="score-breakdown-item-value">${fmt(item.score_v1)}</span>`;
-                        listEl.appendChild(cmp);
+                // 分流依据改为「字段存在性」而不是 algorithm 字符串前缀。
+                // 旧写法 `String(algorithm).indexOf('v2') === 0` 在 v3.0 上线后会判 false，
+                // 把新数据一路送进下面的 v1 分支，只渲染出「基础分 / 来源权重分」两行残影。
+                // 按字段判定后，v2.1 的历史快照与 v3.0 的新数据都能正确渲染。
+                const isLayeredBreakdown = (breakdown.display_score !== undefined
+                    || breakdown.authority_score !== undefined
+                    || breakdown.keyword_idf_score !== undefined
+                    || breakdown.resonance_score !== undefined);
+                if (isLayeredBreakdown) {
+                    const isV3 = (breakdown.authority_score !== undefined
+                        || breakdown.info_score !== undefined
+                        || String(breakdown.algorithm || '').indexOf('v3') === 0);
+                    if (isV3) {
+                        // ===== v3.0 四维明细 =====（维度名后附该维满分，便于理解量纲）
+                        const dmax = breakdown.dimension_max || {};
+                        const suffix = (k) => (dmax[k] ? ` （满分${dmax[k]}）` : '');
+                        addRow('权威度 · 谁在说' + suffix('authority'), breakdown.authority_score || 0);
+                        addRow('话题分 · 题值不值' + suffix('topic'), breakdown.topic_score || 0);
+                        addRow('事件共振 · 多少家报道' + suffix('resonance'), breakdown.resonance_score || 0);
+                        addRow('信息量 · 说得多具体' + suffix('information'), breakdown.info_score || 0);
+                        addRow('基础分合计', breakdown.base || 0);
+                        if (breakdown.time_factor !== undefined) {
+                            addRow('时间衰减系数', breakdown.time_factor, '×');
+                        }
+                        // 信息密度系数：地方政务通稿/薄内容降权，国家级政策文件加分。
+                        // 只在真的不等于 1 时显示，避免绝大多数条目多出一行噪声。
+                        if (breakdown.density_factor !== undefined && Math.abs(breakdown.density_factor - 1) > 0.001) {
+                            const note = breakdown.density_note ? `（${breakdown.density_note}）` : '';
+                            addRow('信息密度系数' + note, breakdown.density_factor, '×');
+                        }
+                        if (breakdown.repeat_penalty !== undefined && breakdown.repeat_penalty < 1) {
+                            addRow('同一事件重复降权', breakdown.repeat_penalty, '×');
+                        }
+                        if (breakdown.event_size !== undefined && breakdown.event_size > 1) {
+                            addRow('同一事件条目数', breakdown.event_size, '', 0);
+                            addRow('其中不同媒体数', breakdown.event_media_count || 0, '', 0);
+                        }
+                        if (breakdown.topic_burst_count !== undefined && breakdown.topic_burst_count > 1) {
+                            addRow('今日同话题条目数', breakdown.topic_burst_count, '', 0);
+                        }
+                        if (breakdown.raw !== undefined) {
+                            addRow('原始分', breakdown.raw, '=');
+                        }
+                    } else {
+                        // ===== v2.1 历史快照 =====（字段集不同，单独渲染）
+                        addRow('来源权威分', breakdown.source_score || 0);
+                        addRow('关键词IDF分', breakdown.keyword_idf_score || 0);
+                        addRow('跨源共振分', breakdown.resonance_score || 0);
+                        addRow('内容质量分', breakdown.quality_score || 0);
+                        addRow('基础分(满分75)', breakdown.base || 0);
+                        if (breakdown.time_factor !== undefined) {
+                            addRow('时间衰减系数', breakdown.time_factor, '×');
+                        }
+                        if (breakdown.density_factor !== undefined && Math.abs(breakdown.density_factor - 1) > 0.001) {
+                            const note = breakdown.density_note ? `（${breakdown.density_note}）` : '';
+                            addRow('信息密度系数' + note, breakdown.density_factor, '×');
+                        }
+                        if (breakdown.repeat_penalty !== undefined && breakdown.repeat_penalty < 1) {
+                            addRow('重复事件惩罚', breakdown.repeat_penalty, '×');
+                        }
+                        if (breakdown.cross_source_count !== undefined) {
+                            addRow('权威来源数', breakdown.cross_source_count, '');
+                        }
+                        if (breakdown.raw !== undefined) {
+                            addRow('原始分', breakdown.raw, '=');
+                        }
                     }
                 } else {
                     // ===== 旧算法 v1 明细（兼容历史数据）=====
+                    // 这里原来是"遍历所有键，不在 labels 里就原样打印键名"，
+                    // 于是后端一旦新增字段（如 v2.1 的 density_factor / density_note），
+                    // 历史快照路径就会漏出 `density_factor +0.0` 和 `density_note +NaN` 两行垃圾
+                    // （NaN 是因为字符串被 Number() 处理）。实测在浏览器里复现过。
+                    // 改为白名单：只认已知的 v1 字段，其余一律忽略。
                     const labels = {
                         base: '基础分',
                         source_score: '来源权重分',
@@ -3377,9 +3426,9 @@
                         time_score: '时间新鲜度分',
                         topic_bonus: '主题聚合加分'
                     };
-                    for (const [key, value] of Object.entries(breakdown)) {
-                        if (key === 'total' || key === 'algorithm') continue;
-                        addRow(labels[key] || key, value);
+                    for (const key of Object.keys(labels)) {
+                        if (breakdown[key] === undefined || breakdown[key] === null) continue;
+                        addRow(labels[key], breakdown[key]);
                     }
                 }
             } else if (typeof breakdown === 'string') {
@@ -3390,16 +3439,24 @@
         }
 
         if (els.scoreBreakdownTotal) {
-            // v2 展示分优先；兼容 v1 的 total
+            // 分层算法的展示分优先（含 v2.1 / v3.0）；兼容 v1 的 total
             let total;
-            if (breakdown && breakdown.algorithm === 'v2' && breakdown.display_score !== undefined) {
+            if (breakdown && breakdown.display_score !== undefined) {
                 total = breakdown.display_score;
             } else if (breakdown && breakdown.total !== undefined) {
                 total = breakdown.total;
             } else {
                 total = getHeatScore(item);
             }
-            els.scoreBreakdownTotal.innerHTML = `<span>热度分(v2)</span><span>${Number(total).toFixed(1)}</span>`;
+            // 版本标签从 breakdown.algorithm 动态取：原来写死 "(v2)"，
+            // v3.0 上线后新数据也会被标成 v2，属名不副实。
+            let algoTag = 'v3';
+            if (breakdown && typeof breakdown.algorithm === 'string' && breakdown.algorithm) {
+                algoTag = breakdown.algorithm.split('.')[0];       // "v2.1" -> "v2"
+            } else if (breakdown && breakdown.total !== undefined) {
+                algoTag = 'v1';
+            }
+            els.scoreBreakdownTotal.innerHTML = `<span>热度分(${algoTag})</span><span>${Number(total).toFixed(1)}</span>`;
         }
 
         openModal(els.scoreBreakdownModal);

@@ -1,150 +1,265 @@
 {
-  "report_date": "2026-09-20",
-  "date": "2026-09-20",
+  "report_date": "2026-09-21",
+  "date": "2026-09-21",
   "site_name": "环境学子雷达",
-  "total_items": 28,
-  "total_sources": 23,
-  "success_sources": 22,
+  "total_items": 17,
+  "total_sources": 28,
+  "success_sources": 27,
   "failed_sources": 1,
-  "week_total_items": 198,
-  "week_new_keywords": 89,
-  "policy_ratio": 3.4,
+  "week_total_items": 192,
+  "week_new_keywords": 85,
+  "policy_ratio": 5.2,
   "items": [
     {
-      "title": "An operational-age-associated transition in groundwater PFAS fingerprints within a complex industrial park in China",
-      "title_en": "An operational-age-associated transition in groundwater PFAS fingerprints within a complex industrial park in China",
-      "title_zh": "中国某复杂工业园区内地下水PFAS指纹随运营年限的变化",
+      "title": "生态环境部：重拳整治环境监测造假！ - 上海热线",
+      "title_en": "",
+      "title_zh": "",
       "summary_en": "",
       "summary_zh": "",
-      "link": "https://www.sciencedirect.com/science/article/pii/S0043135426016179?dgcid=rss_sd_all",
-      "source": "Water Research",
-      "published": "2026-09-19T00:02:30.911481+00:00",
+      "link": "https://news.google.com/rss/articles/CBMifkFVX3lxTE5PbFkyWGdfa2dlSUdTNGFIbWUzaUZhejVWaUFJQUJwT2VuSjA4ZVJTX1o3SUhHWkVnWFBnYks5RTRPZW1kbzR0TjBGNldUUnIyOGFWMkJPa0ZKT1FSU294eEUtMldzdTBlOExIQTR4ZjZ6b1E0cWJsbF9Pb3FZUQ?oc=5",
+      "source": "Google News 生态环境",
+      "published": "2026-09-20T22:48:35+00:00",
       "hotness": 100.0,
       "score": 100.0,
-      "score_v1": 20.68,
+      "score_v1": 40.1,
       "score_v2": 100.0,
       "score_breakdown": {
-        "algorithm": "v2",
-        "source_score": 25.0,
-        "keyword_idf_score": 17.65,
-        "resonance_score": 4.25,
+        "algorithm": "v2.1",
+        "source_score": 17.0,
+        "keyword_idf_score": 23.67,
+        "resonance_score": 0.0,
         "quality_score": 0.0,
-        "base": 46.91,
-        "time_factor": 0.7442,
+        "base": 40.67,
+        "time_factor": 0.9835,
+        "density_factor": 1.0,
+        "density_note": "",
         "repeat_penalty": 1.0,
-        "cross_source_count": 2,
-        "raw": 34.91,
+        "cross_source_count": 1,
+        "raw": 40.0,
         "display_score": 100.0
       },
       "score_v1_breakdown": {
         "base": 5.0,
-        "source_score": 6.0,
-        "keyword_score": 2.0,
-        "time_score": 3.68,
-        "topic_bonus": 4.0,
-        "total": 20.68
+        "source_score": 3.6,
+        "keyword_score": 4.0,
+        "time_score": 9.5,
+        "topic_bonus": 18.0,
+        "total": 40.1
       },
-      "summary": "研究中国工业园区地下水中氟化物指纹随年龄变化的运营特征，揭示了工业活动对地下水氟污染的时空演变规律。",
-      "analysis": "该条目涉及【地下水污染】话题，因来源权威性高，热度上升。",
+      "summary": "生态环境部发布重拳整治环境监测造假的通报，严厉打击采样造假、数据伪造等违法行为，旨在保障环境监测数据真实性与权威性。",
+      "analysis": "该条目涉及【生态环境部】话题，因来源权威性高，热度上升。",
       "topic_tags": [
-        "地下水污染",
-        "PFAS"
+        "生态环境部",
+        "环境监测造假",
+        "数据伪造"
       ],
-      "category": "污染治理",
+      "category": "生态环境",
       "matched_keywords": [
-        "新污染物"
+        "生态环境",
+        "环境监测"
       ],
       "keywords": [
-        "新污染物"
+        "生态环境",
+        "环境监测"
       ]
     },
     {
-      "title": "US veterans have greater levels of Pfas in their blood than civilians, new study finds",
-      "title_en": "US veterans have greater levels of Pfas in their blood than civilians, new study finds",
-      "title_zh": "最新研究发现，美国退伍军人的血液中全氟烷基物质（Pfas）含量高于平民",
-      "summary_en": "Soil and water around military bases show elevated levels of Pfas pollution due to chemicals used in firefighting foamMany US military veterans have much higher levels of Pfas “forever chemicals” in their blood than non-veterans, new peer-reviewed research finds, raising more questions about health risks the nation’s service members face after serving at polluted bases.Ground water, surface water and soil around military bases show among the highest levels of Pfas pollution in the US because the chemicals are used in firefighting foam deployed during training and emergencies. While the problem has been clear for over a decade, the new Brown University-led study is the first to compare levels in veterans’ blood with those in civilians. Continue reading...",
-      "summary_zh": "军事基地周边的土壤和水体因灭火泡沫中使用的化学物质而显示出较高的全氟烷基和多氟烷基物质（PFAS）污染水平。一项新的经同行评审的研究发现，许多美国退伍军人的血液中PFAS（即“永久性化学物质”）含量远高于非退伍军人， 一项新的经同行评审的研究发现，这引发了更多关于美国军人曾在受污染基地服役后所面临健康风险的疑问。军事基地周边的地下水、地表水和土壤中的PFA污染水平位居全美最高之列，原因在于这些化学物质被用于训练和紧急情况中部署的灭火泡沫中。 尽管这一问题十多年来已十分明显，但由布朗大学牵头开展的这项新研究是首次将退伍军人的血液中PFA斯含量与平民的血液中PFA斯含量进行比较。继续阅读...",
-      "link": "https://www.theguardian.com/environment/2026/sep/18/pfas-veterans-blood-forever-chemicals",
-      "source": "The Guardian Environment",
-      "published": "2026-09-18T14:00:19+00:00",
-      "hotness": 90.8,
-      "score": 90.8,
-      "score_v1": 16.42,
-      "score_v2": 90.8,
+      "title": "表演式采样、伪造数据？生态环境部部署全国严打环境监测造假_政经观察 - 奥一网",
+      "title_en": "",
+      "title_zh": "",
+      "summary_en": "",
+      "summary_zh": "",
+      "link": "https://news.google.com/rss/articles/CBMiXkFVX3lxTE56MThNRjg3WFhVTVJoUWlKR0NPNVVjUWRIcEtqczJJSVVFbGs3RWQwcTJHV1g0eUNzX09QWVR2RnI3czhCdjkzR2o5eGVqbHlfOG9adjhjaGRnMTlLU1E?oc=5",
+      "source": "Google News 生态环境",
+      "published": "2026-09-20T13:19:00+00:00",
+      "hotness": 91.7,
+      "score": 91.7,
+      "score_v1": 37.0,
+      "score_v2": 91.7,
       "score_breakdown": {
-        "algorithm": "v2",
-        "source_score": 15.0,
-        "keyword_idf_score": 17.65,
-        "resonance_score": 4.25,
-        "quality_score": 10.0,
-        "base": 46.91,
-        "time_factor": 0.6698,
+        "algorithm": "v2.1",
+        "source_score": 17.0,
+        "keyword_idf_score": 23.67,
+        "resonance_score": 0.0,
+        "quality_score": 0.0,
+        "base": 40.67,
+        "time_factor": 0.8698,
+        "density_factor": 1.0,
+        "density_note": "",
         "repeat_penalty": 1.0,
-        "cross_source_count": 2,
-        "raw": 31.42,
-        "display_score": 90.8
+        "cross_source_count": 1,
+        "raw": 35.38,
+        "display_score": 91.7
       },
       "score_v1_breakdown": {
         "base": 5.0,
-        "source_score": 3.0,
-        "keyword_score": 2.0,
-        "time_score": 2.42,
-        "topic_bonus": 4.0,
-        "total": 16.42
+        "source_score": 3.6,
+        "keyword_score": 4.0,
+        "time_score": 6.4,
+        "topic_bonus": 18.0,
+        "total": 37.0
       },
-      "summary": "军事基地周边的土壤和水体因灭火泡沫中使用的化学物质而显示出较高的全氟烷基和多氟烷基物质（PFAS）污染水平。一项新的经同行评审的研究发现，许多美国退伍军人的血液中PFAS（即“永久性化学物质”）含量远高于非退伍军人， 一项新的经同行评审的研究发现，这引发了更多关于美国军人曾在受污染基地服役后所面临健康风险的疑问。军事基地周边的地下水、地表水和土壤中的PFA污染水平位居全美最高之列，原因在于这些化学物质被用于训练和紧急情况中部署的灭火泡沫中。 尽管这一问题十多年来已十分明显，但由布朗大学牵头开展的这项新研究是首次将退伍军人的血液中PFA斯含量与平民的血液中PFA斯含量进行比较。继续阅读...",
-      "analysis": "该条目涉及【Pfas】话题，因来源权威性高，热度上升。",
+      "summary": "生态环境部部署全国范围内严厉打击环境监测造假行动，重点查处表演式采样和伪造数据等违法违规行为，维护生态环境监测秩序。",
+      "analysis": "该条目涉及【生态环境部】话题，因来源权威性高，热度上升。",
       "topic_tags": [
-        "Pfas",
-        "forever chemicals"
+        "生态环境部",
+        "环境监测造假",
+        "伪造数据"
       ],
-      "category": "污染治理",
+      "category": "生态环境",
       "matched_keywords": [
-        "新污染物"
+        "生态环境",
+        "环境监测"
       ],
       "keywords": [
-        "新污染物"
+        "生态环境",
+        "环境监测"
       ]
     },
     {
-      "title": "Microplastics in Soil a ‘Trojan Horse’ for Toxins",
-      "title_en": "Microplastics in Soil a ‘Trojan Horse’ for Toxins",
-      "title_zh": "土壤中的微塑料是毒素的“特洛伊木马”",
-      "summary_en": "Microplastics act like a “Trojan horse,” delivering pollutants, pesticides, and bacteria through the soil, a five-year multinational research project has found.Read more on E360 →",
-      "summary_zh": "一项为期五年的多国联合研究发现，微塑料就像“特洛伊木马”一样，通过土壤输送污染物、农药和细菌。在 E360 上阅读更多内容 →",
-      "link": "https://e360.yale.edu/digest/microplastics-soil",
-      "source": "Yale Environment 360",
-      "published": "2026-09-18T09:32:00+00:00",
-      "hotness": 79.0,
-      "score": 79.0,
-      "score_v1": 14.61,
-      "score_v2": 79.0,
+      "title": "江西省流域水生态环境保护“十五五”规划（征求意见稿） - 中国水网",
+      "title_en": "",
+      "title_zh": "",
+      "summary_en": "",
+      "summary_zh": "",
+      "link": "https://news.google.com/rss/articles/CBMiVEFVX3lxTE5SVlpwYS0tZmRmWkZudGdOakNKaEY0UDN0NnNDUGRfWGhWTlJmZXQ1QnN0SXhFdFFXX21vbVdLQkd2VDFNVDNwUFV6YzhZNTJBcDdpdw?oc=5",
+      "source": "Google News 环境保护",
+      "published": "2026-09-20T08:50:00+00:00",
+      "hotness": 89.8,
+      "score": 89.8,
+      "score_v1": 41.91,
+      "score_v2": 89.8,
       "score_breakdown": {
-        "algorithm": "v2",
+        "algorithm": "v2.1",
         "source_score": 17.0,
-        "keyword_idf_score": 15.03,
+        "keyword_idf_score": 24.69,
         "resonance_score": 0.0,
-        "quality_score": 10.0,
-        "base": 42.03,
-        "time_factor": 0.6414,
+        "quality_score": 0.0,
+        "base": 41.69,
+        "time_factor": 0.8235,
+        "density_factor": 1.0,
+        "density_note": "",
         "repeat_penalty": 1.0,
         "cross_source_count": 1,
-        "raw": 26.96,
-        "display_score": 79.0
+        "raw": 34.33,
+        "display_score": 89.8
+      },
+      "score_v1_breakdown": {
+        "base": 5.0,
+        "source_score": 3.6,
+        "keyword_score": 6.0,
+        "time_score": 5.31,
+        "topic_bonus": 22.0,
+        "total": 41.91
+      },
+      "summary": "江西省发布流域水生态环境保护‘十五五’规划（征求意见稿），旨在通过系统规划指导未来五年流域水生态环境的保护与治理工作。",
+      "analysis": "该条目涉及【流域水生态环境保护】话题，因来源权威性高，热度上升。",
+      "topic_tags": [
+        "流域水生态环境保护",
+        "十五五规划"
+      ],
+      "category": "生态环境",
+      "matched_keywords": [
+        "流域",
+        "生态环境",
+        "环境保护"
+      ],
+      "keywords": [
+        "流域",
+        "生态环境",
+        "环境保护"
+      ]
+    },
+    {
+      "title": "以志愿微光汇聚生态星河 “美丽海河·同心守护”京津冀生态环境志愿服务活动北京分会场活动圆满举行 - 北京市人民政府门户网站",
+      "title_en": "",
+      "title_zh": "",
+      "summary_en": "",
+      "summary_zh": "",
+      "link": "https://news.google.com/rss/articles/CBMidEFVX3lxTFBicVIycmc4akxybEd0RDUtMnd5V3hOUUdkemR5TlFnRVBKOUt0MXAxNWkyWlJFZXgtT0UyRmZiSktEbmVRbXc1SU03Qm4zaHZBR0FfNEphUkUyb3g0enJaM1NPdS1DaWpLT25SWXUwOHZqOU5o?oc=5",
+      "source": "Google News 生态环境",
+      "published": "2026-09-20T09:51:00+00:00",
+      "hotness": 82.4,
+      "score": 82.4,
+      "score_v1": 30.14,
+      "score_v2": 82.4,
+      "score_breakdown": {
+        "algorithm": "v2.1",
+        "source_score": 17.0,
+        "keyword_idf_score": 19.23,
+        "resonance_score": 0.0,
+        "quality_score": 0.0,
+        "base": 36.23,
+        "time_factor": 0.8336,
+        "density_factor": 1.0,
+        "density_note": "",
+        "repeat_penalty": 1.0,
+        "cross_source_count": 1,
+        "raw": 30.21,
+        "display_score": 82.4
       },
       "score_v1_breakdown": {
         "base": 5.0,
         "source_score": 3.6,
         "keyword_score": 2.0,
-        "time_score": 2.01,
-        "topic_bonus": 2.0,
-        "total": 14.61
+        "time_score": 5.54,
+        "topic_bonus": 14.0,
+        "total": 30.14
       },
-      "summary": "一项为期五年的多国联合研究发现，微塑料就像“特洛伊木马”一样，通过土壤输送污染物、农药和细菌。在 E360 上阅读更多内容 →",
+      "summary": "北京举行‘美丽海河·同心守护’京津冀生态环境志愿服务活动，志愿者通过微光行动汇聚生态保护力量，共同守护京津冀地区水环境。",
+      "analysis": "该条目涉及【京津冀生态环境志愿服务】话题，因来源权威性高，热度上升。",
+      "topic_tags": [
+        "京津冀生态环境志愿服务",
+        "水环境保护"
+      ],
+      "category": "生态环境",
+      "matched_keywords": [
+        "生态环境"
+      ],
+      "keywords": [
+        "生态环境"
+      ]
+    },
+    {
+      "title": "Redox homeostasis governs anaerobic microbial stability: mechanistic insights from selective ROS scavenging under microplastic stress",
+      "title_en": "Redox homeostasis governs anaerobic microbial stability: mechanistic insights from selective ROS scavenging under microplastic stress",
+      "title_zh": "氧化还原稳态调控厌氧微生物的稳定性：基于微塑料应激条件下选择性清除活性氧的机制分析",
+      "summary_en": "",
+      "summary_zh": "",
+      "link": "https://www.sciencedirect.com/science/article/pii/S0043135426016076?dgcid=rss_sd_all",
+      "source": "Water Research",
+      "published": "2026-09-20T00:02:22.175669+00:00",
+      "hotness": 80.9,
+      "score": 80.9,
+      "score_v1": 18.68,
+      "score_v2": 80.9,
+      "score_breakdown": {
+        "algorithm": "v2.1",
+        "source_score": 25.0,
+        "keyword_idf_score": 14.52,
+        "resonance_score": 0.0,
+        "quality_score": 0.0,
+        "base": 39.52,
+        "time_factor": 0.7442,
+        "density_factor": 1.0,
+        "density_note": "",
+        "repeat_penalty": 1.0,
+        "cross_source_count": 1,
+        "raw": 29.41,
+        "display_score": 80.9
+      },
+      "score_v1_breakdown": {
+        "base": 5.0,
+        "source_score": 6.0,
+        "keyword_score": 2.0,
+        "time_score": 3.68,
+        "topic_bonus": 2.0,
+        "total": 18.68
+      },
+      "summary": "研究揭示在微塑料压力下，选择性ROS清除机制对厌氧微生物稳定性的调控作用，提供了微生物生态适应性的新机理见解。",
       "analysis": "该条目涉及【微塑料】话题，因来源权威性高，热度上升。",
       "topic_tags": [
-        "微塑料",
-        "土壤污染"
+        "微塑料"
       ],
       "category": "污染治理",
       "matched_keywords": [
@@ -155,527 +270,203 @@
       ]
     },
     {
-      "title": "大气污染控制费效与达标评估暨大气霾化学国际学术研讨会召开 - 科学网—新闻",
+      "title": "陈小江在中央第七生态环境保护督察组督察新疆维吾尔自治区和新疆生产建设兵团情况反馈会上作表态发言 - altxw.com",
       "title_en": "",
       "title_zh": "",
       "summary_en": "",
       "summary_zh": "",
-      "link": "https://news.google.com/rss/articles/CBMiZEFVX3lxTFBBYjNJNV9UcEdVY3locEdJX2lSQ2M4ajlQUFhUWUt6QTlLUnY5bXRuMGNTVUhhUkpYZmxJN0dTUlhwVHE2MEhpMkpNLXZSUXdMSkh3LW0zTEY4Z0dYV0hGMlZwX20?oc=5",
-      "source": "Google News 环境污染",
-      "published": "2026-09-19T02:31:25+00:00",
-      "hotness": 78.5,
-      "score": 78.5,
-      "score_v1": 17.58,
-      "score_v2": 78.5,
-      "score_breakdown": {
-        "algorithm": "v2",
-        "source_score": 20.0,
-        "keyword_idf_score": 15.03,
-        "resonance_score": 0.0,
-        "quality_score": 0.0,
-        "base": 35.03,
-        "time_factor": 0.7651,
-        "repeat_penalty": 1.0,
-        "cross_source_count": 1,
-        "raw": 26.8,
-        "display_score": 78.5
-      },
-      "score_v1_breakdown": {
-        "base": 5.0,
-        "source_score": 4.5,
-        "keyword_score": 2.0,
-        "time_score": 4.08,
-        "topic_bonus": 2.0,
-        "total": 17.58
-      },
-      "summary": "聚焦大气污染控制费用效益与达标评估，以及大气霾化学前沿问题，举办了国际学术研讨会，促进了相关治理技术与理论交流。",
-      "analysis": "该条目涉及【大气污染控制费】话题，因来源权威性高，热度上升。",
-      "topic_tags": [
-        "大气污染控制费",
-        "大气霾化学"
-      ],
-      "category": "污染治理",
-      "matched_keywords": [
-        "大气污染"
-      ],
-      "keywords": [
-        "大气污染"
-      ]
-    },
-    {
-      "title": "Trump says US will form 'AI Force' and appoint an artificial intelligence tsar",
-      "title_en": "Trump says US will form 'AI Force' and appoint an artificial intelligence tsar",
-      "title_zh": "特朗普表示，美国将组建“人工智能部队”并任命一名人工智能沙皇",
-      "summary_en": "The president said his administration \"will not in any way hinder or stifle the growth\" amid amid warnings about the emergent technology.",
-      "summary_zh": "尽管外界对这项新兴技术发出警告，总统表示，他的政府“绝不会以任何方式阻碍或扼杀其发展”。",
-      "link": "https://www.bbc.co.uk/news/articles/cqlykr2vrv04o?at_medium=RSS&at_campaign=rss",
-      "source": "BBC 科学与环境",
-      "published": "2026-09-19T21:01:56+00:00",
-      "hotness": 71.2,
-      "score": 71.2,
-      "score_v1": 16.82,
-      "score_v2": 71.2,
-      "score_breakdown": {
-        "algorithm": "v2",
-        "source_score": 15.0,
-        "keyword_idf_score": 0.0,
-        "resonance_score": 0.0,
-        "quality_score": 10.0,
-        "base": 25.0,
-        "time_factor": 0.9604,
-        "repeat_penalty": 1.0,
-        "cross_source_count": 1,
-        "raw": 24.01,
-        "display_score": 71.2
-      },
-      "score_v1_breakdown": {
-        "base": 5.0,
-        "source_score": 3.0,
-        "keyword_score": 0.0,
-        "time_score": 8.82,
-        "topic_bonus": 0.0,
-        "total": 16.82
-      },
-      "summary": "尽管外界对这项新兴技术发出警告，总统表示，他的政府“绝不会以任何方式阻碍或扼杀其发展”。",
-      "analysis": "该条目涉及【人工智能】话题，因来源权威性高，热度上升。",
-      "topic_tags": [
-        "人工智能"
-      ],
-      "category": "科研学术",
-      "matched_keywords": [],
-      "keywords": []
-    },
-    {
-      "title": "See tiny organisms on show in microscopic video competition",
-      "title_en": "See tiny organisms on show in microscopic video competition",
-      "title_zh": "在显微视频大赛中一睹微小生物的风采",
-      "summary_en": "The winning video features tiny hair-like structures, called cilia, in the airways of a child with a rare genetic disease.",
-      "summary_zh": "获奖视频展示了患有罕见遗传性疾病的一名儿童气道内细小的、类似头发的结构——即纤毛。",
-      "link": "https://www.bbc.co.uk/news/videos/cr209jz45vn4o?at_medium=RSS&at_campaign=rss",
-      "source": "BBC 科学与环境",
-      "published": "2026-09-18T01:41:14+00:00",
-      "hotness": 66.1,
-      "score": 66.1,
-      "score_v1": 13.45,
-      "score_v2": 66.1,
-      "score_breakdown": {
-        "algorithm": "v2",
-        "source_score": 15.0,
-        "keyword_idf_score": 12.03,
-        "resonance_score": 0.0,
-        "quality_score": 10.0,
-        "base": 37.03,
-        "time_factor": 0.5974,
-        "repeat_penalty": 1.0,
-        "cross_source_count": 1,
-        "raw": 22.12,
-        "display_score": 66.1
-      },
-      "score_v1_breakdown": {
-        "base": 5.0,
-        "source_score": 3.0,
-        "keyword_score": 2.0,
-        "time_score": 1.45,
-        "topic_bonus": 2.0,
-        "total": 13.45
-      },
-      "summary": "获奖视频展示了患有罕见遗传性疾病的一名儿童气道内细小的、类似头发的结构——即纤毛。",
-      "analysis": "该条目涉及【环境资讯】话题，因来源权威性高，热度上升。",
-      "topic_tags": [
-        "环境资讯"
-      ],
-      "category": "其他",
-      "matched_keywords": [
-        "竞赛"
-      ],
-      "keywords": [
-        "竞赛"
-      ]
-    },
-    {
-      "title": "Scientists just discovered why Arctic sea ice moves so strangely",
-      "title_en": "Scientists just discovered why Arctic sea ice moves so strangely",
-      "title_zh": "科学家刚刚发现了北极海冰为何会呈现如此奇怪的移动现象",
-      "summary_en": "Arctic sea ice may move in unexpected ways because individual ice floes are constantly colliding and transferring energy. Researchers found that this simple process can explain several long-standing mysteries about how quickly the ice moves and spreads.",
-      "summary_zh": "北极海冰可能会以意想不到的方式移动，因为单个浮冰之间不断发生碰撞并传递能量。研究人员发现，这一简单过程可以解释关于海冰移动和扩散速度的几个长期未解之谜。",
-      "link": "https://www.sciencedaily.com/releases/2026/09/260917003708.htm",
-      "source": "ScienceDaily 环境科学",
-      "published": "2026-09-18T02:13:16+00:00",
-      "hotness": 60.0,
-      "score": 60.0,
-      "score_v1": 11.88,
-      "score_v2": 60.0,
-      "score_breakdown": {
-        "algorithm": "v2",
-        "source_score": 23.0,
-        "keyword_idf_score": 0.0,
-        "resonance_score": 0.0,
-        "quality_score": 10.0,
-        "base": 33.0,
-        "time_factor": 0.6002,
-        "repeat_penalty": 1.0,
-        "cross_source_count": 1,
-        "raw": 19.81,
-        "display_score": 60.0
-      },
-      "score_v1_breakdown": {
-        "base": 5.0,
-        "source_score": 5.4,
-        "keyword_score": 0.0,
-        "time_score": 1.48,
-        "topic_bonus": 0.0,
-        "total": 11.88
-      },
-      "summary": "北极海冰可能会以意想不到的方式移动，因为单个浮冰之间不断发生碰撞并传递能量。研究人员发现，这一简单过程可以解释关于海冰移动和扩散速度的几个长期未解之谜。",
-      "analysis": "该条目涉及【环境资讯】话题，因来源权威性高，热度上升。",
-      "topic_tags": [
-        "环境资讯"
-      ],
-      "category": "其他",
-      "matched_keywords": [],
-      "keywords": []
-    },
-    {
-      "title": "Extracellular DNA serves as a mesoscale cross-linker in aerobic granular sludge",
-      "title_en": "Extracellular DNA serves as a mesoscale cross-linker in aerobic granular sludge",
-      "title_zh": "细胞外DNA在好氧颗粒污泥中充当中尺度交联剂",
-      "summary_en": "",
-      "summary_zh": "",
-      "link": "https://www.sciencedirect.com/science/article/pii/S0043135426016192?dgcid=rss_sd_all",
-      "source": "Water Research",
-      "published": "2026-09-19T00:02:30.911481+00:00",
-      "hotness": 56.8,
-      "score": 56.8,
-      "score_v1": 14.68,
-      "score_v2": 56.8,
-      "score_breakdown": {
-        "algorithm": "v2",
-        "source_score": 25.0,
-        "keyword_idf_score": 0.0,
-        "resonance_score": 0.0,
-        "quality_score": 0.0,
-        "base": 25.0,
-        "time_factor": 0.7442,
-        "repeat_penalty": 1.0,
-        "cross_source_count": 1,
-        "raw": 18.6,
-        "display_score": 56.8
-      },
-      "score_v1_breakdown": {
-        "base": 5.0,
-        "source_score": 6.0,
-        "keyword_score": 0.0,
-        "time_score": 3.68,
-        "topic_bonus": 0.0,
-        "total": 14.68
-      },
-      "summary": "发现细胞外DNA在好氧颗粒污泥中作为中尺度交联剂，对微生物絮体的稳定性和代谢过程具有重要影响。",
-      "analysis": "该条目涉及【环境资讯】话题，因来源权威性高，热度上升。",
-      "topic_tags": [
-        "环境资讯"
-      ],
-      "category": "水处理",
-      "matched_keywords": [],
-      "keywords": []
-    },
-    {
-      "title": "Reduced nutrient trapping efficiency yet amplified downstream N:P ratio elevation in worldwide cascade reservoirs compared to single reservoirs",
-      "title_en": "Reduced nutrient trapping efficiency yet amplified downstream N:P ratio elevation in worldwide cascade reservoirs compared to single reservoirs",
-      "title_zh": "与单一水库相比，全球级联水库的营养物质截留效率有所降低，但下游N:P比值的升高幅度却更大",
-      "summary_en": "",
-      "summary_zh": "",
-      "link": "https://www.sciencedirect.com/science/article/pii/S0043135426016234?dgcid=rss_sd_all",
-      "source": "Water Research",
-      "published": "2026-09-19T00:02:30.911481+00:00",
-      "hotness": 56.8,
-      "score": 56.8,
-      "score_v1": 14.68,
-      "score_v2": 56.8,
-      "score_breakdown": {
-        "algorithm": "v2",
-        "source_score": 25.0,
-        "keyword_idf_score": 0.0,
-        "resonance_score": 0.0,
-        "quality_score": 0.0,
-        "base": 25.0,
-        "time_factor": 0.7442,
-        "repeat_penalty": 1.0,
-        "cross_source_count": 1,
-        "raw": 18.6,
-        "display_score": 56.8
-      },
-      "score_v1_breakdown": {
-        "base": 5.0,
-        "source_score": 6.0,
-        "keyword_score": 0.0,
-        "time_score": 3.68,
-        "topic_bonus": 0.0,
-        "total": 14.68
-      },
-      "summary": "全球范围内比较级联水库与单一水库的营养元素截留效率与氮磷比升高情况，揭示了级联水库生态效应的差异特征。",
-      "analysis": "该条目涉及【级联水库】话题，因来源权威性高，热度上升。",
-      "topic_tags": [
-        "级联水库",
-        "单一水库"
-      ],
-      "category": "水处理",
-      "matched_keywords": [],
-      "keywords": []
-    },
-    {
-      "title": "Construction of microbial piezo/photo system for nitrate conversion to ammonium driven by the synergistic effect of hydraulic kinetic and light energy",
-      "title_en": "Construction of microbial piezo/photo system for nitrate conversion to ammonium driven by the synergistic effect of hydraulic kinetic and light energy",
-      "title_zh": "基于水力动力学与光能协同效应的微生物压电/光能系统构建，用于将硝酸盐转化为铵离子",
-      "summary_en": "",
-      "summary_zh": "",
-      "link": "https://www.sciencedirect.com/science/article/pii/S0043135426016155?dgcid=rss_sd_all",
-      "source": "Water Research",
-      "published": "2026-09-19T00:02:30.911481+00:00",
-      "hotness": 56.8,
-      "score": 56.8,
-      "score_v1": 14.68,
-      "score_v2": 56.8,
-      "score_breakdown": {
-        "algorithm": "v2",
-        "source_score": 25.0,
-        "keyword_idf_score": 0.0,
-        "resonance_score": 0.0,
-        "quality_score": 0.0,
-        "base": 25.0,
-        "time_factor": 0.7442,
-        "repeat_penalty": 1.0,
-        "cross_source_count": 1,
-        "raw": 18.6,
-        "display_score": 56.8
-      },
-      "score_v1_breakdown": {
-        "base": 5.0,
-        "source_score": 6.0,
-        "keyword_score": 0.0,
-        "time_score": 3.68,
-        "topic_bonus": 0.0,
-        "total": 14.68
-      },
-      "summary": "构建微生物压电/光系统，利用水力动能与光能协同效应驱动硝酸盐转化为铵，实现氮的资源化利用新路径。",
-      "analysis": "该条目涉及【水力动能】话题，因来源权威性高，热度上升。",
-      "topic_tags": [
-        "水力动能",
-        "氮资源化"
-      ],
-      "category": "水处理",
-      "matched_keywords": [],
-      "keywords": []
-    },
-    {
-      "title": "Anomaly diagnosis in SWRO desalination plants using a physics-informed spatiotemporal graph attention network",
-      "title_en": "Anomaly diagnosis in SWRO desalination plants using a physics-informed spatiotemporal graph attention network",
-      "title_zh": "基于物理信息时空间图注意力网络的海水反渗透（SWRO）脱盐厂异常诊断",
-      "summary_en": "",
-      "summary_zh": "",
-      "link": "https://www.sciencedirect.com/science/article/pii/S0043135426015770?dgcid=rss_sd_all",
-      "source": "Water Research",
-      "published": "2026-09-19T00:02:30.911481+00:00",
-      "hotness": 56.8,
-      "score": 56.8,
-      "score_v1": 14.68,
-      "score_v2": 56.8,
-      "score_breakdown": {
-        "algorithm": "v2",
-        "source_score": 25.0,
-        "keyword_idf_score": 0.0,
-        "resonance_score": 0.0,
-        "quality_score": 0.0,
-        "base": 25.0,
-        "time_factor": 0.7442,
-        "repeat_penalty": 1.0,
-        "cross_source_count": 1,
-        "raw": 18.6,
-        "display_score": 56.8
-      },
-      "score_v1_breakdown": {
-        "base": 5.0,
-        "source_score": 6.0,
-        "keyword_score": 0.0,
-        "time_score": 3.68,
-        "topic_bonus": 0.0,
-        "total": 14.68
-      },
-      "summary": "基于物理信息的时空图注意力网络用于SWRO海水淡化厂异常诊断，提升设备运行监测与故障预测能力。",
-      "analysis": "该条目涉及【环境资讯】话题，因来源权威性高，热度上升。",
-      "topic_tags": [
-        "环境资讯"
-      ],
-      "category": "水处理",
-      "matched_keywords": [],
-      "keywords": []
-    },
-    {
-      "title": "Trump administration pushes on with construction of controversial Big Bend border wall",
-      "title_en": "Trump administration pushes on with construction of controversial Big Bend border wall",
-      "title_zh": "特朗普政府继续推进备受争议的大本德边境墙的建设",
-      "summary_en": "Customs and Border Protection faces bipartisan backlash from locals for 30ft border wall through west TexasThe Trump administration is pressing forward with construction on the controversial border wall in the Big Bend region of west Texas, even as Customs and Border Protection (CBP) faces furious backlash from local leaders and landowners for its fast-moving plans.Construction began this week in Hudspeth county, which lies just east of the city of El Paso. CBP has been pressing landowners there to grant permission to allow the agency to erect a 30ft steel bollard border wall in that area, offering them signing bonuses as an incentive to avoid eminent domain disputes. Continue reading...",
-      "summary_zh": "美国海关与边境保护局因在德克萨斯州西部修建30英尺高的边境墙而面临当地两党人士的强烈反对。尽管美国海关与边境保护局（CBP）因其仓促推进的计划而遭到当地领导人和土地所有者的强烈反对，特朗普政府仍在德克萨斯州西部大弯地区继续推进这座备受争议的边境墙的建设。本周，位于埃尔帕索市以东的赫德斯佩斯县已开始施工。海关与边境保护局一直向当地土地所有者施压，要求他们批准该机构在该地区修建一座30英尺高的钢柱边境墙，并提供签约奖金作为激励，以避免征地纠纷。继续阅读……",
-      "link": "https://www.theguardian.com/us-news/2026/sep/18/trump-administration-big-bend-border-wall-texas-construction",
-      "source": "The Guardian Environment",
-      "published": "2026-09-18T23:07:25+00:00",
-      "hotness": 56.4,
-      "score": 56.4,
-      "score_v1": 11.54,
-      "score_v2": 56.4,
-      "score_breakdown": {
-        "algorithm": "v2",
-        "source_score": 15.0,
-        "keyword_idf_score": 0.0,
-        "resonance_score": 0.0,
-        "quality_score": 10.0,
-        "base": 25.0,
-        "time_factor": 0.7367,
-        "repeat_penalty": 1.0,
-        "cross_source_count": 1,
-        "raw": 18.42,
-        "display_score": 56.4
-      },
-      "score_v1_breakdown": {
-        "base": 5.0,
-        "source_score": 3.0,
-        "keyword_score": 0.0,
-        "time_score": 3.54,
-        "topic_bonus": 0.0,
-        "total": 11.54
-      },
-      "summary": "美国海关与边境保护局因在德克萨斯州西部修建30英尺高的边境墙而面临当地两党人士的强烈反对。尽管美国海关与边境保护局（CBP）因其仓促推进的计划而遭到当地领导人和土地所有者的强烈反对，特朗普政府仍在德克萨斯州西部大弯地区继续推进这座备受争议的边境墙的建设。本周，位于埃尔帕索市以东的赫德斯佩斯县已开始施工。海关与边境保护局一直向当地土地所有者施压，要求他们批准该机构在该地区修建一座30英尺高的钢柱边境墙，并提供签约奖金作为激励，以避免征地纠纷。继续阅读……",
-      "analysis": "该条目涉及【环境资讯】话题，因来源权威性高，热度上升。",
-      "topic_tags": [
-        "环境资讯"
-      ],
-      "category": "其他",
-      "matched_keywords": [],
-      "keywords": []
-    },
-    {
-      "title": "When a beloved tree began withering away, locals suspected a killer in their midst",
-      "title_en": "When a beloved tree began withering away, locals suspected a killer in their midst",
-      "title_zh": "当一棵深受人们喜爱的树开始枯萎时，当地居民怀疑身边藏着一名凶手",
-      "summary_en": "A neighbourhood’s fight to save a cherished ginkgo pits them against an unlikely foe.",
-      "summary_zh": "一个社区为拯救一棵备受珍爱的银杏树而展开的斗争，使他们与一个意想不到的对手对立起来。",
-      "link": "https://www.bbc.co.uk/news/articles/cw5yl228lvzlo?at_medium=RSS&at_campaign=rss",
-      "source": "BBC 科学与环境",
-      "published": "2026-09-18T22:03:40+00:00",
-      "hotness": 55.8,
-      "score": 55.8,
-      "score_v1": 11.39,
-      "score_v2": 55.8,
-      "score_breakdown": {
-        "algorithm": "v2",
-        "source_score": 15.0,
-        "keyword_idf_score": 0.0,
-        "resonance_score": 0.0,
-        "quality_score": 10.0,
-        "base": 25.0,
-        "time_factor": 0.7282,
-        "repeat_penalty": 1.0,
-        "cross_source_count": 1,
-        "raw": 18.21,
-        "display_score": 55.8
-      },
-      "score_v1_breakdown": {
-        "base": 5.0,
-        "source_score": 3.0,
-        "keyword_score": 0.0,
-        "time_score": 3.39,
-        "topic_bonus": 0.0,
-        "total": 11.39
-      },
-      "summary": "一个社区为拯救一棵备受珍爱的银杏树而展开的斗争，使他们与一个意想不到的对手对立起来。",
-      "analysis": "该条目涉及【环境资讯】话题，因来源权威性高，热度上升。",
-      "topic_tags": [
-        "环境资讯"
-      ],
-      "category": "其他",
-      "matched_keywords": [],
-      "keywords": []
-    },
-    {
-      "title": "中国—东盟绿色循环产业与国际环境公约履约平行论坛在南宁举行 - 央广网",
-      "title_en": "",
-      "title_zh": "",
-      "summary_en": "",
-      "summary_zh": "",
-      "link": "https://news.google.com/rss/articles/CBMicEFVX3lxTE5DRE4tNWNoUEVpVUpoeGtsTXExaDd1S2JfOVJWQjl5NGdTdXd0MGlRaExtb3VraWhCTjFHdFItWUI1cnF5OFlvNDctcllSTC1NYlk4dlJwYUMwempaZWg2S3RndHhOU1VZMDdINGs2aW8?oc=5",
+      "link": "https://news.google.com/rss/articles/CBMia0FVX3lxTE1odjJLQXhUYV8zQUtkTTZhbUVzdk9zN3B5RGFrVkdvamdpN0ZETTlKN0Rsd0lFX1lpUXJTdGM0Zk5ZX1J0V0doeXJBTHNDdnBBbGlRWjhYWWF2Mm51VE56LW1CZDhvZHdYSlJV?oc=5",
       "source": "Google News 环境保护",
-      "published": "2026-09-19T14:28:03+00:00",
-      "hotness": 54.3,
-      "score": 54.3,
-      "score_v1": 16.21,
-      "score_v2": 54.3,
+      "published": "2026-09-20T12:29:00+00:00",
+      "hotness": 70.0,
+      "score": 70.0,
+      "score_v1": 44.78,
+      "score_v2": 70.0,
       "score_breakdown": {
-        "algorithm": "v2",
-        "source_score": 20.0,
-        "keyword_idf_score": 0.0,
+        "algorithm": "v2.1",
+        "source_score": 17.0,
+        "keyword_idf_score": 24.69,
         "resonance_score": 0.0,
         "quality_score": 0.0,
-        "base": 20.0,
-        "time_factor": 0.8824,
+        "base": 41.69,
+        "time_factor": 0.8609,
+        "density_factor": 0.65,
+        "density_note": "地方政务通稿",
         "repeat_penalty": 1.0,
         "cross_source_count": 1,
-        "raw": 17.65,
-        "display_score": 54.3
+        "raw": 23.33,
+        "display_score": 70.0
       },
       "score_v1_breakdown": {
         "base": 5.0,
-        "source_score": 4.5,
-        "keyword_score": 0.0,
-        "time_score": 6.71,
-        "topic_bonus": 0.0,
-        "total": 16.21
+        "source_score": 3.6,
+        "keyword_score": 6.0,
+        "time_score": 6.18,
+        "topic_bonus": 24.0,
+        "total": 44.78
       },
-      "summary": "中国—东盟绿色循环产业国际环境公约履约平行论坛在南宁举行，聚焦绿色合作与国际规则落实。",
-      "analysis": "该条目涉及【东盟绿色循环产业与国际环境公约履约平行论坛在南宁举行】话题，因来源权威性高，热度上升。",
+      "summary": "陈小江在中央第七生态环境保护督察组督察新疆维吾尔自治区和兵团反馈会上作表态发言，强调生态环境保护工作的重要性和责任落实。",
+      "analysis": "该条目涉及【中央第七生态环境保护督察组】话题，因来源权威性高，热度上升。",
       "topic_tags": [
-        "东盟绿色循环产业与国际环境公约履约平行论坛在南宁举行"
+        "中央第七生态环境保护督察组"
       ],
-      "category": "其他",
-      "matched_keywords": [],
-      "keywords": []
+      "category": "环境政策",
+      "matched_keywords": [
+        "生态环境",
+        "环境保护",
+        "督察"
+      ],
+      "keywords": [
+        "生态环境",
+        "环境保护",
+        "督察"
+      ]
     },
     {
-      "title": "WAFI2026 | 全球专家齐聚共话气候变化与农食系统绿色健康转型 - 中国农业大学新闻网",
+      "title": "市生态环境局龙岗管理局第三党支部联合开展龙岗区生物多样性公民科学探索“三联促三动”党建共建活动 - lg.gov.cn",
       "title_en": "",
       "title_zh": "",
       "summary_en": "",
       "summary_zh": "",
-      "link": "https://news.google.com/rss/articles/CBMid0FVX3lxTE1FWndaZ01aNkFpYUVuRHpjSkRUZ0dSb3Etd2JfbmJCUi1fQVM3QXR4WWY1WmVwMnlJdFE4eWhpajhrUl9tai1faDZhbHVTR3Bra0lpeXdQQnlMWUw2NDZGWlhGaGdGWmp5TkNUaDNmTTByT2FuS29J?oc=5",
-      "source": "Google News 气候变化",
-      "published": "2026-09-18T08:03:58+00:00",
-      "hotness": 52.9,
-      "score": 52.9,
-      "score_v1": 15.39,
-      "score_v2": 52.9,
+      "link": "https://news.google.com/rss/articles/CBMid0FVX3lxTE9weWxqRDZ4TFZzbGlyaTVWM2Z5N2RjN2lTZ0dUWHlUamJHVVByVXQwUHdDZkZnUWlkemNHS001TUoxY211WEhRM2RlLTJfanZjSzRPUTJySGdYUTRNc1BkYlBJb3lUeXpfdEVIUzlxd3NveC1XcjBr?oc=5",
+      "source": "Google News 生态环境",
+      "published": "2026-09-20T09:43:34+00:00",
+      "hotness": 66.8,
+      "score": 66.8,
+      "score_v1": 34.11,
+      "score_v2": 66.8,
       "score_breakdown": {
-        "algorithm": "v2",
-        "source_score": 20.0,
+        "algorithm": "v2.1",
+        "source_score": 17.0,
+        "keyword_idf_score": 22.89,
+        "resonance_score": 0.0,
+        "quality_score": 0.0,
+        "base": 39.89,
+        "time_factor": 0.8323,
+        "density_factor": 0.65,
+        "density_note": "地方政务通稿",
+        "repeat_penalty": 1.0,
+        "cross_source_count": 1,
+        "raw": 21.58,
+        "display_score": 66.8
+      },
+      "score_v1_breakdown": {
+        "base": 5.0,
+        "source_score": 3.6,
+        "keyword_score": 4.0,
+        "time_score": 5.51,
+        "topic_bonus": 16.0,
+        "total": 34.11
+      },
+      "summary": "龙岗管理局第三党支部联合开展生物多样性公民科学探索活动，通过“三联促三动”党建共建形式提升生态文明建设参与度。",
+      "analysis": "该条目涉及【生物多样性】话题，因来源权威性高，热度上升。",
+      "topic_tags": [
+        "生物多样性"
+      ],
+      "category": "生态环境",
+      "matched_keywords": [
+        "生态环境",
+        "生物多样性"
+      ],
+      "keywords": [
+        "生态环境",
+        "生物多样性"
+      ]
+    },
+    {
+      "title": "深圳市落实第三轮中央生态环境保护督察整改工作部署会召开 - sz.gov.cn",
+      "title_en": "",
+      "title_zh": "",
+      "summary_en": "",
+      "summary_zh": "",
+      "link": "https://news.google.com/rss/articles/CBMid0FVX3lxTE5hbG1RU09za2d5Q2hCYVlQMU9aMjJmVmZ4TmxRTjFwaUJsUllhZzJRSzVvLWxKQWJHb3NoeWhYNFRrRGxPVHEwdUV2a1Y1SEZ4WmFQSzVVM0FGWmJsdEpkMGYtb2hONldEa2d0VXRLYXJHSVZPODdB?oc=5",
+      "source": "Google News 环境保护",
+      "published": "2026-09-20T04:14:00+00:00",
+      "hotness": 66.0,
+      "score": 66.0,
+      "score_v1": 42.98,
+      "score_v2": 66.0,
+      "score_breakdown": {
+        "algorithm": "v2.1",
+        "source_score": 17.0,
+        "keyword_idf_score": 24.69,
+        "resonance_score": 0.0,
+        "quality_score": 0.0,
+        "base": 41.69,
+        "time_factor": 0.7802,
+        "density_factor": 0.65,
+        "density_note": "地方政务通稿",
+        "repeat_penalty": 1.0,
+        "cross_source_count": 1,
+        "raw": 21.14,
+        "display_score": 66.0
+      },
+      "score_v1_breakdown": {
+        "base": 5.0,
+        "source_score": 3.6,
+        "keyword_score": 6.0,
+        "time_score": 4.38,
+        "topic_bonus": 24.0,
+        "total": 42.98
+      },
+      "summary": "深圳市召开第三轮中央生态环境保护督察整改工作部署会，部署落实督察整改任务，推动生态环境保护责任落实。",
+      "analysis": "该条目涉及【第三轮中央生态环境保护督察】话题，因来源权威性高，热度上升。",
+      "topic_tags": [
+        "第三轮中央生态环境保护督察",
+        "整改工作部署"
+      ],
+      "category": "环境政策",
+      "matched_keywords": [
+        "生态环境",
+        "环境保护",
+        "督察"
+      ],
+      "keywords": [
+        "生态环境",
+        "环境保护",
+        "督察"
+      ]
+    },
+    {
+      "title": "毁灭性的七分钟：气候变化如何一步步酿成尼泊尔山洪 - DW.com",
+      "title_en": "",
+      "title_zh": "",
+      "summary_en": "",
+      "summary_zh": "",
+      "link": "https://news.google.com/rss/articles/CBMi3AJBVV95cUxOeWNnU0dIWnVVUkVmNlpMTkZsOEJTVzgtLVVmeVJ3LVRZc29BRjlwTWtta2EzdWRkcEZXaTJtdFdTREUxbGpnaFRGbUpwaTNfY0lTUTNzM2pucGJCQ1VjN04wOXFFOGNBQ2xod25iQU15VXB3b0hFVWRkMXo4a2UxeXd5SXlIRm05Zk5tck53SENRSzhxdnlpYngzQUpDejg2UmZxb3FBanMyREpCUTZvRnpSb0hFSG85T0xLbnQwQlQ1Zi1tNE5ZcFItZC1hZW1Gazk1RmZUaW9PUmtPcXQxZ0Zvd09UOERVbXZrVjVjdzZrcExJNC1ETElxcVdncW1mY1hkdlluNmFuLXI1cWJHY0xCRTRaZVVHM1AwZk9CMlZ5UEFWOWIwY0tSa1dDQkoyWXpWNkc5SV9XN3VGU2xqVzlTblZrMVNrOVo3c0Vuc0tsYVFka2JjVGViWEXSAdwCQVVfeXFMTnljZ1NHSFp1VVJFZjZaTE5GbDhCU1c4LS1VZnlSdy1UWXNvQUY5cE1rbWthM3VkZHBGV2kybXRXU0RFMWxqZ2hURm1KcGkzX2NJU1EzczNqbnBiQkNVYzdOMDlxRThjQUNsaHduYkFNeVVwd29IRVVkZDF6OGtlMXl3eUl5SEZtOWZObXJOd0hDUUs4cXZ5aWJ4M0FKQ3o4NlJmcW9xQWpzMkRKQlE2b0Z6Um9IRUhvOU9MS250MEJUNWYtbTROWXBSLWQtYWVtRms5NUZmVGlvT1JrT3F0MWdGb3dPVDhEVW12a1Y1Y3c2a3BMSTQtRExJcXFXZ3FtZmNYZHZZbjZhbi1yNXFiR2NMQkU0WmVVRzNQMGZPQjJWeVBBVjliMGNLUmtXQ0JKMll6VjZHOUlfVzd1RlNsalc5U25WazFTazlaN3NFbnNLbGFRZGtiY1RlYlhF?oc=5",
+      "source": "Google News 气候变化",
+      "published": "2026-09-20T10:11:52+00:00",
+      "hotness": 64.3,
+      "score": 64.3,
+      "score_v1": 20.22,
+      "score_v2": 64.3,
+      "score_breakdown": {
+        "algorithm": "v2.1",
+        "source_score": 17.0,
         "keyword_idf_score": 7.09,
         "resonance_score": 0.0,
         "quality_score": 0.0,
-        "base": 27.09,
-        "time_factor": 0.6326,
+        "base": 24.09,
+        "time_factor": 0.8371,
+        "density_factor": 1.0,
+        "density_note": "",
         "repeat_penalty": 1.0,
         "cross_source_count": 1,
-        "raw": 17.13,
-        "display_score": 52.9
+        "raw": 20.16,
+        "display_score": 64.3
       },
       "score_v1_breakdown": {
         "base": 5.0,
-        "source_score": 4.5,
+        "source_score": 3.6,
         "keyword_score": 2.0,
-        "time_score": 1.89,
-        "topic_bonus": 2.0,
-        "total": 15.39
+        "time_score": 5.62,
+        "topic_bonus": 4.0,
+        "total": 20.22
       },
-      "summary": "全球专家汇聚WAFI2026论坛，共同探讨气候变化与农食系统的绿色健康转型路径与创新策略。",
-      "analysis": "该条目涉及【全球专家齐聚共话气候变化与农食系统绿色健康转型】话题，因来源权威性高，热度上升。",
+      "summary": "尼泊尔山洪灾害揭示气候变化对高山地区的毁灭性影响，七分钟内洪水肆虐，气候异常加剧自然灾害风险。",
+      "analysis": "该条目涉及【环境资讯】话题，因来源权威性高，热度上升。",
       "topic_tags": [
-        "全球专家齐聚共话气候变化与农食系统绿色健康转型"
+        "环境资讯"
       ],
       "category": "气候变化",
       "matched_keywords": [
@@ -686,169 +477,136 @@
       ]
     },
     {
-      "title": "生态环境部部长黄润秋：重拳整治！ - finance.sina.com.cn",
+      "title": "同济大学第三届“气候变化与全球治理”国际大学生极地暑期学校圆满收官 - 同济大学新闻网",
       "title_en": "",
       "title_zh": "",
       "summary_en": "",
       "summary_zh": "",
-      "link": "https://news.google.com/rss/articles/CBMidkFVX3lxTE9HbXVoUUxLR0F1VS1fOFpRRlVLS290THh0d0ZLYWRUa1VYcGZoQk5pTmV2d0ZYRllsSUppcm4yVkR4dmhldElWa2lhOXZ5X2JsVUlkRVJ3Znc0a28yRUo4bTMtU3BGb3dJLXpPQkZSR2p4Q2k2Rnc?oc=5",
-      "source": "Google News 生态环境",
-      "published": "2026-09-19T11:28:00+00:00",
-      "hotness": 52.6,
-      "score": 52.6,
-      "score_v1": 15.42,
-      "score_v2": 52.6,
+      "link": "https://news.google.com/rss/articles/CBMiWkFVX3lxTE5hcnp1STZDdm9qanRvNk13SXFYZDN5ZDFrblUtYTAwX3NKMV9PdXpMMnhCM1pnSHFMekYxQ2d3YW5zUVNOODVXZjRUNGVxRVotb1czLW1TZS1LZw?oc=5",
+      "source": "Google News 气候变化",
+      "published": "2026-09-20T08:31:48+00:00",
+      "hotness": 63.5,
+      "score": 63.5,
+      "score_v1": 19.84,
+      "score_v2": 63.5,
       "score_breakdown": {
-        "algorithm": "v2",
-        "source_score": 20.0,
-        "keyword_idf_score": 0.0,
+        "algorithm": "v2.1",
+        "source_score": 17.0,
+        "keyword_idf_score": 7.09,
         "resonance_score": 0.0,
         "quality_score": 0.0,
-        "base": 20.0,
-        "time_factor": 0.8501,
+        "base": 24.09,
+        "time_factor": 0.8205,
+        "density_factor": 1.0,
+        "density_note": "",
         "repeat_penalty": 1.0,
         "cross_source_count": 1,
-        "raw": 17.0,
-        "display_score": 52.6
+        "raw": 19.76,
+        "display_score": 63.5
       },
       "score_v1_breakdown": {
         "base": 5.0,
-        "source_score": 4.5,
-        "keyword_score": 0.0,
-        "time_score": 5.92,
-        "topic_bonus": 0.0,
-        "total": 15.42
+        "source_score": 3.6,
+        "keyword_score": 2.0,
+        "time_score": 5.24,
+        "topic_bonus": 4.0,
+        "total": 19.84
       },
-      "summary": "生态环境部部长黄润秋宣布重拳整治行动，重点打击生态环境违法行为与监管盲区。",
-      "analysis": "该条目涉及【生态环境部】话题，因来源权威性高，热度上升。",
+      "summary": "同济大学第三届气候变化与全球治理国际大学生极地暑期学校圆满结业，培养学生关注极地气候变化与全球治理议题。",
+      "analysis": "该条目涉及【全球治理】话题，因来源权威性高，热度上升。",
       "topic_tags": [
-        "生态环境部"
+        "全球治理"
       ],
-      "category": "生态环境",
-      "matched_keywords": [],
-      "keywords": []
+      "category": "环境政策",
+      "matched_keywords": [
+        "气候变化"
+      ],
+      "keywords": [
+        "气候变化"
+      ]
     },
     {
-      "title": "分三阶段整治！多部门联合部署深入打击生态环境监测机构弄虚作假 - finance.sina.cn",
-      "title_en": "",
-      "title_zh": "",
+      "title": "Solar-driven desalination coupled with antibiotic degradation in saline aquaculture wastewater enabled by a plasmonic N-In<sub>2</sub>O<sub>3-x</sub> interface",
+      "title_en": "Solar-driven desalination coupled with antibiotic degradation in saline aquaculture wastewater enabled by a plasmonic N-In<sub>2</sub>O<sub>3-x</sub> interface",
+      "title_zh": "基于等离子体效应的N-In<sub>2</sub>O<sub>3-x</sub>界面，实现盐水水产养殖废水中的太阳能驱动脱盐与抗生素降解",
       "summary_en": "",
       "summary_zh": "",
-      "link": "https://news.google.com/rss/articles/CBMieEFVX3lxTE9pSmM1TThjZTRMT1YyZnl1RU5mdVNxVEdjbVZpRUJjYWxvLWZxdF9Gb0cwNHNSMTZ0TTBIWW5NZl9BdDJqWEg2X2FyYjRaX3Q2ZWRvaDFuS2otcW9wNmtKMVdybnlfbkdSUWF3bU1nTDdIcVQ5czhrcw?oc=5",
-      "source": "Google News 生态环境",
-      "published": "2026-09-19T11:03:30+00:00",
-      "hotness": 52.4,
-      "score": 52.4,
-      "score_v1": 15.32,
-      "score_v2": 52.4,
+      "link": "https://www.sciencedirect.com/science/article/pii/S004313542601643X?dgcid=rss_sd_all",
+      "source": "Water Research",
+      "published": "2026-09-20T00:02:22.175669+00:00",
+      "hotness": 61.5,
+      "score": 61.5,
+      "score_v1": 14.68,
+      "score_v2": 61.5,
       "score_breakdown": {
-        "algorithm": "v2",
-        "source_score": 20.0,
+        "algorithm": "v2.1",
+        "source_score": 25.0,
         "keyword_idf_score": 0.0,
         "resonance_score": 0.0,
         "quality_score": 0.0,
-        "base": 20.0,
-        "time_factor": 0.8459,
-        "repeat_penalty": 1.0,
-        "cross_source_count": 1,
-        "raw": 16.92,
-        "display_score": 52.4
-      },
-      "score_v1_breakdown": {
-        "base": 5.0,
-        "source_score": 4.5,
-        "keyword_score": 0.0,
-        "time_score": 5.82,
-        "topic_bonus": 0.0,
-        "total": 15.32
-      },
-      "summary": "多部门联合部署分三阶段行动，深入打击生态环境监测机构弄虚作假，强化监管问责。",
-      "analysis": "该条目涉及【环境监测】话题，因来源权威性高，热度上升。",
-      "topic_tags": [
-        "环境监测"
-      ],
-      "category": "科研学术",
-      "matched_keywords": [],
-      "keywords": []
-    },
-    {
-      "title": "47th Adaptation Fund Board Meeting",
-      "title_en": "47th Adaptation Fund Board Meeting",
-      "title_zh": "适应基金董事会第47次会议",
-      "summary_en": "The 47th Adaptation Fund Board Meeting will take place from October 19-23, 2026 from 9:00 a.m. to 5:00 p.m. CET. Observers may attend board sessions only on October 19 and from October 22 to 23 either in-person or online. Observer registration will open on September 28. Day 1 – October 19 Day 2 – October […] The post 47th Adaptation Fund Board Meeting appeared first on Adaptation Fund.",
-      "summary_zh": "适应基金董事会第47次会议将于2026年10月19日至23日举行，会议时间为中欧时间上午9:00至下午5:00。 观察员仅可在10月19日以及10月22日至23日期间，以现场或线上方式参加董事会会议。 观察员注册将于9月28日开始。第1天——10月19日 第2天——10月[…] 文章《第47届适应基金董事会会议》首发于适应基金官网。",
-      "link": "https://www.adaptation-fund.org/47th-adaptation-fund-board-meeting/",
-      "source": "Adaptation Fund",
-      "published": "2026-09-18T14:53:59+00:00",
-      "hotness": 52.3,
-      "score": 52.3,
-      "score_v1": 10.51,
-      "score_v2": 52.3,
-      "score_breakdown": {
-        "algorithm": "v2",
-        "source_score": 15.0,
-        "keyword_idf_score": 0.0,
-        "resonance_score": 0.0,
-        "quality_score": 10.0,
         "base": 25.0,
-        "time_factor": 0.6758,
+        "time_factor": 0.7442,
+        "density_factor": 1.0,
+        "density_note": "",
         "repeat_penalty": 1.0,
         "cross_source_count": 1,
-        "raw": 16.9,
-        "display_score": 52.3
+        "raw": 18.61,
+        "display_score": 61.5
       },
       "score_v1_breakdown": {
         "base": 5.0,
-        "source_score": 3.0,
+        "source_score": 6.0,
         "keyword_score": 0.0,
-        "time_score": 2.51,
+        "time_score": 3.68,
         "topic_bonus": 0.0,
-        "total": 10.51
+        "total": 14.68
       },
-      "summary": "适应基金董事会第47次会议将于2026年10月19日至23日举行，会议时间为中欧时间上午9:00至下午5:00。 观察员仅可在10月19日以及10月22日至23日期间，以现场或线上方式参加董事会会议。 观察员注册将于9月28日开始。第1天——10月19日 第2天——10月[…] 文章《第47届适应基金董事会会议》首发于适应基金官网。",
+      "summary": "太阳驱动的海水淡化技术结合抗生素降解，在盐水养殖废水中通过铟氧化物界面实现高效净化处理。",
       "analysis": "该条目涉及【环境资讯】话题，因来源权威性高，热度上升。",
       "topic_tags": [
         "环境资讯"
       ],
-      "category": "科研学术",
+      "category": "污染治理",
       "matched_keywords": [],
       "keywords": []
     },
     {
-      "title": "Fat Bear Week has returned – and the salmon are swimming for their lives",
-      "title_en": "Fat Bear Week has returned – and the salmon are swimming for their lives",
-      "title_zh": "“胖熊周”又来了——鲑鱼们正拼命游动以求生存",
-      "summary_en": "The public will, for the 12th year in a row, vote for the fattest of brown bears in Alaska’s Katmai national parkThe bears have returned to the river and are packing on the pounds as another Fat Bear Week begins at Katmai national park.The 12th annual Fat Bear Week, in which the public will vote for the fattest of Katmai’s brown bears as mothers, cubs and males gather along the salmon-run at Brooks river in Alaska begins on Monday. Continue reading...",
-      "summary_zh": "公众将连续第12年投票选出阿拉斯加卡特迈国家公园里最胖的棕熊。随着卡特迈国家公园新一届“胖熊周”的开始，这些棕熊已重返河边，体重正迅速增加。第12届“胖熊周”将于周一拉开帷幕。届时，随着母熊、幼熊和公熊聚集在阿拉斯加布鲁克斯河的鲑鱼洄游地段，公众将投票选出卡特迈棕熊中最胖的一只。继续阅读...",
-      "link": "https://www.theguardian.com/us-news/2026/sep/18/fat-bear-week-2026",
-      "source": "The Guardian Environment",
-      "published": "2026-09-18T13:00:18+00:00",
-      "hotness": 51.5,
-      "score": 51.5,
-      "score_v1": 10.32,
-      "score_v2": 51.5,
+      "title": "This deep-sea enzyme survives heat that destroys most proteins",
+      "title_en": "This deep-sea enzyme survives heat that destroys most proteins",
+      "title_zh": "这种深海酶能够耐受高温，而这种高温会破坏大多数蛋白质",
+      "summary_en": "A deep-sea microbe uses an exceptionally heat-resistant enzyme to turn atmospheric nitrogen into ammonia at temperatures that would destroy most proteins. Its unusual structure and a newly observed reaction state may reveal an ancient, shared mechanism behind nitrogen fixation and could eventually inspire cleaner biotechnology and fertilizer production.",
+      "summary_zh": "一种深海微生物利用一种耐热性极强的酶，在足以破坏大多数蛋白质的温度下将大气中的氮转化为氨。该酶不同寻常的结构以及新观察到的反应状态，或许能揭示固氮作用背后一种古老的、共通的机制，并最终为开发更清洁的生物技术和化肥生产提供灵感。",
+      "link": "https://www.sciencedaily.com/releases/2026/09/260918024810.htm",
+      "source": "ScienceDaily 环境科学",
+      "published": "2026-09-19T11:49:45+00:00",
+      "hotness": 59.8,
+      "score": 59.8,
+      "score_v1": 11.71,
+      "score_v2": 59.8,
       "score_breakdown": {
-        "algorithm": "v2",
-        "source_score": 15.0,
+        "algorithm": "v2.1",
+        "source_score": 20.0,
         "keyword_idf_score": 0.0,
         "resonance_score": 0.0,
-        "quality_score": 10.0,
-        "base": 25.0,
-        "time_factor": 0.6632,
+        "quality_score": 7.0,
+        "base": 27.0,
+        "time_factor": 0.6557,
+        "density_factor": 1.0,
+        "density_note": "",
         "repeat_penalty": 1.0,
         "cross_source_count": 1,
-        "raw": 16.58,
-        "display_score": 51.5
+        "raw": 17.7,
+        "display_score": 59.8
       },
       "score_v1_breakdown": {
         "base": 5.0,
-        "source_score": 3.0,
+        "source_score": 4.5,
         "keyword_score": 0.0,
-        "time_score": 2.32,
+        "time_score": 2.21,
         "topic_bonus": 0.0,
-        "total": 10.32
+        "total": 11.71
       },
-      "summary": "公众将连续第12年投票选出阿拉斯加卡特迈国家公园里最胖的棕熊。随着卡特迈国家公园新一届“胖熊周”的开始，这些棕熊已重返河边，体重正迅速增加。第12届“胖熊周”将于周一拉开帷幕。届时，随着母熊、幼熊和公熊聚集在阿拉斯加布鲁克斯河的鲑鱼洄游地段，公众将投票选出卡特迈棕熊中最胖的一只。继续阅读...",
+      "summary": "一种深海微生物利用一种耐热性极强的酶，在足以破坏大多数蛋白质的温度下将大气中的氮转化为氨。该酶不同寻常的结构以及新观察到的反应状态，或许能揭示固氮作用背后一种古老的、共通的机制，并最终为开发更清洁的生物技术和化肥生产提供灵感。",
       "analysis": "该条目涉及【环境资讯】话题，因来源权威性高，热度上升。",
       "topic_tags": [
         "环境资讯"
@@ -858,260 +616,182 @@
       "keywords": []
     },
     {
-      "title": "打赢打好漓江生态环境提档升级总体战丨阳朔镇：精治细护提质效 共建共治绘新篇 - finance.sina.com.cn",
+      "title": "对话｜岛国沉没倒计时！图瓦卢青年为何拒绝当“气候移民”？ - thepaper.cn",
       "title_en": "",
       "title_zh": "",
       "summary_en": "",
       "summary_zh": "",
-      "link": "https://news.google.com/rss/articles/CBMidkFVX3lxTE56NTRKaklfV2ZCbmZlWlQ3T24xZEdNZHg0UEVFdG56Y2l6ZU1qVHJvbU1heHl6LXd5Z3haUEtpU1FkQjZLSVFTME1NaElsci1sN1VHd0o1Y3dQdnJwWXBGRTJQbTF1WGFVTThYN3pKNy1ZT2hOaGc?oc=5",
-      "source": "Google News 生态环境",
-      "published": "2026-09-19T09:11:00+00:00",
-      "hotness": 51.4,
-      "score": 51.4,
-      "score_v1": 14.88,
-      "score_v2": 51.4,
+      "link": "https://news.google.com/rss/articles/CBMiXkFVX3lxTE1PQ2lnR0ozbndhbXpwejJlNDhtVk1qMVdYQ0hwQ25ObU1ZVHJ6Sm1nSW44VnB1NU1sM3VWODl6X0lnX2ZrRHAwRzY5Nm5TbVhhQ1FTRk1JNXF4eURlNnc?oc=5",
+      "source": "Google News 气候变化",
+      "published": "2026-09-20T23:15:00+00:00",
+      "hotness": 58.2,
+      "score": 58.2,
+      "score_v1": 18.27,
+      "score_v2": 58.2,
       "score_breakdown": {
-        "algorithm": "v2",
-        "source_score": 20.0,
+        "algorithm": "v2.1",
+        "source_score": 17.0,
         "keyword_idf_score": 0.0,
         "resonance_score": 0.0,
         "quality_score": 0.0,
-        "base": 20.0,
-        "time_factor": 0.8269,
+        "base": 17.0,
+        "time_factor": 0.9893,
+        "density_factor": 1.0,
+        "density_note": "",
         "repeat_penalty": 1.0,
         "cross_source_count": 1,
-        "raw": 16.54,
-        "display_score": 51.4
+        "raw": 16.82,
+        "display_score": 58.2
       },
       "score_v1_breakdown": {
         "base": 5.0,
-        "source_score": 4.5,
+        "source_score": 3.6,
         "keyword_score": 0.0,
-        "time_score": 5.38,
+        "time_score": 9.67,
         "topic_bonus": 0.0,
-        "total": 14.88
+        "total": 18.27
       },
-      "summary": "阳朔镇聚焦精细化治理，深化生态环境提档升级，通过精治细护提质效，推动共建共治共享新篇章。",
-      "analysis": "该条目涉及【打赢打好漓江生态环境提档升级总体战丨阳朔镇】话题，因来源权威性高，热度上升。",
+      "summary": "图瓦卢青年拒绝被定义为‘气候移民’，他们在面对岛国沉没危机时选择留守或寻求其他生存路径而非大规模迁移。",
+      "analysis": "该条目涉及【气候移民】话题，因来源权威性高，热度上升。",
       "topic_tags": [
-        "打赢打好漓江生态环境提档升级总体战丨阳朔镇"
-      ],
-      "category": "生态环境",
-      "matched_keywords": [],
-      "keywords": []
-    },
-    {
-      "title": "Private jets pollute up to 14 times as much as commercial planes and are undertaxed in US, report says",
-      "title_en": "Private jets pollute up to 14 times as much as commercial planes and are undertaxed in US, report says",
-      "title_zh": "一份报告称，私人飞机的污染排放量最高可达商用飞机的14倍，且在美国的税收负担过轻",
-      "summary_en": "Number of private jets has surged in recent years, but they do not pay commensurate portion of fees to FAA operationsA new report has put a spotlight on the rapid expansion of private jet travel in the US, revealing that owners are not paying their fair share of aviation tax despite the average owner’s wealth being $190m and private jets being up to 14 times more polluting than commercial flights.The Institute for Policy Studies’ new report, High Flyers 2026, examines the growing use of private aircraft, the public infrastructure supporting them and the tax policies benefiting private jet owners. Continue reading...",
-      "summary_zh": "近年来，私人飞机数量激增， 但它们向美国联邦航空管理局（FAA）缴纳的运营费用却未与其实际占用资源成正比。一份新报告将美国私人飞机旅行的快速扩张置于聚光灯下，揭示尽管私人飞机所有者的平均净资产高达1.9亿美元，且私人飞机的污染程度最高可达商业航班的14倍，但所有者并未按应有比例缴纳航空税。政策研究所（Institute for Policy Studies）最新发布的报告《2026年高空飞行者》（High Flyers 2026）深入分析了私人飞机使用量的增长、支撑其运行的公共基础设施，以及使私人飞机所有者受益的税收政策。继续阅读...",
-      "link": "https://www.theguardian.com/us-news/2026/sep/18/private-jets-pollution-undertaxed",
-      "source": "The Guardian Environment",
-      "published": "2026-09-18T12:00:19+00:00",
-      "hotness": 51.1,
-      "score": 51.1,
-      "score_v1": 10.23,
-      "score_v2": 51.1,
-      "score_breakdown": {
-        "algorithm": "v2",
-        "source_score": 15.0,
-        "keyword_idf_score": 0.0,
-        "resonance_score": 0.0,
-        "quality_score": 10.0,
-        "base": 25.0,
-        "time_factor": 0.6567,
-        "repeat_penalty": 1.0,
-        "cross_source_count": 1,
-        "raw": 16.42,
-        "display_score": 51.1
-      },
-      "score_v1_breakdown": {
-        "base": 5.0,
-        "source_score": 3.0,
-        "keyword_score": 0.0,
-        "time_score": 2.23,
-        "topic_bonus": 0.0,
-        "total": 10.23
-      },
-      "summary": "近年来，私人飞机数量激增， 但它们向美国联邦航空管理局（FAA）缴纳的运营费用却未与其实际占用资源成正比。一份新报告将美国私人飞机旅行的快速扩张置于聚光灯下，揭示尽管私人飞机所有者的平均净资产高达1.9亿美元，且私人飞机的污染程度最高可达商业航班的14倍，但所有者并未按应有比例缴纳航空税。政策研究所（Institute for Policy Studies）最新发布的报告《2026年高空飞行者》（High Flyers 2026）深入分析了私人飞机使用量的增长、支撑其运行的公共基础设施，以及使私人飞机所有者受益的税收政策。继续阅读...",
-      "analysis": "该条目涉及【私人飞机的污染排放量最高可达商用飞机的】话题，因来源权威性高，热度上升。",
-      "topic_tags": [
-        "私人飞机的污染排放量最高可达商用飞机的"
-      ],
-      "category": "污染治理",
-      "matched_keywords": [],
-      "keywords": []
-    },
-    {
-      "title": "Michael Sheen's 'constructive' meeting with first minister over toxic dumping claims",
-      "title_en": "Michael Sheen's 'constructive' meeting with first minister over toxic dumping claims",
-      "title_zh": "迈克尔·辛就有毒废物倾倒指控与首席部长举行了“富有建设性”的会晤",
-      "summary_en": "Michael Sheen said his meeting with the first minister was \"early days but that's really encouraging\".",
-      "summary_zh": "迈克尔·辛表示，他与首席部长的会面“虽尚处于初期阶段，但这确实令人鼓舞”。",
-      "link": "https://www.bbc.co.uk/news/articles/cke87n51563po?at_medium=RSS&at_campaign=rss",
-      "source": "BBC 科学与环境",
-      "published": "2026-09-18T12:01:08+00:00",
-      "hotness": 51.1,
-      "score": 51.1,
-      "score_v1": 10.23,
-      "score_v2": 51.1,
-      "score_breakdown": {
-        "algorithm": "v2",
-        "source_score": 15.0,
-        "keyword_idf_score": 0.0,
-        "resonance_score": 0.0,
-        "quality_score": 10.0,
-        "base": 25.0,
-        "time_factor": 0.6568,
-        "repeat_penalty": 1.0,
-        "cross_source_count": 1,
-        "raw": 16.42,
-        "display_score": 51.1
-      },
-      "score_v1_breakdown": {
-        "base": 5.0,
-        "source_score": 3.0,
-        "keyword_score": 0.0,
-        "time_score": 2.23,
-        "topic_bonus": 0.0,
-        "total": 10.23
-      },
-      "summary": "迈克尔·辛表示，他与首席部长的会面“虽尚处于初期阶段，但这确实令人鼓舞”。",
-      "analysis": "该条目涉及【环境资讯】话题，因来源权威性高，热度上升。",
-      "topic_tags": [
-        "环境资讯"
-      ],
-      "category": "科研学术",
-      "matched_keywords": [],
-      "keywords": []
-    },
-    {
-      "title": "US wheat farmers navigate uncertainty amid drought and geopolitical chaos",
-      "title_en": "US wheat farmers navigate uncertainty amid drought and geopolitical chaos",
-      "title_zh": "美国小麦种植户在干旱和地缘政治动荡中应对不确定性",
-      "summary_en": "Some experts worry factors affecting wheat exports could push global food prices even higher than they are nowWheat prices are at their highest level in three years, which means farmer Merrill Nielsen should be getting more for his crops out of his 2,500-acre (1,010-hectare) Kansas farm.Yet even as future prices for bread-type wheat are up 39%, Nielsen is unsure whether increased prices will raise his bottom line. The price of diesel fuel, which he needs to run his tractor, has hit record highs. Then there’s the erratic weather that made him lose his entire wheat crop in the spring, and drought has overtaken the southern Great Plains. Continue reading...",
-      "summary_zh": "一些专家担心，影响小麦出口的因素可能会导致全球食品价格比目前水平进一步上涨。小麦价格已达到三年来的最高水平，这意味着农民梅里尔·尼尔森应该能从他在堪萨斯州那片2,500英亩（1,010公顷）的农场中获得更高的作物收益。然而，尽管面包用小麦的期货价格上涨了39%，尼尔森仍不确定价格上涨能否提高他的净利润。 他驾驶拖拉机所需的柴油价格已创下历史新高。此外，多变的天气导致他在春季损失了全部小麦收成，而干旱也已席卷了大平原南部地区。继续阅读……",
-      "link": "https://www.theguardian.com/business/2026/sep/18/wheat-farmers-drought-geopolitics",
-      "source": "The Guardian Environment",
-      "published": "2026-09-18T11:00:17+00:00",
-      "hotness": 50.6,
-      "score": 50.6,
-      "score_v1": 10.14,
-      "score_v2": 50.6,
-      "score_breakdown": {
-        "algorithm": "v2",
-        "source_score": 15.0,
-        "keyword_idf_score": 0.0,
-        "resonance_score": 0.0,
-        "quality_score": 10.0,
-        "base": 25.0,
-        "time_factor": 0.6504,
-        "repeat_penalty": 1.0,
-        "cross_source_count": 1,
-        "raw": 16.26,
-        "display_score": 50.6
-      },
-      "score_v1_breakdown": {
-        "base": 5.0,
-        "source_score": 3.0,
-        "keyword_score": 0.0,
-        "time_score": 2.14,
-        "topic_bonus": 0.0,
-        "total": 10.14
-      },
-      "summary": "一些专家担心，影响小麦出口的因素可能会导致全球食品价格比目前水平进一步上涨。小麦价格已达到三年来的最高水平，这意味着农民梅里尔·尼尔森应该能从他在堪萨斯州那片2,500英亩（1,010公顷）的农场中获得更高的作物收益。然而，尽管面包用小麦的期货价格上涨了39%，尼尔森仍不确定价格上涨能否提高他的净利润。 他驾驶拖拉机所需的柴油价格已创下历史新高。此外，多变的天气导致他在春季损失了全部小麦收成，而干旱也已席卷了大平原南部地区。继续阅读……",
-      "analysis": "该条目涉及【环境资讯】话题，因来源权威性高，热度上升。",
-      "topic_tags": [
-        "环境资讯"
+        "气候移民"
       ],
       "category": "气候变化",
       "matched_keywords": [],
       "keywords": []
     },
     {
-      "title": "省第二生态环境保护督察组调研督导信访工作 - finance.sina.com.cn",
-      "title_en": "",
-      "title_zh": "",
-      "summary_en": "",
-      "summary_zh": "",
-      "link": "https://news.google.com/rss/articles/CBMidkFVX3lxTE5aQzE3RTV3amphSUJSZVBTSHZpQWxaN29GTmN5YjFHdFNiMUZOa3pFZUJPVVFiRDhQSnFjcFZ1cC1qcXZDY2pNeTVqcFV5ZUlmY1Y4Q3FFcnpXVWFKOWYxaU4xUnZfNTFSZzVNSnE1Z1Rkb1dxS1E?oc=5",
-      "source": "Google News 生态环境",
-      "published": "2026-09-19T06:53:00+00:00",
-      "hotness": 50.2,
-      "score": 50.2,
-      "score_v1": 14.39,
-      "score_v2": 50.2,
+      "title": "Billions in rare earth elements may be hiding in America’s coal ash",
+      "title_en": "Billions in rare earth elements may be hiding in America’s coal ash",
+      "title_zh": "美国煤灰中可能蕴藏着价值数十亿美元的稀土元素",
+      "summary_en": "Scientists are looking to diatoms, sea sponges, and plants for a cleaner way to recover rare earth elements and other valuable minerals hidden inside coal ash, red mud, and mine tailings. The bio-inspired approach could turn massive industrial waste piles into useful materials while reducing energy use, harsh chemicals, and reliance on new mining.",
+      "summary_zh": "科学家们正从硅藻、海绵和植物中寻找更清洁的方法，以提取隐藏在煤灰、红泥和矿山尾矿中的稀土元素及其他有价值的矿物。这种受生物启发的方法不仅能将大量工业废料转化为有用材料，还能减少能源消耗、降低强腐蚀性化学品的用量，并减少对新矿开采的依赖。",
+      "link": "https://www.sciencedaily.com/releases/2026/09/260918024759.htm",
+      "source": "ScienceDaily 环境科学",
+      "published": "2026-09-19T02:08:56+00:00",
+      "hotness": 57.1,
+      "score": 57.1,
+      "score_v1": 10.98,
+      "score_v2": 57.1,
       "score_breakdown": {
-        "algorithm": "v2",
+        "algorithm": "v2.1",
         "source_score": 20.0,
         "keyword_idf_score": 0.0,
         "resonance_score": 0.0,
-        "quality_score": 0.0,
-        "base": 20.0,
-        "time_factor": 0.8046,
+        "quality_score": 7.0,
+        "base": 27.0,
+        "time_factor": 0.5998,
+        "density_factor": 1.0,
+        "density_note": "",
         "repeat_penalty": 1.0,
         "cross_source_count": 1,
-        "raw": 16.09,
-        "display_score": 50.2
+        "raw": 16.2,
+        "display_score": 57.1
       },
       "score_v1_breakdown": {
         "base": 5.0,
         "source_score": 4.5,
         "keyword_score": 0.0,
-        "time_score": 4.89,
+        "time_score": 1.48,
         "topic_bonus": 0.0,
-        "total": 14.39
+        "total": 10.98
       },
-      "summary": "第二生态环境保护督察组深入调研督导信访工作，聚焦问题线索，推动信访事项落实整改，确保生态环境问题有效解决。",
-      "analysis": "该条目涉及【省第二生态环境保护督察组调研督导信访工作】话题，因来源权威性高，热度上升。",
+      "summary": "科学家们正从硅藻、海绵和植物中寻找更清洁的方法，以提取隐藏在煤灰、红泥和矿山尾矿中的稀土元素及其他有价值的矿物。这种受生物启发的方法不仅能将大量工业废料转化为有用材料，还能减少能源消耗、降低强腐蚀性化学品的用量，并减少对新矿开采的依赖。",
+      "analysis": "该条目涉及【环境资讯】话题，因来源权威性高，热度上升。",
       "topic_tags": [
-        "省第二生态环境保护督察组调研督导信访工作"
+        "环境资讯"
       ],
-      "category": "环境政策",
+      "category": "能源与碳中和",
       "matched_keywords": [],
       "keywords": []
     },
     {
-      "title": "苏州市昆山生态环境局举办网友见面会 - Sohu",
+      "title": "力源科技 - huanbao.bjx.com.cn",
+      "title_en": "力源科技 - huanbao.bjx.com.cn",
+      "title_zh": "力源科技 - 还宝网",
+      "summary_en": "",
+      "summary_zh": "",
+      "link": "https://news.google.com/rss/articles/CBMiWEFVX3lxTE5MajEwcWtKZ25KTmJzUVlObWwwQlVDc0s4MERoNm85TVpQVFY1NDZmdGtZSzhrVDRmY09XSTNpemRDbnA2Ykx0aXhVU25KOWo4OFVCV0NQMWM?oc=5",
+      "source": "Google News 北极星环保网",
+      "published": "2026-09-20T05:47:47+00:00",
+      "hotness": 55.1,
+      "score": 55.1,
+      "score_v1": 13.87,
+      "score_v2": 55.1,
+      "score_breakdown": {
+        "algorithm": "v2.1",
+        "source_score": 19.0,
+        "keyword_idf_score": 0.0,
+        "resonance_score": 0.0,
+        "quality_score": 0.0,
+        "base": 19.0,
+        "time_factor": 0.7944,
+        "density_factor": 1.0,
+        "density_note": "",
+        "repeat_penalty": 1.0,
+        "cross_source_count": 1,
+        "raw": 15.09,
+        "display_score": 55.1
+      },
+      "score_v1_breakdown": {
+        "base": 5.0,
+        "source_score": 4.2,
+        "keyword_score": 0.0,
+        "time_score": 4.67,
+        "topic_bonus": 0.0,
+        "total": 13.87
+      },
+      "summary": "中国电网作为全球最大的六氟化硫排放源，其SF6泄漏虽占比小但温室效应极强，成为气候变化关键因素。",
+      "analysis": "该条目涉及【环境资讯】话题，因来源权威性高，热度上升。",
+      "topic_tags": [
+        "环境资讯"
+      ],
+      "category": "其他",
+      "matched_keywords": [],
+      "keywords": []
+    },
+    {
+      "title": "来自中国电网的超级气候污染物正在炙烤地球 - Inside Climate News",
       "title_en": "",
       "title_zh": "",
       "summary_en": "",
       "summary_zh": "",
-      "link": "https://news.google.com/rss/articles/CBMijAFBVV95cUxNWkhVZzltWVpta3lnczVSUGlIaGZPSHFRZ0tzQ2E3UDBRSTFkT3FUNjZvcUtrQV9vOWxPaVJRRzFKQV9KMEp2OVJaNENUOE1aWW9VM1VpVHQ5VUUxaVpyZm5zOENVd2dPek5XTlZqSUYwVmdESFRGSDlJejZDbk91ZHhfX0RFWEhXdjRWNg?oc=5",
-      "source": "Google News 生态环境",
-      "published": "2026-09-19T04:09:47+00:00",
-      "hotness": 48.9,
-      "score": 48.9,
-      "score_v1": 13.87,
-      "score_v2": 48.9,
+      "link": "https://news.google.com/rss/articles/CBMiyAJBVV95cUxOYTk1Qm5lLUV1alB5RUlXR0d1SGFDc0R0dEZ1TWNkSloxWWh2RTNKSWFWN3RQcldZM0pTZHRmZHZpMTRsMndxdklTRmU5SVlYYkNxUmJIQnhKaW02ZWhMWUZma2dwbDREa3dXV3FTdjlaUTBucEpyTWZLWmhheUpjRk5UamxscFpKSnRoWGlEN3lUajVzODQxLVBPYkllSGdWeExKTFlDbno2RXpLclVUU0Y4QWMyVFJQOW43MllGeDV6VFNUSWJYSlRjQ2RsT0o2OWVvUEZTRzRkbXpOWWp3N2ZvTEJLU0RvM3hhWEF2QjZHenJ6UFlWYmF6a0c0Q01VajJLMGQ1VmNjbDNQQU5uMGVVcEJQSWpHVFJwVWxibWgwWTVMenk4QmtfaGxDNWNsVG9qMzlNWExjTy1EcFZ4QjFqTE9wTldB?oc=5",
+      "source": "Google News 环境污染",
+      "published": "2026-09-20T08:58:00+00:00",
+      "hotness": 53.2,
+      "score": 53.2,
+      "score_v1": 13.94,
+      "score_v2": 53.2,
       "score_breakdown": {
-        "algorithm": "v2",
-        "source_score": 20.0,
+        "algorithm": "v2.1",
+        "source_score": 17.0,
         "keyword_idf_score": 0.0,
         "resonance_score": 0.0,
         "quality_score": 0.0,
-        "base": 20.0,
-        "time_factor": 0.7795,
+        "base": 17.0,
+        "time_factor": 0.8248,
+        "density_factor": 1.0,
+        "density_note": "",
         "repeat_penalty": 1.0,
         "cross_source_count": 1,
-        "raw": 15.59,
-        "display_score": 48.9
+        "raw": 14.02,
+        "display_score": 53.2
       },
       "score_v1_breakdown": {
         "base": 5.0,
-        "source_score": 4.5,
+        "source_score": 3.6,
         "keyword_score": 0.0,
-        "time_score": 4.37,
+        "time_score": 5.34,
         "topic_bonus": 0.0,
-        "total": 13.87
+        "total": 13.94
       },
-      "summary": "苏州昆山生态环境局举办网友见面会，搭建沟通平台，增强公众参与感，共同探讨生态环境保护新思路新举措。",
-      "analysis": "该条目涉及【苏州市昆山生态环境局举办网友见面会】话题，因来源权威性高，热度上升。",
+      "summary": "永州市开展溶洞污染专项排查整治，旨在遏制地下水和周边生态环境的污染风险。",
+      "analysis": "该条目涉及【环境资讯】话题，因来源权威性高，热度上升。",
       "topic_tags": [
-        "苏州市昆山生态环境局举办网友见面会"
+        "环境资讯"
       ],
-      "category": "生态环境",
+      "category": "气候变化",
       "matched_keywords": [],
       "keywords": []
     },
@@ -1124,139 +804,73 @@
       "link": "https://news.google.com/rss/articles/CBMiYkFVX3lxTE1iaVdoYlhhVEgxbFpoZzYwWllZT19hOThxZkNZTlJJbjNHRFBxQ0FObzRMOUFySXRlb3dHbDhoNjV1bG9ha2dYMEFabDFlNHhOa3AyVTFkb0prZXBFbVFGT0lR?oc=5",
       "source": "Google News 环境污染",
       "published": "2026-09-19T03:13:35+00:00",
-      "hotness": 48.4,
-      "score": 48.4,
-      "score_v1": 13.7,
-      "score_v2": 48.4,
-      "score_breakdown": {
-        "algorithm": "v2",
-        "source_score": 20.0,
-        "keyword_idf_score": 0.0,
-        "resonance_score": 0.0,
-        "quality_score": 0.0,
-        "base": 20.0,
-        "time_factor": 0.7712,
-        "repeat_penalty": 1.0,
-        "cross_source_count": 1,
-        "raw": 15.42,
-        "display_score": 48.4
-      },
-      "score_v1_breakdown": {
-        "base": 5.0,
-        "source_score": 4.5,
-        "keyword_score": 0.0,
-        "time_score": 4.2,
-        "topic_bonus": 0.0,
-        "total": 13.7
-      },
-      "summary": "永州市召开溶洞污染排查整治工作推进会，部署全面摸排和治理行动，切实解决溶洞污染问题，守护水源安全。",
-      "analysis": "该条目涉及【永州市溶洞污染排查整治工作推进会召开】话题，因来源权威性高，热度上升。",
-      "topic_tags": [
-        "永州市溶洞污染排查整治工作推进会召开"
-      ],
-      "category": "污染治理",
-      "matched_keywords": [],
-      "keywords": []
-    },
-    {
-      "title": "黄坤明在中央第四生态环境保护督察组督察广东省情况反馈会上作表态发言严而又严实而又实做好整改“后半篇文章” 守护好广东蓝天碧水大美山川 - 南粤清风网",
-      "title_en": "",
-      "title_zh": "",
-      "summary_en": "",
-      "summary_zh": "",
-      "link": "https://news.google.com/rss/articles/CBMiaEFVX3lxTE1VWnlRZHdndUpGeG1CSUw0MTZmZm02eE1ad0daREc1eXN3T0FnMGVhUllieE9CQjRKTkI2MnpjYTZKdHF3ZGF0Sk5OLUZzWk9lZXg1Tmt2NlAxX1UzckE3MTlHMURzc2Zt?oc=5",
-      "source": "Google News 环境保护",
-      "published": "2026-09-18T11:25:39+00:00",
-      "hotness": 42.2,
-      "score": 42.2,
-      "score_v1": 11.67,
-      "score_v2": 42.2,
-      "score_breakdown": {
-        "algorithm": "v2",
-        "source_score": 20.0,
-        "keyword_idf_score": 0.0,
-        "resonance_score": 0.0,
-        "quality_score": 0.0,
-        "base": 20.0,
-        "time_factor": 0.6531,
-        "repeat_penalty": 1.0,
-        "cross_source_count": 1,
-        "raw": 13.06,
-        "display_score": 42.2
-      },
-      "score_v1_breakdown": {
-        "base": 5.0,
-        "source_score": 4.5,
-        "keyword_score": 0.0,
-        "time_score": 2.17,
-        "topic_bonus": 0.0,
-        "total": 11.67
-      },
-      "summary": "黄坤明在中央第四生态环境保护督察组反馈会上作表态发言，严而又严、实而又实抓好整改工作，坚决守护广东蓝天碧水大美山川。",
-      "analysis": "该条目涉及【黄坤明在中央第四生态环境保护督察组督察广东省情况反馈会上作表态发言严而又严实而又实做好整改】话题，因来源权威性高，热度上升。",
-      "topic_tags": [
-        "黄坤明在中央第四生态环境保护督察组督察广东省情况反馈会上作表态发言严而又严实而又实做好整改"
-      ],
-      "category": "环境政策",
-      "matched_keywords": [],
-      "keywords": []
-    },
-    {
-      "title": "国赛上分，海南参赛队伍获佳绩→ - tidenews.com.cn",
-      "title_en": "",
-      "title_zh": "",
-      "summary_en": "",
-      "summary_zh": "",
-      "link": "https://news.google.com/rss/articles/CBMic0FVX3lxTE1MREo3c2YxZzk2YVJ5UDA0S3FnRlZnWVhGQmViTXJWdzFWMnExdkl4ZWJVWmZ3dk1yV2FsSFg0ZU0yS0xDQUpyWHZjRFVGS1lDaVgzVGhrdU02UTY2MkJFMU9OdWUzOE1qUGRlNjBUWnNmX0E?oc=5",
-      "source": "Google News 环境竞赛",
-      "published": "2026-09-18T04:25:36+00:00",
       "hotness": 40.0,
       "score": 40.0,
-      "score_v1": 11.12,
+      "score_v1": 10.15,
       "score_v2": 40.0,
       "score_breakdown": {
-        "algorithm": "v2",
-        "source_score": 20.0,
+        "algorithm": "v2.1",
+        "source_score": 17.0,
         "keyword_idf_score": 0.0,
         "resonance_score": 0.0,
         "quality_score": 0.0,
-        "base": 20.0,
-        "time_factor": 0.6119,
+        "base": 17.0,
+        "time_factor": 0.6055,
+        "density_factor": 0.65,
+        "density_note": "地方政务通稿",
         "repeat_penalty": 1.0,
         "cross_source_count": 1,
-        "raw": 12.24,
+        "raw": 6.69,
         "display_score": 40.0
       },
       "score_v1_breakdown": {
         "base": 5.0,
-        "source_score": 4.5,
+        "source_score": 3.6,
         "keyword_score": 0.0,
-        "time_score": 1.62,
+        "time_score": 1.55,
         "topic_bonus": 0.0,
-        "total": 11.12
+        "total": 10.15
       },
-      "summary": "海南参赛队伍在国赛中获佳绩，展现了强劲竞技水平。",
+      "summary": "永州市溶洞污染排查整治工作推进会召开 - 湖南红网",
       "analysis": "该条目涉及【环境资讯】话题，因来源权威性高，热度上升。",
       "topic_tags": [
         "环境资讯"
       ],
-      "category": "其他",
+      "category": "污染治理",
       "matched_keywords": [],
       "keywords": []
     }
   ],
   "keyword_analysis": [
     {
-      "keyword": "PFAS",
-      "count": 3,
-      "term": "PFAS",
-      "category": "污染治理"
+      "keyword": "生态环境",
+      "count": 7,
+      "term": "生态环境",
+      "category": "生态环境"
     },
     {
-      "keyword": "新污染物",
+      "keyword": "环境保护",
+      "count": 3,
+      "term": "环境保护",
+      "category": "环境政策"
+    },
+    {
+      "keyword": "环境监测",
       "count": 2,
-      "term": "新污染物",
-      "category": "污染治理"
+      "term": "环境监测",
+      "category": "科研学术"
+    },
+    {
+      "keyword": "督察",
+      "count": 2,
+      "term": "督察",
+      "category": "环境政策"
+    },
+    {
+      "keyword": "气候变化",
+      "count": 2,
+      "term": "气候变化",
+      "category": "气候变化"
     },
     {
       "keyword": "微塑料",
@@ -1265,66 +879,66 @@
       "category": "污染治理"
     },
     {
-      "keyword": "大气污染",
+      "keyword": "生物多样性",
       "count": 1,
-      "term": "大气污染",
-      "category": "污染治理"
+      "term": "生物多样性",
+      "category": "生态环境"
     },
     {
-      "keyword": "气候变化",
+      "keyword": "生态环境保护",
       "count": 1,
-      "term": "气候变化",
+      "term": "生态环境保护",
+      "category": "生态环境"
+    },
+    {
+      "keyword": "流域水生态环境",
+      "count": 1,
+      "term": "流域水生态环境",
+      "category": "生态环境"
+    },
+    {
+      "keyword": "极地气候",
+      "count": 1,
+      "term": "极地气候",
       "category": "气候变化"
-    },
-    {
-      "keyword": "大气污染控制费",
-      "count": 1,
-      "term": "大气污染控制费",
-      "category": "污染治理"
-    },
-    {
-      "keyword": "大气霾化学",
-      "count": 1,
-      "term": "大气霾化学",
-      "category": "污染治理"
-    },
-    {
-      "keyword": "氟污染",
-      "count": 1,
-      "term": "氟污染",
-      "category": "污染治理"
-    },
-    {
-      "keyword": "级联水库",
-      "count": 1,
-      "term": "级联水库",
-      "category": "水处理"
     },
     {
       "keyword": "海水淡化",
       "count": 1,
       "term": "海水淡化",
       "category": "水处理"
-    },
-    {
-      "keyword": "绿色循环产业",
-      "count": 1,
-      "term": "绿色循环产业",
-      "category": "其他"
     }
   ],
   "keywords": [
     {
-      "keyword": "PFAS",
-      "count": 3,
-      "term": "PFAS",
-      "category": "污染治理"
+      "keyword": "生态环境",
+      "count": 7,
+      "term": "生态环境",
+      "category": "生态环境"
     },
     {
-      "keyword": "新污染物",
+      "keyword": "环境保护",
+      "count": 3,
+      "term": "环境保护",
+      "category": "环境政策"
+    },
+    {
+      "keyword": "环境监测",
       "count": 2,
-      "term": "新污染物",
-      "category": "污染治理"
+      "term": "环境监测",
+      "category": "科研学术"
+    },
+    {
+      "keyword": "督察",
+      "count": 2,
+      "term": "督察",
+      "category": "环境政策"
+    },
+    {
+      "keyword": "气候变化",
+      "count": 2,
+      "term": "气候变化",
+      "category": "气候变化"
     },
     {
       "keyword": "微塑料",
@@ -1333,65 +947,55 @@
       "category": "污染治理"
     },
     {
-      "keyword": "大气污染",
+      "keyword": "生物多样性",
       "count": 1,
-      "term": "大气污染",
-      "category": "污染治理"
+      "term": "生物多样性",
+      "category": "生态环境"
     },
     {
-      "keyword": "气候变化",
+      "keyword": "生态环境保护",
       "count": 1,
-      "term": "气候变化",
+      "term": "生态环境保护",
+      "category": "生态环境"
+    },
+    {
+      "keyword": "流域水生态环境",
+      "count": 1,
+      "term": "流域水生态环境",
+      "category": "生态环境"
+    },
+    {
+      "keyword": "极地气候",
+      "count": 1,
+      "term": "极地气候",
       "category": "气候变化"
-    },
-    {
-      "keyword": "大气污染控制费",
-      "count": 1,
-      "term": "大气污染控制费",
-      "category": "污染治理"
-    },
-    {
-      "keyword": "大气霾化学",
-      "count": 1,
-      "term": "大气霾化学",
-      "category": "污染治理"
-    },
-    {
-      "keyword": "氟污染",
-      "count": 1,
-      "term": "氟污染",
-      "category": "污染治理"
-    },
-    {
-      "keyword": "级联水库",
-      "count": 1,
-      "term": "级联水库",
-      "category": "水处理"
     },
     {
       "keyword": "海水淡化",
       "count": 1,
       "term": "海水淡化",
       "category": "水处理"
-    },
-    {
-      "keyword": "绿色循环产业",
-      "count": 1,
-      "term": "绿色循环产业",
-      "category": "其他"
     }
   ],
-  "hot_summary": "今日热点围绕PFAS、新污染物、微塑料、大气污染、气候变化等话题，共聚合28条资讯。",
-  "summary": "今日热点围绕PFAS、新污染物、微塑料、大气污染、气候变化等话题，共聚合28条资讯。",
-  "weekly_summary": "近7天环境领域热点主要聚焦气候变化与生态环境，污染治理与水处理紧随其后，科研学术活跃度适中，整体关注度持续提升。",
-  "weekly_insight": "近7天环境热点呈现“气候变化、生态环境、水处理”三大类主导格局，合计占比逾半，显示公众关注度聚焦于生态安全与基础设施建设。污染治理与科研学术虽规模相对较小，但作为产业升级与技术突破的关键抓手，其潜在影响力不容忽视。能源与碳中和热度相对平淡，或反映当前政策导向与市场预期的阶段性平衡。总体来看，",
+  "hot_summary": "今日热点围绕生态环境、环境保护、环境监测、督察、气候变化等话题，共聚合17条资讯。",
+  "summary": "今日热点围绕生态环境、环境保护、环境监测、督察、气候变化等话题，共聚合17条资讯。",
+  "weekly_summary": "近7天环境领域热点主要聚焦气候变化、污染治理与生态环境，总计192条信息。",
+  "weekly_insight": "近7天环境热点呈现“气候变化主导、污染治理显著、生态环境协同”的特征。气候变化与能源碳中和话题占比超半数，显示出应对全球挑战的强劲势头；污染治理与水处理虽条目相对集中，但关联度提升，反映治理体系的刚性需求；生态环境与科研学术的均衡增长，则彰显了生态保护与技术创新的双轮驱动态势。",
   "weekly_keywords": [
     {
       "term": "环境资讯",
       "count": 10
     },
     {
+      "term": "微塑料",
+      "count": 5
+    },
+    {
       "term": "竞赛",
+      "count": 5
+    },
+    {
+      "term": "大气污染",
       "count": 4
     },
     {
@@ -1399,7 +1003,11 @@
       "count": 4
     },
     {
-      "term": "微塑料",
+      "term": "新污染物",
+      "count": 3
+    },
+    {
+      "term": "Pfas",
       "count": 3
     },
     {
@@ -1407,41 +1015,15 @@
       "count": 3
     },
     {
-      "term": "大气污染",
-      "count": 3
-    },
-    {
-      "term": "水处理",
+      "term": "土壤污染",
       "count": 2
     },
     {
-      "term": "Pfas",
-      "count": 2
-    },
-    {
-      "term": "可再生能源",
-      "count": 2
-    },
-    {
-      "term": "森林火灾",
+      "term": "人工智能",
       "count": 2
     }
   ],
   "weekly_categories": [
-    {
-      "date": "2026-09-14",
-      "categories": {
-        "气候变化": 2,
-        "污染治理": 1,
-        "生态环境": 1,
-        "环境政策": 0,
-        "能源与碳中和": 1,
-        "水处理": 3,
-        "科研学术": 2,
-        "环境健康": 0,
-        "其他": 0
-      }
-    },
     {
       "date": "2026-09-15",
       "categories": {
@@ -1516,6 +1098,20 @@
       "date": "2026-09-20",
       "categories": {
         "气候变化": 0,
+        "污染治理": 4,
+        "生态环境": 0,
+        "环境政策": 0,
+        "能源与碳中和": 0,
+        "水处理": 3,
+        "科研学术": 1,
+        "环境健康": 0,
+        "其他": 2
+      }
+    },
+    {
+      "date": "2026-09-21",
+      "categories": {
+        "气候变化": 0,
         "污染治理": 0,
         "生态环境": 0,
         "环境政策": 0,
@@ -1529,41 +1125,32 @@
   ],
   "today_categories": [
     {
-      "category": "其他",
-      "count": 7
+      "category": "生态环境",
+      "count": 5
     },
     {
       "category": "污染治理",
-      "count": 6
+      "count": 3
     },
     {
-      "category": "科研学术",
-      "count": 4
-    },
-    {
-      "category": "水处理",
-      "count": 4
-    },
-    {
-      "category": "生态环境",
+      "category": "环境政策",
       "count": 3
     },
     {
       "category": "气候变化",
+      "count": 3
+    },
+    {
+      "category": "其他",
       "count": 2
     },
     {
-      "category": "环境政策",
-      "count": 2
+      "category": "能源与碳中和",
+      "count": 1
     }
   ],
   "timeline": {
     "气候变化": [
-      {
-        "date": "2026-08-22",
-        "count": 5,
-        "total_heat": 115.5
-      },
       {
         "date": "2026-08-23",
         "count": 5,
@@ -1708,14 +1295,14 @@
         "date": "2026-09-20",
         "count": 0,
         "total_heat": 0.0
+      },
+      {
+        "date": "2026-09-21",
+        "count": 0,
+        "total_heat": 0.0
       }
     ],
     "污染治理": [
-      {
-        "date": "2026-08-22",
-        "count": 0,
-        "total_heat": 0.0
-      },
       {
         "date": "2026-08-23",
         "count": 0,
@@ -1858,16 +1445,16 @@
       },
       {
         "date": "2026-09-20",
+        "count": 4,
+        "total_heat": 348.3
+      },
+      {
+        "date": "2026-09-21",
         "count": 0,
         "total_heat": 0.0
       }
     ],
     "生态环境": [
-      {
-        "date": "2026-08-22",
-        "count": 3,
-        "total_heat": 50.8
-      },
       {
         "date": "2026-08-23",
         "count": 3,
@@ -2012,14 +1599,14 @@
         "date": "2026-09-20",
         "count": 0,
         "total_heat": 0.0
+      },
+      {
+        "date": "2026-09-21",
+        "count": 0,
+        "total_heat": 0.0
       }
     ],
     "环境政策": [
-      {
-        "date": "2026-08-22",
-        "count": 0,
-        "total_heat": 0.0
-      },
       {
         "date": "2026-08-23",
         "count": 0,
@@ -2164,14 +1751,14 @@
         "date": "2026-09-20",
         "count": 0,
         "total_heat": 0.0
+      },
+      {
+        "date": "2026-09-21",
+        "count": 0,
+        "total_heat": 0.0
       }
     ],
     "能源与碳中和": [
-      {
-        "date": "2026-08-22",
-        "count": 0,
-        "total_heat": 0.0
-      },
       {
         "date": "2026-08-23",
         "count": 1,
@@ -2316,14 +1903,14 @@
         "date": "2026-09-20",
         "count": 0,
         "total_heat": 0.0
+      },
+      {
+        "date": "2026-09-21",
+        "count": 0,
+        "total_heat": 0.0
       }
     ],
     "水处理": [
-      {
-        "date": "2026-08-22",
-        "count": 0,
-        "total_heat": 0.0
-      },
       {
         "date": "2026-08-23",
         "count": 0,
@@ -2466,16 +2053,16 @@
       },
       {
         "date": "2026-09-20",
+        "count": 3,
+        "total_heat": 170.4
+      },
+      {
+        "date": "2026-09-21",
         "count": 0,
         "total_heat": 0.0
       }
     ],
     "科研学术": [
-      {
-        "date": "2026-08-22",
-        "count": 0,
-        "total_heat": 0.0
-      },
       {
         "date": "2026-08-23",
         "count": 0,
@@ -2618,16 +2205,16 @@
       },
       {
         "date": "2026-09-20",
+        "count": 1,
+        "total_heat": 71.2
+      },
+      {
+        "date": "2026-09-21",
         "count": 0,
         "total_heat": 0.0
       }
     ],
     "环境健康": [
-      {
-        "date": "2026-08-22",
-        "count": 1,
-        "total_heat": 18.2
-      },
       {
         "date": "2026-08-23",
         "count": 0,
@@ -2772,14 +2359,14 @@
         "date": "2026-09-20",
         "count": 0,
         "total_heat": 0.0
+      },
+      {
+        "date": "2026-09-21",
+        "count": 0,
+        "total_heat": 0.0
       }
     ],
     "其他": [
-      {
-        "date": "2026-08-22",
-        "count": 1,
-        "total_heat": 19.5
-      },
       {
         "date": "2026-08-23",
         "count": 1,
@@ -2922,6 +2509,11 @@
       },
       {
         "date": "2026-09-20",
+        "count": 2,
+        "total_heat": 126.1
+      },
+      {
+        "date": "2026-09-21",
         "count": 0,
         "total_heat": 0.0
       }

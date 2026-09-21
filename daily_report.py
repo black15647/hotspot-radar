@@ -17,6 +17,7 @@ import html as html_module          # 用于 clean_html 解码 HTML 实体
 import hashlib                      # 用于百度翻译签名
 import random                       # 用于百度翻译 salt
 import smtplib
+import threading                    # AI 并发闸门：限制同时在飞的 AI 请求数
 import socket                       # 用于给 RSS 抓取设置 socket 超时，避免失效源导致脚本挂起
 import ipaddress                    # SSRF 防护：判断待抓取 URL 的主机是否为内网/保留地址
 import urllib.parse                 # 翻译接口需要 urllib.parse.quote 编码
@@ -235,9 +236,10 @@ CONFIG_PATH = os.path.join(BASE_DIR, "config.yaml")
 # 内置默认关键词表（config.yaml 未配置 keywords: 时生效）。
 #
 # ⚠️ 2026-09-20 扩容：原表仅 32 词，实测线上 28 条里 **22 条零命中**——
-# matched_keywords 为空 → 关键词 IDF 分（满分 25，v2 第二大因子）恒为 0、
-# 跨源共振分（满分 15）恒为 0、白名单保护（≥5 分）也不触发，
-# 排序实际退化成「来源权重 + 时间衰减」两因子。
+# matched_keywords 为空 → 话题分与共振分一起归零、白名单保护也不触发。
+#   注：下面记的是 2026-09-20 扩容当时的口径（当时两项满分 25 + 15）；
+#   v3.0 已把它们改成「话题分 0-18（带零命中兜底）」与「事件共振 0-18」，
+#   但词表覆盖度仍然直接决定话题分的上限，扩容的必要性不变。
 # 根因是缺词而非匹配逻辑：中文标题高频出现「生态环境」「环境保护」「环境监测」
 # 「督察」等词，原表都没有（"生态环境保护督察" 也不含子串 "环保督察"）；
 # 中文条目又没有英文别名可回退，于是整条判零。
@@ -825,6 +827,29 @@ _RE_NON_WORD = re.compile(r"[\s\W_]+")
 # RSS 抓取的 socket 级超时（秒）：防止失效源（被墙/无响应）导致脚本永久挂起
 RSS_SOCKET_TIMEOUT = 20
 
+# 解析失败后的重试退避（秒）：同刻立刻重试对 WAF/网关拦截毫无意义，只会把同一份错误响应
+# 再拿一次（2026-09-21 PNAS 两次抓取报出同一处 XML 位置错误，就是这个形态）。
+FEED_PARSE_RETRY_BACKOFF = 2
+
+
+def _describe_feed_response(resp):
+    """把"解析失败"从一句没用的 XML 位置，变成能定性的证据。
+
+    背景：2026-09-21 线上 PNAS 报 `<unknown>:2:1326: not well-formed (invalid token)`，
+    本地同一时刻直连该源却是 HTTP 200 / 46940 B / feedparser 正常解析出 20 条。
+    说明 runner 收到的是**另一份响应**（被 WAF 换成拦截页是最可能的形态），
+    但原日志既没有状态码也没有 Content-Type，无法定性、无法追责、也无法判断该不该换源。
+    """
+    try:
+        ctype = (resp.headers.get("Content-Type") or "?").split(";")[0].strip()
+        text = resp.content[:200].decode("utf-8", errors="replace")
+        low = text.lstrip().lower()
+        is_xml = low.startswith("<?xml") or "<rss" in low or "<feed" in low
+        kind = "XML" if is_xml else "非XML（疑似被 WAF/网关拦截或响应被改写）"
+        return f"HTTP {resp.status_code} {ctype} | {kind} | {text[:80]!r}"
+    except Exception as e:  # 诊断信息的生成绝不能反过来影响抓取主流程
+        return f"响应诊断失败：{type(e).__name__}"
+
 
 def fetch_all_feeds(config, max_items_per_source):
     """
@@ -850,8 +875,9 @@ def fetch_all_feeds(config, max_items_per_source):
             print(f"[抓取] {source_name} ...")
 
             def _fetch_feed():
-                """单次抓取：先直连（带 UA），失败再交给 feedparser 自行抓。"""
+                """单次抓取：先直连（带 UA），失败再交给 feedparser 自行抓。返回 (feed, 响应诊断)。"""
                 f = None
+                diag = ""
                 if REQUESTS_AVAILABLE:
                     try:
                         resp = requests.get(url, timeout=(10, 20), headers={
@@ -859,29 +885,34 @@ def fetch_all_feeds(config, max_items_per_source):
                                           "(KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
                         })
                         if resp.ok and resp.content:
+                            diag = _describe_feed_response(resp)
                             f = feedparser.parse(resp.content)
                     except Exception as e:
                         # 直连失败属于预期情况（部分源会拒绝普通请求），下面会回退到 feedparser 自行抓取。
                         # 记录原因但不中断：正常运行时默认不输出。
                         _debug(f"{source_name} 直接请求失败，改用 feedparser 抓取：{type(e).__name__}: {e}")
+                        diag = f"直连异常：{type(e).__name__}"
                         f = None
                 if f is None:
                     f = feedparser.parse(url)
-                return f
+                return f, diag
 
-            feed = _fetch_feed()
+            feed, fetch_diag = _fetch_feed()
 
             # 解析失败重试一次：源端偶发返回被截断/被网关改写的响应时，feedparser 会抛
-            # "not well-formed (invalid token)"。这类失败是瞬时的（实测 PNAS 源下次抓取即可正常解析
+            # "not well-formed (invalid token)"。这类失败可能是瞬时的（PNAS 本地复测可正常解析
             # 出 20 条），不该直接记成一次「源失败」污染健康度。
             # 只对「解析失败」重试；网络异常走外层 except，不重试（避免失效源把耗时翻倍）。
             if feed.bozo and not feed.entries:
                 print("  [重试] 首次解析失败，重新抓取一次 ...")
                 _debug(f"{source_name} 首次解析失败：{feed.bozo_exception}")
-                feed = _fetch_feed()
+                time.sleep(FEED_PARSE_RETRY_BACKOFF)
+                feed, fetch_diag = _fetch_feed()
 
             if feed.bozo and not feed.entries:
                 error_msg = f"解析失败：{feed.bozo_exception}"
+                if fetch_diag:
+                    error_msg += f"；响应={fetch_diag}"
                 print(f"  [警告] {error_msg}")
             else:
                 entries = feed.entries[:max_items_per_source]
@@ -993,12 +1024,13 @@ def filter_by_time(items, hours=48):
 
 
 # ============================================================
-# 热度算法：v1（旧）与 v2（新）双轨实现
+# 热度算法：v1（旧，仅作对比）与 v3（当前生效）双轨实现
+# v1 保留的原因：前端热度弹窗会并列显示「旧算法(v1)分」供对照。
 # ============================================================
 
 def _load_keyword_history_days():
     """
-    统计每个关键词在历史数据中出现过的天数（用于 v2 IDF 计算）
+    统计每个关键词在历史数据中出现过的天数（用于话题分的 IDF 稀缺度计算）
     返回 (keyword_day_count: dict, total_days: int)
     数据来源：history.json 的 keyword_counts/keywords + daily/*.json 快照
     """
@@ -1093,7 +1125,7 @@ def _load_terms_from_json(path):
 
 def _load_domain_whitelist():
     """
-    加载领域白名单（v2 关键词保护分用）
+    加载领域白名单（话题分里区分「配置关键词」与「噪声词」用）
     来源：glossary.json 的 term + pending_terms.json 的 term
     """
     whitelist = _load_terms_from_json(os.path.join(DATA_DIR, "glossary.json"))
@@ -1102,7 +1134,7 @@ def _load_domain_whitelist():
 
 
 def _title_token_set(title):
-    """提取标题关键词集合用于 Jaccard 相似度聚类（中文jieba/2字滑窗+英文按词）"""
+    """提取标题关键词集合，用于标题相似度聚类（中文jieba/2字滑窗+英文按词）"""
     tokens = set()
     if not title:
         return tokens
@@ -1181,27 +1213,108 @@ def calculate_heat_v1(item, keyword_item_count, source_weights, keyword_bonus=2.
 
 
 # ============================================================
-# 热度算法 v2 的可调参数（集中定义，避免散落在函数体内的魔法数字）
+# 热度算法 v3.0 的可调参数（集中定义，避免散落在函数体内的魔法数字）
+#
+# v3.0 相对 v2.1 的四项结构性改动，每一项都由线上实测数据驱动
+# （2026-09-21 对线上 latest.json 做因子消融实验得出的结论）：
+#
+#  1. 取消「来源权威分」的 15 分常数底分。
+#     旧口径 `15 + (w-1)*10` 在满分 25 里塞了 15 分常数项 —— 常数不参与排序，
+#     真实有效的只有那 8 分（权重 1.2 ~ 2.0 之间），实测有效跨度仅占满分 32%。
+#     新口径改为 0-18 全程映射，实测有效跨度 100%。
+#
+#  2. 跨源共振从「关键词维度」改为「事件维度」。
+#     旧口径要求"同一关键词被 >=1.3 权重的源命中"，而本项目里产出重叠度最高的
+#     那批源（Google News 主题查询）权重恰好是 1.2 → 该项在线上 17 条里 0 条非零，
+#     消融实验 ρ=1.000（移除后排序一位都不变），是彻底失效的死因子。
+#     新口径改为：同一事件被多少个**不同的原始报道媒体**报道 —— 事件识别用标题
+#     token 重叠系数聚类，"原始媒体"从 Google News 的「标题 - 来源名」后缀还原。
+#
+#  3. 内容质量分从「摘要长度」改为「内容具体性」。
+#     旧口径读 item["summary"]，但本步骤（第四步）里它还是 RSS 描述，
+#     AI 摘要要到第六步才生成 —— 而全部中文查询源都没有 RSS 描述，
+#     于是该项对中文条目结构性为 0（实测 15/17 为 0），且天然偏袒英文源。
+#     新口径只看标题自身的具体性（量化信息 / 具体主体 / 研究信号），中英文判据对等。
+#
+#  4. 展示分改为绝对标定，不再逐日 min-max。
+#     旧口径每天把 raw 归一化到 40-100，导致榜首永远 100 分、榜尾永远 40 分，
+#     无论当天内容整体多差 —— 热度分因此失去跨日可比性。
+#     新口径用固定曲线 40 + 60*(1-exp(-raw/K))：同一个 raw 在任何一天都是同一个分，
+#     "今天没什么热点"会真实反映为整榜分数偏低。
 # ============================================================
-DUPLICATE_JACCARD_THRESHOLD = 0.45   # 标题 Jaccard 达到该值视为"同一事件"；代表条目保留满分，
-                                     # 其余成员 raw × DUPLICATE_PENALTY（不是删除，榜单会保留多条）
-DUPLICATE_PENALTY = 0.6              # 同一事件中非代表条目的 raw 惩罚系数
-# 跨源共振分只统计"权威来源"。旧实现在这里写的是 `sw >= 1.0`，而所有来源权重都 >= 1.0
-# （未列出的源默认 1.0）→ 该条件恒真，"只统计权威来源"名不副实，等于把所有源都算进来。
-# 这里改成真实门槛，与 config.yaml 的权重分档对齐（>=1.3 视为权威）。
-RESONANCE_MIN_SOURCE_WEIGHT = 1.3
+
+# ---- 事件聚类 ----
+# 同一事件的识别改用「重叠系数」而非 Jaccard：|A∩B| / min(|A|,|B|)。
+# 原因：中文新闻标题长短差异大，两条讲同一事件的标题 Jaccard 会被长标题稀释。
+# 线上实测（2026-09-21 第 1、2 名两条同事件标题）：
+#   交集 3 / 并集 12 -> Jaccard = 0.250（低于旧阈值 0.45，漏判）
+#   交集 3 / 较短集合 5 -> overlap = 0.600（高于 0.50，识别成功）
+EVENT_CLUSTER_OVERLAP_THRESHOLD = 0.50
+# 同一事件中非代表条目的 raw 惩罚系数（不是删除，榜单会保留多条）
+DUPLICATE_PENALTY = 0.6
+
+# ---- 四个加性维度的满分（base 合计 70）----
+HOTNESS_AUTHORITY_MAX = 18.0         # 权威度：谁在说
+HOTNESS_TOPIC_MAX = 18.0             # 话题分：说的是不是当下有价值的题
+HOTNESS_RESONANCE_MAX = 18.0         # 事件共振：多少家媒体在说同一件事
+HOTNESS_INFO_MAX = 16.0              # 信息量：说得多具体
+
+# ---- 话题分的内部构成 ----
+TOPIC_IDF_MAX = 12.0                 # 关键词 IDF 饱和分：这个题有多稀缺
+TOPIC_BURST_MAX = 6.0                # 当日聚集分：今天有多少条在谈这个题
+TOPIC_FLOOR = 3.0                    # 零命中兜底：无关键词命中但确属环境题材
+TOPIC_IDF_TAU = 3.0                  # IDF 饱和常数
+
+# ---- 事件共振的饱和常数 ----
+# R = MAX * (1 - exp(-(D-1)/TAU))，D = 同一事件的不同原始媒体数
+# D=2 -> 8.8 / D=3 -> 13.1 / D=4 -> 15.7（满分 18）
+RESONANCE_TAU = 1.5
+
+# ---- 展示分标定 ----
+# absolute（默认）：40 + 60*(1-exp(-raw/K))，同一 raw 跨日同分
+# relative：旧的逐日 min-max 到 [MIN, MAX]，仅用于历史口径复现
+DISPLAY_CALIBRATION = "absolute"
+DISPLAY_CALIBRATION_K = 20.0
 DISPLAY_SCORE_MIN = 40.0             # 展示分下限
 DISPLAY_SCORE_MAX = 100.0            # 展示分上限
-DISPLAY_SCORE_MID = 70.0             # 全部条目无实质差异时的中性展示分
-# 相对跨度保护：raw 极差 / raw_max 低于该比例时视为"无实质差异"，整体给中性分，
-# 避免把极小分差放大成满量程的展示差
+DISPLAY_SCORE_MID = 70.0             # relative 模式下全部条目无实质差异时的中性展示分
+# 相对跨度保护（仅 relative 模式）：raw 极差 / raw_max 低于该比例时视为"无实质差异"，
+# 整体给中性分，避免把极小分差放大成满量程的展示差
 DISPLAY_MIN_RELATIVE_SPAN = 0.05
 HOTNESS_LEVEL_HIGH = 80.0            # 展示分 >= 该值 -> 高热度
 HOTNESS_LEVEL_MEDIUM = 60.0          # 展示分 >= 该值 -> 中热度，其余为低热度
 
+# ---- 信息量判据（中英文对等，避免语言偏倚）----
+INFO_QUANT_POINTS = 5.0              # 含可量化信息（数字/百分比/年份轮次/万吨级）
+INFO_ORG_POINTS = 4.0                # 含具体主体（机构/大学/研究院/公司）
+INFO_RESEARCH_POINTS = 4.0           # 含研究/技术信号
+INFO_DESC_POINTS = 3.0               # 有可读的 RSS 描述（信息可得性）
+_RE_INFO_QUANT = re.compile(
+    r"(第[一二三四五六七八九十]+轮|十五五|十四五|二十届|全国第"
+    r"|[\d.]+\s*(%|％|亿|万|吨|倍|℃|mg|μg))"
+    r"|\b(million|billion|trillion|percent)\b", re.I)
+_RE_INFO_ORG = re.compile(
+    r"(生态环境部|生态环境局|环境保护部|国务院|中共中央|全国人大|发改委"
+    r"|[\u4e00-\u9fa5]{2,8}(大学|学院|研究院|研究所|公司|集团|协会|中心|实验室))")
+_RE_INFO_ORG_EN = re.compile(
+    r"\b(University|Institute|Agency|Ministry|Department|Academy|Organization|"
+    r"Organisation|Programme|Program|Council|Commission|Center|Centre|Laboratory|"
+    r"NASA|NOAA|WHO|UNEP|IPCC|IEA|WMO|EU|UN|EPA)\b")
+# 英文研究/技术信号。RESEARCH_SIGNAL 只含中文词，若直接复用会让英文条目
+# 在信息量维度上系统性拿 0 分（实测 6 条英文条目全部为 0），故单列一张对等词表。
+INFO_RESEARCH_SIGNAL_EN = (
+    "study", "research", "scientist", "discover", "reveal", "mechanism", "model",
+    "experiment", "data", "emission", "degradation", "assessment", "analysis",
+    "novel", "finding", "insight", "monitor", "risk", "impact", "test", "develop",
+    "survive", "governs", "drives", "linked", "record", "decline", "rise",
+)
+# 事件聚类专用：宽松媒体名解析的长度上限。比 _looks_like_source_name 宽松，
+# 因为它只做"来源标识"、不改标题，误判的唯一代价是低估共振。
+MEDIA_NAME_MAX_LEN = 30
+
 
 # ============================================================
-# 内容信息密度评估（v2.1 新增，作为乘性系数参与 raw 计算）
+# 内容信息密度评估（v2.1 引入，v3.0 沿用，作为乘性系数参与 raw 计算）
 # ============================================================
 # 为什么单独做：原「内容质量分」只判断"摘要字段够不够长"，识别不了
 # "这一条到底有没有实质信息"。实测线上榜尾 4 条地方政务通稿与高密度科研进展
@@ -1346,25 +1459,278 @@ def _hotness_level(display_score):
     return "low"
 
 
-def calculate_heat_v2(items, config, keyword_item_count=None):
-    """
-    新热度算法 v2.1（在 v2 基础上加入信息密度系数），直接在 items 上写入：
-      score_v2_raw、score_v2（展示分）、score_breakdown（v2 明细）、repeat_penalty
-    返回 items（已附加 v2 字段）
+def extract_media_name(title):
+    """从「标题 - 来源名」后缀还原**原始报道媒体名**（事件共振统计用）。
 
-    组件：
-      1. 来源权威分 0-25（权重2.0→25，1.0→15 线性映射）
-      2. 关键词 IDF 饱和分 0-25：25*(1-exp(-sum_idf/3))，白名单保护
-      3. 跨源共振分 0-15：15*(1-exp(-(N-1)/3))，只统计权威来源
-      4. 内容质量分 0-10（按摘要长度分档，见下方注释）
-      5. 时间衰减（乘性）：T=0.35+0.65*exp(-hours/48)
-      6. 信息密度（乘性，v2.1 新增）：地方政务通稿 0.65 / 薄内容 0.85 /
-         国家级政策文件 1.10，见 evaluate_content_density()
-      7. raw = base*T*density_factor*repeat_penalty（Jaccard 聚类重复惩罚 0.6）
-      8. min-max 归一化到 40-100 作为展示分 score_v2
+    为什么需要它：Google News 的一个查询源会把同一事件的多家媒体报道聚合到一起，
+    也就是说 feed 名（"Google News 生态环境"）根本不是"来源"，真正的报道方写在
+    标题后缀里。线上实测：
+      「生态环境部：重拳整治环境监测造假！ - 上海热线」   -> 上海热线
+      「表演式采样、伪造数据？…严打环境监测造假 - 奥一网」 -> 奥一网
+    这两条是同一事件、来自两家不同媒体；若按 feed 名统计会退化成"同源"，
+    共振分就永远算不出来（这正是 v2.1 共振分在线上 17 条里 0 条非零的直接原因之一）。
 
-    base 满分 = 25+25+15+10 = 75（与前端口径一致）；密度与时间、重复惩罚一样是乘性系数。
+    与 strip_title_source_suffix() 的保守策略相反：那个函数要**改写标题**，
+    所以宁可漏剥不可误剥；本函数只产出"来源标识"，误判的代价仅为低估共振，
+    因此允许更长（MEDIA_NAME_MAX_LEN）且允许含空格 ——
+    "Inside Climate News" 这类英文媒体名会被保守版拒掉。
+    解析失败时返回空串，调用方回退到 feed 名（保守方向：可能低估，绝不误给）。
     """
+    t = (title or "").strip()
+    last = None
+    for m in _RE_TITLE_SUFFIX_SEP.finditer(t):
+        last = m
+    if not last:
+        return ""
+    tail = t[last.end():].strip()
+    if not tail or len(tail) > MEDIA_NAME_MAX_LEN or len(tail) < 2:
+        return ""
+    if re.search(r"[。！？，、；：!?]", tail):
+        return ""
+    return tail
+
+
+def item_origin_source(item):
+    """条目背后的原始报道方：优先标题后缀里的媒体名，否则退回 feed 名。"""
+    return extract_media_name(item.get("title", "")) or item.get("source", "")
+
+
+def _cluster_events(items, threshold=EVENT_CLUSTER_OVERLAP_THRESHOLD, ai_mapping=None):
+    """把条目聚成「事件簇」，返回 {代表下标: [成员下标, ...]}。
+
+    两条路径，返回结构完全一致，调用方无需分支：
+      - ai_mapping 为空（默认）：**标题 token 重叠系数**聚类，确定性、无外部依赖
+      - ai_mapping 非空：以 **AI 语义事件聚类**结果为骨架，见 _cluster_events_from_ai
+    AI 是增强而非必需：没有它时行为与 v3.0 初始版本逐字节一致。
+
+    相似度用重叠系数（|A∩B| / min(|A|,|B|)）而非 Jaccard，理由见
+    EVENT_CLUSTER_OVERLAP_THRESHOLD 处的实测对照。
+    聚类前先剥离来源名后缀：否则「- 上海热线」这类后缀既稀释相似度，
+    又给不同条目贡献相同的 token（制造假性相似）。
+    """
+    if ai_mapping:
+        return _cluster_events_from_ai(items, ai_mapping)
+    token_sets = [
+        _title_token_set(strip_title_source_suffix(it.get("title", "")) or it.get("title", ""))
+        for it in items
+    ]
+    assigned = {}
+    for i in range(len(items)):
+        placed = False
+        for rep, members in assigned.items():
+            a, b = token_sets[i], token_sets[rep]
+            if not a or not b:
+                continue
+            inter = len(a & b)
+            if inter and inter / min(len(a), len(b)) >= threshold:
+                members.append(i)
+                placed = True
+                break
+        if not placed:
+            assigned[i] = [i]
+    return assigned
+
+
+def _cluster_events_from_ai(items, ai_mapping):
+    """以 AI 语义聚类结果为骨架建簇，返回 {代表下标: [成员下标, ...]}。
+
+    ai_mapping：{条目下标: AI 事件组号}，只包含**多成员组**的成员
+    （单条标题 AI 不返回，也就自然落到下面的"未覆盖"分支）。
+
+    处理规则：
+      - 已被 AI 覆盖的下标 → 按 AI 组号归组（组号加 "ai:" 前缀，与 token 组区分）
+      - 未被 AI 覆盖的下标 → 各自单独成簇。**刻意不做 token 二次合并**：
+        这批条目正是 AI 判定"不与任何其它条目同事件"的，再用相似度并进去
+        会引入跨事件错并，而错并的直接后果是虚高的共振分。
+    """
+    groups = {}
+    uncovered = []
+    for i in range(len(items)):
+        gid = ai_mapping.get(i)
+        if gid is None:
+            uncovered.append(i)
+        else:
+            groups.setdefault("ai:" + str(gid), []).append(i)
+    for i in uncovered:
+        groups["solo:%d" % i] = [i]
+
+    assigned = {}
+    for gid in sorted(groups.keys()):
+        members = sorted(groups[gid])
+        assigned[members[0]] = members
+    return assigned
+
+
+def ai_cluster_events(items, api_config, max_items=None):
+    """
+    用 AI 做「语义事件聚类」，为热度算法 v3.0 的**事件共振维度**提供输入。
+
+    ===== 在流程中的位置 =====
+    第三步补充（环境领域相关性过滤）之后、第四步（热度计算）之前。
+      · 必须在此之前：事件共振要在算分时就知道"同一事件被几家不同媒体报道"，
+        聚类结果必须先落到条目上。
+      · 绝不能挪到第六步：AI 摘要/标签都在第六步，那时热度分已经算完 ——
+        v2.1 的「内容质量分读不到 AI 产物」就是栽在这个时点错配上。
+    接线见 main() 的 "3.9 AI 语义事件聚类" 一段。
+
+    ===== 输入 =====
+      items      条目列表（只要求 title 有效；调用前会剥离"标题 - 来源名"后缀）
+      max_items  最多送多少条给 AI（默认取 config 的 algorithm_ai.max_items，60 条）
+      api_config get_api_config() 的返回值
+
+    ===== 输出 =====
+      成功 → {条目下标: 事件组号}，并同步写入每个条目的临时字段 _ai_event_id
+      失败 → None（调用方回退到 _cluster_events 的 token 重叠系数聚类）
+
+    ===== AI 返回格式（json_mode）=====
+      {"events":[{"id":"E1","items":[0,3,7]},{"id":"E2","items":[1]}]}
+      约定：每个编号出现且仅出现一次；只输出条数 >= 2 的组；id 用 E1/E2 这类短字符串。
+
+    ===== 失败语义 =====
+      AI 是**增强项而非必需项**。返回 None 时算法依旧完整（回退 token 聚类），
+      不会因为 AI 熔断/超预算而丢掉事件共振这一整个维度。
+    """
+    if not items or not api_config or not api_config.get("summary_enabled"):
+        return None
+    if _ai_func_disabled("事件聚类") or _ai_budget_exhausted("事件聚类"):
+        return None
+    algo_ai = api_config.get("algorithm_ai") or {}
+    if not algo_ai.get("semantic_event_clustering", True):
+        print("[事件聚类] 配置已关闭 AI 语义聚类，使用标题 token 重叠聚类")
+        return None
+    try:
+        limit = int(max_items if max_items is not None else algo_ai.get("max_items", 60))
+    except (TypeError, ValueError):
+        limit = 60
+    limit = max(2, min(limit, len(items)))
+    subset = items[:limit]
+    if len(subset) < 2:
+        return None
+
+    # 清掉上一次运行可能残留的临时字段，避免旧组号被误用
+    for it in subset:
+        it.pop("_ai_event_id", None)
+
+    lines = []
+    for idx, it in enumerate(subset):
+        title = (strip_title_source_suffix(it.get("title", "")) or it.get("title", "")).strip()
+        if title:
+            # 剥离来源后缀后再截断：否则「标题 - 某某网」里的来源名会占用额度，
+            # 真正区分事件的标题部分被截掉，AI 更容易误并
+            lines.append(f"{idx}. {title[:70]}")
+    if len(lines) < 2:
+        return None
+
+    prompt = (
+        "你是新闻事件聚类助手。下面是一批已编号的新闻标题，请把**报道同一件真实事件**的标题分到同一组。\n"
+        "判定口径：\n"
+        "【算同一事件】同一政策/文件发布、同一事故或灾害、同一场会议、同一篇论文的报道、"
+        "同一项目的开工或验收——即使出自不同媒体、标题措辞与切入角度不同，也算同一事件。\n"
+        "【不算同一事件】同一主题下的**不同**事件（如两起不同的污染事故、两项不同的政策）、"
+        "同一领域的不同研究、仅仅话题相近的报道。宁可分开，也不要错并。\n"
+        "只输出一个 JSON 对象，不要输出思考过程、解释或 Markdown 代码块。格式：\n"
+        '{"events":[{"id":"E1","items":[0,3,7]},{"id":"E2","items":[1]}]}\n'
+        "要求：\n"
+        "1. 每个编号最多出现在一个组里；\n"
+        '2. 只把成员数 >= 2 的组写进 events，单独的标题直接省略（不要输出 [5] 这种单元素组）；\n'
+        '3. id 固定用 E1/E2/E3… 这样的短字符串。\n\n'
+        "标题列表：\n" + "\n".join(lines)
+    )
+
+    result = call_nvidia_api(
+        prompt, api_config,
+        max_tokens=min(2048, max(200, 20 * len(lines))),
+        json_mode=True, feature="事件聚类",
+    )
+    if not result:
+        print("[事件聚类] AI 调用失败，回退标题 token 重叠聚类")
+        return None
+
+    groups = _extract_ai_list(result, keys=("events", "groups"), label="事件聚类")
+    if not isinstance(groups, list):
+        print("[事件聚类] AI 结果解析失败，回退标题 token 重叠聚类")
+        return None
+
+    mapping = {}
+    for group in groups:
+        if not isinstance(group, dict):
+            continue
+        gid = str(group.get("id") or "").strip()
+        members = group.get("items", group.get("ids"))
+        if not gid or not isinstance(members, list):
+            continue
+        valid = []
+        seen = set()
+        for m in members:
+            try:
+                mi = int(m)
+            except (TypeError, ValueError):
+                continue
+            # 越界 / 重复归属 / 组内重复编号一律丢弃：
+            # 一条脏数据不能让整批聚类失效，也不能让同一个编号被计成两个成员
+            # （重复计数会直接抬高 event_media_count，也就是虚高的共振分）。
+            if 0 <= mi < len(subset) and mi not in mapping and mi not in seen:
+                seen.add(mi)
+                valid.append(mi)
+        if len(valid) < 2:
+            continue
+        for mi in valid:
+            mapping[mi] = gid
+
+    if not mapping:
+        print("[事件聚类] AI 未给出任何有效的多成员事件组，回退标题 token 重叠聚类")
+        return None
+
+    for mi, gid in mapping.items():
+        subset[mi]["_ai_event_id"] = gid
+    print(f"[事件聚类] AI 语义聚类：{len(subset)} 条输入 -> {len(set(mapping.values()))} 个多成员事件组，"
+          f"覆盖 {len(mapping)} 条（其余条目按独立事件处理）")
+    return mapping
+
+
+def calculate_heat_v3(items, config, keyword_item_count=None):
+    """
+    热度算法 v3.0，直接在 items 上写入：
+      score_v2_raw、score_v2（展示分）、score_breakdown（明细）、hotness_level
+    返回 items（已附加 v3 字段）
+
+    四个加性维度（base 合计 70 分），每一维都有独立的语义与实测区分度：
+      1. 权威度 0-18        谁在说          18*sqrt(w-1)，w=来源权重
+                                            （1.0→0，1.2→8.0，1.5→12.7，2.0→18）
+      2. 话题分 0-18        说的题值不值     IDF 饱和分 + 当日聚集分 + 零命中兜底
+      3. 事件共振 0-18      多少家在说同一件事  18*(1-exp(-(D-1)/1.5))，D=同一事件的不同原始媒体数
+      4. 信息量 0-16        说得多具体       量化信息 + 具体主体 + 研究信号 + 描述可得性
+
+    乘性系数：
+      5. 时间衰减 T = 0.35 + 0.65*exp(-hours/48)
+      6. 信息密度（地方政务通稿 0.65 / 薄内容 0.85 / 国家级政策文件 1.10）
+      7. 重复惩罚（同一事件中的非代表条目 ×0.6）
+
+    展示分：绝对标定 40 + 60*(1-exp(-raw/K)) —— 同一个 raw 在任何一天都是同一个分，
+    因此"今天没什么热点"会真实反映为整榜分数偏低，而不是被逐日 min-max 拉满。
+
+    与 v2.1 的差异及实测依据，见文件顶部 v3.0 参数块的长注释。
+    """
+    hot_cfg = config.get("hotness") or {}
+    dim_cfg = hot_cfg.get("dimensions") or {}
+    clu_cfg = hot_cfg.get("event_cluster") or {}
+    res_cfg = hot_cfg.get("resonance") or {}
+    tp_cfg = hot_cfg.get("topic") or {}
+    dp_cfg = hot_cfg.get("display") or {}
+
+    auth_max = float(dim_cfg.get("authority", HOTNESS_AUTHORITY_MAX))
+    topic_max = float(dim_cfg.get("topic", HOTNESS_TOPIC_MAX))
+    reso_max = float(dim_cfg.get("resonance", HOTNESS_RESONANCE_MAX))
+    info_max = float(dim_cfg.get("information", HOTNESS_INFO_MAX))
+    cluster_threshold = float(clu_cfg.get("overlap_threshold", EVENT_CLUSTER_OVERLAP_THRESHOLD))
+    dup_penalty = float(clu_cfg.get("duplicate_penalty", DUPLICATE_PENALTY))
+    reso_tau = max(0.1, float(res_cfg.get("tau", RESONANCE_TAU)))
+    idf_max = float(tp_cfg.get("idf_max", TOPIC_IDF_MAX))
+    burst_max = float(tp_cfg.get("burst_max", TOPIC_BURST_MAX))
+    topic_floor = float(tp_cfg.get("floor", TOPIC_FLOOR))
+    display_mode = str(dp_cfg.get("mode", DISPLAY_CALIBRATION)).strip().lower()
+    display_k = max(1.0, float(dp_cfg.get("k", DISPLAY_CALIBRATION_K)))
+
     weights = config.get("weights", {})
     source_weights = weights.get("source_weights", DEFAULT_SOURCE_WEIGHTS)
     now = datetime.now(timezone.utc)
@@ -1380,66 +1746,57 @@ def calculate_heat_v2(items, config, keyword_item_count=None):
         appear_days = keyword_day_count.get(kw, 0)
         return math.log(total_days / (appear_days + 1)) + 1
 
-    # ---- 预统计：每个关键词出现在哪些权威来源（跨源共振）----
+    # ---- 预统计：每个关键词在当日被多少条目命中（当日聚集分用）----
     if keyword_item_count is None:
         keyword_item_count = defaultdict(int)
         for it in items:
             for kw in set(it.get("matched_keywords", [])):
                 keyword_item_count[kw] += 1
-    keyword_authoritative_sources = defaultdict(set)  # kw -> {source,...}
-    for it in items:
-        sw = get_source_weight(it.get("source", ""), source_weights)
-        if sw >= RESONANCE_MIN_SOURCE_WEIGHT:  # 只统计权威来源（见常量处的说明）
-            for kw in set(it.get("matched_keywords", [])):
-                keyword_authoritative_sources[kw].add(it.get("source", ""))
 
-    # ---- Jaccard 轻量聚类，标记重复事件（保留最高分，其余惩罚 DUPLICATE_PENALTY）----
-    # token 抽取优先使用中文译文 title_zh：让"同一事件的英文报道与中文报道"落在同一
-    # 语义空间（否则中文 tokens 与英文 tokens 交集恒为空，跨语言重复永远检测不出来）。
-    # 没有译文时退回原标题，与修复前行为一致。
-    token_sets = [
-        _title_token_set(it.get("title_zh") or it.get("title", ""))
-        for it in items
-    ]
-    repeat_penalty = [1.0] * len(items)
-    # 先按来源权重+时间粗排，权威且新的优先作为代表
-    order = sorted(range(len(items)),
-                   key=lambda i: (-get_source_weight(items[i].get("source", ""), source_weights),
-                                   items[i].get("published", "")), reverse=False)
-    assigned = {}
-    for i in order:
-        placed = False
-        for rep_idx, members in assigned.items():
-            if _jaccard(token_sets[i], token_sets[rep_idx]) >= DUPLICATE_JACCARD_THRESHOLD:
-                members.append(i)
-                placed = True
-                break
-        if not placed:
-            assigned[i] = [i]
-    _dup_clusters = [m for m in assigned.values() if len(m) > 1]
-    _debug(f"重复聚类：{len(items)} 条 -> {len(assigned)} 簇，"
-           f"其中多成员簇 {len(_dup_clusters)} 个（阈值 {DUPLICATE_JACCARD_THRESHOLD}），"
-           f"受惩罚条目 {sum(len(m) - 1 for m in _dup_clusters)} 条")
-    for rep_idx, members in assigned.items():
-        if len(members) > 1:
-            # 聚类内除代表外，其余重复惩罚（代表在 raw 计算后再按分数确定，这里先标记候选）
-            for m in members:
-                if m != rep_idx:
-                    repeat_penalty[m] = DUPLICATE_PENALTY
+    # ---- 事件聚类：把「同一件事被多家媒体报道」识别出来 ----
+    # 该信息有两个用途：① 作为正面热度信号（事件共振分）
+    #                   ② 惩罚同一事件的多余条目（重复惩罚），避免一件事刷屏
+    # v2.1 只做了 ②，且相似度用 Jaccard 阈值 0.45 —— 对中文短标题过严，
+    # 线上实测把 17 条聚成 17 个单簇（连肉眼可辨的同事件条目都没识别出来），
+    # 于是 ② 也从未生效（消融 ρ=1.000）。
+    # AI 语义聚类结果优先：上游 ai_cluster_events（第三步补充之后、本步之前）会把
+    # 多成员事件组的成员标上 _ai_event_id。此处只做读取，不做调用 —— 保证本步骤
+    # 是纯计算、不产生网络请求（这也是 heat 计算能被单测复算的前提）。
+    ai_mapping = {}
+    for i, it in enumerate(items):
+        gid = it.get("_ai_event_id")
+        if gid:
+            ai_mapping[i] = gid
+    assigned = _cluster_events(items, cluster_threshold, ai_mapping=ai_mapping or None)
+    cluster_source = ("AI 语义事件聚类" if ai_mapping
+                      else f"标题 token 重叠系数（阈值 {cluster_threshold}）")
+    cluster_of = {}
+    for rep, members in assigned.items():
+        for m in members:
+            cluster_of[m] = rep
+    multi_clusters = [m for m in assigned.values() if len(m) > 1]
+    print(f"[事件聚类] {len(items)} 条 -> {len(assigned)} 个事件簇，"
+          f"其中多成员簇 {len(multi_clusters)} 个（来源：{cluster_source}）")
+    for members in multi_clusters[:5]:
+        medias = sorted({item_origin_source(items[i]) for i in members})
+        print(f"  [事件] {len(members)} 条 / {len(medias)} 家媒体：{members[0]} "
+              f"{items[members[0]].get('title', '')[:40]}")
 
     # ---- 逐条计算 raw 分 ----
     for idx, item in enumerate(items):
         matched = item.get("matched_keywords", [])
+        matching = set(matched)
         source_weight = get_source_weight(item.get("source", ""), source_weights)
+        title = item.get("title", "")
 
-        # 1. 来源权威分：权重2.0→25，1.0→15 线性（score=15+(w-1)*10，截断到0-25）
-        s_source = 15.0 + (source_weight - 1.0) * 10.0
-        s_source = max(0.0, min(25.0, s_source))
+        # 1. 权威度：0-18 全程映射，无常数底分（常数不参与排序，等于白占满分）
+        #    用 sqrt 压缩高权重端的优势，避免 6 个顶刊源垄断整个榜单前列。
+        s_authority = auth_max * math.sqrt(max(0.0, min(1.0, source_weight - 1.0)))
 
-        # 2. 关键词 IDF 饱和分
+        # 2. 话题分：稀缺度（IDF 饱和）+ 当日聚集 + 零命中兜底
         sum_idf = 0.0
         used_kw = []
-        for kw in set(matched):
+        for kw in matching:
             idf = get_idf(kw)
             in_white = kw in whitelist
             # 噪声词（不在白名单、且非配置关键词）不给 IDF 分
@@ -1448,43 +1805,45 @@ def calculate_heat_v2(items, config, keyword_item_count=None):
                 continue
             sum_idf += idf
             used_kw.append({"kw": kw, "idf": round(idf, 3)})
-        s_keyword = 25.0 * (1 - math.exp(-sum_idf / 3.0))
-        # 白名单最低保护：只要命中白名单词，关键词分至少给 5
-        if any(kw in whitelist for kw in set(matched)) and s_keyword < 5.0:
-            s_keyword = 5.0
-        s_keyword = min(25.0, s_keyword)
+        s_topic_idf = idf_max * (1 - math.exp(-sum_idf / TOPIC_IDF_TAU))
+        burst_k = 1
+        for kw in matching:
+            c = keyword_item_count.get(kw, 0)
+            if c > burst_k:
+                burst_k = c
+        s_topic_burst = burst_max * (1 - math.exp(-(burst_k - 1) / 2.0))
+        s_topic = s_topic_idf + s_topic_burst
+        # 零命中兜底：全部关键词都没命中但标题本身属于环境题材 ——
+        # 不给兜底会让"关键词表未覆盖的题材"被二值化归零（实测线上 7/17 条为零命中），
+        # 使话题分退化成"词表覆盖运气"。
+        if sum_idf == 0 and is_env_relevant_term(title):
+            s_topic += topic_floor
+        s_topic = min(topic_max, s_topic)
 
-        # 3. 跨源共振分：取该条目关键词中最大的权威来源数 N
-        max_sources = 1
-        for kw in set(matched):
-            n_src = len(keyword_authoritative_sources.get(kw, set()))
-            if n_src > max_sources:
-                max_sources = n_src
-        s_resonance = 15.0 * (1 - math.exp(-(max_sources - 1) / 3.0))
+        # 3. 事件共振：同一事件的不同原始报道媒体数 D
+        members = assigned.get(cluster_of[idx], [idx])
+        d_media = len({item_origin_source(items[i]) for i in members})
+        s_resonance = reso_max * (1 - math.exp(-(d_media - 1) / reso_tau))
 
-        # 4. 内容质量分（0-10，按摘要长度分档）
-        # 旧实现是 "len(summary) >= 20 就给满分 10" 的二值判断：实测线上 28 条里
-        # 16 条恰好 =0、12 条恰好 =10，全部堆在两端，等于只回答"有没有摘要"，
-        # 完全区分不出 44 字短讯与 298 字深度报道。改为按长度分档，保留 0-10 量纲。
-        # 注意：此处 summary 是**翻译后的 RSS 描述**（AI 摘要在这一步之后才生成），
-        # 所以它衡量的是"原文信息可得性"——没有 RSS 描述的源（全部中文查询源）天然为 0，
-        # 这是已知偏差，已记入待办。
-        summary = (item.get("summary") or "").strip()
-        _slen = len(summary)
-        if _slen >= 200:
-            s_quality = 10.0
-        elif _slen >= 100:
-            s_quality = 7.0
-        elif _slen >= 40:
-            s_quality = 4.0
-        elif _slen > 0:
-            s_quality = 2.0
-        else:
-            s_quality = 0.0
+        # 4. 信息量：标题具体性（中英文判据对等）+ RSS 描述可得性
+        s_info = 0.0
+        if _RE_INFO_QUANT.search(title) or re.search(r"\d", title):
+            s_info += INFO_QUANT_POINTS
+        if _RE_INFO_ORG.search(title) or _RE_INFO_ORG_EN.search(title):
+            s_info += INFO_ORG_POINTS
+        title_lower = title.lower()
+        if any(x in title for x in RESEARCH_SIGNAL) or any(x in title_lower for x in INFO_RESEARCH_SIGNAL_EN):
+            s_info += INFO_RESEARCH_POINTS
+        desc = (item.get("summary") or "").strip()
+        if len(desc) >= 40:
+            s_info += INFO_DESC_POINTS
+        elif desc:
+            s_info += INFO_DESC_POINTS * 0.25
+        s_info = min(info_max, s_info)
 
-        # 4.5 信息密度系数（乘性）：识别地方政务通稿 / 薄内容 / 国家级政策文件
+        # 5. 信息密度系数（乘性）：识别地方政务通稿 / 薄内容 / 国家级政策文件
         density_cfg = config.get("content_density") or {}
-        density_factor, density_note = evaluate_content_density(item.get("title", ""))
+        density_factor, density_note = evaluate_content_density(title)
         if density_cfg.get("enabled") is False:
             density_factor, density_note = DENSITY_NORMAL_FACTOR, ""
         else:
@@ -1496,7 +1855,7 @@ def calculate_heat_v2(items, config, keyword_item_count=None):
                 density_factor = float(density_cfg.get("policy_bonus", DENSITY_POLICY_FACTOR))
         density_factor = max(0.1, min(2.0, density_factor))
 
-        # 5. 时间衰减（乘性）
+        # 6. 时间衰减（乘性）
         published_dt = item.get("published_dt")
         if published_dt:
             hours_ago = (now - published_dt).total_seconds() / 3600.0
@@ -1506,75 +1865,101 @@ def calculate_heat_v2(items, config, keyword_item_count=None):
             hours_ago = 9999.0
         time_factor = 0.35 + 0.65 * math.exp(-hours_ago / 48.0)
 
-        base = s_source + s_keyword + s_resonance + s_quality
-        penalty = repeat_penalty[idx]
-        raw = base * time_factor * density_factor * penalty
+        base = s_authority + s_topic + s_resonance + s_info
+        item["_v3_authority"] = round(s_authority, 2)
+        item["_v3_topic"] = round(s_topic, 2)
+        item["_v3_resonance"] = round(s_resonance, 2)
+        item["_v3_info"] = round(s_info, 2)
+        item["_v3_idf"] = round(s_topic_idf, 2)
+        item["_v3_burst"] = round(s_topic_burst, 2)
+        item["_v3_burst_k"] = burst_k
+        item["_v3_time_factor"] = round(time_factor, 4)
+        item["_v3_density_factor"] = round(density_factor, 4)
+        item["_v3_density_note"] = density_note
+        item["_v3_base"] = round(base, 2)
+        item["_v3_cluster_size"] = len(members)
+        item["_v3_cluster_media"] = d_media
+        item["_v3_origin"] = item_origin_source(item)
+        item["_v3_idf_detail"] = used_kw
+        item["_v3_prelim"] = round(base * time_factor * density_factor, 4)
 
-        item["_v2_source"] = round(s_source, 2)
-        item["_v2_keyword"] = round(s_keyword, 2)
-        item["_v2_resonance"] = round(s_resonance, 2)
-        item["_v2_quality"] = round(s_quality, 2)
-        item["_v2_time_factor"] = round(time_factor, 4)
-        item["_v2_density_factor"] = round(density_factor, 4)
-        item["_v2_density_note"] = density_note
-        item["_v2_repeat_penalty"] = penalty
-        item["_v2_base"] = round(base, 2)
-        item["_v2_raw"] = round(raw, 2)
-        item["_v2_idf_detail"] = used_kw
-        item["_v2_cross_sources"] = max_sources
-
-    # ---- 聚类内重新确定代表：raw 最高者不惩罚，其余保持0.6 ----
-    for rep_idx, members in assigned.items():
+    # ---- 事件簇内确定代表：raw 最高者不惩罚，其余 ×dup_penalty ----
+    for rep, members in assigned.items():
         if len(members) > 1:
-            best = max(members, key=lambda i: items[i]["_v2_raw"])
+            best = max(members, key=lambda i: items[i]["_v3_prelim"])
             for m in members:
-                if m != best:
-                    # 重新应用惩罚（必须带上密度系数，否则这一步会把密度降权覆盖掉）
-                    it = items[m]
-                    it["_v2_repeat_penalty"] = DUPLICATE_PENALTY
-                    it["_v2_raw"] = round(
-                        it["_v2_base"] * it["_v2_time_factor"]
-                        * it["_v2_density_factor"] * DUPLICATE_PENALTY, 2)
-                else:
-                    items[m]["_v2_repeat_penalty"] = 1.0
-
-    # ---- 展示分归一化到 40-100 ----
-    # 修复：原实现以"排序名次 /(n-1)"作为百分位，导致 raw 完全相同的条目因排序位置不同
-    # 而拿到不同展示分（实测 5 条同 raw 条目被拉开 48 分），分数不可复现、依赖输入顺序，
-    # "热度分"因此失去可信度。改为按 raw 值做 min-max 映射：同 raw 必同分，且保留原始分差比例。
-    n = len(items)
-    raws = [items[i]["_v2_raw"] for i in range(n)]
-    raw_min = min(raws) if raws else 0.0
-    raw_max = max(raws) if raws else 0.0
-    span = raw_max - raw_min
-    # 相对跨度保护：整体差异过小时视为"无实质差异"，统一给中性分，
-    # 避免把千分之几的分差放大成满量程展示差
-    flat = (raw_max <= 0) or (span / raw_max < DISPLAY_MIN_RELATIVE_SPAN)
-    for idx, item in enumerate(items):
-        if flat:
-            display_score = DISPLAY_SCORE_MID
+                items[m]["_v3_repeat_penalty"] = 1.0 if m == best else dup_penalty
         else:
+            items[members[0]]["_v3_repeat_penalty"] = 1.0
+    for item in items:
+        item.setdefault("_v3_repeat_penalty", 1.0)
+        item["_v3_raw"] = round(
+            item["_v3_prelim"] * item["_v3_repeat_penalty"], 2)
+
+    # ---- 展示分标定 ----
+    if display_mode == "relative":
+        # 旧口径（v2.1）：逐日 min-max 到 [MIN, MAX]，仅用于复现历史打分。
+        # 缺点：无论当天内容整体多差，榜首永远 MAX、榜尾永远 MIN，热度分无法跨日比较。
+        raws = [item["_v3_raw"] for item in items]
+        raw_min = min(raws) if raws else 0.0
+        raw_max = max(raws) if raws else 0.0
+        span = raw_max - raw_min
+        flat = (raw_max <= 0) or (span / raw_max < DISPLAY_MIN_RELATIVE_SPAN)
+        for item in items:
+            if flat:
+                display_score = DISPLAY_SCORE_MID
+            else:
+                display_score = (DISPLAY_SCORE_MIN
+                                 + (DISPLAY_SCORE_MAX - DISPLAY_SCORE_MIN)
+                                 * (item["_v3_raw"] - raw_min) / span)
+            item["score_v2_raw"] = item["_v3_raw"]
+            item["score_v2"] = round(display_score, 1)
+            item["hotness_level"] = _hotness_level(display_score)
+    else:
+        # 绝对标定（默认）：display = 40 + 60*(1 - exp(-raw/K))
+        # 同一个 raw 在任何一天都得到同一个分 → 可跨日比较，
+        # 且"今天整体平淡"会如实显示为整榜偏低，而不是被拉满到 100。
+        for item in items:
             display_score = (DISPLAY_SCORE_MIN
                              + (DISPLAY_SCORE_MAX - DISPLAY_SCORE_MIN)
-                             * (item["_v2_raw"] - raw_min) / span)
-        item["score_v2_raw"] = item["_v2_raw"]
-        item["score_v2"] = round(display_score, 1)
-        item["hotness_level"] = _hotness_level(display_score)
-        # v2 明细（供前端热度弹窗展示）
+                             * (1 - math.exp(-item["_v3_raw"] / display_k)))
+            item["score_v2_raw"] = item["_v3_raw"]
+            item["score_v2"] = round(display_score, 1)
+            item["hotness_level"] = _hotness_level(display_score)
+
+    # ---- 明细（供前端热度弹窗展示）----
+    for item in items:
         item["score_breakdown"] = {
-            "algorithm": "v2.1",
-            "source_score": item["_v2_source"],
-            "keyword_idf_score": item["_v2_keyword"],
-            "resonance_score": item["_v2_resonance"],
-            "quality_score": item["_v2_quality"],
-            "base": item["_v2_base"],
-            "time_factor": item["_v2_time_factor"],
-            "density_factor": item["_v2_density_factor"],
-            "density_note": item["_v2_density_note"],
-            "repeat_penalty": item["_v2_repeat_penalty"],
-            "cross_source_count": item["_v2_cross_sources"],
-            "raw": item["_v2_raw"],
+            "algorithm": "v3.0",
+            "dimension_max": {
+                "authority": auth_max,
+                "topic": topic_max,
+                "resonance": reso_max,
+                "information": info_max,
+            },
+            "authority_score": item["_v3_authority"],
+            # 兼容字段名：老前端与历史脚本读的是 keyword_idf_score
+            "keyword_idf_score": item["_v3_idf"],
+            "topic_score": item["_v3_topic"],
+            "topic_burst_score": item["_v3_burst"],
+            "topic_burst_count": item["_v3_burst_k"],
+            "resonance_score": item["_v3_resonance"],
+            "info_score": item["_v3_info"],
+            "base": item["_v3_base"],
+            "base_max": auth_max + topic_max + reso_max + info_max,
+            "time_factor": item["_v3_time_factor"],
+            "density_factor": item["_v3_density_factor"],
+            "density_note": item["_v3_density_note"],
+            "repeat_penalty": item["_v3_repeat_penalty"],
+            "event_size": item["_v3_cluster_size"],
+            "event_media_count": item["_v3_cluster_media"],
+            # 事件簇来源：ai = AI 语义聚类，token = 标题重叠系数兜底
+            # （机器可读值，前端弹窗未列入展示字段；留作数据侧排查与审计用）
+            "event_cluster_source": "ai" if ai_mapping else "token",
+            "origin_source": item["_v3_origin"],
+            "raw": item["_v3_raw"],
             "display_score": item["score_v2"],
+            "display_mode": display_mode,
         }
 
     return items
@@ -1582,11 +1967,13 @@ def calculate_heat_v2(items, config, keyword_item_count=None):
 
 def calculate_hotness(items, config):
     """
-    双轨热度计算：同时计算 v1（旧）与 v2（新）
-    - score_v1：旧公式，保存在 item["score_v1"] 与 item["hotness"]（兼容旧字段）
-    - score_v2：新算法（IDF/跨源共振/内容质量/乘性衰减/百分位归一化），保存在 item["score_v2"]
+    双轨热度计算：同时计算 v1（旧，仅供对照）与 v3（当前生效）
+    - score_v1：旧公式，保存在 item["score_v1"]；score_v1_breakdown 保存其分解
+    - score_v2：v3.0 展示分（权威度/话题分/事件共振/信息量，乘性时间衰减与
+      信息密度，绝对标定到 40-100），保存在 item["score_v2"]
+      字段名沿用 score_v2：前端与历史快照都按这个键读取，改名会同时打断两处
     - 排序与前端展示统一使用 score_v2（见 sort_and_limit）
-    - score_breakdown 保存 v2 详细分解；score_v1_breakdown 保存 v1 分解用于对比
+    - score_breakdown 保存 v3.0 的逐维分解，供热度弹窗展示推导过程
     """
     keywords = config.get("keywords", DEFAULT_KEYWORDS)
     weights = config.get("weights", {})
@@ -1606,7 +1993,7 @@ def calculate_hotness(items, config):
         ]))
         item["matched_keywords"] = match_keywords(text, keywords, KEYWORD_EN_ALIASES)
 
-    # 第二步：统计每个关键词在多少个条目中出现（主题聚合 / 跨源共振用）
+    # 第二步：统计每个关键词在当日多少个条目中出现（话题分的「当日聚集」用）
     keyword_item_count = defaultdict(int)
     for item in items:
         for kw in set(item["matched_keywords"]):
@@ -1624,23 +2011,28 @@ def calculate_hotness(items, config):
         # hotness 保留 v1 分数，兼容仍读取 hotness 的旧逻辑
         item["hotness"] = score_v1
 
-    # 第四步：v2 新算法（IDF 饱和 + 跨源共振 + 内容质量 + 乘性衰减 + 百分位归一化）
-    items = calculate_heat_v2(items, config, keyword_item_count)
+    # 第四步：v3 新算法（权威度 + 话题分 + 事件共振 + 信息量，乘性衰减与信息密度，绝对标定）
+    items = calculate_heat_v3(items, config, keyword_item_count)
 
-    # 第五步：hotness/score 统一指向 v2 展示分，供排序与前端使用
+    # 第五步：hotness/score 统一指向 v3 展示分，供排序与前端使用
     for item in items:
         item["hotness"] = item.get("score_v2", item.get("score_v1", 0))
-        # 清理 v2 内部临时字段（保留明细，删除以下划线开头的临时键）
-        for tmp in ["_v2_source", "_v2_keyword", "_v2_resonance", "_v2_quality",
-                    "_v2_time_factor", "_v2_repeat_penalty", "_v2_base", "_v2_raw",
-                    "_v2_idf_detail", "_v2_cross_sources"]:
+        # 清理 v3 内部临时字段（明细已进 score_breakdown，临时键不落盘）
+        for tmp in ["_v3_authority", "_v3_topic", "_v3_resonance", "_v3_info",
+                    "_v3_idf", "_v3_burst", "_v3_burst_k", "_v3_time_factor",
+                    "_v3_density_factor", "_v3_density_note", "_v3_base",
+                    "_v3_cluster_size", "_v3_cluster_media", "_v3_origin",
+                    "_v3_idf_detail", "_v3_prelim", "_v3_repeat_penalty", "_v3_raw"]:
             item.pop(tmp, None)
+        # AI 语义事件聚类的中间字段：信息已折进 score_breakdown 的
+        # event_size / event_media_count / event_cluster_source，原始组号不落盘
+        item.pop("_ai_event_id", None)
 
     return items
 
 
 def sort_and_limit(items, max_total):
-    """按新算法 v2 展示分从高到低排序，取前 max_total 条（v2 缺失时回退 hotness/v1）"""
+    """按 v3.0 展示分从高到低排序，取前 max_total 条（缺失时回退 hotness/v1）"""
     items.sort(key=lambda x: x.get("score_v2", x.get("hotness", x.get("score_v1", 0))), reverse=True)
     return items[:max_total]
 
@@ -1933,6 +2325,10 @@ def get_api_config(config):
         "firecrawl_enabled": reader_api.get("firecrawl_enabled", True),
         "jina_key": jina_key,
         "jina_base_url": reader_api.get("jina_base_url", "https://r.jina.ai/"),
+        # AI 调用治理参数（防 429）：速率限制/并发/预算/退避抖动/缓存，详见 configure_ai_limits
+        "limits": summary_api.get("limits") or {},
+        # AI 参与算法流程的开关与上限（当前：语义事件聚类）
+        "algorithm_ai": summary_api.get("algorithm_ai") or {},
     }
 
 
@@ -2233,6 +2629,441 @@ def _ai_record_failure(feature, label=None):
         AI_FUNC_DEGRADED_LOGGED.add(feature)
     return fail_n
 
+
+# ============================================================
+# AI 调用治理层（2026-09-21 引入）
+# ============================================================
+# 背景：AI 在流程里原本只有「按功能独立熔断 + 固定 [5,15,30] 退避」两层保护，
+# 缺口有四个，都是"平时不出事、出一次就整批降级"的类型：
+#   1. 没有任何速率控制。话题标签是 Top10 **逐条**调用，10 次请求背靠背发出，
+#      叠加批量摘要分批、关键词、周总结/见解、相关性过滤，单次运行约 15~20 次请求，
+#      其中 10 次间隔接近 0 —— 免费层 RPM 一旦下调或与其它任务撞车就会连续 429。
+#   2. 退避是固定值且不读 Retry-After。服务端要求等 60 秒时我们 5 秒就重试，
+#      必然再次 429，连续 3 次直接把该功能熔断降级。
+#   3. 重试逻辑有三份独立实现（本文件的 call_nvidia_api、generate_batch_summaries、
+#      generate_batch_topic_tags），超时值还不一致（45s / 20s / 20s），
+#      改一处必漏两处。
+#   4. 没有并发闸门，也没有单次运行的调用预算 —— 条目数暴涨时调用次数线性增长，
+#      没有任何东西拦住它。
+# 本层把这四件事收口成「所有请求只走一个出口」，并新增结果缓存去重。
+# 参数全部可在 config.yaml 的 summary_api.limits 下调（缺键则用下面默认值）。
+# ============================================================
+
+# 治理参数默认值（config.yaml 的 summary_api.limits 提供同名键时被覆盖）
+AI_LIMITS = {
+    "rpm": 30,                  # 每分钟请求上限。免费层实测上限 40，留 25% 余量
+    "max_concurrency": 1,       # 同时在飞的 AI 请求数上限（当前流程本身串行，此处为显式约束）
+    "max_calls_per_run": 80,    # 单次运行的 HTTP 请求预算，超预算后剩余功能降级规则模式
+    "jitter_ratio": 0.25,       # 退避抖动比例（只向上抖动，避免抖动把等待削短）
+    "max_backoff": 60.0,        # 单次退避等待上限（Retry-After 明确要求更久时不受此限）
+    "cache_enabled": True,      # 进程内结果缓存开关
+    "cache_max_entries": 512,   # 缓存条数上限（超出按写入顺序淘汰 1/8）
+    "honor_retry_after": True,  # 是否采信服务端 Retry-After 建议
+}
+
+AI_MAX_ATTEMPTS = 4             # 首次 + 3 次重试（与旧 [5,15,30] 行为一致）
+AI_SEMAPHORE_ACQUIRE_TIMEOUT = 120.0   # 并发闸门等待上限（秒），防止信号量泄漏导致永久挂起
+# 可重试的 HTTP 状态码：限流 + 服务端瞬时故障。400/401/403/404 属确定性错误，重试无意义
+AI_RETRYABLE_STATUS = frozenset((429, 500, 502, 503, 504))
+
+_AI_LIMITS_LOCK = threading.Lock()
+_AI_SEMAPHORE = None            # threading.Semaphore，按 max_concurrency 懒创建
+_AI_SEMAPHORE_SIZE = 0          # 已创建信号量的并发数（用于配置变化时重建）
+_AI_CALL_TS = []                # 最近 60 秒内发起请求的时间戳（滑动窗口）
+_AI_LAST_TS = 0.0               # 上一次发起请求的时间戳（用于最小间隔）
+_AI_CALL_COUNT = 0              # 本次运行已发起的 HTTP 请求数
+_AI_BUDGET_WARNED = False       # 预算耗尽提示是否已打印（只提示一次）
+_AI_RESULT_CACHE = {}           # {缓存键: AI 返回文本}，进程内，不落盘
+_AI_CACHE_HITS = 0
+_AI_CALL_LOG = defaultdict(int)  # {功能名: 实际发出的 HTTP 请求数}
+_AI_RETRY_LOG = defaultdict(int)  # {功能名: 重试次数}
+
+
+def configure_ai_limits(payload):
+    """
+    从配置读入治理参数（payload 传整个 config，或直接传 limits 字典）。
+    幂等：可重复调用；并发数变化时重建信号量。未知键忽略，非法值保留默认。
+    """
+    global _AI_SEMAPHORE, _AI_SEMAPHORE_SIZE
+
+    limits = {}
+    if isinstance(payload, dict):
+        candidate = payload.get("limits")
+        if isinstance(candidate, dict):
+            limits = candidate
+        elif any(k in payload for k in AI_LIMITS):
+            # 直接传的就是 limits 段本身
+            limits = payload
+
+    with _AI_LIMITS_LOCK:
+        for key, default in AI_LIMITS.items():
+            if key not in limits or limits[key] is None:
+                continue
+            try:
+                AI_LIMITS[key] = type(default)(limits[key])
+            except (TypeError, ValueError):
+                _debug(f"AI 治理参数 {key}={limits[key]!r} 无法解析为 {type(default).__name__}，保留默认 {default!r}")
+        # 夹取到有意义区间：rpm 至少 1（否则除零）、并发至少 1、预算至少 1、抖动 0~1
+        AI_LIMITS["rpm"] = max(1, int(AI_LIMITS["rpm"]))
+        AI_LIMITS["max_concurrency"] = max(1, int(AI_LIMITS["max_concurrency"]))
+        AI_LIMITS["max_calls_per_run"] = max(1, int(AI_LIMITS["max_calls_per_run"]))
+        AI_LIMITS["cache_max_entries"] = max(1, int(AI_LIMITS["cache_max_entries"]))
+        AI_LIMITS["jitter_ratio"] = min(max(float(AI_LIMITS["jitter_ratio"]), 0.0), 1.0)
+        AI_LIMITS["max_backoff"] = max(0.0, float(AI_LIMITS["max_backoff"]))
+        AI_LIMITS["cache_enabled"] = bool(AI_LIMITS["cache_enabled"])
+        AI_LIMITS["honor_retry_after"] = bool(AI_LIMITS["honor_retry_after"])
+
+        if _AI_SEMAPHORE is None or _AI_SEMAPHORE_SIZE != AI_LIMITS["max_concurrency"]:
+            _AI_SEMAPHORE = threading.Semaphore(AI_LIMITS["max_concurrency"])
+            _AI_SEMAPHORE_SIZE = AI_LIMITS["max_concurrency"]
+
+
+def _ai_get_semaphore():
+    """懒创建并发闸门（若调用方从未读过配置，用默认并发数兜底）"""
+    global _AI_SEMAPHORE, _AI_SEMAPHORE_SIZE
+    if _AI_SEMAPHORE is None:
+        with _AI_LIMITS_LOCK:
+            if _AI_SEMAPHORE is None:
+                _AI_SEMAPHORE = threading.Semaphore(AI_LIMITS["max_concurrency"])
+                _AI_SEMAPHORE_SIZE = AI_LIMITS["max_concurrency"]
+    return _AI_SEMAPHORE
+
+
+def _ai_rate_limit_wait(feature="AI"):
+    """
+    滑动窗口限流。保证两件事：
+      ① 任意 60 秒窗口内的请求数不超过 rpm；
+      ② 相邻两次请求的间隔不小于 60/rpm 秒（把"10 条背靠背"摊平成均匀节奏）。
+    返回实际等待秒数（0 表示无需等待）。
+
+    注：等待在锁内完成。当前流程全串行，锁竞争为零；即便将来并行化，
+    锁内等待也正好把并发请求串成一条均匀的请求流（这正是限流想要的效果）。
+    """
+    global _AI_LAST_TS
+    rpm = max(1, int(AI_LIMITS.get("rpm", 30)))
+    min_interval = 60.0 / rpm
+    with _AI_LIMITS_LOCK:
+        now = time.time()
+        # ① 滑出窗口的时间戳先丢掉，保证列表只保留"最近 60 秒"
+        cutoff = now - 60.0
+        while _AI_CALL_TS and _AI_CALL_TS[0] < cutoff:
+            _AI_CALL_TS.pop(0)
+        wait = 0.0
+        if len(_AI_CALL_TS) >= rpm:
+            # 窗口已满：等到最早那一次请求滑出窗口
+            wait = max(wait, _AI_CALL_TS[0] + 60.0 - now)
+        # ② 最小间隔
+        if _AI_LAST_TS:
+            wait = max(wait, _AI_LAST_TS + min_interval - now)
+        wait = max(0.0, wait)
+        if wait > 0:
+            _debug(f"AI 限流：功能 {feature} 等待 {wait:.1f}s（rpm={rpm}，窗口内已有 {len(_AI_CALL_TS)} 次）")
+            time.sleep(wait)
+            now = time.time()
+        _AI_CALL_TS.append(now)
+        _AI_LAST_TS = now
+    return wait
+
+
+def _ai_budget_exhausted(feature="AI"):
+    """本次运行的 HTTP 请求预算是否已耗尽（耗尽后剩余 AI 功能统一降级规则模式）"""
+    global _AI_BUDGET_WARNED
+    limit = int(AI_LIMITS.get("max_calls_per_run", 80))
+    if _AI_CALL_COUNT >= limit:
+        if not _AI_BUDGET_WARNED:
+            print(f"[AI限流] 本次运行 AI 请求已达预算上限 {limit} 次，后续功能降级为规则模式"
+                  f"（可在 config.yaml 的 summary_api.limits.max_calls_per_run 调整）")
+            _AI_BUDGET_WARNED = True
+        return True
+    return False
+
+
+def _ai_cache_key(prompt, model, max_tokens, json_mode):
+    """缓存键 = 模型 + max_tokens + json_mode + 完整 prompt 的 sha1（内容寻址，与调用顺序无关）"""
+    raw = "\x1f".join([
+        str(model or ""),
+        str(max_tokens or ""),
+        "1" if json_mode else "0",
+        str(prompt or ""),
+    ])
+    return hashlib.sha1(raw.encode("utf-8")).hexdigest()
+
+
+def _ai_cache_get(key):
+    """命中则返回缓存文本，否则 None。"""
+    global _AI_CACHE_HITS
+    if not AI_LIMITS.get("cache_enabled", True):
+        return None
+    value = _AI_RESULT_CACHE.get(key)
+    if value:
+        _AI_CACHE_HITS += 1
+        return value
+    return None
+
+
+def _ai_cache_put(key, text):
+    """写入缓存。超出容量时按写入顺序淘汰最旧的 1/8，避免无限增长。"""
+    if not AI_LIMITS.get("cache_enabled", True) or not text:
+        return
+    cap = max(1, int(AI_LIMITS.get("cache_max_entries", 512)))
+    if len(_AI_RESULT_CACHE) >= cap and key not in _AI_RESULT_CACHE:
+        for old_key in list(_AI_RESULT_CACHE.keys())[:max(1, cap // 8)]:
+            _AI_RESULT_CACHE.pop(old_key, None)
+    _AI_RESULT_CACHE[key] = text
+
+
+def _ai_parse_retry_after(resp):
+    """
+    解析 429/503 响应头里的 Retry-After，返回建议等待秒数；无法解析返回 None。
+    标准允许两种格式：Delta-Seconds（"30"）与 HTTP-date（"Wed, 21 Oct 2026 07:28:00 GMT"）。
+    """
+    if resp is None:
+        return None
+    try:
+        raw = resp.headers.get("Retry-After")
+    except Exception:
+        return None
+    if not raw:
+        return None
+    raw = str(raw).strip()
+    try:
+        return max(0.0, float(raw))
+    except (TypeError, ValueError):
+        pass
+    try:
+        when = parsedate_to_datetime(raw)
+        if when is None:
+            return None
+        if when.tzinfo is None:
+            when = when.replace(tzinfo=timezone.utc)
+        return max(0.0, (when - datetime.now(timezone.utc)).total_seconds())
+    except Exception:
+        return None
+
+
+def _ai_compute_backoff(attempt, retry_after=None):
+    """
+    计算第 attempt 次失败后应等待的秒数（attempt 从 0 开始）。
+    规则：基准取配置退避表 AI_RETRY_DELAYS，若服务端给了更大的 Retry-After 则改用后者；
+         再叠加向上抖动（防止多个请求同步重试再次撞进同一个限流窗口）；
+         最后夹取到 max_backoff —— 但 Retry-After 明确要求的长等待不受该上限压制（服务端说了算）。
+    """
+    delays = AI_RETRY_DELAYS or [5, 15, 30]
+    base = float(delays[min(attempt, len(delays) - 1)])
+    honored_retry_after = None
+    if retry_after is not None and AI_LIMITS.get("honor_retry_after", True):
+        honored_retry_after = max(0.0, float(retry_after))
+        base = max(base, honored_retry_after)
+    jitter_ratio = float(AI_LIMITS.get("jitter_ratio", 0.25) or 0.0)
+    if jitter_ratio > 0:
+        base = base * (1.0 + random.random() * jitter_ratio)
+    max_backoff = float(AI_LIMITS.get("max_backoff", 60.0) or 0.0)
+    if honored_retry_after is not None and honored_retry_after > max_backoff:
+        return honored_retry_after
+    return min(base, max_backoff)
+
+
+def _ai_http_post(url, headers, data, timeout, feature="AI"):
+    """
+    所有 AI HTTP 请求的唯一出口：先过速率限制与并发闸门，再发请求。
+    requests 的异常原样抛出，由 _ai_call 归类处理。
+    """
+    global _AI_CALL_COUNT
+    _ai_rate_limit_wait(feature)
+    sem = _ai_get_semaphore()
+    if not sem.acquire(timeout=AI_SEMAPHORE_ACQUIRE_TIMEOUT):
+        raise requests.exceptions.RequestException(
+            f"AI 并发闸门等待超时（{AI_SEMAPHORE_ACQUIRE_TIMEOUT:.0f}s，并发上限 "
+            f"{AI_LIMITS.get('max_concurrency')}）"
+        )
+    try:
+        with _AI_LIMITS_LOCK:
+            _AI_CALL_COUNT += 1
+        _AI_CALL_LOG[feature] += 1
+        return requests.post(url, headers=headers, json=data, timeout=timeout)
+    finally:
+        sem.release()
+
+
+def _ai_call(prompt, api_config, max_tokens=None, json_mode=False, feature="AI通用"):
+    """
+    统一的 AI 调用编排：缓存查重 → 限流/并发闸门 → 失败重试（退避 + 抖动 + Retry-After）
+    → 按功能独立熔断 → 预算控制。全部 AI 功能都必须经由此函数发起请求。
+
+    返回生成的文本；任何不可恢复的失败都返回 None（调用方负责规则降级）。
+    """
+    global _AI_RETRY_LOG
+    if not api_config.get("summary_enabled") or not api_config.get("api_key"):
+        return None
+    if not REQUESTS_AVAILABLE:
+        return None
+    # 仅当"该功能自身"连续失败达到阈值时才跳过，不影响其他功能
+    if _ai_func_disabled(feature):
+        return None
+    if _ai_budget_exhausted(feature):
+        return None
+
+    effective_max_tokens = max_tokens or api_config.get("max_tokens")
+    model = api_config.get("model")
+    cache_key = _ai_cache_key(prompt, model, effective_max_tokens, json_mode)
+    cached = _ai_cache_get(cache_key)
+    if cached:
+        print(f"[AI缓存] 命中，跳过网络请求（功能:{feature}，prompt {len(prompt)} 字符）")
+        return cached
+
+    url = api_config["base_url"].rstrip("/") + "/chat/completions"
+    headers = {
+        "Authorization": f"Bearer {api_config['api_key']}",
+        "Content-Type": "application/json",
+    }
+    print(f"[AI] 使用模型：{model}")
+    data = {
+        "model": model,
+        "messages": [{"role": "user", "content": prompt}],
+        "max_tokens": effective_max_tokens,
+        "temperature": 0.3,
+    }
+    # 关闭推理模型可见思考链（对所有请求生效，自然语言摘要同样需要）
+    # 部分模型不支持该字段，遇 400 会按队列逐个移除后重试
+    data["chat_template_kwargs"] = {"enable_thinking": False}
+    json_strip_queue = ["chat_template_kwargs"]
+    if json_mode:
+        # JSON 模式额外：零随机 + 强制返回 JSON 对象（不接受裸数组）
+        # 复用 _json_mode_fields() 而不是内联重复写一遍，避免两处定义日后漂移
+        data.update(_json_mode_fields())
+        json_strip_queue = ["chat_template_kwargs", "response_format"]
+
+    for attempt in range(AI_MAX_ATTEMPTS):
+        retry_after = None
+        try:
+            # 超时设置：45 秒。原为 20 秒，实测 NIM 免费层部分请求落在冷 worker 上，
+            # 首字节延迟超过 20 秒（日志里"请求超时（第1次尝试）"几乎每次调用都出现，
+            # 重试后成功耗时 14~18 秒），既白等 5 秒退避，严重时还把内容降级成规则生成。
+            timeout = 45
+            t0 = time.time()
+            resp = _ai_http_post(url, headers, data, timeout, feature)
+            elapsed = time.time() - t0
+
+            # 404：主模型无效，打印详细信息并尝试备用模型
+            if resp.status_code == 404:
+                body_snippet = resp.text[:300].replace("\n", " ")
+                print(f"[英伟达 NIMAPI] 404 模型不存在 | URL: {url} | 模型: {model} | 响应: {body_snippet}")
+                fallback = (api_config.get("fallback_model") or "").strip()
+                if fallback and fallback != model:
+                    print(f"[英伟达 NIMAPI] 自动切换备用模型: {fallback}")
+                    model = fallback
+                    data["model"] = fallback
+                    resp = _ai_http_post(url, headers, data, timeout, feature)
+                    if resp.status_code == 404:
+                        body2 = resp.text[:300].replace("\n", " ")
+                        print(f"[英伟达 NIMAPI] 备用模型也 404 | URL: {url} | 模型: {fallback} | 响应: {body2}")
+                        _ai_record_failure(feature)
+                        return None
+                else:
+                    _ai_record_failure(feature)
+                    return None
+
+            # 限流/服务端瞬时故障：采信 Retry-After，并按退避+抖动重试
+            if resp.status_code in AI_RETRYABLE_STATUS:
+                retry_after = _ai_parse_retry_after(resp)
+                if attempt < AI_MAX_ATTEMPTS - 1:
+                    wait_time = _ai_compute_backoff(attempt, retry_after)
+                    _ai_record_failure(feature)
+                    _AI_RETRY_LOG[feature] += 1
+                    ra_note = f"，服务端 Retry-After={retry_after:.0f}s" if retry_after is not None else ""
+                    print(f"[英伟达 NIMAPI] HTTP {resp.status_code}（功能:{feature}），"
+                          f"第{attempt+1}次重试，等待{wait_time:.1f}秒{ra_note}...")
+                    time.sleep(wait_time)
+                    continue
+
+            resp.raise_for_status()
+            result = resp.json()
+            content = _extract_ai_content(result)
+            if not content:
+                # 每次失败尝试都累计该功能失败次数（成功会清零），达到3次即独立熔断
+                print(f"[英伟达 NIMAPI] AI 返回为空或响应格式异常（第{attempt+1}次尝试，功能:{feature}）")
+                _ai_record_failure(feature)
+                if attempt < AI_MAX_ATTEMPTS - 1:
+                    wait_time = _ai_compute_backoff(attempt, retry_after)
+                    _AI_RETRY_LOG[feature] += 1
+                    print(f"[英伟达 NIMAPI] 等待{wait_time:.1f}秒后重试...")
+                    time.sleep(wait_time)
+                    continue
+                return None
+            # 调用成功：仅清零"该功能"的连续失败计数
+            _ai_record_success(feature)
+            _ai_cache_put(cache_key, content)
+            print(f"[英伟达 NIMAPI] 调用成功（功能:{feature}，模型: {model}，耗时: {elapsed:.1f}s，输入长度: {len(prompt)} 字符）")
+            return content
+        except requests.exceptions.HTTPError as e:
+            status_code = e.response.status_code if e.response is not None else "unknown"
+            # 400 多为模型不支持 JSON 模式附加字段，按队列逐个移除后立即重试（不消耗退避）
+            if status_code == 400 and json_strip_queue:
+                drop_field = json_strip_queue.pop(0)
+                data.pop(drop_field, None)
+                print(f"[英伟达 NIMAPI] 400，模型可能不支持 {drop_field}，已移除并重试（剩余: {json_strip_queue}）")
+                continue
+            resp_text = ""
+            if e.response is not None:
+                resp_text = e.response.text[:200].replace("\n", " ")
+            print(f"[英伟达 NIMAPI] HTTP错误 {status_code} | URL: {url} | 模型: {model} | 响应: {resp_text}")
+            _ai_record_failure(feature)
+            return None
+        except requests.exceptions.Timeout:
+            # 每次超时都累计该功能失败次数，达到3次即独立熔断
+            print(f"[英伟达 NIMAPI] 请求超时（第{attempt+1}次尝试，功能:{feature}）| URL: {url} | 模型: {model}")
+            _ai_record_failure(feature)
+            if attempt < AI_MAX_ATTEMPTS - 1:
+                wait_time = _ai_compute_backoff(attempt, retry_after)
+                _AI_RETRY_LOG[feature] += 1
+                print(f"[英伟达 NIMAPI] 等待{wait_time:.1f}秒后重试...")
+                time.sleep(wait_time)
+                continue
+            return None
+        except requests.exceptions.RequestException as e:
+            print(f"[英伟达 NIMAPI] 网络错误: {str(e)[:50]}（功能:{feature}）")
+            _ai_record_failure(feature)
+            return None
+        except Exception as e:
+            print(f"[英伟达 NIMAPI] 未知错误: {str(e)[:50]}（功能:{feature}）")
+            _ai_record_failure(feature)
+            return None
+
+    # 全部尝试都失败：该功能独立降级
+    _ai_record_failure(feature)
+    return None
+
+
+def ai_call_report():
+    """
+    本次运行的 AI 调用治理汇总（供日志核对限流是否真的生效）。
+    注意 http_calls 是**真实发出的 HTTP 请求数**，已扣掉缓存命中。
+    """
+    return {
+        "http_calls": sum(_AI_CALL_LOG.values()),
+        "by_feature": dict(sorted(_AI_CALL_LOG.items(), key=lambda kv: -kv[1])),
+        "cache_hits": _AI_CACHE_HITS,
+        "retries": sum(_AI_RETRY_LOG.values()),
+        "by_retry_feature": dict(sorted(_AI_RETRY_LOG.items(), key=lambda kv: -kv[1])),
+        "rpm": int(AI_LIMITS.get("rpm", 30)),
+        "max_concurrency": int(AI_LIMITS.get("max_concurrency", 1)),
+        "budget": int(AI_LIMITS.get("max_calls_per_run", 80)),
+        "degraded_features": sorted(AI_FUNC_DEGRADED_LOGGED),
+    }
+
+
+def log_ai_call_report():
+    """打印一行 AI 调用治理汇总（放在流程收尾处，Actions 日志里一眼可见）"""
+    rep = ai_call_report()
+    detail = "、".join(f"{k}×{v}" for k, v in rep["by_feature"].items()) or "无"
+    print(f"[AI统计] 实际请求 {rep['http_calls']} 次（预算 {rep['budget']}，rpm {rep['rpm']}，"
+          f"并发 {rep['max_concurrency']}）｜缓存命中 {rep['cache_hits']} 次｜重试 {rep['retries']} 次"
+          f"｜分功能：{detail}")
+    if rep["degraded_features"]:
+        print(f"[AI统计] 已降级为规则模式的功能：{'、'.join(rep['degraded_features'])}")
+    return rep
+
+
 # 原文提取失败域名集合（避免重复打印相同错误）
 FAILED_DOMAINS = set()
 # 已知反爬严格的域名，没有 Jina key 时直接跳过
@@ -2485,6 +3316,46 @@ _RE_JUNK_TITLE = re.compile(
 # 而真实的新闻标题（中文）极少短于 6 个字。
 JUNK_TITLE_MIN_LEN = 6
 
+# 源名 / 栏目的分隔符与后缀形态
+_RE_TITLE_SUFFIX_SEP = re.compile(r"\s+[-—–]\s+|[_|｜]")
+
+
+def _looks_like_source_name(tail):
+    """判断分隔符右侧是"来源名/栏目名"而非标题副标题。宁可漏剥，不可误剥。"""
+    t = (tail or "").strip()
+    if not t or len(t) > 20:
+        return False
+    if re.search(r"[。！？，、；：!?]", t):
+        return False
+    # 域名形态：sz.gov.cn / huanbao.bjx.com.cn / thepaper.cn
+    if re.search(r"\.[a-z]{2,6}$", t, re.I):
+        return True
+    # 短媒体名/栏目名：不含空格，或不超过 3 个词且不超过 12 字符
+    return (" " not in t) or (len(t.split()) <= 3 and len(t) <= 12)
+
+
+def strip_title_source_suffix(title, max_rounds=3):
+    """剥离标题尾部的「- 来源名」「_栏目名」「| 站点名」后缀。
+
+    只用于垃圾标题判定，**不改动展示用的 title 字段**（展示层保留来源更符合阅读习惯）。
+    存在的原因：Google News 的标题固定是「标题 - 来源名」，来源后缀会把「力源科技」
+    这种栏目页撑到 6 字以上，使 JUNK_TITLE_MIN_LEN 判据整体失效 —— 2026-09-21 线上
+    「力源科技 - huanbao.bjx.com.cn」因此漏过检查、拿到 55.1 热度并登上榜单第 15 位。
+    """
+    t = (title or "").strip()
+    for _ in range(max_rounds):
+        last = None
+        for m in _RE_TITLE_SUFFIX_SEP.finditer(t):
+            last = m
+        if not last:
+            break
+        head = t[:last.start()].strip(" -—–_|｜")
+        tail = t[last.end():].strip()
+        if len(head) < 2 or not _looks_like_source_name(tail):
+            break
+        t = head
+    return t
+
 
 def is_junk_title(title):
     """判断标题是否为导航页 / 占位内容（True = 应丢弃）。
@@ -2495,6 +3366,10 @@ def is_junk_title(title):
     t = (title or "").strip()
     if not t:
         return True
+    # 先剥来源后缀再判：否则「XX - 来源名」的形态会让长度与模式两条判据同时失效
+    stripped = strip_title_source_suffix(t)
+    if stripped:
+        t = stripped
     if t in _JUNK_TITLE_EXACT:
         return True
     if len(t) < JUNK_TITLE_MIN_LEN:
@@ -3249,9 +4124,12 @@ def _extract_ai_list(text, keys=(), label="AI"):
     return None
 
 
-# [注意：当前无调用点] main() 已改为"每个 AI 功能各自按 [5,15,30] 秒重试、
+# [注意：当前无调用点] main() 已改为"每个 AI 功能各自按退避表重试、
 # 连续失败 3 次后独立熔断"，不再做启动时的统一健康检查，因此本函数目前没有调用方。
-# 保留它是因为手动排查"模型 / 密钥是否可用"时依然好用；若确认不再需要可整段删除。
+# 保留它是为了手动排查"模型 / 密钥是否可用"时依旧好用。
+# 2026-09-21：探测请求已改走 _ai_http_post，不再直接 requests.post ——
+# 即便将来有人把它接回主流程，也不会绕过限流/并发闸门（护栏见
+# test_daily_report.TestAiSingleGateway）。若确认不再需要，可整段删除。
 def check_model_health(api_config):
     """
     模型健康检查：用最小请求（ping, max_tokens=1）探测模型端点是否可达
@@ -3289,7 +4167,7 @@ def check_model_health(api_config):
 
     for attempt in range(MAX_ATTEMPTS):
         try:
-            resp = requests.post(url, headers=headers, json=data, timeout=HEALTH_TIMEOUT)
+            resp = _ai_http_post(url, headers, data, HEALTH_TIMEOUT, "模型健康检查")
 
             # 404：模型ID不存在（确定性模型问题，重试无意义），先尝试备用模型
             if resp.status_code == 404:
@@ -3299,7 +4177,7 @@ def check_model_health(api_config):
                 if fallback and fallback != model:
                     print(f"[模型健康检查] 尝试备用模型: {fallback}")
                     try:
-                        resp2 = requests.post(url, headers=headers, json=build_payload(fallback), timeout=HEALTH_TIMEOUT)
+                        resp2 = _ai_http_post(url, headers, build_payload(fallback), HEALTH_TIMEOUT, "模型健康检查")
                         if resp2.status_code == 200:
                             print(f"[模型健康检查] 备用模型可用: {fallback}")
                             api_config["model"] = fallback  # 后续调用直接用可用的备用模型
@@ -3534,136 +4412,20 @@ def classify_item(item, allow_translate=True):
 
 def call_nvidia_api(prompt, api_config, max_tokens=None, json_mode=False, feature="AI通用"):
     """
-    调用英伟达 NIM API（OpenAI 兼容格式），返回生成的文本，失败返回 None
+    调用英伟达 NIM API（OpenAI 兼容格式），返回生成的文本，失败返回 None。
+
+    2026-09-21 起本函数只是 _ai_call 的兼容壳 —— 保留原函数名与签名，使所有既有调用点
+    无需改动，但真正的重试编排、速率限制、并发闸门与结果缓存统一在 _ai_call 里，
+    确保没有任何旁路可以绕过 AI 调用治理（细节见 _ai_call 的 docstring）：
     - 按功能独立熔断：feature 标识所属功能（相关性过滤/批量摘要/话题标签/关键词提取/近7天总结…），
       某功能连续失败达到阈值后仅该功能降级为规则，不影响其他功能继续调用 AI
-    - 重试机制：429/超时/返回空时按 [5,15,30] 秒重试，首次 + 3 次重试共 4 次尝试
+    - 重试机制：429/5xx/超时/返回空时按退避表重试（含抖动与 Retry-After 采信），
+      首次 + 3 次重试共 4 次尝试
     - 404 时打印完整 URL/模型/响应，并自动尝试备用模型（fallback_model）
     - 所有失败均只触发该功能自身的规则降级，不中断脚本
     """
-    if not api_config["summary_enabled"] or not api_config["api_key"]:
-        return None
-    if not REQUESTS_AVAILABLE:
-        return None
-    # 仅当“该功能自身”连续失败达到阈值时才跳过，不影响其他功能
-    if _ai_func_disabled(feature):
-        return None
-
-    url = api_config["base_url"].rstrip("/") + "/chat/completions"
-    headers = {
-        "Authorization": f"Bearer {api_config['api_key']}",
-        "Content-Type": "application/json",
-    }
-    model = api_config["model"]
-    print(f"[AI] 使用模型：{model}")
-    data = {
-        "model": model,
-        "messages": [{"role": "user", "content": prompt}],
-        "max_tokens": max_tokens or api_config["max_tokens"],
-        "temperature": 0.3,
-    }
-    # 关闭推理模型可见思考链（对所有请求生效，自然语言摘要同样需要）
-    # 部分模型不支持该字段，遇 400 会按队列逐个移除后重试
-    data["chat_template_kwargs"] = {"enable_thinking": False}
-    json_strip_queue = ["chat_template_kwargs"]
-    if json_mode:
-        # JSON 模式额外：零随机 + 强制返回 JSON 对象（不接受裸数组）
-        data["temperature"] = 0
-        data["response_format"] = {"type": "json_object"}
-        json_strip_queue = ["chat_template_kwargs", "response_format"]
-
-    # 重试机制：429/超时/返回空 按 [5,15,30] 秒重试，首次 + 3 次重试共 4 次尝试
-    retry_delays = AI_RETRY_DELAYS
-    for attempt in range(4):
-        try:
-            # 超时设置：45 秒。原为 20 秒，实测 NIM 免费层部分请求落在冷 worker 上，
-            # 首字节延迟超过 20 秒（日志里"请求超时（第1次尝试）"几乎每次调用都出现，
-            # 重试后成功耗时 14~18 秒），既白等 5 秒退避，严重时还把内容降级成规则生成。
-            timeout = 45
-            t0 = time.time()
-            resp = requests.post(url, headers=headers, json=data, timeout=timeout)
-            elapsed = time.time() - t0
-
-            # 404：主模型无效，打印详细信息并尝试备用模型
-            if resp.status_code == 404:
-                body_snippet = resp.text[:300].replace("\n", " ")
-                print(f"[英伟达 NIMAPI] 404 模型不存在 | URL: {url} | 模型: {model} | 响应: {body_snippet}")
-                fallback = (api_config.get("fallback_model") or "").strip()
-                if fallback and fallback != model:
-                    print(f"[英伟达 NIMAPI] 自动切换备用模型: {fallback}")
-                    model = fallback
-                    data["model"] = fallback
-                    resp = requests.post(url, headers=headers, json=data, timeout=timeout)
-                    if resp.status_code == 404:
-                        body2 = resp.text[:300].replace("\n", " ")
-                        print(f"[英伟达 NIMAPI] 备用模型也 404 | URL: {url} | 模型: {fallback} | 响应: {body2}")
-                        _ai_record_failure(feature)
-                        return None
-                else:
-                    _ai_record_failure(feature)
-                    return None
-
-            resp.raise_for_status()
-            result = resp.json()
-            content = _extract_ai_content(result)
-            if not content:
-                # 每次失败尝试都累计该功能失败次数（成功会清零），达到3次即独立熔断
-                print(f"[英伟达 NIMAPI] AI 返回为空或响应格式异常（第{attempt+1}次尝试，功能:{feature}）")
-                _ai_record_failure(feature)
-                if attempt < 3:
-                    wait_time = retry_delays[attempt]
-                    print(f"[英伟达 NIMAPI] 等待{wait_time}秒后重试...")
-                    time.sleep(wait_time)
-                    continue
-                return None
-            # 调用成功：仅清零“该功能”的连续失败计数
-            _ai_record_success(feature)
-            print(f"[英伟达 NIMAPI] 调用成功（功能:{feature}，模型: {model}，耗时: {elapsed:.1f}s，输入长度: {len(prompt)} 字符）")
-            return content
-        except requests.exceptions.HTTPError as e:
-            status_code = e.response.status_code if e.response is not None else "unknown"
-            # 400 多为模型不支持 JSON 模式附加字段，按队列逐个移除后立即重试
-            if status_code == 400 and json_strip_queue:
-                drop_field = json_strip_queue.pop(0)
-                data.pop(drop_field, None)
-                print(f"[英伟达 NIMAPI] 400，模型可能不支持 {drop_field}，已移除并重试（剩余: {json_strip_queue}）")
-                continue
-            # 429 限流，按 [5,15,30] 重试
-            if status_code == 429 and attempt < 3:
-                _ai_record_failure(feature)
-                wait_time = retry_delays[attempt]
-                print(f"[英伟达 NIMAPI] 429限流，第{attempt+1}次重试，等待{wait_time}秒...")
-                time.sleep(wait_time)
-                continue
-            # 其他HTTP错误，打印详细请求信息后该功能降级
-            resp_text = ""
-            if e.response is not None:
-                resp_text = e.response.text[:200].replace("\n", " ")
-            print(f"[英伟达 NIMAPI] HTTP错误 {status_code} | URL: {url} | 模型: {model} | 响应: {resp_text}")
-            _ai_record_failure(feature)
-            return None
-        except requests.exceptions.Timeout:
-            # 每次超时都累计该功能失败次数，达到3次即独立熔断
-            print(f"[英伟达 NIMAPI] 请求超时（第{attempt+1}次尝试，功能:{feature}）| URL: {url} | 模型: {model}")
-            _ai_record_failure(feature)
-            if attempt < 3:
-                wait_time = retry_delays[attempt]
-                print(f"[英伟达 NIMAPI] 等待{wait_time}秒后重试...")
-                time.sleep(wait_time)
-                continue
-            return None
-        except requests.exceptions.RequestException as e:
-            print(f"[英伟达 NIMAPI] 网络错误: {str(e)[:50]}（功能:{feature}）")
-            _ai_record_failure(feature)
-            return None
-        except Exception as e:
-            print(f"[英伟达 NIMAPI] 未知错误: {str(e)[:50]}（功能:{feature}）")
-            _ai_record_failure(feature)
-            return None
-
-    # 4 次尝试都失败：该功能独立降级
-    _ai_record_failure(feature)
-    return None
+    return _ai_call(prompt, api_config,
+                    max_tokens=max_tokens, json_mode=json_mode, feature=feature)
 
 
 def generate_ai_summary(item, api_config):
@@ -3697,6 +4459,20 @@ def generate_ai_summary(item, api_config):
         result = result.strip('"').strip("'").strip()
         return result
     return summary
+
+
+def _is_irrelevant_verdict(raw_value):
+    """把 AI 的判决值归一化为"是否无关"。
+
+    旧实现是 `str(v).strip() in ("否","no","false","0")`，有两个洞：
+    ① 大小写敏感 —— 模型回 "False"/"NO" 时不命中；
+    ② 布尔不兼容 —— json_mode 下模型很容易回 {"relevant": false}，
+       而 str(False) == "False" 不在小写元组里，于是**判「否」被当成「是」**，
+       整批结果静默变成"零剔除"（2026-09-21 那次 27 条一条未剔除，高度疑似此因）。
+    """
+    if isinstance(raw_value, bool):
+        return raw_value is False
+    return str(raw_value).strip().lower() in ("否", "no", "false", "0", "n", "无关", "不相关", "非")
 
 
 def _ai_relevance_irrelevant(items, api_config):
@@ -3735,14 +4511,19 @@ def _ai_relevance_irrelevant(items, api_config):
     if isinstance(arr, list):
         irrelevant_set = set()
         for r in arr:
-            if isinstance(r, dict) and "id" in r:
-                rid = int(r["id"])
-                rel = str(r.get("relevant", "")).strip()
-                # 兼容 is_environment 布尔字段
-                is_env = r.get("is_environment", None)
-                irrelevant = rel in ("否", "no", "false", "0") or is_env is False
-                if irrelevant:
-                    irrelevant_set.add(rid)
+            if not isinstance(r, dict):
+                continue
+            # id 不是数字时无法定位条目：跳过这一条，不因一条脏数据让整批判决作废
+            try:
+                rid = int(r.get("id"))
+            except (TypeError, ValueError):
+                continue
+            # 归一化判决值（大小写不敏感 + 布尔兼容），细节与动机见 _is_irrelevant_verdict
+            raw_rel = r.get("relevant", r.get("is_environment", None))
+            if _is_irrelevant_verdict(raw_rel):
+                irrelevant_set.add(rid)
+        # 可见性：旧实现零剔除时日志上什么也看不到，无法区分「AI 判全部相关」与「解析失效」
+        print(f"[相关性过滤] AI 判决 {len(arr)} 条，其中判为无关 {len(irrelevant_set)} 条")
         return irrelevant_set
     print("[相关性过滤] AI 结果解析失败，降级为规则判断")
     return None
@@ -4171,6 +4952,11 @@ def generate_timeline_data(days=30):
     return timeline
 
 
+# 标签生成失败时的兜底占位标签（与 generate_topic_tags 等处的 ["环境资讯"] 对应）。
+# 它们不得进入近7天高频词统计：占位符不是话题。
+WEEKLY_KEYWORD_BANNED_TAGS = {"环境资讯", "环境领域", "环境信息", "环境动态资讯"}
+
+
 def calculate_weekly_keywords():
     """
     统计近7天实际高频词
@@ -4232,6 +5018,10 @@ def calculate_weekly_keywords():
 
     # 过滤宽泛词
     banned = {"环境", "污染", "保护", "气候变化", "环保", "生态", "可持续发展", "环境领域", "环境保护", "环境问题", "环境科学", "环境工程", "环境动态"}
+    # 兜底/占位标签必须排除：它们不是"话题"，而是标签生成失败时的占位符。
+    # 2026-09-21 实测「环境资讯」以 count=10 占据近7天高频词**榜首**，还会被周报 AI
+    # 当成"高频话题"引用（weekly_keywords[0]），属于流水线自己制造的噪声。
+    banned |= WEEKLY_KEYWORD_BANNED_TAGS
     for banned_word in banned:
         if banned_word in keyword_counter:
             del keyword_counter[banned_word]
@@ -4346,7 +5136,12 @@ def generate_weekly_insight(api_config, weekly_keywords=None, weekly_categories=
             "分析近期热点趋势与特点，要有观察和总结，不要只罗列分类。\n"
             "严格要求：只输出最终结果，不要输出思考过程、分析步骤、任何解释或英文；"
             "直接输出中文，不超过160字，不要分点、不要加标题、不要Markdown。\n"
-            "如需提到条目数量，只能原样使用下方给出的近7天条目总数，不得自行推算或编造数字。\n\n"
+            "如需提到条目数量，只能原样使用下方给出的近7天条目总数，不得自行推算或编造数字。\n"
+            # 2026-09-21 线上见解里出现了"气候变化与能源碳中和话题占比超半数"这类**编造的量化结论**：
+            # 输入只给了分类条数，没有给任何比例，而当日"气候变化"实际只有 2 条。
+            # 提示词原来只约束了"条目数量"，漏掉了占比/百分比这一类。
+            "输入中没有给出任何比例或百分比，因此不要出现「占比」「超过半数」「X 成」「X%」"
+            "这类量化比例表述；要表达集中程度时改用「最为集中」「明显上升」等定性说法。\n\n"
             f"分类分布：{cat_str}\n近7天条目总数：{total_items}"
         )
         result = call_nvidia_api(prompt, api_config, max_tokens=220, feature="近7天见解")
@@ -4788,8 +5583,10 @@ def _fallback_rule_summary(title):
             summary += "…"
 
     # 最终校验：中文至少15字符，否则用完整标题补足
+    # 这里刻意**不再拼接"XX，关注最新动态"**：那是无信息量的模板填充，与项目"去 AI 痕迹"的
+    # 方向冲突，而且摘要与标题相同的情况会由 _finalize_summary 统一置空、由前端显示"暂无摘要"。
     if len(summary) < 15 and cleaned_title:
-        summary = cleaned_title if len(cleaned_title) >= 15 else cleaned_title + "，关注最新动态"
+        summary = cleaned_title
     return summary
 
 
@@ -4870,11 +5667,81 @@ def _finalize_summary(item):
         summary = _fallback_rule_summary(title)
 
     # 6. 最终确保与标题不同
-    if summary == title and title:
-        summary = _fallback_rule_summary(title)
+    # 注意：_fallback_rule_summary 在"标题本身就是全部信息"时**只能返回标题本身**，
+    # 于是旧实现的第 3 步与第 6 步会互相触发，最终仍然写回一个与标题一字不差的"摘要"
+    # （2026-09-21 线上第 17 条：「永州市溶洞污染排查整治工作推进会召开 - 湖南红网」
+    # 的摘要就是它自己的标题）。中文条目里摘要栏复制标题比空着更像故障，故这里置空，
+    # 由前端按既有契约显示「暂无摘要」。
+    # 只对中文条目生效：英文条目的"以原标题充当摘要"是上面第 4 步刻意保留的设计
+    # （避免把英文摘要截成残片），不属于本次要修的问题。
+    if title and is_chinese(title) and _RE_NON_WORD.sub("", summary) == _RE_NON_WORD.sub("", title):
+        summary = ""
 
     item["summary"] = summary
     return summary
+
+
+# 摘要归属校验用：标题指纹归一化
+_RE_FINGERPRINT_NOISE = re.compile(r"[\s\-—–_|·…,，。!！?？:：;；\"'“”‘’()（）\[\]【】<>《》/\\]+")
+
+
+def _title_fingerprint(text):
+    """标题指纹：去掉标点/空白/大小写差异后用于比对，避免模型回显时格式微差导致误判。"""
+    return _RE_FINGERPRINT_NOISE.sub("", str(text or "")).lower()
+
+
+def _match_summary_entries(batch, summaries):
+    """把 AI 返回的摘要条目归属回本批条目，返回 {local_in_batch: summary_text}。
+
+    为什么不能直接用模型给的 id 定位（2026-09-21 线上实证）：
+        第 3 批 5 条只返回了 4 条摘要 —— 模型自行跳过了它认为无信息量的那条
+        （标题恰好是「力源科技」这种栏目页），**其后的 id 全部左移**。旧实现照 id 落盘后，
+        #15 挂上了 #16 的摘要、#16 挂上了 #17 的摘要，标题与摘要完全对不上，
+        而且日志只显示「AI生成 14/15 条」，看起来一切正常。
+    因此改为以「标题指纹」为准绳：提示词要求模型回显标题前 10 字，指纹命中才采纳。
+    - 指纹命中（允许模型少字/多字，做前缀或包含匹配）
+    - 指纹缺失时退回 id，但仅限「本批没有任何一条带指纹」的情况（说明模型整体忽略了该要求，
+      此时与旧行为一致，不算回退为不安全）
+    - 其余情况一律不猜：未匹配的条目不借用别人的摘要，交给调用方回退规则摘要
+    """
+    mapping = {}
+    if not isinstance(summaries, list):
+        return mapping
+
+    t_fps = [_title_fingerprint((it.get("title") or "")) for _, _, it, _ in batch]
+    has_any_fp = any(
+        isinstance(s, dict) and _title_fingerprint(s.get("title") or s.get("title_prefix") or "")
+        for s in summaries
+    )
+
+    for s in summaries:
+        if not isinstance(s, dict):
+            continue
+        summary_text = str(s.get("summary") or "").strip().strip('"').strip("'")
+        if not summary_text:
+            continue
+
+        fp = _title_fingerprint(s.get("title") or s.get("title_prefix") or "")
+        target = None
+
+        if fp:
+            # 可能有多条标题同前缀（同题不同源）：取第一个尚未被占用的
+            candidates = [li for li, t_fp in enumerate(t_fps)
+                          if t_fp and (t_fp.startswith(fp) or fp in t_fp)]
+            target = next((li for li in candidates if li not in mapping), None)
+        elif not has_any_fp and "id" in s:
+            # 模型整体没回显标题：退回 id 定位（与修复前行为一致）
+            try:
+                li = int(s.get("id"))
+            except (TypeError, ValueError):
+                li = -1
+            if 0 <= li < len(batch):
+                target = li
+
+        if target is not None and target not in mapping:
+            mapping[target] = summary_text
+
+    return mapping
 
 
 def generate_batch_summaries(items, api_config):
@@ -4882,6 +5749,7 @@ def generate_batch_summaries(items, api_config):
     批量生成摘要：将所有需要摘要的条目合并成一次 API 请求
     - 有原文的条目基于原文生成；无原文的基于标题生成，保证每条都有摘要
     - AI 调用失败/解析失败时，回退规则生成（jieba 提取核心词）
+    - 归属校验：按标题指纹把摘要挂回对应标题，宁可用规则摘要也不张冠李戴
     返回修改后的 items 列表（原地修改）
     每天最多调用1次 API
     """
@@ -4972,82 +5840,23 @@ def generate_batch_summaries(items, api_config):
             else:
                 news_list.append(f"{local_in_batch}. 标题：{title}\n（暂无原文，请基于标题中的关键信息生成摘要，不要直接照抄标题原话）")
 
-        prompt = f"""你是一个环境领域摘要助手。请为以下每条新闻生成一句25-60字的中文摘要，只输出一个 JSON 对象，格式：{{"summaries":[{{"id":0,"summary":"..."}},{{"id":1,"summary":"..."}}]}}，不要解释。
+        prompt = f"""你是一个环境领域摘要助手。请为以下每条新闻生成一句25-60字的中文摘要，只输出一个 JSON 对象，格式：{{"summaries":[{{"id":0,"title":"前10个字","summary":"..."}},{{"id":1,"title":"前10个字","summary":"..."}}]}}，不要解释。
 严格要求：
 1. 摘要必须包含具体事件信息，让用户一眼了解文章核心内容
 2. 禁止输出"点击查看详情""标题涉及""请点击"等无信息量的提示语
 3. 不要直接照抄标题原话，要基于内容提炼
 4. 摘要长度25-60个中文字符
-5. 只输出 JSON 对象，不要思考过程、解释或 Markdown 代码块
+5. 每条都必须输出，一条都不能省略；若某条标题信息量不足，也要按标题如实概括
+6. title 字段必须**原样照抄**该条标题的前 10 个字（英文标题取前 5 个单词），用于核对摘要与标题的对应关系，不得改写、不得总结
+7. 只输出 JSON 对象，不要思考过程、解释或 Markdown 代码块
 
 新闻列表：
 {chr(10).join(news_list)}"""
 
-        # 批量请求，按 [5,15,30] 秒重试，首次+3次重试共4次尝试，超时20秒
-        retry_delays = AI_RETRY_DELAYS
-        result_text = None
-        for attempt in range(4):
-            try:
-                url = api_config["base_url"].rstrip("/") + "/chat/completions"
-                headers = {
-                    "Authorization": f"Bearer {api_config['api_key']}",
-                    "Content-Type": "application/json",
-                }
-                data = {
-                    "model": api_config["model"],
-                    "messages": [{"role": "user", "content": prompt}],
-                    "max_tokens": 900,
-                }
-                # JSON 模式：零随机 + 强制JSON对象 + 关闭思考链；400 时逐个移除附加字段
-                data.update(_json_mode_fields())
-                _strip_q = ["chat_template_kwargs", "response_format"]
-                t0 = time.time()
-                resp = requests.post(url, headers=headers, json=data, timeout=20)
-                if resp.status_code == 400 and _strip_q:
-                    drop = _strip_q.pop(0)
-                    data.pop(drop, None)
-                    print(f"[AI批量摘要] 400，移除 {drop} 后重试")
-                    resp = requests.post(url, headers=headers, json=data, timeout=20)
-                elapsed = time.time() - t0
-                resp.raise_for_status()
-                result = resp.json()
-                result_text = _extract_ai_content(result)
-                if not result_text:
-                    print(f"[AI批量摘要] 第{batch_idx+1}批返回为空（第{attempt+1}次尝试）")
-                    _ai_record_failure(FEATURE, FEATURE)
-                    if attempt < 3:
-                        wait_time = retry_delays[attempt]
-                        print(f"[AI批量摘要] 等待{wait_time}秒后重试...")
-                        time.sleep(wait_time)
-                        continue
-                    break
-                _ai_record_success(FEATURE)
-                print(f"[AI批量摘要] 第{batch_idx+1}/{total_batches}批调用成功（耗时: {elapsed:.1f}s，{len(batch)}条）")
-                break
-            except requests.exceptions.HTTPError as e:
-                status_code = e.response.status_code if e.response is not None else "unknown"
-                if status_code == 429 and attempt < 3:
-                    _ai_record_failure(FEATURE, FEATURE)
-                    wait_time = retry_delays[attempt]
-                    print(f"[AI批量摘要] 第{batch_idx+1}批 429限流，等待{wait_time}秒重试...")
-                    time.sleep(wait_time)
-                    continue
-                print(f"[AI批量摘要] 第{batch_idx+1}批 HTTP错误 {status_code}（回退规则）")
-                _ai_record_failure(FEATURE, FEATURE)
-                break
-            except requests.exceptions.Timeout:
-                print(f"[AI批量摘要] 第{batch_idx+1}批请求超时（第{attempt+1}次尝试）")
-                _ai_record_failure(FEATURE, FEATURE)
-                if attempt < 3:
-                    wait_time = retry_delays[attempt]
-                    print(f"[AI批量摘要] 等待{wait_time}秒后重试...")
-                    time.sleep(wait_time)
-                    continue
-                break
-            except Exception as e:
-                print(f"[AI批量摘要] 第{batch_idx+1}批调用失败: {str(e)[:50]}（回退规则）")
-                _ai_record_failure(FEATURE, FEATURE)
-                break
+        # 统一走 _ai_call：速率限制 / 并发闸门 / 结果缓存 / 退避重试四道闸门
+        # 对批量摘要同样生效。原实现自带一份重试循环，超时值是 20s 而通用层是 45s，
+        # 且不读 Retry-After —— 收口后行为一致，也不再有两份需要同步维护的退避逻辑。
+        result_text = _ai_call(prompt, api_config, max_tokens=900, json_mode=True, feature=FEATURE)
 
         # 解析本批结果并写回
         batch_success = 0
@@ -5055,22 +5864,22 @@ def generate_batch_summaries(items, api_config):
             try:
                 summaries = _extract_ai_list(result_text, keys=("summaries", "results"), label="AI批量摘要")
                 if isinstance(summaries, list):
-                    success_ids = set()
-                    for s in summaries:
-                        if isinstance(s, dict) and "id" in s and "summary" in s:
-                            local_in_batch = int(s["id"])
-                            if 0 <= local_in_batch < len(batch):
-                                _, _, item, _ = batch[local_in_batch]
-                                new_summary = str(s["summary"]).strip().strip('"').strip("'")
-                                title = item.get("title", "")
-                                if new_summary and new_summary != title:
-                                    item["summary"] = new_summary
-                                    success_ids.add(local_in_batch)
-                                    batch_success += 1
-                    # 本批未成功的条目回退规则
+                    # 按标题指纹归属，不盲信模型给的 id：模型少返回一条时 id 会整体左移，
+                    # 照 id 落盘会把相邻条目的摘要互相张冠李戴（2026-09-21 线上实证见 _match_summary_entries）
+                    mapped = _match_summary_entries(batch, summaries)
+                    for local_in_batch, summary_text in mapped.items():
+                        _, _, item, _ = batch[local_in_batch]
+                        title = item.get("title", "")
+                        if summary_text and summary_text != title:
+                            item["summary"] = summary_text
+                            batch_success += 1
+                    # 本批未确认归属的条目回退规则摘要（绝不借用相邻条目的摘要）
                     for local_in_batch, (_, _, item, _) in enumerate(batch):
-                        if local_in_batch not in success_ids:
+                        if local_in_batch not in mapped:
                             item["summary"] = _fallback_rule_summary(item.get("title", ""))
+                    if len(mapped) < len(batch):
+                        print(f"[AI批量摘要] 第{batch_idx+1}批可确认归属 {len(mapped)}/{len(batch)} 条，"
+                              f"其余回退规则摘要")
                 else:
                     _apply_rule_summaries(batch)
             except Exception as e:
@@ -5160,69 +5969,9 @@ def generate_batch_topic_tags(items, api_config):
             f"新闻列表：\n{chr(10).join(news_list)}"
         )
 
-        # 批量请求，按 [5,15,30] 秒重试，首次+3次重试共4次尝试，超时20秒
-        retry_delays = AI_RETRY_DELAYS
-        result_text = None
-        for attempt in range(4):
-            try:
-                url = api_config["base_url"].rstrip("/") + "/chat/completions"
-                headers = {
-                    "Authorization": f"Bearer {api_config['api_key']}",
-                    "Content-Type": "application/json",
-                }
-                data = {
-                    "model": api_config["model"],
-                    "messages": [{"role": "user", "content": prompt}],
-                    "max_tokens": 700,
-                }
-                # JSON 模式：零随机 + 强制JSON对象 + 关闭思考链；400 时逐个移除附加字段
-                data.update(_json_mode_fields())
-                _strip_q = ["chat_template_kwargs", "response_format"]
-                resp = requests.post(url, headers=headers, json=data, timeout=20)
-                if resp.status_code == 400 and _strip_q:
-                    drop = _strip_q.pop(0)
-                    data.pop(drop, None)
-                    print(f"[AI批量标签] 400，移除 {drop} 后重试")
-                    resp = requests.post(url, headers=headers, json=data, timeout=20)
-                resp.raise_for_status()
-                result = resp.json()
-                result_text = _extract_ai_content(result)
-                if not result_text:
-                    print(f"[AI批量标签] 第{batch_start//BATCH_SIZE+1}批返回为空或格式异常（第{attempt+1}次尝试）")
-                    _ai_record_failure(FEATURE, FEATURE)
-                    if attempt < 3:
-                        wait_time = retry_delays[attempt]
-                        print(f"[AI批量标签] 等待{wait_time}秒后重试...")
-                        time.sleep(wait_time)
-                        continue
-                    break
-                _ai_record_success(FEATURE)
-                print(f"[AI批量标签] 第{batch_start//BATCH_SIZE+1}批调用成功")
-                break
-            except requests.exceptions.HTTPError as e:
-                status_code = e.response.status_code if e.response is not None else "unknown"
-                if status_code == 429 and attempt < 3:
-                    _ai_record_failure(FEATURE, FEATURE)
-                    wait_time = retry_delays[attempt]
-                    print(f"[AI批量标签] 第{batch_start//BATCH_SIZE+1}批 429限流，第{attempt+1}次重试，等待{wait_time}秒...")
-                    time.sleep(wait_time)
-                    continue
-                print(f"[AI批量标签] 第{batch_start//BATCH_SIZE+1}批 HTTP错误 {status_code}")
-                _ai_record_failure(FEATURE, FEATURE)
-                break
-            except requests.exceptions.Timeout:
-                _ai_record_failure(FEATURE, FEATURE)
-                if attempt < 3:
-                    wait_time = retry_delays[attempt]
-                    print(f"[AI批量标签] 第{batch_start//BATCH_SIZE+1}批请求超时，第{attempt+1}次重试，等待{wait_time}秒...")
-                    time.sleep(wait_time)
-                    continue
-                print(f"[AI批量标签] 第{batch_start//BATCH_SIZE+1}批请求超时（已重试）")
-                break
-            except Exception as e:
-                print(f"[AI批量标签] 第{batch_start//BATCH_SIZE+1}批调用失败: {str(e)[:60]}")
-                _ai_record_failure(FEATURE, FEATURE)
-                break
+        # 统一走 _ai_call（同批量摘要：原实现自带一份 20s 超时的重试循环，现已收口）
+        result_text = _ai_call(prompt, api_config, max_tokens=700, json_mode=True, feature=FEATURE)
+
 
         if not result_text:
             for item in batch:
@@ -6416,10 +7165,22 @@ def main():
     # 相关性过滤后再统一翻译候选池英文标题/摘要（抓取阶段不翻译，节省配额）
     all_items = translate_candidate_pool(all_items)
 
-    # 3.8 低信息密度内容限量（可选，默认不限量、只由 v2.1 的密度系数降权）
+    # 3.8 低信息密度内容限量（可选，默认不限量、只由 v3.0 的密度系数降权）
     # 与"降权"是两件事：降权把它们压到榜尾但仍占着版面（实测线上 5 条通稿占 5/28 槽位），
     # 限量则直接把多余的移出榜单，用"少而精"换掉"多而杂"。默认 -1 = 只降权不删。
     all_items = limit_low_density_items(all_items, config)
+    print()
+
+    # 3.9 AI 语义事件聚类 —— AI 参与热度算法流程的唯一入口。
+    # 位置：必须在第四步（热度计算）之前，因为事件共振分要在算分时就知道
+    #       "同一件事被几家不同媒体报道"；放到第六步（AI 摘要那一步）就晚了，
+    #       会重演 v2.1「质量分读不到 AI 产物」的时点错配。
+    # 失败语义：AI 未启用/熔断/超预算/解析失败一律返回 None，热度算法自动
+    #       回退标题 token 重叠聚类 —— 事件共振维度不会因为 AI 挂掉而消失。
+    print("--- 第三步补充之二：AI 语义事件聚类 ---")
+    ai_event_map = ai_cluster_events(all_items, api_config)
+    if ai_event_map:
+        print(f"[事件聚类] 结果已供热度算法使用（多成员组覆盖 {len(ai_event_map)} 条）")
     print()
 
     # 4. 热度计算
@@ -6572,6 +7333,11 @@ def main():
     print()
     print("--- 第八步：生成个人知识库 ---")
     generate_personal_knowledge()
+
+    # 13. AI 调用治理汇总（限流是否真的生效、缓存省下多少请求、哪些功能降级了）
+    print()
+    print("--- AI 调用汇总 ---")
+    log_ai_call_report()
 
     print()
     print("=" * 60)

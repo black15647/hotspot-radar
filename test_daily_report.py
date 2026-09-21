@@ -12,6 +12,8 @@ import unittest
 import json
 import os
 import sys
+import time
+from unittest import mock
 import tempfile
 import shutil
 from types import SimpleNamespace
@@ -271,11 +273,14 @@ class TestExtractSummary(unittest.TestCase):
         self.assertTrue(len(result) > 0 or result == "")
 
 
-class TestHotnessV2(unittest.TestCase):
-    """热度算法 v2 关键行为回归测试
+class TestHotnessV3(unittest.TestCase):
+    """热度算法关键行为回归测试（v3.0）
 
     锁定的都是曾经真实失效过的行为：英文标题拿不到关键词分、并列 raw 被拉开成
-    伪差异、单条条目直接给满分、中英双语重复检测不到。改动算法时若破坏这些性质会立即暴露。
+    伪差异、单条条目直接给满分、中英双语重复检测不到、展示分依赖批次。
+    改动算法时若破坏这些性质会立即暴露。
+
+    （类名从 TestHotnessV2 改为 V3：算法已升到 v3.0，留着旧名会误导。）
     """
 
     def _item(self, title, source="Science", hours_ago=6, summary=None, **extra):
@@ -334,12 +339,16 @@ class TestHotnessV2(unittest.TestCase):
             self.assertEqual(len(disps), 1,
                              f"raw={raw} 出现多个展示分 {sorted(disps)}，存在伪差异")
 
-    def test_single_item_gets_neutral_display_score(self):
+    def test_single_item_never_gets_full_mark(self):
         """仅 1 条时不应给满分（修复前 n=1 直接映射为 100）"""
         cfg = dr.load_config()
         out = dr.calculate_hotness([self._item("Climate change research")], cfg)
-        self.assertEqual(out[0]["score_v2"], dr.DISPLAY_SCORE_MID)
         self.assertNotEqual(out[0]["score_v2"], dr.DISPLAY_SCORE_MAX)
+        self.assertGreaterEqual(out[0]["score_v2"], dr.DISPLAY_SCORE_MIN)
+        # relative 旧口径下，单条无实质差异 -> 中性分（保留该分支的回归）
+        rel = {"weights": cfg["weights"], "hotness": {"display": {"mode": "relative"}}}
+        out2 = dr.calculate_hotness([self._item("Climate change research")], rel)
+        self.assertEqual(out2[0]["score_v2"], dr.DISPLAY_SCORE_MID)
 
     def test_display_score_range_and_monotonic(self):
         """展示分应落在 [MIN, MAX] 且随 raw 单调不减"""
@@ -381,10 +390,11 @@ class TestHotnessV2(unittest.TestCase):
         self.assertEqual(
             dr._jaccard(dr._title_token_set(zh), dr._title_token_set(en)), 0.0,
             "前提：中文标题与英文原文的 token 交集应为空")
+        a, b = dr._title_token_set(zh), dr._title_token_set(en_zh)
+        overlap = len(a & b) / min(len(a), len(b))
         self.assertGreaterEqual(
-            dr._jaccard(dr._title_token_set(zh), dr._title_token_set(en_zh)),
-            dr.DUPLICATE_JACCARD_THRESHOLD,
-            "对齐到中文译文后应达到重复阈值")
+            overlap, dr.EVENT_CLUSTER_OVERLAP_THRESHOLD,
+            "对齐到中文译文后应达到「同一事件」的判定阈值")
 
     def test_jieba_env_init_is_idempotent(self):
         """jieba 词典注入应幂等，且不改变分词结果"""
@@ -618,20 +628,20 @@ class TestContentDensity(unittest.TestCase):
         """config 里 content_density.enabled=false 时应完全失效"""
         item = {"title": "省第二生态环境保护督察组调研督导信访工作",
                 "source": "Google News 生态环境", "published": "2026-09-20T00:00:00+00:00"}
-        items = dr.calculate_heat_v2([dict(item)], {"content_density": {"enabled": False}})
+        items = dr.calculate_heat_v3([dict(item)], {"content_density": {"enabled": False}})
         self.assertEqual(items[0]["score_breakdown"]["density_factor"], 1.0)
         self.assertEqual(items[0]["score_breakdown"]["density_note"], "")
 
     def test_density_factor_recorded_in_breakdown(self):
         """密度系数与判定说明必须进入 score_breakdown，供前端热度弹窗展示"""
-        items = dr.calculate_heat_v2(
+        items = dr.calculate_heat_v3(
             [{"title": "省第二生态环境保护督察组调研督导信访工作",
               "source": "Google News 生态环境", "published": "2026-09-20T00:00:00+00:00"},
              {"title": "Microplastics in Soil a ‘Trojan Horse’ for Toxic Chemicals",
               "source": "Yale Environment 360", "published": "2026-09-20T00:00:00+00:00"}],
             {})
         bd = items[0]["score_breakdown"]
-        self.assertEqual(bd["algorithm"], "v2.1")
+        self.assertEqual(bd["algorithm"], "v3.0")
         self.assertLess(bd["density_factor"], 1.0)
         self.assertEqual(bd["density_note"], "地方政务通稿")
         self.assertEqual(items[1]["score_breakdown"]["density_factor"], 1.0)
@@ -922,6 +932,894 @@ class TestSafeGetRedirectGuard(unittest.TestCase):
         self.assertIsNone(blocked)
         self.assertEqual(len(self.calls), 1)
 
+
+class TestSummaryAttribution(unittest.TestCase):
+    """摘要归属校验：AI 少返回一条时，摘要不得与相邻标题张冠李戴。
+
+    背景（2026-09-21 线上实证）：某一批 5 条只返回了 4 条摘要 —— 模型自行跳过了它认为
+    无信息量的「力源科技」（一个栏目页），**其后的 id 全部左移**。旧实现照 id 落盘后，
+    榜单第 15 名挂上了第 16 名的摘要、第 16 名挂上了第 17 名的摘要，
+    而日志只显示「AI生成 14/15 条」，看不出任何异常。
+    """
+
+    TITLES = [
+        "对话｜岛国沉没倒计时！图瓦卢青年为何拒绝当“气候移民”？ - thepaper.cn",
+        "Billions in rare earth elements may be hiding in America’s coal ash",
+        "力源科技 - huanbao.bjx.com.cn",
+        "来自中国电网的超级气候污染物正在炙烤地球 - Inside Climate News",
+        "永州市溶洞污染排查整治工作推进会召开 - 湖南红网",
+    ]
+
+    def _batch(self, titles=None):
+        titles = self.TITLES if titles is None else titles
+        return [(i, i, {"title": t}, "") for i, t in enumerate(titles)]
+
+    def test_model_skips_one_item_does_not_shift_summaries(self):
+        """复盘线上事故：模型漏掉一条，后面的摘要不得整体前移"""
+        summaries = [
+            {"id": 0, "title": "对话｜岛国沉没倒计",
+             "summary": "图瓦卢青年拒绝被定义为气候移民，选择留守或另寻生存路径。"},
+            {"id": 1, "title": "Billions in rare",
+             "summary": "科学家从藻类与植物中寻找更清洁的稀土提取方法，减少尾矿依赖。"},
+            {"id": 2, "title": "来自中国电网的超级",
+             "summary": "中国电网是全球最大六氟化硫排放源，SF6 泄漏温室效应极强。"},
+            {"id": 3, "title": "永州市溶洞污染排查",
+             "summary": "永州市开展溶洞污染专项排查整治，遏制地下水污染风险。"},
+        ]
+        m = dr._match_summary_entries(self._batch(), summaries)
+
+        self.assertNotIn(2, m, "被模型跳过的那条不得借用相邻条目的摘要")
+        self.assertIn("六氟化硫", m[3], "第 16 条必须拿到自己的摘要")
+        self.assertIn("溶洞", m[4], "第 17 条必须拿到自己的摘要")
+        self.assertEqual(len(m), 4)
+
+    def test_id_is_ignored_when_title_fingerprint_present(self):
+        """模型重编号（id 全错）但回显了标题：必须按标题归属"""
+        summaries = [
+            {"id": 9, "title": "永州市溶洞污染排查", "summary": "永州市溶洞污染专项整治推进。"},
+            {"id": 8, "title": "对话｜岛国沉没倒计", "summary": "图瓦卢青年拒绝气候移民标签。"},
+        ]
+        m = dr._match_summary_entries(self._batch(), summaries)
+        self.assertEqual(set(m.keys()), {0, 4})
+        self.assertIn("图瓦卢", m[0])
+
+    def test_falls_back_to_id_when_model_ignores_title_echo(self):
+        """模型整体不回显标题：退回 id 定位，保持修复前行为（不是回退为不安全）"""
+        batch = self._batch(["标题甲", "标题乙"])
+        m = dr._match_summary_entries(batch, [{"id": 0, "summary": "甲摘要"},
+                                              {"id": 1, "summary": "乙摘要"}])
+        self.assertEqual(m, {0: "甲摘要", 1: "乙摘要"})
+
+    def test_no_title_echo_and_bad_id_is_skipped(self):
+        """既无标题回显、id 又是脏值时跳过，不抛异常"""
+        batch = self._batch(["标题甲"])
+        m = dr._match_summary_entries(batch, [{"id": "甲", "summary": "摘要"}])
+        self.assertEqual(m, {})
+
+    def test_duplicate_titles_do_not_overwrite(self):
+        """同题不同源：两条摘要应落到两个位置，而不是都挤在第一条上"""
+        batch = self._batch(["生态环境部部署严打监测造假 - 甲网", "生态环境部部署严打监测造假 - 乙网"])
+        m = dr._match_summary_entries(batch, [
+            {"id": 0, "title": "生态环境部部署严打", "summary": "摘要一"},
+            {"id": 1, "title": "生态环境部部署严打", "summary": "摘要二"},
+        ])
+        self.assertEqual(m, {0: "摘要一", 1: "摘要二"})
+
+    def test_dirty_entries_are_skipped(self):
+        """非 dict、空摘要、空指纹不算命中"""
+        batch = self._batch(["标题甲"])
+        m = dr._match_summary_entries(batch, ["字符串", {"id": 0, "summary": "   "}, 42])
+        self.assertEqual(m, {})
+
+    def test_fingerprint_tolerates_model_shortening(self):
+        """模型只回显前 3 个字（少字）时仍应命中"""
+        batch = self._batch(["永州市溶洞污染排查整治工作推进会召开"])
+        m = dr._match_summary_entries(batch, [{"id": 0, "title": "永州市", "summary": "修复后的摘要"}])
+        self.assertEqual(m, {0: "修复后的摘要"})
+
+
+class TestRelevanceVerdictNormalization(unittest.TestCase):
+    """AI 相关性判决值归一化：布尔与大小写都必须正确识别。
+
+    旧实现 `str(v).strip() in ("否","no","false","0")` 有两个洞：大小写敏感，
+    以及 str(False)=="False" 不命中 —— json_mode 下模型回 {"relevant": false} 时
+    判「否」会被当成「是」，整批结果静默变成"零剔除"。
+    """
+
+    def test_boolean_false_means_irrelevant(self):
+        self.assertTrue(dr._is_irrelevant_verdict(False))
+
+    def test_boolean_true_means_relevant(self):
+        self.assertFalse(dr._is_irrelevant_verdict(True))
+
+    def test_case_insensitive_strings(self):
+        for v in ["否", "no", "NO", "No", "false", "FALSE", "False", "0", " 否 ", "无关"]:
+            self.assertTrue(dr._is_irrelevant_verdict(v), f"应判为无关：{v!r}")
+
+    def test_relevant_strings(self):
+        for v in ["是", "yes", "true", "1", "相关", ""]:
+            self.assertFalse(dr._is_irrelevant_verdict(v), f"应判为相关：{v!r}")
+
+    def test_is_environment_field_uses_same_normalizer(self):
+        """兼容 is_environment 布尔字段：False 即无关"""
+        self.assertTrue(dr._is_irrelevant_verdict(False))
+        self.assertFalse(dr._is_irrelevant_verdict(True))
+
+
+class TestJunkTitleSourceSuffix(unittest.TestCase):
+    """Google News 的「标题 - 来源名」形态：先剥后缀再判，否则栏目页会靠后缀逃过长度检查。"""
+
+    def test_section_page_with_domain_suffix_is_junk(self):
+        for t in ["力源科技 - huanbao.bjx.com.cn",
+                  "上市 - 中国水网",
+                  "要闻 | 北极星环保网",
+                  "首页 - 生态环境部"]:
+            self.assertTrue(dr.is_junk_title(t), f"应判为占位内容：{t}")
+
+    def test_real_titles_are_not_falsely_dropped(self):
+        for t in ["生态环境部：重拳整治环境监测造假！ - 上海热线",
+                  "永州市溶洞污染排查整治工作推进会召开 - 湖南红网",
+                  "来自中国电网的超级气候污染物正在炙烤地球 - Inside Climate News",
+                  "表演式采样、伪造数据？生态环境部部署全国严打环境监测造假_政经观察 - 奥一网",
+                  "江西省流域水生态环境保护“十五五”规划（征求意见稿） - 中国水网"]:
+            self.assertFalse(dr.is_junk_title(t), f"误杀正常标题：{t}")
+
+    def test_english_subtitle_is_not_stripped(self):
+        """英文标题的长副标题不是来源名，不能被剥掉（否则会误伤）"""
+        t = ("MAKING WAVES: Sounds of the underground - "
+             "unveiling the potential of acoustic monitoring in water systems")
+        self.assertEqual(dr.strip_title_source_suffix(t), t)
+        self.assertFalse(dr.is_junk_title(t))
+
+    def test_strip_does_not_touch_plain_title(self):
+        t = "This deep-sea enzyme survives heat that destroys most proteins"
+        self.assertEqual(dr.strip_title_source_suffix(t), t)
+
+
+class TestWeeklyKeywordPlaceholderFilter(unittest.TestCase):
+    """兜底占位标签「环境资讯」不得进入近7天高频词（2026-09-21 它以 count=10 占据榜首）。"""
+
+    def test_fallback_tag_excluded_from_weekly_keywords(self):
+        tmp = tempfile.mkdtemp()
+        old_dir = dr.DATA_DIR
+        try:
+            daily_dir = os.path.join(tmp, "daily")
+            os.makedirs(daily_dir)
+            today = datetime.now().strftime("%Y-%m-%d")
+            with open(os.path.join(daily_dir, today + ".json"), "w", encoding="utf-8") as f:
+                json.dump({"items": [
+                    {"topic_tags": ["环境资讯"], "matched_keywords": ["微塑料"]},
+                    {"topic_tags": ["环境资讯"], "matched_keywords": ["微塑料"]},
+                    {"topic_tags": ["环境资讯"], "matched_keywords": ["碳市场"]},
+                ]}, f)
+            dr.DATA_DIR = tmp
+            terms = [k["term"] for k in dr.calculate_weekly_keywords()]
+        finally:
+            dr.DATA_DIR = old_dir
+            shutil.rmtree(tmp, ignore_errors=True)
+
+        self.assertNotIn("环境资讯", terms)
+        self.assertIn("微塑料", terms)
+        self.assertIn("碳市场", terms)
+
+    def test_banned_tags_constant_covers_fallback_literal(self):
+        """兜底字面量必须被禁词表覆盖，避免以后新增兜底标签又漏"""
+        self.assertIn("环境资讯", dr.WEEKLY_KEYWORD_BANNED_TAGS)
+
+
+class TestSummaryNotDuplicatingTitle(unittest.TestCase):
+    """摘要与标题一字不差时应置空，由前端显示「暂无摘要」，而不是让摘要栏复制标题。"""
+
+    def test_chinese_summary_equal_to_title_becomes_empty(self):
+        item = {"title": "永州市溶洞污染排查整治工作推进会召开 - 湖南红网",
+                "summary": "永州市溶洞污染排查整治工作推进会召开 - 湖南红网"}
+        self.assertEqual(dr._finalize_summary(item), "")
+
+    def test_real_summary_is_kept(self):
+        item = {"title": "生态环境部：重拳整治环境监测造假！ - 上海热线",
+                "summary": "生态环境部发布重拳整治环境监测造假的通报，严厉打击采样造假等违法行为。"}
+        self.assertIn("重拳整治", dr._finalize_summary(item))
+
+    def test_english_item_keeps_existing_behaviour(self):
+        """英文条目以原标题充当摘要是既有设计（避免截断成残片），本次不改动"""
+        t = "This deep-sea enzyme survives heat that destroys most proteins"
+        self.assertEqual(dr._finalize_summary({"title": t, "summary": t}), t)
+
+
+class TestFeedResponseDiagnostics(unittest.TestCase):
+    """抓取失败的诊断信息：必须能区分「被 WAF 拦截」与「XML 本身有问题」。"""
+
+    def _resp(self, status, body, ctype):
+        return SimpleNamespace(status_code=status, content=body,
+                               headers={"Content-Type": ctype})
+
+    def test_html_block_page_is_reported_as_non_xml(self):
+        diag = dr._describe_feed_response(
+            self._resp(403, b"<!DOCTYPE html><html><head><title>Attention Required</title>", "text/html"))
+        self.assertIn("403", diag)
+        self.assertIn("非XML", diag)
+
+    def test_xml_response_is_reported_as_xml(self):
+        diag = dr._describe_feed_response(
+            self._resp(200, b"<?xml version='1.0'?><rss><channel/></rss>", "application/rss+xml"))
+        self.assertIn("200", diag)
+        self.assertIn("XML", diag)
+        self.assertNotIn("非XML", diag)
+
+
+class TestHotnessV3Factors(unittest.TestCase):
+    """v3.0 四个维度的量纲与行为。
+
+    背景：v2.1 在线上 17 条数据上的消融实验显示，跨源共振分与内容质量分
+    完全不影响排序（ρ=1.000 / 15 条为 0），榜单实际只由关键词 IDF 决定。
+    这里逐维锁定「必须真实参与」，防止再退化回单因子决定论。
+    """
+
+    def _item(self, title, source="Google News 生态环境", hours_ago=6, **extra):
+        now = datetime.now(timezone.utc)
+        it = {
+            "title": title,
+            "source": source,
+            "link": "https://example.com/x",
+            "summary": "",
+            "published": "",
+            "published_dt": now - timedelta(hours=hours_ago),
+        }
+        it.update(extra)
+        return it
+
+    def test_authority_has_no_constant_floor(self):
+        """权威度不能有常数底分。
+
+        旧口径 15+(w-1)*10 给每个源 15 分底分 —— 常数项不参与排序，
+        满分 25 里只有 8 分真正影响名次。新口径未列入权重表的源应得 0 分。
+        """
+        cfg = dr.load_config()
+        items = [self._item("某地环境议题研究", "完全未列入权重表的来源"),
+                 self._item("Water pollution study", "Nature")]
+        out = dr.calculate_heat_v3(items, cfg)
+        self.assertEqual(out[0]["score_breakdown"]["authority_score"], 0.0)
+        self.assertAlmostEqual(out[1]["score_breakdown"]["authority_score"], 18.0, places=1)
+
+    def test_dimension_maxima_exposed_for_frontend(self):
+        """四维满分必须写进 breakdown（前端模态框据此标注量纲）"""
+        cfg = dr.load_config()
+        out = dr.calculate_heat_v3([self._item("生态环境议题研究")], cfg)
+        bd = out[0]["score_breakdown"]
+        self.assertEqual(bd["algorithm"], "v3.0")
+        self.assertEqual(bd["base_max"], 70.0)
+        self.assertEqual(bd["dimension_max"],
+                         {"authority": 18.0, "topic": 18.0, "resonance": 18.0, "information": 16.0})
+
+    def test_topic_floor_covers_unmatched_env_title(self):
+        """关键词表未覆盖、但标题确属环境题材时不应被归零。
+
+        线上实测 7/17 条 matched_keywords 为空；若无兜底，话题分对这些条目
+        等于「词表覆盖运气」而不是内容价值。
+        """
+        cfg = dr.load_config()
+        out = dr.calculate_heat_v3([self._item("永州市溶洞污染排查整治工作推进会召开")], cfg)
+        self.assertGreater(out[0]["score_breakdown"]["topic_score"], 0.0)
+
+    def test_resonance_comes_from_event_media_count(self):
+        """同一事件被多家媒体报道 -> 共振分 > 0；单一来源 -> 0。
+
+        用例取自线上真实数据（2026-09-21 榜单第 1、2 名），两条标题分属
+        上海热线与奥一网两家媒体 —— 这正是 v2.1 漏掉、导致共振分恒 0 的场景。
+        """
+        cfg = dr.load_config()
+        items = [
+            self._item("生态环境部：重拳整治环境监测造假！ - 上海热线"),
+            self._item("表演式采样、伪造数据？生态环境部部署全国严打环境监测造假 - 奥一网"),
+            self._item("Redox homeostasis governs anaerobic microbial stability", "Water Research"),
+        ]
+        out = dr.calculate_heat_v3(items, cfg)
+        self.assertEqual(out[2]["score_breakdown"]["resonance_score"], 0.0)
+        self.assertGreater(out[0]["score_breakdown"]["resonance_score"], 0.0)
+        self.assertEqual(out[0]["score_breakdown"]["event_media_count"], 2)
+        self.assertEqual(out[0]["score_breakdown"]["event_size"], 2)
+
+    def test_duplicate_penalty_hits_only_non_representative(self):
+        """同一事件中只有代表条目不被降权"""
+        cfg = dr.load_config()
+        items = [
+            self._item("生态环境部：重拳整治环境监测造假！ - 上海热线"),
+            self._item("表演式采样、伪造数据？生态环境部部署全国严打环境监测造假 - 奥一网"),
+        ]
+        out = dr.calculate_heat_v3(items, cfg)
+        pens = sorted(it["score_breakdown"]["repeat_penalty"] for it in out)
+        self.assertEqual(pens, [dr.DUPLICATE_PENALTY, 1.0])
+
+    def test_info_score_is_language_neutral(self):
+        """英文标题不应在信息量维度上系统性拿 0。
+
+        旧质量分读 summary，而中文查询源全都没有 RSS 描述，
+        实测 15/17 条为 0 —— 且对英文条目天然有利。新判据中英文对等。
+        """
+        cfg = dr.load_config()
+        out = dr.calculate_heat_v3(
+            [self._item("Solar-driven desalination coupled with antibiotic degradation",
+                        "Water Research")], cfg)
+        self.assertGreater(out[0]["score_breakdown"]["info_score"], 0.0)
+
+    def test_info_score_zero_for_vague_slogan(self):
+        """空泛标语型标题拿 0（无量化信息/主体/研究信号/描述）"""
+        cfg = dr.load_config()
+        out = dr.calculate_heat_v3([self._item("共建共治绘新篇")], cfg)
+        self.assertEqual(out[0]["score_breakdown"]["info_score"], 0.0)
+
+    def test_every_dimension_varies_in_mixed_batch(self):
+        """混合批次里每一维都必须有非零跨度（否则等于常数项，不参与排序）"""
+        cfg = dr.load_config()
+        items = [
+            self._item("生态环境部：重拳整治环境监测造假！", "Nature",
+                       matched_keywords=["微塑料"]),
+            self._item("表演式采样、伪造数据？生态环境部部署全国严打环境监测造假", "完全未列出"),
+            self._item("共建共治绘新篇", "Google News 环境保护"),
+        ]
+        out = dr.calculate_heat_v3(items, cfg)
+        for key in ("authority_score", "topic_score", "resonance_score", "info_score"):
+            vals = [it["score_breakdown"][key] for it in out]
+            self.assertGreater(max(vals) - min(vals), 0.0,
+                               "%s 在本批中无差异，等于常数项" % key)
+
+
+class TestHotnessV3EventCluster(unittest.TestCase):
+    """事件聚类：v3.0 共振分的识别基础。"""
+
+    def test_overlap_beats_jaccard_on_chinese_titles(self):
+        """线上真实案例：两条同事件标题的 Jaccard 低于阈值、重叠系数高于阈值"""
+        a = "生态环境部：重拳整治环境监测造假！"
+        b = "表演式采样、伪造数据？生态环境部部署全国严打环境监测造假"
+        ta, tb = dr._title_token_set(a), dr._title_token_set(b)
+        inter = ta & tb
+        self.assertTrue(inter, "前提：两条标题应有共同 token")
+        self.assertLess(dr._jaccard(ta, tb), dr.EVENT_CLUSTER_OVERLAP_THRESHOLD,
+                        "Jaccard 应低于阈值（这正是旧口径漏判的原因）")
+        self.assertGreaterEqual(len(inter) / min(len(ta), len(tb)),
+                                dr.EVENT_CLUSTER_OVERLAP_THRESHOLD,
+                                "重叠系数应达到阈值")
+
+    def test_cluster_detects_same_event_across_media(self):
+        items = [{"title": "生态环境部：重拳整治环境监测造假！ - 上海热线"},
+                 {"title": "表演式采样、伪造数据？生态环境部部署全国严打环境监测造假 - 奥一网"}]
+        cl = dr._cluster_events(items)
+        self.assertEqual(len(cl), 1)
+        self.assertEqual(len(cl[0]), 2)
+
+    def test_cluster_does_not_merge_distinct_events(self):
+        items = [{"title": "生态环境部：重拳整治环境监测造假！"},
+                 {"title": "江西省流域水生态环境保护十五五规划征求意见稿"},
+                 {"title": "京津冀生态环境志愿服务活动在北京举行"}]
+        self.assertEqual(len(dr._cluster_events(items)), 3)
+
+    def test_source_suffix_can_create_false_similarity(self):
+        """来源后缀必须在校验前剥掉：否则不同条目会因后缀而看起来相似"""
+        items = [{"title": "某地开展环境监测造假专项整治 - 上海热线"},
+                 {"title": "表演式采样环境监测造假专项整治部署 - 奥一网"}]
+        self.assertEqual(len(dr._cluster_events(items)), 1,
+                         "剥掉来源后缀后两条应聚为同一事件")
+
+    def test_extract_media_name_forms(self):
+        cases = [
+            ("生态环境部：重拳整治环境监测造假！ - 上海热线", "上海热线"),
+            ("表演式采样、伪造数据？ - 奥一网", "奥一网"),
+            ("来自中国电网的超级气候污染物 - Inside Climate News", "Inside Climate News"),
+            ("Redox homeostasis governs anaerobic stability", ""),
+            ("", ""),
+        ]
+        for title, expect in cases:
+            self.assertEqual(dr.extract_media_name(title), expect, "解析错误：%s" % title)
+
+    def test_origin_source_falls_back_to_feed_name(self):
+        item = {"title": "Redox homeostasis governs anaerobic stability",
+                "source": "Water Research"}
+        self.assertEqual(dr.item_origin_source(item), "Water Research")
+
+
+class TestHotnessV3Calibration(unittest.TestCase):
+    """展示分标定：从「逐日相对分」改为「绝对标定」。"""
+
+    def _item(self, title, source="Google News 生态环境", hours_ago=6, **extra):
+        now = datetime.now(timezone.utc)
+        it = {"title": title, "source": source, "link": "https://example.com/x",
+              "summary": "", "published": "",
+              "published_dt": now - timedelta(hours=hours_ago)}
+        it.update(extra)
+        return it
+
+    def test_absolute_mode_does_not_depend_on_batch(self):
+        """绝对标定下展示分只由自身 raw 决定，与同批其他条目无关。
+
+        逐日 min-max 口径下，把一个低分条目单独跑会直接变成满分 ——
+        本用例锁死这一行为不再出现。
+        """
+        cfg = dr.load_config()
+        lone = self._item("共建共治绘新篇")
+        strong = self._item("生态环境部发布重拳整治监测造假行动方案", "Nature")
+        single = dr.calculate_heat_v3([dict(lone)], cfg)
+        mixed = dr.calculate_heat_v3([dict(lone), dict(strong)], cfg)
+        self.assertEqual(single[0]["score_v2"], mixed[0]["score_v2"])
+        self.assertLess(mixed[0]["score_v2"], dr.DISPLAY_SCORE_MAX)
+
+    def test_weak_day_does_not_get_full_marks(self):
+        """全天内容都很弱时不应出现满分条目（旧口径必然给出 100）"""
+        cfg = dr.load_config()
+        weak = [self._item("共建共治绘新篇" + str(i)) for i in range(4)]
+        out = dr.calculate_heat_v3(weak, cfg)
+        for it in out:
+            self.assertLess(it["score_v2"], dr.HOTNESS_LEVEL_HIGH)
+
+    def test_relative_mode_reproducible_for_history(self):
+        """relative 模式保留（用于复现历史口径）：单条给中性分"""
+        cfg = dr.load_config()
+        rel = {"weights": cfg["weights"], "hotness": {"display": {"mode": "relative"}}}
+        out = dr.calculate_heat_v3([self._item("生态环境议题研究")], rel)
+        self.assertEqual(out[0]["score_v2"], dr.DISPLAY_SCORE_MID)
+        self.assertEqual(out[0]["score_breakdown"]["display_mode"], "relative")
+
+    def test_display_score_within_bounds(self):
+        cfg = dr.load_config()
+        items = [self._item("生态环境部发布行动方案", "Nature"),
+                 self._item("共建共治绘新篇"),
+                 self._item("永州市溶洞污染排查整治工作推进会召开")]
+        out = dr.calculate_heat_v3(items, cfg)
+        for it in out:
+            self.assertGreaterEqual(it["score_v2"], dr.DISPLAY_SCORE_MIN)
+            self.assertLessEqual(it["score_v2"], dr.DISPLAY_SCORE_MAX)
+
+class _FakeAIResponse:
+    """AI 端点响应替身：只实现 _ai_call 实际用到的属性与方法。"""
+
+    def __init__(self, status_code=200, content="模型输出", headers=None):
+        self.status_code = status_code
+        self.headers = headers or {}
+        self.text = content or ""
+        self._content = content
+
+    def json(self):
+        return {"choices": [{"message": {"content": self._content}}]}
+
+    def raise_for_status(self):
+        if self.status_code >= 400:
+            raise dr.requests.exceptions.HTTPError(response=self)
+
+
+class TestAiGovernance(unittest.TestCase):
+    """AI 调用治理层：限流 / 退避 / Retry-After / 缓存 / 预算 / 熔断。
+
+    每个用例都用替身替换 requests.post，因此**不产生任何真实网络请求**。
+    """
+
+    def setUp(self):
+        self._snap = {
+            "limits": dict(dr.AI_LIMITS),
+            "delays": list(dr.AI_RETRY_DELAYS),
+            "failures": dict(dr.AI_FUNC_FAILURES),
+            "logged": set(dr.AI_FUNC_DEGRADED_LOGGED),
+            "count": dr._AI_CALL_COUNT,
+            "warned": dr._AI_BUDGET_WARNED,
+            "cache": dict(dr._AI_RESULT_CACHE),
+            "ts": list(dr._AI_CALL_TS),
+            "last": dr._AI_LAST_TS,
+            "hits": dr._AI_CACHE_HITS,
+        }
+        self._calls = []
+        self._script = []
+        self._orig_post = dr.requests.post
+        dr.requests.post = self._fake_post
+        # 退避表压到毫秒级：测的是"退避逻辑"而不是"真的等 30 秒"
+        dr.AI_RETRY_DELAYS = [0.01, 0.02, 0.03]
+        dr.AI_LIMITS.update({"rpm": 6000, "max_concurrency": 1, "max_calls_per_run": 80,
+                             "jitter_ratio": 0.0, "max_backoff": 60.0,
+                             "cache_enabled": True, "honor_retry_after": True})
+        dr.configure_ai_limits({})
+        dr.AI_FUNC_FAILURES.clear()
+        dr.AI_FUNC_DEGRADED_LOGGED.clear()
+        dr._AI_RESULT_CACHE.clear()
+        dr._AI_CALL_TS.clear()
+        dr._AI_CALL_COUNT = 0
+        dr._AI_BUDGET_WARNED = False
+        dr._AI_CACHE_HITS = 0
+        dr._AI_CALL_LOG.clear()
+        dr._AI_RETRY_LOG.clear()
+
+    def tearDown(self):
+        dr.requests.post = self._orig_post
+        dr.AI_LIMITS.clear(); dr.AI_LIMITS.update(self._snap["limits"])
+        dr.configure_ai_limits({})          # 按恢复后的并发数重建信号量
+        dr.AI_RETRY_DELAYS[:] = self._snap["delays"]
+        dr.AI_FUNC_FAILURES.clear(); dr.AI_FUNC_FAILURES.update(self._snap["failures"])
+        dr.AI_FUNC_DEGRADED_LOGGED.clear(); dr.AI_FUNC_DEGRADED_LOGGED.update(self._snap["logged"])
+        dr._AI_CALL_COUNT = self._snap["count"]
+        dr._AI_BUDGET_WARNED = self._snap["warned"]
+        dr._AI_RESULT_CACHE.clear(); dr._AI_RESULT_CACHE.update(self._snap["cache"])
+        dr._AI_CALL_TS[:] = self._snap["ts"]
+        dr._AI_LAST_TS = self._snap["last"]
+        dr._AI_CACHE_HITS = self._snap["hits"]
+
+    def _fake_post(self, url, headers=None, json=None, timeout=None):
+        self._calls.append(time.time())
+        if not self._script:
+            return _FakeAIResponse(200)
+        item = self._script.pop(0)
+        if isinstance(item, Exception):
+            raise item
+        return item
+
+    @property
+    def _cfg(self):
+        return {"summary_enabled": True, "api_key": "k", "model": "m",
+                "fallback_model": "", "base_url": "https://example.invalid/v1/",
+                "max_tokens": 100}
+
+    # ---------- 重试与退避 ----------
+
+    def test_429_then_success_retries_and_clears_failure(self):
+        self._script = [_FakeAIResponse(429), _FakeAIResponse(429), _FakeAIResponse(200, "结果")]
+        out = dr.call_nvidia_api("p1", self._cfg, feature="T1")
+        self.assertEqual(out, "结果")
+        self.assertEqual(len(self._calls), 3, "两次 429 后应发出第 3 次请求并成功")
+        self.assertEqual(dr._AI_RETRY_LOG.get("T1"), 2)
+        self.assertEqual(dr.AI_FUNC_FAILURES.get("T1", 0), 0, "成功后该功能失败计数应清零")
+
+    def test_retry_after_header_is_honored(self):
+        """服务端 Retry-After 优先于本地退避表：表值是 0.01s，故意用它验证"""
+        self._script = [_FakeAIResponse(429, headers={"Retry-After": "1"}),
+                        _FakeAIResponse(200, "ok")]
+        t0 = time.time()
+        out = dr.call_nvidia_api("p2", self._cfg, feature="T2")
+        self.assertEqual(out, "ok")
+        self.assertGreaterEqual(time.time() - t0, 0.9,
+                                "应等待服务端要求的 1 秒，而不是本地 0.01 秒")
+
+    def test_gives_up_after_max_attempts_and_degrades(self):
+        self._script = [_FakeAIResponse(429)] * dr.AI_MAX_ATTEMPTS
+        out = dr.call_nvidia_api("p3", self._cfg, feature="T3")
+        self.assertIsNone(out)
+        self.assertEqual(len(self._calls), dr.AI_MAX_ATTEMPTS)
+        self.assertGreaterEqual(dr.AI_FUNC_FAILURES["T3"], dr.AI_FUNC_MAX_FAILURES)
+        self.assertTrue(dr._ai_func_disabled("T3"), "达到阈值后该功能应独立熔断")
+
+    def test_server_5xx_is_retryable(self):
+        """503/502 属服务端瞬时故障，旧实现会直接降级，现在应重试"""
+        self._script = [_FakeAIResponse(503), _FakeAIResponse(502), _FakeAIResponse(200, "恢复")]
+        self.assertEqual(dr.call_nvidia_api("p8", self._cfg, feature="T8"), "恢复")
+        self.assertEqual(len(self._calls), 3)
+
+    def test_deterministic_error_not_retried(self):
+        """401/403 这类确定性错误重试无意义，应一次即放弃"""
+        self._script = [_FakeAIResponse(401), _FakeAIResponse(200, "不该被用到")]
+        self.assertIsNone(dr.call_nvidia_api("p10", self._cfg, feature="T10"))
+        self.assertEqual(len(self._calls), 1)
+
+    def test_400_strips_field_without_consuming_backoff(self):
+        self._script = [_FakeAIResponse(400), _FakeAIResponse(200, "ok")]
+        t0 = time.time()
+        self.assertEqual(dr.call_nvidia_api("p9", self._cfg, json_mode=True, feature="T9"), "ok")
+        self.assertEqual(len(self._calls), 2)
+        self.assertLess(time.time() - t0, 0.5, "400 是立即重试，不应消耗退避")
+
+    def test_backoff_formula(self):
+        saved_j = dr.AI_LIMITS["jitter_ratio"]
+        saved_mb = dr.AI_LIMITS["max_backoff"]
+        try:
+            dr.AI_LIMITS["jitter_ratio"] = 0.0
+            self.assertEqual(dr._ai_compute_backoff(0), float(dr.AI_RETRY_DELAYS[0]))
+            self.assertEqual(dr._ai_compute_backoff(1), float(dr.AI_RETRY_DELAYS[1]))
+            self.assertEqual(dr._ai_compute_backoff(99), float(dr.AI_RETRY_DELAYS[-1]),
+                             "超出退避表长度应取表尾值")
+            self.assertEqual(dr._ai_compute_backoff(0, 45), 45.0, "服务端要求更长时采信服务端")
+            self.assertEqual(dr._ai_compute_backoff(1, 0.001), float(dr.AI_RETRY_DELAYS[1]),
+                             "服务端要求更短时用本地退避表")
+            dr.AI_LIMITS["max_backoff"] = 10.0
+            self.assertEqual(dr._ai_compute_backoff(0, 60), 60.0,
+                             "Retry-After 明确要求的长等待不应被 max_backoff 压制")
+            dr.AI_LIMITS["max_backoff"] = saved_mb
+            dr.AI_LIMITS["jitter_ratio"] = 0.25
+            base = float(dr.AI_RETRY_DELAYS[1])
+            samples = [dr._ai_compute_backoff(1) for _ in range(80)]
+            self.assertTrue(all(base <= s <= base * 1.25 + 1e-9 for s in samples),
+                            "抖动必须落在 [base, base*(1+ratio)] 内（只向上抖动）")
+            self.assertGreater(len(set(samples)), 1, "抖动应产生不同值，避免同步重试")
+        finally:
+            dr.AI_LIMITS["jitter_ratio"] = saved_j
+            dr.AI_LIMITS["max_backoff"] = saved_mb
+
+    def test_retry_after_parsing(self):
+        self.assertEqual(dr._ai_parse_retry_after(_FakeAIResponse(429, headers={"Retry-After": "30"})), 30.0)
+        self.assertEqual(dr._ai_parse_retry_after(_FakeAIResponse(429, headers={"Retry-After": "1.5"})), 1.5)
+        self.assertEqual(
+            dr._ai_parse_retry_after(_FakeAIResponse(429, headers={"Retry-After": "Wed, 21 Oct 2020 07:28:00 GMT"})),
+            0.0, "已过去的 HTTP-date 应视为 0 秒")
+        future = dr._ai_parse_retry_after(
+            _FakeAIResponse(429, headers={"Retry-After": "Wed, 21 Oct 2099 07:28:00 GMT"}))
+        self.assertIsNotNone(future)
+        self.assertGreater(future, 0)
+        self.assertIsNone(dr._ai_parse_retry_after(_FakeAIResponse(429, headers={})))
+        self.assertIsNone(dr._ai_parse_retry_after(_FakeAIResponse(429, headers={"Retry-After": "soon"})))
+        self.assertIsNone(dr._ai_parse_retry_after(None))
+
+    # ---------- 缓存 ----------
+
+    def test_cache_skips_duplicate_request(self):
+        self._script = [_FakeAIResponse(200, "缓存内容")]
+        first = dr.call_nvidia_api("same-prompt", self._cfg, feature="T4")
+        self.assertEqual(len(self._calls), 1)
+        second = dr.call_nvidia_api("same-prompt", self._cfg, feature="T4")
+        self.assertEqual(first, second)
+        self.assertEqual(len(self._calls), 1, "同一 prompt 第二次不应再发请求")
+        self.assertGreaterEqual(dr._AI_CACHE_HITS, 1)
+
+    def test_cache_key_is_sensitive_to_all_inputs(self):
+        k = dr._ai_cache_key("p", "m", 100, True)
+        self.assertEqual(k, dr._ai_cache_key("p", "m", 100, True), "同输入必须同键")
+        self.assertNotEqual(k, dr._ai_cache_key("p", "m", 100, False), "json_mode 应参与键")
+        self.assertNotEqual(k, dr._ai_cache_key("p", "m", 101, True), "max_tokens 应参与键")
+        self.assertNotEqual(k, dr._ai_cache_key("q", "m", 100, True), "prompt 应参与键")
+        self.assertNotEqual(k, dr._ai_cache_key("p", "m2", 100, True), "模型应参与键")
+
+    def test_cache_eviction_keeps_size_bounded(self):
+        saved_cap = dr.AI_LIMITS["cache_max_entries"]
+        try:
+            dr.AI_LIMITS["cache_max_entries"] = 8
+            for i in range(40):
+                dr._ai_cache_put(dr._ai_cache_key("p%d" % i, "m", 1, False), "v%d" % i)
+            self.assertLessEqual(len(dr._AI_RESULT_CACHE), 8)
+        finally:
+            dr.AI_LIMITS["cache_max_entries"] = saved_cap
+
+    def test_cache_disabled_still_calls(self):
+        saved = dr.AI_LIMITS["cache_enabled"]
+        try:
+            dr.AI_LIMITS["cache_enabled"] = False
+            self._script = [_FakeAIResponse(200, "x"), _FakeAIResponse(200, "y")]
+            dr.call_nvidia_api("nocc", self._cfg, feature="T4b")
+            dr.call_nvidia_api("nocc", self._cfg, feature="T4b")
+            self.assertEqual(len(self._calls), 2, "关闭缓存后每次都应发请求")
+        finally:
+            dr.AI_LIMITS["cache_enabled"] = saved
+
+    # ---------- 限流与预算 ----------
+
+    def test_rate_limiter_spaces_out_requests(self):
+        dr.AI_LIMITS["rpm"] = 600      # 最小间隔 0.1s
+        dr._AI_CALL_TS.clear(); dr._AI_LAST_TS = 0.0
+        self._script = [_FakeAIResponse(200, "r%d" % i) for i in range(3)]
+        for i in range(3):
+            dr.call_nvidia_api("rate-%d" % i, self._cfg, feature="T6")
+        self.assertEqual(len(self._calls), 3)
+        gaps = [self._calls[i + 1] - self._calls[i] for i in range(len(self._calls) - 1)]
+        for g in gaps:
+            self.assertGreaterEqual(g, 0.09, "相邻请求间隔应不小于 60/rpm 秒")
+
+    def test_budget_blocks_further_calls(self):
+        dr.AI_LIMITS["max_calls_per_run"] = 1
+        dr._AI_CALL_COUNT = 0
+        dr._AI_BUDGET_WARNED = False
+        self._script = [_FakeAIResponse(200, "b1"), _FakeAIResponse(200, "b2")]
+        self.assertEqual(dr.call_nvidia_api("budget-1", self._cfg, feature="T7"), "b1")
+        self.assertIsNone(dr.call_nvidia_api("budget-2", self._cfg, feature="T7"),
+                          "超出预算应直接降级，不再发请求")
+        self.assertEqual(len(self._calls), 1)
+
+    def test_configure_limits_clamps_invalid_values(self):
+        self.assertEqual(dr.AI_LIMITS["rpm"], 6000)
+        dr.configure_ai_limits({"limits": {"rpm": 0, "max_concurrency": -3,
+                                           "jitter_ratio": 9.0, "max_calls_per_run": "abc"}})
+        self.assertEqual(dr.AI_LIMITS["rpm"], 1, "rpm 至少为 1")
+        self.assertEqual(dr.AI_LIMITS["max_concurrency"], 1)
+        self.assertEqual(dr.AI_LIMITS["jitter_ratio"], 1.0, "抖动比例夹取到 [0,1]")
+        self.assertNotEqual(dr.AI_LIMITS["max_calls_per_run"], "abc", "非法值应保留原默认")
+
+    def test_concurrency_gate_semaphore_matches_config(self):
+        dr.configure_ai_limits({"limits": {"max_concurrency": 3}})
+        self.assertEqual(dr._ai_get_semaphore()._value, 3)
+        dr.configure_ai_limits({"limits": {"max_concurrency": 1}})
+        self.assertEqual(dr._ai_get_semaphore()._value, 1)
+
+    def test_report_shape(self):
+        self._script = [_FakeAIResponse(200, "x")]
+        dr.call_nvidia_api("rep", self._cfg, feature="TRep")
+        rep = dr.ai_call_report()
+        for key in ("http_calls", "by_feature", "cache_hits", "retries", "rpm",
+                    "max_concurrency", "budget", "degraded_features"):
+            self.assertIn(key, rep)
+        self.assertGreaterEqual(rep["http_calls"], 1)
+
+
+class TestAiSingleGateway(unittest.TestCase):
+    """护栏：所有 AI 请求必须走唯一出口，防止将来新增旁路绕过限流。"""
+
+    # 允许出现 requests.post 的函数白名单：AI 唯一出口 + 正文提取 + DeepL 翻译。
+    # 任何新增项都必须先自问：这是 AI 对话请求吗？是的话请改用 _ai_call。
+    _ALLOWED_POST_OWNERS = {"_ai_http_post", "extract_article_text", "_deepl_translate"}
+
+    def _enclosing_function(self, lines, lineno):
+        for i in range(lineno - 1, -1, -1):
+            s = lines[i]
+            if s.startswith("def ") or s.startswith("    def "):
+                return s.split("(")[0].replace("def", "").strip()
+        return "<module>"
+
+    def test_no_bypass_around_ai_gateway(self):
+        """所有 AI 请求必须走 _ai_http_post，不得有旁路绕过限流/并发/缓存。"""
+        path = os.path.join(os.path.dirname(os.path.abspath(__file__)), "daily_report.py")
+        with open(path, "r", encoding="utf-8") as f:
+            src = f.read()
+        src_lines = src.split("\n")
+
+        owners = {}
+        for i, ln in enumerate(src_lines):
+            if "requests.post(" in ln:
+                owners.setdefault(self._enclosing_function(src_lines, i), []).append(i + 1)
+
+        self.assertIn("_ai_http_post", owners,
+                      "AI 请求的唯一出口 _ai_http_post 内应当有 requests.post(")
+        unexpected = sorted(set(owners) - self._ALLOWED_POST_OWNERS)
+        self.assertEqual(
+            unexpected, [],
+            "发现绕过 AI 治理层的直连请求，所在函数：%s（行 %s）。"
+            "新增 AI 请求请使用 _ai_call / call_nvidia_api。" % (unexpected, owners))
+
+    def test_ai_call_uses_gateway_not_raw_post(self):
+        """_ai_call 自己也不得直接 requests.post，必须经由 _ai_http_post。"""
+        path = os.path.join(os.path.dirname(os.path.abspath(__file__)), "daily_report.py")
+        with open(path, "r", encoding="utf-8") as f:
+            src = f.read()
+        fn_start = src.index("def _ai_call(")
+        fn_end = src.find("\ndef ", fn_start + 1)
+        body = src[fn_start:(fn_end if fn_end != -1 else len(src))]
+        self.assertIn("_ai_http_post(", body)
+        self.assertNotIn("requests.post(", body,
+                         "_ai_call 必须经由 _ai_http_post，否则会绕过限流与并发闸门")
+
+
+class TestAiEventClustering(unittest.TestCase):
+    """AI 语义事件聚类接入热度算法的事件共振维度。"""
+
+    def setUp(self):
+        self._failures = dict(dr.AI_FUNC_FAILURES)
+        self._count = dr._AI_CALL_COUNT
+        self._warned = dr._AI_BUDGET_WARNED
+        dr.AI_FUNC_FAILURES.clear()
+        dr._AI_CALL_COUNT = 0
+        dr._AI_BUDGET_WARNED = False
+
+    def tearDown(self):
+        dr.AI_FUNC_FAILURES.clear(); dr.AI_FUNC_FAILURES.update(self._failures)
+        dr._AI_CALL_COUNT = self._count
+        dr._AI_BUDGET_WARNED = self._warned
+
+    def _items(self):
+        return [
+            {"title": "上海某河道污染整治完成 - 上海热线", "source": "上海热线"},
+            {"title": "沪上一河道污染治理通过验收 - 奥一网", "source": "奥一网"},
+            {"title": "全球碳市场机制谈判取得进展 - 路透", "source": "路透"},
+        ]
+
+    def _item(self, title, source="Google News 生态环境", hours_ago=6, **extra):
+        now = datetime.now(timezone.utc)
+        it = {"title": title, "source": source, "link": "https://example.com/x",
+              "summary": "", "published": "",
+              "published_dt": now - timedelta(hours=hours_ago)}
+        it.update(extra)
+        return it
+
+    def test_cluster_events_prefers_ai_mapping(self):
+        assigned = dr._cluster_events(self._items(), ai_mapping={0: "E1", 1: "E1"})
+        self.assertEqual(assigned, {0: [0, 1], 2: [2]},
+                         "AI 覆盖的下标按 AI 组归组，未覆盖的各自独立成簇")
+
+    def test_cluster_events_without_ai_mapping_uses_token_overlap(self):
+        items = self._items()
+        assigned = dr._cluster_events(items)
+        self.assertEqual(sum(len(v) for v in assigned.values()), len(items),
+                         "token 路径必须覆盖全部条目，不能丢条目")
+
+    def test_ai_cluster_events_disabled_by_config(self):
+        self.assertIsNone(dr.ai_cluster_events(
+            self._items(), {"summary_enabled": True,
+                            "algorithm_ai": {"semantic_event_clustering": False}}))
+
+    def test_ai_cluster_events_returns_none_without_credentials(self):
+        self.assertIsNone(dr.ai_cluster_events(self._items(), {"summary_enabled": False}))
+        self.assertIsNone(dr.ai_cluster_events(self._items(),
+                                               {"summary_enabled": True, "api_key": ""}))
+
+    def test_ai_cluster_events_returns_none_when_feature_degraded(self):
+        dr.AI_FUNC_FAILURES["事件聚类"] = dr.AI_FUNC_MAX_FAILURES
+        self.assertIsNone(dr.ai_cluster_events(self._items(),
+                                               {"summary_enabled": True, "api_key": "k"}),
+                          "该功能熔断后应直接回退，不再调用")
+
+    def test_ai_cluster_events_success_writes_mapping_and_field(self):
+        items = self._items()
+        payload = json.dumps({"events": [{"id": "E1", "items": [0, 1]}]})
+        with mock.patch.object(dr, "call_nvidia_api", return_value=payload):
+            mapping = dr.ai_cluster_events(items, {"summary_enabled": True, "api_key": "k"})
+        self.assertEqual(mapping, {0: "E1", 1: "E1"})
+        self.assertEqual(items[0].get("_ai_event_id"), "E1")
+        self.assertEqual(items[1].get("_ai_event_id"), "E1")
+        self.assertIsNone(items[2].get("_ai_event_id"), "未归组的条目不应被塞组号")
+
+    def test_ai_cluster_events_tolerates_dirty_members(self):
+        """越界 / 重复 / 非数字成员应被丢弃，其余仍生效"""
+        items = self._items()
+        payload = json.dumps({"events": [{"id": "E1", "items": ["0", 1, 42, 1]}]})
+        with mock.patch.object(dr, "call_nvidia_api", return_value=payload):
+            mapping = dr.ai_cluster_events(items, {"summary_enabled": True, "api_key": "k"})
+        self.assertEqual(mapping, {0: "E1", 1: "E1"})
+
+    def test_ai_cluster_events_rejects_singleton_groups(self):
+        items = self._items()
+        payload = json.dumps({"events": [{"id": "E1", "items": [0, 99]},
+                                         {"id": "E2", "items": [1, 1]}]})
+        with mock.patch.object(dr, "call_nvidia_api", return_value=payload):
+            self.assertIsNone(dr.ai_cluster_events(items, {"summary_enabled": True, "api_key": "k"}),
+                              "全部退化成单元素组时应回退 token 聚类")
+
+    def test_ai_cluster_events_returns_none_on_garbage(self):
+        with mock.patch.object(dr, "call_nvidia_api", return_value="完全不是 JSON"):
+            self.assertIsNone(dr.ai_cluster_events(self._items(),
+                                                   {"summary_enabled": True, "api_key": "k"}))
+
+    def test_ai_cluster_events_returns_none_on_api_failure(self):
+        with mock.patch.object(dr, "call_nvidia_api", return_value=None):
+            self.assertIsNone(dr.ai_cluster_events(self._items(),
+                                                   {"summary_enabled": True, "api_key": "k"}))
+
+    def test_ai_cluster_events_clears_stale_field(self):
+        """上一轮残留的 _ai_event_id 必须被清掉，否则会污染本轮聚类"""
+        items = self._items()
+        for it in items:
+            it["_ai_event_id"] = "STALE"
+        with mock.patch.object(dr, "call_nvidia_api", return_value=None):
+            dr.ai_cluster_events(items, {"summary_enabled": True, "api_key": "k"})
+        self.assertIsNone(items[0].get("_ai_event_id"))
+
+    def test_heat_v3_reports_ai_cluster_source(self):
+        cfg = dr.load_config()
+        items = [self._item("上海某河道污染整治完成 - 上海热线"),
+                 self._item("沪上一河道污染治理通过验收 - 奥一网"),
+                 self._item("全球碳市场机制谈判取得进展 - 路透")]
+        items[0]["_ai_event_id"] = "E1"
+        items[1]["_ai_event_id"] = "E1"
+        out = dr.calculate_heat_v3(items, cfg)
+        bd = out[0]["score_breakdown"]
+        self.assertEqual(bd["event_cluster_source"], "ai")
+        self.assertEqual(bd["event_size"], 2, "同一 AI 事件组的两条应聚成一簇")
+        self.assertGreater(bd["event_media_count"], 1)
+
+    def test_heat_v3_reports_token_cluster_source_without_ai(self):
+        cfg = dr.load_config()
+        items = [self._item("上海某河道污染整治完成 - 上海热线"),
+                 self._item("沪上一河道污染治理通过验收 - 奥一网")]
+        out = dr.calculate_heat_v3(items, cfg)
+        self.assertEqual(out[0]["score_breakdown"]["event_cluster_source"], "token")
+
+    def test_heat_v3_still_works_when_ai_fails(self):
+        """AI 挂掉不能让事件共振维度消失：两条同事件标题仍应聚成一簇"""
+        cfg = dr.load_config()
+        items = [self._item("上海某河道污染整治完成 - 上海热线"),
+                 self._item("沪上一河道污染治理通过验收 - 奥一网")]
+        out = dr.calculate_heat_v3(items, cfg)
+        sizes = [it["score_breakdown"]["event_size"] for it in out]
+        self.assertTrue(any(s >= 2 for s in sizes), "回退路径下仍应识别出同事件")
+
+
+    def test_hotness_clears_ai_event_field(self):
+        """_ai_event_id 是中间字段，清理不干净就会落进 latest.json 污染数据"""
+        cfg = dr.load_config()
+        items = [self._item("上海某河道污染整治完成 - 上海热线"),
+                 self._item("沪上一河道污染治理通过验收 - 奥一网")]
+        items[0]["_ai_event_id"] = "E1"
+        items[1]["_ai_event_id"] = "E1"
+        out = dr.calculate_hotness(items, cfg)
+        self.assertEqual(sum(1 for it in out if "_ai_event_id" in it), 0,
+                         "calculate_hotness 必须清掉 _ai_event_id")
+        self.assertEqual(out[0]["score_breakdown"]["event_size"], 2,
+                         "清理不能影响已算好的事件维度")
 
 if __name__ == "__main__":
     unittest.main(verbosity=2)

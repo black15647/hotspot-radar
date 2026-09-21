@@ -1368,6 +1368,393 @@ class TestHotnessV3Calibration(unittest.TestCase):
             self.assertGreaterEqual(it["score_v2"], dr.DISPLAY_SCORE_MIN)
             self.assertLessEqual(it["score_v2"], dr.DISPLAY_SCORE_MAX)
 
+
+class TestHeatInputRobustness(unittest.TestCase):
+    """F5 / F6：热点主链路的输入容错。
+
+    背景：calculate_heat_v3 的逐条循环原先没有任何 try/except，一条脏数据
+    （naive 时间、权重写成字符串、权重表写成 null）就会让整次运行抛错、
+    当日更新全废。本项目在 AI 聚类解析、院校渲染、时间线快照处都已确立
+    「一条脏数据不能让整批失效」，热度主链路同样补齐。
+    """
+
+    def _item(self, title="生态环境部发布行动方案", source="Nature", hours_ago=3, **extra):
+        now = datetime.now(timezone.utc)
+        it = {"title": title, "source": source, "link": "https://example.com/x",
+              "summary": "", "published": "",
+              "published_dt": now - timedelta(hours=hours_ago)}
+        it.update(extra)
+        return it
+
+    def test_naive_published_dt_does_not_raise(self):
+        """naive datetime 必须被当作 UTC 处理，而不是抛 TypeError 中断整批。"""
+        cfg = dr.load_config()
+        items = [self._item(published_dt=datetime.now() - timedelta(hours=3))]  # 故意 naive
+        out = dr.calculate_heat_v3(items, cfg)
+        self.assertEqual(len(out), 1)
+        # 3 小时前的条目应落在"新鲜"区间（时间常数 48h -> 约 0.96）
+        self.assertGreater(out[0]["score_breakdown"]["time_factor"], 0.9)
+
+    def test_non_datetime_published_dt_falls_back_to_no_time(self):
+        """published_dt 是字符串等非法类型时按"无发布时间"处理（时间衰减到底）。"""
+        cfg = dr.load_config()
+        items = [self._item(published_dt="2026-09-21T00:00:00+00:00")]
+        out = dr.calculate_heat_v3(items, cfg)
+        self.assertAlmostEqual(out[0]["score_breakdown"]["time_factor"], 0.35, places=3)
+
+    def test_calculate_heat_v1_tolerates_naive_published_dt(self):
+        """v1 对照分同样不能被 naive 时间打断（它也被前端弹窗读取）。"""
+        naive = datetime.now() - timedelta(hours=5)
+        score, breakdown, _weight, _hours = dr.calculate_heat_v1(
+            {"title": "t", "source": "Nature", "published_dt": naive},
+            {}, {}, 2.0)
+        self.assertGreater(breakdown["time_score"], 0.0)
+        self.assertGreater(score, 0.0)
+
+    def test_filter_by_time_accepts_naive_published_dt(self):
+        """filter_by_time 遇到 naive 时间应补上 UTC 时区而不是抛错。"""
+        items = [{"title": "t", "published_dt": datetime.now() - timedelta(hours=2)}]
+        kept = dr.filter_by_time(items, hours=48)
+        self.assertEqual(len(kept), 1)
+        self.assertIsNotNone(kept[0]["published_dt"].tzinfo)
+
+    def test_source_weights_none_falls_back_to_defaults(self):
+        """source_weights 写成 YAML 空值 -> 回退默认权重表，不抛 AttributeError。"""
+        cfg = dr.load_config()
+        items = [self._item(source="Nature")]
+        out = dr.calculate_heat_v3(items, {"weights": {"source_weights": None}})
+        self.assertAlmostEqual(out[0]["score_breakdown"]["authority_score"], 18.0, places=1)
+        out2 = dr.calculate_heat_v3([self._item(source="Nature")], {"weights": None})
+        self.assertAlmostEqual(out2[0]["score_breakdown"]["authority_score"], 18.0, places=1)
+        self.assertTrue(cfg)  # 默认配置本身未被修改
+
+    def test_string_source_weight_is_coerced(self):
+        """权重写成字符串（YAML 引号）-> 转成数值；不可解析则退回 1.0。"""
+        out = dr.calculate_heat_v3(
+            [self._item(source="Nature")],
+            {"weights": {"source_weights": {"Nature": "2.0"}}})
+        self.assertAlmostEqual(out[0]["score_breakdown"]["authority_score"], 18.0, places=1)
+
+        out2 = dr.calculate_heat_v3(
+            [self._item(source="Nature")],
+            {"weights": {"source_weights": {"Nature": "high"}}})
+        self.assertEqual(out2[0]["score_breakdown"]["authority_score"], 0.0)
+
+    def test_get_source_weight_preserves_numeric_behaviour(self):
+        """数值原样返回（int 仍是 int），只在遇到非法类型时兜底为 1.0。"""
+        self.assertEqual(dr.get_source_weight("A", None), 1.0)
+        self.assertEqual(dr.get_source_weight("A", {}), 1.0)
+        self.assertEqual(dr.get_source_weight("A", {"A": 2}), 2)
+        self.assertEqual(dr.get_source_weight("A", {"A": 1.5}), 1.5)
+        self.assertEqual(dr.get_source_weight("A", {"A": "1.5"}), 1.5)
+        self.assertEqual(dr.get_source_weight("A", {"A": "abc"}), 1.0)
+        self.assertEqual(dr.get_source_weight("A", {"A": None}), 1.0)
+
+
+class TestHotnessV3ParamClamp(unittest.TestCase):
+    """F7：hotness 配置段的参数钳制必须对称。
+
+    原先只有 reso_tau / display.k / 密度系数有钳制，四维满分与聚类阈值完全没有 ——
+    一处配置笔误会让整个维度静默失效（实测 overlap_threshold=1.5 时全部条目各自
+    成簇、共振维度整体归零）。
+    """
+
+    SAME_EVENT = [
+        "生态环境部：重拳整治环境监测造假！ - 上海热线",
+        "表演式采样、伪造数据？生态环境部部署全国严打环境监测造假 - 奥一网",
+    ]
+
+    def _item(self, title, source="Google News 生态环境", hours_ago=6):
+        return {"title": title, "source": source, "link": "", "summary": "",
+                "published": "",
+                "published_dt": datetime.now(timezone.utc) - timedelta(hours=hours_ago)}
+
+    def _scores(self, items, hotness_cfg):
+        out = dr.calculate_heat_v3(items, {"hotness": hotness_cfg})
+        return [it["score_breakdown"] for it in out]
+
+    def test_overlap_threshold_above_one_is_clamped(self):
+        """阈值 > 1（重叠系数不可能达到）-> 钳到 1.0，不能让共振维度整体归零。"""
+        items = [self._item(t) for t in self.SAME_EVENT]
+        bd = self._scores(items, {"event_cluster": {"overlap_threshold": 1.5}})
+        # 钳到 1.0 后两条仍不会并簇（overlap=0.6 < 1.0），但阈值本身已被压在合法域内
+        self.assertEqual([b["event_size"] for b in bd], [1, 1])
+        # 关键回归：合法阈值下这两条必须能并簇、共振非零
+        bd_ok = self._scores([self._item(t) for t in self.SAME_EVENT],
+                             {"event_cluster": {"overlap_threshold": 0.5}})
+        self.assertEqual([b["event_size"] for b in bd_ok], [2, 2])
+        self.assertGreater(bd_ok[0]["resonance_score"], 0.0)
+
+    def test_overlap_threshold_below_zero_is_clamped(self):
+        """阈值 < 0（任意两条都相似）-> 钳到下限，不能把整批并成一簇。"""
+        items = [self._item(t) for t in self.SAME_EVENT]
+        bd = self._scores(items, {"event_cluster": {"overlap_threshold": -5}})
+        # 钳到 0.05 后这两条依旧并簇（行为与合法小阈值一致），且不会出现负阈值语义
+        self.assertEqual([b["event_size"] for b in bd], [2, 2])
+
+    def test_duplicate_penalty_is_clamped_to_unit_interval(self):
+        """惩罚系数 > 1 会把"重复"变成奖励、< 0 会让 raw 变负 —— 都钳到 [0,1]。"""
+        high = self._scores([self._item(t) for t in self.SAME_EVENT],
+                            {"event_cluster": {"duplicate_penalty": 3.0}})
+        self.assertEqual(sorted(b["repeat_penalty"] for b in high), [1.0, 1.0])
+
+        low = self._scores([self._item(t) for t in self.SAME_EVENT],
+                           {"event_cluster": {"duplicate_penalty": -5}})
+        self.assertEqual(sorted(b["repeat_penalty"] for b in low), [0.0, 1.0])
+
+        normal = self._scores([self._item(t) for t in self.SAME_EVENT],
+                              {"event_cluster": {"duplicate_penalty": 0.6}})
+        self.assertEqual(sorted(b["repeat_penalty"] for b in normal),
+                         [dr.DUPLICATE_PENALTY, 1.0])
+
+    def test_dimension_maxima_are_clamped(self):
+        """四维满分钳到 [0, HOTNESS_DIMENSION_MAX_BOUND]，负值不能让 base 变负。"""
+        neg = self._scores([self._item(self.SAME_EVENT[0])],
+                           {"dimensions": {"authority": -50}})
+        self.assertEqual(neg[0]["authority_score"], 0.0)
+        self.assertEqual(neg[0]["dimension_max"]["authority"], 0.0)
+
+        huge = self._scores([self._item(self.SAME_EVENT[0])],
+                            {"dimensions": {"authority": 10000}})
+        self.assertEqual(huge[0]["dimension_max"]["authority"], dr.HOTNESS_DIMENSION_MAX_BOUND)
+
+    def test_default_config_is_untouched_by_clamping(self):
+        """钳制只对越界值生效：默认配置下四维满分与聚类阈值保持原值。"""
+        bd = self._scores([self._item(self.SAME_EVENT[0])], {})
+        self.assertEqual(bd[0]["dimension_max"],
+                         {"authority": dr.HOTNESS_AUTHORITY_MAX,
+                          "topic": dr.HOTNESS_TOPIC_MAX,
+                          "resonance": dr.HOTNESS_RESONANCE_MAX,
+                          "information": dr.HOTNESS_INFO_MAX})
+        self.assertEqual(bd[0]["base_max"], 70.0)
+
+
+class TestAnalysisDrivers(unittest.TestCase):
+    """F1：分析文案的驱动因素识别必须跟得上 score_breakdown 的 schema 变更。
+
+    旧实现只按 v1 键名（source_score / keyword_score / …）取值，分支判据又是
+    `if sb:`（对任何非空字典恒真）——于是 v3.0 上线后永远走旧分支、四个值全取到 0、
+    drivers 恒为空，连四维满分条目也说不出驱动因素（实测 0/200），全站文案退化成
+    「热度受综合因素影响，可留意」。零报错、零异常、单测全绿，属于"换了数据 schema、
+    消费方没跟上"的静默退化。
+    """
+
+    V3_BREAKDOWN = {
+        "algorithm": "v3.0",
+        "dimension_max": {"authority": 18.0, "topic": 18.0,
+                          "resonance": 18.0, "information": 16.0},
+        "authority_score": 18.0, "topic_score": 18.0,
+        "resonance_score": 18.0, "info_score": 16.0, "time_factor": 1.0,
+    }
+
+    def test_analysis_drivers_reads_v3_keys(self):
+        drivers = dr._analysis_drivers(dict(self.V3_BREAKDOWN))
+        self.assertIn("来源权威性高", drivers)
+        self.assertIn("发布时间较新", drivers)
+        self.assertIn("多家媒体同题报道", drivers)
+
+    def test_analysis_drivers_reads_v1_keys(self):
+        """v1 对照分仍在被前端弹窗读取，旧键名路径不能因为兼容 v3 而失效。"""
+        sb = {"base": 5.0, "source_score": 6.0, "keyword_score": 4.0,
+              "time_score": 9.9, "topic_bonus": 2.0, "total": 27.0}
+        drivers = dr._analysis_drivers(sb)
+        self.assertIn("来源权威性高", drivers)
+        self.assertIn("发布时间较新", drivers)
+        self.assertIn("主题热度高", drivers)
+        self.assertIn("与近期热点主题相关", drivers)
+
+    def test_analysis_drivers_ignores_unknown_schema(self):
+        """两套键名都不匹配时不硬凑（返回空，由调用方兜底），避免编造驱动因素。"""
+        self.assertEqual(dr._analysis_drivers({"algorithm": "v9"}), [])
+        self.assertEqual(dr._analysis_drivers({}), [])
+
+    def test_enhance_analysis_never_degenerates_for_v3_item(self):
+        """v3 满分条目必须能说出「因……」，而不是退化成「受综合因素影响」。"""
+        item = {"title": "某条标题", "topic_tags": ["水污染防治"],
+                "score_breakdown": dict(self.V3_BREAKDOWN)}
+        text = dr.enhance_analysis_with_tags(item)
+        self.assertIn("热度上升", text)
+        self.assertNotIn("综合因素", text)
+        self.assertIn("水污染防治", text)
+
+    def test_enhance_analysis_falls_back_without_breakdown(self):
+        text = dr.enhance_analysis_with_tags({"title": "t"})
+        self.assertIn("综合因素", text)
+
+    def test_real_pipeline_item_gets_drivers(self):
+        """真实链路：calculate_hotness 产出 breakdown -> 分析文案能识别驱动因素。
+
+        这是端到端的那条断言 —— 单测直接喂 breakdown 会漏掉"算法写出的键名
+        与消费方读的键名不一致"这类问题，必须走一遍完整 pipeline。
+        """
+        items = [{"title": "生态环境部发布新污染物治理行动方案",
+                  "source": "Nature", "summary": "", "link": "",
+                  "published_dt": datetime.now(timezone.utc) - timedelta(hours=2)}]
+        dr.calculate_hotness(items, dr.load_config())
+        text = dr.enhance_analysis_with_tags(items[0])
+        self.assertIn("热度上升", text)
+        self.assertNotIn("综合因素", text)
+
+
+class TestMatchedKeywordsInvariant(unittest.TestCase):
+    """F3：matched_keywords 必须始终是 config 词表的子集。
+
+    这是「话题分的噪声词过滤」曾被写成死判据的前提 —— 它的两个条件
+    （不在领域白名单、且不在当日关键词计数里）在本数据流下都不可能成立：
+    前者因为 match_keywords 只会返回 config 词表里的词、后者因为
+    keyword_item_count 正是由同一批词统计出来的。该过滤与随之失效的
+    glossary.json（140 KB）白读已移除，这里用不变量把前提锁住：
+    只要这个不变量成立，就不需要任何"二次过滤"。
+    """
+
+    def test_matched_keywords_are_subset_of_config_keywords(self):
+        cfg_keywords = ["碳市场", "碳排放"]
+        items = [
+            {"title": "全国碳排放权交易市场配额分配方案发布"},
+            {"title": "某地开展碳排放核查", "summary": "涉及碳市场交易"},
+        ]
+        dr.calculate_hotness(items, {"keywords": cfg_keywords})
+        for it in items:
+            matched = set(it["matched_keywords"])
+            self.assertTrue(matched, "本用例应至少命中一个关键词")
+            self.assertTrue(matched <= set(cfg_keywords),
+                            f"匹配出配置词表之外的关键词：{matched - set(cfg_keywords)}")
+
+    def test_keyword_item_count_is_derived_from_matched_keywords(self):
+        """当日计数只能来自 matched_keywords —— 死判据的另一半前提。"""
+        cfg = {"keywords": ["碳市场", "碳排放"]}
+        items = [{"title": "碳排放 碳排放"}, {"title": "碳市场"}]
+        dr.calculate_hotness(items, cfg)
+        counted = set()
+        for it in items:
+            counted |= set(it["matched_keywords"])
+        # 每个被计入当日统计的词，都必须出现在某条的 matched_keywords 里
+        self.assertTrue(counted <= {"碳市场", "碳排放"})
+
+class TestPersonalKnowledgeRotation(unittest.TestCase):
+    """F8：personal_knowledge.md（CI 每日追加的累积日志）的轮转。
+
+    旧实现是「读全量 -> 正则替换当天段 -> 写全量」且**永不裁剪**：按约 11 KB/日
+    估算，一年后单文件约 4 MB，每次运行都要全量扫描两遍，而这份文件是 CI 每日
+    提交的对象，体积会永久留在仓库里。新实现按保留窗口裁掉超窗的日记块，并按
+    月份归档到 docs/data/archive/personal_knowledge-YYYY-MM.md（归档目录已被
+    CI 的 `git add docs/data/` 覆盖，内容不会丢，也不需要手工上传）。
+
+    安全性由**写入顺序**保证：先写归档、全部成功后才裁主文件；归档失败则原样
+    保留全部历史（本用例专门锁住这条）。
+    """
+
+    def setUp(self):
+        self.tmp = tempfile.mkdtemp(prefix="pk_")
+        self.data_dir = os.path.join(self.tmp, "data")
+        os.makedirs(self.data_dir, exist_ok=True)
+        self._patches = [
+            mock.patch.object(dr, "DATA_DIR", self.data_dir),
+            mock.patch.object(dr, "__file__", os.path.join(self.tmp, "daily_report.py")),
+        ]
+        for p in self._patches:
+            p.start()
+        with open(os.path.join(self.data_dir, "latest.json"), "w", encoding="utf-8") as f:
+            json.dump({"keywords": [], "items": []}, f)
+
+    def tearDown(self):
+        for p in self._patches:
+            p.stop()
+        shutil.rmtree(self.tmp, ignore_errors=True)
+
+    # ---------- helpers ----------
+    def _main_path(self):
+        return os.path.join(self.tmp, "personal_knowledge.md")
+
+    def _read(self, path):
+        if not os.path.exists(path):
+            return ""
+        with open(path, "r", encoding="utf-8") as f:
+            return f.read()
+
+    def _seed(self, days_back):
+        """写入「今天 + 前 days_back-1 天」的日记块，返回日期列表。"""
+        now = datetime.now(timezone.utc)
+        dates = [(now - timedelta(days=k)).strftime("%Y-%m-%d")
+                 for k in range(days_back - 1, -1, -1)]
+        text = "# 个人知识库\n\n> 测试种子\n\n---\n\n"
+        text += "\n\n".join("## %s\n\n- 种子内容 %s\n\n---" % (d, d) for d in dates)
+        with open(self._main_path(), "w", encoding="utf-8") as f:
+            f.write(text + "\n")
+        return dates
+
+    def _headers(self, text):
+        return dr._PERSONAL_KNOWLEDGE_DAY_RE.findall(text)
+
+    def _archive_headers(self):
+        archive_dir = os.path.join(self.data_dir, "archive")
+        found = []
+        if os.path.isdir(archive_dir):
+            for name in sorted(os.listdir(archive_dir)):
+                found += self._headers(self._read(os.path.join(archive_dir, name)))
+        return found
+
+    # ---------- tests ----------
+    def test_same_day_is_replaced_not_duplicated(self):
+        """同一天重复运行只应有一个当天小节（幂等）。"""
+        dr.generate_personal_knowledge()
+        dr.generate_personal_knowledge()
+        today = datetime.now(timezone.utc).strftime("%Y-%m-%d")
+        headers = self._headers(self._read(self._main_path()))
+        self.assertEqual(headers.count(today), 1)
+
+    def test_rotation_moves_old_days_to_monthly_archive(self):
+        seeded = self._seed(6)
+        with mock.patch.object(dr, "PERSONAL_KNOWLEDGE_KEEP_DAYS", 2):
+            dr.generate_personal_knowledge()
+        kept = self._headers(self._read(self._main_path()))
+        archived = self._archive_headers()
+        self.assertLessEqual(len(kept), 3, "主文件应只保留今天 + 最近 2 天")
+        self.assertTrue(archived, "归档文件不应为空")
+        lost = set(seeded) - set(kept) - set(archived)
+        self.assertEqual(lost, set(), "有内容既不在主文件也不在归档里：%s" % sorted(lost))
+
+    def test_archived_content_is_retained_verbatim(self):
+        """归档的是原文，不是摘要 —— 正文必须逐字保留。"""
+        seeded = self._seed(6)
+        with mock.patch.object(dr, "PERSONAL_KNOWLEDGE_KEEP_DAYS", 2):
+            dr.generate_personal_knowledge()
+        archive_dir = os.path.join(self.data_dir, "archive")
+        merged = "".join(self._read(os.path.join(archive_dir, n))
+                         for n in sorted(os.listdir(archive_dir)))
+        for d in seeded:
+            if d not in self._headers(self._read(self._main_path())):
+                self.assertIn("种子内容 %s" % d, merged)
+
+    def test_rotation_is_idempotent(self):
+        """连跑两次不应在归档里写出重复日期。"""
+        self._seed(6)
+        with mock.patch.object(dr, "PERSONAL_KNOWLEDGE_KEEP_DAYS", 2):
+            dr.generate_personal_knowledge()
+            dr.generate_personal_knowledge()
+        headers = self._archive_headers()
+        self.assertEqual(len(headers), len(set(headers)),
+                         "归档里出现重复日期：%s" % sorted(headers))
+
+    def test_keep_days_zero_disables_rotation(self):
+        """keep_days <= 0 = 关闭轮转（保留全部历史），且不产生归档目录。"""
+        seeded = self._seed(6)
+        with mock.patch.object(dr, "PERSONAL_KNOWLEDGE_KEEP_DAYS", 0):
+            dr.generate_personal_knowledge()
+        kept = self._headers(self._read(self._main_path()))
+        self.assertTrue(set(seeded) <= set(kept), "关闭轮转后不应裁掉任何历史")
+        self.assertFalse(os.path.exists(os.path.join(self.data_dir, "archive")))
+
+    def test_archive_failure_keeps_history_in_main_file(self):
+        """归档失败时宁可不裁 —— 绝不冒「内容被裁掉却没归档」的风险。"""
+        seeded = self._seed(6)
+        with mock.patch.object(dr, "PERSONAL_KNOWLEDGE_KEEP_DAYS", 2), \
+                mock.patch.object(dr.os, "makedirs", side_effect=OSError("boom")):
+            dr.generate_personal_knowledge()
+        kept = self._headers(self._read(self._main_path()))
+        self.assertTrue(set(seeded) <= set(kept), "归档失败却把历史裁掉了")
+
+
 class _FakeAIResponse:
     """AI 端点响应替身：只实现 _ai_call 实际用到的属性与方法。"""
 

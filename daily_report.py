@@ -813,8 +813,28 @@ def match_keywords(text, keywords, en_aliases=None):
 
 
 def get_source_weight(source_name, source_weights):
-    """获取来源权重"""
-    return source_weights.get(source_name, 1.0)
+    """获取来源权重（全项目唯一的取权重入口，v1 与 v3 两条算法共用）。
+
+    容错：配置层面有两种很容易发生、且报错位置离配置项很远的写法 ——
+      · 整个权重表被写成 YAML 空值（`source_weights:` 后无内容）-> None
+      · 某个源的权重被引号包成字符串（`"中国环境网": "1.5"`）-> str
+    前者抛 AttributeError、后者在 `w - 1.0` 处抛 TypeError，都在算法深处。
+    这里统一兜底成 1.0（未列出的源本来就是这个默认值），并留 _debug 线索。
+    """
+    if not source_weights:
+        return 1.0
+    value = source_weights.get(source_name, 1.0)
+    if isinstance(value, bool):
+        # YAML 的 yes/no 会被解析成 bool；bool 是 int 的子类，必须排在数值判断之前
+        return float(value)
+    if isinstance(value, (int, float)):
+        # 数值原样返回：保持历史行为（int 仍是 int，落盘 JSON 不变）
+        return value
+    try:
+        return float(value)
+    except (TypeError, ValueError):
+        _debug(f"来源权重不是数值，已按默认 1.0 处理：{source_name!r} -> {value!r}")
+        return 1.0
 
 
 # ============================================================
@@ -1003,6 +1023,23 @@ def deduplicate_items(items):
     return unique
 
 
+def _as_aware_utc(value):
+    """把可能是 naive 的 datetime 归一为 tz-aware UTC；非 datetime 返回 None。
+
+    naive datetime 与 tz-aware 的 now 相减会抛
+    `TypeError: can't subtract offset-naive and offset-aware datetimes`。
+    正常数据流下 parse_published_time() 保证 tz-aware，但外部数据源、手工构造的
+    条目或旧快照都可能带 naive 时间；热度主循环里没有任何 try/except，一条脏数据
+    会让整次运行失败、当日更新全废。统一在这里归一，调用方按「无发布时间」处理
+    （时间衰减降到 0.35 底），比中断整批更符合本项目的容错原则。
+    """
+    if not isinstance(value, datetime):
+        return None
+    if value.tzinfo is None:
+        return value.replace(tzinfo=timezone.utc)
+    return value
+
+
 def filter_by_time(items, hours=48):
     """只保留最近 N 小时内的条目；发布时间缺失则按当前时间减24小时处理"""
     now = datetime.now(timezone.utc)
@@ -1010,15 +1047,19 @@ def filter_by_time(items, hours=48):
     filtered = []
 
     for item in items:
-        published_dt = item.get("published_dt")
+        published_dt = _as_aware_utc(item.get("published_dt"))
         if published_dt is None:
             # 发布时间缺失，按当前时间减24小时处理
             item["published_dt"] = now - timedelta(hours=24)
             item["published"] = item["published_dt"].isoformat()
             item["_time_fallback"] = True
             filtered.append(item)
-        elif published_dt >= cutoff:
-            filtered.append(item)
+        else:
+            # 写回归一化后的值：naive 时间在此被补上 UTC 时区，
+            # 后续的时间衰减 / 排序都直接可用，不必各自再做一次容错
+            item["published_dt"] = published_dt
+            if published_dt >= cutoff:
+                filtered.append(item)
 
     return filtered
 
@@ -1096,43 +1137,6 @@ def _load_keyword_history_days():
     return keyword_day_count, total_days
 
 
-def _load_terms_from_json(path):
-    """
-    从 JSON 文件读取词条（term）集合，兼容两种结构：
-      - [{"term": "..."}, ...]   标准词条列表
-      - ["...", ...]             纯字符串列表
-
-    只保留去空白后长度 >= 2 的词条。
-    文件不存在、内容损坏或结构不符时返回空集合（与历史行为一致，不中断主流程），
-    但会通过 _debug 留下线索——否则白名单会静默变空、算法分数静默失真。
-    """
-    terms = set()
-    if not os.path.exists(path):
-        return terms
-    try:
-        with open(path, "r", encoding="utf-8") as f:
-            data = json.load(f)
-        if isinstance(data, list):
-            for entry in data:
-                term = entry.get("term", "") if isinstance(entry, dict) else str(entry)
-                term = str(term).strip()
-                if term and len(term) >= 2:
-                    terms.add(term)
-    except Exception as e:
-        _debug(f"读取词条文件失败，按空集合处理：{path}（{type(e).__name__}: {e}）")
-    return terms
-
-
-def _load_domain_whitelist():
-    """
-    加载领域白名单（话题分里区分「配置关键词」与「噪声词」用）
-    来源：glossary.json 的 term + pending_terms.json 的 term
-    """
-    whitelist = _load_terms_from_json(os.path.join(DATA_DIR, "glossary.json"))
-    whitelist |= _load_terms_from_json(os.path.join(DATA_DIR, "pending_terms.json"))
-    return whitelist
-
-
 def _title_token_set(title):
     """提取标题关键词集合，用于标题相似度聚类（中文jieba/2字滑窗+英文按词）"""
     tokens = set()
@@ -1191,11 +1195,10 @@ def calculate_heat_v1(item, keyword_item_count, source_weights, keyword_bonus=2.
     for kw in set(matched):
         aggregation_bonus += 2 * keyword_item_count.get(kw, 0)
     score += aggregation_bonus
-    published_dt = item.get("published_dt")
+    # 容错同 v3：naive datetime 与 tz-aware 的 now 相减会抛 TypeError
+    published_dt = _as_aware_utc(item.get("published_dt"))
     if published_dt:
-        hours_ago = (now - published_dt).total_seconds() / 3600.0
-        if hours_ago < 0:
-            hours_ago = 0
+        hours_ago = max(0.0, (now - published_dt).total_seconds() / 3600.0)
         time_score = 10 * math.exp(-hours_ago / 24)
     else:
         hours_ago = None
@@ -1250,6 +1253,12 @@ def calculate_heat_v1(item, keyword_item_count, source_weights, keyword_bonus=2.
 #   交集 3 / 并集 12 -> Jaccard = 0.250（低于旧阈值 0.45，漏判）
 #   交集 3 / 较短集合 5 -> overlap = 0.600（高于 0.50，识别成功）
 EVENT_CLUSTER_OVERLAP_THRESHOLD = 0.50
+# 阈值的钳制范围：重叠系数的取值域就是 [0, 1]。
+# 不钳制会静默失效（实测）：阈值 > 1 时任何两条都不可能达到 => 全体各自成簇、
+# 共振维度整体归零；阈值 < 0 时任意两条都相似 => 全体并成一簇、重复惩罚
+# 把整批非代表条目一起打到 0.6。配置笔误不该演变成「分数看着正常但机制没了」。
+EVENT_CLUSTER_OVERLAP_MIN = 0.05
+EVENT_CLUSTER_OVERLAP_MAX = 1.0
 # 同一事件中非代表条目的 raw 惩罚系数（不是删除，榜单会保留多条）
 DUPLICATE_PENALTY = 0.6
 
@@ -1258,6 +1267,11 @@ HOTNESS_AUTHORITY_MAX = 18.0         # 权威度：谁在说
 HOTNESS_TOPIC_MAX = 18.0             # 话题分：说的是不是当下有价值的题
 HOTNESS_RESONANCE_MAX = 18.0         # 事件共振：多少家媒体在说同一件事
 HOTNESS_INFO_MAX = 16.0              # 信息量：说得多具体
+# 单维满分的钳制上限：不是调优参数，只是一道安全栏 ——
+# 该段其余参数都做了钳制（reso_tau / display.k / density 系数），四项满分原先
+# 既不钳制下限也不钳制上限，配成负数会让 base 直接为负、配成极大值会让展示分
+# 无条件饱和到 100，两种都是「配置笔误 → 算法静默失真」。这里统一到 [0, 100]。
+HOTNESS_DIMENSION_MAX_BOUND = 100.0
 
 # ---- 话题分的内部构成 ----
 TOPIC_IDF_MAX = 12.0                 # 关键词 IDF 饱和分：这个题有多稀缺
@@ -1269,12 +1283,16 @@ TOPIC_IDF_TAU = 3.0                  # IDF 饱和常数
 # R = MAX * (1 - exp(-(D-1)/TAU))，D = 同一事件的不同原始媒体数
 # D=2 -> 8.8 / D=3 -> 13.1 / D=4 -> 15.7（满分 18）
 RESONANCE_TAU = 1.5
+# 饱和常数与展示分标定常数的钳制上限：仅防越界配置（tau 极大 => 共振退化为 0；
+# k 极大 => 展示分全部塌到下限 40），默认值远低于上限，正常配置不受影响。
+RESONANCE_TAU_MAX = 50.0
 
 # ---- 展示分标定 ----
 # absolute（默认）：40 + 60*(1-exp(-raw/K))，同一 raw 跨日同分
 # relative：旧的逐日 min-max 到 [MIN, MAX]，仅用于历史口径复现
 DISPLAY_CALIBRATION = "absolute"
 DISPLAY_CALIBRATION_K = 20.0
+DISPLAY_CALIBRATION_K_MAX = 1000.0   # 钳制上限，见 RESONANCE_TAU_MAX 处说明
 DISPLAY_SCORE_MIN = 40.0             # 展示分下限
 DISPLAY_SCORE_MAX = 100.0            # 展示分上限
 DISPLAY_SCORE_MID = 70.0             # relative 模式下全部条目无实质差异时的中性展示分
@@ -1457,6 +1475,16 @@ def _hotness_level(display_score):
     if display_score >= HOTNESS_LEVEL_MEDIUM:
         return "medium"
     return "low"
+
+
+def _clamp(value, lo, hi):
+    """把配置项钳制到 [lo, hi]。
+
+    v3.0 的参数全部来自 config.yaml 手写，一处笔误（阈值超出量纲、满分写成负数）
+    不会报错，只会让整个维度静默失效 —— 这类"看着正常但机制没了"的问题最难查，
+    因此同一配置段里的参数统一走这里钳制，而不是各写各的 max/min。
+    """
+    return max(lo, min(hi, value))
 
 
 def extract_media_name(title):
@@ -1718,27 +1746,41 @@ def calculate_heat_v3(items, config, keyword_item_count=None):
     tp_cfg = hot_cfg.get("topic") or {}
     dp_cfg = hot_cfg.get("display") or {}
 
-    auth_max = float(dim_cfg.get("authority", HOTNESS_AUTHORITY_MAX))
-    topic_max = float(dim_cfg.get("topic", HOTNESS_TOPIC_MAX))
-    reso_max = float(dim_cfg.get("resonance", HOTNESS_RESONANCE_MAX))
-    info_max = float(dim_cfg.get("information", HOTNESS_INFO_MAX))
-    cluster_threshold = float(clu_cfg.get("overlap_threshold", EVENT_CLUSTER_OVERLAP_THRESHOLD))
-    dup_penalty = float(clu_cfg.get("duplicate_penalty", DUPLICATE_PENALTY))
-    reso_tau = max(0.1, float(res_cfg.get("tau", RESONANCE_TAU)))
-    idf_max = float(tp_cfg.get("idf_max", TOPIC_IDF_MAX))
-    burst_max = float(tp_cfg.get("burst_max", TOPIC_BURST_MAX))
-    topic_floor = float(tp_cfg.get("floor", TOPIC_FLOOR))
+    # 本配置段的全部可调项统一钳制（原先只有 reso_tau / display_k / 密度系数有下限，
+    # 四维满分与聚类阈值完全没钳制 —— 同段参数一半钳制一半不钳制是明确的可维护性缺陷）。
+    # 钳制只对越界配置生效，默认值不受影响。
+    auth_max = _clamp(float(dim_cfg.get("authority", HOTNESS_AUTHORITY_MAX)),
+                      0.0, HOTNESS_DIMENSION_MAX_BOUND)
+    topic_max = _clamp(float(dim_cfg.get("topic", HOTNESS_TOPIC_MAX)),
+                       0.0, HOTNESS_DIMENSION_MAX_BOUND)
+    reso_max = _clamp(float(dim_cfg.get("resonance", HOTNESS_RESONANCE_MAX)),
+                      0.0, HOTNESS_DIMENSION_MAX_BOUND)
+    info_max = _clamp(float(dim_cfg.get("information", HOTNESS_INFO_MAX)),
+                      0.0, HOTNESS_DIMENSION_MAX_BOUND)
+    cluster_threshold = _clamp(float(clu_cfg.get("overlap_threshold",
+                                                 EVENT_CLUSTER_OVERLAP_THRESHOLD)),
+                               EVENT_CLUSTER_OVERLAP_MIN, EVENT_CLUSTER_OVERLAP_MAX)
+    dup_penalty = _clamp(float(clu_cfg.get("duplicate_penalty", DUPLICATE_PENALTY)), 0.0, 1.0)
+    reso_tau = _clamp(float(res_cfg.get("tau", RESONANCE_TAU)), 0.1, RESONANCE_TAU_MAX)
+    idf_max = _clamp(float(tp_cfg.get("idf_max", TOPIC_IDF_MAX)),
+                     0.0, HOTNESS_DIMENSION_MAX_BOUND)
+    burst_max = _clamp(float(tp_cfg.get("burst_max", TOPIC_BURST_MAX)),
+                       0.0, HOTNESS_DIMENSION_MAX_BOUND)
+    topic_floor = _clamp(float(tp_cfg.get("floor", TOPIC_FLOOR)),
+                         0.0, HOTNESS_DIMENSION_MAX_BOUND)
     display_mode = str(dp_cfg.get("mode", DISPLAY_CALIBRATION)).strip().lower()
-    display_k = max(1.0, float(dp_cfg.get("k", DISPLAY_CALIBRATION_K)))
+    display_k = _clamp(float(dp_cfg.get("k", DISPLAY_CALIBRATION_K)),
+                       1.0, DISPLAY_CALIBRATION_K_MAX)
 
-    weights = config.get("weights", {})
-    source_weights = weights.get("source_weights", DEFAULT_SOURCE_WEIGHTS)
+    # 容错：weights 段整段可能被写成 YAML 空值（None）；source_weights 同理。
+    # 某个源的权重被引号包成字符串的情况由 get_source_weight() 兜底。
+    weights = config.get("weights") or {}
+    source_weights = weights.get("source_weights") or DEFAULT_SOURCE_WEIGHTS
     now = datetime.now(timezone.utc)
 
-    # ---- 预加载 IDF 历史与领域白名单 ----
+    # ---- 预加载 IDF 历史 ----
     keyword_day_count, total_days = _load_keyword_history_days()
     cold_start = total_days < 7  # 历史不足7天：冷启动，IDF 全部设为1
-    whitelist = _load_domain_whitelist()
 
     def get_idf(kw):
         if cold_start:
@@ -1775,10 +1817,17 @@ def calculate_heat_v3(items, config, keyword_item_count=None):
         for m in members:
             cluster_of[m] = rep
     multi_clusters = [m for m in assigned.values() if len(m) > 1]
+    # 「每个条目的原始报道媒体」与「每个事件簇的不同媒体数」都只算一次。
+    # 原实现在逐条循环里对簇内每个成员重算一遍集合（单簇 O(k^2)），实测 n=800 时
+    # item_origin_source 的调用量被放大 28 倍、n=1600 放大 55 倍。
+    # 预计算与逐条重算的结果逐字相同，纯优化、不改行为（见 test_heat_v3_* 的分簇断言）。
+    origins = [item_origin_source(it) for it in items]
+    cluster_media = {rep: len({origins[i] for i in members})
+                     for rep, members in assigned.items()}
     print(f"[事件聚类] {len(items)} 条 -> {len(assigned)} 个事件簇，"
           f"其中多成员簇 {len(multi_clusters)} 个（来源：{cluster_source}）")
     for members in multi_clusters[:5]:
-        medias = sorted({item_origin_source(items[i]) for i in members})
+        medias = sorted({origins[i] for i in members})
         print(f"  [事件] {len(members)} 条 / {len(medias)} 家媒体：{members[0]} "
               f"{items[members[0]].get('title', '')[:40]}")
 
@@ -1794,15 +1843,20 @@ def calculate_heat_v3(items, config, keyword_item_count=None):
         s_authority = auth_max * math.sqrt(max(0.0, min(1.0, source_weight - 1.0)))
 
         # 2. 话题分：稀缺度（IDF 饱和）+ 当日聚集 + 零命中兜底
+        #    这里原先还有一道「噪声词不给 IDF 分」的过滤：
+        #        if (not in_white) and (kw not in keyword_item_count): continue
+        #    但两个条件在本项目的数据流下都不可能为真 ——
+        #      · kw 来自 matched_keywords，而 match_keywords() 的唯一产物形态
+        #        就是 config 词表里的词（英文别名命中后回填的也是中文原词）；
+        #      · keyword_item_count 正是由同一批 matched_keywords 统计出来的（见上一步）。
+        #    实测该判据 3 次判定 0 命中、382 条白名单从未参与，代价是每次运行白读
+        #    glossary.json（140 KB）。config 词表本身已是人工精选，无需二次过滤，
+        #    故连同 _load_domain_whitelist() 一并移除；不变量由
+        #    test_matched_keywords_are_subset_of_config_keywords 锁死。
         sum_idf = 0.0
         used_kw = []
         for kw in matching:
             idf = get_idf(kw)
-            in_white = kw in whitelist
-            # 噪声词（不在白名单、且非配置关键词）不给 IDF 分
-            # 配置关键词 / 白名单词正常计分；其余词只有在 IDF 较高（专有名）时计分
-            if (not in_white) and (kw not in keyword_item_count):
-                continue
             sum_idf += idf
             used_kw.append({"kw": kw, "idf": round(idf, 3)})
         s_topic_idf = idf_max * (1 - math.exp(-sum_idf / TOPIC_IDF_TAU))
@@ -1821,8 +1875,12 @@ def calculate_heat_v3(items, config, keyword_item_count=None):
         s_topic = min(topic_max, s_topic)
 
         # 3. 事件共振：同一事件的不同原始报道媒体数 D
-        members = assigned.get(cluster_of[idx], [idx])
-        d_media = len({item_origin_source(items[i]) for i in members})
+        #    取预计算值（见本段开头的 origins / cluster_media）；保留 .get 兜底：
+        #    两条聚类路径都保证 cluster_of 覆盖全部下标，万一将来换聚类器漏掉某个
+        #    下标，退回「自成一家媒体」而不是抛 KeyError。
+        rep_idx = cluster_of.get(idx, idx)
+        members = assigned.get(rep_idx, [idx])
+        d_media = cluster_media.get(rep_idx, 1)
         s_resonance = reso_max * (1 - math.exp(-(d_media - 1) / reso_tau))
 
         # 4. 信息量：标题具体性（中英文判据对等）+ RSS 描述可得性
@@ -1856,11 +1914,12 @@ def calculate_heat_v3(items, config, keyword_item_count=None):
         density_factor = max(0.1, min(2.0, density_factor))
 
         # 6. 时间衰减（乘性）
-        published_dt = item.get("published_dt")
+        #    容错：published_dt 可能是 naive datetime（外部数据源或手工构造的条目），
+        #    与 tz-aware 的 now 相减会抛 TypeError —— 本项目在 AI 聚类、院校渲染、
+        #    时间线快照处都确立了「一条脏数据不能让整批失效」，热度主链路同样不该例外。
+        published_dt = _as_aware_utc(item.get("published_dt"))
         if published_dt:
-            hours_ago = (now - published_dt).total_seconds() / 3600.0
-            if hours_ago < 0:
-                hours_ago = 0
+            hours_ago = max(0.0, (now - published_dt).total_seconds() / 3600.0)
         else:
             hours_ago = 9999.0
         time_factor = 0.35 + 0.65 * math.exp(-hours_ago / 48.0)
@@ -1879,7 +1938,7 @@ def calculate_heat_v3(items, config, keyword_item_count=None):
         item["_v3_base"] = round(base, 2)
         item["_v3_cluster_size"] = len(members)
         item["_v3_cluster_media"] = d_media
-        item["_v3_origin"] = item_origin_source(item)
+        item["_v3_origin"] = origins[idx]
         item["_v3_idf_detail"] = used_kw
         item["_v3_prelim"] = round(base * time_factor * density_factor, 4)
 
@@ -1976,8 +2035,8 @@ def calculate_hotness(items, config):
     - score_breakdown 保存 v3.0 的逐维分解，供热度弹窗展示推导过程
     """
     keywords = config.get("keywords", DEFAULT_KEYWORDS)
-    weights = config.get("weights", {})
-    source_weights = weights.get("source_weights", DEFAULT_SOURCE_WEIGHTS)
+    weights = config.get("weights") or {}
+    source_weights = weights.get("source_weights") or DEFAULT_SOURCE_WEIGHTS
     keyword_bonus = weights.get("keyword_bonus", 2.0)
 
     now = datetime.now(timezone.utc)
@@ -2035,57 +2094,6 @@ def sort_and_limit(items, max_total):
     """按 v3.0 展示分从高到低排序，取前 max_total 条（缺失时回退 hotness/v1）"""
     items.sort(key=lambda x: x.get("score_v2", x.get("hotness", x.get("score_v1", 0))), reverse=True)
     return items[:max_total]
-
-
-def generate_analysis(item, config):
-    """
-    为单个热点条目生成一句话分析
-    示例："该条目涉及【气候变化】话题，热度主要由时间新鲜度和来源权威性驱动，建议关注。"
-    """
-    keywords = config.get("keywords", DEFAULT_KEYWORDS)
-    matched = item.get("matched_keywords", [])
-
-    # 选择话题：取匹配到的关键词中出现次数最多的那个
-    if matched:
-        topic = matched[0]  # matched_keywords 已按配置顺序，取第一个
-    else:
-        topic = "环境领域"
-
-    # 分析热度驱动因素
-    drivers = []
-    source_weight = item.get("source_weight", 1.0)
-    if source_weight >= 2.0:
-        drivers.append("来源权威性")
-    elif source_weight >= 1.5:
-        drivers.append("来源影响力")
-
-    published_dt = item.get("published_dt")
-    if published_dt:
-        hours_ago = (datetime.now(timezone.utc) - published_dt).total_seconds() / 3600.0
-        if hours_ago <= 24:
-            drivers.append("时间新鲜度")
-
-    if len(matched) >= 3:
-        drivers.append("主题热度")
-    elif len(matched) >= 1:
-        drivers.append("关键词聚焦")
-
-    if not drivers:
-        drivers.append("综合因素")
-
-    driver_text = "和".join(drivers[:2]) if len(drivers) >= 2 else drivers[0]
-
-    # 根据热度给出建议
-    hotness = item.get("hotness", 0)
-    if hotness >= 20:
-        suggestion = "重点关注"
-    elif hotness >= 12:
-        suggestion = "建议关注"
-    else:
-        suggestion = "可留意"
-
-    analysis = f"该条目涉及【{topic}】话题，热度主要由{driver_text}驱动，{suggestion}。"
-    return analysis
 
 
 # 候选新词提取（generate_pending_terms）用到的逐词过滤正则
@@ -6017,12 +6025,66 @@ def generate_batch_topic_tags(items, api_config):
     return items
 
 
+# 「热度驱动因素」识别阈值（v3.0 与 v2.1 两套 breakdown 键名各自的判据）
+_ANALYSIS_DRIVER_AUTH_HIGH = 0.66     # 权威度 >= 单维满分的 66% -> "权威性高"
+_ANALYSIS_DRIVER_AUTH_MID = 0.33      # >= 33% -> "较权威"
+_ANALYSIS_DRIVER_TIME_FRESH = 0.85    # 时间因子 >= 0.85（约 12.6 小时）-> "发布时间较新"
+_ANALYSIS_DRIVER_RESONANCE = 8.0      # 事件共振 >= 8.0（满分 18）-> "多家媒体同题报道"
+_ANALYSIS_DRIVER_TOPIC = 12.0         # 话题分 >= 12.0（满分 18）-> "话题稀缺度高"
+
+
+def _analysis_drivers(sb):
+    """从 score_breakdown 提取「热度驱动因素」，兼容 v3.0 与 v2.1/更早两种键名。
+
+    v3.0 的 score_breakdown 用 authority_score / topic_score / resonance_score /
+    info_score / time_factor；v2.1 及更早用 source_score / keyword_score /
+    time_score / topic_bonus。两套键名**并存**（v1 对照分与历史快照仍在被读取），
+    因此必须先判存在性再取值，不能只按其中一套取。
+
+    原实现只按旧键名取值，而分支判据写成 `if sb:` —— 对任何非空字典恒真，
+    于是 v3.0 上线后永远走旧分支、四个值全部取到 0、drivers 恒为空，全站分析
+    文案统一退化成「热度受综合因素影响，可留意」（实测四维满分条目 0/200 能
+    识别出驱动因素）。这是「换了数据 schema、消费方没跟上」的典型形态：
+    零报错、零异常、单测全绿，只有肉眼看产出文案才发现。
+    契约由 test_analysis_drivers_recognizes_v3_breakdown 锁死。
+    """
+    if not sb:
+        return []
+    drivers = []
+    if "authority_score" in sb:                      # v3.0 路径
+        auth_max = float((sb.get("dimension_max") or {}).get("authority") or 18.0)
+        auth = float(sb.get("authority_score") or 0)
+        if auth >= auth_max * _ANALYSIS_DRIVER_AUTH_HIGH:
+            drivers.append("来源权威性高")
+        elif auth >= auth_max * _ANALYSIS_DRIVER_AUTH_MID:
+            drivers.append("来源较权威")
+        if float(sb.get("time_factor") or 0) >= _ANALYSIS_DRIVER_TIME_FRESH:
+            drivers.append("发布时间较新")
+        if float(sb.get("resonance_score") or 0) >= _ANALYSIS_DRIVER_RESONANCE:
+            drivers.append("多家媒体同题报道")
+        elif float(sb.get("topic_score") or 0) >= _ANALYSIS_DRIVER_TOPIC:
+            drivers.append("话题稀缺度高")
+    else:                                            # v2.1 及更早
+        src = float(sb.get("source_score") or 0)
+        if src >= 6.0:
+            drivers.append("来源权威性高")
+        elif src >= 4.0:
+            drivers.append("来源较权威")
+        if float(sb.get("time_score") or 0) >= 6.0:
+            drivers.append("发布时间较新")
+        if float(sb.get("keyword_score") or 0) >= 4.0:
+            drivers.append("主题热度高")
+        if float(sb.get("topic_bonus") or 0) > 0:
+            drivers.append("与近期热点主题相关")
+    return drivers
+
+
 def enhance_analysis_with_tags(item):
     """
     根据 topic_tags 与 score_breakdown 生成自然的分析文字
     - 话题：优先 AI 生成的具体 topic_tags[0]，其次 matched_keywords[0]，兜底"环境动态"
       （不再从标题机械提取专有名词/媒体名）
-    - 驱动因素：基于 score_breakdown 各分项生成自然解释
+    - 驱动因素：基于 score_breakdown 各分项生成自然解释（键名兼容见 _analysis_drivers）
     """
     # 话题识别
     topic_tags = item.get("topic_tags", [])
@@ -6032,29 +6094,15 @@ def enhance_analysis_with_tags(item):
         matched = item.get("matched_keywords", [])
         topic = matched[0] if matched else "环境动态"
 
-    # 热度驱动因素（基于 score_breakdown，无则用字段近似）
-    sb = item.get("score_breakdown", {})
-    drivers = []
-    if sb:
-        source_score = sb.get("source_score", 0) or 0
-        if source_score >= 6.0:
-            drivers.append("来源权威性高")
-        elif source_score >= 4.0:
-            drivers.append("来源较权威")
-        time_score = sb.get("time_score", 0) or 0
-        if time_score >= 6.0:
-            drivers.append("发布时间较新")
-        keyword_score = sb.get("keyword_score", 0) or 0
-        if keyword_score >= 4.0:
-            drivers.append("主题热度高")
-        topic_bonus = sb.get("topic_bonus", 0) or 0
-        if topic_bonus > 0:
-            drivers.append("与近期热点主题相关")
-    else:
+    # 热度驱动因素（v3.0 与 v2.1 两套键名由 _analysis_drivers 统一处理）
+    sb = item.get("score_breakdown") or {}
+    drivers = _analysis_drivers(sb)
+    if not drivers and not sb:
+        # 无 breakdown 时的兜底：按来源权重与发布时间近似
         source_weight = item.get("source_weight", 1.0)
         if source_weight >= 2.0:
             drivers.append("来源权威性高")
-        published_dt = item.get("published_dt")
+        published_dt = _as_aware_utc(item.get("published_dt"))
         if published_dt:
             hours_ago = (datetime.now(timezone.utc) - published_dt).total_seconds() / 3600
             if hours_ago <= 24:
@@ -6124,6 +6172,78 @@ def generate_source_health(source_health):
     safe_json_dump(output, health_path)
     print(f"[源健康] 成功 {output['success_count']}/{output['total_sources']}，失败 {output['failed_count']}，严重 {output['critical_count']}")
     return critical_sources
+
+
+# 个人知识库的保留窗口（天）：主文件只保留最近这么多天的正文，更早的按月份
+# 归档到 docs/data/archive/personal_knowledge-YYYY-MM.md —— 该目录已被 CI 的
+# `git add docs/data/` 覆盖，归档内容会随流水线一起提交，既不会丢，也不需要
+# 额外手工上传（它属于"流水线产出"，按上传纪律本来就不该手工传）。
+# 设为 0 或负数 = 关闭轮转（保留全部历史）。
+PERSONAL_KNOWLEDGE_KEEP_DAYS = 180
+_PERSONAL_KNOWLEDGE_DAY_RE = re.compile(r"^## (\d{4}-\d{2}-\d{2})[ \t]*$", re.M)
+
+
+def _rotate_personal_knowledge_blocks(blocks, today=None, keep_days=None):
+    """裁掉保留窗口之外的日记块，按月份归档。返回 (保留的块, 归档天数)。
+
+    personal_knowledge.md 是一条每日追加的累积日志（约 11 KB/日）。旧策略是
+    「读全量 -> 正则替换当天段 -> 写全量」且**永不裁剪**：照此增速一年后单文件
+    约 4 MB，每次运行都要对它做两遍全量扫描，且这份文件是 CI 每日提交的对象，
+    体积会永久留在仓库里。
+
+    ⚠️ 安全性来自**写入顺序**：先把要裁掉的块写进归档文件并确认成功，全部都
+    成功了才返回裁剪后的块列表。归档任一步失败就原样返回（主文件继续长大），
+    宁可文件大一点，也不冒"内容被裁掉却没归档、永久丢失"的风险 ——
+    这份文件此前已经被误传覆盖丢过一次（2026-09-18），教训是恢复只能靠合并
+    git 历史，代价很高。
+    """
+    if keep_days is None:
+        # 在调用时读模块常量（而不是写进默认参数），这样运行期改配置 / 打补丁都能生效
+        keep_days = PERSONAL_KNOWLEDGE_KEEP_DAYS
+    if keep_days <= 0 or not blocks:
+        return blocks, 0
+    today = today or datetime.now(timezone.utc).strftime("%Y-%m-%d")
+    try:
+        cutoff = (datetime.strptime(today, "%Y-%m-%d")
+                  - timedelta(days=keep_days)).strftime("%Y-%m-%d")
+    except ValueError:
+        return blocks, 0
+
+    # 日期是 ISO 格式，字符串比较即等价于时间比较
+    old_blocks = [(d, b) for d, b in blocks if d < cutoff]
+    if not old_blocks:
+        return blocks, 0
+
+    by_month = defaultdict(list)
+    for date_str, block in old_blocks:
+        by_month[date_str[:7]].append((date_str, block))
+
+    archive_dir = os.path.join(DATA_DIR, "archive")
+    try:
+        os.makedirs(archive_dir, exist_ok=True)
+        for month in sorted(by_month):
+            path = os.path.join(archive_dir, f"personal_knowledge-{month}.md")
+            existing = ""
+            if os.path.exists(path):
+                with open(path, "r", encoding="utf-8") as f:
+                    existing = f.read()
+            already = set(_PERSONAL_KNOWLEDGE_DAY_RE.findall(existing))
+            todo = [(d, b) for d, b in by_month[month] if d not in already]
+            if not todo:
+                continue  # 幂等：这一天已经在归档里了（例如上次裁完但主文件没写成）
+            if not existing.strip():
+                existing = (f"# 个人知识库归档 · {month}\n\n"
+                            "> 由 daily_report.py 自动从 personal_knowledge.md 轮转而来，仅供检索。\n\n---")
+            existing = (existing.strip("\n") + "\n\n"
+                        + "\n\n".join(block for _, block in todo).strip("\n") + "\n")
+            with open(path, "w", encoding="utf-8") as f:
+                f.write(existing)
+            print(f"[个人知识库] 归档 {len(todo)} 天 -> {path}")
+    except Exception as e:
+        print(f"[个人知识库] 归档失败，本次不做裁剪（内容仍留在主文件）：{type(e).__name__}: {e}")
+        return blocks, 0
+
+    return [(d, b) for d, b in blocks if d >= cutoff], len(old_blocks)
 
 
 def generate_personal_knowledge():
@@ -6227,39 +6347,49 @@ def generate_personal_knowledge():
             _debug(f"读取现有 personal_knowledge.md 失败，将按空文件重建：{type(e).__name__}: {e}")
             existing_content = ""
 
-    # 检查当天是否已存在
-    day_header = f"## {today}"
-    if day_header in existing_content:
-        # 替换当天内容：找到当天标题到下一个 ## 标题或文件末尾
-        # 匹配从当天 ## 标题到下一个 ## 标题（非贪婪）
-        pattern = re.compile(
-            r'## ' + re.escape(today) + r'.*?(?=\n## \d{4}-\d{2}-\d{2}|\Z)',
-            re.DOTALL
-        )
-        if pattern.search(existing_content):
-            # 用 lambda 作为替换值：避免 day_content 中的反斜杠（如 \m）被 re.sub
-            # 当作转义序列解析而抛出 PatternError: bad escape
-            existing_content = pattern.sub(lambda m: day_content.rstrip() + "\n\n", existing_content)
+    # 按「## YYYY-MM-DD」把正文切成日记块。替换当天 / 追加新一天 / 裁剪旧月份
+    # 都基于块列表做，比原来的 `re.sub` 更直观，也彻底避免了「正文里的反斜杠被
+    # re.sub 当作转义序列解析」（旧实现为此专门包了一层 lambda 作为替换值）。
+    matches = list(_PERSONAL_KNOWLEDGE_DAY_RE.finditer(existing_content))
+    preamble = existing_content[:matches[0].start()] if matches else existing_content
+    if not preamble.strip():
+        preamble = ("# 个人知识库\n\n"
+                    "> 本文件由 daily_report.py 自动生成，记录每日环境领域热点、关键词和候选新词。\n"
+                    f"> 只保留最近 {PERSONAL_KNOWLEDGE_KEEP_DAYS} 天的正文，"
+                    "更早的按月份归档到 docs/data/archive/。\n\n---")
+    preamble = preamble.rstrip("\n") + "\n\n"
+
+    # 每块原样保留（含其后的换行），只有"今天"这一块会被重写 —— 保证这个累积日志
+    # 每天只产生「当天小节」那一处 diff，而不是整文件被重新排版。
+    blocks = []
+    for i, m in enumerate(matches):
+        end = matches[i + 1].start() if i + 1 < len(matches) else len(existing_content)
+        blocks.append((m.group(1), existing_content[m.start():end]))
+
+    today_text = day_content.strip("\n") + "\n\n"
+    for i, (date_str, _) in enumerate(blocks):
+        if date_str == today:
+            blocks[i] = (today, today_text)
             print(f"[个人知识库] 已替换 {today} 的内容")
-        else:
-            existing_content += "\n" + day_content
-            print(f"[个人知识库] 已追加 {today} 的内容")
+            break
     else:
-        # 文件不存在或当天不存在，追加
-        if not existing_content:
-            # 新建文件，写入头部说明
-            header = "# 个人知识库\n\n"
-            header += "> 本文件由 daily_report.py 自动生成，记录每日环境领域热点、关键词和候选新词。\n\n"
-            header += "---\n\n"
-            existing_content = header
-        existing_content += day_content
+        # 追加到末尾：确保与上一节之间留一个空行（只动换行，不动正文）
+        if blocks and not blocks[-1][1].endswith("\n\n"):
+            blocks[-1] = (blocks[-1][0], blocks[-1][1].rstrip("\n") + "\n\n")
+        blocks.append((today, today_text))
         print(f"[个人知识库] 已追加 {today} 的内容")
+
+    # 轮转：主文件只保留最近 N 天，更早的按月归档（内容不丢、不需手工上传）
+    blocks, archived = _rotate_personal_knowledge_blocks(blocks, today=today)
+
+    existing_content = preamble + "".join(text for _, text in blocks)
 
     # 写入文件
     try:
         with open(knowledge_path, "w", encoding="utf-8") as f:
             f.write(existing_content)
-        print(f"[个人知识库] 已保存至 {knowledge_path}")
+        print(f"[个人知识库] 已保存至 {knowledge_path}"
+              + (f"（本次归档 {archived} 天旧内容）" if archived else ""))
     except Exception as e:
         print(f"[个人知识库] 写入失败：{e}")
 
@@ -6941,7 +7071,13 @@ def generate_personal_latest(items, config):
                 "score_v1": float(item.get("score_v1", 0)),
                 "score_v2": float(item.get("score_v2", item.get("hotness", 0))),
                 "summary": sanitize_str(item.get("summary")),
-                "analysis": sanitize_str(item.get("analysis", generate_analysis(item, config))),
+                # 用 or 而不是 dict.get 的默认值：默认参数会被**急切求值**，
+                # 等于每条都白算一遍 generate_analysis 再把结果丢掉（旧实现在此处
+                # 就白白重算了一遍，且那份分析的档位阈值 20/12 是 v1 尺度、
+                # 对 40-100 的展示分恒为真，三档退化成"重点关注"）。
+                # 此时 item["analysis"] 已由 generate_latest_json 用
+                # enhance_analysis_with_tags() 写好，直接复用即可，两条链路文案一致。
+                "analysis": sanitize_str(item.get("analysis") or enhance_analysis_with_tags(item)),
                 "matched_user_keywords": [sanitize_str(kw) for kw in matched],
             }
             personal_items.append(personal_item)

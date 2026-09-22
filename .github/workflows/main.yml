@@ -2,8 +2,14 @@ name: Daily Hotspot Report
 
 on:
   schedule:
-    # 每天 UTC 00:00 运行（北京时间 08:00）
-    - cron: '0 0 * * *'
+    # 主跑：每天 UTC 00:23（北京时间 08:23）。刻意避开整点——GitHub 官方提示
+    # "the start of every hour" 是 Actions 的触发高峰，此时 schedule 事件会被
+    # 延迟甚至静默丢弃：2026-09-22 那次到点后 1.5 小时仍未触发，运行列表里
+    # 连一条记录都没有（历史 #61~#80 连续 20 天天天都跑，唯独这天凭空消失）。
+    - cron: '23 0 * * *'
+    # 补跑窗口：UTC 03:23（北京时间 11:23）。主跑被丢弃或失败时兜底补上；
+    # 主跑已成功则由下面 guard job 识别并跳过，不会重复产出（见 guard 注释）。
+    - cron: '23 3 * * *'
   workflow_dispatch:
     # 允许手动触发
 
@@ -13,7 +19,34 @@ concurrency:
   cancel-in-progress: false
 
 jobs:
+  # 幂等守卫：当天快照已存在，说明今天已经跑成功过（两条 cron 都落在同一 UTC 日内），
+  # 本次就是补跑窗口里的重复触发——直接跳过 build，避免重复提交与重复消耗 AI 额度。
+  # 日期取 UTC，与 daily_report.py 中 generate_daily_snapshot 的
+  # `datetime.now(timezone.utc)` 文件命名口径严格一致；两个 cron 也都在 UTC 同一日内，
+  # 因此 guard 看到的就是"今天是否已产出"这个事实。
+  guard:
+    runs-on: ubuntu-latest
+    outputs:
+      skip: ${{ steps.check.outputs.skip }}
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Check today's snapshot
+        id: check
+        run: |
+          TODAY=$(date -u +%F)
+          if [ -f "docs/data/daily/${TODAY}.json" ]; then
+            echo "今日快照 docs/data/daily/${TODAY}.json 已存在，跳过本次运行"
+            echo "skip=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "今日（${TODAY}）快照尚未生成，继续执行"
+            echo "skip=false" >> "$GITHUB_OUTPUT"
+          fi
+
   build:
+    needs: guard
+    if: needs.guard.outputs.skip != 'true'
     runs-on: ubuntu-latest
     permissions:
       contents: write
@@ -56,12 +89,21 @@ jobs:
       - name: Validate data files
         run: python validate_data.py
 
+      # sitemap 的 lastmod 原先停在手写那天，之后再没更新过——搜索引擎看到的是
+      # 「这个站点很久没变」。提交前把它刷成当天日期。
+      - name: Refresh sitemap lastmod
+        run: |
+          TODAY=$(date -u +%Y-%m-%d)
+          sed -i "s#<lastmod>[0-9-]*</lastmod>#<lastmod>${TODAY}</lastmod>#" docs/sitemap.xml
+          grep -o "<lastmod>[0-9-]*</lastmod>" docs/sitemap.xml
+
       - name: Commit and push data changes
         run: |
           git config --local user.email "github-actions[bot]@users.noreply.github.com"
           git config --local user.name "github-actions[bot]"
           git pull --rebase origin main || true
           git add docs/data/
+          git add docs/sitemap.xml
           git add personal_knowledge.md 2>/dev/null || true
           git diff --staged --quiet || git commit -m "chore: update daily hotspot report $(date -u +%Y-%m-%d)"
           git push

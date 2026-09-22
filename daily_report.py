@@ -979,7 +979,14 @@ def fetch_all_feeds(config, max_items_per_source):
                     count += 1
 
                 success = True
-                print(f"  [成功] 获取 {count} 条")
+                if count:
+                    print(f"  [成功] 获取 {count} 条")
+                else:
+                    # 「连得上、解析也成功，但一条都没取到」既不是网络失败，也不是正常产出。
+                    # 旧实现把这句也打成「[成功] 获取 0 条」并记 success=True，于是
+                    # arXiv(0 条) / IISD SDG(1 条) 这类"全绿但哑"的源照样计入健康度，
+                    # 某一类内容在持续变少却永远不会触发任何告警。
+                    print("  [警告] 源可访问但未取到条目（记为「空源」，不计入有效源）")
 
         except Exception as e:
             error_msg = str(e)
@@ -991,6 +998,8 @@ def fetch_all_feeds(config, max_items_per_source):
             "url": url,
             "last_check": fetch_time,
             "success": success,
+            # empty：可访问但零产出。与 success 分开表达，健康度统计用 is_effective_source
+            "empty": bool(success) and count == 0,
             "elapsed_seconds": elapsed,
             "item_count": count,
             "error": error_msg if not success else "",
@@ -2116,6 +2125,23 @@ RECRUIT_TITLE_HINTS = (
     "实习", "应届生", "毕业生", "人才引进", "事业单位", "公开招聘", "选调",
 )
 RECRUIT_CAMPUS_HINTS = ("校招", "校园招聘", "应届", "毕业生", "在校")
+# 「社招」必须是**判定出来的**，不能是兜底值：旧实现末行无条件 return "社招"，
+# 于是"既非实习也非校招"的一切内容（对外汉语教师志愿者、机关文员、综合招聘会）
+# 都被贴上"社招"这个看起来完全有效的类别，谁也不会再去拦它。
+# 现在只有命中下列显式语素才判社招，判不出来返回 None -> 直接丢弃。
+RECRUIT_SOCIAL_HINTS = ("社招", "社会招聘", "公开招聘", "人才引进", "事业单位", "选调", "面向社会")
+
+# 环境类岗位相关性闸门：招聘条目的**标题**必须命中其中之一才允许进入 recruit.json。
+# 为什么必须有：三个招聘源是 Google News 的定向查询，只保证"站点/关键词相关"，
+# 不保证"岗位相关"。线上一次运行 4 条候选全被判为社招，实为对外汉语教师志愿者、
+# 浙江事业单位、浦东机关文员、广州招聘会——没有一条与环境专业对口。
+# 而窗口被无关内容填满比空着更糟：空态至少不误导。
+RECRUIT_ENV_JOB_HINTS = (
+    "环境", "环保", "生态", "水务", "给排水", "水处理", "污水", "大气", "废气",
+    "土壤", "固废", "危废", "监测", "检测", "环评", "碳", "节能", "能源", "资源",
+    "EHS", "ESG", "安全", "化学", "化工", "材料", "地质", "海洋", "林业", "园林",
+    "供水", "排水", "环卫", "垃圾", "修复", "排放", "清洁生产", "循环经济",
+)
 
 # 招聘候选的独立时效窗口（小时）。
 # 为什么不用主流程的 48 小时：招聘公告/校招简章发布后长期有效，Google News 的招聘类查询
@@ -2125,14 +2151,26 @@ RECRUIT_CAMPUS_HINTS = ("校招", "校园招聘", "应届", "毕业生", "在校
 RECRUIT_WINDOW_HOURS = 336
 
 
+def _is_env_job_title(title):
+    """标题是否指向环境类专业岗位（招聘窗口的相关性闸门）"""
+    up = (title or "").upper()
+    return any(h.upper() in up for h in RECRUIT_ENV_JOB_HINTS)
+
+
 def _classify_recruit_type(text):
-    """按标题语义判定招聘类型：实习 / 校招 / 社招。"""
+    """按标题语义判定招聘类型：实习 / 校招 / 社招。
+
+    判不出类型时返回 None —— 由调用方丢弃。这里刻意不再有兜底返回值：
+    一个永远会命中的默认类别，等于让"判不出来"这件事在产出里彻底消失。
+    """
     t = text or ""
     if "实习" in t:
         return "实习"
     if any(k in t for k in RECRUIT_CAMPUS_HINTS):
         return "校招"
-    return "社招"
+    if any(k in t for k in RECRUIT_SOCIAL_HINTS):
+        return "社招"
+    return None
 
 
 def _recruit_iso_date(value):
@@ -2153,9 +2191,19 @@ def _recruit_iso_date(value):
 
 
 def extract_recruit_candidates(items):
-    """从（尚未做环境相关性过滤的）条目池里挑出招聘/实习资讯。"""
+    """从（尚未做环境相关性过滤的）条目池里挑出招聘/实习资讯。
+
+    三道闸门，缺一不可：
+      1. 招聘语义：源名或标题命中招聘语素（否则根本不该进这个窗口）；
+      2. 环境岗位相关性：标题命中环境类岗位词（否则窗口会被无关内容填满）；
+      3. 类型可判定：实习 / 校招 / 社招三者能判出一个，判不出来就丢弃。
+    返回 (候选列表, 丢弃统计 dict) —— 丢弃数量必须回传并打日志，
+    否则"筛掉了 12 条无关招聘"这件事在运行日志里是看不见的。
+    """
     out = []
     seen = set()
+    dropped_not_env = 0
+    dropped_unknown_type = 0
     for item in items:
         if not isinstance(item, dict):
             continue
@@ -2169,6 +2217,15 @@ def extract_recruit_candidates(items):
         key = link or title
         if not key or key in seen:
             continue
+        # 闸门 2：与环境岗位无关的一律丢弃（宁可为空态，也不要填满无关内容）
+        if not _is_env_job_title(title):
+            dropped_not_env += 1
+            continue
+        # 闸门 3：类型判不出来就丢弃，不做兜底归类
+        rtype = _classify_recruit_type(title)
+        if rtype is None:
+            dropped_unknown_type += 1
+            continue
         seen.add(key)
         out.append({
             "title": title,
@@ -2176,19 +2233,26 @@ def extract_recruit_candidates(items):
             "url": link,
             "source": source or "未标注来源",
             "published_at": _recruit_iso_date(item.get("published")),
-            "type": _classify_recruit_type(title),
+            "type": rtype,
             "tags": list(item.get("topic_tags") or [])[:4],
         })
     out.sort(key=lambda x: x.get("published_at") or "", reverse=True)
-    return out[:30]
+    return out[:30], {"not_env": dropped_not_env, "unknown_type": dropped_unknown_type}
 
 
 def generate_recruit_json(recruit_pool, items, config):
     """生成 docs/data/recruit.json —— 就业窗口「最新招聘资讯」的数据源。"""
     # 并入通过环境相关性过滤、语义上仍属招聘的条目；两类可能重叠，按 url/标题去重
+    more, dropped = extract_recruit_candidates(items)
     merged = []
     seen = set()
-    for rec in list(recruit_pool) + extract_recruit_candidates(items):
+    skipped_untyped = 0
+    for rec in list(recruit_pool) + more:
+        # 没有类型（或类型为 None）的条目不许进产出：旧实现让判不出类型的条目直接落盘，
+        # 日志上的"社招 4 条"正是因为兜底值把判不出来伪装成了正常类别。
+        if not isinstance(rec, dict) or not rec.get("type"):
+            skipped_untyped += 1
+            continue
         key = rec.get("url") or rec.get("title")
         if not key or key in seen:
             continue
@@ -2203,10 +2267,14 @@ def generate_recruit_json(recruit_pool, items, config):
     }
     path = os.path.join(DATA_DIR, "recruit.json")
     safe_json_dump(payload, path)
-    by_type = Counter(x["type"] for x in merged)
+    by_type = Counter(x.get("type") for x in merged)
     print(f"[生成] {path}（招聘资讯 {len(merged)} 条："
           f"实习 {by_type.get('实习', 0)} / 校招 {by_type.get('校招', 0)} / "
           f"社招 {by_type.get('社招', 0)}）")
+    dropped_total = dropped["not_env"] + dropped["unknown_type"] + skipped_untyped
+    if dropped_total:
+        print(f"[招聘] 已剔除 {dropped_total} 条候选：与环境岗位无关 {dropped['not_env']} 条 / "
+              f"类型无法判定 {dropped['unknown_type'] + skipped_untyped} 条")
     return payload
 
 
@@ -3268,6 +3336,51 @@ ENV_ABBREV = {
     "pm2.5", "pm10", "esg", "voc", "vocs", "cod", "bod", "tn", "tp",
     "ghg", "ccus", "cchs", "lca", "epa", "ipcc", "cop", "svoc", "pfas",
 }
+
+# 已知环境缩写的**规范拼写**：标签必须先归一，否则同一件事会被算成两个标签。
+# 真实案例：同一批标签里同时出现 "Pfas" 与 "PFAS"，近7天高频词把它们各记一次，
+# 周报读起来像是两个不同的东西。
+ENV_ACRONYM_CANON = {
+    "pfas": "PFAS", "svoc": "SVOC", "voc": "VOC", "vocs": "VOCs",
+    "cod": "COD", "bod": "BOD", "tn": "TN", "tp": "TP",
+    "ghg": "GHG", "ccus": "CCUS", "cchs": "CCHS", "lca": "LCA",
+    "epa": "EPA", "ipcc": "IPCC", "cop": "COP", "esg": "ESG",
+    "pm2.5": "PM2.5", "pm10": "PM10",
+}
+
+
+def canonical_tag(tag):
+    """把标签里的已知环境缩写统一成规范拼写（Pfas / pfas -> PFAS），其余原样返回"""
+    t = str(tag or "").strip()
+    if not t:
+        return t
+    return ENV_ACRONYM_CANON.get(t.lower(), t)
+
+
+# 「AI 判否，但标题命中**不可歧义**的中文强环境信号词」→ 保留。
+# 与下方"刻意不做关键词救援"并不矛盾，两者解决的是不同问题：
+#   · ENV_RELATED_EN 里的 artificial intelligence / regulation / agreement / air 是真的会
+#     误命中的**多义词**，拿它救援会把时政、法律、产品类标题捞回来（Trump 组建 AI 部队
+#     命中 artificial intelligence 就是实例）；
+#   · 这份名单是**中文**，且每个词都只可能出现在环境语境里，不存在"命中却与环境无关"的组合。
+# 触发它的真实案例：线上把「铜川市环境空气质量预报」判成无关而剔除 —— AI 把
+# "例行预报不是新闻"当成了"与环境无关"。但相关性过滤的契约是**领域归属**，不是新闻价值；
+# 后者该由热度算法的信息密度维度去处理，不该在这里被一刀砍掉。
+STRONG_ENV_SIGNALS_ZH = (
+    "环境空气质量", "空气质量", "环境监测", "环境质量", "环境治理", "环境法典",
+    "水生态", "生态保护", "污染防治", "水环境", "大气环境", "土壤环境",
+    "排污许可", "环境影响评价", "环评", "碳市场", "碳交易", "碳排放", "碳中和",
+    "碳达峰", "温室气体", "污染治理", "水污染", "大气污染", "土壤污染", "固废",
+    "危废", "渗滤液", "污泥", "污水", "废水", "废气", "噪声污染", "生态修复",
+    "生物多样性", "自然保护区", "国家公园", "微塑料", "重金属", "新污染物",
+    "生态补偿", "环境健康", "清洁生产", "循环经济", "可再生能源",
+)
+
+
+def has_strong_env_signal(title):
+    """标题是否命中不可歧义的中文强环境信号词（AI 判否时的一道路径保护）"""
+    t = title or ""
+    return any(sig in t for sig in STRONG_ENV_SIGNALS_ZH)
 
 
 _ENV_TERM_WHITELIST_CACHE = None
@@ -4615,8 +4728,12 @@ def filter_environmental_relevance(items, config, api_config):
     2. AI 不可用或调用失败，规则降级：
        - 只过滤明显无关内容（体育/游戏/娱乐等）
        - 含环境相关词（中/英）的必须保留，无法判断的默认保留
-    3. 兜底按判决来源区分：
-       - AI 模式：被判无关的保持剔除，只救回"确实命中环境词"的（AI 误杀保护）；不足下限也不放回
+    3. AI 判否时的两条窄口径保护（都不涉及多义词，避免把时政/法律/产品类标题捞回来）：
+       - 环境垂直源：源可信，AI 偶发误判；
+       - 标题命中不可歧义的中文强环境信号词（STRONG_ENV_SIGNALS_ZH）。
+    4. 兜底按判决来源区分：
+       - AI 模式：被判无关的保持剔除，只救回上述两条保护命中的（AI 误杀保护）；
+         不足下限也不放回
        - 规则模式：过滤后剩余不足 MIN_KEPT_ITEMS 条则取消过滤，保留全部
     4. 每条结果写入日志（保留/过滤 + 标题前20字）
     返回过滤后的条目列表
@@ -4647,6 +4764,15 @@ def filter_environmental_relevance(items, config, api_config):
                     item.pop("irrelevant", None)
                     kept.append(item)
                     print(f"[保留] 环境垂直源（AI 判否，源可信）：{title[:22]}")
+                    continue
+                # 窄口径保护：标题命中不可歧义的中文强环境信号词 → 保留。
+                # AI 会把「例行预报 / 常规通报」这类内容判成"与环境无关"，但那只说明它
+                # 信息量低（该由热度算法的密度维度降权），不代表领域不对（细节见
+                # STRONG_ENV_SIGNALS_ZH 注释）。这里只放行中文强信号词，不碰英文。
+                if has_strong_env_signal(title):
+                    item.pop("irrelevant", None)
+                    kept.append(item)
+                    print(f"[保留] 标题含强环境信号词（AI 判否，疑似误杀）：{title[:22]}")
                     continue
                 item["irrelevant"] = True
                 print(f"[过滤] 无关内容（AI判断）：{title[:20]}")
@@ -4780,16 +4906,24 @@ def calculate_weekly_categories():
             try:
                 with open(snapshot_path, "r", encoding="utf-8") as f:
                     snap = json.load(f)
-                items = snap.get("items", []) if isinstance(snap, dict) else []
-                for item in items:
-                    cat = item.get("category", "")
-                    if not cat:
-                        # 旧数据没有 category，用 classify_item 推断（历史批量不联网翻译）
-                        cat = classify_item(item, allow_translate=False)
-                    if cat in cat_counts:
-                        cat_counts[cat] += 1
-                    else:
-                        cat_counts["其他"] += 1
+                cat_stats = read_snapshot_category_stats(snap)
+                if cat_stats is not None:
+                    # 全量统计口径：近7天分类趋势同样不能被 Top10 明细限定深度
+                    for cat, entry in cat_stats.items():
+                        if not isinstance(entry, dict):
+                            continue
+                        key = cat if cat in cat_counts else "其他"
+                        cat_counts[key] += int(entry.get("count", 0) or 0)
+                else:
+                    for item in (snap.get("items", []) if isinstance(snap, dict) else []):
+                        cat = item.get("category", "")
+                        if not cat:
+                            # 旧数据没有 category，用 classify_item 推断（历史批量不联网翻译）
+                            cat = classify_item(item, allow_translate=False)
+                        if cat in cat_counts:
+                            cat_counts[cat] += 1
+                        else:
+                            cat_counts["其他"] += 1
             except Exception as e:
                 # 单个快照统计失败：该日大类计数不完整，但不影响其余日期
                 _debug(f"统计 {date_str} 领域大类失败：{type(e).__name__}: {e}")
@@ -4838,49 +4972,71 @@ def calculate_week_stats(today_items=None):
     def date_str(offset):
         return (today - timedelta(days=offset)).strftime("%Y-%m-%d")
 
-    def load_snapshot(offset):
-        """offset=天数偏移；返回快照条目列表，文件不存在返回 None"""
+    def load_snapshot_doc(offset):
+        """offset=天数偏移；返回快照 dict（含全量统计口径字段），文件不存在/损坏返回 None"""
         p = os.path.join(DATA_DIR, "daily", f"{date_str(offset)}.json")
         if os.path.exists(p):
             try:
                 with open(p, "r", encoding="utf-8") as f:
                     snap = json.load(f)
-                return snap.get("items", []) if isinstance(snap, dict) else []
+                return snap if isinstance(snap, dict) else None
             except Exception as e:
                 _debug(f"读取历史快照失败：{type(e).__name__}: {e}")
                 return None
         return None
 
+    def load_snapshot(offset):
+        """offset=天数偏移；返回快照条目明细列表，文件不存在返回 None"""
+        doc = load_snapshot_doc(offset)
+        return doc.get("items", []) if doc else None
+
     week_total = 0
     week_keywords = set()
     policy_count = 0
-    week_cat_total = 0  # 有类别信息的条目数（快照口径），用于政策占比分母
+    # 政策占比的分母：走**全量统计口径**（category_stats），不能用 Top10 明细，
+    # 否则分母被截断到 7×10 条，与 week_total（history 全量口径）互相矛盾。
+    week_cat_total = 0
 
     # 近7天：offset 0 用当日内存条目，1-6 读快照 + history
     for offset in range(7):
         ds = date_str(offset)
         if offset == 0:
             day_items = today_items
+            day_cat_stats = build_snapshot_category_stats(day_items)
             week_total += len(day_items)
         else:
-            day_items = load_snapshot(offset)
-            # 总数优先取 history 的完整条目数，其次快照条目数
+            snap_doc = load_snapshot_doc(offset)
+            day_items = snap_doc.get("items", []) if snap_doc else None
+            day_cat_stats = read_snapshot_category_stats(snap_doc)
+            # 总数口径优先级：history（全量）> 快照全量字段 > 快照明细条数
             hist_rec = history_map.get(ds)
             if hist_rec and int(hist_rec.get("total_items", 0) or 0) > 0:
                 week_total += int(hist_rec["total_items"])
                 for k in (hist_rec.get("keywords") or []) + list((hist_rec.get("keyword_counts") or {}).keys()):
                     if str(k).strip():
                         week_keywords.add(str(k).strip())
+            elif snap_doc and int(snap_doc.get("total_items", 0) or 0) > 0:
+                week_total += int(snap_doc["total_items"])
             elif day_items:
                 week_total += len(day_items)
-        if not day_items:
+        if not day_items and not day_cat_stats:
             continue
-        for it in day_items:
+        for it in day_items or []:
             week_keywords |= _snapshot_keywords(it)
-            cat = it.get("category") or classify_item(it, allow_translate=False)
-            week_cat_total += 1
-            if cat == "环境政策":
-                policy_count += 1
+        if day_cat_stats is not None:
+            for cat, entry in day_cat_stats.items():
+                if not isinstance(entry, dict):
+                    continue
+                cnt = int(entry.get("count", 0) or 0)
+                week_cat_total += cnt
+                if cat == "环境政策":
+                    policy_count += cnt
+        else:
+            for it in day_items or []:
+                cat = it.get("category") or classify_item(it, allow_translate=False)
+                week_cat_total += 1
+                if cat == "环境政策":
+                    policy_count += 1
 
     # 更早基线：第 8-37 天（前30天）出现过的关键词（快照 + history）
     baseline_keywords = set()
@@ -4907,12 +5063,76 @@ def calculate_week_stats(today_items=None):
     }
 
 
+# ============================================================
+# 每日快照：「明细口径」与「统计口径」必须分离
+# ============================================================
+# 背景（2026-09-22 线上静默失效审查）：docs/data/daily/YYYY-MM-DD.json 同时被当成
+# 两种用途的文件，而这两种用途的口径是冲突的 ——
+#   · 产品用途：归档里点某天看「当日 TOP 10 热点」，明细只该存 10 条（体积可控）；
+#   · 统计用途：timeline.json、近7天分类趋势、政策类占比都要按**当天全部入选条目**统计。
+# 旧实现让统计方直接遍历 items，于是统计值被"焊死"在每天最多 10 条：
+# 线上 30 天时间线合计 276 条，而 history.json 记录的真实发布量是 886 条（低估 3.21 倍），
+# 折线图看起来每天都在 6~10 之间打平，完全看不出真实波动。
+#
+# 现在的口径（快照内三件事各司其职）：
+#   · items          = Top 10 明细（产品口径；前端归档页与时间线钻取照旧读它）
+#   · total_items    = 当日**全部**入选条目数（统计口径，与 history.json 的 total_items 同源）
+#   · category_stats = 当日**全部**入选条目按大类的 {count, total_heat} 聚合（统计口径）
+# 统计方一律优先读 category_stats；读不到（本次改动之前生成的旧快照）才回退为遍历 items——
+# 回退值偏小，但不会凭空造数。旧快照无法回填：archive 只存计数、没有逐条明细。
+def _snapshot_category(item):
+    """快照统计口径下一条条目所属大类（与旧遍历路径完全一致，保证新旧数据可比）"""
+    cat = item.get("category") or classify_item(item, allow_translate=False)
+    return cat if cat in CATEGORY_ORDER else "其他"
+
+
+def _snapshot_heat(item):
+    """快照统计口径下一条条目的热度（非法值计 0，不能让一条脏数据中断整日统计）"""
+    heat = item.get("score_v2", item.get("hotness", item.get("score", 0))) or 0
+    try:
+        return float(heat)
+    except (TypeError, ValueError):
+        return 0.0
+
+
+def build_snapshot_category_stats(items):
+    """按「当日全部入选条目」聚合各大类的条目数与热度合计。
+
+    这是 timeline / 近7天分类趋势 / 政策占比的权威输入，与快照里只存 Top10 的
+    items 明细彻底解耦。
+    """
+    stats = {}
+    for item in items or []:
+        if not isinstance(item, dict):
+            continue
+        cat = _snapshot_category(item)
+        entry = stats.setdefault(cat, {"count": 0, "total_heat": 0.0})
+        entry["count"] += 1
+        entry["total_heat"] += _snapshot_heat(item)
+    for entry in stats.values():
+        entry["total_heat"] = round(entry["total_heat"], 1)
+    return stats
+
+
+def read_snapshot_category_stats(snap):
+    """取快照的全量分类聚合；旧快照没有该字段时返回 None，由调用方回退为遍历 items"""
+    if not isinstance(snap, dict):
+        return None
+    cs = snap.get("category_stats")
+    if isinstance(cs, dict) and cs:
+        return cs
+    return None
+
+
 def generate_timeline_data(days=30):
     """
     统计近 N 天（默认30天）各大类每天的条目数量与热度总和
-    数据来源：docs/data/daily/YYYY-MM-DD.json 每日快照（缺 category 时用 classify_item 推断）
+    数据来源：docs/data/daily/YYYY-MM-DD.json 每日快照
+      · 优先读全量统计口径 category_stats；旧快照缺该字段时才遍历 items（口径偏小）
     返回结构：{大类: [{"date","count","total_heat"}, ...]}（日期升序，无数据补0）
     同时写入 docs/data/timeline.json
+
+    ⚠️ 调用方必须保证「当日快照已经落盘」——否则本函数看到的"今天"恒为 0。
     """
     timeline_cats = list(CATEGORY_ORDER)  # 含"其他"类别（数量为0时前端自然不突出）
     timeline = {cat: [] for cat in timeline_cats}
@@ -4927,18 +5147,26 @@ def generate_timeline_data(days=30):
             try:
                 with open(snapshot_path, "r", encoding="utf-8") as f:
                     snap = json.load(f)
-                for item in (snap.get("items", []) if isinstance(snap, dict) else []):
-                    cat = item.get("category") or classify_item(item, allow_translate=False)
-                    if cat not in per_cat:
-                        cat = "其他"
-                    if cat in per_cat:
-                        per_cat[cat]["count"] += 1
-                        heat = item.get("score_v2", item.get("hotness", item.get("score", 0))) or 0
+                cat_stats = read_snapshot_category_stats(snap)
+                if cat_stats is not None:
+                    # 全量统计口径：快照已给出当日全部入选条目的分类聚合
+                    for cat, entry in cat_stats.items():
+                        if not isinstance(entry, dict):
+                            continue
+                        key = cat if cat in per_cat else "其他"
+                        per_cat[key]["count"] += int(entry.get("count", 0) or 0)
                         try:
-                            per_cat[cat]["total_heat"] += float(heat)
+                            per_cat[key]["total_heat"] += float(entry.get("total_heat", 0) or 0)
                         except (TypeError, ValueError) as e:
-                            # heat 字段异常（如 None / 非数字字符串）：该项热度不计入合计
-                            _debug(f"时间线热度累加跳过非法值 {heat!r}：{e}")
+                            _debug(f"时间线热度累加跳过非法值 {entry.get('total_heat')!r}：{e}")
+                else:
+                    # 旧快照回退：只有 Top10 明细，统计值必然偏小（无法回填，见上方说明）
+                    _debug(f"快照 {date_str} 无 category_stats，回退遍历 items（统计值偏小）")
+                    for item in (snap.get("items", []) if isinstance(snap, dict) else []):
+                        cat = _snapshot_category(item)
+                        if cat in per_cat:
+                            per_cat[cat]["count"] += 1
+                            per_cat[cat]["total_heat"] += _snapshot_heat(item)
             except Exception as e:
                 # 该日快照读取或遍历失败：这一天的时间线计数保留初始值（0）
                 _debug(f"读取时间线快照 {snapshot_path} 失败：{type(e).__name__}: {e}")
@@ -4973,7 +5201,19 @@ def calculate_weekly_keywords():
     返回 [{term, count}, ...]，按出现次数降序排列，取前10个
     """
     # datetime / timedelta 已在模块顶部导入（此处原有重复的函数内导入，已移除）
+    # 计数按**小写键**归并、显示用规范拼写：大小写不同的同一个标签（Pfas / PFAS）
+    # 必须算作一个词，否则高频词榜会被同一件事的两种写法各占一格。
     keyword_counter = Counter()
+    _kw_display = {}
+
+    def _add_kw(term, n=1):
+        t = str(term).strip()
+        if len(t) < 2:
+            return
+        canon = canonical_tag(t)
+        key = canon.lower()
+        keyword_counter[key] += n
+        _kw_display.setdefault(key, canon)
 
     # 方法一：从最近7天的每日快照文件中提取 topic_tags
     today = datetime.now().date()
@@ -4987,15 +5227,11 @@ def calculate_weekly_keywords():
                     daily_data = json.load(f)
                 items = daily_data.get("items", [])
                 for item in items:
-                    tags = item.get("topic_tags", [])
-                    for tag in tags:
-                        if tag and len(str(tag).strip()) >= 2:
-                            keyword_counter[str(tag).strip()] += 1
+                    for tag in (item.get("topic_tags", []) or []):
+                        _add_kw(tag)
                     # 也从 matched_keywords 中提取
-                    matched = item.get("matched_keywords", [])
-                    for kw in matched:
-                        if kw and len(str(kw).strip()) >= 2:
-                            keyword_counter[str(kw).strip()] += 1
+                    for kw in (item.get("matched_keywords", []) or []):
+                        _add_kw(kw)
             except Exception as e:
                 # 该日快照读取失败：跳过这一天，其余日期继续统计
                 _debug(f"统计近7天高频词时跳过快照 {daily_path}：{type(e).__name__}: {e}")
@@ -5018,8 +5254,8 @@ def calculate_weekly_keywords():
                         else:
                             term = str(kw)
                             count = 1
-                        if term and len(term.strip()) >= 2:
-                            keyword_counter[term.strip()] += count
+                        if term:
+                            _add_kw(term, count)
         except Exception as e:
             # 该数据源（history）读取失败：近7天高频词统计会缺少这一部分
             _debug(f"统计近7天高频词时读取 history 失败：{type(e).__name__}: {e}")
@@ -5031,11 +5267,12 @@ def calculate_weekly_keywords():
     # 当成"高频话题"引用（weekly_keywords[0]），属于流水线自己制造的噪声。
     banned |= WEEKLY_KEYWORD_BANNED_TAGS
     for banned_word in banned:
-        if banned_word in keyword_counter:
-            del keyword_counter[banned_word]
+        # 计数键是小写，禁用词比对也要归一，否则大小写变体（如 "Pfas" 类）会漏网
+        keyword_counter.pop(str(banned_word).strip().lower(), None)
 
-    # 取前10个
-    top_keywords = [{"term": term, "count": count} for term, count in keyword_counter.most_common(10)]
+    # 取前10个（键是小写英文/原样中文，输出时换回规范拼写）
+    top_keywords = [{"term": _kw_display.get(term, term), "count": count}
+                    for term, count in keyword_counter.most_common(10)]
     return top_keywords
 
 
@@ -5488,6 +5725,9 @@ def normalize_topic_tags(tags, title=""):
     seen = set()
     for raw in tags:
         t = str(raw).strip().strip("《》\"'“”‘’")
+        # 缩写归一（Pfas -> PFAS）：放在长度与去重判断之前，否则 "Pfas" 与 "PFAS"
+        # 会以两个不同的 key 同时存活，去重形同虚设。
+        t = canonical_tag(t)
         if not t or len(t) < 2:
             continue
         limit = TAG_MAX_LEN if _RE_TAG_HAS_CJK.search(t) else TAG_MAX_LEN_EN
@@ -6124,12 +6364,31 @@ def enhance_analysis_with_tags(item):
 # 输出生成
 # ============================================================
 
+def is_effective_source(src):
+    """源本次是否**真正产出了内容**：可访问 + 解析成功 + 至少 1 条。
+
+    判健康度必须用这个，而不是 src["success"]：success 只表示"这一轮没抛异常"，
+    抓 0 条、1 条同样为 True。线上正是这样让 arXiv（0 条）与 IISD SDG（1 条）
+    被算进"成功 27/28"，而它们对"科研学术"类内容零贡献。
+    """
+    if not isinstance(src, dict) or not src.get("success"):
+        return False
+    try:
+        return int(src.get("item_count", 0) or 0) > 0
+    except (TypeError, ValueError):
+        return False
+
+
 def generate_source_health(source_health):
     """
     生成 docs/data/source_health.json
     - 读取上次的源健康状态
     - 对比本次和上次，连续两次失败的源标记为 critical: true
     - 返回 critical 源列表，用于邮件通知
+
+    健康度口径（2026-09-22 起）：success_count = **有效源**（产出了内容）数量，
+    另出 empty_count = 可访问但零产出的源，并列出名字。旧口径只看「有没有抛异常」，
+    于是"全绿但哑"的源永远不报警。
     """
     health_path = os.path.join(DATA_DIR, "source_health.json")
 
@@ -6139,19 +6398,30 @@ def generate_source_health(source_health):
         try:
             with open(health_path, "r", encoding="utf-8") as f:
                 old_data = json.load(f)
-                if isinstance(old_data, list):
-                    for item in old_data:
-                        if item.get("name"):
-                            last_health[item["name"]] = item
+                # 本函数写出去的是 dict（含 sources 字段），但旧读取方只认顶层 list ——
+                # 于是 last_health 永远为空、last_success 永远默认 True，
+                # 「连续两次失败标记 critical」从来没有成立过，严重源告警与邮件形同虚设。
+                # 两种结构都认，才能让"上一次的状态"真的被读到。
+                if isinstance(old_data, dict):
+                    prev_sources = old_data.get("sources") or []
+                elif isinstance(old_data, list):
+                    prev_sources = old_data
+                else:
+                    prev_sources = []
+                for item in prev_sources:
+                    if isinstance(item, dict) and item.get("name"):
+                        last_health[item["name"]] = item
         except Exception as e:
             _debug(f"读取上次源健康度失败，连续失败计数将重新累计：{type(e).__name__}: {e}")
             last_health = {}
 
     # 处理本次状态，标记连续失败
     critical_sources = []
+    stale_sources = []
     for src in source_health:
         name = src.get("name", "")
-        last_success = last_health.get(name, {}).get("success", True)
+        last = last_health.get(name, {})
+        last_success = last.get("success", True)
         current_success = src.get("success", False)
         # 连续两次失败（上次失败且本次也失败）
         if not last_success and not current_success:
@@ -6159,18 +6429,45 @@ def generate_source_health(source_health):
             critical_sources.append(src)
         else:
             src["critical"] = False
+        # 连续两次「可访问但零产出」：不是宕机，但这条源已经不再贡献内容。
+        # 单列为 stale 观察位，不升级成 critical —— 否则会把邮件推送打满，
+        # 真正的宕机反而被淹没。
+        last_empty = last.get("empty")
+        if last_empty is None:
+            # 兼容旧的 source_health.json（没有 empty 字段）：用「成功但 0 条」回推
+            try:
+                last_empty = bool(last.get("success")) and int(last.get("item_count", 0) or 0) == 0
+            except (TypeError, ValueError):
+                last_empty = False
+        src["stale"] = bool(src.get("empty")) and bool(last_empty)
+        if src["stale"]:
+            stale_sources.append(src)
+
+    effective_sources = [s for s in source_health if is_effective_source(s)]
+    empty_sources = [s for s in source_health if s.get("success") and not is_effective_source(s)]
 
     # 写入文件
     output = {
         "last_update": datetime.now(timezone.utc).isoformat(),
         "total_sources": len(source_health),
-        "success_count": sum(1 for s in source_health if s.get("success")),
+        # success_count 现在的含义是「有效源」（真正取到了内容的源）。
+        # 口径变更是有意为之：旧口径把"连得上但零产出"也算成功，健康度虚高。
+        "success_count": len(effective_sources),
         "failed_count": sum(1 for s in source_health if not s.get("success")),
+        "empty_count": len(empty_sources),
+        "stale_count": len(stale_sources),
         "critical_count": len(critical_sources),
         "sources": source_health,
     }
     safe_json_dump(output, health_path)
-    print(f"[源健康] 成功 {output['success_count']}/{output['total_sources']}，失败 {output['failed_count']}，严重 {output['critical_count']}")
+    print(f"[源健康] 有效 {output['success_count']}/{output['total_sources']}"
+          f"（失败 {output['failed_count']}，可访问但零产出 {output['empty_count']}）"
+          f"，严重 {output['critical_count']}，连续空源 {output['stale_count']}")
+    if empty_sources:
+        print(f"[源健康] 零产出的源：{', '.join(s.get('name', '') for s in empty_sources)}")
+    if stale_sources:
+        print(f"[源健康] 连续两次零产出（观察位，建议核实该源是否还有效）："
+              f"{', '.join(s.get('name', '') for s in stale_sources)}")
     return critical_sources
 
 
@@ -6721,10 +7018,12 @@ def generate_latest_json(items, config, weekly_summary="", weekly_keywords=None,
     weekly_categories = calculate_weekly_categories()
 
     # RSS 源抓取统计（来自本次运行的源健康度；缺省为0）
+    # 口径与 generate_source_health 保持一致：success = 有效源（真的取到了内容），
+    # 另有"可访问但零产出"的空源单列，三者相加等于总源数。
     if source_health:
         total_sources = len(source_health)
-        success_sources = sum(1 for s in source_health if s.get("success"))
-        failed_sources = total_sources - success_sources
+        success_sources = sum(1 for s in source_health if is_effective_source(s))
+        failed_sources = sum(1 for s in source_health if not s.get("success"))
     else:
         total_sources = success_sources = failed_sources = 0
 
@@ -6766,8 +7065,13 @@ def generate_latest_json(items, config, weekly_summary="", weekly_keywords=None,
 
 def generate_daily_snapshot(items, config, source_health=None, week_stats=None):
     """
-    生成每日数据快照文件 docs/data/daily/YYYY-MM-DD.json
-    包含当日 Top10 条目列表，覆盖写入
+    生成每日数据快照文件 docs/data/daily/YYYY-MM-DD.json，覆盖写入
+
+    同一份快照承担两种口径，字段刻意分开（背景见上方「明细口径与统计口径必须分离」）：
+    - items          = 当日 Top10 明细（产品口径，前端归档页/时间线钻取直接渲染）
+    - total_items    = 当日全部入选条目数（统计口径，与 history.json 同源）
+    - category_stats = 当日全部入选条目按大类的 {count, total_heat} 聚合（统计口径）
+
     - source_health：本次运行的源健康度列表，用于统计 total/success/failed_sources
     - week_stats：calculate_week_stats 的结果，用于近7天底部统计字段
     """
@@ -6775,10 +7079,11 @@ def generate_daily_snapshot(items, config, source_health=None, week_stats=None):
     today = datetime.now(timezone.utc).strftime("%Y-%m-%d")
 
     # RSS 源抓取统计：优先用传入的源健康度；缺省时从配置估算总源数、成功/失败置0
+    # 与 generate_source_health / latest.json 同口径：success = 有效源
     if source_health:
         total_sources = len(source_health)
-        success_sources = sum(1 for s in source_health if s.get("success"))
-        failed_sources = total_sources - success_sources
+        success_sources = sum(1 for s in source_health if is_effective_source(s))
+        failed_sources = sum(1 for s in source_health if not s.get("success"))
     else:
         total_sources = len(config.get("rss_feeds", {}) or {})
         success_sources = failed_sources = 0
@@ -6789,7 +7094,7 @@ def generate_daily_snapshot(items, config, source_health=None, week_stats=None):
     week_new_keywords = int(week_stats.get("week_new_keywords", 0))
     policy_ratio = week_stats.get("policy_ratio", 0.0)
 
-    # 取 Top10
+    # 明细口径：只取 Top10（产品用途，快照体积可控）
     top10 = items[:10]
     output_items = []
     for item in top10:
@@ -6813,10 +7118,17 @@ def generate_daily_snapshot(items, config, source_health=None, week_stats=None):
             "matched_keywords": [sanitize_str(kw) for kw in item.get("matched_keywords", [])],
         })
 
+    # 统计口径：按当日**全部**入选条目聚合（timeline / 近7天趋势 / 政策占比都读它）
+    category_stats = build_snapshot_category_stats(items)
+
     data = {
         "report_date": today,
         "site_name": sanitize_str(site_name),
-        "total_items": len(output_items),
+        # total_items 是「当日全部入选条目数」，与 history.json 的 total_items 同源；
+        # 明细被截断到 Top10 这件事由 snapshot_items 单独表达，不再让统计方误读。
+        "total_items": len(items),
+        "snapshot_items": len(output_items),
+        "category_stats": category_stats,
         "total_sources": total_sources,
         "success_sources": success_sources,
         "failed_sources": failed_sources,
@@ -6829,7 +7141,7 @@ def generate_daily_snapshot(items, config, source_health=None, week_stats=None):
     daily_dir = os.path.join(DATA_DIR, "daily")
     path = os.path.join(daily_dir, f"{today}.json")
     safe_json_dump(data, path)
-    print(f"[生成] {path}（Top {len(output_items)}）")
+    print(f"[生成] {path}（全量 {len(items)} 条，明细 Top {len(output_items)}）")
     return data
 
 
@@ -7279,9 +7591,13 @@ def main():
 
     # 3.2 招聘/实习资讯候选池：在**时间过滤之前**用独立的长窗口捞出（理由见 RECRUIT_WINDOW_HOURS），
     # 并且必须在环境相关性过滤之前——招聘条目天然不含环境领域词，过滤后会整条丢掉。
-    recruit_pool = extract_recruit_candidates(filter_by_time(all_items, hours=RECRUIT_WINDOW_HOURS))
+    recruit_pool, _recruit_dropped = extract_recruit_candidates(
+        filter_by_time(all_items, hours=RECRUIT_WINDOW_HOURS))
     print(f"[招聘] 招聘/实习候选 {len(recruit_pool)} 条"
           f"（来自含招聘语义的源与标题，独立窗口 {RECRUIT_WINDOW_HOURS // 24} 天）")
+    if _recruit_dropped["not_env"] or _recruit_dropped["unknown_type"]:
+        print(f"[招聘] 候选池已剔除：与环境岗位无关 {_recruit_dropped['not_env']} 条 / "
+              f"类型无法判定 {_recruit_dropped['unknown_type']} 条")
     print()
 
     # 3. 时间过滤（48小时）
@@ -7417,6 +7733,12 @@ def main():
     week_stats = calculate_week_stats(all_items)
     print(f"[统计] 近7天：热点{week_stats['week_total_items']}条，新增关键词{week_stats['week_new_keywords']}个，政策类占比{week_stats['policy_ratio']}%")
 
+    # ⚠️ 当日快照必须**先于**下面三个统计落盘：weekly_keywords / weekly_categories /
+    # timeline 全都从 docs/data/daily/YYYY-MM-DD.json 读取"今天"。旧顺序把快照生成排在
+    # 它们之后，这三个统计看到的"今天"就恒为 0：线上 9 个大类的末日计数全是 0，
+    # 时间线走势图最后一天永远断崖跌到谷底（历史各天也因明细只有 Top10 而系统性偏小）。
+    generate_daily_snapshot(all_items, config, source_health=source_health, week_stats=week_stats)
+
     # 生成近7天热度总结（基于大类统计）
     weekly_keywords = calculate_weekly_keywords()
     if weekly_keywords:
@@ -7442,7 +7764,7 @@ def main():
         weekly_keywords=weekly_keywords, weekly_insight=weekly_insight,
         timeline=timeline_data, source_health=source_health, week_stats=week_stats,
     )
-    generate_daily_snapshot(all_items, config, source_health=source_health, week_stats=week_stats)
+    # 当日快照已在上面（近7天统计之前）生成，这里不再重复。
     generate_monthly_archive(all_items, config)
     generate_pending_terms(all_items, config)
     generate_recruit_json(recruit_pool, all_items, config)

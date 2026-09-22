@@ -1,0 +1,545 @@
+{
+  "report_date": "2026-09-22",
+  "site_name": "环境学子雷达",
+  "total_items": 27,
+  "snapshot_items": 10,
+  "category_stats": {
+    "气候变化": {
+      "count": 7,
+      "total_heat": 537.8
+    },
+    "生态环境": {
+      "count": 6,
+      "total_heat": 474.3
+    },
+    "科研学术": {
+      "count": 4,
+      "total_heat": 320.9
+    },
+    "能源与碳中和": {
+      "count": 2,
+      "total_heat": 162.8
+    },
+    "环境政策": {
+      "count": 4,
+      "total_heat": 287.9
+    },
+    "污染治理": {
+      "count": 1,
+      "total_heat": 72.6
+    },
+    "其他": {
+      "count": 3,
+      "total_heat": 189.7
+    }
+  },
+  "total_sources": 28,
+  "success_sources": 27,
+  "failed_sources": 1,
+  "week_total_items": 174,
+  "week_new_keywords": 95,
+  "policy_ratio": 9.2,
+  "items": [
+    {
+      "title": "World leaders address climate crisis before UN meet amid record-breaking El Niño",
+      "title_en": "World leaders address climate crisis before UN meet amid record-breaking El Niño",
+      "title_zh": "在创纪录的“圣埃尔尼诺”现象背景下，世界各国领导人于联合国会议召开前就气候危机发表讲话",
+      "link": "https://www.theguardian.com/environment/2026/sep/21/world-leaders-climate-crisis-el-nino",
+      "source": "The Guardian Environment",
+      "published": "2026-09-21T21:26:55+00:00",
+      "hotness": 91.3,
+      "score_v1": 29.8,
+      "score_v2": 91.3,
+      "score_breakdown": {
+        "algorithm": "v3.0",
+        "dimension_max": {
+          "authority": 18.0,
+          "topic": 18.0,
+          "resonance": 18.0,
+          "information": 16.0
+        },
+        "authority_score": 12.73,
+        "keyword_idf_score": 3.4,
+        "topic_score": 8.59,
+        "topic_burst_score": 5.19,
+        "topic_burst_count": 5,
+        "resonance_score": 8.76,
+        "info_score": 11.0,
+        "base": 41.08,
+        "base_max": 70.0,
+        "time_factor": 0.9421,
+        "density_factor": 1.0,
+        "density_note": "",
+        "repeat_penalty": 1.0,
+        "event_size": 2,
+        "event_media_count": 2,
+        "event_cluster_source": "ai",
+        "origin_source": "The Guardian Environment",
+        "raw": 38.7,
+        "display_score": 91.3,
+        "display_mode": "absolute"
+      },
+      "summary": "澳大利亚和冰岛总理探讨气候变化对本国的影响，尽管面对战争和通胀，一些国家仍持回避态度。世界各地的政治领导人正齐聚纽约参加联合国大会，其中一些人在周一纽约年度“气候周”开幕式上的发言中，将气候危机纳入了议程。今年的气候周——与联合国大会同期举行——是在全球包括欧洲和美国在内的广大地区经历数月极端高温、非洲发生森林大火、亚洲遭遇山洪暴发以及创纪录的“厄尔尼诺”现象之后举行的。继续阅读……",
+      "analysis": "",
+      "topic_tags": [
+        "climate crisis"
+      ],
+      "category": "气候变化",
+      "matched_keywords": [
+        "气候变化"
+      ]
+    },
+    {
+      "title": "“十五五”时期北京生态环境监测网络如何升级？官方解读 - 新京报",
+      "title_en": "",
+      "title_zh": "",
+      "link": "https://news.google.com/rss/articles/CBMiZEFVX3lxTE8yUmxkVFpieFhEYm1weWI1OV9iUmYtakRFNWQ0RGN3UDE5MXZlQno4amhEem1OYnk0QWVjTFZETGszajhLOEpsVnFXd2NxVTlxWnhRUVhXR21EeVNWVUtURUhHdjA?oc=5",
+      "source": "Google News 环境污染",
+      "published": "2026-09-21T03:29:00+00:00",
+      "hotness": 88.1,
+      "score_v1": 36.53,
+      "score_v2": 88.1,
+      "score_breakdown": {
+        "algorithm": "v3.0",
+        "dimension_max": {
+          "authority": 18.0,
+          "topic": 18.0,
+          "resonance": 18.0,
+          "information": 16.0
+        },
+        "authority_score": 8.05,
+        "keyword_idf_score": 11.01,
+        "topic_score": 16.83,
+        "topic_burst_score": 5.82,
+        "topic_burst_count": 8,
+        "resonance_score": 8.76,
+        "info_score": 9.0,
+        "base": 42.64,
+        "base_max": 70.0,
+        "time_factor": 0.7573,
+        "density_factor": 1.0,
+        "density_note": "",
+        "repeat_penalty": 1.0,
+        "event_size": 2,
+        "event_media_count": 2,
+        "event_cluster_source": "ai",
+        "origin_source": "新京报",
+        "raw": 32.29,
+        "display_score": 88.1,
+        "display_mode": "absolute"
+      },
+      "summary": "北京生态环境监测网络升级方案解读，聚焦十五五时期监测体系建设目标与技术路线。",
+      "analysis": "",
+      "topic_tags": [
+        "北京生态环境监测网络",
+        "十五五监测体系",
+        "监测技术路线"
+      ],
+      "category": "生态环境",
+      "matched_keywords": [
+        "生态环境",
+        "环境监测"
+      ]
+    },
+    {
+      "title": "生态环境部：重拳整治环境监测造假！ - 上海热线",
+      "title_en": "",
+      "title_zh": "",
+      "link": "https://news.google.com/rss/articles/CBMifkFVX3lxTE5PbFkyWGdfa2dlSUdTNGFIbWUzaUZhejVWaUFJQUJwT2VuSjA4ZVJTX1o3SUhHWkVnWFBnYks5RTRPZW1kbzR0TjBGNldUUnIyOGFWMkJPa0ZKT1FSU294eEUtMldzdTBlOExIQTR4ZjZ6b1E0cWJsbF9Pb3FZUQ?oc=5",
+      "source": "Google News 生态环境",
+      "published": "2026-09-20T22:48:35+00:00",
+      "hotness": 87.9,
+      "score_v1": 35.83,
+      "score_v2": 87.9,
+      "score_breakdown": {
+        "algorithm": "v3.0",
+        "dimension_max": {
+          "authority": 18.0,
+          "topic": 18.0,
+          "resonance": 18.0,
+          "information": 16.0
+        },
+        "authority_score": 8.05,
+        "keyword_idf_score": 11.01,
+        "topic_score": 16.83,
+        "topic_burst_score": 5.82,
+        "topic_burst_count": 8,
+        "resonance_score": 15.56,
+        "info_score": 4.0,
+        "base": 44.44,
+        "base_max": 70.0,
+        "time_factor": 0.7195,
+        "density_factor": 1.0,
+        "density_note": "",
+        "repeat_penalty": 1.0,
+        "event_size": 4,
+        "event_media_count": 4,
+        "event_cluster_source": "ai",
+        "origin_source": "上海热线",
+        "raw": 31.98,
+        "display_score": 87.9,
+        "display_mode": "absolute"
+      },
+      "summary": "",
+      "analysis": "",
+      "topic_tags": [
+        "环境监测造假",
+        "生态环境部"
+      ],
+      "category": "科研学术",
+      "matched_keywords": [
+        "生态环境",
+        "环境监测"
+      ]
+    },
+    {
+      "title": "生态环境部公布2026年8月全国环境空气质量状况 - 中华人民共和国生态环境部",
+      "title_en": "",
+      "title_zh": "",
+      "link": "https://news.google.com/rss/articles/CBMicEFVX3lxTE1nYU9ESVZhd2k4WGtsc2R4Vmdrcjc1dEZpdzRmbFk1eC1NblRVRkdkQnpCX1dkdFhNRmRRT2FRa3VYd3ZKV2NfbGZfVkVzbEEzOFNDSTV4WjZQU3hfRGJjN28tZmhDWnpPOFhjUHU4UWU?oc=5",
+      "source": "Google News 环境污染",
+      "published": "2026-09-21T13:21:43+00:00",
+      "hotness": 84.2,
+      "score_v1": 32.53,
+      "score_v2": 84.2,
+      "score_breakdown": {
+        "algorithm": "v3.0",
+        "dimension_max": {
+          "authority": 18.0,
+          "topic": 18.0,
+          "resonance": 18.0,
+          "information": 16.0
+        },
+        "authority_score": 8.05,
+        "keyword_idf_score": 8.55,
+        "topic_score": 14.37,
+        "topic_burst_score": 5.82,
+        "topic_burst_count": 8,
+        "resonance_score": 0.0,
+        "info_score": 9.0,
+        "base": 31.42,
+        "base_max": 70.0,
+        "time_factor": 0.8503,
+        "density_factor": 1.0,
+        "density_note": "",
+        "repeat_penalty": 1.0,
+        "event_size": 1,
+        "event_media_count": 1,
+        "event_cluster_source": "ai",
+        "origin_source": "中华人民共和国生态环境部",
+        "raw": 26.72,
+        "display_score": 84.2,
+        "display_mode": "absolute"
+      },
+      "summary": "",
+      "analysis": "",
+      "topic_tags": [
+        "生态环境部",
+        "空气质量"
+      ],
+      "category": "生态环境",
+      "matched_keywords": [
+        "生态环境"
+      ]
+    },
+    {
+      "title": "Solar-driven desalination coupled with antibiotic degradation in saline aquaculture wastewater enabled by a plasmonic N-In<sub>2</sub>O<sub>3-x</sub> interface",
+      "title_en": "Solar-driven desalination coupled with antibiotic degradation in saline aquaculture wastewater enabled by a plasmonic N-In<sub>2</sub>O<sub>3-x</sub> interface",
+      "title_zh": "基于等离激元N-In<sub>2</sub>O<sub>3-x</sub>界面的太阳能驱动脱盐与抗生素降解技术，适用于含盐水产养殖废水处理",
+      "link": "https://www.sciencedirect.com/science/article/pii/S004313542601643X?dgcid=rss_sd_all",
+      "source": "Water Research",
+      "published": "2026-09-21T01:54:44.643159+00:00",
+      "hotness": 83.7,
+      "score_v1": 18.68,
+      "score_v2": 83.7,
+      "score_breakdown": {
+        "algorithm": "v3.0",
+        "dimension_max": {
+          "authority": 18.0,
+          "topic": 18.0,
+          "resonance": 18.0,
+          "information": 16.0
+        },
+        "authority_score": 18.0,
+        "keyword_idf_score": 8.05,
+        "topic_score": 8.05,
+        "topic_burst_score": 0.0,
+        "topic_burst_count": 1,
+        "resonance_score": 0.0,
+        "info_score": 9.0,
+        "base": 35.05,
+        "base_max": 70.0,
+        "time_factor": 0.7442,
+        "density_factor": 1.0,
+        "density_note": "",
+        "repeat_penalty": 1.0,
+        "event_size": 1,
+        "event_media_count": 1,
+        "event_cluster_source": "ai",
+        "origin_source": "Water Research",
+        "raw": 26.08,
+        "display_score": 83.7,
+        "display_mode": "absolute"
+      },
+      "summary": "基于等离激元N-In<sub>2</sub>O<sub>3-x</sub>界面的太阳能驱动脱盐与抗生素降解技术…",
+      "analysis": "",
+      "topic_tags": [
+        "抗生素降解",
+        "盐水养殖废水"
+      ],
+      "category": "科研学术",
+      "matched_keywords": [
+        "水处理"
+      ]
+    },
+    {
+      "title": "Identifying a gap between decarbonization needs and practical solar and wind deployment in ASEAN",
+      "title_en": "Identifying a gap between decarbonization needs and practical solar and wind deployment in ASEAN",
+      "title_zh": "识别东盟地区脱碳需求与太阳能和风能实际部署之间的差距",
+      "link": "https://iopscience.iop.org/article/10.1088/1748-9326/ae9e4b",
+      "source": "Environmental Research Letters",
+      "published": "2026-09-20T23:00:00+00:00",
+      "hotness": 82.7,
+      "score_v1": 24.26,
+      "score_v2": 82.7,
+      "score_breakdown": {
+        "algorithm": "v3.0",
+        "dimension_max": {
+          "authority": 18.0,
+          "topic": 18.0,
+          "resonance": 18.0,
+          "information": 16.0
+        },
+        "authority_score": 18.0,
+        "keyword_idf_score": 11.1,
+        "topic_score": 13.46,
+        "topic_burst_score": 2.36,
+        "topic_burst_count": 2,
+        "resonance_score": 0.0,
+        "info_score": 3.0,
+        "base": 34.46,
+        "base_max": 70.0,
+        "time_factor": 0.721,
+        "density_factor": 1.0,
+        "density_note": "",
+        "repeat_penalty": 1.0,
+        "event_size": 1,
+        "event_media_count": 1,
+        "event_cluster_source": "ai",
+        "origin_source": "Environmental Research Letters",
+        "raw": 24.84,
+        "display_score": 82.7,
+        "display_mode": "absolute"
+      },
+      "summary": "在东盟的脱碳进程中，基于情景的研究普遍认为将大规模部署太阳能光伏（PV）和风能。然而，这些研究很少考虑到决定可再生能源实际部署地点和方式的多种空间制约因素。 本文利用一个专门针对东盟设计的高分辨率、空间显式框架，整合了建筑占地面积、土地利用及近海数据，量化了关键区域类型中太阳能光伏和风能的实际部署情况及其潜在制约因素，从而揭示了东盟脱碳需求与实际光伏及风能部署之间的差距。 即使将所有大型屋顶（⩾200 m²）都用于光伏部署，其发电量也仅为683 TWh，远低于国际能源署（IEA）“已宣布承诺情景”下所需的1681 TWh。 将部署范围扩展至所有约束条件相对较轻的区域，发电量也仅能增至1239太瓦时，这表明实现脱碳需要在约束条件日益严格的地区推进开发。我们进一步表明，可再生能源的部署不仅受资源可用性的制约，还受可再生能源资源、电力需求与输电基础设施之间空间错配的制约。 我们还揭示了此前被忽视的屋顶光伏部署制约因素，包括建筑特征和社会经济条件。这些发现表明，可再生能源部署路径本质上具有区域特异性，需要根据各国国情制定空间明确的规划。",
+      "analysis": "",
+      "topic_tags": [
+        "太阳能光伏",
+        "风能",
+        "近海数据"
+      ],
+      "category": "能源与碳中和",
+      "matched_keywords": [
+        "可再生能源",
+        "绿色低碳"
+      ]
+    },
+    {
+      "title": "Amazon study reveals the best strategies for protecting biodiversity and carbon",
+      "title_en": "Amazon study reveals the best strategies for protecting biodiversity and carbon",
+      "title_zh": "亚马逊的一项研究揭示了保护生物多样性和碳的最佳策略",
+      "link": "https://www.sciencedaily.com/releases/2026/09/260920222356.htm",
+      "source": "ScienceDaily 环境科学",
+      "published": "2026-09-21T11:54:17+00:00",
+      "hotness": 80.6,
+      "score_v1": 19.08,
+      "score_v2": 80.6,
+      "score_breakdown": {
+        "algorithm": "v3.0",
+        "dimension_max": {
+          "authority": 18.0,
+          "topic": 18.0,
+          "resonance": 18.0,
+          "information": 16.0
+        },
+        "authority_score": 12.73,
+        "keyword_idf_score": 7.32,
+        "topic_score": 7.32,
+        "topic_burst_score": 0.0,
+        "topic_burst_count": 1,
+        "resonance_score": 0.0,
+        "info_score": 7.0,
+        "base": 27.05,
+        "base_max": 70.0,
+        "time_factor": 0.8354,
+        "density_factor": 1.0,
+        "density_note": "",
+        "repeat_penalty": 1.0,
+        "event_size": 1,
+        "event_media_count": 1,
+        "event_cluster_source": "ai",
+        "origin_source": "ScienceDaily 环境科学",
+        "raw": 22.59,
+        "display_score": 80.6,
+        "display_mode": "absolute"
+      },
+      "summary": "一项针对亚马逊地区的大型研究表明，最有效的保护措施可能是保护现存森林。防止森林火灾和滥伐造成的破坏，对生物多样性带来的益处最大，且在保护碳储量方面几乎与防止森林砍伐的效果相当。森林恢复依然很重要，特别是在森林已被大规模砍伐的地区，但仅靠森林恢复的成本更高，且效果较差。",
+      "analysis": "",
+      "topic_tags": [
+        "生物多样性"
+      ],
+      "category": "生态环境",
+      "matched_keywords": [
+        "生物多样性"
+      ]
+    },
+    {
+      "title": "In India, a Surge of Solar Is Keeping Coal Power in Check",
+      "title_en": "In India, a Surge of Solar Is Keeping Coal Power in Check",
+      "title_zh": "在印度，太阳能的迅猛发展正在遏制煤炭发电的扩张",
+      "link": "https://e360.yale.edu/digest/india-solar-coal-power",
+      "source": "Yale Environment 360",
+      "published": "2026-09-21T12:52:00+00:00",
+      "hotness": 80.1,
+      "score_v1": 21.3,
+      "score_v2": 80.1,
+      "score_breakdown": {
+        "algorithm": "v3.0",
+        "dimension_max": {
+          "authority": 18.0,
+          "topic": 18.0,
+          "resonance": 18.0,
+          "information": 16.0
+        },
+        "authority_score": 12.73,
+        "keyword_idf_score": 8.05,
+        "topic_score": 10.41,
+        "topic_burst_score": 2.36,
+        "topic_burst_count": 2,
+        "resonance_score": 0.0,
+        "info_score": 3.0,
+        "base": 26.14,
+        "base_max": 70.0,
+        "time_factor": 0.8452,
+        "density_factor": 1.0,
+        "density_note": "",
+        "repeat_penalty": 1.0,
+        "event_size": 1,
+        "event_media_count": 1,
+        "event_cluster_source": "ai",
+        "origin_source": "Yale Environment 360",
+        "raw": 22.09,
+        "display_score": 80.1,
+        "display_mode": "absolute"
+      },
+      "summary": "印度是一个拥有近15亿人口的国家，长期以来一直依赖煤炭为其不断增长的经济提供动力。但在过去两年里，该国发生了显著变化：可再生能源的快速扩张遏制了煤炭产业的增长。在E360上阅读更多内容 →",
+      "analysis": "",
+      "topic_tags": [
+        "太阳能",
+        "煤炭"
+      ],
+      "category": "能源与碳中和",
+      "matched_keywords": [
+        "可再生能源"
+      ]
+    },
+    {
+      "title": "Losing your way of life to climate change matters — and we need a way to measure it",
+      "title_en": "Losing your way of life to climate change matters — and we need a way to measure it",
+      "title_zh": "因气候变化而失去原有生活方式是一件大事——我们需要一种衡量标准",
+      "link": "https://www.nature.com/articles/d41586-026-02928-0",
+      "source": "Nature",
+      "published": "2026-09-21T00:00:00+00:00",
+      "hotness": 79.6,
+      "score_v1": 26.4,
+      "score_v2": 79.6,
+      "score_breakdown": {
+        "algorithm": "v3.0",
+        "dimension_max": {
+          "authority": 18.0,
+          "topic": 18.0,
+          "resonance": 18.0,
+          "information": 16.0
+        },
+        "authority_score": 18.0,
+        "keyword_idf_score": 3.4,
+        "topic_score": 8.59,
+        "topic_burst_score": 5.19,
+        "topic_burst_count": 5,
+        "resonance_score": 0.0,
+        "info_score": 3.0,
+        "base": 29.59,
+        "base_max": 70.0,
+        "time_factor": 0.7288,
+        "density_factor": 1.0,
+        "density_note": "",
+        "repeat_penalty": 1.0,
+        "event_size": 1,
+        "event_media_count": 1,
+        "event_cluster_source": "ai",
+        "origin_source": "Nature",
+        "raw": 21.56,
+        "display_score": 79.6,
+        "display_mode": "absolute"
+      },
+      "summary": "《自然》杂志， 气候变化造成的损失不仅限于财产和收入。政策制定者需要找到方法，来评估人们所珍视的事物、所经历的状况以及最终可能遭受的损失。",
+      "analysis": "",
+      "topic_tags": [
+        "政策制定者"
+      ],
+      "category": "环境政策",
+      "matched_keywords": [
+        "气候变化"
+      ]
+    },
+    {
+      "title": "Increasing lifetime exposure to extreme fire weather under climate change in Europe",
+      "title_en": "Increasing lifetime exposure to extreme fire weather under climate change in Europe",
+      "title_zh": "在欧洲气候变化背景下，人们一生中暴露于极端火灾天气的风险日益增加",
+      "link": "https://iopscience.iop.org/article/10.1088/1748-9326/ae93de",
+      "source": "Environmental Research Letters",
+      "published": "2026-09-20T23:00:00+00:00",
+      "hotness": 79.3,
+      "score_v1": 26.26,
+      "score_v2": 79.3,
+      "score_breakdown": {
+        "algorithm": "v3.0",
+        "dimension_max": {
+          "authority": 18.0,
+          "topic": 18.0,
+          "resonance": 18.0,
+          "information": 16.0
+        },
+        "authority_score": 18.0,
+        "keyword_idf_score": 3.4,
+        "topic_score": 8.59,
+        "topic_burst_score": 5.19,
+        "topic_burst_count": 5,
+        "resonance_score": 0.0,
+        "info_score": 3.0,
+        "base": 29.59,
+        "base_max": 70.0,
+        "time_factor": 0.721,
+        "density_factor": 1.0,
+        "density_note": "",
+        "repeat_penalty": 1.0,
+        "event_size": 1,
+        "event_media_count": 1,
+        "event_cluster_source": "ai",
+        "origin_source": "Environmental Research Letters",
+        "raw": 21.33,
+        "display_score": 79.3,
+        "display_mode": "absolute"
+      },
+      "summary": "气候变化导致全球范围内火灾天气频发。炎热、干燥且多风的天气条件增加了火灾发生和蔓延的可能性，也使灭火工作更加困难。随着气温进一步升高，预计整个欧洲的火灾天气将加剧，但这对当今年轻一代的影响尚不明确。 在此，我们利用一组经过偏差校正和降尺度的全球气候模型，分析了欧洲各地人群在整个生命周期内对极端火灾天气的暴露情况。为此，我们开发了dem4cli——一个将人口统计数据整合到气候风险评估中的开源Python软件包。 研究发现，在所有变暖路径下，与老一辈相比，年轻一代预计将面临不成比例的高暴露风险，但同时也最能从雄心勃勃的减缓措施中获益。 在整个欧洲，与1950年出生的人相比，2025年出生的人预计平均将额外经历3.2年的极端火灾天气暴露，增幅达84%，其中南欧和东欧地区的增幅更为显著。 以葡萄牙为例，在现行政策下，2025年出生的人群预计面临的暴露时间将是1950年出生人群的近两倍，而在葡萄牙东北部暴露最严重的地区，这一数字甚至高达2.5倍。在1.5℃温升路径下，终身暴露时间将大幅减少。 到2100年，全球变暖每增加1摄氏度，2025年出生于葡萄牙的人其一生中将面临约270天的极端火灾天气。这些结果揭示了火灾天气暴露风险方面显著的代际不平等，并强调了采取雄心勃勃的减缓措施以限制年轻一代累积暴露风险的紧迫性。",
+      "analysis": "",
+      "topic_tags": [
+        "在欧洲气候变化背景下"
+      ],
+      "category": "气候变化",
+      "matched_keywords": [
+        "气候变化"
+      ]
+    }
+  ]
+}

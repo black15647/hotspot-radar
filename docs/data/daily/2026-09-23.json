@@ -1,0 +1,544 @@
+{
+  "report_date": "2026-09-23",
+  "site_name": "环境学子雷达",
+  "total_items": 36,
+  "snapshot_items": 10,
+  "category_stats": {
+    "污染治理": {
+      "count": 7,
+      "total_heat": 529.9
+    },
+    "水处理": {
+      "count": 5,
+      "total_heat": 351.1
+    },
+    "气候变化": {
+      "count": 7,
+      "total_heat": 533.8
+    },
+    "生态环境": {
+      "count": 7,
+      "total_heat": 502.0
+    },
+    "科研学术": {
+      "count": 2,
+      "total_heat": 154.9
+    },
+    "能源与碳中和": {
+      "count": 3,
+      "total_heat": 217.3
+    },
+    "其他": {
+      "count": 3,
+      "total_heat": 208.3
+    },
+    "环境政策": {
+      "count": 2,
+      "total_heat": 124.2
+    }
+  },
+  "total_sources": 28,
+  "success_sources": 26,
+  "failed_sources": 1,
+  "week_total_items": 185,
+  "week_new_keywords": 96,
+  "policy_ratio": 8.8,
+  "items": [
+    {
+      "title": "重金属环境安全隐患排查进展如何？生态环境部答每经：重点地区共查明污染源1万余个，涉及历史遗留矿山等 - 每日经济新闻",
+      "title_en": "",
+      "title_zh": "",
+      "link": "https://news.google.com/rss/articles/CBMiZkFVX3lxTFBONU10UXJ2TE1kNzExWkNEQjIzd1FUZ2VqZWhtT01BS1I5TlpTbkZSelQ2cUYzN0ZPQjRxZWtDaU1zT2lpUllWVUFpUTlWM3hIQXdFN1QxSzdHeGhYcGo4SnVNMFBfQQ?oc=5",
+      "source": "Google News 生态环境",
+      "published": "2026-09-22T07:47:00+00:00",
+      "hotness": 88.4,
+      "score_v1": 32.79,
+      "score_v2": 88.4,
+      "score_breakdown": {
+        "algorithm": "v3.0",
+        "dimension_max": {
+          "authority": 18.0,
+          "topic": 18.0,
+          "resonance": 18.0,
+          "information": 16.0
+        },
+        "authority_score": 8.05,
+        "keyword_idf_score": 11.12,
+        "topic_score": 16.82,
+        "topic_burst_score": 5.7,
+        "topic_burst_count": 7,
+        "resonance_score": 8.76,
+        "info_score": 9.0,
+        "base": 42.63,
+        "base_max": 70.0,
+        "time_factor": 0.7708,
+        "density_factor": 1.0,
+        "density_note": "",
+        "repeat_penalty": 1.0,
+        "event_size": 2,
+        "event_media_count": 2,
+        "event_cluster_source": "ai",
+        "origin_source": "每日经济新闻",
+        "raw": 32.86,
+        "display_score": 88.4,
+        "display_mode": "absolute"
+      },
+      "summary": "生态环境部回应每日经济新闻，重点地区共查明污染源1万余个，涉及历史遗留矿山等，重金属环境安全隐患排查取得实质性进展。",
+      "analysis": "",
+      "topic_tags": [
+        "重金属环境安全隐患排查",
+        "重点地区污染源查明"
+      ],
+      "category": "污染治理",
+      "matched_keywords": [
+        "重金属",
+        "生态环境"
+      ]
+    },
+    {
+      "title": "One of America’s largest reservoirs just hit a record low",
+      "title_en": "One of America’s largest reservoirs just hit a record low",
+      "title_zh": "美国最大的水库之一刚刚创下历史最低水位纪录",
+      "link": "https://www.sciencedaily.com/releases/2026/09/260922005701.htm",
+      "source": "ScienceDaily 环境科学",
+      "published": "2026-09-23T02:01:16+00:00",
+      "hotness": 87.3,
+      "score_v1": 26.46,
+      "score_v2": 87.3,
+      "score_breakdown": {
+        "algorithm": "v3.0",
+        "dimension_max": {
+          "authority": 18.0,
+          "topic": 18.0,
+          "resonance": 18.0,
+          "information": 16.0
+        },
+        "authority_score": 12.73,
+        "keyword_idf_score": 8.59,
+        "topic_score": 12.38,
+        "topic_burst_score": 3.79,
+        "topic_burst_count": 3,
+        "resonance_score": 0.0,
+        "info_score": 7.0,
+        "base": 32.11,
+        "base_max": 70.0,
+        "time_factor": 0.9653,
+        "density_factor": 1.0,
+        "density_note": "",
+        "repeat_penalty": 1.0,
+        "event_size": 1,
+        "event_media_count": 1,
+        "event_cluster_source": "ai",
+        "origin_source": "ScienceDaily 环境科学",
+        "raw": 31.0,
+        "display_score": 87.3,
+        "display_mode": "absolute"
+      },
+      "summary": "由于今年冬季异常干旱且温暖，导致科罗拉多河流域的山地积雪极少，鲍威尔湖的水位已降至有记录以来的最低点。 米德湖的水位也创下历史新低，这引发了人们对这一河流系统的担忧——该系统为超过4000万人提供供水和电力。联邦官员已采取紧急措施以稳定鲍威尔湖的水位，包括从另一座水库调水以及减少下游的放水量。",
+      "analysis": "",
+      "topic_tags": [
+        "水位"
+      ],
+      "category": "水处理",
+      "matched_keywords": [
+        "流域"
+      ]
+    },
+    {
+      "title": "生态环境部：“十五五”期间将依法加快建立新污染物协同治理和环境风险管控体系 - 搜狐网",
+      "title_en": "",
+      "title_zh": "",
+      "link": "https://news.google.com/rss/articles/CBMijAFBVV95cUxNSHlSeHMzeHJid2c0UldlZEYtQW1Xbzl3SjZJb19IdmZKMWMzamI5SmV5ZE53c1JnNnNSRGV3UUV5eEdnal9ISFEtdm9BSXZ1ZHB5bElpUGRySnpxUzBLcTRGcDhKa0RXVEtqT1B3M1FCNDhCS2F0a2haWVhkUzhXaWwxVThMald0SG1Jdg?oc=5",
+      "source": "Google News 生态环境",
+      "published": "2026-09-22T07:09:00+00:00",
+      "hotness": 83.3,
+      "score_v1": 34.68,
+      "score_v2": 83.3,
+      "score_breakdown": {
+        "algorithm": "v3.0",
+        "dimension_max": {
+          "authority": 18.0,
+          "topic": 18.0,
+          "resonance": 18.0,
+          "information": 16.0
+        },
+        "authority_score": 8.05,
+        "keyword_idf_score": 10.73,
+        "topic_score": 16.43,
+        "topic_burst_score": 5.7,
+        "topic_burst_count": 7,
+        "resonance_score": 0.0,
+        "info_score": 9.0,
+        "base": 33.48,
+        "base_max": 70.0,
+        "time_factor": 0.7653,
+        "density_factor": 1.0,
+        "density_note": "",
+        "repeat_penalty": 1.0,
+        "event_size": 1,
+        "event_media_count": 1,
+        "event_cluster_source": "ai",
+        "origin_source": "搜狐网",
+        "raw": 25.62,
+        "display_score": 83.3,
+        "display_mode": "absolute"
+      },
+      "summary": "生态环境部宣布‘十五五’期间将依法加快建立新污染物协同治理和环境风险管控体系，有效管控突出环境风险，推动新污染物治理工作制度化。",
+      "analysis": "",
+      "topic_tags": [
+        "新污染物",
+        "协同治理",
+        "环境风险管控体系"
+      ],
+      "category": "污染治理",
+      "matched_keywords": [
+        "新污染物",
+        "生态环境"
+      ]
+    },
+    {
+      "title": "More than 170,000 respiratory cases recorded in haze-choked Indonesia",
+      "title_en": "More than 170,000 respiratory cases recorded in haze-choked Indonesia",
+      "title_zh": "雾霾笼罩的印度尼西亚已记录超过17万例呼吸道病例",
+      "link": "https://www.bbc.co.uk/news/articles/cq62j13gnyrko?at_medium=RSS&at_campaign=rss",
+      "source": "BBC 科学与环境",
+      "published": "2026-09-23T04:20:12+00:00",
+      "hotness": 83.1,
+      "score_v1": 19.37,
+      "score_v2": 83.1,
+      "score_breakdown": {
+        "algorithm": "v3.0",
+        "dimension_max": {
+          "authority": 18.0,
+          "topic": 18.0,
+          "resonance": 18.0,
+          "information": 16.0
+        },
+        "authority_score": 12.73,
+        "keyword_idf_score": 0.0,
+        "topic_score": 3.0,
+        "topic_burst_score": 0.0,
+        "topic_burst_count": 1,
+        "resonance_score": 0.0,
+        "info_score": 9.75,
+        "base": 25.48,
+        "base_max": 70.0,
+        "time_factor": 0.9958,
+        "density_factor": 1.0,
+        "density_note": "",
+        "repeat_penalty": 1.0,
+        "event_size": 1,
+        "event_media_count": 1,
+        "event_cluster_source": "ai",
+        "origin_source": "BBC 科学与环境",
+        "raw": 25.37,
+        "display_score": 83.1,
+        "display_mode": "absolute"
+      },
+      "summary": "在这些病例中——症状从轻微咳嗽到肺炎不等——有超过40,000例涉及幼儿。",
+      "analysis": "",
+      "topic_tags": [
+        "雾霾",
+        "呼吸道疾病"
+      ],
+      "category": "污染治理",
+      "matched_keywords": []
+    },
+    {
+      "title": "国家气候变化专家委员会副主任王毅：深圳要持续发挥绿色低碳示范引领作用 - 搜狐网",
+      "title_en": "",
+      "title_zh": "",
+      "link": "https://news.google.com/rss/articles/CBMijAFBVV95cUxQRWJqT0VkSDAtOUhkenFrQ3B3VkdhNXktNnR4ajdldVFOaFZIWnl6RXNGOTJmckdndDIweFozSGdGUGk2VGJuLThXQ3Q2Tk1LSVF1X2ltSGo1dnktSVROWDlicDA2YTNGWHlsOHlsN1Zzb3dSU3JJdGNpSjJ1QmJPSFNVU0tCZnpFWHJleg?oc=5",
+      "source": "Google News 气候变化",
+      "published": "2026-09-22T13:37:00+00:00",
+      "hotness": 82.7,
+      "score_v1": 25.95,
+      "score_v2": 82.7,
+      "score_breakdown": {
+        "algorithm": "v3.0",
+        "dimension_max": {
+          "authority": 18.0,
+          "topic": 18.0,
+          "resonance": 18.0,
+          "information": 16.0
+        },
+        "authority_score": 8.05,
+        "keyword_idf_score": 9.56,
+        "topic_score": 13.35,
+        "topic_burst_score": 3.79,
+        "topic_burst_count": 3,
+        "resonance_score": 8.76,
+        "info_score": 0.0,
+        "base": 30.16,
+        "base_max": 70.0,
+        "time_factor": 0.8252,
+        "density_factor": 1.0,
+        "density_note": "",
+        "repeat_penalty": 1.0,
+        "event_size": 2,
+        "event_media_count": 2,
+        "event_cluster_source": "ai",
+        "origin_source": "搜狐网",
+        "raw": 24.89,
+        "display_score": 82.7,
+        "display_mode": "absolute"
+      },
+      "summary": "国家气候变化专家委员会副主任王毅出席深圳低碳城论坛，强调深圳要持续发挥绿色低碳示范引领作用，推动碳达峰碳中和目标落地实施。",
+      "analysis": "",
+      "topic_tags": [
+        "碳达峰碳中和"
+      ],
+      "category": "气候变化",
+      "matched_keywords": [
+        "气候变化",
+        "绿色低碳"
+      ]
+    },
+    {
+      "title": "Sources and driving factors of greenhouse gas emissions from tropical high-mountain Andean lakes: marks of human impact",
+      "title_en": "Sources and driving factors of greenhouse gas emissions from tropical high-mountain Andean lakes: marks of human impact",
+      "title_zh": "安第斯山脉热带高海拔湖泊温室气体排放的来源与驱动因素：人类活动的影响痕迹",
+      "link": "https://www.sciencedirect.com/science/article/pii/S0043135426016453?dgcid=rss_sd_all",
+      "source": "Water Research",
+      "published": "2026-09-22T04:36:03.073406+00:00",
+      "hotness": 82.3,
+      "score_v1": 22.67,
+      "score_v2": 82.3,
+      "score_breakdown": {
+        "algorithm": "v3.0",
+        "dimension_max": {
+          "authority": 18.0,
+          "topic": 18.0,
+          "resonance": 18.0,
+          "information": 16.0
+        },
+        "authority_score": 18.0,
+        "keyword_idf_score": 10.78,
+        "topic_score": 10.78,
+        "topic_burst_score": 0.0,
+        "topic_burst_count": 1,
+        "resonance_score": 0.0,
+        "info_score": 4.0,
+        "base": 32.78,
+        "base_max": 70.0,
+        "time_factor": 0.7438,
+        "density_factor": 1.0,
+        "density_note": "",
+        "repeat_penalty": 1.0,
+        "event_size": 1,
+        "event_media_count": 1,
+        "event_cluster_source": "ai",
+        "origin_source": "Water Research",
+        "raw": 24.38,
+        "display_score": 82.3,
+        "display_mode": "absolute"
+      },
+      "summary": "研究揭示热带高山安第斯湖泊温室气体排放来源及驱动因素，标记人类活动影响，为高山湖泊碳源碳汇研究提供科学依据。",
+      "analysis": "",
+      "topic_tags": [
+        "温室气体排放"
+      ],
+      "category": "气候变化",
+      "matched_keywords": [
+        "碳排放",
+        "温室气体"
+      ]
+    },
+    {
+      "title": "Reducing nitrate loads to the St. Lawrence river could mitigate hypoxia and acidification in its deep estuary and Gulf",
+      "title_en": "Reducing nitrate loads to the St. Lawrence river could mitigate hypoxia and acidification in its deep estuary and Gulf",
+      "title_zh": "减少流入圣劳伦斯河的硝酸盐负荷，有望缓解该河深水河口及海湾地区的缺氧和酸化问题",
+      "link": "https://iopscience.iop.org/article/10.1088/1748-9326/aea62d",
+      "source": "Environmental Research Letters",
+      "published": "2026-09-21T23:00:00+00:00",
+      "hotness": 81.4,
+      "score_v1": 21.91,
+      "score_v2": 81.4,
+      "score_breakdown": {
+        "algorithm": "v3.0",
+        "dimension_max": {
+          "authority": 18.0,
+          "topic": 18.0,
+          "resonance": 18.0,
+          "information": 16.0
+        },
+        "authority_score": 18.0,
+        "keyword_idf_score": 8.59,
+        "topic_score": 12.38,
+        "topic_burst_score": 3.79,
+        "topic_burst_count": 3,
+        "resonance_score": 0.0,
+        "info_score": 3.0,
+        "base": 33.38,
+        "base_max": 70.0,
+        "time_factor": 0.7005,
+        "density_factor": 1.0,
+        "density_note": "",
+        "repeat_penalty": 1.0,
+        "event_size": 1,
+        "event_media_count": 1,
+        "event_cluster_source": "ai",
+        "origin_source": "Environmental Research Letters",
+        "raw": 23.38,
+        "display_score": 81.4,
+        "display_mode": "absolute"
+      },
+      "summary": "由于人类活动的影响，全球海洋系统中的缺氧现象正在不断扩大。 受大西洋水团侵入变化和营养盐驱动的再矿化作用影响，圣劳伦斯河口及海湾的深层水正迅速缺氧（约1 mmol O₂ m⁻³ y⁻¹），同时也在酸化（约0.004 pH单位 y⁻¹）。 这些变化改变了生物地球化学循环并破坏了栖息地，从而导致了生物和经济方面的后果。我们利用一个耦合的物理-生物地球化学模型，测试了流域尺度的硝酸盐削减是否能够缓解深水缺氧和碳酸盐系统的退化。 三种硝酸盐削减情景分别将圣劳伦斯河的硝酸盐负荷降低了约 11%、30% 和 50%（分别减少 2.8、7.5 和 11.7 mmol N m−3）。 与基准模拟相比，这些情景提高了溶解氧浓度（DO）（+1.6、+4.3 和 +6.7 mmol O₂ m⁻³）、pH 值（+0.004、+0.010 和 +0.016）以及文石饱和度 (Ωarag)（+0.003、+0.009 和 +0.015）。 溶解氧饱和度<30%的深层水体体积分别减少了3%、8%和13%（−27、−75、−122 km³），而pH值<7.65的水体体积则分别减少了1.0%、 2.8% 和 4.5%（−22、−60、−96 km3）。 强腐蚀性水体（Ωarag <0.6）的体积分别减少了1.4%、3.7%和5.9%（−26、−71、−112 km³）。 在2014–2024年期间，模型模拟的改善幅度虽超过了微小的年际变异性，但仍处于深层溶解氧浓度（∼11 mmol O₂ m⁻³）和pH值（∼0.015单位）的季节性波动范围内，尽管如此，这仍表明存在可检测的管理信号。 尽管由营养盐驱动的改善幅度仍小于气候驱动的趋势，但模型模拟的硝酸盐负荷削减量可分别抵消近期观测到的溶解氧和pH值下降幅度的约56%和80%，同时减少缺氧和酸化（pH值和Ωarag）水体的体积。 这些发现提供了定量证据，表明通过改进农业实践和废水脱氮，在流域层面实施氮减排——这需要……",
+      "analysis": "",
+      "topic_tags": [
+        "大西洋水团"
+      ],
+      "category": "水处理",
+      "matched_keywords": [
+        "流域"
+      ]
+    },
+    {
+      "title": "环境部答澎湃：将建设国家和流域性新污染物治理技术中心，动态更新管控清单 - thepaper.cn",
+      "title_en": "",
+      "title_zh": "",
+      "link": "https://news.google.com/rss/articles/CBMiYEFVX3lxTE4wdkVaa29neDJrZDAtX0FXS1Q4cE1KQ3NaMGlzS0JsM0FwaTh4MHNhSDMzZjJUa1pkaElYZ1I2RS1yU1k5d0dMTGl0enJRd1BoUzc3cUFzNUZqVTd0ZG1Pdg?oc=5",
+      "source": "Google News 环境污染",
+      "published": "2026-09-22T05:39:00+00:00",
+      "hotness": 81.1,
+      "score_v1": 26.44,
+      "score_v2": 81.1,
+      "score_breakdown": {
+        "algorithm": "v3.0",
+        "dimension_max": {
+          "authority": 18.0,
+          "topic": 18.0,
+          "resonance": 18.0,
+          "information": 16.0
+        },
+        "authority_score": 8.05,
+        "keyword_idf_score": 10.89,
+        "topic_score": 14.68,
+        "topic_burst_score": 3.79,
+        "topic_burst_count": 3,
+        "resonance_score": 0.0,
+        "info_score": 8.0,
+        "base": 30.73,
+        "base_max": 70.0,
+        "time_factor": 0.7525,
+        "density_factor": 1.0,
+        "density_note": "",
+        "repeat_penalty": 1.0,
+        "event_size": 2,
+        "event_media_count": 1,
+        "event_cluster_source": "ai",
+        "origin_source": "thepaper.cn",
+        "raw": 23.13,
+        "display_score": 81.1,
+        "display_mode": "absolute"
+      },
+      "summary": "生态环境部答澎湃新闻，将建设国家和流域性新污染物治理技术中心，动态更新管控清单，强化新污染物源头管控和技术支撑能力。",
+      "analysis": "",
+      "topic_tags": [
+        "新污染物治理技术中心",
+        "生态环境部"
+      ],
+      "category": "污染治理",
+      "matched_keywords": [
+        "流域",
+        "新污染物"
+      ]
+    },
+    {
+      "title": "World leaders address climate crisis before UN meet amid record-breaking El Niño",
+      "title_en": "World leaders address climate crisis before UN meet amid record-breaking El Niño",
+      "title_zh": "在创纪录的“圣埃尔尼诺”现象影响下，世界各国领导人于联合国会议前就气候危机发表讲话",
+      "link": "https://www.theguardian.com/environment/2026/sep/21/world-leaders-climate-crisis-el-nino",
+      "source": "The Guardian Environment",
+      "published": "2026-09-21T21:26:55+00:00",
+      "hotness": 79.3,
+      "score_v1": 20.23,
+      "score_v2": 79.3,
+      "score_breakdown": {
+        "algorithm": "v3.0",
+        "dimension_max": {
+          "authority": 18.0,
+          "topic": 18.0,
+          "resonance": 18.0,
+          "information": 16.0
+        },
+        "authority_score": 12.73,
+        "keyword_idf_score": 3.4,
+        "topic_score": 7.19,
+        "topic_burst_score": 3.79,
+        "topic_burst_count": 3,
+        "resonance_score": 0.0,
+        "info_score": 11.0,
+        "base": 30.92,
+        "base_max": 70.0,
+        "time_factor": 0.6893,
+        "density_factor": 1.0,
+        "density_note": "",
+        "repeat_penalty": 1.0,
+        "event_size": 2,
+        "event_media_count": 1,
+        "event_cluster_source": "ai",
+        "origin_source": "The Guardian Environment",
+        "raw": 21.32,
+        "display_score": 79.3,
+        "display_mode": "absolute"
+      },
+      "summary": "澳大利亚和冰岛总理探讨气候变化对本国的影响，尽管面对战争和通胀，一些国家仍对此避而不谈。世界各地的政治领导人正齐聚纽约参加联合国大会，其中一些人在周一纽约年度“气候周”开幕式上的发言中，将气候危机提上了议程。今年的气候周——与联合国大会同期举行——召开之际，世界包括欧洲和美国在内的许多地区刚刚经历了数月的极端高温，非洲发生了森林大火，亚洲遭遇了山洪暴发，而且今年还出现了创纪录的“厄尔尼诺”现象。继续阅读……",
+      "analysis": "",
+      "topic_tags": [
+        "climate crisis"
+      ],
+      "category": "气候变化",
+      "matched_keywords": [
+        "气候变化"
+      ]
+    },
+    {
+      "title": "地球“体检报告”亮红灯：九大“行星边界”已被突破7个 - finance.sina.com.cn",
+      "title_en": "",
+      "title_zh": "",
+      "link": "https://news.google.com/rss/articles/CBMieEFVX3lxTE5XN25oU0g1aE16ZnFtMnp4bWR4VHJOaGc4Rm0yWmpIUGVkWVA0RndoVi01QzV1T3lLamRHbG1kYk5yVXpqQUhvWkViVkdvellpRTA4UjZsNmk2OE5nX19aZkk3ZGRBOHl0Q0N3SEJTSVBXNXNLRnhPYQ?oc=5",
+      "source": "Google News 气候变化",
+      "published": "2026-09-22T13:04:21+00:00",
+      "hotness": 79.2,
+      "score_v1": 13.83,
+      "score_v2": 79.2,
+      "score_breakdown": {
+        "algorithm": "v3.0",
+        "dimension_max": {
+          "authority": 18.0,
+          "topic": 18.0,
+          "resonance": 18.0,
+          "information": 16.0
+        },
+        "authority_score": 8.05,
+        "keyword_idf_score": 0.0,
+        "topic_score": 0.0,
+        "topic_burst_score": 0.0,
+        "topic_burst_count": 1,
+        "resonance_score": 8.76,
+        "info_score": 9.0,
+        "base": 25.81,
+        "base_max": 70.0,
+        "time_factor": 0.8199,
+        "density_factor": 1.0,
+        "density_note": "",
+        "repeat_penalty": 1.0,
+        "event_size": 2,
+        "event_media_count": 2,
+        "event_cluster_source": "ai",
+        "origin_source": "finance.sina.com.cn",
+        "raw": 21.16,
+        "display_score": 79.2,
+        "display_mode": "absolute"
+      },
+      "summary": "",
+      "analysis": "",
+      "topic_tags": [
+        "栖息地破坏"
+      ],
+      "category": "生态环境",
+      "matched_keywords": []
+    }
+  ]
+}

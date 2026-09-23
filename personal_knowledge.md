@@ -3678,3 +3678,174 @@
 
 ---
 
+## 2026-09-23
+
+**今日高频关键词**：`#生态环境` `#气候变化` `#环境保护` `#新污染物` `#生态保护`
+
+**今日 Top10 热点**
+
+### 1. 重金属环境安全隐患排查进展如何？生态环境部答每经：重点地区共查明污染源1万余个，涉及历史遗留矿山等 - 每日经济新闻
+- **来源**：Google News 生态环境
+- **热度**：88.4
+- **链接**：https://news.google.com/rss/articles/CBMiZkFVX3lxTFBONU10UXJ2TE1kNzExWkNEQjIzd1FUZ2VqZWhtT01BS1I5TlpTbkZSelQ2cUYzN0ZPQjRxZWtDaU1zT2lpUllWVUFpUTlWM3hIQXdFN1QxSzdHeGhYcGo4SnVNMFBfQQ?oc=5
+- **摘要**：生态环境部回应每日经济新闻，重点地区共查明污染源1万余个，涉及历史遗留矿山等，重金属环境安全隐患排查取得实质性进展。
+- **分析**：该条目涉及【重金属环境安全隐患排查】话题，因来源较权威且多家媒体同题报道，热度上升。
+
+### 2. One of America’s largest reservoirs just hit a record low
+- **来源**：ScienceDaily 环境科学
+- **热度**：87.3
+- **链接**：https://www.sciencedaily.com/releases/2026/09/260922005701.htm
+- **摘要**：由于今年冬季异常干旱且温暖，导致科罗拉多河流域的山地积雪极少，鲍威尔湖的水位已降至有记录以来的最低点。 米德湖的水位也创下历史新低，这引发了人们对这一河流系统的担忧——该系统为超过4000万人提供供水和电力。联邦官员已采取紧急措施以稳定鲍威尔湖的水位，包括从另一座水库调水以及减少下游的放水量。
+- **分析**：该条目涉及【水位】话题，因来源权威性高且发布时间较新，热度上升。
+
+### 3. 生态环境部：“十五五”期间将依法加快建立新污染物协同治理和环境风险管控体系 - 搜狐网
+- **来源**：Google News 生态环境
+- **热度**：83.3
+- **链接**：https://news.google.com/rss/articles/CBMijAFBVV95cUxNSHlSeHMzeHJid2c0UldlZEYtQW1Xbzl3SjZJb19IdmZKMWMzamI5SmV5ZE53c1JnNnNSRGV3UUV5eEdnal9ISFEtdm9BSXZ1ZHB5bElpUGRySnpxUzBLcTRGcDhKa0RXVEtqT1B3M1FCNDhCS2F0a2haWVhkUzhXaWwxVThMald0SG1Jdg?oc=5
+- **摘要**：生态环境部宣布‘十五五’期间将依法加快建立新污染物协同治理和环境风险管控体系，有效管控突出环境风险，推动新污染物治理工作制度化。
+- **分析**：该条目涉及【新污染物】话题，因来源较权威且话题稀缺度高，热度上升。
+
+### 4. More than 170,000 respiratory cases recorded in haze-choked Indonesia
+- **来源**：BBC 科学与环境
+- **热度**：83.1
+- **链接**：https://www.bbc.co.uk/news/articles/cq62j13gnyrko?at_medium=RSS&at_campaign=rss
+- **摘要**：在这些病例中——症状从轻微咳嗽到肺炎不等——有超过40,000例涉及幼儿。
+- **分析**：该条目涉及【雾霾】话题，因来源权威性高且发布时间较新，热度上升。
+
+### 5. 国家气候变化专家委员会副主任王毅：深圳要持续发挥绿色低碳示范引领作用 - 搜狐网
+- **来源**：Google News 气候变化
+- **热度**：82.7
+- **链接**：https://news.google.com/rss/articles/CBMijAFBVV95cUxQRWJqT0VkSDAtOUhkenFrQ3B3VkdhNXktNnR4ajdldVFOaFZIWnl6RXNGOTJmckdndDIweFozSGdGUGk2VGJuLThXQ3Q2Tk1LSVF1X2ltSGo1dnktSVROWDlicDA2YTNGWHlsOHlsN1Zzb3dSU3JJdGNpSjJ1QmJPSFNVU0tCZnpFWHJleg?oc=5
+- **摘要**：国家气候变化专家委员会副主任王毅出席深圳低碳城论坛，强调深圳要持续发挥绿色低碳示范引领作用，推动碳达峰碳中和目标落地实施。
+- **分析**：该条目涉及【碳达峰碳中和】话题，因来源较权威且多家媒体同题报道，热度上升。
+
+### 6. Sources and driving factors of greenhouse gas emissions from tropical high-mountain Andean lakes: marks of human impact
+- **来源**：Water Research
+- **热度**：82.3
+- **链接**：https://www.sciencedirect.com/science/article/pii/S0043135426016453?dgcid=rss_sd_all
+- **摘要**：研究揭示热带高山安第斯湖泊温室气体排放来源及驱动因素，标记人类活动影响，为高山湖泊碳源碳汇研究提供科学依据。
+- **分析**：该条目涉及【温室气体排放】话题，因来源权威性高，热度上升。
+
+### 7. Reducing nitrate loads to the St. Lawrence river could mitigate hypoxia and acidification in its deep estuary and Gulf
+- **来源**：Environmental Research Letters
+- **热度**：81.4
+- **链接**：https://iopscience.iop.org/article/10.1088/1748-9326/aea62d
+- **摘要**：由于人类活动的影响，全球海洋系统中的缺氧现象正在不断扩大。 受大西洋水团侵入变化和营养盐驱动的再矿化作用影响，圣劳伦斯河口及海湾的深层水正迅速缺氧（约1 mmol O₂ m⁻³ y⁻¹），同时也在酸化（约0.004 pH单位 y⁻¹）。 这些变化改变了生物地球化学循环并破坏了栖息地，从而导致了生物和经济方面的后果。我们利用一个耦合的物理-生物地球化学模型，测试了流域尺度的硝酸盐削减是否能够缓解深水缺氧和碳酸盐系统的退化。 三种硝酸盐削减情景分别将圣劳伦斯河的硝酸盐负荷降低了约 11%、30% 和 50%（分别减少 2.8、7.5 和 11.7 mmol N m−3）。 与基准模拟相比，这些情景提高了溶解氧浓度（DO）（+1.6、+4.3 和 +6.7 mmol O₂ m⁻³）、pH 值（+0.004、+0.010 和 +0.016）以及文石饱和度 (Ωarag)（+0.003、+0.009 和 +0.015）。 溶解氧饱和度<30%的深层水体体积分别减少了3%、8%和13%（−27、−75、−122 km³），而pH值<7.65的水体体积则分别减少了1.0%、 2.8% 和 4.5%（−22、−60、−96 km3）。 强腐蚀性水体（Ωarag <0.6）的体积分别减少了1.4%、3.7%和5.9%（−26、−71、−112 km³）。 在2014–2024年期间，模型模拟的改善幅度虽超过了微小的年际变异性，但仍处于深层溶解氧浓度（∼11 mmol O₂ m⁻³）和pH值（∼0.015单位）的季节性波动范围内，尽管如此，这仍表明存在可检测的管理信号。 尽管由营养盐驱动的改善幅度仍小于气候驱动的趋势，但模型模拟的硝酸盐负荷削减量可分别抵消近期观测到的溶解氧和pH值下降幅度的约56%和80%，同时减少缺氧和酸化（pH值和Ωarag）水体的体积。 这些发现提供了定量证据，表明通过改进农业实践和废水脱氮，在流域层面实施氮减排——这需要……
+- **分析**：该条目涉及【大西洋水团】话题，因来源权威性高且话题稀缺度高，热度上升。
+
+### 8. 环境部答澎湃：将建设国家和流域性新污染物治理技术中心，动态更新管控清单 - thepaper.cn
+- **来源**：Google News 环境污染
+- **热度**：81.1
+- **链接**：https://news.google.com/rss/articles/CBMiYEFVX3lxTE4wdkVaa29neDJrZDAtX0FXS1Q4cE1KQ3NaMGlzS0JsM0FwaTh4MHNhSDMzZjJUa1pkaElYZ1I2RS1yU1k5d0dMTGl0enJRd1BoUzc3cUFzNUZqVTd0ZG1Pdg?oc=5
+- **摘要**：生态环境部答澎湃新闻，将建设国家和流域性新污染物治理技术中心，动态更新管控清单，强化新污染物源头管控和技术支撑能力。
+- **分析**：该条目涉及【新污染物治理技术中心】话题，因来源较权威且话题稀缺度高，热度上升。
+
+### 9. World leaders address climate crisis before UN meet amid record-breaking El Niño
+- **来源**：The Guardian Environment
+- **热度**：79.3
+- **链接**：https://www.theguardian.com/environment/2026/sep/21/world-leaders-climate-crisis-el-nino
+- **摘要**：澳大利亚和冰岛总理探讨气候变化对本国的影响，尽管面对战争和通胀，一些国家仍对此避而不谈。世界各地的政治领导人正齐聚纽约参加联合国大会，其中一些人在周一纽约年度“气候周”开幕式上的发言中，将气候危机提上了议程。今年的气候周——与联合国大会同期举行——召开之际，世界包括欧洲和美国在内的许多地区刚刚经历了数月的极端高温，非洲发生了森林大火，亚洲遭遇了山洪暴发，而且今年还出现了创纪录的“厄尔尼诺”现象。继续阅读……
+- **分析**：该条目涉及【climate crisis】话题，因来源权威性高，热度上升。
+
+### 10. 地球“体检报告”亮红灯：九大“行星边界”已被突破7个 - finance.sina.com.cn
+- **来源**：Google News 气候变化
+- **热度**：79.2
+- **链接**：https://news.google.com/rss/articles/CBMieEFVX3lxTE5XN25oU0g1aE16ZnFtMnp4bWR4VHJOaGc4Rm0yWmpIUGVkWVA0RndoVi01QzV1T3lLamRHbG1kYk5yVXpqQUhvWkViVkdvellpRTA4UjZsNmk2OE5nX19aZkk3ZGRBOHl0Q0N3SEJTSVBXNXNLRnhPYQ?oc=5
+- **分析**：该条目涉及【栖息地破坏】话题，因来源较权威且多家媒体同题报道，热度上升。
+
+**今日自动提取候选新词**
+
+- **中国**（出现 5 次）
+  - 上下文：中国重点区域生态保护红线生态环境保护成效均呈现好转态势 - finance.sina.com.cn
+  - 上下文：中铁水务与商丘水投集团签订战略合作协议 - 中国水网
+  - 上下文：全力应对秋冬季重污染天气 中国将严厉打击超标排污 - finance.sina.com.cn
+- **finance**（出现 4 次）
+  - 上下文：地球“体检报告”亮红灯：九大“行星边界”已被突破7个 - finance.sina.com.cn
+  - 上下文：中国重点区域生态保护红线生态环境保护成效均呈现好转态势 - finance.sina.com.cn
+  - 上下文：全国重点区域生态保护红线保护成效显著 - finance.sina.com.cn
+- **sina**（出现 4 次）
+  - 上下文：地球“体检报告”亮红灯：九大“行星边界”已被突破7个 - finance.sina.com.cn
+  - 上下文：中国重点区域生态保护红线生态环境保护成效均呈现好转态势 - finance.sina.com.cn
+  - 上下文：全国重点区域生态保护红线保护成效显著 - finance.sina.com.cn
+- **生态**（出现 4 次）
+  - 上下文：中国重点区域生态保护红线生态环境保护成效均呈现好转态势 - finance.sina.com.cn
+  - 上下文：生态环境部党组书记孙金龙赴吉林省调研生态环境保护工作 - 中华人民共和国生态环境部
+  - 上下文：中央第三生态环境保护督察组督察黑龙江省情况反馈会召开 - 人民网黑龙江频道
+- **record**（出现 3 次）
+  - 上下文：One of America’s largest reservoirs just hit a record low
+  - 上下文：World leaders address climate crisis before UN meet amid record-breaking El Niño
+  - 上下文：California braces for record El Niño storms as governor declares emergency
+- **climate**（出现 3 次）
+  - 上下文：World leaders address climate crisis before UN meet amid record-breaking El Niño
+  - 上下文：A global safety net for climate-risk intelligence is urgently needed
+  - 上下文：Spain battles climate change on several fronts
+- **水网**（出现 3 次）
+  - 上下文：中铁水务与商丘水投集团签订战略合作协议 - 中国水网
+  - 上下文：*ST 岭南总裁刘勇辞职 郑乃文接任 - 中国水网
+  - 上下文：中铁水务与甘肃灵台县签订战略合作协议 - 中国水网
+- **污染物**（出现 2 次）
+  - 上下文：生态环境部：“十五五”期间将依法加快建立新污染物协同治理和环境风险管控体系 - 搜狐网
+  - 上下文：环境部答澎湃：将建设国家和流域性新污染物治理技术中心，动态更新管控清单 - thepaper.cn
+- **管控**（出现 2 次）
+  - 上下文：生态环境部：“十五五”期间将依法加快建立新污染物协同治理和环境风险管控体系 - 搜狐网
+  - 上下文：环境部答澎湃：将建设国家和流域性新污染物治理技术中心，动态更新管控清单 - thepaper.cn
+- **国家**（出现 2 次）
+  - 上下文：国家气候变化专家委员会副主任王毅：深圳要持续发挥绿色低碳示范引领作用 - 搜狐网
+  - 上下文：环境部答澎湃：将建设国家和流域性新污染物治理技术中心，动态更新管控清单 - thepaper.cn
+- **专家**（出现 2 次）
+  - 上下文：国家气候变化专家委员会副主任王毅：深圳要持续发挥绿色低碳示范引领作用 - 搜狐网
+  - 上下文：降雨暂缓烟霾影响 专家提醒受污染水蒸气也对人有害 - 联合早报
+- **深圳**（出现 2 次）
+  - 上下文：国家气候变化专家委员会副主任王毅：深圳要持续发挥绿色低碳示范引领作用 - 搜狐网
+  - 上下文：水质“体检”大比武！深圳环境监测员技能竞赛收官 - 21财经
+- **human**（出现 2 次）
+  - 上下文：Sources and driving factors of greenhouse gas emissions from tropical high-mountain Andean lakes: marks of human impact
+  - 上下文：Biosecurity must protect human functional capacity
+- **更新**（出现 2 次）
+  - 上下文：环境部答澎湃：将建设国家和流域性新污染物治理技术中心，动态更新管控清单 - thepaper.cn
+  - 上下文：1.07亿！拉萨市市政环卫设施更新项目（一期）采购 - 北极星环保网
+- **thepaper**（出现 2 次）
+  - 上下文：环境部答澎湃：将建设国家和流域性新污染物治理技术中心，动态更新管控清单 - thepaper.cn
+  - 上下文：钟斌已任生态环境部固体废物与化学品司司长 - thepaper.cn
+- **体检**（出现 2 次）
+  - 上下文：地球“体检报告”亮红灯：九大“行星边界”已被突破7个 - finance.sina.com.cn
+  - 上下文：水质“体检”大比武！深圳环境监测员技能竞赛收官 - 21财经
+- **区域**（出现 2 次）
+  - 上下文：中国重点区域生态保护红线生态环境保护成效均呈现好转态势 - finance.sina.com.cn
+  - 上下文：全国重点区域生态保护红线保护成效显著 - finance.sina.com.cn
+- **保护**（出现 2 次）
+  - 上下文：中国重点区域生态保护红线生态环境保护成效均呈现好转态势 - finance.sina.com.cn
+  - 上下文：全国重点区域生态保护红线保护成效显著 - finance.sina.com.cn
+- **红线**（出现 2 次）
+  - 上下文：中国重点区域生态保护红线生态环境保护成效均呈现好转态势 - finance.sina.com.cn
+  - 上下文：全国重点区域生态保护红线保护成效显著 - finance.sina.com.cn
+- **risk**（出现 2 次）
+  - 上下文：A global safety net for climate-risk intelligence is urgently needed
+  - 上下文：A dynamic urban flood risk prediction framework for real-time flood risk early warning
+- **秋冬季**（出现 2 次）
+  - 上下文：直通部委｜生态环境部：秋冬季大气污染防控形势不利 民政部：警惕非法养老APP诈骗 - Jiemian.com
+  - 上下文：全力应对秋冬季重污染天气 中国将严厉打击超标排污 - finance.sina.com.cn
+- **India**（出现 2 次）
+  - 上下文：India is producing more green energy - but wasting a lot of it
+  - 上下文：In India, a Surge of Solar Is Keeping Coal Power in Check
+- **中铁**（出现 2 次）
+  - 上下文：中铁水务与商丘水投集团签订战略合作协议 - 中国水网
+  - 上下文：中铁水务与甘肃灵台县签订战略合作协议 - 中国水网
+- **水务**（出现 2 次）
+  - 上下文：中铁水务与商丘水投集团签订战略合作协议 - 中国水网
+  - 上下文：中铁水务与甘肃灵台县签订战略合作协议 - 中国水网
+- **签订**（出现 2 次）
+  - 上下文：中铁水务与商丘水投集团签订战略合作协议 - 中国水网
+  - 上下文：中铁水务与甘肃灵台县签订战略合作协议 - 中国水网
+- **环卫**（出现 2 次）
+  - 上下文：1.07亿！拉萨市市政环卫设施更新项目（一期）采购 - 北极星环保网
+  - 上下文：8739万！辽宁兴城市城乡环卫一体化项目招标 - 北极星环保网
+- **北极星**（出现 2 次）
+  - 上下文：1.07亿！拉萨市市政环卫设施更新项目（一期）采购 - 北极星环保网
+  - 上下文：8739万！辽宁兴城市城乡环卫一体化项目招标 - 北极星环保网
+- **环保网**（出现 2 次）
+  - 上下文：1.07亿！拉萨市市政环卫设施更新项目（一期）采购 - 北极星环保网
+  - 上下文：8739万！辽宁兴城市城乡环卫一体化项目招标 - 北极星环保网
+
+---
+

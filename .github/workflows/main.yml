@@ -4,12 +4,16 @@ on:
   schedule:
     # 主跑：每天 UTC 00:23（北京时间 08:23）。刻意避开整点——GitHub 官方提示
     # "the start of every hour" 是 Actions 的触发高峰，此时 schedule 事件会被
-    # 延迟甚至静默丢弃：2026-09-22 那次到点后 1.5 小时仍未触发，运行列表里
-    # 连一条记录都没有（历史 #61~#80 连续 20 天天天都跑，唯独这天凭空消失）。
+    # 延迟甚至静默丢弃。
     - cron: '23 0 * * *'
-    # 补跑窗口：UTC 03:23（北京时间 11:23）。主跑被丢弃或失败时兜底补上；
-    # 主跑已成功则由下面 guard job 识别并跳过，不会重复产出（见 guard 注释）。
+    # 补跑窗口 ×3（北京 11:23 / 14:23 / 17:23）。
+    # 2026-09-23 复盘：只错峰到 00:23 并不够——当天 00:23 过后 2 小时 14 分仍无任何
+    # 运行记录（不是失败，是压根没被调度）。改为一天 4 个互不相邻的窗口；
+    # 任一窗口成功产出后，其余窗口由下面的 guard job 识别并跳过，
+    # 不会重复提交、不会重复消耗 AI 额度。
     - cron: '23 3 * * *'
+    - cron: '23 6 * * *'
+    - cron: '23 9 * * *'
   workflow_dispatch:
     # 允许手动触发
 
@@ -19,10 +23,10 @@ concurrency:
   cancel-in-progress: false
 
 jobs:
-  # 幂等守卫：当天快照已存在，说明今天已经跑成功过（两条 cron 都落在同一 UTC 日内），
+  # 幂等守卫：当天快照已存在，说明今天已经跑成功过（四条 cron 都落在同一 UTC 日内），
   # 本次就是补跑窗口里的重复触发——直接跳过 build，避免重复提交与重复消耗 AI 额度。
   # 日期取 UTC，与 daily_report.py 中 generate_daily_snapshot 的
-  # `datetime.now(timezone.utc)` 文件命名口径严格一致；两个 cron 也都在 UTC 同一日内，
+  # `datetime.now(timezone.utc)` 文件命名口径严格一致；所有 cron 也都在 UTC 同一日内，
   # 因此 guard 看到的就是"今天是否已产出"这个事实。
   guard:
     runs-on: ubuntu-latest
@@ -127,14 +131,14 @@ jobs:
           name: "数据备份"
           body: |
             ## 环境学子雷达 - 数据备份
-            
+
             自动备份日期：${{ github.event.head_commit.timestamp || '手动触发' }}
-            
+
             包含文件：
             - history.csv — 历史记录
             - glossary.json — 环境知识库
             - learning_path.json — 学习路径
-            
+
             > 此 Release 由 GitHub Actions 自动更新，每次运行覆盖最新备份。
           files: |
             ${{ env.BACKUP_FILE }}

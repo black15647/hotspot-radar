@@ -1,0 +1,62 @@
+name: Watchdog - 今日产出巡检
+
+# 为什么需要这个工作流：
+#   Daily Hotspot Report 里的 ntfy 通知挂在 `if: failure()` 上，只有"跑起来但失败"才会响。
+#   而 schedule 事件无论被丢弃还是晚到几小时，都不会产生 failure —— 全程零告警。
+#   2026-09-22 / 09-23 / 09-24 连续三天都是这样：用户在中午发现"今天没跑"。
+#   这个工作流只做一件事：确认"今天到底有没有产出"，没有就把静默变成声音。
+#
+# ⚠ 它的触发时间要设在"最晚的那个观察日之后"才有效：
+#    按 2026-09-22~23 的实测，schedule 事件会晚到 4.5~5.5 小时，
+#    即北京 08:23 的窗口实际在北京 12:50~13:50 才产出。
+#    因此这里设在 UTC 12:13（北京 20:13），晚于全部窗口 + 迟到余量。
+#
+# 注意：本工作流同样依赖 GitHub 的 schedule，理论上也可能不跑。因此它是"多一道防线"，
+#   不是"万无一失"。真正与 GitHub 调度器无关的那道防线在你自己电脑上（每日 21:05 巡检）。
+
+on:
+  schedule:
+    - cron: '13 12 * * *'   # UTC 12:13 = 北京 20:13
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v5
+
+      - name: Verify today's snapshot exists
+        env:
+          NTFY_TOPIC: ${{ secrets.NTFY_TOPIC }}
+        run: |
+          TODAY=$(date -u +%F)
+          F="docs/data/daily/${TODAY}.json"
+          if [ -f "$F" ]; then
+            SIZE=$(wc -c < "$F")
+            echo "OK：${F} 已生成（${SIZE} 字节）"
+            # 顺手记一笔：快照异常小通常意味着当天抓取几乎全灭，也值得看一眼。
+            if [ "$SIZE" -lt 500 ]; then
+              echo "::warning::${F} 只有 ${SIZE} 字节，明显偏小，建议检查当天抓取日志"
+            fi
+            exit 0
+          fi
+
+          echo "::error::今日（${TODAY}）快照缺失：流水线很可能未被调度（而非执行失败）"
+          echo "排查入口：https://github.com/${{ github.repository }}/actions/workflows/main.yml"
+          echo "立即恢复：该页面右上角 Run workflow 手动触发一次"
+
+          if [ -z "$NTFY_TOPIC" ]; then
+            echo "未配置 secret NTFY_TOPIC，跳过手机推送"
+            exit 1
+          fi
+          curl -s -X POST "https://ntfy.sh/$NTFY_TOPIC" \
+            -H "Title: 环境学子雷达 - 今日未产出" \
+            -H "Priority: high" \
+            -H "Click: https://github.com/${{ github.repository }}/actions/workflows/main.yml" \
+            -d "到 UTC $(date -u +%H:%M) 为止，docs/data/daily/${TODAY}.json 仍未生成。这不是执行失败，是没有被调度。请打开 Actions 页手动触发 Daily Hotspot Report。" \
+            || echo "ntfy.sh 不可达，推送失败"
+          exit 1

@@ -2,18 +2,20 @@ name: Daily Hotspot Report
 
 on:
   schedule:
-    # 主跑：每天 UTC 00:23（北京时间 08:23）。刻意避开整点——GitHub 官方提示
-    # "the start of every hour" 是 Actions 的触发高峰，此时 schedule 事件会被
-    # 延迟甚至静默丢弃。
-    - cron: '23 0 * * *'
-    # 补跑窗口 ×3（北京 11:23 / 14:23 / 17:23）。
-    # 2026-09-23 复盘：只错峰到 00:23 并不够——当天 00:23 过后 2 小时 14 分仍无任何
-    # 运行记录（不是失败，是压根没被调度）。改为一天 4 个互不相邻的窗口；
-    # 任一窗口成功产出后，其余窗口由下面的 guard job 识别并跳过，
-    # 不会重复提交、不会重复消耗 AI 额度。
-    - cron: '23 3 * * *'
-    - cron: '23 6 * * *'
-    - cron: '23 9 * * *'
+    # ===== A/B 判别实验（2026-09-24 加入，测完即可删）=====
+    # 背景：08-30~09-21 用整点 cron `0 0 * * *` 连续 20 天只晚 1~2 分钟；
+    # 09-22 把 cron 改成非整点后，每一次 schedule 事件都晚到 4.5~5.5 小时。
+    # 究竟是「非整点配置被排到低频批次」还是「GitHub 侧整体变慢」，单看数据分不出来。
+    # 这条整点窗口就是判别器：它若在 00:01 准时到 → 小时级晚点与 cron 写法有关；
+    # 它若同样晚 5 小时 → 与本仓库配置无关，直接上外部时钟（见诊断文档第四节第 4 层）。
+    # 重复触发无害：任一窗口产出后，其余窗口由下面的 guard job 识别并跳过。
+    - cron: '0 0 * * *'    # 【判别器】整点窗口，北京 08:00
+
+    # ===== 原有窗口 =====
+    - cron: '23 0 * * *'   # 北京 08:23
+    - cron: '23 3 * * *'   # 北京 11:23
+    - cron: '23 6 * * *'   # 北京 14:23
+    - cron: '23 9 * * *'   # 北京 17:23
   workflow_dispatch:
     # 允许手动触发
 
@@ -23,18 +25,22 @@ concurrency:
   cancel-in-progress: false
 
 jobs:
-  # 幂等守卫：当天快照已存在，说明今天已经跑成功过（四条 cron 都落在同一 UTC 日内），
-  # 本次就是补跑窗口里的重复触发——直接跳过 build，避免重复提交与重复消耗 AI 额度。
+  # 幂等守卫：当天快照已存在，说明今天已经跑成功过，本次就是重复触发——
+  # 直接跳过 build，避免重复提交与重复消耗 AI 额度。
   # 日期取 UTC，与 daily_report.py 中 generate_daily_snapshot 的
-  # `datetime.now(timezone.utc)` 文件命名口径严格一致；所有 cron 也都在 UTC 同一日内，
-  # 因此 guard 看到的就是"今天是否已产出"这个事实。
+  # `datetime.now(timezone.utc)` 文件命名口径严格一致；所有 cron 也都在 UTC 同一日内。
+  #
+  # 2026-09-24 实测澄清：guard 跳过时 build 为 skipped、整个 run 记为 **success**
+  # （见 09-23 的 #85/#86/#87 三次运行），不会产生"假故障"告警。
+  # 09-23 的 #84 报 failure 是**真失败**——build 实跑到 "Commit and push data changes"
+  # 被 git push 拒绝，原因见下面那一步的注释。
   guard:
     runs-on: ubuntu-latest
     outputs:
       skip: ${{ steps.check.outputs.skip }}
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
 
       - name: Check today's snapshot
         id: check
@@ -59,7 +65,7 @@ jobs:
 
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
 
       - name: Set up Python 3.10
         uses: actions/setup-python@v5
@@ -101,16 +107,37 @@ jobs:
           sed -i "s#<lastmod>[0-9-]*</lastmod>#<lastmod>${TODAY}</lastmod>#" docs/sitemap.xml
           grep -o "<lastmod>[0-9-]*</lastmod>" docs/sitemap.xml
 
+      # 2026-09-23 的 #84 就死在这一步。旧写法是：
+      #     git pull --rebase origin main || true
+      #     git add ...
+      #     git commit ...
+      #     git push
+      # 两个问题叠加：
+      #   ① `git pull --rebase` 放在 `git add` **之前**，此时工作区里满是刚生成的
+      #      未暂存改动 → rebase 直接报 "cannot pull with rebase: You have unstaged
+      #      changes"，这道"防冲突"的安全网其实**从来没生效过**；
+      #   ② 失败被 `|| true` 吞掉，于是脚本拿着过期的 base 去 push，被远端拒绝
+      #      （non-fast-forward）→ 整个 run 判失败。
+      # 修正：先 add + commit 让工作区干净，再 rebase，再 push，并显式重试。
       - name: Commit and push data changes
         run: |
           git config --local user.email "github-actions[bot]@users.noreply.github.com"
           git config --local user.name "github-actions[bot]"
-          git pull --rebase origin main || true
           git add docs/data/
           git add docs/sitemap.xml
           git add personal_knowledge.md 2>/dev/null || true
           git diff --staged --quiet || git commit -m "chore: update daily hotspot report $(date -u +%Y-%m-%d)"
-          git push
+          for i in 1 2 3; do
+            if git pull --rebase origin main && git push; then
+              echo "推送成功（第 ${i} 次尝试）"
+              exit 0
+            fi
+            echo "第 ${i} 次推送失败，3 秒后重试"
+            git rebase --abort 2>/dev/null || true
+            sleep 3
+          done
+          echo "::error::连续 3 次推送均失败"
+          exit 1
 
       - name: Package backup files
         if: success()

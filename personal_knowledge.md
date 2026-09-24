@@ -3849,3 +3849,122 @@
 
 ---
 
+## 2026-09-24
+
+**今日高频关键词**：`#生态环境` `#水污染` `#生态修复` `#环境法典` `#地下水`
+
+**今日 Top10 热点**
+
+### 1. 生态环境部通报溶洞垃圾整治 8.2万吨废物已清理 - 中华网
+- **来源**：Google News 环境污染
+- **热度**：83.7
+- **链接**：https://news.google.com/rss/articles/CBMicEFVX3lxTE5mNGpyTnk4TEtrNDFzVjM2dFVuMTJFWUdvYWNBQUFaZTVpVFd3ekdLM21wVldRY1hJSGU4bG15ZXVkd3M3ZVdjVml0OEJnMV9nT2g1T2hJREVMTUJraUlWc3pId01SUFBDV0txci1kdzU?oc=5
+- **摘要**：生态环境部通报溶洞垃圾整治工作，已清理8.2万吨废物，推进生态环境综合整治。
+- **分析**：该条目涉及【生态环境部】话题，因来源较权威且发布时间较新，热度上升。
+
+### 2. Water RSNet: An improved water quality prediction model combining dual-temporal and dynamic multimodal fusion
+- **来源**：Water Research
+- **热度**：82.1
+- **链接**：https://www.sciencedirect.com/science/article/pii/S0043135426016210?dgcid=rss_sd_all
+- **摘要**：介绍结合双时相和动态多模态融合的改进型水质预测模型Water RSNet，提升水质预测精度与效率。
+- **分析**：该条目涉及【Water RSNet】话题，因来源权威性高，热度上升。
+
+### 3. 以生态环境法典引领生态修复治理新实践 - finance.sina.cn
+- **来源**：Google News 生态环境
+- **热度**：81.8
+- **链接**：https://news.google.com/rss/articles/CBMioAFBVV95cUxQdVIwWF9yV3AyVDRuNnM2S3VfbzU5cVRpUmoxOUM4eUdZdkJNMW5MMzZ3M1FZZVZZQmRPSk5lRW0tNjMtbGRUMzFxXzNLTEwzWVlZcW5VblBvRDlCelB2LVVqamwxTmtGWGt1ZVFSVFhScUs1enZnLUFWZ3pScmRCV1pNVmEtVzhKTWxja0dmWkV5d3lPZURpOWlCZWtvUFVo?oc=5
+- **摘要**：解析《中华人民共和国生态环境法典》颁布对生态修复治理的引领作用，标志着我国生态环境法治进入法典化新阶段。
+- **分析**：该条目涉及【生态环境法典】话题，因来源较权威且发布时间较新，热度上升。
+
+### 4. 2026年云南省生态环境执法专题新闻发布会举行- 中国日报网 - China Daily
+- **来源**：Google News 生态环境
+- **热度**：79.4
+- **链接**：https://news.google.com/rss/articles/CBMifEFVX3lxTE5BbVg5eWIyaHVBT0dzWFJxWmY1cWFIdVdKNzg3VVJpUU1LalU4dnhVeUdBdEYtektXSldRVXp5MFhrNElaZHlxZjZXVUdZV1NMeHhFejZKcGUzcGV0eUcxNll6Vl9xOE9LeThMZk4wa2FFWjN2UVI2eDY4Vy0?oc=5
+- **分析**：该条目涉及【生态环境执法】话题，因来源较权威且话题稀缺度高，热度上升。
+
+### 5. 邓海峰：生态环境“法典化”时代，部分环境信披已成法定义务｜聚焦2026华夏ESG大会 - 新浪财经
+- **来源**：Google News 环境保护
+- **热度**：78.9
+- **链接**：https://news.google.com/rss/articles/CBMieEFVX3lxTFBDYnVqWDFzOTI2d2haNEQ2azhuQUlKTE1rX3dRYkZ3U3N2NkFqYVFuZXJxOXBtdTg1cVJUNVk2SGxXQlB2MFR2dHZIV0ZpeFZ4TmM5azBMRGUyb3I5YXZsdjIzdGNSS0JVOHVsRmdERkRlelU3bVJyZQ?oc=5
+- **摘要**：聚焦2026华夏ESG大会，探讨生态环境法典化时代环境信息披露的法定义务与合规挑战。
+- **分析**：该条目涉及【生态环境法典化】话题，因来源较权威且话题稀缺度高，热度上升。
+
+### 6. Adsorbent materials for high-iodine groundwater remediation: a critical review
+- **来源**：Water Research
+- **热度**：78.3
+- **链接**：https://www.sciencedirect.com/science/article/pii/S0043135426016489?dgcid=rss_sd_all
+- **摘要**：本文综述了高碘地下水修复吸附材料的研究进展，分析了不同材料对高碘污染的去除机制与应用潜力，为地下水治理提供理论参考。
+- **分析**：该条目涉及【高碘地下水】话题，因来源权威性高，热度上升。
+
+### 7. 重金属环境安全隐患排查进展如何？生态环境部答每经：重点地区共查明污染源1万余个，涉及历史遗留矿山等 - nbd.com.cn
+- **来源**：Google News 生态环境
+- **热度**：78.2
+- **链接**：https://news.google.com/rss/articles/CBMiZkFVX3lxTFBONU10UXJ2TE1kNzExWkNEQjIzd1FUZ2VqZWhtT01BS1I5TlpTbkZSelQ2cUYzN0ZPQjRxZWtDaU1zT2lpUllWVUFpUTlWM3hIQXdFN1QxSzdHeGhYcGo4SnVNMFBfQQ?oc=5
+- **摘要**：生态环境部回应称，重点地区已查明污染源1万余个，涉及历史遗留矿山等，重金属环境安全隐患排查取得实质性进展。
+- **分析**：该条目涉及【重金属环境安全隐患排查】话题，因来源较权威且话题稀缺度高，热度上升。
+
+### 8. 中埃海洋塑料污染智能监测联合实验室在华东师大揭牌 - 手机新浪网
+- **来源**：Google News 环境污染
+- **热度**：78.0
+- **链接**：https://news.google.com/rss/articles/CBMickFVX3lxTE9OZUZCMHBRWjdfMGZnOXViUTdURUI4QjZQQkt2QzZDNmlNY0cxSDI4eGFCeUVrTVo1WDh2Ui11cWdkUTROcXhxYUxCa1MxTW5ieTI2Rlo5MW9IRmdqMnJMWXNUY1BscktONTBNWkM5T2t1dw?oc=5
+- **摘要**：中埃联合智能监测海洋塑料污染实验室在华东师范大学揭牌，旨在通过技术手段加强对海洋塑料污染的监测与治理合作。
+- **分析**：该条目涉及【华东师范大学】话题，因来源较权威，热度上升。
+
+### 9. Blood tests find high level of cancer-causing forever chemical in residents near factory
+- **来源**：BBC 科学与环境
+- **热度**：76.1
+- **链接**：https://www.bbc.co.uk/news/articles/cjly4rv0q3l0o?at_medium=RSS&at_campaign=rss
+- **摘要**：兰开夏郡一家大型化工厂附近的居民被告知，他们可能面临罹患严重健康问题的风险。
+- **分析**：该条目涉及【forever chemical】话题，因来源权威性高且发布时间较新，热度上升。
+
+### 10. AI赋能处置多源叠加污染，重庆开展藻渡河流域“一河一策一图”突发水污染事件联合应急演练 - 光明网
+- **来源**：Google News 环境污染
+- **热度**：74.3
+- **链接**：https://news.google.com/rss/articles/CBMiZ0FVX3lxTE05TmNCcWFWUzB0b2p0THpHQ2dZWGxqbndtRzIzVl90OHk5V01nRFFETVpFTll5WHJnSnJ5MGFQbHhrbjc3TlQ3LWhWTFQ4NEh3d1daRTk4dUZYRS1aTnNqVmNfd2NkbHM?oc=5
+- **摘要**：重庆利用AI技术开展藻渡河流域突发水污染联合应急演练，聚焦多源叠加污染处置，构建“一河一策一图”应急机制。
+- **分析**：该条目涉及【突发水污染】话题，因来源较权威且话题稀缺度高，热度上升。
+
+**今日自动提取候选新词**
+
+- **finance**（出现 4 次）
+  - 上下文：以生态环境法典引领生态修复治理新实践 - finance.sina.cn
+  - 上下文：全力应对秋冬季重污染天气 中国将严厉打击超标排污 - finance.sina.cn
+  - 上下文：全国重点区域生态保护红线保护成效显著 - finance.sina.cn
+- **sina**（出现 4 次）
+  - 上下文：以生态环境法典引领生态修复治理新实践 - finance.sina.cn
+  - 上下文：全力应对秋冬季重污染天气 中国将严厉打击超标排污 - finance.sina.cn
+  - 上下文：全国重点区域生态保护红线保护成效显著 - finance.sina.cn
+- **生态**（出现 3 次）
+  - 上下文：以生态环境法典引领生态修复治理新实践 - finance.sina.cn
+  - 上下文：生态环境部党组书记孙金龙赴吉林省调研生态环境保护工作 - 中华人民共和国生态环境部
+  - 上下文：全国重点区域生态保护红线保护成效显著 - finance.sina.cn
+- **法典**（出现 2 次）
+  - 上下文：以生态环境法典引领生态修复治理新实践 - finance.sina.cn
+  - 上下文：邓海峰：生态环境“法典化”时代，部分环境信披已成法定义务｜聚焦2026华夏ESG大会 - 新浪财经
+- **修复**（出现 2 次）
+  - 上下文：以生态环境法典引领生态修复治理新实践 - finance.sina.cn
+  - 上下文：北京法院首批建成七个生态环境司法修复基地 - 搜狐网
+- **举行**（出现 2 次）
+  - 上下文：2026年云南省生态环境执法专题新闻发布会举行- 中国日报网 - China Daily
+  - 上下文：海峡两岸气候变迁与能源可持续发展论坛在东莞举行 - 搜狐网
+- **财经**（出现 2 次）
+  - 上下文：邓海峰：生态环境“法典化”时代，部分环境信披已成法定义务｜聚焦2026华夏ESG大会 - 新浪财经
+  - 上下文：水质“体检”大比武！深圳环境监测员技能竞赛收官 - 21财经
+- **high**（出现 2 次）
+  - 上下文：Adsorbent materials for high-iodine groundwater remediation: a critical review
+  - 上下文：Blood tests find high level of cancer-causing forever chemical in residents near factory
+- **联合**（出现 2 次）
+  - 上下文：中埃海洋塑料污染智能监测联合实验室在华东师大揭牌 - 手机新浪网
+  - 上下文：AI赋能处置多源叠加污染，重庆开展藻渡河流域“一河一策一图”突发水污染事件联合应急演练 - 光明网
+- **体检**（出现 2 次）
+  - 上下文：水质“体检”大比武！深圳环境监测员技能竞赛收官 - 21财经
+  - 上下文：地球“体检报告”亮红灯：九大“行星边界”已被突破7个 - finance.sina.cn
+- **中国**（出现 2 次）
+  - 上下文：两则人事任免：钟斌履新环境部固废与化学品司司长 高昊旻任上海市水务局局长 - 中国水网
+  - 上下文：全力应对秋冬季重污染天气 中国将严厉打击超标排污 - finance.sina.cn
+- **气候**（出现 2 次）
+  - 上下文：环保天地 - 联合国气候行动峰会及IPCC成员的利益冲突 - RFI
+  - 上下文：气候变暖促使隐翅虫北扩，北方多地被称“飞行硫酸”的隐翅虫叮咬 - 虎嗅网
+
+---
+

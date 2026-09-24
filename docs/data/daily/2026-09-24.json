@@ -1,0 +1,548 @@
+{
+  "report_date": "2026-09-24",
+  "site_name": "环境学子雷达",
+  "total_items": 24,
+  "snapshot_items": 10,
+  "category_stats": {
+    "生态环境": {
+      "count": 5,
+      "total_heat": 362.8
+    },
+    "水处理": {
+      "count": 2,
+      "total_heat": 160.4
+    },
+    "环境政策": {
+      "count": 5,
+      "total_heat": 362.3
+    },
+    "污染治理": {
+      "count": 5,
+      "total_heat": 348.0
+    },
+    "科研学术": {
+      "count": 3,
+      "total_heat": 221.9
+    },
+    "能源与碳中和": {
+      "count": 1,
+      "total_heat": 76.1
+    },
+    "其他": {
+      "count": 2,
+      "total_heat": 129.1
+    },
+    "气候变化": {
+      "count": 1,
+      "total_heat": 61.3
+    }
+  },
+  "total_sources": 28,
+  "success_sources": 26,
+  "failed_sources": 1,
+  "week_total_items": 182,
+  "week_new_keywords": 101,
+  "policy_ratio": 11.8,
+  "items": [
+    {
+      "title": "生态环境部通报溶洞垃圾整治 8.2万吨废物已清理 - 中华网",
+      "title_en": "",
+      "title_zh": "",
+      "link": "https://news.google.com/rss/articles/CBMicEFVX3lxTE5mNGpyTnk4TEtrNDFzVjM2dFVuMTJFWUdvYWNBQUFaZTVpVFd3ekdLM21wVldRY1hJSGU4bG15ZXVkd3M3ZVdjVml0OEJnMV9nT2g1T2hJREVMTUJraUlWc3pId01SUFBDV0txci1kdzU?oc=5",
+      "source": "Google News 环境污染",
+      "published": "2026-09-23T16:58:12+00:00",
+      "hotness": 83.7,
+      "score_v1": 30.64,
+      "score_v2": 83.7,
+      "score_breakdown": {
+        "algorithm": "v3.0",
+        "dimension_max": {
+          "authority": 18.0,
+          "topic": 18.0,
+          "resonance": 18.0,
+          "information": 16.0
+        },
+        "authority_score": 8.05,
+        "keyword_idf_score": 7.74,
+        "topic_score": 13.45,
+        "topic_burst_score": 5.7,
+        "topic_burst_count": 7,
+        "resonance_score": 0.0,
+        "info_score": 9.0,
+        "base": 30.5,
+        "base_max": 70.0,
+        "time_factor": 0.8552,
+        "density_factor": 1.0,
+        "density_note": "",
+        "repeat_penalty": 1.0,
+        "event_size": 1,
+        "event_media_count": 1,
+        "event_cluster_source": "ai",
+        "origin_source": "中华网",
+        "raw": 26.08,
+        "display_score": 83.7,
+        "display_mode": "absolute"
+      },
+      "summary": "生态环境部通报溶洞垃圾整治工作，已清理8.2万吨废物，推进生态环境综合整治。",
+      "analysis": "",
+      "topic_tags": [
+        "生态环境部",
+        "溶洞垃圾整治"
+      ],
+      "category": "生态环境",
+      "matched_keywords": [
+        "生态环境"
+      ]
+    },
+    {
+      "title": "Water RSNet: An improved water quality prediction model combining dual-temporal and dynamic multimodal fusion",
+      "title_en": "Water RSNet: An improved water quality prediction model combining dual-temporal and dynamic multimodal fusion",
+      "title_zh": "Water RSNet：一种结合双时相和动态多模态融合的改进型水质预测模型",
+      "link": "https://www.sciencedirect.com/science/article/pii/S0043135426016210?dgcid=rss_sd_all",
+      "source": "Water Research",
+      "published": "2026-09-23T05:02:52.969845+00:00",
+      "hotness": 82.1,
+      "score_v1": 20.68,
+      "score_v2": 82.1,
+      "score_breakdown": {
+        "algorithm": "v3.0",
+        "dimension_max": {
+          "authority": 18.0,
+          "topic": 18.0,
+          "resonance": 18.0,
+          "information": 16.0
+        },
+        "authority_score": 18.0,
+        "keyword_idf_score": 8.13,
+        "topic_score": 10.49,
+        "topic_burst_score": 2.36,
+        "topic_burst_count": 2,
+        "resonance_score": 0.0,
+        "info_score": 4.0,
+        "base": 32.49,
+        "base_max": 70.0,
+        "time_factor": 0.7441,
+        "density_factor": 1.0,
+        "density_note": "",
+        "repeat_penalty": 1.0,
+        "event_size": 1,
+        "event_media_count": 1,
+        "event_cluster_source": "ai",
+        "origin_source": "Water Research",
+        "raw": 24.18,
+        "display_score": 82.1,
+        "display_mode": "absolute"
+      },
+      "summary": "介绍结合双时相和动态多模态融合的改进型水质预测模型Water RSNet，提升水质预测精度与效率。",
+      "analysis": "",
+      "topic_tags": [
+        "Water RSNet",
+        "水质预测"
+      ],
+      "category": "水处理",
+      "matched_keywords": [
+        "水污染"
+      ]
+    },
+    {
+      "title": "以生态环境法典引领生态修复治理新实践 - finance.sina.cn",
+      "title_en": "",
+      "title_zh": "",
+      "link": "https://news.google.com/rss/articles/CBMioAFBVV95cUxQdVIwWF9yV3AyVDRuNnM2S3VfbzU5cVRpUmoxOUM4eUdZdkJNMW5MMzZ3M1FZZVZZQmRPSk5lRW0tNjMtbGRUMzFxXzNLTEwzWVlZcW5VblBvRDlCelB2LVVqamwxTmtGWGt1ZVFSVFhScUs1enZnLUFWZ3pScmRCV1pNVmEtVzhKTWxja0dmWkV5d3lPZURpOWlCZWtvUFVo?oc=5",
+      "source": "Google News 生态环境",
+      "published": "2026-09-24T00:01:58+00:00",
+      "hotness": 81.8,
+      "score_v1": 40.71,
+      "score_v2": 81.8,
+      "score_breakdown": {
+        "algorithm": "v3.0",
+        "dimension_max": {
+          "authority": 18.0,
+          "topic": 18.0,
+          "resonance": 18.0,
+          "information": 16.0
+        },
+        "authority_score": 8.05,
+        "keyword_idf_score": 11.73,
+        "topic_score": 17.43,
+        "topic_burst_score": 5.7,
+        "topic_burst_count": 7,
+        "resonance_score": 0.0,
+        "info_score": 0.0,
+        "base": 25.48,
+        "base_max": 70.0,
+        "time_factor": 0.9353,
+        "density_factor": 1.0,
+        "density_note": "",
+        "repeat_penalty": 1.0,
+        "event_size": 3,
+        "event_media_count": 1,
+        "event_cluster_source": "ai",
+        "origin_source": "finance.sina.cn",
+        "raw": 23.84,
+        "display_score": 81.8,
+        "display_mode": "absolute"
+      },
+      "summary": "解析《中华人民共和国生态环境法典》颁布对生态修复治理的引领作用，标志着我国生态环境法治进入法典化新阶段。",
+      "analysis": "",
+      "topic_tags": [
+        "生态环境法典",
+        "生态修复"
+      ],
+      "category": "环境政策",
+      "matched_keywords": [
+        "生态环境",
+        "生态修复",
+        "环境法典"
+      ]
+    },
+    {
+      "title": "2026年云南省生态环境执法专题新闻发布会举行- 中国日报网 - China Daily",
+      "title_en": "",
+      "title_zh": "",
+      "link": "https://news.google.com/rss/articles/CBMifEFVX3lxTE5BbVg5eWIyaHVBT0dzWFJxWmY1cWFIdVdKNzg3VVJpUU1LalU4dnhVeUdBdEYtektXSldRVXp5MFhrNElaZHlxZjZXVUdZV1NMeHhFejZKcGUzcGV0eUcxNll6Vl9xOE9LeThMZk4wa2FFWjN2UVI2eDY4Vy0?oc=5",
+      "source": "Google News 生态环境",
+      "published": "2026-09-23T12:01:08+00:00",
+      "hotness": 79.4,
+      "score_v1": 29.52,
+      "score_v2": 79.4,
+      "score_breakdown": {
+        "algorithm": "v3.0",
+        "dimension_max": {
+          "authority": 18.0,
+          "topic": 18.0,
+          "resonance": 18.0,
+          "information": 16.0
+        },
+        "authority_score": 8.05,
+        "keyword_idf_score": 7.74,
+        "topic_score": 13.45,
+        "topic_burst_score": 5.7,
+        "topic_burst_count": 7,
+        "resonance_score": 0.0,
+        "info_score": 5.0,
+        "base": 26.5,
+        "base_max": 70.0,
+        "time_factor": 0.8057,
+        "density_factor": 1.0,
+        "density_note": "",
+        "repeat_penalty": 1.0,
+        "event_size": 1,
+        "event_media_count": 1,
+        "event_cluster_source": "ai",
+        "origin_source": "China Daily",
+        "raw": 21.35,
+        "display_score": 79.4,
+        "display_mode": "absolute"
+      },
+      "summary": "",
+      "analysis": "",
+      "topic_tags": [
+        "生态环境执法"
+      ],
+      "category": "环境政策",
+      "matched_keywords": [
+        "生态环境"
+      ]
+    },
+    {
+      "title": "邓海峰：生态环境“法典化”时代，部分环境信披已成法定义务｜聚焦2026华夏ESG大会 - 新浪财经",
+      "title_en": "",
+      "title_zh": "",
+      "link": "https://news.google.com/rss/articles/CBMieEFVX3lxTFBDYnVqWDFzOTI2d2haNEQ2azhuQUlKTE1rX3dRYkZ3U3N2NkFqYVFuZXJxOXBtdTg1cVJUNVk2SGxXQlB2MFR2dHZIV0ZpeFZ4TmM5azBMRGUyb3I5YXZsdjIzdGNSS0JVOHVsRmdERkRlelU3bVJyZQ?oc=5",
+      "source": "Google News 环境保护",
+      "published": "2026-09-23T10:02:00+00:00",
+      "hotness": 78.9,
+      "score_v1": 29.13,
+      "score_v2": 78.9,
+      "score_breakdown": {
+        "algorithm": "v3.0",
+        "dimension_max": {
+          "authority": 18.0,
+          "topic": 18.0,
+          "resonance": 18.0,
+          "information": 16.0
+        },
+        "authority_score": 8.05,
+        "keyword_idf_score": 7.74,
+        "topic_score": 13.45,
+        "topic_burst_score": 5.7,
+        "topic_burst_count": 7,
+        "resonance_score": 0.0,
+        "info_score": 5.0,
+        "base": 26.5,
+        "base_max": 70.0,
+        "time_factor": 0.7872,
+        "density_factor": 1.0,
+        "density_note": "",
+        "repeat_penalty": 1.0,
+        "event_size": 1,
+        "event_media_count": 1,
+        "event_cluster_source": "ai",
+        "origin_source": "新浪财经",
+        "raw": 20.86,
+        "display_score": 78.9,
+        "display_mode": "absolute"
+      },
+      "summary": "聚焦2026华夏ESG大会，探讨生态环境法典化时代环境信息披露的法定义务与合规挑战。",
+      "analysis": "",
+      "topic_tags": [
+        "生态环境法典化",
+        "环境信披"
+      ],
+      "category": "生态环境",
+      "matched_keywords": [
+        "生态环境"
+      ]
+    },
+    {
+      "title": "Adsorbent materials for high-iodine groundwater remediation: a critical review",
+      "title_en": "Adsorbent materials for high-iodine groundwater remediation: a critical review",
+      "title_zh": "用于高碘地下水修复的吸附剂：一项批判性综述",
+      "link": "https://www.sciencedirect.com/science/article/pii/S0043135426016489?dgcid=rss_sd_all",
+      "source": "Water Research",
+      "published": "2026-09-23T05:02:52.969845+00:00",
+      "hotness": 78.3,
+      "score_v1": 18.68,
+      "score_v2": 78.3,
+      "score_breakdown": {
+        "algorithm": "v3.0",
+        "dimension_max": {
+          "authority": 18.0,
+          "topic": 18.0,
+          "resonance": 18.0,
+          "information": 16.0
+        },
+        "authority_score": 18.0,
+        "keyword_idf_score": 9.32,
+        "topic_score": 9.32,
+        "topic_burst_score": 0.0,
+        "topic_burst_count": 1,
+        "resonance_score": 0.0,
+        "info_score": 0.0,
+        "base": 27.32,
+        "base_max": 70.0,
+        "time_factor": 0.7441,
+        "density_factor": 1.0,
+        "density_note": "",
+        "repeat_penalty": 1.0,
+        "event_size": 1,
+        "event_media_count": 1,
+        "event_cluster_source": "ai",
+        "origin_source": "Water Research",
+        "raw": 20.33,
+        "display_score": 78.3,
+        "display_mode": "absolute"
+      },
+      "summary": "本文综述了高碘地下水修复吸附材料的研究进展，分析了不同材料对高碘污染的去除机制与应用潜力，为地下水治理提供理论参考。",
+      "analysis": "",
+      "topic_tags": [
+        "高碘地下水"
+      ],
+      "category": "水处理",
+      "matched_keywords": [
+        "地下水"
+      ]
+    },
+    {
+      "title": "重金属环境安全隐患排查进展如何？生态环境部答每经：重点地区共查明污染源1万余个，涉及历史遗留矿山等 - nbd.com.cn",
+      "title_en": "",
+      "title_zh": "",
+      "link": "https://news.google.com/rss/articles/CBMiZkFVX3lxTFBONU10UXJ2TE1kNzExWkNEQjIzd1FUZ2VqZWhtT01BS1I5TlpTbkZSelQ2cUYzN0ZPQjRxZWtDaU1zT2lpUllWVUFpUTlWM3hIQXdFN1QxSzdHeGhYcGo4SnVNMFBfQQ?oc=5",
+      "source": "Google News 生态环境",
+      "published": "2026-09-22T07:47:00+00:00",
+      "hotness": 78.2,
+      "score_v1": 30.12,
+      "score_v2": 78.2,
+      "score_breakdown": {
+        "algorithm": "v3.0",
+        "dimension_max": {
+          "authority": 18.0,
+          "topic": 18.0,
+          "resonance": 18.0,
+          "information": 16.0
+        },
+        "authority_score": 8.05,
+        "keyword_idf_score": 10.8,
+        "topic_score": 16.5,
+        "topic_burst_score": 5.7,
+        "topic_burst_count": 7,
+        "resonance_score": 0.0,
+        "info_score": 9.0,
+        "base": 33.55,
+        "base_max": 70.0,
+        "time_factor": 0.6031,
+        "density_factor": 1.0,
+        "density_note": "",
+        "repeat_penalty": 1.0,
+        "event_size": 1,
+        "event_media_count": 1,
+        "event_cluster_source": "ai",
+        "origin_source": "nbd.com.cn",
+        "raw": 20.23,
+        "display_score": 78.2,
+        "display_mode": "absolute"
+      },
+      "summary": "生态环境部回应称，重点地区已查明污染源1万余个，涉及历史遗留矿山等，重金属环境安全隐患排查取得实质性进展。",
+      "analysis": "",
+      "topic_tags": [
+        "重金属环境安全隐患排查",
+        "重点地区污染源查明"
+      ],
+      "category": "污染治理",
+      "matched_keywords": [
+        "重金属",
+        "生态环境"
+      ]
+    },
+    {
+      "title": "中埃海洋塑料污染智能监测联合实验室在华东师大揭牌 - 手机新浪网",
+      "title_en": "",
+      "title_zh": "",
+      "link": "https://news.google.com/rss/articles/CBMickFVX3lxTE9OZUZCMHBRWjdfMGZnOXViUTdURUI4QjZQQkt2QzZDNmlNY0cxSDI4eGFCeUVrTVo1WDh2Ui11cWdkUTROcXhxYUxCa1MxTW5ieTI2Rlo5MW9IRmdqMnJMWXNUY1BscktONTBNWkM5T2t1dw?oc=5",
+      "source": "Google News 环境污染",
+      "published": "2026-09-23T10:22:40+00:00",
+      "hotness": 78.0,
+      "score_v1": 17.19,
+      "score_v2": 78.0,
+      "score_breakdown": {
+        "algorithm": "v3.0",
+        "dimension_max": {
+          "authority": 18.0,
+          "topic": 18.0,
+          "resonance": 18.0,
+          "information": 16.0
+        },
+        "authority_score": 8.05,
+        "keyword_idf_score": 9.32,
+        "topic_score": 9.32,
+        "topic_burst_score": 0.0,
+        "topic_burst_count": 1,
+        "resonance_score": 0.0,
+        "info_score": 8.0,
+        "base": 25.37,
+        "base_max": 70.0,
+        "time_factor": 0.7904,
+        "density_factor": 1.0,
+        "density_note": "",
+        "repeat_penalty": 1.0,
+        "event_size": 1,
+        "event_media_count": 1,
+        "event_cluster_source": "ai",
+        "origin_source": "手机新浪网",
+        "raw": 20.05,
+        "display_score": 78.0,
+        "display_mode": "absolute"
+      },
+      "summary": "中埃联合智能监测海洋塑料污染实验室在华东师范大学揭牌，旨在通过技术手段加强对海洋塑料污染的监测与治理合作。",
+      "analysis": "",
+      "topic_tags": [
+        "华东师范大学",
+        "海洋塑料污染"
+      ],
+      "category": "科研学术",
+      "matched_keywords": [
+        "塑料污染"
+      ]
+    },
+    {
+      "title": "Blood tests find high level of cancer-causing forever chemical in residents near factory",
+      "title_en": "Blood tests find high level of cancer-causing forever chemical in residents near factory",
+      "title_zh": "血液检测显示，工厂附近的居民体内一种致癌的“永久性化学物质”含量较高",
+      "link": "https://www.bbc.co.uk/news/articles/cjly4rv0q3l0o?at_medium=RSS&at_campaign=rss",
+      "source": "BBC 科学与环境",
+      "published": "2026-09-23T21:01:06+00:00",
+      "hotness": 76.1,
+      "score_v1": 16.65,
+      "score_v2": 76.1,
+      "score_breakdown": {
+        "algorithm": "v3.0",
+        "dimension_max": {
+          "authority": 18.0,
+          "topic": 18.0,
+          "resonance": 18.0,
+          "information": 16.0
+        },
+        "authority_score": 12.73,
+        "keyword_idf_score": 0.0,
+        "topic_score": 3.0,
+        "topic_burst_score": 0.0,
+        "topic_burst_count": 1,
+        "resonance_score": 0.0,
+        "info_score": 4.75,
+        "base": 20.48,
+        "base_max": 70.0,
+        "time_factor": 0.8997,
+        "density_factor": 1.0,
+        "density_note": "",
+        "repeat_penalty": 1.0,
+        "event_size": 1,
+        "event_media_count": 1,
+        "event_cluster_source": "ai",
+        "origin_source": "BBC 科学与环境",
+        "raw": 18.42,
+        "display_score": 76.1,
+        "display_mode": "absolute"
+      },
+      "summary": "兰开夏郡一家大型化工厂附近的居民被告知，他们可能面临罹患严重健康问题的风险。",
+      "analysis": "",
+      "topic_tags": [
+        "forever chemical",
+        "cancer-causing"
+      ],
+      "category": "能源与碳中和",
+      "matched_keywords": []
+    },
+    {
+      "title": "AI赋能处置多源叠加污染，重庆开展藻渡河流域“一河一策一图”突发水污染事件联合应急演练 - 光明网",
+      "title_en": "",
+      "title_zh": "",
+      "link": "https://news.google.com/rss/articles/CBMiZ0FVX3lxTE05TmNCcWFWUzB0b2p0THpHQ2dZWGxqbndtRzIzVl90OHk5V01nRFFETVpFTll5WHJnSnJ5MGFQbHhrbjc3TlQ3LWhWTFQ4NEh3d1daRTk4dUZYRS1aTnNqVmNfd2NkbHM?oc=5",
+      "source": "Google News 环境污染",
+      "published": "2026-09-23T11:33:00+00:00",
+      "hotness": 74.3,
+      "score_v1": 23.42,
+      "score_v2": 74.3,
+      "score_breakdown": {
+        "algorithm": "v3.0",
+        "dimension_max": {
+          "authority": 18.0,
+          "topic": 18.0,
+          "resonance": 18.0,
+          "information": 16.0
+        },
+        "authority_score": 8.05,
+        "keyword_idf_score": 10.75,
+        "topic_score": 13.12,
+        "topic_burst_score": 2.36,
+        "topic_burst_count": 2,
+        "resonance_score": 0.0,
+        "info_score": 0.0,
+        "base": 21.17,
+        "base_max": 70.0,
+        "time_factor": 0.8013,
+        "density_factor": 1.0,
+        "density_note": "",
+        "repeat_penalty": 1.0,
+        "event_size": 1,
+        "event_media_count": 1,
+        "event_cluster_source": "ai",
+        "origin_source": "光明网",
+        "raw": 16.96,
+        "display_score": 74.3,
+        "display_mode": "absolute"
+      },
+      "summary": "重庆利用AI技术开展藻渡河流域突发水污染联合应急演练，聚焦多源叠加污染处置，构建“一河一策一图”应急机制。",
+      "analysis": "",
+      "topic_tags": [
+        "突发水污染",
+        "AI技术"
+      ],
+      "category": "污染治理",
+      "matched_keywords": [
+        "水污染",
+        "流域"
+      ]
+    }
+  ]
+}

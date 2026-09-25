@@ -1,0 +1,536 @@
+{
+  "report_date": "2026-09-25",
+  "site_name": "环境学子雷达",
+  "total_items": 27,
+  "snapshot_items": 10,
+  "category_stats": {
+    "气候变化": {
+      "count": 8,
+      "total_heat": 569.7
+    },
+    "生态环境": {
+      "count": 6,
+      "total_heat": 454.7
+    },
+    "水处理": {
+      "count": 2,
+      "total_heat": 151.1
+    },
+    "污染治理": {
+      "count": 5,
+      "total_heat": 362.2
+    },
+    "科研学术": {
+      "count": 1,
+      "total_heat": 78.2
+    },
+    "环境政策": {
+      "count": 4,
+      "total_heat": 273.2
+    },
+    "能源与碳中和": {
+      "count": 1,
+      "total_heat": 69.3
+    }
+  },
+  "total_sources": 28,
+  "success_sources": 26,
+  "failed_sources": 1,
+  "week_total_items": 184,
+  "week_new_keywords": 97,
+  "policy_ratio": 12.5,
+  "items": [
+    {
+      "title": "Gavin Newsom condemns Democrats’ ‘climate hushing’, predicts Trump’s downfall and expects AOC to run in 2028",
+      "title_en": "Gavin Newsom condemns Democrats’ ‘climate hushing’, predicts Trump’s downfall and expects AOC to run in 2028",
+      "title_zh": "加文·纽森谴责民主党人的“气候问题封口”，预测特朗普将倒台，并预计AOC将在2028年参选",
+      "link": "https://www.theguardian.com/us-news/2026/sep/24/gavin-newsom-interview-trump-aoc",
+      "source": "The Guardian Environment",
+      "published": "2026-09-24T16:00:24+00:00",
+      "hotness": 83.0,
+      "score_v1": 25.95,
+      "score_v2": 83.0,
+      "score_breakdown": {
+        "algorithm": "v3.0",
+        "dimension_max": {
+          "authority": 18.0,
+          "topic": 18.0,
+          "resonance": 18.0,
+          "information": 16.0
+        },
+        "authority_score": 12.73,
+        "keyword_idf_score": 3.49,
+        "topic_score": 8.15,
+        "topic_burst_score": 4.66,
+        "topic_burst_count": 4,
+        "resonance_score": 0.0,
+        "info_score": 8.0,
+        "base": 28.88,
+        "base_max": 70.0,
+        "time_factor": 0.8722,
+        "density_factor": 1.0,
+        "density_note": "",
+        "repeat_penalty": 1.0,
+        "event_size": 1,
+        "event_media_count": 1,
+        "event_cluster_source": "token",
+        "origin_source": "The Guardian Environment",
+        "raw": 25.19,
+        "display_score": 83.0,
+        "display_mode": "absolute"
+      },
+      "summary": "加州州长表示，民主党人必须阐明气候冲击与“民生问题”之间的关联。民主党政客不谈论气候变化是一个错误，而他们之所以不谈，是因为“不知道该如何谈论这个问题”， 加利福尼亚州州长加文·纽森周三在接受《卫报》及全球新闻合作项目“Covering Climate ”采访时表示。在联合国大会及纽约气候周的间隙，纽森还预测，11月的中期选举将带来“我们所熟知的唐纳德·特朗普总统任期的终结”。 为了防止特朗普窃取选举结果，选民必须以压倒性的数量踊跃投票，使他“根本无法对结果提出异议”。纽森表示，如果美国总统仍宣布国家紧急状态或试图以其他方式使选举结果无效，那么“我们人民必须挺身而出。 法院必须介入。国会必须履行职责，捍卫法治。” 继续阅读……",
+      "analysis": "",
+      "topic_tags": [
+        "climate hushing"
+      ],
+      "category": "气候变化",
+      "matched_keywords": [
+        "气候变化"
+      ]
+    },
+    {
+      "title": "Interlinking pathways and impacts between climate change, ecosystems and human health",
+      "title_en": "Interlinking pathways and impacts between climate change, ecosystems and human health",
+      "title_zh": "气候变化、生态系统与人类健康之间的相互关联途径及影响",
+      "link": "https://iopscience.iop.org/article/10.1088/1748-9326/aea351",
+      "source": "Environmental Research Letters",
+      "published": "2026-09-23T23:00:00+00:00",
+      "hotness": 82.8,
+      "score_v1": 28.18,
+      "score_v2": 82.8,
+      "score_breakdown": {
+        "algorithm": "v3.0",
+        "dimension_max": {
+          "authority": 18.0,
+          "topic": 18.0,
+          "resonance": 18.0,
+          "information": 16.0
+        },
+        "authority_score": 18.0,
+        "keyword_idf_score": 8.23,
+        "topic_score": 12.9,
+        "topic_burst_score": 4.66,
+        "topic_burst_count": 4,
+        "resonance_score": 0.0,
+        "info_score": 4.0,
+        "base": 34.9,
+        "base_max": 70.0,
+        "time_factor": 0.7164,
+        "density_factor": 1.0,
+        "density_note": "",
+        "repeat_penalty": 1.0,
+        "event_size": 1,
+        "event_media_count": 1,
+        "event_cluster_source": "token",
+        "origin_source": "Environmental Research Letters",
+        "raw": 25.0,
+        "display_score": 82.8,
+        "display_mode": "absolute"
+      },
+      "summary": "研究探讨气候变化、生态系统与人类健康三者间的相互作用路径与影响机制，揭示跨领域关联效应。",
+      "analysis": "",
+      "topic_tags": [
+        "生态系统"
+      ],
+      "category": "生态环境",
+      "matched_keywords": [
+        "气候变化",
+        "生态系统"
+      ]
+    },
+    {
+      "title": "From low-cost measurements to rapid water quality monitoring: a hybrid machine learning–optimization framework for predicting laboratory-intensive parameters",
+      "title_en": "From low-cost measurements to rapid water quality monitoring: a hybrid machine learning–optimization framework for predicting laboratory-intensive parameters",
+      "title_zh": "从低成本测量到快速水质监测：一种用于预测需要大量实验室检测的参数的混合机器学习-优化框架",
+      "link": "https://www.sciencedirect.com/science/article/pii/S0043135426015897?dgcid=rss_sd_all",
+      "source": "Water Research",
+      "published": "2026-09-24T02:27:52.626587+00:00",
+      "hotness": 81.8,
+      "score_v1": 20.67,
+      "score_v2": 81.8,
+      "score_breakdown": {
+        "algorithm": "v3.0",
+        "dimension_max": {
+          "authority": 18.0,
+          "topic": 18.0,
+          "resonance": 18.0,
+          "information": 16.0
+        },
+        "authority_score": 18.0,
+        "keyword_idf_score": 7.79,
+        "topic_score": 10.15,
+        "topic_burst_score": 2.36,
+        "topic_burst_count": 2,
+        "resonance_score": 0.0,
+        "info_score": 4.0,
+        "base": 32.15,
+        "base_max": 70.0,
+        "time_factor": 0.7438,
+        "density_factor": 1.0,
+        "density_note": "",
+        "repeat_penalty": 1.0,
+        "event_size": 1,
+        "event_media_count": 1,
+        "event_cluster_source": "token",
+        "origin_source": "Water Research",
+        "raw": 23.91,
+        "display_score": 81.8,
+        "display_mode": "absolute"
+      },
+      "summary": "提出混合机器学习优化框架，利用低成本测量数据快速预测实验室分析参数，实现水质监测的快速化与成本降低。",
+      "analysis": "",
+      "topic_tags": [
+        "水质监测"
+      ],
+      "category": "水处理",
+      "matched_keywords": [
+        "水污染"
+      ]
+    },
+    {
+      "title": "山西“十五五”生态环境蓝图出炉 锚定四个“更”目标 - 搜狐网",
+      "title_en": "",
+      "title_zh": "",
+      "link": "https://news.google.com/rss/articles/CBMiiAFBVV95cUxNclZBelFmXzh1Z01DQlFSaDVCNGk5TUVEbDE3R3laajV0OEhIeTNhSnpra0N1OVNUbm9XNTFvaXNWMzZjbzFmQ1NVQ1M2MC1ybW15Qlh4cVUxMWVDaUZKREIwbTFiY25XMFQwalVIM1hoZjVxRGNERnBsYW9ETmdaaG93TFpPWWV5?oc=5",
+      "source": "Google News 生态环境",
+      "published": "2026-09-24T11:47:04+00:00",
+      "hotness": 79.6,
+      "score_v1": 28.01,
+      "score_v2": 79.6,
+      "score_breakdown": {
+        "algorithm": "v3.0",
+        "dimension_max": {
+          "authority": 18.0,
+          "topic": 18.0,
+          "resonance": 18.0,
+          "information": 16.0
+        },
+        "authority_score": 8.05,
+        "keyword_idf_score": 7.46,
+        "topic_score": 12.97,
+        "topic_burst_score": 5.51,
+        "topic_burst_count": 6,
+        "resonance_score": 0.0,
+        "info_score": 5.0,
+        "base": 26.02,
+        "base_max": 70.0,
+        "time_factor": 0.8282,
+        "density_factor": 1.0,
+        "density_note": "",
+        "repeat_penalty": 1.0,
+        "event_size": 1,
+        "event_media_count": 1,
+        "event_cluster_source": "token",
+        "origin_source": "搜狐网",
+        "raw": 21.55,
+        "display_score": 79.6,
+        "display_mode": "absolute"
+      },
+      "summary": "山西发布‘十五五’生态环境规划，聚焦美丽山西建设，明确四个‘更’目标，旨在实现生态环境根本好转。",
+      "analysis": "",
+      "topic_tags": [
+        "生态环境",
+        "十五五规划"
+      ],
+      "category": "生态环境",
+      "matched_keywords": [
+        "生态环境"
+      ]
+    },
+    {
+      "title": "重庆南岸：PM2.5同比降18% 生态环境质量稳中向好 - 光明网",
+      "title_en": "",
+      "title_zh": "",
+      "link": "https://news.google.com/rss/articles/CBMiZ0FVX3lxTFBDbUl0UGVLWnR2dXVKUnZMLWRNejdSdW45ejY5cldPY2ZPeFdiQlNhbU4zbTBuZFY3bk02eEtQRkhhVFFYbF8tUkpIcS1JYXNyNng1dnVzd2tMaDc1eHo0c1czN3Nyem8?oc=5",
+      "source": "Google News 生态环境",
+      "published": "2026-09-24T09:01:00+00:00",
+      "hotness": 78.8,
+      "score_v1": 27.42,
+      "score_v2": 78.8,
+      "score_breakdown": {
+        "algorithm": "v3.0",
+        "dimension_max": {
+          "authority": 18.0,
+          "topic": 18.0,
+          "resonance": 18.0,
+          "information": 16.0
+        },
+        "authority_score": 8.05,
+        "keyword_idf_score": 7.46,
+        "topic_score": 12.97,
+        "topic_burst_score": 5.51,
+        "topic_burst_count": 6,
+        "resonance_score": 0.0,
+        "info_score": 5.0,
+        "base": 26.02,
+        "base_max": 70.0,
+        "time_factor": 0.8014,
+        "density_factor": 1.0,
+        "density_note": "",
+        "repeat_penalty": 1.0,
+        "event_size": 1,
+        "event_media_count": 1,
+        "event_cluster_source": "token",
+        "origin_source": "光明网",
+        "raw": 20.85,
+        "display_score": 78.8,
+        "display_mode": "absolute"
+      },
+      "summary": "重庆南岸地区PM2.5浓度同比下降18%，生态环境质量持续改善，稳中向好态势明显。",
+      "analysis": "",
+      "topic_tags": [
+        "PM2.5",
+        "生态环境质量"
+      ],
+      "category": "污染治理",
+      "matched_keywords": [
+        "生态环境"
+      ]
+    },
+    {
+      "title": "生态环境部通报溶洞垃圾整治 8.2万吨废物已清理 - 中华网",
+      "title_en": "",
+      "title_zh": "",
+      "link": "https://news.google.com/rss/articles/CBMicEFVX3lxTE5mNGpyTnk4TEtrNDFzVjM2dFVuMTJFWUdvYWNBQUFaZTVpVFd3ekdLM21wVldRY1hJSGU4bG15ZXVkd3M3ZVdjVml0OEJnMV9nT2g1T2hJREVMTUJraUlWc3pId01SUFBDV0txci1kdzU?oc=5",
+      "source": "Google News 环境污染",
+      "published": "2026-09-23T16:58:12+00:00",
+      "hotness": 78.2,
+      "score_v1": 25.07,
+      "score_v2": 78.2,
+      "score_breakdown": {
+        "algorithm": "v3.0",
+        "dimension_max": {
+          "authority": 18.0,
+          "topic": 18.0,
+          "resonance": 18.0,
+          "information": 16.0
+        },
+        "authority_score": 8.05,
+        "keyword_idf_score": 7.46,
+        "topic_score": 12.97,
+        "topic_burst_score": 5.51,
+        "topic_burst_count": 6,
+        "resonance_score": 0.0,
+        "info_score": 9.0,
+        "base": 30.02,
+        "base_max": 70.0,
+        "time_factor": 0.6732,
+        "density_factor": 1.0,
+        "density_note": "",
+        "repeat_penalty": 1.0,
+        "event_size": 1,
+        "event_media_count": 1,
+        "event_cluster_source": "token",
+        "origin_source": "中华网",
+        "raw": 20.21,
+        "display_score": 78.2,
+        "display_mode": "absolute"
+      },
+      "summary": "生态环境部通报溶洞垃圾整治工作，已清理废物8.2万吨，有效净化了溶洞环境。",
+      "analysis": "",
+      "topic_tags": [
+        "生态环境部"
+      ],
+      "category": "生态环境",
+      "matched_keywords": [
+        "生态环境"
+      ]
+    },
+    {
+      "title": "AI system helps lab devices ‘talk’ with each other — streamlining research",
+      "title_en": "AI system helps lab devices ‘talk’ with each other — streamlining research",
+      "title_zh": "人工智能系统帮助实验室设备实现“互通”——从而简化研究流程",
+      "link": "https://www.nature.com/articles/d41586-026-02990-8",
+      "source": "Nature",
+      "published": "2026-09-24T00:00:00+00:00",
+      "hotness": 78.2,
+      "score_v1": 14.31,
+      "score_v2": 78.2,
+      "score_breakdown": {
+        "algorithm": "v3.0",
+        "dimension_max": {
+          "authority": 18.0,
+          "topic": 18.0,
+          "resonance": 18.0,
+          "information": 16.0
+        },
+        "authority_score": 18.0,
+        "keyword_idf_score": 0.0,
+        "topic_score": 3.0,
+        "topic_burst_score": 0.0,
+        "topic_burst_count": 1,
+        "resonance_score": 0.0,
+        "info_score": 7.0,
+        "base": 28.0,
+        "base_max": 70.0,
+        "time_factor": 0.7241,
+        "density_factor": 1.0,
+        "density_note": "",
+        "repeat_penalty": 1.0,
+        "event_size": 1,
+        "event_media_count": 1,
+        "event_cluster_source": "token",
+        "origin_source": "streamlining research",
+        "raw": 20.28,
+        "display_score": 78.2,
+        "display_mode": "absolute"
+      },
+      "summary": "《自然》杂志， 该平台使不同类型的机器能够相互通信，并由人工智能代理进行控制。",
+      "analysis": "",
+      "topic_tags": [
+        "人工智能"
+      ],
+      "category": "科研学术",
+      "matched_keywords": []
+    },
+    {
+      "title": "What drives institutional action for wildfire resilience? Determinants of targeted grazing attitudes and adoption on national forests in the western US",
+      "title_en": "What drives institutional action for wildfire resilience? Determinants of targeted grazing attitudes and adoption on national forests in the western US",
+      "title_zh": "是什么推动了机构在提升野火韧性方面的行动？美国西部国家森林中针对性放牧态度的决定因素及其采用情况",
+      "link": "https://iopscience.iop.org/article/10.1088/1748-9326/aea00b",
+      "source": "Environmental Research Letters",
+      "published": "2026-09-23T23:00:00+00:00",
+      "hotness": 78.0,
+      "score_v1": 14.18,
+      "score_v2": 78.0,
+      "score_breakdown": {
+        "algorithm": "v3.0",
+        "dimension_max": {
+          "authority": 18.0,
+          "topic": 18.0,
+          "resonance": 18.0,
+          "information": 16.0
+        },
+        "authority_score": 18.0,
+        "keyword_idf_score": 0.0,
+        "topic_score": 3.0,
+        "topic_burst_score": 0.0,
+        "topic_burst_count": 1,
+        "resonance_score": 0.0,
+        "info_score": 7.0,
+        "base": 28.0,
+        "base_max": 70.0,
+        "time_factor": 0.7164,
+        "density_factor": 1.0,
+        "density_note": "",
+        "repeat_penalty": 1.0,
+        "event_size": 1,
+        "event_media_count": 1,
+        "event_cluster_source": "token",
+        "origin_source": "Environmental Research Letters",
+        "raw": 20.06,
+        "display_score": 78.0,
+        "display_mode": "absolute"
+      },
+      "summary": "野火严重程度的加剧，正推动人们对新型土地管理方法产生兴趣，这些方法既能减少可燃物，又能在土地治理体系内切实可行。定向放牧（TG）——即利用牲畜管理植被的做法——是一种可与其他策略相结合以增强野火韧性的潜在工具。 然而，采用有针对性的放牧通常需要公共土地管理者在复杂的制度环境下采取行动。我们通过定量方法对一个概念框架进行了验证，该框架整合了计划行为理论和适应性治理理论，旨在评估影响工作人员对有针对性的放牧相关态度和行为的因素。 通过对美国农业部森林服务局1000多名工作人员的问卷调查，并采用路径分析建模方法，我们确定了将TG作为野火风险管理工具时，工作人员态度及实施意图的关键决定因素。 工作人员对牧场主实施TG能力的态度，以及对牲畜放牧对原生植被影响的一般性看法，是预测工作人员对TG有效性态度的最强预测因子。工作人员对其可用时间的感知，是预测其采用TG意图的最重要预测因子之一。 监测能力有限被证实是影响工作人员感知可用时间的首要制约因素，而人员短缺、资金不足或环境法规要求等其他因素则相对次要。我们的研究结果表明，制度性制约与个人的心理社会因素如何共同塑造了在公共土地野火管理中推行TG的意愿。",
+      "analysis": "",
+      "topic_tags": [
+        "环境资讯"
+      ],
+      "category": "气候变化",
+      "matched_keywords": []
+    },
+    {
+      "title": "Unveiling the overlooked nitrous oxide reduction enzyme in wastewater treatment systems",
+      "title_en": "Unveiling the overlooked nitrous oxide reduction enzyme in wastewater treatment systems",
+      "title_zh": "揭示污水处理系统中被忽视的一氧化二氮还原酶",
+      "link": "https://www.sciencedirect.com/science/article/pii/S0043135426016581?dgcid=rss_sd_all",
+      "source": "Water Research",
+      "published": "2026-09-24T02:27:52.626587+00:00",
+      "hotness": 77.0,
+      "score_v1": 18.67,
+      "score_v2": 77.0,
+      "score_breakdown": {
+        "algorithm": "v3.0",
+        "dimension_max": {
+          "authority": 18.0,
+          "topic": 18.0,
+          "resonance": 18.0,
+          "information": 16.0
+        },
+        "authority_score": 18.0,
+        "keyword_idf_score": 7.79,
+        "topic_score": 7.79,
+        "topic_burst_score": 0.0,
+        "topic_burst_count": 1,
+        "resonance_score": 0.0,
+        "info_score": 0.0,
+        "base": 25.79,
+        "base_max": 70.0,
+        "time_factor": 0.7438,
+        "density_factor": 1.0,
+        "density_note": "",
+        "repeat_penalty": 1.0,
+        "event_size": 1,
+        "event_media_count": 1,
+        "event_cluster_source": "token",
+        "origin_source": "Water Research",
+        "raw": 19.18,
+        "display_score": 77.0,
+        "display_mode": "absolute"
+      },
+      "summary": "研究揭示废水处理系统中被忽视的一氧化二氮还原酶，探讨其在氮去除过程中的关键作用与生态环境意义。",
+      "analysis": "",
+      "topic_tags": [
+        "废水处理"
+      ],
+      "category": "污染治理",
+      "matched_keywords": [
+        "水处理"
+      ]
+    },
+    {
+      "title": "以生态环境法典引领生态修复治理新实践 - 新浪财经",
+      "title_en": "",
+      "title_zh": "",
+      "link": "https://news.google.com/rss/articles/CBMioAFBVV95cUxQdVIwWF9yV3AyVDRuNnM2S3VfbzU5cVRpUmoxOUM4eUdZdkJNMW5MMzZ3M1FZZVZZQmRPSk5lRW0tNjMtbGRUMzFxXzNLTEwzWVlZcW5VblBvRDlCelB2LVVqamwxTmtGWGt1ZVFSVFhScUs1enZnLUFWZ3pScmRCV1pNVmEtVzhKTWxja0dmWkV5d3lPZURpOWlCZWtvUFVo?oc=5",
+      "source": "Google News 生态环境",
+      "published": "2026-09-24T00:01:58+00:00",
+      "hotness": 75.9,
+      "score_v1": 33.92,
+      "score_v2": 75.9,
+      "score_breakdown": {
+        "algorithm": "v3.0",
+        "dimension_max": {
+          "authority": 18.0,
+          "topic": 18.0,
+          "resonance": 18.0,
+          "information": 16.0
+        },
+        "authority_score": 8.05,
+        "keyword_idf_score": 11.6,
+        "topic_score": 17.1,
+        "topic_burst_score": 5.51,
+        "topic_burst_count": 6,
+        "resonance_score": 0.0,
+        "info_score": 0.0,
+        "base": 25.15,
+        "base_max": 70.0,
+        "time_factor": 0.7244,
+        "density_factor": 1.0,
+        "density_note": "",
+        "repeat_penalty": 1.0,
+        "event_size": 1,
+        "event_media_count": 1,
+        "event_cluster_source": "token",
+        "origin_source": "新浪财经",
+        "raw": 18.22,
+        "display_score": 75.9,
+        "display_mode": "absolute"
+      },
+      "summary": "生态环境法典颁布施行，标志我国生态环境法治进入法典化治理新阶段，生态修复治理将进入法治化轨道。",
+      "analysis": "",
+      "topic_tags": [
+        "生态环境法典",
+        "生态修复"
+      ],
+      "category": "环境政策",
+      "matched_keywords": [
+        "生态环境",
+        "生态修复",
+        "环境法典"
+      ]
+    }
+  ]
+}

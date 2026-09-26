@@ -871,14 +871,27 @@ def _describe_feed_response(resp):
         return f"响应诊断失败：{type(e).__name__}"
 
 
-def fetch_all_feeds(config, max_items_per_source):
+def fetch_all_feeds(config, max_items_per_source, recruit_max_items_per_source=None):
     """
     抓取所有 RSS 源，返回 (条目列表, 源健康度列表)
     每个源健康度记录：名称、URL、抓取时间、成功/失败、耗时、获取条数、错误信息
+
+    招聘类源用**更大的条数上限**（recruit_max_items_per_source）：
+    为什么（2026-09-22 线上实测）：三个招聘源是 Google News 的关键词查询，返回的是
+    "提到过环境/招聘"的普通新闻，混着大量旧闻（实测有 502 天前的公告）。每源只取
+    5 条 → 15 条候选 → 14 天窗口后剩 7 条 → 相关性/类型两道闸门后剩 0 条，
+    就业窗口长期空着。同一套闸门喂全量 131 条能过 19 条（14.5%）——
+    所以瓶颈在**供给**，不在闸门。给招聘源多取一些即可，闸门一条都不用放宽。
+
+    多取出来的条目带 `_recruit_only` 标记，由 main() 在抓取后立刻摘走，
+    **只喂招聘候选池、不参与每日热点**（否则 3×25 条非环境新闻会污染热点榜、
+    并白白消耗 AI 过滤与翻译额度）。
     """
     rss_feeds = config.get("rss_feeds", {})
     all_items = []
     source_health = []
+    if not recruit_max_items_per_source or recruit_max_items_per_source < max_items_per_source:
+        recruit_max_items_per_source = max_items_per_source
 
     # socket.setdefaulttimeout 是进程级设置，只需在开始抓取前设置一次。
     # （原实现在每个源的循环体内重复设置，效果相同但属于无用重复。）
@@ -890,6 +903,11 @@ def fetch_all_feeds(config, max_items_per_source):
         success = False
         count = 0
         error_msg = ""
+
+        # 招聘源判定复用 extract_recruit_candidates 的同一套语素（招聘/就业/实习/校招/人才），
+        # 保证"哪些源算招聘源"只有一处定义，不会两处漂移。
+        is_recruit_source = any(h in source_name for h in RECRUIT_SOURCE_HINTS)
+        source_limit = recruit_max_items_per_source if is_recruit_source else max_items_per_source
 
         try:
             print(f"[抓取] {source_name} ...")
@@ -935,9 +953,9 @@ def fetch_all_feeds(config, max_items_per_source):
                     error_msg += f"；响应={fetch_diag}"
                 print(f"  [警告] {error_msg}")
             else:
-                entries = feed.entries[:max_items_per_source]
+                entries = feed.entries[:source_limit]
 
-                for entry in entries:
+                for entry_index, entry in enumerate(entries):
                     # 注意：feedparser 在遇到 `<title/>`、`<link/>` 这类空标签时，
                     # 属性值会是 None 而不是 ""。此时直接 .strip() 会抛 AttributeError，
                     # 被外层 except 捕获后整个源都会被误判为"抓取失败"。
@@ -975,6 +993,10 @@ def fetch_all_feeds(config, max_items_per_source):
                     _is_en_summary = bool(summary) and not is_chinese(summary)
                     item["summary_en"] = summary if _is_en_summary else ""
                     item["summary_zh"] = summary if (summary and not _is_en_summary) else ""
+                    # 招聘源超出常规上限的条目：只进招聘候选池，不进每日热点
+                    # （main() 在抓取结束后立刻按这个标记摘走，标记本身不会落盘）
+                    if is_recruit_source and entry_index >= max_items_per_source:
+                        item["_recruit_only"] = True
                     all_items.append(item)
                     count += 1
 
@@ -1268,6 +1290,9 @@ EVENT_CLUSTER_OVERLAP_THRESHOLD = 0.50
 # 把整批非代表条目一起打到 0.6。配置笔误不该演变成「分数看着正常但机制没了」。
 EVENT_CLUSTER_OVERLAP_MIN = 0.05
 EVENT_CLUSTER_OVERLAP_MAX = 1.0
+# 「无多成员簇」诊断的条目数上限：该诊断是一段 O(n²) 的纯观测代码，
+# 条目量异常大时直接跳过，避免把一次巡检变成性能负担（正常每日 30~60 条）。
+_CLUSTER_DIAG_MAX_ITEMS = 500
 # 同一事件中非代表条目的 raw 惩罚系数（不是删除，榜单会保留多条）
 DUPLICATE_PENALTY = 0.6
 
@@ -1840,6 +1865,35 @@ def calculate_heat_v3(items, config, keyword_item_count=None):
         print(f"  [事件] {len(members)} 条 / {len(medias)} 家媒体：{members[0]} "
               f"{items[members[0]].get('title', '')[:40]}")
 
+    # 诊断：无多成员簇时，打印"当前最相似的一对"及其重叠系数。
+    #
+    # 为什么要它：共振分依赖"同一事件被多家媒体报道"，而多成员簇为 0 时该维度对
+    # 全部条目恒为 0。此时有两种可能，处置完全相反：
+    #   ① 当天确实没有同事件的多源报道 -> 无需处理，等有共振事件的日子自然会算出来；
+    #   ② 判据/阈值太严，肉眼可辨的重复也没合上 -> 要换判据或调阈值。
+    # 2026-09-25 线上只留下「27 条 -> 27 个事件簇、多成员簇 0 个」一行，
+    # 无法区分①和②（而那天日志里有一对标题前 20 字完全相同的"XX公司首例…并网发电"，
+    # 看起来更像②）。这行诊断就是为下一次运行准备的判据。
+    # 纯观测：不参与任何判决、不影响分数，也不改变聚类结果。
+    if not multi_clusters and 2 <= len(items) <= _CLUSTER_DIAG_MAX_ITEMS:
+        _best_ov, _best_i, _best_j = 0.0, -1, -1
+        _ts = [_title_token_set(strip_title_source_suffix(it.get("title", "")) or it.get("title", ""))
+               for it in items]
+        for _i in range(len(_ts)):
+            for _j in range(_i + 1, len(_ts)):
+                _a, _b = _ts[_i], _ts[_j]
+                if not _a or not _b:
+                    continue
+                _ov = len(_a & _b) / min(len(_a), len(_b))
+                if _ov > _best_ov:
+                    _best_ov, _best_i, _best_j = _ov, _i, _j
+        if _best_i >= 0:
+            print(f"  [诊断] 无多成员簇；当前最相似的一对重叠系数 {_best_ov:.2f}"
+                  f"（阈值 {cluster_threshold}），若该值明显低于阈值而两条标题肉眼可辨"
+                  f"为同一事件，说明是判据偏严而非当天没有重复：")
+            print(f"         {items[_best_i].get('title', '')[:30]}"
+                  f"  ↔  {items[_best_j].get('title', '')[:30]}")
+
     # ---- 逐条计算 raw 分 ----
     for idx, item in enumerate(items):
         matched = item.get("matched_keywords", [])
@@ -2143,6 +2197,20 @@ RECRUIT_ENV_JOB_HINTS = (
     "供水", "排水", "环卫", "垃圾", "修复", "排放", "清洁生产", "循环经济",
 )
 
+# 「这是一条岗位公告」闸门：标题必须带岗位公告语素，只谈实习/就业/教育的新闻不算。
+# 为什么需要（2026-09-22 实测）：把招聘源的上限从 5 条提到 30 条之后，窗口从 3 条
+# 涨到 14 条，但其中 5 条是「关于实习的新闻」而不是「招聘岗位」——
+#   城市与环境学院“一带一路”国际实习纪实 / 水产学院本科生参与海洋生物资源与环境调查实习 /
+#   西安欧亚学院人居环境学院积极开拓海外实习就业渠道 / 政协委员建议优化青年实习就业便利度
+# 它们同时命中了「环境类词」与「实习」两个字，于是顺利过了前两道闸门。区分点很直白：
+# **岗位公告**会写招聘/招募/简章/公告/报名/岗位，而**关于实习就业的报道**不会。
+# 这条闸门只排除"根本不是招聘"的内容，不排除"是招聘但不对口"的（后者交给上面那道闸门）。
+RECRUIT_POSTING_HINTS = (
+    "招聘", "招募", "诚聘", "招录", "招考", "招人", "应聘", "报名", "职位", "岗位",
+    "简章", "公告", "启事", "选调", "引进", "校招", "校园招聘", "双选", "宣讲",
+    "专场", "纳新", "聘用", "offer",
+)
+
 # 招聘候选的独立时效窗口（小时）。
 # 为什么不用主流程的 48 小时：招聘公告/校招简章发布后长期有效，Google News 的招聘类查询
 # 返回结果也普遍偏旧；套用 48 小时窗口会把它们**全部**砍掉——实测 2026-09-20 那次运行
@@ -2150,11 +2218,24 @@ RECRUIT_ENV_JOB_HINTS = (
 # 就业窗口「最新招聘资讯」长期停在空态。这里放宽到 14 天。
 RECRUIT_WINDOW_HOURS = 336
 
+# 招聘类源的**单源抓取条数上限**（仅用于招聘候选池，不参与每日热点）。
+# 为什么单独放一个更大的值：招聘源是关键词查询，命中率低（实测全量喂进闸门通过率
+# 仅 14.5%），而 Google News 的招聘查询又会混入大量旧闻。每源 5 条时，14 天窗口后
+# 只剩 7 条候选，两道闸门后剩 0 条——就业窗口空着。给到 30 条即可稳定产出。
+# 调大它不会污染热点榜：超出的条目由 main() 按 `_recruit_only` 标记摘走。
+DEFAULT_RECRUIT_MAX_ITEMS_PER_SOURCE = 30
+
 
 def _is_env_job_title(title):
     """标题是否指向环境类专业岗位（招聘窗口的相关性闸门）"""
     up = (title or "").upper()
     return any(h.upper() in up for h in RECRUIT_ENV_JOB_HINTS)
+
+
+def _looks_like_recruit_posting(title):
+    """标题是否像一条**岗位公告**（而不是"关于实习/就业的新闻"）"""
+    up = (title or "").upper()
+    return any(h.upper() in up for h in RECRUIT_POSTING_HINTS)
 
 
 def _classify_recruit_type(text):
@@ -2193,16 +2274,19 @@ def _recruit_iso_date(value):
 def extract_recruit_candidates(items):
     """从（尚未做环境相关性过滤的）条目池里挑出招聘/实习资讯。
 
-    三道闸门，缺一不可：
+    四道闸门，缺一不可：
       1. 招聘语义：源名或标题命中招聘语素（否则根本不该进这个窗口）；
       2. 环境岗位相关性：标题命中环境类岗位词（否则窗口会被无关内容填满）；
-      3. 类型可判定：实习 / 校招 / 社招三者能判出一个，判不出来就丢弃。
+      3. 岗位公告形态：标题带招聘/简章/公告/报名/岗位等语素
+         （否则"关于实习的新闻报道"会冒充岗位资讯）；
+      4. 类型可判定：实习 / 校招 / 社招三者能判出一个，判不出来就丢弃。
     返回 (候选列表, 丢弃统计 dict) —— 丢弃数量必须回传并打日志，
     否则"筛掉了 12 条无关招聘"这件事在运行日志里是看不见的。
     """
     out = []
     seen = set()
     dropped_not_env = 0
+    dropped_not_posting = 0
     dropped_unknown_type = 0
     for item in items:
         if not isinstance(item, dict):
@@ -2221,7 +2305,11 @@ def extract_recruit_candidates(items):
         if not _is_env_job_title(title):
             dropped_not_env += 1
             continue
-        # 闸门 3：类型判不出来就丢弃，不做兜底归类
+        # 闸门 3：不像岗位公告的一律丢弃（"实习纪实""实习实训基地揭牌"这类是新闻）
+        if not _looks_like_recruit_posting(title):
+            dropped_not_posting += 1
+            continue
+        # 闸门 4：类型判不出来就丢弃，不做兜底归类
         rtype = _classify_recruit_type(title)
         if rtype is None:
             dropped_unknown_type += 1
@@ -2237,7 +2325,8 @@ def extract_recruit_candidates(items):
             "tags": list(item.get("topic_tags") or [])[:4],
         })
     out.sort(key=lambda x: x.get("published_at") or "", reverse=True)
-    return out[:30], {"not_env": dropped_not_env, "unknown_type": dropped_unknown_type}
+    return out[:30], {"not_env": dropped_not_env, "not_posting": dropped_not_posting,
+                      "unknown_type": dropped_unknown_type}
 
 
 def generate_recruit_json(recruit_pool, items, config):
@@ -2271,9 +2360,11 @@ def generate_recruit_json(recruit_pool, items, config):
     print(f"[生成] {path}（招聘资讯 {len(merged)} 条："
           f"实习 {by_type.get('实习', 0)} / 校招 {by_type.get('校招', 0)} / "
           f"社招 {by_type.get('社招', 0)}）")
-    dropped_total = dropped["not_env"] + dropped["unknown_type"] + skipped_untyped
+    dropped_total = (dropped["not_env"] + dropped["not_posting"]
+                     + dropped["unknown_type"] + skipped_untyped)
     if dropped_total:
         print(f"[招聘] 已剔除 {dropped_total} 条候选：与环境岗位无关 {dropped['not_env']} 条 / "
+              f"不是岗位公告 {dropped['not_posting']} 条 / "
               f"类型无法判定 {dropped['unknown_type'] + skipped_untyped} 条")
     return payload
 
@@ -2679,7 +2770,8 @@ def extract_article_text(url, api_config):
 # 某功能连续失败达到阈值后，仅该功能降级为规则模式，不影响其他功能继续调用 AI。
 # ============================================================
 AI_FUNC_FAILURES = {}            # {功能名: 该功能连续失败次数}
-AI_FUNC_MAX_FAILURES = 3         # 每个功能连续失败 3 次后独立熔断、降级规则
+AI_FUNC_MAX_FAILURES = 3         # 每个功能连续 3 次**调用**失败后独立熔断、降级规则
+                                 # （注意是"调用"不是"HTTP 尝试"，见 _ai_record_failure 注释）
 AI_FUNC_DEGRADED_LOGGED = set()  # 已打印过降级提示的功能（只提示一次，避免刷屏）
 AI_RETRY_DELAYS = [5, 15, 30]    # 统一重试间隔：首次失败后等 5s、再 15s、再 30s
 
@@ -2697,7 +2789,17 @@ def _ai_record_success(feature):
 
 
 def _ai_record_failure(feature, label=None):
-    """某次 AI 调用失败：仅该功能计数 +1；达到阈值时对该功能打印一次降级日志，返回当前连续失败次数"""
+    """某次 **AI 调用** 失败：仅该功能计数 +1；达到阈值时对该功能打印一次降级日志，返回当前连续失败次数
+
+    ⚠ 计数单位是"调用"，不是"HTTP 尝试"。2026-09-25 线上发现旧实现把重试循环内
+    每一次尝试失败都记一次（AI_MAX_ATTEMPTS=4 → 一次调用最多记 4 次），后果有两个：
+      1. 一次调用的 4 次尝试就能把该功能熔断，而设计本意是"连续 3 次**调用**失败" ——
+         故障被放大 4 倍，一次网络抖动即可让"话题标签"整功能降级；
+      2. 降级日志在重试循环中途就打印，之后仍发出第 4 次请求并成功（成功会清零计数），
+         日志出现"连续失败3次，已降级为规则模式"紧跟"调用成功"的自相矛盾记录。
+    现在失败计数只在**终态出口**（用尽所有尝试、或确定性错误如 401/404）记一次，
+    与下面的常量语义对齐。改动点见 call_nvidia_api() 内各处注释。
+    """
     AI_FUNC_FAILURES[feature] = AI_FUNC_FAILURES.get(feature, 0) + 1
     fail_n = AI_FUNC_FAILURES[feature]
     if fail_n >= AI_FUNC_MAX_FAILURES and feature not in AI_FUNC_DEGRADED_LOGGED:
@@ -3043,8 +3145,9 @@ def _ai_call(prompt, api_config, max_tokens=None, json_mode=False, feature="AI�
             if resp.status_code in AI_RETRYABLE_STATUS:
                 retry_after = _ai_parse_retry_after(resp)
                 if attempt < AI_MAX_ATTEMPTS - 1:
-                    wait_time = _ai_compute_backoff(attempt, retry_after)
-                    _ai_record_failure(feature)
+                    wait_time =                     _ai_compute_backoff(attempt, retry_after)
+                    # 注意：这里**不**记失败计数 —— 重试是"同一次调用"的内部机制，
+                    # 计数单位必须是"调用"。最后一次尝试失败时会走 HTTPError 分支记一次。
                     _AI_RETRY_LOG[feature] += 1
                     ra_note = f"，服务端 Retry-After={retry_after:.0f}s" if retry_after is not None else ""
                     print(f"[英伟达 NIMAPI] HTTP {resp.status_code}（功能:{feature}），"
@@ -3056,15 +3159,15 @@ def _ai_call(prompt, api_config, max_tokens=None, json_mode=False, feature="AI�
             result = resp.json()
             content = _extract_ai_content(result)
             if not content:
-                # 每次失败尝试都累计该功能失败次数（成功会清零），达到3次即独立熔断
                 print(f"[英伟达 NIMAPI] AI 返回为空或响应格式异常（第{attempt+1}次尝试，功能:{feature}）")
-                _ai_record_failure(feature)
                 if attempt < AI_MAX_ATTEMPTS - 1:
                     wait_time = _ai_compute_backoff(attempt, retry_after)
                     _AI_RETRY_LOG[feature] += 1
                     print(f"[英伟达 NIMAPI] 等待{wait_time:.1f}秒后重试...")
                     time.sleep(wait_time)
                     continue
+                # 用尽所有尝试 = 这一次**调用**最终失败，到这里才计一次失败
+                _ai_record_failure(feature)
                 return None
             # 调用成功：仅清零"该功能"的连续失败计数
             _ai_record_success(feature)
@@ -3086,15 +3189,15 @@ def _ai_call(prompt, api_config, max_tokens=None, json_mode=False, feature="AI�
             _ai_record_failure(feature)
             return None
         except requests.exceptions.Timeout:
-            # 每次超时都累计该功能失败次数，达到3次即独立熔断
             print(f"[英伟达 NIMAPI] 请求超时（第{attempt+1}次尝试，功能:{feature}）| URL: {url} | 模型: {model}")
-            _ai_record_failure(feature)
             if attempt < AI_MAX_ATTEMPTS - 1:
                 wait_time = _ai_compute_backoff(attempt, retry_after)
                 _AI_RETRY_LOG[feature] += 1
                 print(f"[英伟达 NIMAPI] 等待{wait_time:.1f}秒后重试...")
                 time.sleep(wait_time)
                 continue
+            # 用尽所有尝试 = 这一次**调用**最终失败，到这里才计一次失败
+            _ai_record_failure(feature)
             return None
         except requests.exceptions.RequestException as e:
             print(f"[英伟达 NIMAPI] 网络错误: {str(e)[:50]}（功能:{feature}）")
@@ -3254,6 +3357,13 @@ ENV_RELATED_ZH = [
     "排污许可", "环境法典", "环境标准", "环境司法",
     # 工程与设施类：水务/固废类标题常用说法（"矿井水提标治理""EPC 项目"）
     "矿井水", "中水回用", "污泥", "垃圾焚烧", "焚烧发电", "渗滤液", "供水",
+    # 2026-09-26 补充：由 2026-09-25 线上误杀清单反推的漏词。
+    # 英文条目走"翻译 -> 中文词表"判断，译文的用词未必与既有词条一致，
+    # 所以这里补的是**高频译法**而不是概念本身（如"变暖"而非"全球变暖"，
+    # 既有词表只有"升温"，字面不同就漏判）。同批漏掉的还有：
+    #   化石燃料（Fossil-fuel）/ 缺氧·脱氧（deoxygenation）/ 氯化·消毒（chlorination）
+    #   洋流（Atlantic Ocean current）/ 废物（toxic waste）
+    "变暖", "化石燃料", "缺氧", "脱氧", "溶解氧", "氯化", "消毒", "洋流", "废物",
 ]
 # 中文环境单字弱信号（如"水""碳""核"，过于宽泛，不单独触发保留，仅作提示）
 ENV_RELATED_ZH_SINGLE = set("水碳核")
@@ -3307,6 +3417,14 @@ ENV_RELATED_EN = [
     "emissions", "methane", "greenhouse gas", "ghg", "nitrous oxide", "co2",
     # 海洋生态现象（马尾藻暴发等）
     "sargassum", "sargassum bloom", "seaweed", "algal bloom",
+    # 2026-09-26 补充：由 2026-09-25 线上误杀清单反推的漏词。
+    # 注意匹配用的是 `\b<kw>\b`，单词边界匹配不到复数与派生形式，
+    # 因此复数/派生形式必须单独列出（既有词表已按这个规矩单列过 emissions）。
+    "warming", "deoxygenation", "hypoxia", "chlorination", "phosphorus",
+    "plastics", "microplastics", "wildfires", "droughts",
+    # 既有条目 "decarboni" 是前缀写法，`\bdecarboni\b` 匹配不到 decarbonization
+    # （单词边界后面跟着词字符，条件不成立），该条实际从未生效；补齐完整形式。
+    "decarbonization", "decarbonisation", "decarbonize",
 ]
 # 英文明显无关词（单词边界匹配）
 IRRELEVANT_EN = [
@@ -4211,6 +4329,23 @@ def _extract_ai_list(text, keys=(), label="AI"):
         for v in parsed.values():  # 键名不一致时，取第一个数组值兜底
             if isinstance(v, list):
                 return v
+        # 兜底：模型把数组写成"编号字典"，如 {"results": {"0": "是", "1": "否"}}
+        # 2026-09-25 线上撞上的就是这一类：AI 调用成功（HTTP 200、25.2s、有返回长度），
+        # 返回体也是合法 JSON 对象，但内部没有数组 —— 旧实现在这里静默 return None，
+        # 调用方只看到一句"解析失败"，无法区分「格式不认识」与「AI 没返回内容」。
+        # 这里先尝试按编号字典归一，仍失败则在下面补打印原始返回。
+        for k in keys:
+            v = parsed.get(k)
+            if isinstance(v, dict):
+                rescued = [
+                    ({**vv, "id": kk} if isinstance(vv, dict) else {"id": kk, "relevant": vv})
+                    for kk, vv in v.items()
+                ]
+                if rescued:
+                    print(f"[{label}] 返回为编号字典而非数组，已归一为 {len(rescued)} 条记录")
+                    return rescued
+        print(f"[{label}] 返回是 JSON 对象但内部无数组，回退规则。"
+              f"键: {list(parsed)[:8]} 前200字: {(text or '')[:200]}")
         return None
     if isinstance(parsed, list):
         return parsed
@@ -4363,6 +4498,11 @@ CATEGORY_KEYWORDS = {
 }
 
 CATEGORY_ORDER = ["气候变化", "污染治理", "生态环境", "环境政策", "能源与碳中和", "水处理", "科研学术", "环境健康", "其他"]
+
+# 话题标签取不到具体词的**最后兜底**占位符。
+# 它只是为了不让前端卡片缺一块信息，**不是话题** —— 不得进近7天高频词榜。
+# 注意：只有当连领域大类都判成"其他"时才会用它；常规兜底是领域大类本身。
+TAG_PLACEHOLDER = "环境资讯"
 
 # 关键词归类优先级：一个关键词同时命中多个大类时，按此顺序选择最相关类别（"其他"最后）
 CATEGORY_PRIORITY = ["气候变化", "污染治理", "生态环境", "能源与碳中和", "水处理",
@@ -4602,35 +4742,53 @@ def _ai_relevance_irrelevant(items, api_config):
     返回 AI 明确判为"否"（无关）的索引集合；调用/解析失败返回 None（调用方降级为规则）。
     只移除明确判为无关的条目，避免误杀。
     """
-    lines = []
-    for idx, item in enumerate(items):
-        title = item.get("title", "")
-        if title:
+    # ---- 分批 ----
+    # 2026-09-25 线上实测：58 条一次性请求时 max_tokens 只给到 812（14 * 58），
+    # 而每条 {"id":0,"relevant":"是"} 实测需 15~25 token，58 条要 870~1450 ——
+    # 预算本身偏低，JSON 被截断后整轮降级成规则模式，英文条目随即被系统性误杀
+    # （中文保留率 94% vs 英文 25%）。分批后单批输出约 20*20=400 token，预算充裕；
+    # 且**单批失败只损失该批判决**，其余批次仍然有效 —— 宁可少判，不可整轮作废。
+    AI_RELEVANCE_BATCH = 20
+    irrelevant_set = set()
+    ok_batches = 0
+    failed_batches = 0
+
+    for start in range(0, len(items), AI_RELEVANCE_BATCH):
+        chunk_idx = [i for i in range(start, min(start + AI_RELEVANCE_BATCH, len(items)))
+                     if (items[i].get("title") or "").strip()]
+        if not chunk_idx:
+            continue
+        lines = []
+        for i in chunk_idx:
             # 只发送标题前60字符：40 字符会把带副标题的学术标题（如期刊论文）截成残句，
             # 导致 AI 无法判断领域而误判为无关，这里放宽到 60。
-            lines.append(f"{idx}. {title[:60]}")
-    if not lines:
-        return None
-    prompt = (
-        "请判断以下新闻标题是否与环境领域相关。判定口径：\n"
-        "【判「是」】气候变化、污染治理、生态保护、资源能源、环境政策、可持续发展、"
-        "环境健康、环境技术；环境科学/工程/生态的学术研究即使标题技术化（涉及微生物、"
-        "脱盐、氮磷养分、生物膜、水处理工艺、污染物归趋等）也应判「是」；"
-        "以生态环境保护督察、环境治理、环境监测为主体的地方政务报道也应判「是」。\n"
-        "【判「否」】纯时政与选举、军事与边境、体育与电竞、娱乐与明星、动物趣闻与摄影比赛、"
-        "农产品价格与农业经济、金融股市、与生态环境无关的科技产品发布。\n"
-        "只输出一个 JSON 对象，不要输出思考过程、解释或 Markdown。"
-        "格式：{\"results\":[{\"id\":0,\"relevant\":\"是\"},{\"id\":1,\"relevant\":\"否\"}]}，"
-        "每条只回答\"是\"或\"否\"。\n\n"
-        "标题列表：\n" + "\n".join(lines)
-    )
-    # max_tokens 按标题条数估算，避免条目多时 JSON 被截断
-    result = call_nvidia_api(prompt, api_config, max_tokens=max(300, 14 * len(lines)), json_mode=True, feature="相关性过滤")
-    if not result:
-        return None
-    arr = _extract_ai_list(result, keys=("results", "items"), label="相关性过滤")
-    if isinstance(arr, list):
-        irrelevant_set = set()
+            # id 用**全局下标**，批与批之间不会撞号。
+            lines.append(f"{i}. {(items[i].get('title') or '')[:60]}")
+        prompt = (
+            "请判断以下新闻标题是否与环境领域相关。判定口径：\n"
+            "【判「是」】气候变化、污染治理、生态保护、资源能源、环境政策、可持续发展、"
+            "环境健康、环境技术；环境科学/工程/生态的学术研究即使标题技术化（涉及微生物、"
+            "脱盐、氮磷养分、生物膜、水处理工艺、污染物归趋等）也应判「是」；"
+            "以生态环境保护督察、环境治理、环境监测为主体的地方政务报道也应判「是」。\n"
+            "【判「否」】纯时政与选举、军事与边境、体育与电竞、娱乐与明星、动物趣闻与摄影比赛、"
+            "农产品价格与农业经济、金融股市、与生态环境无关的科技产品发布。\n"
+            "只输出一个 JSON 对象，不要输出思考过程、解释或 Markdown。"
+            "格式：{\"results\":[{\"id\":0,\"relevant\":\"是\"},{\"id\":1,\"relevant\":\"否\"}]}，"
+            "每条只回答\"是\"或\"否\"。\n\n"
+            "标题列表：\n" + "\n".join(lines)
+        )
+        # max_tokens 按标题条数估算（每条实测 15~25 token，取上界 30 留余地）
+        result = call_nvidia_api(prompt, api_config,
+                                 max_tokens=max(400, 30 * len(lines)),
+                                 json_mode=True, feature="相关性过滤")
+        if not result:
+            failed_batches += 1
+            continue
+        arr = _extract_ai_list(result, keys=("results", "items"), label="相关性过滤")
+        if not isinstance(arr, list):
+            failed_batches += 1
+            continue
+        ok_batches += 1
         for r in arr:
             if not isinstance(r, dict):
                 continue
@@ -4643,11 +4801,16 @@ def _ai_relevance_irrelevant(items, api_config):
             raw_rel = r.get("relevant", r.get("is_environment", None))
             if _is_irrelevant_verdict(raw_rel):
                 irrelevant_set.add(rid)
-        # 可见性：旧实现零剔除时日志上什么也看不到，无法区分「AI 判全部相关」与「解析失效」
-        print(f"[相关性过滤] AI 判决 {len(arr)} 条，其中判为无关 {len(irrelevant_set)} 条")
-        return irrelevant_set
-    print("[相关性过滤] AI 结果解析失败，降级为规则判断")
-    return None
+
+    if not ok_batches:
+        print("[相关性过滤] AI 全部批次均解析失败，降级为规则判断")
+        return None
+    # 可见性：旧实现零剔除时日志上什么也看不到，无法区分「AI 判全部相关」与「解析失效」；
+    # 分批后还要能看出"是成功了 3 批还是只成功了 1 批"，否则部分失败是隐形的。
+    fail_note = f"，{failed_batches} 批失败" if failed_batches else ""
+    print(f"[相关性过滤] AI 判决完成（{ok_batches} 批成功{fail_note}），"
+          f"其中判为无关 {len(irrelevant_set)} 条")
+    return irrelevant_set
 
 
 # 环境垂直源白名单（按源名包含匹配）
@@ -4698,27 +4861,73 @@ def _zh_relevance_keep(title):
     return False
 
 
+def _norm_en_title(title):
+    """英文标题归一：各类连字符/破折号 -> 空格，压缩空白并转小写。
+
+    为什么需要：词表里的多词条目（如 "fossil fuel"）用单词边界去匹配
+    "Fossil-fuel firms..." 时，中间那个连字符让 `\\bfossil fuel\\b` 匹配失败。
+    2026-09-25 线上实测该条被判"缺少环境强相关词"整条剔除。归一后
+    "fossil-fuel" 变成 "fossil fuel"，多词词条才能正常命中。
+    只用于**匹配**，不改写标题本身。
+    """
+    t = (title or "").lower()
+    t = re.sub(r"[\u2010-\u2015\u2212\-]+", " ", t)   # hyphen / en-dash / em-dash / minus
+    return re.sub(r"\s+", " ", t)
+
+
 def _en_relevance_keep(title):
     """
-    英文标题相关性判断：
-    1. 先翻译成中文，再按中文规则判断
-    2. 翻译失败则用英文环境关键词（单词边界匹配）
-    3. 仍无法判断 -> 默认保留
+    英文标题相关性判断（2026-09-26 修正）：
+    1. 无关黑名单优先（博彩/体育/娱乐/教育）
+    2. 翻译成中文后按中文规则判断，命中即保留
+    3. 译文未命中，再用英文环境词表（单词边界）判断，命中即保留
+    4. 两条路都不命中 -> 默认保留（保守，避免误杀）
+
+    ⚠ 旧实现在第 2 步是 `return _zh_relevance_keep(zh)` **直接返回**，于是英文条目的
+    生死完全取决于"DeepL 译文里是否**字面**出现 ENV_RELATED_ZH 里的某个词" ——
+    译文换个近义词，整条就被砍。2026-09-25 线上实测：中文条目保留率 94%(18/19)，
+    英文仅 25%(10/40)，58 条里明确误杀 >=7 条，且集中在与水处理/环境化学/海洋低氧
+    相关的学术条目上（恰好是本平台目标用户最需要的那批）：
+        Warming Has Accelerated   -> 译文"变暖加速"（词表当时只有"升温"）
+        phosphorus sequestration  -> "磷封存"（当时无"磷"）
+        deoxygenation             -> "脱氧"（当时无"缺氧/脱氧"）
+        chlorination              -> "氯化"（当时无"氯化/消毒"）
+        Atlantic Ocean current    -> "大西洋洋流"（词表有"海洋"但不是它）
+    旧实现 docstring 承诺的第 3 条"无法判断则默认保留"**永远走不到**。
+
+    权衡（为什么第 4 条改成"都不命中就保留"）：
+      本函数只在 **AI 判决不可用时的降级路径**上被调用。降级时若继续拿"翻译 + 字面
+      词表"做硬判决，等于用最不可靠的信号去砍最该保留的内容。误杀环境新闻的代价
+      远大于误留几条无关新闻 —— 后者会被热度排序压低，且次日 AI 恢复后自然剔除。
+      为了让"宽进"可观测，第 4 条单独打一行日志，据此可量化当天放行了多少条。
+
+    另：IRRELEVANT_EN 提到翻译之前 —— 旧实现里它排在翻译之后，译文为中文时
+    永远检查不到（'phd' / 'programme' / 'scholarship' 等词形同虚设）。
     """
-    zh = translate_en_to_zh(title)
-    if zh and zh != title and is_chinese(zh):
-        return _zh_relevance_keep(zh)
-    tl = title.lower()
-    # 无关黑名单优先（博彩/体育/娱乐/教育）
+    tl = _norm_en_title(title)
+    # 1. 无关黑名单优先（必须放在翻译之前，否则译文为中文时永远检查不到）
     for m in IRRELEVANT_EN:
         if re.search(r'\b' + re.escape(m) + r'\b', tl):
             return False
-    # 命中任一英文环境词 -> 保留
+    # 2. 译文命中中文词表 -> 保留
+    zh = translate_en_to_zh(title)
+    if zh and zh != title and is_chinese(zh) and _zh_relevance_keep(zh):
+        return True
+    # 3. 原文命中英文词表 -> 保留
     for kw in ENV_RELATED_EN:
         if re.search(r'\b' + re.escape(kw) + r'\b', tl):
             return True
-    # 无法判断 -> 默认保留（保守，避免误杀）
+    # 4. 两条路都没命中 -> 默认保留（保守，避免误杀）
+    global _EN_KEEP_NO_HIT_COUNT
+    _EN_KEEP_NO_HIT_COUNT += 1
+    if len(_EN_KEEP_NO_HIT_SAMPLES) < 20:      # 只留少量样本做日志示例，避免无界增长
+        _EN_KEEP_NO_HIT_SAMPLES.append(title)
     return True
+
+
+# 走第 4 条"兜底放行"的英文条目计数与样本（仅供日志可见性，不落盘）
+_EN_KEEP_NO_HIT_COUNT = 0
+_EN_KEEP_NO_HIT_SAMPLES = []
 
 
 def filter_environmental_relevance(items, config, api_config):
@@ -4748,6 +4957,9 @@ def filter_environmental_relevance(items, config, api_config):
         irrelevant_set = _ai_relevance_irrelevant(items, api_config)
 
     kept = []
+    # 记录"英文兜底放行"计数基线，循环结束后算差值（规则模式才会计数）
+    _en_fallback_before = _EN_KEEP_NO_HIT_COUNT
+    _en_samples_before = len(_EN_KEEP_NO_HIT_SAMPLES)
     for idx, item in enumerate(items):
         title = item.get("title", "")
         source = item.get("source", "")
@@ -4819,6 +5031,17 @@ def filter_environmental_relevance(items, config, api_config):
         else:
             item["irrelevant"] = True
             print(f"[过滤] 无关内容（缺少环境强相关词）：{title[:20]}")
+
+    # 可见性：规则模式下有多少英文条目是靠"两条路都没命中"兜底放行的。
+    # 这个数字变小 = 词表覆盖在变好；持续偏大 = 该继续补词表，而不是退回硬判决。
+    # 旧实现在英文侧是"译文没字面命中就砍"，且该分支完全静默 —— 误杀只能靠事后
+    # 人工比对语种保留率才发现，这里给一个当天就能看到的量。
+    _en_fallback = _EN_KEEP_NO_HIT_COUNT - _en_fallback_before
+    if _en_fallback:
+        _en_sample = (_EN_KEEP_NO_HIT_SAMPLES[_en_samples_before][:42]
+                      if len(_EN_KEEP_NO_HIT_SAMPLES) > _en_samples_before else "")
+        print(f"[相关性过滤] 规则模式：{_en_fallback} 条英文条目未命中任何环境词，"
+              f"按保守口径放行（示例：{_en_sample}）")
 
     # 兜底策略——**必须区分 AI 判决与规则判决**，否则 AI 的判断会被整体作废：
     #
@@ -4892,7 +5115,7 @@ def translate_candidate_pool(items):
 def calculate_weekly_categories():
     """
     统计近7天各分类的条目数量趋势
-    从每日快照文件（docs/data/daily/YYYY-MM-DD.json）中读取 category 字段
+    数据来源：每日快照的全量统计口径（category_stats），旧快照回退到历史回填表
     返回 [{date, categories: {cat: count}}, ...]，按日期升序
     """
     result = []
@@ -4902,31 +5125,34 @@ def calculate_weekly_categories():
         date_str = date.strftime("%Y-%m-%d")
         snapshot_path = os.path.join(DATA_DIR, "daily", f"{date_str}.json")
         cat_counts = {cat: 0 for cat in CATEGORY_ORDER}
+        # 没有快照文件不代表没有全量口径（可能来自回填表），所以先读文件、再统一判口径
+        snap = None
         if os.path.exists(snapshot_path):
             try:
                 with open(snapshot_path, "r", encoding="utf-8") as f:
                     snap = json.load(f)
-                cat_stats = read_snapshot_category_stats(snap)
-                if cat_stats is not None:
-                    # 全量统计口径：近7天分类趋势同样不能被 Top10 明细限定深度
-                    for cat, entry in cat_stats.items():
-                        if not isinstance(entry, dict):
-                            continue
-                        key = cat if cat in cat_counts else "其他"
-                        cat_counts[key] += int(entry.get("count", 0) or 0)
-                else:
-                    for item in (snap.get("items", []) if isinstance(snap, dict) else []):
-                        cat = item.get("category", "")
-                        if not cat:
-                            # 旧数据没有 category，用 classify_item 推断（历史批量不联网翻译）
-                            cat = classify_item(item, allow_translate=False)
-                        if cat in cat_counts:
-                            cat_counts[cat] += 1
-                        else:
-                            cat_counts["其他"] += 1
             except Exception as e:
-                # 单个快照统计失败：该日大类计数不完整，但不影响其余日期
+                # 单个快照读取失败：该日大类计数不完整，但不影响其余日期
                 _debug(f"统计 {date_str} 领域大类失败：{type(e).__name__}: {e}")
+                snap = None
+        cat_stats, _origin = load_day_category_stats(date_str, snap)
+        if cat_stats is not None:
+            # 全量统计口径：近7天分类趋势同样不能被 Top10 明细限定深度
+            for cat, entry in cat_stats.items():
+                if not isinstance(entry, dict):
+                    continue
+                key = cat if cat in cat_counts else "其他"
+                cat_counts[key] += int(entry.get("count", 0) or 0)
+        elif isinstance(snap, dict):
+            for item in (snap.get("items", []) or []):
+                cat = item.get("category", "")
+                if not cat:
+                    # 旧数据没有 category，用 classify_item 推断（历史批量不联网翻译）
+                    cat = classify_item(item, allow_translate=False)
+                if cat in cat_counts:
+                    cat_counts[cat] += 1
+                else:
+                    cat_counts["其他"] += 1
         result.append({"date": date_str, "categories": cat_counts})
     return result
 
@@ -5007,7 +5233,7 @@ def calculate_week_stats(today_items=None):
         else:
             snap_doc = load_snapshot_doc(offset)
             day_items = snap_doc.get("items", []) if snap_doc else None
-            day_cat_stats = read_snapshot_category_stats(snap_doc)
+            day_cat_stats, _origin = load_day_category_stats(ds, snap_doc)
             # 总数口径优先级：history（全量）> 快照全量字段 > 快照明细条数
             hist_rec = history_map.get(ds)
             if hist_rec and int(hist_rec.get("total_items", 0) or 0) > 0:
@@ -5124,11 +5350,91 @@ def read_snapshot_category_stats(snap):
     return None
 
 
+# ============================================================
+# 历史快照分类回填表（手工维护，随仓库发布）
+# ============================================================
+# 背景（2026-09-22 更正）：此前的结论是"旧快照的统计缺口无法回填"。那是按
+# `archive/` 的粒度判断的（它只存 {date, total_items, keywords}，确实没有明细）。
+# 真正可用的数据源是**每天输出提交里的 docs/data/latest.json** —— 它保存的是当日
+# **全部入选条目**（不是 Top 10），每条带 category 与分数字段。实测 09-21 那份有
+# 17 条、09-20 那份有 28 条，与 history.json 当日 total_items 逐日一致。
+# 于是可以在离线环境里把它按日聚合成 category_stats，写进这张回填表：
+# 运行中的流水线读不到 git 历史，但读得到这张表，于是近30天时间线/近7天分类趋势/
+# 政策占比**一次性永久变准，且不需要改任何数据处理逻辑**。
+#
+# 本文件是**只读**的：流水线绝不写它（它没有生成它的数据），只在使用时读。
+BACKFILL_FILENAME = "timeline_backfill.json"
+
+_backfill_cache = None
+
+
+def backfill_path():
+    return os.path.join(DATA_DIR, BACKFILL_FILENAME)
+
+
+def load_backfill_days():
+    """读取回填表，返回 {date: {total_items, category_stats}}；缺失/损坏返回 {}"""
+    global _backfill_cache
+    if _backfill_cache is not None:
+        return _backfill_cache
+    days = {}
+    p = backfill_path()
+    try:
+        if os.path.exists(p):
+            with open(p, "r", encoding="utf-8") as f:
+                doc = json.load(f)
+            raw = doc.get("days") if isinstance(doc, dict) else None
+            if isinstance(raw, dict):
+                days = raw
+            else:
+                _debug(f"回填表结构不认识（需要顶层 days 对象）：{p}")
+    except Exception as e:
+        # 读不到就当作没有回填：统计值退回旧口径（偏小），不影响流水线其余部分
+        _debug(f"读取回填表失败，按无回填处理：{type(e).__name__}: {e}")
+        days = {}
+    _backfill_cache = days
+    return days
+
+
+def load_day_category_stats(date_str, snap=None):
+    """取某日的**全量**分类聚合，返回 (category_stats, 来源标签)。
+
+    优先级（高 → 低）：
+      1. "snapshot" —— 快照自带的 category_stats（2026-09-22 起的流水线权威口径）；
+      2. "backfill" —— 回填表（数据同样来自当日全量条目，只是离线预先聚合）；
+      3. ""         —— 都没有，调用方按旧口径遍历 Top10 明细（偏小，但不会凭空造数）。
+    """
+    stats = read_snapshot_category_stats(snap)
+    if stats:
+        return stats, "snapshot"
+    rec = load_backfill_days().get(date_str)
+    if isinstance(rec, dict):
+        cs = rec.get("category_stats")
+        if isinstance(cs, dict) and cs:
+            return cs, "backfill"
+    return None, ""
+
+
+def _accumulate_cat_stats(per_cat, cat_stats):
+    """把某日的全量分类聚合累加进 {cat: {count, total_heat}}（未知大类归入"其他"）"""
+    for cat, entry in (cat_stats or {}).items():
+        if not isinstance(entry, dict):
+            continue
+        key = cat if cat in per_cat else "其他"
+        per_cat[key]["count"] += int(entry.get("count", 0) or 0)
+        try:
+            per_cat[key]["total_heat"] += float(entry.get("total_heat", 0) or 0)
+        except (TypeError, ValueError) as e:
+            _debug(f"热度累加跳过非法值 {entry.get('total_heat')!r}：{e}")
+
+
 def generate_timeline_data(days=30):
     """
     统计近 N 天（默认30天）各大类每天的条目数量与热度总和
     数据来源：docs/data/daily/YYYY-MM-DD.json 每日快照
-      · 优先读全量统计口径 category_stats；旧快照缺该字段时才遍历 items（口径偏小）
+      · 优先读全量统计口径 category_stats（流水线权威口径）
+      · 旧快照缺该字段时读历史回填表 timeline_backfill.json（同样来自当日全量条目）
+      · 两者都没有才遍历 items（口径偏小）
     返回结构：{大类: [{"date","count","total_heat"}, ...]}（日期升序，无数据补0）
     同时写入 docs/data/timeline.json
 
@@ -5138,44 +5444,48 @@ def generate_timeline_data(days=30):
     timeline = {cat: [] for cat in timeline_cats}
     today = datetime.now(timezone.utc).date()
     date_list = [today - timedelta(days=i) for i in range(days - 1, -1, -1)]
+    origins = Counter()
 
     for date in date_list:
         date_str = date.strftime("%Y-%m-%d")
         per_cat = {cat: {"count": 0, "total_heat": 0.0} for cat in timeline_cats}
         snapshot_path = os.path.join(DATA_DIR, "daily", f"{date_str}.json")
+        # 先尝试读快照；**读不到也要继续**——那天的全量统计可能来自回填表，
+        # 所以不能把"有没有快照文件"当成"有没有全量口径"。
+        snap = None
         if os.path.exists(snapshot_path):
             try:
                 with open(snapshot_path, "r", encoding="utf-8") as f:
                     snap = json.load(f)
-                cat_stats = read_snapshot_category_stats(snap)
-                if cat_stats is not None:
-                    # 全量统计口径：快照已给出当日全部入选条目的分类聚合
-                    for cat, entry in cat_stats.items():
-                        if not isinstance(entry, dict):
-                            continue
-                        key = cat if cat in per_cat else "其他"
-                        per_cat[key]["count"] += int(entry.get("count", 0) or 0)
-                        try:
-                            per_cat[key]["total_heat"] += float(entry.get("total_heat", 0) or 0)
-                        except (TypeError, ValueError) as e:
-                            _debug(f"时间线热度累加跳过非法值 {entry.get('total_heat')!r}：{e}")
-                else:
-                    # 旧快照回退：只有 Top10 明细，统计值必然偏小（无法回填，见上方说明）
-                    _debug(f"快照 {date_str} 无 category_stats，回退遍历 items（统计值偏小）")
-                    for item in (snap.get("items", []) if isinstance(snap, dict) else []):
-                        cat = _snapshot_category(item)
-                        if cat in per_cat:
-                            per_cat[cat]["count"] += 1
-                            per_cat[cat]["total_heat"] += _snapshot_heat(item)
             except Exception as e:
-                # 该日快照读取或遍历失败：这一天的时间线计数保留初始值（0）
                 _debug(f"读取时间线快照 {snapshot_path} 失败：{type(e).__name__}: {e}")
+                snap = None
+        cat_stats, origin = load_day_category_stats(date_str, snap)
+        if cat_stats is not None:
+            # 全量统计口径：当日全部入选条目的分类聚合
+            _accumulate_cat_stats(per_cat, cat_stats)
+            origins[origin] += 1
+        elif isinstance(snap, dict):
+            # 最后回退：只有 Top10 明细，统计值必然偏小
+            origins["detail_fallback"] += 1
+            _debug(f"快照 {date_str} 无 category_stats 也无回填，回退遍历 items（统计值偏小）")
+            for item in (snap.get("items", []) or []):
+                cat = _snapshot_category(item)
+                if cat in per_cat:
+                    per_cat[cat]["count"] += 1
+                    per_cat[cat]["total_heat"] += _snapshot_heat(item)
         for cat in timeline_cats:
             timeline[cat].append({
                 "date": date_str,
                 "count": per_cat[cat]["count"],
                 "total_heat": round(per_cat[cat]["total_heat"], 1),
             })
+
+    # 各大类逐日计数之和 = 窗口内的条目总数（每条只落在它自己的大类里，不重复计）
+    total_count = sum(rec["count"] for series in timeline.values() for rec in series)
+    print(f"[统计] 时间线口径：快照全量 {origins.get('snapshot', 0)} 天 / "
+          f"历史回填 {origins.get('backfill', 0)} 天 / "
+          f"仅明细回退 {origins.get('detail_fallback', 0)} 天（近{days}天合计 {total_count} 条）")
 
     out_path = os.path.join(DATA_DIR, "timeline.json")
     payload = {
@@ -5188,9 +5498,13 @@ def generate_timeline_data(days=30):
     return timeline
 
 
-# 标签生成失败时的兜底占位标签（与 generate_topic_tags 等处的 ["环境资讯"] 对应）。
-# 它们不得进入近7天高频词统计：占位符不是话题。
-WEEKLY_KEYWORD_BANNED_TAGS = {"环境资讯", "环境领域", "环境信息", "环境动态资讯"}
+# 标签生成失败/提不到具体词时的兜底值，不得进入近7天高频词统计：占位符不是话题。
+# 领域大类名（"环境政策""科研学术"…）也一并挡掉：它们是**粗分类**，前端另有分类
+# 趋势图展示；若混进高频词榜，等于让榜单被 9 个大类名轮流占位（AI 挂掉时必然发生）。
+WEEKLY_KEYWORD_BANNED_TAGS = (
+    {TAG_PLACEHOLDER, "环境领域", "环境信息", "环境动态资讯"}
+    | set(CATEGORY_ORDER)
+)
 
 
 def calculate_weekly_keywords():
@@ -5561,32 +5875,6 @@ _TAG_GENERIC_EN = {
     "chemical", "industrial", "human", "health", "risk", "assessment",
 }
 
-# 中文噪声词正则（整段匹配，用于剔除时间词/量词/媒体栏目名等无意义片段）
-_TAG_NOISE_PATTERNS = [
-    r"^第[一二三四五六七八九十百千零\d]+次?$",
-    r"^第[一二三四五六七八九十百千零\d]+[届轮期季批]$",
-    r"^\d{4}年$", r"^\d{1,2}月$", r"^\d{1,2}日$",
-    r"^今天$", r"^昨天$", r"^明天$", r"^近日$", r"^日前$",
-    r"^今年$", r"^去年$", r"^明年$", r"^本周$", r"^本月$",
-    r"^个$", r"^名$", r"^位$", r"^项$", r"^条$", r"^件$", r"^种$", r"^类$",
-    r"^课堂$", r"^小伙$", r"^安置$", r"^效果$", r"^怎么样$", r"^如何$",
-    r"^为什么$", r"^什么$", r"^哪里$", r"^哪个$", r"^多少$", r"^几$",
-    r"^记者$", r"^编辑$", r"^通讯员$", r"^作者$", r"^来源$",
-    r"^视频$", r"^图片$", r"^全文$", r"^详情$", r"^快讯$", r"^重磅$",
-    r"^突发$", r"^刚刚$", r"^最新$", r"^关注$", r"^热议$", r"^火了$",
-    r"^爆了$", r"^疯传$", r"^刷屏$", r"^围观$", r"^速看$", r"^扩散$",
-    r"^转发$", r"^收藏$", r"^点赞$", r"^订阅$", r"^扫码$", r"^下载$",
-    r"^客户端$", r"^APP$", r"^网站$", r"^公众号$", r"^微博$", r"^微信$",
-    r"^抖音$", r"^快手$", r"^B站$", r"^知乎$", r"^豆瓣$",
-    r"^报道$", r"^新闻$", r"^资讯$", r"^动态$", r"^消息$", r"^专题$",
-    r"^独家$", r"^原创$", r"^首发$", r"^发布$", r"^点击$", r"^阅读$",
-    r"^查看$", r"^摘要$", r"^原文$", r"^链接$", r"^相关$", r"^热点$",
-]
-_TAG_NOISE_RE = re.compile("|".join(_TAG_NOISE_PATTERNS))
-
-# 媒体名噪声集合（来自 MEDIA_BLACKLIST，只读使用）
-_TAG_MEDIA_NOISE = set(MEDIA_BLACKLIST)
-
 # 中文标题优先匹配的环境领域具体关键词（含 AI 等交叉领域）
 _TAG_SPECIFIC_KEYWORDS = [
     "碳中和", "碳达峰", "碳关税", "碳交易", "碳汇", "碳排放",
@@ -5605,13 +5893,13 @@ _TAG_SPECIFIC_KEYWORDS = [
     "大气污染控制", "环境健康", "环境政策", "环境技术", "环境管理",
 ]
 
-# 提取中文连续片段、剔除"第 N 次/届"前缀、切分英文词的辅助正则
-_RE_ZH_SEGMENT = re.compile(r'[\u4e00-\u9fa5]{4,}')
-_RE_LEADING_ORDINAL = re.compile(r'^第[一二三四五六七八九十百千零\d]+[次届轮期季批]')
+# 英文词切分正则（中文侧不再需要"连续中文片段"正则：见 extract_tags_from_title 的说明）
 _RE_EN_WORD = re.compile(r"[A-Za-z][A-Za-z\-\.0-9]{1,}")
 
-# ENV_RELATED_ZH 中长度 >= 2 的词（用于判断片段是否含环境词），预先算好避免每次重新过滤
-_TAG_ENV_ZH_KEYWORDS = [kw for kw in ENV_RELATED_ZH if len(kw) >= 2]
+# ENV_RELATED_ZH 中长度 >= 3 的词：可作为话题标签的**已知术语**。
+# 为什么是 3 而不是 2：全部 2 字词（环境/气候/生态/污染/环保…）都太宽泛，
+# 贴上等于没贴；>=3 的才是真术语（碳中和/微塑料/污水处理/生物多样性/碳市场…）。
+_TAG_ENV_ZH_KEYWORDS = [kw for kw in ENV_RELATED_ZH if len(kw) >= 3]
 
 
 def extract_tags_from_title(title):
@@ -5619,13 +5907,18 @@ def extract_tags_from_title(title):
     从标题中提取话题标签作为降级方案（增强版）
     1. 英文标题先翻译成中文再提取；翻译失败则只提取环境相关英文专有名词/复合短语
     2. 优先匹配环境领域具体关键词（含 AI/人工智能等交叉领域）
-    3. 提取包含强环境词的连续中文片段（长度4-15字）
-    4. 过滤：纯数字、序数词、量词、时间词、媒体名、通用名词
-    5. 英文宽泛基础词（water/air/carbon 等）不单独成标签，须组成复合短语
-    6. 兜底返回 ["环境资讯"]（不使用"环境领域"，绝不输出 Widow/Earth/Met 等无意义普通词）
+    3. 其次匹配 ENV_RELATED_ZH 里 >=3 字的**已知术语**（碳中和 / 污水处理 / 碳市场…）
+    4. 英文宽泛基础词（water/air/carbon 等）不单独成标签，须组成复合短语
+    5. 提取不到具体词时返回**空列表** —— 交由调用方 assign_rule_tags() 回落到该条
+       所属的**领域大类**。这里刻意不再返回 ["环境资讯"]：
+          · 它冒充"话题"，卡片上显示"环境资讯"等于没信息；
+          · 它还会挤进近7天高频词榜（2026-09-21 实测以 count=10 居榜首）。
+    6. 同样刻意不再把标题里的"连续中文片段"整段当标签 —— 实测切出来的是
+       "在欧洲气候变化背景下""省第五生态环境保护督察组赴零陵"这类**半截标题**，
+       它看着像标签、实际是句子碎片，比没有标签更糟。
     """
     if not title or len(title) < 4:
-        return ["环境资讯"]
+        return []
 
     # 英文标题：先翻译成中文再提取
     if not is_chinese(title):
@@ -5665,10 +5958,7 @@ def extract_tags_from_title(title):
             mapped = EN_ZH_REVERSE.get(wl)
             if mapped and 2 <= len(mapped) <= 8 and mapped not in tags:
                 tags.append(mapped)
-        tags = tags[:3]
-        if tags:
-            return tags
-        return ["环境资讯"]
+        return tags[:3]
 
     # === 中文标题处理 ===
     matched = []
@@ -5678,30 +5968,40 @@ def extract_tags_from_title(title):
     if matched:
         return matched
 
-    chinese_segments = _RE_ZH_SEGMENT.findall(title)
-    env_segments = []
-    for seg in chinese_segments:
-        if any(m in seg for m in _TAG_MEDIA_NOISE):
-            continue
-        if _TAG_NOISE_RE.match(seg):
-            continue
-        has_env = any(kw in seg for kw in _TAG_ENV_ZH_KEYWORDS)
-        if has_env:
-            seg = _RE_LEADING_ORDINAL.sub('', seg)
-            if len(seg) >= 4:
-                env_segments.append(seg)
-    if env_segments:
-        longest = max(env_segments, key=len)
-        return [longest]
+    # 已知环境术语（>=3 字）：只从**词表**里取，不从标题里切片段
+    env_terms = [kw for kw in _TAG_ENV_ZH_KEYWORDS if kw in title]
+    if env_terms:
+        return [max(env_terms, key=len)]
 
-    return ["环境资讯"]
+    # 提不到具体词：返回空，由 assign_rule_tags 回落到领域大类
+    return []
 
 
-# 话题标签长度上限。docstring 里写的范围是"连续片段 4-15 字"，但原实现只判了
-# `len(seg) >= 4`，没有上限——实测线上出现过把整条 27 字标题
-# （"东盟绿色循环产业与国际环境公约履约平行论坛在南宁举行"）当标签的情况。
-# 中文按 15 字封顶；纯英文标签按 24 字符（"forever chemicals" 17 字符属正常标签，
-# 用同一个 15 会把它误杀）。
+def assign_rule_tags(item, allow_translate=False):
+    """规则路径的话题标签：先取具体术语，取不到就回落到该条所属的**领域大类**。
+
+    为什么用领域大类兜底（2026-09-22 线上实测）：规则路径 17 条里有 10 条落成
+    占位符"环境资讯"（第 11 条以后全部走这条路）。领域大类是**真实且稳定**的分类
+    信息（"环境政策""科研学术"…），比占位符有用得多；只有连大类都判成"其他"时，
+    才退回占位符保证前端卡片不缺一块。
+
+    判大类时先清空 topic_tags，避免"刚写进去的标签"反过来决定大类（自我循环）。
+    """
+    tags = extract_tags_from_title(item.get("title", ""))
+    if tags:
+        return tags
+    probe = dict(item)
+    probe["topic_tags"] = []
+    cat = classify_item(probe, allow_translate=allow_translate)
+    if cat and cat != "其他":
+        return [cat]
+    return [TAG_PLACEHOLDER]
+
+
+# 话题标签长度上限。原实现的长度判断只判了 `len(seg) >= 4`、没有上限——实测线上
+# 出现过把整条 27 字标题（"东盟绿色循环产业与国际环境公约履约平行论坛在南宁举行"）
+# 当标签的情况。中文按 15 字封顶；纯英文标签按 24 字符（"forever chemicals" 17 字符
+# 属正常标签，用同一个 15 会把它误杀）。
 TAG_MAX_LEN = 15
 TAG_MAX_LEN_EN = 24
 _RE_TAG_HAS_CJK = re.compile(r"[\u4e00-\u9fa5]")
@@ -7559,17 +7859,37 @@ def main():
         print("[冷启动] 检测到首次运行，max_items_per_source 临时设为 10")
         max_items_per_source = 10
 
+    # 招聘源单源条数上限（只在招聘候选池内部生效，不影响每日热点）
+    recruit_max_items_per_source = config.get("recruit_max_items_per_source",
+                                              DEFAULT_RECRUIT_MAX_ITEMS_PER_SOURCE)
+    try:
+        recruit_max_items_per_source = int(recruit_max_items_per_source)
+    except (TypeError, ValueError):
+        recruit_max_items_per_source = DEFAULT_RECRUIT_MAX_ITEMS_PER_SOURCE
+    recruit_max_items_per_source = max(recruit_max_items_per_source, max_items_per_source)
+
     print(f"[配置] 站点名称：{config.get('site_name')}")
     print(f"[配置] RSS 源数量：{len(config.get('rss_feeds', {}))}")
     print(f"[配置] 每源最大条数：{max_items_per_source}")
+    print(f"[配置] 招聘源最大条数：{recruit_max_items_per_source}（仅用于招聘候选池）")
     print(f"[配置] 总条目上限：{config.get('max_total_items', 50)}")
     print()
 
     # 1. 抓取所有源
     print("--- 第一步：抓取 RSS 源 ---")
-    all_items, source_health = fetch_all_feeds(config, max_items_per_source)
+    all_items, source_health = fetch_all_feeds(
+        config, max_items_per_source,
+        recruit_max_items_per_source=recruit_max_items_per_source)
     print(f"[统计] 共抓取 {len(all_items)} 条")
     print()
+
+    # 1.5 摘出「招聘源超出常规上限」的条目：它们只服务招聘窗口，不参与每日热点
+    # （否则 3 个招聘源多抓的 60+ 条非环境新闻会污染热点榜，并消耗 AI 过滤/翻译额度）
+    recruit_only_items = [it for it in all_items if it.get("_recruit_only")]
+    if recruit_only_items:
+        all_items = [it for it in all_items if not it.pop("_recruit_only", False)]
+        print(f"[招聘] 额外取回 {len(recruit_only_items)} 条招聘源条目（只用于就业窗口，不进热点榜）")
+        print()
 
     # 2. 去重
     print("--- 第二步：去重 ---")
@@ -7592,11 +7912,13 @@ def main():
     # 3.2 招聘/实习资讯候选池：在**时间过滤之前**用独立的长窗口捞出（理由见 RECRUIT_WINDOW_HOURS），
     # 并且必须在环境相关性过滤之前——招聘条目天然不含环境领域词，过滤后会整条丢掉。
     recruit_pool, _recruit_dropped = extract_recruit_candidates(
-        filter_by_time(all_items, hours=RECRUIT_WINDOW_HOURS))
+        filter_by_time(all_items + recruit_only_items, hours=RECRUIT_WINDOW_HOURS))
     print(f"[招聘] 招聘/实习候选 {len(recruit_pool)} 条"
           f"（来自含招聘语义的源与标题，独立窗口 {RECRUIT_WINDOW_HOURS // 24} 天）")
-    if _recruit_dropped["not_env"] or _recruit_dropped["unknown_type"]:
+    if (_recruit_dropped["not_env"] or _recruit_dropped["not_posting"]
+            or _recruit_dropped["unknown_type"]):
         print(f"[招聘] 候选池已剔除：与环境岗位无关 {_recruit_dropped['not_env']} 条 / "
+              f"不是岗位公告 {_recruit_dropped['not_posting']} 条 / "
               f"类型无法判定 {_recruit_dropped['unknown_type']} 条")
     print()
 
@@ -7666,15 +7988,16 @@ def main():
                     item["topic_tags"] = tags
                     tag_success += 1
                 else:
-                    # AI 返回空，使用标题提取规则
-                    item["topic_tags"] = extract_tags_from_title(item.get("title", ""))
+                    # AI 返回空：回落规则路径（具体术语 → 领域大类），不再贴
+                    # "环境资讯"这种占位标签
+                    item["topic_tags"] = assign_rule_tags(item)
             except Exception as e:
                 print(f"[AI] 条目 {i+1} 标签生成失败: {str(e)[:40]}")
-                item["topic_tags"] = extract_tags_from_title(item.get("title", ""))
-        # 其余条目使用标题提取规则
+                item["topic_tags"] = assign_rule_tags(item)
+        # 其余条目走规则路径（具体术语 → 领域大类）
         for item in all_items[10:]:
-            item["topic_tags"] = extract_tags_from_title(item.get("title", ""))
-        print(f"[AI] 话题标签生成完成：AI成功 {tag_success}/10 条，其余使用标题提取规则")
+            item["topic_tags"] = assign_rule_tags(item)
+        print(f"[AI] 话题标签生成完成：AI成功 {tag_success}/10 条，其余使用规则路径")
         # AI 关键词提取（只调用一次，输入 Top 20 条标题和摘要）
         ai_keywords = generate_ai_keywords(all_items, api_config)
         if ai_keywords:
@@ -7684,7 +8007,7 @@ def main():
     else:
         print("[AI] 英伟达 NIM 未启用，使用规则生成摘要和关键词")
         for item in all_items:
-            item["topic_tags"] = extract_tags_from_title(item.get("title", ""))
+            item["topic_tags"] = assign_rule_tags(item)
             # AI 未启用：对空摘要/过短摘要用规则兜底
             cur_summary = (item.get("summary") or "").strip()
             if not cur_summary or len(cur_summary) < 10 or cur_summary == item.get("title", ""):
@@ -7767,7 +8090,7 @@ def main():
     # 当日快照已在上面（近7天统计之前）生成，这里不再重复。
     generate_monthly_archive(all_items, config)
     generate_pending_terms(all_items, config)
-    generate_recruit_json(recruit_pool, all_items, config)
+    generate_recruit_json(recruit_pool, all_items + recruit_only_items, config)
     critical_sources = generate_source_health(source_health)
 
     # 7. 生成 daily_report.md

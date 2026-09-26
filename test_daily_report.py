@@ -570,6 +570,158 @@ class TestRelevanceFallback(unittest.TestCase):
         self.assertFalse(any(i.get("irrelevant") for i in kept))
 
 
+class TestEnglishRelevanceKeep(unittest.TestCase):
+    """英文标题相关性兜底（2026-09-26 修正）
+
+    背景（2026-09-25 线上实测）：规则模式下英文条目的生死完全取决于"DeepL 译文是否
+    **字面**含中文词表里的词"，译文换个近义词就整条被砍 —— 那次运行中文条目保留率
+    94%(18/19)、英文仅 25%(10/40)，58 条里明确误杀 >=7 条，且集中在与水处理/环境化学/
+    海洋低氧相关的学术条目上（恰好是本平台目标用户最需要的那批）。
+
+    修好后的四条出口：译文命中 / 原文命中英文词表 / 都不命中（保守放行）/ 黑名单拦截。
+    这里逐条锁定，避免以后有人把"直接 return 译文结果"那条近路又写回来。
+    """
+
+    def setUp(self):
+        self._orig_tr = dr.translate_en_to_zh
+        self._zh = {}
+        # 不联网：译文由每个用例显式给出，专门模拟"译文换个说法"这个关键变量
+        dr.translate_en_to_zh = lambda t: self._zh.get(t, "")
+
+    def tearDown(self):
+        dr.translate_en_to_zh = self._orig_tr
+
+    def test_translation_hit_keeps(self):
+        """译文命中中文词表 -> 保留（补词后"变暖"这类高频译法应能命中）"""
+        t = "This Map Shows Where Warming Has Accelerated"
+        self._zh[t] = "这张地图显示变暖在哪里加速"
+        self.assertTrue(dr._en_relevance_keep(t))
+
+    def test_original_english_hit_keeps(self):
+        """译文未命中时，原文命中英文词表也要保留
+
+        这正是旧实现的漏点：它拿到译文后直接 return，英文词表这条路根本走不到。
+        """
+        t = "Temporal patterns and causes of deoxygenation"
+        self._zh[t] = "某研究的时空模式与成因"      # 故意不含任何环境词
+        self.assertTrue(dr._en_relevance_keep(t))
+
+    def test_hyphenated_multiword_hits(self):
+        """连字符归一：词表里的 "fossil fuel" 必须能命中 "Fossil-fuel firms ..." """
+        t = "Fossil-fuel firms in line for billions in subsidies"
+        self._zh[t] = "某行业公司有望获得巨额补贴"
+        self.assertTrue(dr._en_relevance_keep(t))
+
+    def test_unknown_keeps_conservatively(self):
+        """两条路都不命中 -> 保守放行（旧实现 docstring 承诺、但永远走不到的那条）"""
+        t = "Some headline with no term"
+        self._zh[t] = "这只是一个普通说法"
+        self.assertTrue(dr._en_relevance_keep(t))
+
+    def test_blacklist_still_filters(self):
+        """黑名单必须仍然生效，且译文为中文时也要生效
+
+        旧实现把 IRRELEVANT_EN 排在翻译之后 —— 译文为中文时它永远检查不到
+        （'phd'/'programme'/'scholarship' 等词形同虚设）。
+        """
+        t1 = "Best sports moments of the year"
+        self._zh[t1] = "年度最佳体育时刻"
+        self.assertFalse(dr._en_relevance_keep(t1))
+
+        t2 = "Scholarship for environmental engineering students"
+        self._zh[t2] = "环境工程专业学生奖学金"     # 译文含"环境工程"，旧实现会误放行
+        self.assertFalse(dr._en_relevance_keep(t2))
+
+
+class TestExtractAiListNumberedDict(unittest.TestCase):
+    """_extract_ai_list 对"编号字典"返回的兜底（2026-09-26）
+
+    背景（2026-09-25 线上）：AI 调用成功、返回体也是合法 JSON 对象，但内部没有数组
+    （形如 {"0":"是","1":"否"}）。旧实现在这里**静默** return None，调用方只看到
+    "解析失败"，无法区分「格式不认识」与「AI 没返回内容」—— 唯一能定位格式的线索被丢掉。
+    """
+
+    def test_numbered_dict_is_normalized(self):
+        raw = '{"results": {"0": "是", "3": "否"}}'
+        arr = dr._extract_ai_list(raw, keys=("results", "items"), label="T")
+        self.assertIsInstance(arr, list)
+        self.assertEqual(len(arr), 2)
+        self.assertEqual({r["id"] for r in arr}, {"0", "3"})
+        self.assertTrue(any(r.get("relevant") == "否" for r in arr))
+
+    def test_numbered_dict_of_objects(self):
+        raw = '{"results": {"7": {"relevant": "否"}}}'
+        arr = dr._extract_ai_list(raw, keys=("results",), label="T")
+        self.assertEqual(arr, [{"relevant": "否", "id": "7"}])
+
+    def test_plain_array_still_wins(self):
+        """正常数组形式不受影响（兜底不得抢在正路前面）"""
+        raw = '{"results": [{"id": 0, "relevant": "是"}]}'
+        self.assertEqual(dr._extract_ai_list(raw, keys=("results",), label="T"),
+                         [{"id": 0, "relevant": "是"}])
+
+
+class TestRelevanceBatching(unittest.TestCase):
+    """相关性过滤分批（2026-09-26）
+
+    背景（2026-09-25 线上）：58 条一次性请求时 max_tokens 只给到 812（14*58），
+    而每条 {"id":0,"relevant":"是"} 实测需 15~25 token（58 条要 870~1450）——
+    JSON 被截断后整轮降级成规则模式，英文条目随即被系统性误杀。
+    分批后单批预算充裕，且**单批失败只损失该批**，不再整轮作废。
+    """
+
+    def setUp(self):
+        self._orig_call = dr.call_nvidia_api
+
+    def tearDown(self):
+        dr.call_nvidia_api = self._orig_call
+
+    @staticmethod
+    def _ids_in(prompt):
+        out = []
+        for line in prompt.splitlines():
+            head = line.split(". ", 1)[0]
+            if head.isdigit():
+                out.append(int(head))
+        return out
+
+    def test_one_failed_batch_does_not_kill_the_rest(self):
+        calls = []
+
+        def fake(prompt, cfg, **kw):
+            calls.append(prompt)
+            if len(calls) == 1:
+                return ""                      # 第一批失败（空响应）
+            ids = self._ids_in(prompt)
+            return json.dumps({"results": [{"id": i, "relevant": "是"} for i in ids]})
+
+        dr.call_nvidia_api = fake
+        items = [{"title": f"某地推进生态环境保护督察整改第{i}期"} for i in range(45)]
+        out = dr._ai_relevance_irrelevant(items, {})
+        self.assertIsNotNone(out, "只要有批次成功，就不应整体降级为规则模式")
+        self.assertEqual(out, set(), "全部判「是」时无关集合应为空")
+        self.assertEqual(len(calls), 3, "45 条按每批 20 条应为 3 批")
+
+    def test_rejections_are_collected_across_batches(self):
+        """跨批次的判决要合并，且 id 用全局下标、批间不撞号"""
+        def fake(prompt, cfg, **kw):
+            ids = self._ids_in(prompt)
+            return json.dumps({"results": [
+                {"id": i, "relevant": ("否" if i % 20 == 0 else "是")} for i in ids
+            ]})
+
+        dr.call_nvidia_api = fake
+        items = [{"title": f"标题{i}"} for i in range(45)]
+        out = dr._ai_relevance_irrelevant(items, {})
+        self.assertEqual(out, {0, 20, 40})
+
+    def test_all_batches_failed_degrades(self):
+        dr.call_nvidia_api = lambda prompt, cfg, **kw: ""
+        items = [{"title": f"标题{i}"} for i in range(5)]
+        self.assertIsNone(dr._ai_relevance_irrelevant(items, {}),
+                          "全部批次失败才应返回 None（调用方降级规则）")
+
+
 class TestContentDensity(unittest.TestCase):
     """信息密度判据（v2.1）。
 
@@ -727,7 +879,12 @@ class TestTopicTagNormalization(unittest.TestCase):
         self.assertEqual(dr.normalize_topic_tags(tags), ["微塑料"])
 
     def test_case_duplicates_are_merged(self):
-        self.assertEqual(dr.normalize_topic_tags(["Pfas", "PFAS", "pfas"]), ["Pfas"])
+        """合并后的拼写取**规范形**（PFAS），而不是"最先出现的那一个"。
+
+        旧行为保留了首次出现的写法，于是 Pfas 与 PFAS 在周榜里各占一格；
+        2026-09-22 起缩写统一归一到规范拼写，见 canonical_tag。
+        """
+        self.assertEqual(dr.normalize_topic_tags(["Pfas", "PFAS", "pfas"]), ["PFAS"])
 
     def test_english_long_tag_is_kept(self):
         """"forever chemicals" 17 字符属正常英文标签，不能被中文的 15 字上限误杀"""
@@ -1860,13 +2017,32 @@ class TestAiGovernance(unittest.TestCase):
         self.assertGreaterEqual(time.time() - t0, 0.9,
                                 "应等待服务端要求的 1 秒，而不是本地 0.01 秒")
 
-    def test_gives_up_after_max_attempts_and_degrades(self):
+    def test_gives_up_after_max_attempts_without_premature_breaker(self):
+        """用尽一次调用的全部尝试 -> 返回 None，但只记 1 次失败、不熔断
+
+        2026-09-26 修正：旧实现把重试循环内**每一次尝试**都记一次失败，于是一次调用
+        （AI_MAX_ATTEMPTS=4）就能把该功能熔断 —— 而设计本意是"连续 3 次**调用**失败"。
+        实测副作用有两个：故障被放大 4 倍；降级日志在重试中途打印，之后仍发出第 4 次
+        请求并成功，日志出现"已降级为规则模式"紧跟"调用成功"的自相矛盾记录
+        （2026-09-25 线上运行日志实证）。计数单位是"调用"，不是"HTTP 尝试"。
+        """
         self._script = [_FakeAIResponse(429)] * dr.AI_MAX_ATTEMPTS
         out = dr.call_nvidia_api("p3", self._cfg, feature="T3")
         self.assertIsNone(out)
-        self.assertEqual(len(self._calls), dr.AI_MAX_ATTEMPTS)
-        self.assertGreaterEqual(dr.AI_FUNC_FAILURES["T3"], dr.AI_FUNC_MAX_FAILURES)
-        self.assertTrue(dr._ai_func_disabled("T3"), "达到阈值后该功能应独立熔断")
+        self.assertEqual(len(self._calls), dr.AI_MAX_ATTEMPTS,
+                         "用尽所有尝试后应停止请求")
+        self.assertEqual(dr.AI_FUNC_FAILURES["T3"], 1,
+                         "一次调用内重试多次，只应记 1 次失败")
+        self.assertFalse(dr._ai_func_disabled("T3"),
+                         "单次调用失败不得熔断（熔断需连续 N 次调用失败）")
+
+    def test_degrades_after_consecutive_failed_calls(self):
+        """连续 AI_FUNC_MAX_FAILURES 次**调用**都失败 -> 该功能独立熔断、降级规则"""
+        for _ in range(dr.AI_FUNC_MAX_FAILURES):
+            self._script = [_FakeAIResponse(429)] * dr.AI_MAX_ATTEMPTS
+            self.assertIsNone(dr.call_nvidia_api("p4", self._cfg, feature="T4"))
+        self.assertGreaterEqual(dr.AI_FUNC_FAILURES["T4"], dr.AI_FUNC_MAX_FAILURES)
+        self.assertTrue(dr._ai_func_disabled("T4"), "达到阈值后该功能应独立熔断")
 
     def test_server_5xx_is_retryable(self):
         """503/502 属服务端瞬时故障，旧实现会直接降级，现在应重试"""
@@ -2207,6 +2383,586 @@ class TestAiEventClustering(unittest.TestCase):
                          "calculate_hotness 必须清掉 _ai_event_id")
         self.assertEqual(out[0]["score_breakdown"]["event_size"], 2,
                          "清理不能影响已算好的事件维度")
+
+
+class TestSnapshotStatisticsDepth(unittest.TestCase):
+    """快照的「明细口径」与「统计口径」必须分离（2026-09-22 线上静默失效审查）
+
+    线上 30 天时间线合计 276 条，而 history.json 记录的真实发布量是 886 条（低估 3.21 倍）：
+    快照只存 Top10 明细，timeline / 近7天分类趋势 / 政策占比却全都遍历 items。
+    """
+
+    def setUp(self):
+        self.tmp = tempfile.mkdtemp()
+        os.makedirs(os.path.join(self.tmp, "daily"))
+        self._old_dir = dr.DATA_DIR
+        dr.DATA_DIR = self.tmp
+        self.config = {"site_name": "测试站点"}
+
+    def tearDown(self):
+        dr.DATA_DIR = self._old_dir
+        shutil.rmtree(self.tmp, ignore_errors=True)
+
+    @staticmethod
+    def _items(n, cat="气候变化"):
+        return [{"title": "测试标题 %d" % i, "link": "https://example.com/%d" % i,
+                 "source": "测试源", "category": cat, "score_v2": 50.0 + i,
+                 "summary": "用于测试的摘要内容"} for i in range(n)]
+
+    @staticmethod
+    def _today():
+        return datetime.now(timezone.utc).strftime("%Y-%m-%d")
+
+    def _write_snapshot(self, date_str, payload):
+        with open(os.path.join(self.tmp, "daily", date_str + ".json"), "w", encoding="utf-8") as f:
+            json.dump(payload, f)
+
+    def test_snapshot_keeps_top10_detail_but_full_statistics(self):
+        data = dr.generate_daily_snapshot(self._items(25), self.config)
+        self.assertEqual(len(data["items"]), 10, "明细仍是 Top10（产品口径）")
+        self.assertEqual(data["snapshot_items"], 10)
+        self.assertEqual(data["total_items"], 25, "total_items 必须是当日全量，而不是明细条数")
+        self.assertEqual(sum(e["count"] for e in data["category_stats"].values()), 25)
+        # 必须真的落盘：统计方读的是文件，不是返回值
+        with open(os.path.join(self.tmp, "daily", self._today() + ".json"), "r", encoding="utf-8") as f:
+            disk = json.load(f)
+        self.assertEqual(disk["total_items"], 25)
+        self.assertEqual(sum(e["count"] for e in disk["category_stats"].values()), 25)
+
+    def test_snapshot_success_sources_counts_only_effective(self):
+        """快照里的 success_sources 也要走「有效源」口径，与 source_health.json 一致"""
+        health = [{"name": "正常源", "success": True, "item_count": 5},
+                  {"name": "哑源", "success": True, "item_count": 0},
+                  {"name": "坏源", "success": False, "item_count": 0}]
+        data = dr.generate_daily_snapshot(self._items(3), self.config, source_health=health)
+        self.assertEqual(data["total_sources"], 3)
+        self.assertEqual(data["success_sources"], 1, "零产出的源不能算进成功数")
+        self.assertEqual(data["failed_sources"], 1)
+
+    def test_timeline_counts_full_population_not_detail(self):
+        dr.generate_daily_snapshot(self._items(25, "气候变化"), self.config)
+        timeline = dr.generate_timeline_data(days=30)
+        today = self._today()
+        point = [p for p in timeline["气候变化"] if p["date"] == today][0]
+        self.assertEqual(point["count"], 25, "时间线必须读到全量口径，不能被 Top10 明细截断")
+
+    def test_timeline_falls_back_to_detail_for_legacy_snapshot(self):
+        """旧快照没有 category_stats：回退遍历 items（偏小但可用），不能报错或清零"""
+        self._write_snapshot(self._today(),
+                             {"items": [{"title": "旧快照条目", "category": "污染治理", "score_v2": 10}]})
+        timeline = dr.generate_timeline_data(days=30)
+        point = [p for p in timeline["污染治理"] if p["date"] == self._today()][0]
+        self.assertEqual(point["count"], 1)
+        self.assertEqual(point["total_heat"], 10.0)
+
+    def test_weekly_categories_use_full_statistics(self):
+        dr.generate_daily_snapshot(self._items(25, "气候变化"), self.config)
+        week = dr.calculate_weekly_categories()
+        day = [d for d in week if d["date"] == self._today()][0]
+        self.assertEqual(day["categories"]["气候变化"], 25)
+
+    def test_policy_ratio_denominator_is_full_population(self):
+        """分母若走 Top10 明细，10/100 的政策占比会被算成 1/1 = 100%"""
+        yesterday = (datetime.now(timezone.utc).date() - timedelta(days=1)).strftime("%Y-%m-%d")
+        self._write_snapshot(yesterday, {
+            "total_items": 100,
+            "category_stats": {"环境政策": {"count": 10, "total_heat": 100.0},
+                               "气候变化": {"count": 90, "total_heat": 900.0}},
+            "items": [{"title": "昨日条目", "category": "环境政策"}]})
+        stats = dr.calculate_week_stats([])
+        self.assertAlmostEqual(stats["policy_ratio"], 10.0, places=1)
+        self.assertEqual(stats["week_total_items"], 100, "总数应取快照的全量口径")
+
+    def test_week_total_prefers_snapshot_full_field_over_detail(self):
+        """没有 history 记录时的回退：必须用快照 total_items，而不是明细条数"""
+        yesterday = (datetime.now(timezone.utc).date() - timedelta(days=1)).strftime("%Y-%m-%d")
+        self._write_snapshot(yesterday, {
+            "total_items": 33, "snapshot_items": 10,
+            "category_stats": {"污染治理": {"count": 33, "total_heat": 33.0}},
+            "items": [{"title": "t%d" % i} for i in range(10)]})
+        self.assertEqual(dr.calculate_week_stats([])["week_total_items"], 33)
+
+
+class TestMainPipelineOrder(unittest.TestCase):
+    """main() 里当日快照必须先于读取它的统计步骤落盘（2026-09-22 审查）
+
+    旧顺序把 generate_daily_snapshot 排在 generate_timeline_data /
+    calculate_weekly_categories 之后，于是这些统计看到的"今天"恒为 0
+    （线上 9 个大类的末日计数全是 0）。
+    """
+
+    def test_snapshot_generated_before_consumers(self):
+        path = os.path.join(os.path.dirname(os.path.abspath(__file__)), "daily_report.py")
+        with open(path, "r", encoding="utf-8") as f:
+            src = f.read()
+        main_src = src[src.index("def main("):]
+        snap = main_src.index("generate_daily_snapshot(all_items")
+        self.assertLess(snap, main_src.index("generate_timeline_data(days=30)"),
+                        "快照必须先于时间线生成，否则时间线的今天是 0")
+        self.assertLess(snap, main_src.index("weekly_categories = calculate_weekly_categories()"),
+                        "快照必须先于近7天分类统计生成")
+
+
+class TestSourceHealthEffectiveness(unittest.TestCase):
+    """「全绿但哑」的源不得计入健康度（2026-09-22 审查：arXiv 0 条 / IISD 1 条被算进 27/28）"""
+
+    def test_effective_source_requires_items(self):
+        self.assertTrue(dr.is_effective_source({"success": True, "item_count": 5}))
+        self.assertFalse(dr.is_effective_source({"success": True, "item_count": 0}))
+        self.assertFalse(dr.is_effective_source({"success": False, "item_count": 5}))
+        self.assertFalse(dr.is_effective_source({"success": True, "item_count": None}))
+        self.assertFalse(dr.is_effective_source({"success": True, "item_count": "abc"}))
+        self.assertFalse(dr.is_effective_source(None))
+
+    @staticmethod
+    def _pool():
+        return [{"name": "正常源", "success": True, "item_count": 5, "empty": False},
+                {"name": "哑源", "success": True, "item_count": 0, "empty": True},
+                {"name": "坏源", "success": False, "item_count": 0, "empty": False}]
+
+    def _run(self, tmp, pool):
+        dr.DATA_DIR = tmp
+        dr.generate_source_health(pool)
+        with open(os.path.join(tmp, "source_health.json"), "r", encoding="utf-8") as f:
+            return json.load(f)
+
+    def test_health_separates_empty_from_failed(self):
+        tmp = tempfile.mkdtemp()
+        old = dr.DATA_DIR
+        try:
+            out = self._run(tmp, self._pool())
+        finally:
+            dr.DATA_DIR = old
+            shutil.rmtree(tmp, ignore_errors=True)
+        self.assertEqual(out["total_sources"], 3)
+        self.assertEqual(out["success_count"], 1, "零产出的哑源不能算成功")
+        self.assertEqual(out["empty_count"], 1)
+        self.assertEqual(out["failed_count"], 1)
+        self.assertEqual(out["critical_count"], 0)
+
+    def test_consecutive_empty_source_marked_stale(self):
+        tmp = tempfile.mkdtemp()
+        old = dr.DATA_DIR
+        try:
+            self._run(tmp, self._pool())
+            pool = self._pool()
+            out = self._run(tmp, pool)
+        finally:
+            dr.DATA_DIR = old
+            shutil.rmtree(tmp, ignore_errors=True)
+        self.assertEqual(out["stale_count"], 1)
+        self.assertTrue(pool[1]["stale"], "连续两次零产出的源应进入观察位")
+        self.assertFalse(pool[0]["stale"])
+        self.assertFalse(pool[2]["stale"], "失败源走 critical 通道，不是 stale")
+
+    def test_critical_detects_previous_run_read_from_dict_file(self):
+        """上次状态文件是 dict（含 sources），读取方必须认这个结构
+
+        旧实现只认顶层 list，于是 last_health 永远为空、「连续两次失败」永远不算 critical，
+        严重源与配套邮件告警实际从未触发过。
+        """
+        tmp = tempfile.mkdtemp()
+        old = dr.DATA_DIR
+        try:
+            dr.DATA_DIR = tmp
+            with open(os.path.join(tmp, "source_health.json"), "w", encoding="utf-8") as f:
+                json.dump({"total_sources": 1,
+                           "sources": [{"name": "坏源", "success": False, "item_count": 0}]}, f)
+            pool = [{"name": "坏源", "success": False, "item_count": 0, "empty": False}]
+            crit = dr.generate_source_health(pool)
+        finally:
+            dr.DATA_DIR = old
+            shutil.rmtree(tmp, ignore_errors=True)
+        self.assertEqual(len(crit), 1, "上次也失败 -> 本次应标记 critical")
+        self.assertTrue(pool[0]["critical"])
+
+
+class TestRecruitWindowGates(unittest.TestCase):
+    """招聘窗口：兜底值不得冒充有效类别 + 必须过环境岗位闸门（2026-09-22 审查）
+
+    线上一次运行 4 条候选全被判为「社招」，实为对外汉语教师志愿者、浙江事业单位、
+    浦东机关文员、广州招聘会 —— 没有一条环境岗位。窗口被无关内容填满比空着更糟。
+    """
+
+    JUNK = ["2026年对外汉语教师志愿者招募公告",
+            "浙江省属事业单位统一招聘公告",
+            "浦东新区机关文员招聘启事",
+            "广州秋季大型招聘会即将举办"]
+    TYPELESS = [JUNK[0], JUNK[3]]   # 既无实习/校招语素，也无显式社会招聘语素
+
+    def test_unknown_type_returns_none_instead_of_social_fallback(self):
+        for t in self.TYPELESS:
+            self.assertIsNone(dr._classify_recruit_type(t), "判不出类型必须返回 None：%s" % t)
+        for t in ["", None, "某公司诚聘英才"]:
+            self.assertIsNone(dr._classify_recruit_type(t))
+
+    def test_explicit_hints_still_classified(self):
+        self.assertEqual(dr._classify_recruit_type("环境监测中心2026年公开招聘"), "社招")
+        self.assertEqual(dr._classify_recruit_type("某环保集团校园招聘启动"), "校招")
+        self.assertEqual(dr._classify_recruit_type("环境工程实习生招募"), "实习")
+
+    def test_env_job_gate(self):
+        self.assertFalse(dr._is_env_job_title("对外汉语教师志愿者招募"))
+        self.assertFalse(dr._is_env_job_title("广州秋季大型招聘会即将举办"))
+        self.assertTrue(dr._is_env_job_title("广东省环境监测中心公开招聘"))
+        self.assertTrue(dr._is_env_job_title("某水务集团2026校招"))
+
+    def test_candidates_filtered_by_env_gate(self):
+        items = [{"title": t, "link": "https://example.com/%d" % i,
+                  "source": "Google News 环保招聘", "published": "2026-09-21"}
+                 for i, t in enumerate(self.JUNK)]
+        items.append({"title": "某环保集团2026届校园招聘", "link": "https://example.com/ok",
+                      "source": "Google News 环境校招实习", "published": "2026-09-21"})
+        pool, dropped = dr.extract_recruit_candidates(items)
+        titles = [p["title"] for p in pool]
+        self.assertIn("某环保集团2026届校园招聘", titles)
+        for t in self.JUNK:
+            self.assertNotIn(t, titles, "与环境岗位无关的候选不得进池：%s" % t)
+        self.assertEqual(dropped["not_env"], len(self.JUNK))
+        for p in pool:
+            self.assertIn(p["type"], ("实习", "校招", "社招"), "类型必须是判定出来的")
+
+    def test_recruit_json_never_emits_untyped_items(self):
+        tmp = tempfile.mkdtemp()
+        old = dr.DATA_DIR
+        try:
+            dr.DATA_DIR = tmp
+            payload = dr.generate_recruit_json(
+                [{"title": "无类型条目", "url": "https://example.com/x", "type": None}],
+                [], {"site_name": "测试站点"})
+        finally:
+            dr.DATA_DIR = old
+            shutil.rmtree(tmp, ignore_errors=True)
+        self.assertEqual(payload["total"], 0, "type 为 None 的条目不许落盘")
+        for it in payload["items"]:
+            self.assertIn(it["type"], ("实习", "校招", "社招"))
+
+
+class TestStrongEnvSignalRescue(unittest.TestCase):
+    """AI 判否时的窄口径保护：不可歧义的中文强环境信号词（2026-09-22 审查）
+
+    线上把「铜川市环境空气质量预报」判成无关而剔除 —— 相关性过滤的契约是**领域归属**，
+    不是新闻价值；信息量低应由热度算法的信息密度维度去处理。
+    """
+
+    def setUp(self):
+        self.api = {"summary_enabled": True, "api_key": "test-key"}
+        self._orig = dr._ai_relevance_irrelevant
+
+    def tearDown(self):
+        dr._ai_relevance_irrelevant = self._orig
+
+    def test_signal_detection(self):
+        self.assertTrue(dr.has_strong_env_signal("铜川市环境空气质量预报 - 新浪财经"))
+        self.assertTrue(dr.has_strong_env_signal("江西省流域水生态环境保护“十五五”规划"))
+        self.assertFalse(dr.has_strong_env_signal("Trump says US will form 'AI Force'"))
+        self.assertFalse(dr.has_strong_env_signal("What food items should you avoid?"))
+        self.assertFalse(dr.has_strong_env_signal("New regulation on AI chips announced"))
+        self.assertFalse(dr.has_strong_env_signal(""))
+        self.assertFalse(dr.has_strong_env_signal(None))
+
+    def test_ai_negative_overridden_only_for_strong_signal(self):
+        filler = [{"title": "某地推进水污染治理工作取得阶段性进展", "source": "Google News 环境保护"}
+                  for _ in range(20)]
+        rescued = {"title": "铜川市环境空气质量预报", "source": "新浪财经"}
+        dropped = {"title": "Bear-y good neighbor", "source": "The Guardian Environment"}
+        dr._ai_relevance_irrelevant = lambda its, cfg: {len(filler), len(filler) + 1}
+
+        kept = dr.filter_environmental_relevance(filler + [rescued, dropped], {}, self.api)
+        self.assertTrue(any(i is rescued for i in kept), "强环境信号词应被保留")
+        self.assertTrue(dropped.get("irrelevant"), "无强信号的无关内容仍应剔除")
+
+
+class TestTagAcronymCanonicalization(unittest.TestCase):
+    """标签缩写必须归一（2026-09-22 审查：同一批标签里同时出现 Pfas 与 PFAS）"""
+
+    def test_canonical_tag(self):
+        for raw in ("Pfas", "pfas", "PFAS", " Pfas "):
+            self.assertEqual(dr.canonical_tag(raw), "PFAS")
+        self.assertEqual(dr.canonical_tag("PM2.5"), "PM2.5")
+        self.assertEqual(dr.canonical_tag("vocs"), "VOCs")
+        self.assertEqual(dr.canonical_tag("微塑料"), "微塑料", "中文标签不受影响")
+        self.assertEqual(dr.canonical_tag(""), "")
+
+    def test_normalize_dedupes_case_variants(self):
+        self.assertEqual(dr.normalize_topic_tags(["Pfas", "PFAS"]), ["PFAS"])
+
+    def test_weekly_keywords_merge_case_variants(self):
+        tmp = tempfile.mkdtemp()
+        old = dr.DATA_DIR
+        try:
+            daily_dir = os.path.join(tmp, "daily")
+            os.makedirs(daily_dir)
+            today = datetime.now().strftime("%Y-%m-%d")
+            with open(os.path.join(daily_dir, today + ".json"), "w", encoding="utf-8") as f:
+                json.dump({"items": [{"topic_tags": ["Pfas"], "matched_keywords": []},
+                                     {"topic_tags": ["PFAS"], "matched_keywords": []}]}, f)
+            dr.DATA_DIR = tmp
+            terms = dr.calculate_weekly_keywords()
+        finally:
+            dr.DATA_DIR = old
+            shutil.rmtree(tmp, ignore_errors=True)
+        pfas = [t for t in terms if t["term"] == "PFAS"]
+        self.assertEqual(len(pfas), 1, "大小写变体必须合成一个词")
+        self.assertEqual(pfas[0]["count"], 2)
+        self.assertFalse([t for t in terms if t["term"].lower() == "pfas" and t["term"] != "PFAS"],
+                         "不应残留非规范拼写")
+
+class TestRecruitSupplyLimit(unittest.TestCase):
+    """招聘窗口空态的**供给侧**修复（2026-09-22 实测：每源 5 条 → 两道闸门后 0 条）。
+
+    修法：招聘源单独用更大的抓取上限；多取出来的条目只进招聘候选池，不进每日热点。
+    这里的核心断言是「普通源行为完全不变」与「多取的条目一定被标记」——
+    前者防回归，后者防污染。
+    """
+
+    @staticmethod
+    def _fake_feed(prefix, n):
+        entries = []
+        for i in range(n):
+            entries.append(SimpleNamespace(
+                title="%s 第 %d 期 环境监测岗 污水处理方向" % (prefix, i),
+                link="https://example.com/%s/%d" % (prefix, i),
+                published="Mon, 22 Sep 2026 01:00:00 GMT",
+                summary=("这是一段用于测试抓取条数上限的摘要正文，内容需要足够长，"
+                         "以便通过摘要有效性校验，长度不少于五十个字符。"),
+                content=[],
+            ))
+        return SimpleNamespace(entries=entries, bozo=False, bozo_exception=None)
+
+    def _run(self, n_recruit, n_normal, max_per=5, recruit_per=30):
+        cfg = {"rss_feeds": {
+            "Google News 环保招聘": "https://example.com/recruit",
+            "The Guardian Environment": "https://example.com/normal",
+        }}
+
+        def fake_parse(url, *args, **kwargs):
+            if "recruit" in url:
+                return self._fake_feed("招聘源", n_recruit)
+            return self._fake_feed("普通源", n_normal)
+
+        with mock.patch.object(dr, "REQUESTS_AVAILABLE", False), \
+             mock.patch.object(dr.feedparser, "parse", side_effect=fake_parse):
+            return dr.fetch_all_feeds(cfg, max_per,
+                                      recruit_max_items_per_source=recruit_per)
+
+    def test_normal_source_keeps_normal_limit(self):
+        """普通源行为不得改变：仍按 max_items_per_source 截断，且不带只读标记"""
+        items, _ = self._run(3, 9)
+        normal = [it for it in items if it["source"] == "The Guardian Environment"]
+        self.assertEqual(len(normal), 5)
+        self.assertFalse([it for it in normal if it.get("_recruit_only")])
+
+    def test_recruit_source_fetches_more(self):
+        """招聘源按更大的上限抓取"""
+        items, _ = self._run(12, 3)
+        rec = [it for it in items if it["source"] == "Google News 环保招聘"]
+        self.assertEqual(len(rec), 12)
+
+    def test_extra_items_are_marked_recruit_only(self):
+        """超出常规上限的条目必须被标记，否则会污染每日热点榜"""
+        items, _ = self._run(12, 3)
+        rec = [it for it in items if it["source"] == "Google News 环保招聘"]
+        only = [it for it in rec if it.get("_recruit_only")]
+        self.assertEqual(len(only), 7)
+        self.assertEqual(len(rec) - len(only), 5)
+
+    def test_recruit_limit_never_shrinks_normal(self):
+        """招聘上限被配成比常规上限还小时，不得反过来缩小抓取"""
+        items, _ = self._run(12, 3, max_per=5, recruit_per=2)
+        rec = [it for it in items if it["source"] == "Google News 环保招聘"]
+        self.assertEqual(len(rec), 5)
+
+    def test_health_reports_real_count(self):
+        """健康度记录真实取回条数：招聘源不再只显示 5 条"""
+        _, health = self._run(12, 3)
+        rec = [h for h in health if h["name"] == "Google News 环保招聘"][0]
+        self.assertEqual(rec["item_count"], 12)
+        self.assertTrue(dr.is_effective_source(rec))
+
+
+class TestRuleTagFallback(unittest.TestCase):
+    """规则路径标签质量：不再输出半截标题与占位符，回落到领域大类（2026-09-22）"""
+
+    def test_title_fragments_are_gone(self):
+        """实测被切出来当标签的两个句子碎片，现在必须提不出标签"""
+        for title in ("在欧洲气候变化背景下", "省第五生态环境保护督察组赴零陵"):
+            self.assertEqual(dr.extract_tags_from_title(title), [],
+                             "提不到具体术语时应返回空：%s" % title)
+
+    def test_known_terms_still_extracted(self):
+        tags = dr.extract_tags_from_title("某地微塑料污染调查")
+        self.assertIn("微塑料", tags, "具体术语必须被优先提取出来")
+        self.assertEqual(
+            dr.extract_tags_from_title("全国碳市场扩围至钢铁水泥铝冶炼行业"), ["碳市场"])
+
+    def test_two_char_generic_words_are_not_tags(self):
+        """2 字泛词（环境/生态/气候）不单独成标签"""
+        for title in ("某地生态环境持续向好", "该区域环境质量改善"):
+            self.assertEqual(dr.extract_tags_from_title(title), [],
+                             "2 字泛词不得单独当标签：%s" % title)
+
+    def test_category_fallback_replaces_placeholder(self):
+        self.assertEqual(
+            dr.assign_rule_tags({"title": "省第五生态环境保护督察组赴零陵"}), ["环境政策"])
+        self.assertEqual(
+            dr.assign_rule_tags({"title": "在欧洲气候变化背景下"}), ["气候变化"])
+
+    def test_assign_rule_tags_prefers_specific_term(self):
+        tags = dr.assign_rule_tags({"title": "某地微塑料污染调查"})
+        self.assertIn("微塑料", tags, "有具体术语时不得回落到领域大类")
+
+    def test_placeholder_is_last_resort_only(self):
+        """连领域大类都判不出来时才允许用占位符（保证前端卡片不缺一块）"""
+        self.assertEqual(dr.assign_rule_tags({"title": "某公司发布了新款产品"}),
+                         [dr.TAG_PLACEHOLDER])
+
+    def test_weekly_keyword_banned_covers_categories(self):
+        for cat in dr.CATEGORY_ORDER:
+            self.assertIn(cat, dr.WEEKLY_KEYWORD_BANNED_TAGS)
+        self.assertIn(dr.TAG_PLACEHOLDER, dr.WEEKLY_KEYWORD_BANNED_TAGS)
+
+
+class TestTimelineBackfill(unittest.TestCase):
+    """历史快照分类回填：近30天统计不再被 Top10 明细焊死（2026-09-22）"""
+
+    def setUp(self):
+        self._old_dir = dr.DATA_DIR
+        self._old_cache = dr._backfill_cache
+        dr._backfill_cache = None
+
+    def tearDown(self):
+        dr.DATA_DIR = self._old_dir
+        dr._backfill_cache = self._old_cache
+
+    def _write_backfill(self, tmp, days):
+        with open(os.path.join(tmp, "timeline_backfill.json"), "w", encoding="utf-8") as f:
+            json.dump({"generated_at": "2026-09-22", "days": days}, f, ensure_ascii=False)
+        dr.DATA_DIR = tmp
+        dr._backfill_cache = None
+
+    def test_priority_snapshot_over_backfill(self):
+        """快照自带 category_stats 时以快照为准（流水线权威口径）"""
+        snap = {"category_stats": {"水处理": {"count": 1, "total_heat": 1.0}}}
+        stats, origin = dr.load_day_category_stats("2026-09-20", snap)
+        self.assertEqual(origin, "snapshot")
+        self.assertEqual(stats["水处理"]["count"], 1)
+
+    def test_backfill_used_when_snapshot_lacks_stats(self):
+        tmp = tempfile.mkdtemp()
+        try:
+            self._write_backfill(tmp, {"2026-09-20": {
+                "total_items": 28,
+                "category_stats": {"水处理": {"count": 4, "total_heat": 200.0}}}})
+            stats, origin = dr.load_day_category_stats("2026-09-20", {"items": []})
+            self.assertEqual(origin, "backfill")
+            self.assertEqual(stats["水处理"]["count"], 4)
+        finally:
+            shutil.rmtree(tmp, ignore_errors=True)
+
+    def test_none_when_neither_source_has_stats(self):
+        tmp = tempfile.mkdtemp()
+        try:
+            dr.DATA_DIR = tmp
+            dr._backfill_cache = None
+            stats, origin = dr.load_day_category_stats("2026-09-20", {"items": []})
+            self.assertIsNone(stats)
+            self.assertEqual(origin, "")
+        finally:
+            shutil.rmtree(tmp, ignore_errors=True)
+
+    def test_timeline_uses_backfill(self):
+        """只有回填表、没有快照时，时间线也必须给出真实条数（而不是 0 或 10）"""
+        tmp = tempfile.mkdtemp()
+        try:
+            today = datetime.now(timezone.utc).strftime("%Y-%m-%d")
+            self._write_backfill(tmp, {today: {
+                "total_items": 26,
+                "category_stats": {"水处理": {"count": 12, "total_heat": 900.0},
+                                   "环境政策": {"count": 14, "total_heat": 800.0}}}})
+            timeline = dr.generate_timeline_data(days=1)
+        finally:
+            shutil.rmtree(tmp, ignore_errors=True)
+        self.assertEqual(timeline["水处理"][0]["count"], 12)
+        self.assertEqual(timeline["环境政策"][0]["count"], 14)
+        self.assertEqual(timeline["水处理"][0]["total_heat"], 900.0)
+
+    def test_weekly_categories_uses_backfill(self):
+        """近7天分类趋势同样要能吃回填表"""
+        tmp = tempfile.mkdtemp()
+        try:
+            today = datetime.now(timezone.utc).strftime("%Y-%m-%d")
+            self._write_backfill(tmp, {today: {
+                "total_items": 7,
+                "category_stats": {"水处理": {"count": 7, "total_heat": 100.0}}}})
+            result = dr.calculate_weekly_categories()
+        finally:
+            shutil.rmtree(tmp, ignore_errors=True)
+        self.assertEqual(result[-1]["date"], today)
+        self.assertEqual(result[-1]["categories"]["水处理"], 7)
+
+    def test_missing_days_are_never_invented(self):
+        """回填表里没有的日期不得凭空补数（宁可为 0，也不编）"""
+        tmp = tempfile.mkdtemp()
+        try:
+            self._write_backfill(tmp, {"1999-01-01": {
+                "total_items": 999,
+                "category_stats": {"水处理": {"count": 999, "total_heat": 1.0}}}})
+            timeline = dr.generate_timeline_data(days=1)
+        finally:
+            shutil.rmtree(tmp, ignore_errors=True)
+        self.assertEqual(timeline["水处理"][0]["count"], 0)
+
+class TestRecruitPostingGate(unittest.TestCase):
+    """岗位公告闸门：「关于实习/就业的新闻」不得冒充岗位资讯（2026-09-22 实测）。
+
+    提高招聘源的抓取条数后，窗口从 3 条涨到 14 条，但其中 5 条是学院/政协/媒体的
+    实习就业报道，只是恰好同时含"环境"和"实习"两个字。
+    """
+
+    NEWS_ABOUT_INTERNSHIP = [
+        "城市与环境学院“一带一路”国际实习纪实",
+        "水产学院本科生参与海洋生物资源与环境调查实习",
+        "西安欧亚学院人居环境学院积极开拓海外实习就业渠道",
+        "苏州市政协委员王任：进一步优化通勤环境，提升青年实习、就业便利度",
+        "环境科学与工程学院与浙江省生态环境科学设计研究院合作共建大学生实习实训基地签约",
+    ]
+
+    def test_not_posting_detected(self):
+        for t in self.NEWS_ABOUT_INTERNSHIP:
+            self.assertFalse(dr._looks_like_recruit_posting(t), "不是岗位公告：%s" % t)
+
+    def test_real_postings_detected(self):
+        for t in ["中广核环保产业有限公司2026届秋季校园招聘",
+                  "北京市生态环境局所属事业单位公开招聘7人，岗位公布",
+                  "中广核环保产业有限公司副总工程师公开招聘",
+                  "某环保集团环境工程实习生招募公告",
+                  "某水务集团2026届校园招聘简章"]:
+            self.assertTrue(dr._looks_like_recruit_posting(t), "是岗位公告：%s" % t)
+
+    def test_news_about_internship_is_dropped(self):
+        """真实回归：这些"实习新闻"必须被丢弃，且计入 not_posting 而不是静默消失"""
+        items = []
+        for i, t in enumerate(self.NEWS_ABOUT_INTERNSHIP):
+            items.append({"title": t, "link": "https://example.com/news%d" % i,
+                          "source": "Google News 环境校招实习", "published": "2026-09-21"})
+        items.append({"title": "中广核环保产业有限公司2026届秋季校园招聘",
+                      "link": "https://example.com/ok",
+                      "source": "Google News 环境校招实习", "published": "2026-09-21"})
+        pool, dropped = dr.extract_recruit_candidates(items)
+        titles = [p["title"] for p in pool]
+        self.assertEqual(titles, ["中广核环保产业有限公司2026届秋季校园招聘"])
+        self.assertEqual(dropped["not_posting"], len(self.NEWS_ABOUT_INTERNSHIP))
+
+    def test_posting_gate_does_not_eat_real_postings(self):
+        """闸门只能挡住"不是招聘"，不能挡住"是招聘但不对口"（后者归 not_env 管）"""
+        items = [{"title": "某市机关事务管理局公开招聘文员岗位", "link": "https://example.com/x",
+                  "source": "Google News 环保招聘", "published": "2026-09-21"}]
+        pool, dropped = dr.extract_recruit_candidates(items)
+        self.assertEqual(pool, [])
+        self.assertEqual(dropped["not_env"], 1, "该条应死在环境闸门，而不是岗位公告闸门")
+        self.assertEqual(dropped["not_posting"], 0)
+
 
 if __name__ == "__main__":
     unittest.main(verbosity=2)

@@ -1,0 +1,557 @@
+{
+  "report_date": "2026-09-26",
+  "site_name": "环境学子雷达",
+  "total_items": 50,
+  "snapshot_items": 10,
+  "category_stats": {
+    "科研学术": {
+      "count": 6,
+      "total_heat": 450.7
+    },
+    "生态环境": {
+      "count": 9,
+      "total_heat": 688.5
+    },
+    "气候变化": {
+      "count": 10,
+      "total_heat": 767.7
+    },
+    "水处理": {
+      "count": 5,
+      "total_heat": 366.2
+    },
+    "污染治理": {
+      "count": 4,
+      "total_heat": 282.7
+    },
+    "能源与碳中和": {
+      "count": 4,
+      "total_heat": 287.4
+    },
+    "环境健康": {
+      "count": 3,
+      "total_heat": 222.5
+    },
+    "其他": {
+      "count": 7,
+      "total_heat": 492.5
+    },
+    "环境政策": {
+      "count": 2,
+      "total_heat": 139.6
+    }
+  },
+  "total_sources": 28,
+  "success_sources": 26,
+  "failed_sources": 1,
+  "week_total_items": 209,
+  "week_new_keywords": 95,
+  "policy_ratio": 10.9,
+  "items": [
+    {
+      "title": "New Jersey datacenter fined $1.1m after visual investigation showed dozens of unpermitted generators",
+      "title_en": "New Jersey datacenter fined $1.1m after visual investigation showed dozens of unpermitted generators",
+      "title_zh": "新泽西州一家数据中心因现场检查发现数十台未获许可的发电机，被处以110万美元罚款",
+      "link": "https://www.theguardian.com/environment/2026/sep/25/new-jersey-fines-datacenter-unpermitted-generators",
+      "source": "The Guardian Environment",
+      "published": "2026-09-25T15:52:21+00:00",
+      "hotness": 88.2,
+      "score_v1": 27.9,
+      "score_v2": 88.2,
+      "score_breakdown": {
+        "algorithm": "v3.0",
+        "dimension_max": {
+          "authority": 18.0,
+          "topic": 18.0,
+          "resonance": 18.0,
+          "information": 16.0
+        },
+        "authority_score": 12.73,
+        "keyword_idf_score": 7.51,
+        "topic_score": 12.69,
+        "topic_burst_score": 5.19,
+        "topic_burst_count": 5,
+        "resonance_score": 0.0,
+        "info_score": 12.0,
+        "base": 37.42,
+        "base_max": 70.0,
+        "time_factor": 0.87,
+        "density_factor": 1.0,
+        "density_note": "",
+        "repeat_penalty": 1.0,
+        "event_size": 1,
+        "event_media_count": 1,
+        "event_cluster_source": "ai",
+        "origin_source": "The Guardian Environment",
+        "raw": 32.56,
+        "display_score": 88.2,
+        "display_mode": "absolute"
+      },
+      "summary": "新泽西州监管机构对DataOne位于维恩兰德的设施开出创纪录罚款，此前《卫报》与Floodlight联合展开调查。新泽西州监管机构周二对一家数据中心开出了有史以来最高的罚款，此前《卫报》与Floodlight联合展开的调查发现，DataOne位于维恩兰德的设施在未获得州政府许可的情况下，运行着至少45台燃气发电机。新泽西州环境保护局局长埃德·波托斯纳克（Ed Potosnak）在新闻稿中表示，该局对DataOne处以107万美元罚款，“发出了一个明确信号：在本州，此类设施绝不能在不受惩罚的情况下进行建设和运营”。继续阅读...",
+      "analysis": "",
+      "topic_tags": [
+        "datacenter"
+      ],
+      "category": "科研学术",
+      "matched_keywords": [
+        "环境保护"
+      ]
+    },
+    {
+      "title": "湖北发布生态环境保护“十五五”规划 - 湖北日报传媒集团",
+      "title_en": "",
+      "title_zh": "",
+      "link": "https://news.google.com/rss/articles/CBMiWEFVX3lxTFAzdkNJRmV0S3AtY0FkeWxvMEdCU1NXMHJzR0hNTjJGTmhOZ2s2dzlYWWxkMlZSMWJhMk1waWNUb2s2YUlmdElyTjJkSWdyU3hUcmNoVjNqemQ?oc=5",
+      "source": "Google News 环境保护",
+      "published": "2026-09-24T20:17:15+00:00",
+      "hotness": 85.7,
+      "score_v1": 33.43,
+      "score_v2": 85.7,
+      "score_breakdown": {
+        "algorithm": "v3.0",
+        "dimension_max": {
+          "authority": 18.0,
+          "topic": 18.0,
+          "resonance": 18.0,
+          "information": 16.0
+        },
+        "authority_score": 8.05,
+        "keyword_idf_score": 10.21,
+        "topic_score": 15.4,
+        "topic_burst_score": 5.19,
+        "topic_burst_count": 5,
+        "resonance_score": 8.76,
+        "info_score": 9.0,
+        "base": 41.21,
+        "base_max": 70.0,
+        "time_factor": 0.6958,
+        "density_factor": 1.0,
+        "density_note": "",
+        "repeat_penalty": 1.0,
+        "event_size": 2,
+        "event_media_count": 2,
+        "event_cluster_source": "ai",
+        "origin_source": "湖北日报传媒集团",
+        "raw": 28.67,
+        "display_score": 85.7,
+        "display_mode": "absolute"
+      },
+      "summary": "湖北发布生态环境保护“十五五”规划，聚焦生态文明建设，划定空间布局，强化治理目标，为未来五年环境保护指明方向。",
+      "analysis": "",
+      "topic_tags": [
+        "湖北生态环境保护规划",
+        "十五五规划"
+      ],
+      "category": "生态环境",
+      "matched_keywords": [
+        "生态环境",
+        "环境保护"
+      ]
+    },
+    {
+      "title": "Assessing irrigation-driven carbon emissions across the Murray–Darling Basin: first insight from publicly available datasets",
+      "title_en": "Assessing irrigation-driven carbon emissions across the Murray–Darling Basin: first insight from publicly available datasets",
+      "title_zh": "评估默里-达令盆地因灌溉导致的碳排放：基于公开数据集的初步见解",
+      "link": "https://iopscience.iop.org/article/10.1088/1748-9326/aea7b7",
+      "source": "Environmental Research Letters",
+      "published": "2026-09-24T23:00:00+00:00",
+      "hotness": 85.2,
+      "score_v1": 32.17,
+      "score_v2": 85.2,
+      "score_breakdown": {
+        "algorithm": "v3.0",
+        "dimension_max": {
+          "authority": 18.0,
+          "topic": 18.0,
+          "resonance": 18.0,
+          "information": 16.0
+        },
+        "authority_score": 18.0,
+        "keyword_idf_score": 11.8,
+        "topic_score": 14.16,
+        "topic_burst_score": 2.36,
+        "topic_burst_count": 2,
+        "resonance_score": 0.0,
+        "info_score": 7.0,
+        "base": 39.16,
+        "base_max": 70.0,
+        "time_factor": 0.7159,
+        "density_factor": 1.0,
+        "density_note": "",
+        "repeat_penalty": 1.0,
+        "event_size": 1,
+        "event_media_count": 1,
+        "event_cluster_source": "ai",
+        "origin_source": "Environmental Research Letters",
+        "raw": 28.04,
+        "display_score": 85.2,
+        "display_mode": "absolute"
+      },
+      "summary": "农业灌溉是澳大利亚最大的耗水用途。它高度依赖高能耗的抽水系统，从而在“能源-水-粮食”关联框架内将用水与温室气体排放联系起来。 本研究首次对默里-达令河流域的灌溉能耗及相关排放量进行了流域尺度的估算。研究在透明且可复现的自上而下框架内，整合了农业能源、用水量及灌溉活动方面的公开数据集。研究构建了三种情景，以估算灌溉能源需求及相关排放量，同时反映了灌溉在农业能源消耗中所占比例的不确定性。 结果表明，与灌溉相关的年排放量在4.5至9.01 Mt CO2-e之间，相当于每毫升灌溉用水排放0.53–1.06 t CO2-e。电网电力是排放的主要来源，但在电网覆盖有限的地区，柴油的使用仍占据重要地位。 基于电力基础设施邻近性的空间分析，有助于更精细地分配能源来源。结果凸显了该流域内各区域在脱碳潜力方面的空间差异。 研究结果表明，电力脱碳提供了最大的减排机遇，并在离网地区辅以电气化和分散式可再生能源系统。该框架为灌溉相关排放提供了首个透明且可推广的流域级基准，为有针对性的脱碳规划奠定了基础，并为未来随着更高分辨率数据集的可用而进行的优化提供了基础。",
+      "analysis": "",
+      "topic_tags": [
+        "碳排放"
+      ],
+      "category": "气候变化",
+      "matched_keywords": [
+        "碳排放",
+        "温室气体",
+        "流域",
+        "可再生能源"
+      ]
+    },
+    {
+      "title": "Chemists struggle to ditch hazardous solvents — even after decades of ‘green’ efforts",
+      "title_en": "Chemists struggle to ditch hazardous solvents — even after decades of ‘green’ efforts",
+      "title_zh": "化学家们难以淘汰有害溶剂——即便经过数十年的“绿色”努力",
+      "link": "https://www.nature.com/articles/d41586-026-03023-0",
+      "source": "Nature",
+      "published": "2026-09-25T00:00:00+00:00",
+      "hotness": 80.4,
+      "score_v1": 20.3,
+      "score_v2": 80.4,
+      "score_breakdown": {
+        "algorithm": "v3.0",
+        "dimension_max": {
+          "authority": 18.0,
+          "topic": 18.0,
+          "resonance": 18.0,
+          "information": 16.0
+        },
+        "authority_score": 18.0,
+        "keyword_idf_score": 7.51,
+        "topic_score": 9.87,
+        "topic_burst_score": 2.36,
+        "topic_burst_count": 2,
+        "resonance_score": 0.0,
+        "info_score": 3.0,
+        "base": 30.87,
+        "base_max": 70.0,
+        "time_factor": 0.7236,
+        "density_factor": 1.0,
+        "density_note": "",
+        "repeat_penalty": 1.0,
+        "event_size": 1,
+        "event_media_count": 1,
+        "event_cluster_source": "ai",
+        "origin_source": "Nature",
+        "raw": 22.34,
+        "display_score": 80.4,
+        "display_mode": "absolute"
+      },
+      "summary": "《自然》杂志，。一项为期40年的专利调查显示，实验室中危险且高碳排放的液体使用频率仍远高于环保型液体。",
+      "analysis": "",
+      "topic_tags": [
+        "高碳排放"
+      ],
+      "category": "气候变化",
+      "matched_keywords": [
+        "碳排放"
+      ]
+    },
+    {
+      "title": "国家气候战略中心原主任徐华清：企业需共同承担气候变化责任 推动全社会绿色低碳转型 - 21财经",
+      "title_en": "",
+      "title_zh": "",
+      "link": "https://news.google.com/rss/articles/CBMihgFBVV95cUxQdHkteDhpdFZ0RGxjQWdtenAwUG5ONlZLWWxUNVpKN0NUV0FyZW5CV0xFVjl0WE1TMmV1RmRWZWNoZ3hyQWpWVVFZMVpJWGUzUTAwdG8zVjFnam53S1EtTDZlTldOTDVOVUNBdVM1SnQ4Y0x1VmVmWUZkNWNYa3RSN09WYldBUQ?oc=5",
+      "source": "Google News 气候变化",
+      "published": "2026-09-24T23:00:00+00:00",
+      "hotness": 80.2,
+      "score_v1": 25.77,
+      "score_v2": 80.2,
+      "score_breakdown": {
+        "algorithm": "v3.0",
+        "dimension_max": {
+          "authority": 18.0,
+          "topic": 18.0,
+          "resonance": 18.0,
+          "information": 16.0
+        },
+        "authority_score": 8.05,
+        "keyword_idf_score": 9.31,
+        "topic_score": 13.97,
+        "topic_burst_score": 4.66,
+        "topic_burst_count": 4,
+        "resonance_score": 0.0,
+        "info_score": 9.0,
+        "base": 31.02,
+        "base_max": 70.0,
+        "time_factor": 0.7159,
+        "density_factor": 1.0,
+        "density_note": "",
+        "repeat_penalty": 1.0,
+        "event_size": 1,
+        "event_media_count": 1,
+        "event_cluster_source": "ai",
+        "origin_source": "21财经",
+        "raw": 22.21,
+        "display_score": 80.2,
+        "display_mode": "absolute"
+      },
+      "summary": "徐华清指出企业需共同承担气候变化责任，呼吁推动全社会绿色低碳转型，强调企业在应对气候挑战中的关键作用。",
+      "analysis": "",
+      "topic_tags": [
+        "国家气候战略中心",
+        "气候变化责任",
+        "绿色低碳转型"
+      ],
+      "category": "气候变化",
+      "matched_keywords": [
+        "气候变化",
+        "绿色低碳"
+      ]
+    },
+    {
+      "title": "Trump’s executive order on recreational fishing is a ‘giveaway of fish and ocean ecosystem’, advocates warn",
+      "title_en": "Trump’s executive order on recreational fishing is a ‘giveaway of fish and ocean ecosystem’, advocates warn",
+      "title_zh": "倡导者警告称，特朗普关于休闲垂钓的行政命令是“将鱼类和海洋生态系统拱手相让”",
+      "link": "https://www.theguardian.com/us-news/2026/sep/25/recreational-fishing-trump-executive-order",
+      "source": "The Guardian Environment",
+      "published": "2026-09-25T12:00:50+00:00",
+      "hotness": 80.0,
+      "score_v1": 22.95,
+      "score_v2": 80.0,
+      "score_breakdown": {
+        "algorithm": "v3.0",
+        "dimension_max": {
+          "authority": 18.0,
+          "topic": 18.0,
+          "resonance": 18.0,
+          "information": 16.0
+        },
+        "authority_score": 12.73,
+        "keyword_idf_score": 10.8,
+        "topic_score": 10.8,
+        "topic_burst_score": 0.0,
+        "topic_burst_count": 1,
+        "resonance_score": 0.0,
+        "info_score": 3.0,
+        "base": 26.53,
+        "base_max": 70.0,
+        "time_factor": 0.8299,
+        "density_factor": 1.0,
+        "density_note": "",
+        "repeat_penalty": 1.0,
+        "event_size": 1,
+        "event_media_count": 1,
+        "event_cluster_source": "ai",
+        "origin_source": "The Guardian Environment",
+        "raw": 22.02,
+        "display_score": 80.0,
+        "display_mode": "absolute"
+      },
+      "summary": "联邦机构被要求优先考虑休闲垂钓，并重新审视科学标准及法规。唐纳德·特朗普最新发布的垂钓行政令正引发人们对美国海洋保护的新担忧，该行政令要求联邦机构优先考虑休闲垂钓，同时重新审视规范美国渔业的科学标准和环境法规。美国国家海洋渔业局对上周四发布的《恢复美国海水垂钓与休闲活动》行政令表示欢迎，并向《卫报》表示：“通过解决联邦数据收集中的长期缺陷、简化许可程序以及扩大海洋栖息地，此举为美国价值1.2万亿美元的户外休闲经济带来了久违的稳定性。” 继续阅读...",
+      "analysis": "",
+      "topic_tags": [
+        "海洋保护"
+      ],
+      "category": "生态环境",
+      "matched_keywords": [
+        "生态系统",
+        "海洋保护"
+      ]
+    },
+    {
+      "title": "From low-cost measurements to rapid water quality monitoring: a hybrid machine learning–optimization framework for predicting laboratory-intensive parameters",
+      "title_en": "From low-cost measurements to rapid water quality monitoring: a hybrid machine learning–optimization framework for predicting laboratory-intensive parameters",
+      "title_zh": "从低成本测量到快速水质监测：一种用于预测需大量实验室检测参数的混合机器学习与优化框架",
+      "link": "https://www.sciencedirect.com/science/article/pii/S0043135426015897?dgcid=rss_sd_all",
+      "source": "Water Research",
+      "published": "2026-09-25T02:30:58.008599+00:00",
+      "hotness": 80.0,
+      "score_v1": 18.67,
+      "score_v2": 80.0,
+      "score_breakdown": {
+        "algorithm": "v3.0",
+        "dimension_max": {
+          "authority": 18.0,
+          "topic": 18.0,
+          "resonance": 18.0,
+          "information": 16.0
+        },
+        "authority_score": 18.0,
+        "keyword_idf_score": 7.51,
+        "topic_score": 7.51,
+        "topic_burst_score": 0.0,
+        "topic_burst_count": 1,
+        "resonance_score": 0.0,
+        "info_score": 4.0,
+        "base": 29.51,
+        "base_max": 70.0,
+        "time_factor": 0.7437,
+        "density_factor": 1.0,
+        "density_note": "",
+        "repeat_penalty": 1.0,
+        "event_size": 1,
+        "event_media_count": 1,
+        "event_cluster_source": "ai",
+        "origin_source": "Water Research",
+        "raw": 21.94,
+        "display_score": 80.0,
+        "display_mode": "absolute"
+      },
+      "summary": "提出基于混合机器学习优化框架的低成本水质监测方法，旨在快速预测实验室密集型参数，提升水质监测效率与成本效益。",
+      "analysis": "",
+      "topic_tags": [
+        "低成本水质监测",
+        "混合机器学习",
+        "实验室密集型参数"
+      ],
+      "category": "水处理",
+      "matched_keywords": [
+        "水污染"
+      ]
+    },
+    {
+      "title": "Aging-dependent cotransport of microplastics and plastic additives in soil: Contrasting vector roles, interfacial interactions, and remobilization risks",
+      "title_en": "Aging-dependent cotransport of microplastics and plastic additives in soil: Contrasting vector roles, interfacial interactions, and remobilization risks",
+      "title_zh": "土壤中微塑料与塑料添加剂的年龄依赖性共转运：截然不同的载体作用、界面相互作用及再迁移风险",
+      "link": "https://www.sciencedirect.com/science/article/pii/S0043135426016842?dgcid=rss_sd_all",
+      "source": "Water Research",
+      "published": "2026-09-25T02:30:58.008599+00:00",
+      "hotness": 79.6,
+      "score_v1": 18.67,
+      "score_v2": 79.6,
+      "score_breakdown": {
+        "algorithm": "v3.0",
+        "dimension_max": {
+          "authority": 18.0,
+          "topic": 18.0,
+          "resonance": 18.0,
+          "information": 16.0
+        },
+        "authority_score": 18.0,
+        "keyword_idf_score": 6.97,
+        "topic_score": 6.97,
+        "topic_burst_score": 0.0,
+        "topic_burst_count": 1,
+        "resonance_score": 0.0,
+        "info_score": 4.0,
+        "base": 28.97,
+        "base_max": 70.0,
+        "time_factor": 0.7437,
+        "density_factor": 1.0,
+        "density_note": "",
+        "repeat_penalty": 1.0,
+        "event_size": 1,
+        "event_media_count": 1,
+        "event_cluster_source": "ai",
+        "origin_source": "Water Research",
+        "raw": 21.55,
+        "display_score": 79.6,
+        "display_mode": "absolute"
+      },
+      "summary": "研究揭示微塑料和添加剂在土壤中随年龄变化的共输运机制，分析界面相互作用与重新释放风险，为土壤污染治理提供科学依据。",
+      "analysis": "",
+      "topic_tags": [
+        "微塑料",
+        "土壤污染",
+        "重新释放风险"
+      ],
+      "category": "污染治理",
+      "matched_keywords": [
+        "微塑料"
+      ]
+    },
+    {
+      "title": "The treasured 'eternal snow' on this tropical island is about to disappear forever",
+      "title_en": "The treasured 'eternal snow' on this tropical island is about to disappear forever",
+      "title_zh": "这座热带岛屿上珍贵的“万年雪”即将永远消失",
+      "link": "https://www.bbc.co.uk/news/articles/cm5ydvww0erdo?at_medium=RSS&at_campaign=rss",
+      "source": "BBC 科学与环境",
+      "published": "2026-09-25T22:12:48+00:00",
+      "hotness": 78.4,
+      "score_v1": 27.84,
+      "score_v2": 78.4,
+      "score_breakdown": {
+        "algorithm": "v3.0",
+        "dimension_max": {
+          "authority": 18.0,
+          "topic": 18.0,
+          "resonance": 18.0,
+          "information": 16.0
+        },
+        "authority_score": 12.73,
+        "keyword_idf_score": 3.48,
+        "topic_score": 8.15,
+        "topic_burst_score": 4.66,
+        "topic_burst_count": 4,
+        "resonance_score": 0.0,
+        "info_score": 0.75,
+        "base": 21.62,
+        "base_max": 70.0,
+        "time_factor": 0.9435,
+        "density_factor": 1.0,
+        "density_note": "",
+        "repeat_penalty": 1.0,
+        "event_size": 1,
+        "event_media_count": 1,
+        "event_cluster_source": "ai",
+        "origin_source": "BBC 科学与环境",
+        "raw": 20.4,
+        "display_score": 78.4,
+        "display_mode": "absolute"
+      },
+      "summary": "气候变化正在改变巴布亚那些既具有科学价值又蕴含精神意义的雪山。",
+      "analysis": "",
+      "topic_tags": [
+        "环境资讯"
+      ],
+      "category": "气候变化",
+      "matched_keywords": [
+        "气候变化"
+      ]
+    },
+    {
+      "title": "为遗产教育和环境保护竞赛颁奖。 - Vietnam.vn",
+      "title_en": "",
+      "title_zh": "",
+      "link": "https://news.google.com/rss/articles/CBMijAFBVV95cUxPcG0xeXNURVRIUXdNckR4bmlLVGtaYUhsUXJENWk5OWdZWTJvU3NKRTZxclc2RGRMM1pLT29yWkZ4VWNoeExROGlnZWhDTFdGdkc0akl1SXl0aU10OC1LZ2RfUU5FaXRkVDF0REFzODRJcV9UMEFDVzYyYlpmNExZRjlFV3F1WG1yVDRvUA?oc=5",
+      "source": "Google News 环境竞赛",
+      "published": "2026-09-25T05:17:30+00:00",
+      "hotness": 78.0,
+      "score_v1": 33.32,
+      "score_v2": 78.0,
+      "score_breakdown": {
+        "algorithm": "v3.0",
+        "dimension_max": {
+          "authority": 18.0,
+          "topic": 18.0,
+          "resonance": 18.0,
+          "information": 16.0
+        },
+        "authority_score": 11.38,
+        "keyword_idf_score": 9.63,
+        "topic_score": 14.81,
+        "topic_burst_score": 5.19,
+        "topic_burst_count": 5,
+        "resonance_score": 0.0,
+        "info_score": 0.0,
+        "base": 26.2,
+        "base_max": 70.0,
+        "time_factor": 0.7672,
+        "density_factor": 1.0,
+        "density_note": "",
+        "repeat_penalty": 1.0,
+        "event_size": 1,
+        "event_media_count": 1,
+        "event_cluster_source": "ai",
+        "origin_source": "Vietnam.vn",
+        "raw": 20.1,
+        "display_score": 78.0,
+        "display_mode": "absolute"
+      },
+      "summary": "农业与环境部举行遗产教育环保竞赛颁奖仪式，表彰“生态战士”项目等优秀成果，分享绿色发展经验。",
+      "analysis": "",
+      "topic_tags": [
+        "生态战士",
+        "绿色战士"
+      ],
+      "category": "生态环境",
+      "matched_keywords": [
+        "环境保护",
+        "竞赛"
+      ]
+    }
+  ]
+}

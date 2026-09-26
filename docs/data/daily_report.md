@@ -1,138 +1,140 @@
 # 环境学子雷达 - 每日热点报告
 
-**日期**：2026-09-25
-**总条目数**：27
+**日期**：2026-09-26
+**总条目数**：50
 
-**近7天见解**：近7天环境热点呈现“生态环境、气候变化、污染治理”三大类合计73条，占据近40%的关注度，显示出公众对生态安全与治理成效的高度关注。政策类热点虽数量相对集中，但生态与治理类话题的明显上升态势，反映了从单一污染治理向系统性生态治理转型的深化趋势。水处理与科研学术热度相对平稳，整体格局呈现生态优先与治理落实并重的特征。
+**近7天见解**：近7天环境热点呈现“生态环境、气候变化、污染治理”三大类最为集中，合计逾半数的关注度，显示公众对核心议题的持续关注。除此以外，环境政策、水处理及科研学术等板块虽占比不大，但呈现明显上升趋势，反映政策导向与技术创新在当前环境议题中的重要性日益凸显。
 
 ---
 
 ## 今日热点 TOP 10
 
-### 1. [Gavin Newsom condemns Democrats’ ‘climate hushing’, predicts Trump’s downfall and expects AOC to run in 2028](https://www.theguardian.com/us-news/2026/sep/24/gavin-newsom-interview-trump-aoc)
+### 1. [New Jersey datacenter fined $1.1m after visual investigation showed dozens of unpermitted generators](https://www.theguardian.com/environment/2026/sep/25/new-jersey-fines-datacenter-unpermitted-generators)
 
 - **来源**：The Guardian Environment
-- **热度**：83.0
-- **发布时间**：2026-09-24T16:00:24+00:00
-- **关键词**：气候变化
+- **热度**：88.2
+- **发布时间**：2026-09-25T15:52:21+00:00
+- **关键词**：环境保护
 
-> 加州州长表示，民主党人必须阐明气候冲击与“民生问题”之间的关联。民主党政客不谈论气候变化是一个错误，而他们之所以不谈，是因为“不知道该如何谈论这个问题”， 加利福尼亚州州长加文·纽森周三在接受《卫报》及全球新闻合作项目“Covering Climate ”采访时表示。在联合国大会及纽约气候周的间隙，纽森还预测，11月的中期选举将带来“我们所熟知的唐纳德·特朗普总统任期的终结”。 为了防止特朗普窃取选举结果，选民必须以压倒性的数量踊跃投票，使他“根本无法对结果提出异议”。纽森表示，如果美国总统仍宣布国家紧急状态或试图以其他方式使选举结果无效，那么“我们人民必须挺身而出。 法院必须介入。国会必须履行职责，捍卫法治。” 继续阅读……
+> 新泽西州监管机构对DataOne位于维恩兰德的设施开出创纪录罚款，此前《卫报》与Floodlight联合展开调查。新泽西州监管机构周二对一家数据中心开出了有史以来最高的罚款，此前《卫报》与Floodlight联合展开的调查发现，DataOne位于维恩兰德的设施在未获得州政府许可的情况下，运行着至少45台燃气发电机。新泽西州环境保护局局长埃德·波托斯纳克（Ed Potosnak）在新闻稿中表示，该局对DataOne处以107万美元罚款，“发出了一个明确信号：在本州，此类设施绝不能在不受惩罚的情况下进行建设和运营”。继续阅读...
 
-**分析**：该条目涉及【climate hushing】话题，因来源权威性高且发布时间较新，热度上升。
+**分析**：该条目涉及【datacenter】话题，因来源权威性高且发布时间较新，热度上升。
 
 ---
 
-### 2. [Interlinking pathways and impacts between climate change, ecosystems and human health](https://iopscience.iop.org/article/10.1088/1748-9326/aea351)
+### 2. [湖北发布生态环境保护“十五五”规划 - 湖北日报传媒集团](https://news.google.com/rss/articles/CBMiWEFVX3lxTFAzdkNJRmV0S3AtY0FkeWxvMEdCU1NXMHJzR0hNTjJGTmhOZ2s2dzlYWWxkMlZSMWJhMk1waWNUb2s2YUlmdElyTjJkSWdyU3hUcmNoVjNqemQ?oc=5)
+
+- **来源**：Google News 环境保护
+- **热度**：85.7
+- **发布时间**：2026-09-24T20:17:15+00:00
+- **关键词**：生态环境, 环境保护
+
+> 湖北发布生态环境保护“十五五”规划，聚焦生态文明建设，划定空间布局，强化治理目标，为未来五年环境保护指明方向。
+
+**分析**：该条目涉及【湖北生态环境保护规划】话题，因来源较权威且多家媒体同题报道，热度上升。
+
+---
+
+### 3. [Assessing irrigation-driven carbon emissions across the Murray–Darling Basin: first insight from publicly available datasets](https://iopscience.iop.org/article/10.1088/1748-9326/aea7b7)
 
 - **来源**：Environmental Research Letters
-- **热度**：82.8
-- **发布时间**：2026-09-23T23:00:00+00:00
-- **关键词**：气候变化, 生态系统
+- **热度**：85.2
+- **发布时间**：2026-09-24T23:00:00+00:00
+- **关键词**：碳排放, 温室气体, 流域, 可再生能源
 
-> 研究探讨气候变化、生态系统与人类健康三者间的相互作用路径与影响机制，揭示跨领域关联效应。
+> 农业灌溉是澳大利亚最大的耗水用途。它高度依赖高能耗的抽水系统，从而在“能源-水-粮食”关联框架内将用水与温室气体排放联系起来。 本研究首次对默里-达令河流域的灌溉能耗及相关排放量进行了流域尺度的估算。研究在透明且可复现的自上而下框架内，整合了农业能源、用水量及灌溉活动方面的公开数据集。研究构建了三种情景，以估算灌溉能源需求及相关排放量，同时反映了灌溉在农业能源消耗中所占比例的不确定性。 结果表明，与灌溉相关的年排放量在4.5至9.01 Mt CO2-e之间，相当于每毫升灌溉用水排放0.53–1.06 t CO2-e。电网电力是排放的主要来源，但在电网覆盖有限的地区，柴油的使用仍占据重要地位。 基于电力基础设施邻近性的空间分析，有助于更精细地分配能源来源。结果凸显了该流域内各区域在脱碳潜力方面的空间差异。 研究结果表明，电力脱碳提供了最大的减排机遇，并在离网地区辅以电气化和分散式可再生能源系统。该框架为灌溉相关排放提供了首个透明且可推广的流域级基准，为有针对性的脱碳规划奠定了基础，并为未来随着更高分辨率数据集的可用而进行的优化提供了基础。
 
-**分析**：该条目涉及【生态系统】话题，因来源权威性高且话题稀缺度高，热度上升。
-
----
-
-### 3. [From low-cost measurements to rapid water quality monitoring: a hybrid machine learning–optimization framework for predicting laboratory-intensive parameters](https://www.sciencedirect.com/science/article/pii/S0043135426015897?dgcid=rss_sd_all)
-
-- **来源**：Water Research
-- **热度**：81.8
-- **发布时间**：2026-09-24T02:27:52.626587+00:00
-- **关键词**：水污染
-
-> 提出混合机器学习优化框架，利用低成本测量数据快速预测实验室分析参数，实现水质监测的快速化与成本降低。
-
-**分析**：该条目涉及【水质监测】话题，因来源权威性高，热度上升。
+**分析**：该条目涉及【碳排放】话题，因来源权威性高且话题稀缺度高，热度上升。
 
 ---
 
-### 4. [山西“十五五”生态环境蓝图出炉 锚定四个“更”目标 - 搜狐网](https://news.google.com/rss/articles/CBMiiAFBVV95cUxNclZBelFmXzh1Z01DQlFSaDVCNGk5TUVEbDE3R3laajV0OEhIeTNhSnpra0N1OVNUbm9XNTFvaXNWMzZjbzFmQ1NVQ1M2MC1ybW15Qlh4cVUxMWVDaUZKREIwbTFiY25XMFQwalVIM1hoZjVxRGNERnBsYW9ETmdaaG93TFpPWWV5?oc=5)
-
-- **来源**：Google News 生态环境
-- **热度**：79.6
-- **发布时间**：2026-09-24T11:47:04+00:00
-- **关键词**：生态环境
-
-> 山西发布‘十五五’生态环境规划，聚焦美丽山西建设，明确四个‘更’目标，旨在实现生态环境根本好转。
-
-**分析**：该条目涉及【生态环境】话题，因来源较权威且话题稀缺度高，热度上升。
-
----
-
-### 5. [重庆南岸：PM2.5同比降18% 生态环境质量稳中向好 - 光明网](https://news.google.com/rss/articles/CBMiZ0FVX3lxTFBDbUl0UGVLWnR2dXVKUnZMLWRNejdSdW45ejY5cldPY2ZPeFdiQlNhbU4zbTBuZFY3bk02eEtQRkhhVFFYbF8tUkpIcS1JYXNyNng1dnVzd2tMaDc1eHo0c1czN3Nyem8?oc=5)
-
-- **来源**：Google News 生态环境
-- **热度**：78.8
-- **发布时间**：2026-09-24T09:01:00+00:00
-- **关键词**：生态环境
-
-> 重庆南岸地区PM2.5浓度同比下降18%，生态环境质量持续改善，稳中向好态势明显。
-
-**分析**：该条目涉及【PM2.5】话题，因来源较权威且话题稀缺度高，热度上升。
-
----
-
-### 6. [生态环境部通报溶洞垃圾整治 8.2万吨废物已清理 - 中华网](https://news.google.com/rss/articles/CBMicEFVX3lxTE5mNGpyTnk4TEtrNDFzVjM2dFVuMTJFWUdvYWNBQUFaZTVpVFd3ekdLM21wVldRY1hJSGU4bG15ZXVkd3M3ZVdjVml0OEJnMV9nT2g1T2hJREVMTUJraUlWc3pId01SUFBDV0txci1kdzU?oc=5)
-
-- **来源**：Google News 环境污染
-- **热度**：78.2
-- **发布时间**：2026-09-23T16:58:12+00:00
-- **关键词**：生态环境
-
-> 生态环境部通报溶洞垃圾整治工作，已清理废物8.2万吨，有效净化了溶洞环境。
-
-**分析**：该条目涉及【生态环境部】话题，因来源较权威且话题稀缺度高，热度上升。
-
----
-
-### 7. [AI system helps lab devices ‘talk’ with each other — streamlining research](https://www.nature.com/articles/d41586-026-02990-8)
+### 4. [Chemists struggle to ditch hazardous solvents — even after decades of ‘green’ efforts](https://www.nature.com/articles/d41586-026-03023-0)
 
 - **来源**：Nature
-- **热度**：78.2
-- **发布时间**：2026-09-24T00:00:00+00:00
+- **热度**：80.4
+- **发布时间**：2026-09-25T00:00:00+00:00
+- **关键词**：碳排放
 
-> 《自然》杂志， 该平台使不同类型的机器能够相互通信，并由人工智能代理进行控制。
+> 《自然》杂志，。一项为期40年的专利调查显示，实验室中危险且高碳排放的液体使用频率仍远高于环保型液体。
 
-**分析**：该条目涉及【人工智能】话题，因来源权威性高，热度上升。
-
----
-
-### 8. [What drives institutional action for wildfire resilience? Determinants of targeted grazing attitudes and adoption on national forests in the western US](https://iopscience.iop.org/article/10.1088/1748-9326/aea00b)
-
-- **来源**：Environmental Research Letters
-- **热度**：78.0
-- **发布时间**：2026-09-23T23:00:00+00:00
-
-> 野火严重程度的加剧，正推动人们对新型土地管理方法产生兴趣，这些方法既能减少可燃物，又能在土地治理体系内切实可行。定向放牧（TG）——即利用牲畜管理植被的做法——是一种可与其他策略相结合以增强野火韧性的潜在工具。 然而，采用有针对性的放牧通常需要公共土地管理者在复杂的制度环境下采取行动。我们通过定量方法对一个概念框架进行了验证，该框架整合了计划行为理论和适应性治理理论，旨在评估影响工作人员对有针对性的放牧相关态度和行为的因素。 通过对美国农业部森林服务局1000多名工作人员的问卷调查，并采用路径分析建模方法，我们确定了将TG作为野火风险管理工具时，工作人员态度及实施意图的关键决定因素。 工作人员对牧场主实施TG能力的态度，以及对牲畜放牧对原生植被影响的一般性看法，是预测工作人员对TG有效性态度的最强预测因子。工作人员对其可用时间的感知，是预测其采用TG意图的最重要预测因子之一。 监测能力有限被证实是影响工作人员感知可用时间的首要制约因素，而人员短缺、资金不足或环境法规要求等其他因素则相对次要。我们的研究结果表明，制度性制约与个人的心理社会因素如何共同塑造了在公共土地野火管理中推行TG的意愿。
-
-**分析**：该条目涉及【环境资讯】话题，因来源权威性高，热度上升。
+**分析**：该条目涉及【高碳排放】话题，因来源权威性高，热度上升。
 
 ---
 
-### 9. [Unveiling the overlooked nitrous oxide reduction enzyme in wastewater treatment systems](https://www.sciencedirect.com/science/article/pii/S0043135426016581?dgcid=rss_sd_all)
+### 5. [国家气候战略中心原主任徐华清：企业需共同承担气候变化责任 推动全社会绿色低碳转型 - 21财经](https://news.google.com/rss/articles/CBMihgFBVV95cUxQdHkteDhpdFZ0RGxjQWdtenAwUG5ONlZLWWxUNVpKN0NUV0FyZW5CV0xFVjl0WE1TMmV1RmRWZWNoZ3hyQWpWVVFZMVpJWGUzUTAwdG8zVjFnam53S1EtTDZlTldOTDVOVUNBdVM1SnQ4Y0x1VmVmWUZkNWNYa3RSN09WYldBUQ?oc=5)
+
+- **来源**：Google News 气候变化
+- **热度**：80.2
+- **发布时间**：2026-09-24T23:00:00+00:00
+- **关键词**：气候变化, 绿色低碳
+
+> 徐华清指出企业需共同承担气候变化责任，呼吁推动全社会绿色低碳转型，强调企业在应对气候挑战中的关键作用。
+
+**分析**：该条目涉及【国家气候战略中心】话题，因来源较权威且话题稀缺度高，热度上升。
+
+---
+
+### 6. [Trump’s executive order on recreational fishing is a ‘giveaway of fish and ocean ecosystem’, advocates warn](https://www.theguardian.com/us-news/2026/sep/25/recreational-fishing-trump-executive-order)
+
+- **来源**：The Guardian Environment
+- **热度**：80.0
+- **发布时间**：2026-09-25T12:00:50+00:00
+- **关键词**：生态系统, 海洋保护
+
+> 联邦机构被要求优先考虑休闲垂钓，并重新审视科学标准及法规。唐纳德·特朗普最新发布的垂钓行政令正引发人们对美国海洋保护的新担忧，该行政令要求联邦机构优先考虑休闲垂钓，同时重新审视规范美国渔业的科学标准和环境法规。美国国家海洋渔业局对上周四发布的《恢复美国海水垂钓与休闲活动》行政令表示欢迎，并向《卫报》表示：“通过解决联邦数据收集中的长期缺陷、简化许可程序以及扩大海洋栖息地，此举为美国价值1.2万亿美元的户外休闲经济带来了久违的稳定性。” 继续阅读...
+
+**分析**：该条目涉及【海洋保护】话题，因来源权威性高，热度上升。
+
+---
+
+### 7. [From low-cost measurements to rapid water quality monitoring: a hybrid machine learning–optimization framework for predicting laboratory-intensive parameters](https://www.sciencedirect.com/science/article/pii/S0043135426015897?dgcid=rss_sd_all)
 
 - **来源**：Water Research
-- **热度**：77.0
-- **发布时间**：2026-09-24T02:27:52.626587+00:00
-- **关键词**：水处理
+- **热度**：80.0
+- **发布时间**：2026-09-25T02:30:58.008599+00:00
+- **关键词**：水污染
 
-> 研究揭示废水处理系统中被忽视的一氧化二氮还原酶，探讨其在氮去除过程中的关键作用与生态环境意义。
+> 提出基于混合机器学习优化框架的低成本水质监测方法，旨在快速预测实验室密集型参数，提升水质监测效率与成本效益。
 
-**分析**：该条目涉及【废水处理】话题，因来源权威性高，热度上升。
+**分析**：该条目涉及【低成本水质监测】话题，因来源权威性高，热度上升。
 
 ---
 
-### 10. [以生态环境法典引领生态修复治理新实践 - 新浪财经](https://news.google.com/rss/articles/CBMioAFBVV95cUxQdVIwWF9yV3AyVDRuNnM2S3VfbzU5cVRpUmoxOUM4eUdZdkJNMW5MMzZ3M1FZZVZZQmRPSk5lRW0tNjMtbGRUMzFxXzNLTEwzWVlZcW5VblBvRDlCelB2LVVqamwxTmtGWGt1ZVFSVFhScUs1enZnLUFWZ3pScmRCV1pNVmEtVzhKTWxja0dmWkV5d3lPZURpOWlCZWtvUFVo?oc=5)
+### 8. [Aging-dependent cotransport of microplastics and plastic additives in soil: Contrasting vector roles, interfacial interactions, and remobilization risks](https://www.sciencedirect.com/science/article/pii/S0043135426016842?dgcid=rss_sd_all)
 
-- **来源**：Google News 生态环境
-- **热度**：75.9
-- **发布时间**：2026-09-24T00:01:58+00:00
-- **关键词**：生态环境, 生态修复, 环境法典
+- **来源**：Water Research
+- **热度**：79.6
+- **发布时间**：2026-09-25T02:30:58.008599+00:00
+- **关键词**：微塑料
 
-> 生态环境法典颁布施行，标志我国生态环境法治进入法典化治理新阶段，生态修复治理将进入法治化轨道。
+> 研究揭示微塑料和添加剂在土壤中随年龄变化的共输运机制，分析界面相互作用与重新释放风险，为土壤污染治理提供科学依据。
 
-**分析**：该条目涉及【生态环境法典】话题，因来源较权威且话题稀缺度高，热度上升。
+**分析**：该条目涉及【微塑料】话题，因来源权威性高，热度上升。
+
+---
+
+### 9. [The treasured 'eternal snow' on this tropical island is about to disappear forever](https://www.bbc.co.uk/news/articles/cm5ydvww0erdo?at_medium=RSS&at_campaign=rss)
+
+- **来源**：BBC 科学与环境
+- **热度**：78.4
+- **发布时间**：2026-09-25T22:12:48+00:00
+- **关键词**：气候变化
+
+> 气候变化正在改变巴布亚那些既具有科学价值又蕴含精神意义的雪山。
+
+**分析**：该条目涉及【环境资讯】话题，因来源权威性高且发布时间较新，热度上升。
+
+---
+
+### 10. [为遗产教育和环境保护竞赛颁奖。 - Vietnam.vn](https://news.google.com/rss/articles/CBMijAFBVV95cUxPcG0xeXNURVRIUXdNckR4bmlLVGtaYUhsUXJENWk5OWdZWTJvU3NKRTZxclc2RGRMM1pLT29yWkZ4VWNoeExROGlnZWhDTFdGdkc0akl1SXl0aU10OC1LZ2RfUU5FaXRkVDF0REFzODRJcV9UMEFDVzYyYlpmNExZRjlFV3F1WG1yVDRvUA?oc=5)
+
+- **来源**：Google News 环境竞赛
+- **热度**：78.0
+- **发布时间**：2026-09-25T05:17:30+00:00
+- **关键词**：环境保护, 竞赛
+
+> 农业与环境部举行遗产教育环保竞赛颁奖仪式，表彰“生态战士”项目等优秀成果，分享绿色发展经验。
+
+**分析**：该条目涉及【生态战士】话题，因来源较权威且话题稀缺度高，热度上升。
 
 ---

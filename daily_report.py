@@ -1701,7 +1701,14 @@ def ai_cluster_events(items, api_config, max_items=None):
 
     result = call_nvidia_api(
         prompt, api_config,
-        max_tokens=min(2048, max(200, 20 * len(lines))),
+        # 2026-09-26 线上实证：53 条时 min(2048, 20*53)=1060 token 被**推理文字吃满**，
+        # 耗时 42.3s（同类调用普遍 1~30s），JSON 只抢救出 1 条完整记录。
+        # 输出本身极短（每个组约 8~12 token，53 条归 8 组也才 ~100 token），
+        # 说明截断的不是"要输出的 JSON"，而是被思考链挤占。enable_thinking=False
+        # 只是**请求**关闭，部分模型/网关会忽略（遇 400 时该字段还会被从 queue 里摘掉）。
+        # 因此这里的预算必须按"最坏情况仍有思考文字"来给：
+        #   基线 1200（思考余量）+ 每条 24（编号 + 分组信息的宽松上界），上限 3000。
+        max_tokens=min(3000, 1200 + 24 * len(lines)),
         json_mode=True, feature="事件聚类",
     )
     if not result:
@@ -1747,6 +1754,15 @@ def ai_cluster_events(items, api_config, max_items=None):
         subset[mi]["_ai_event_id"] = gid
     print(f"[事件聚类] AI 语义聚类：{len(subset)} 条输入 -> {len(set(mapping.values()))} 个多成员事件组，"
           f"覆盖 {len(mapping)} 条（其余条目按独立事件处理）")
+    # 截断可见性（2026-09-26 新增）：JSON 被 max_tokens 截断时，抢救逻辑只能拿回
+    # 「已经写完的那几个组」，后面的组**根本没机会被写出来** —— 日志此前只显示
+    # "1 个多成员事件组，覆盖 2 条"，看起来像"当天真的只有一个共振事件"，
+    # 与「模型输出被截断」在读数上不可区分。这里把覆盖率单独报出来，
+    # 覆盖率明显偏低（如 < 30%）且伴随"外层JSON不完整"时，应判定为**聚类未生效**、
+    # 当天共振维度不可信，而不是"当天没有共振事件"。
+    cover = len(mapping) / len(subset) if subset else 0.0
+    print(f"[事件聚类] 覆盖率 {cover:.0%}（{len(mapping)}/{len(subset)}）"
+          f"{'；覆盖率偏低，共振维度当日可信度不足' if cover < 0.30 else ''}")
     return mapping
 
 
@@ -4754,7 +4770,8 @@ def _ai_relevance_irrelevant(items, api_config):
     failed_batches = 0
 
     for start in range(0, len(items), AI_RELEVANCE_BATCH):
-        chunk_idx = [i for i in range(start, min(start + AI_RELEVANCE_BATCH, len(items)))
+        _end = min(start + AI_RELEVANCE_BATCH, len(items))
+        chunk_idx = [i for i in range(start, _end)
                      if (items[i].get("title") or "").strip()]
         if not chunk_idx:
             continue
@@ -4777,9 +4794,12 @@ def _ai_relevance_irrelevant(items, api_config):
             "每条只回答\"是\"或\"否\"。\n\n"
             "标题列表：\n" + "\n".join(lines)
         )
-        # max_tokens 按标题条数估算（每条实测 15~25 token，取上界 30 留余地）
+        # max_tokens 按标题条数估算（每条实测 15~25 token，取上界 30 留余地）。
+        # 2026-09-26 线上实证：即便分批，仍要防"思考链挤占预算"——那次聚类调用
+        # 把 1060 token 全用来写推理、JSON 只落下 1 条。相关性过滤同受此影响，
+        # 故同样加 800 token 的思考余量。
         result = call_nvidia_api(prompt, api_config,
-                                 max_tokens=max(400, 30 * len(lines)),
+                                 max_tokens=800 + 30 * len(lines),
                                  json_mode=True, feature="相关性过滤")
         if not result:
             failed_batches += 1
@@ -4789,6 +4809,7 @@ def _ai_relevance_irrelevant(items, api_config):
             failed_batches += 1
             continue
         ok_batches += 1
+        _batch_judged = 0
         for r in arr:
             if not isinstance(r, dict):
                 continue
@@ -4797,10 +4818,21 @@ def _ai_relevance_irrelevant(items, api_config):
                 rid = int(r.get("id"))
             except (TypeError, ValueError):
                 continue
+            # 只认落在本批范围内的 id：截断抢救可能捞回**属于别批**的片段，
+            # 不校验会让跨批 id 污染本批判决（分批后 id 是全局下标，必须收口）
+            if rid not in chunk_idx:
+                continue
+            _batch_judged += 1
             # 归一化判决值（大小写不敏感 + 布尔兼容），细节与动机见 _is_irrelevant_verdict
             raw_rel = r.get("relevant", r.get("is_environment", None))
             if _is_irrelevant_verdict(raw_rel):
                 irrelevant_set.add(rid)
+        # 部分截断可见性：某批只判回几条时，"其余条未判"与"判为相关"在读数上
+        # 不可区分 —— 必须显式报出，否则截断会伪装成"全部相关"（零剔除）。
+        if _batch_judged < len(chunk_idx):
+            print(f"[相关性过滤] 第{start // AI_RELEVANCE_BATCH + 1}批仅判回 "
+                  f"{_batch_judged}/{len(chunk_idx)} 条（疑似截断），"
+                  f"其余 {len(chunk_idx) - _batch_judged} 条按保守口径放行")
 
     if not ok_batches:
         print("[相关性过滤] AI 全部批次均解析失败，降级为规则判断")
@@ -6230,7 +6262,17 @@ def _finalize_summary(item):
 
 
 # 摘要归属校验用：标题指纹归一化
-_RE_FINGERPRINT_NOISE = re.compile(r"[\s\-—–_|·…,，。!！?？:：;；\"'“”‘’()（）\[\]【】<>《》/\\]+")
+#
+# ⚠ 必须包含 ASCII 句点 "."（2026-09-26 线上实证）：
+#   提示词第 6 条要求模型回显"标题前 10 个字（英文取前 5 个单词）"，
+#   模型对英文标题常按习惯补 ASCII 省略号 "...":
+#       fp("Comment on global human population...") = "commentonglobalhumanpopulation..."
+#       fp("Comment on global human population has peaked...") = "commentonglobalhumanpopulationhaspeaked..."
+#   → startswith 失配，该批「可确认归属 0/4」，4 条摘要全部白生成（回退规则摘要）。
+#   同一位置写中文省略号 "…" 反而能命中 —— 说明旧正则漏的是 ASCII 句点，不是"省略号"。
+#   附带的收益：U.S. / et al. / Fig.1 / v1. 这类缩写的点号也被归一，
+#   模型回显时写不写点都不影响归属（PM2.5 亦同，回显 "PM25" 也能命中）。
+_RE_FINGERPRINT_NOISE = re.compile(r"[\s\-—–_|·.…。!！?？:：;；\"'“”‘’()（）\[\]【】<>《》/\\]+")
 
 
 def _title_fingerprint(text):

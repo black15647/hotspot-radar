@@ -721,6 +721,64 @@ class TestRelevanceBatching(unittest.TestCase):
         self.assertIsNone(dr._ai_relevance_irrelevant(items, {}),
                           "全部批次失败才应返回 None（调用方降级规则）")
 
+    def test_out_of_batch_ids_are_rejected(self):
+        """跨批 id 不得污染本批判决（2026-09-26）
+
+        分批后 id 是**全局下标**；截断抢救可能捞回本不属于该批的片段。
+        若不校验 id 落在本批范围内，第 2 批返回的 id=999 会被当成有效判决写入，
+        污染 irrelevant_set 且无法定位到任何条目。
+        """
+        def fake(prompt, cfg, **kw):
+            ids = self._ids_in(prompt)
+            # 本批正常判决 + 一个越界 id（模拟抢救捞回的别批/脏片段）
+            return json.dumps({"results": [{"id": i, "relevant": "是"} for i in ids]
+                              + [{"id": 999, "relevant": "否"}]})
+
+        dr.call_nvidia_api = fake
+        items = [{"title": f"标题{i}"} for i in range(5)]
+        out = dr._ai_relevance_irrelevant(items, {})
+        self.assertEqual(out, set(), "越界 id=999 不得进入判决集合")
+
+    def test_partial_batch_is_reported_not_silently_relevant(self):
+        """某批只判回部分条目时，其余条按"保守放行"处理且日志可辨（2026-09-26）
+
+        分批后仍有"单批被截断"的可能：若某批 20 条只判回 3 条，
+        剩余 17 条**没有判决**，调用方按"不在 irrelevant_set 即保留"处理 ——
+        这在行为上等价于"判为相关"，若不打印就会伪装成零剔除。
+        """
+        import io
+        import contextlib
+
+        def fake(prompt, cfg, **kw):
+            ids = self._ids_in(prompt)
+            return json.dumps({"results": [{"id": i, "relevant": "是"} for i in ids[:3]]})
+
+        dr.call_nvidia_api = fake
+        items = [{"title": f"标题{i}"} for i in range(20)]
+        buf = io.StringIO()
+        with contextlib.redirect_stdout(buf):
+            out = dr._ai_relevance_irrelevant(items, {})
+        log = buf.getvalue()
+        self.assertEqual(out, set())
+        self.assertIn("仅判回 3/20", log, "部分截断必须显式报出")
+        self.assertIn("保守口径放行", log)
+
+    def test_full_batch_does_not_print_truncation_warning(self):
+        """完整判决时不得出现截断告警（避免正常日志被噪声淹没）"""
+        import io
+        import contextlib
+
+        def fake(prompt, cfg, **kw):
+            ids = self._ids_in(prompt)
+            return json.dumps({"results": [{"id": i, "relevant": "是"} for i in ids]})
+
+        dr.call_nvidia_api = fake
+        items = [{"title": f"标题{i}"} for i in range(10)]
+        buf = io.StringIO()
+        with contextlib.redirect_stdout(buf):
+            dr._ai_relevance_irrelevant(items, {})
+        self.assertNotIn("疑似截断", buf.getvalue())
+
 
 class TestContentDensity(unittest.TestCase):
     """信息密度判据（v2.1）。
@@ -1173,6 +1231,39 @@ class TestSummaryAttribution(unittest.TestCase):
         batch = self._batch(["永州市溶洞污染排查整治工作推进会召开"])
         m = dr._match_summary_entries(batch, [{"id": 0, "title": "永州市", "summary": "修复后的摘要"}])
         self.assertEqual(m, {0: "修复后的摘要"})
+
+    def test_fingerprint_tolerates_ascii_ellipsis(self):
+        """模型回显时补 ASCII 省略号 "..." 仍应命中（2026-09-26 线上实证）
+
+        提示词要求英文标题回显"前 5 个单词"，模型习惯补三点：
+            "Comment on global human population..."
+        旧指纹正则清洗了 U+2026 "…" 却**漏了 ASCII 句点 "."**，导致指纹残留 "..."，
+        startswith 失配 → 该批「可确认归属 0/4」，4 条 AI 摘要全部作废回退规则。
+        批次恰好全是英文学术标题时必现。
+        """
+        batch = self._batch(["Comment on global human population has peaked and is declining"])
+        for echo in ["Comment on global human population...",
+                     "Comment on global human population…",
+                     "Comment on global human population"]:
+            m = dr._match_summary_entries(batch, [{"id": 0, "title": echo, "summary": "摘要正文"}])
+            self.assertEqual(m, {0: "摘要正文"}, f"回显形式 {echo!r} 应当命中")
+
+    def test_fingerprint_ignores_ascii_period(self):
+        """缩写与小数里的 ASCII 句点不应影响归属（U.S. / et al. / PM2.5 / v1.）"""
+        for title, echo in [("PM2.5同比下降18%", "PM25同比下降18%"),
+                            ("U.S. EPA 发布新规", "US EPA 发布新规"),
+                            ("et al. 的研究结论", "et al 的研究结论")]:
+            batch = self._batch([title])
+            m = dr._match_summary_entries(batch, [{"id": 0, "title": echo, "summary": "摘要"}])
+            self.assertEqual(m, {0: "摘要"}, f"{title!r} 与回显 {echo!r} 应当命中")
+
+    def test_fingerprint_still_echoes_exact_title(self):
+        """原样回显（无任何省略）不受影响 —— 确认修复未引入回归"""
+        batch = self._batch(["永州市溶洞污染排查整治工作推进会召开"])
+        m = dr._match_summary_entries(batch, [
+            {"id": 0, "title": "永州市溶洞污染排查整治工作推进会召开", "summary": "摘要"}
+        ])
+        self.assertEqual(m, {0: "摘要"})
 
 
 class TestRelevanceVerdictNormalization(unittest.TestCase):

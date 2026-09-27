@@ -779,6 +779,101 @@ class TestRelevanceBatching(unittest.TestCase):
             dr._ai_relevance_irrelevant(items, {})
         self.assertNotIn("疑似截断", buf.getvalue())
 
+    # ------------------------------------------------------------------
+    # 2026-09-27：分批改造引入的编号错位回归
+    # 线上实证：第 2 批发全局下标（20..26），模型按列表位置回 0..6，
+    # 该批 7 条判决全部落空（日志"第2批仅判回 0/7 条"，并被误诊为截断）。
+    # 注意既有用例用的 _ids_in(prompt) 是"照抄 prompt 编号"，属理想行为，
+    # 所以没能覆盖到"模型自己按位置编号"这一真实情况。
+    # ------------------------------------------------------------------
+
+    def test_prompt_uses_local_numbering(self):
+        """prompt 必须发批内局部序号，不能发 items 全局下标"""
+        prompts = []
+
+        def fake(prompt, cfg, **kw):
+            prompts.append(prompt)
+            n = len(self._ids_in(prompt))
+            return json.dumps({"results": [{"id": k, "relevant": "是"} for k in range(n)]})
+
+        dr.call_nvidia_api = fake
+        items = [{"title": f"标题{i}"} for i in range(27)]
+        dr._ai_relevance_irrelevant(items, {})
+        self.assertGreaterEqual(len(prompts), 2)
+        self.assertEqual(self._ids_in(prompts[0]), list(range(20)), "第 1 批：0..19")
+        self.assertEqual(self._ids_in(prompts[1]), list(range(7)),
+                         "第 2 批必须从 0 重新编号，不能续用 20..26")
+
+    def test_local_numbering_maps_to_global_items(self):
+        """模型按列表位置从 0 编号时，判决必须落到正确的全局条目上"""
+        calls = []
+
+        def fake(prompt, cfg, **kw):
+            calls.append(prompt)
+            n = len(self._ids_in(prompt))
+            return json.dumps({"results": [
+                {"id": k, "relevant": ("否" if k == 3 else "是")} for k in range(n)
+            ]})
+
+        dr.call_nvidia_api = fake
+        items = [{"title": f"标题{i}"} for i in range(27)]
+        out = dr._ai_relevance_irrelevant(items, {})
+        # 第 1 批局部 3 -> 全局 3；第 2 批局部 3 -> 全局 23
+        self.assertEqual(out, {3, 23}, "局部编号必须映射到全局下标，不能整批落空")
+        self.assertEqual(len(calls), 2)
+
+    def test_one_based_numbering_does_not_shift_by_one(self):
+        """模型用 1 基编号时不得整体错位一条（否则会错杀）"""
+        def fake(prompt, cfg, **kw):
+            n = len(self._ids_in(prompt))
+            return json.dumps({"results": [
+                {"id": k + 1, "relevant": ("否" if k == 3 else "是")} for k in range(n)
+            ]})
+
+        dr.call_nvidia_api = fake
+        items = [{"title": f"标题{i}"} for i in range(27)]
+        out = dr._ai_relevance_irrelevant(items, {})
+        # 1 基的"第 4 条" -> 全局 3 / 23，而不是错位成 4 / 24
+        self.assertEqual(out, {3, 23}, "1 基编号不得错位")
+
+    def test_global_index_numbering_still_accepted(self):
+        """模型照抄 items 全局下标时仍应兼容识别"""
+        calls = []
+
+        def fake(prompt, cfg, **kw):
+            calls.append(prompt)
+            ids = list(range(20)) if len(calls) == 1 else list(range(20, 27))
+            return json.dumps({"results": [
+                {"id": i, "relevant": ("否" if i == 21 else "是")} for i in ids
+            ]})
+
+        dr.call_nvidia_api = fake
+        items = [{"title": f"标题{i}"} for i in range(27)]
+        out = dr._ai_relevance_irrelevant(items, {})
+        self.assertEqual(out, {21}, "全局下标编号应被兼容识别")
+
+    def test_unmappable_numbering_reported_as_mismatch_not_truncation(self):
+        """编号无法对应时报「编号方式不符」，不得误报为「疑似截断」"""
+        import io
+        import contextlib
+
+        def fake(prompt, cfg, **kw):
+            n = len(self._ids_in(prompt))
+            return json.dumps({"results": [
+                {"id": 900 + k, "relevant": "否"} for k in range(n)
+            ]})
+
+        dr.call_nvidia_api = fake
+        items = [{"title": f"标题{i}"} for i in range(27)]
+        buf = io.StringIO()
+        with contextlib.redirect_stdout(buf):
+            out = dr._ai_relevance_irrelevant(items, {})
+        log = buf.getvalue()
+        self.assertEqual(out, set(), "编号无法对应时该批应整体保守放行")
+        self.assertIn("编号均无法对应", log)
+        self.assertIn("疑似编号方式不符", log)
+        self.assertNotIn("疑似截断", log, "编号不符不得误报为截断（会带偏排查方向）")
+
 
 class TestContentDensity(unittest.TestCase):
     """信息密度判据（v2.1）。

@@ -4775,12 +4775,17 @@ def _ai_relevance_irrelevant(items, api_config):
                      if (items[i].get("title") or "").strip()]
         if not chunk_idx:
             continue
+        # 编号必须是**批内局部序号**（0,1,2,...），不能是 items 的全局下标。
+        # 2026-09-27 线上实证：第2批发全局下标（20..26），模型仍按它看到的列表位置回 0..6，
+        # 导致该批 7 条判决全部落空（日志报 "第2批仅判回 0/7 条"，并被误诊为截断）。
+        # 第1批全局下标恰等于局部序号（都是 0..19），所以这个缺陷只在第2批及以后暴露。
         lines = []
-        for i in chunk_idx:
+        local_to_global = {}
+        for j, i in enumerate(chunk_idx):
+            local_to_global[j] = i
             # 只发送标题前60字符：40 字符会把带副标题的学术标题（如期刊论文）截成残句，
             # 导致 AI 无法判断领域而误判为无关，这里放宽到 60。
-            # id 用**全局下标**，批与批之间不会撞号。
-            lines.append(f"{i}. {(items[i].get('title') or '')[:60]}")
+            lines.append(f"{j}. {(items[i].get('title') or '')[:60]}")
         prompt = (
             "请判断以下新闻标题是否与环境领域相关。判定口径：\n"
             "【判「是」】气候变化、污染治理、生态保护、资源能源、环境政策、可持续发展、"
@@ -4791,7 +4796,7 @@ def _ai_relevance_irrelevant(items, api_config):
             "农产品价格与农业经济、金融股市、与生态环境无关的科技产品发布。\n"
             "只输出一个 JSON 对象，不要输出思考过程、解释或 Markdown。"
             "格式：{\"results\":[{\"id\":0,\"relevant\":\"是\"},{\"id\":1,\"relevant\":\"否\"}]}，"
-            "每条只回答\"是\"或\"否\"。\n\n"
+            "每条只回答\"是\"或\"否\"，且 id 必须等于该行行首的编号（不要重新编号、不要跳号）。\n\n"
             "标题列表：\n" + "\n".join(lines)
         )
         # max_tokens 按标题条数估算（每条实测 15~25 token，取上界 30 留余地）。
@@ -4809,30 +4814,72 @@ def _ai_relevance_irrelevant(items, api_config):
             failed_batches += 1
             continue
         ok_batches += 1
+        n_batch = len(chunk_idx)
+        # ---- 编号基准探测 ----
+        # prompt 发的是批内局部序号 (0,1,2,...)，模型通常照抄；但仍可能改用 1 基序号，
+        # 或直接照抄 items 的全局下标。必须**先判定整批用的是哪种基准**，再逐条映射 ——
+        # 逐条"猜"会在 1 基情形下整体错位一条（把 id=1 当成第 2 条），从而错杀。
+        # 判据用「集合相等」而不是「子集」：第 1 批时 idset={1..7} 同时是 [0,20) 与
+        # [1,21) 的子集，子集判据无法消歧；集合相等则三种基准互斥。
+        _idset = set()
+        for r in arr:
+            if isinstance(r, dict):
+                try:
+                    _idset.add(int(r.get("id")))
+                except (TypeError, ValueError):
+                    pass
+        if _idset == set(range(n_batch)):
+            _base = 0                              # 0 基局部序号（prompt 形态）
+        elif _idset == set(range(1, n_batch + 1)):
+            _base = 1                              # 1 基局部序号
+        elif _idset and _idset <= set(chunk_idx):
+            _base = 2                              # 全局下标
+        elif _idset and 0 <= min(_idset) and max(_idset) < n_batch:
+            _base = 0                              # 部分返回且落在 [0,n)：按 0 基
+        else:
+            _base = 2                              # 其余兜底按全局下标
+
         _batch_judged = 0
+        _unmapped = 0
         for r in arr:
             if not isinstance(r, dict):
+                _unmapped += 1
                 continue
             # id 不是数字时无法定位条目：跳过这一条，不因一条脏数据让整批判决作废
             try:
                 rid = int(r.get("id"))
             except (TypeError, ValueError):
+                _unmapped += 1
                 continue
-            # 只认落在本批范围内的 id：截断抢救可能捞回**属于别批**的片段，
-            # 不校验会让跨批 id 污染本批判决（分批后 id 是全局下标，必须收口）
-            if rid not in chunk_idx:
+            if _base == 0:
+                gid = local_to_global.get(rid)
+            elif _base == 1:
+                gid = local_to_global.get(rid - 1)
+            else:
+                gid = rid if rid in chunk_idx else None
+            if gid is None:
+                # 既非本批局部序号也非本批全局下标：可能来自别批的抢救片段，丢弃
+                _unmapped += 1
                 continue
             _batch_judged += 1
             # 归一化判决值（大小写不敏感 + 布尔兼容），细节与动机见 _is_irrelevant_verdict
             raw_rel = r.get("relevant", r.get("is_environment", None))
             if _is_irrelevant_verdict(raw_rel):
-                irrelevant_set.add(rid)
+                irrelevant_set.add(gid)
         # 部分截断可见性：某批只判回几条时，"其余条未判"与"判为相关"在读数上
         # 不可区分 —— 必须显式报出，否则截断会伪装成"全部相关"（零剔除）。
         if _batch_judged < len(chunk_idx):
-            print(f"[相关性过滤] 第{start // AI_RELEVANCE_BATCH + 1}批仅判回 "
-                  f"{_batch_judged}/{len(chunk_idx)} 条（疑似截断），"
-                  f"其余 {len(chunk_idx) - _batch_judged} 条按保守口径放行")
+            _bno = start // AI_RELEVANCE_BATCH + 1
+            if _batch_judged == 0 and _unmapped:
+                # 2026-09-27 线上实测：这种形态**不是**截断，而是模型返回的编号与条目对不上。
+                # 旧日志一律写"疑似截断"，会把排查方向带偏到加大 max_tokens —— 而当时预算
+                # (800+30*7=1010) 远超需求 (约175 token)。两种病因必须分开报。
+                print(f"[相关性过滤] 第{_bno}批返回 {len(arr)} 条记录但编号均无法对应本批条目"
+                      f"（疑似编号方式不符），该批 {len(chunk_idx)} 条按保守口径放行")
+            else:
+                print(f"[相关性过滤] 第{_bno}批仅判回 "
+                      f"{_batch_judged}/{len(chunk_idx)} 条（疑似截断），"
+                      f"其余 {len(chunk_idx) - _batch_judged} 条按保守口径放行")
 
     if not ok_batches:
         print("[相关性过滤] AI 全部批次均解析失败，降级为规则判断")

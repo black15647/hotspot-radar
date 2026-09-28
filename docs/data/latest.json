@@ -1,28 +1,28 @@
 {
-  "report_date": "2026-09-27",
-  "date": "2026-09-27",
+  "report_date": "2026-09-28",
+  "date": "2026-09-28",
   "site_name": "环境学子雷达",
-  "total_items": 18,
+  "total_items": 13,
   "total_sources": 28,
   "success_sources": 25,
   "failed_sources": 1,
-  "week_total_items": 199,
-  "week_new_keywords": 92,
-  "policy_ratio": 11.5,
+  "week_total_items": 195,
+  "week_new_keywords": 93,
+  "policy_ratio": 10.8,
   "items": [
     {
-      "title": "【有医说医】环境污染和微塑料，也可能导致阿尔茨海默病 - 搜狐网",
+      "title": "生态环境部：中国绿色发展动能不断增强 - zqrb.cn",
       "title_en": "",
       "title_zh": "",
       "summary_en": "",
       "summary_zh": "",
-      "link": "https://news.google.com/rss/articles/CBMijAFBVV95cUxPSjY5ZlY5T2VCbkw4VU5aUlJ6Q3ZRdFZNbV9naW1NN1k3RjVCMGpIT1l4WFBDOXlCRmFTUG16NFFqZXgwbXlzT3dnamlOWUlMY3JXU2lzVFZTMVk1dklDTEwxS3E2bFBnTU5nV0NNSGNBeGE0MDN0WFFDcWs4aWxHVHRfTmxlTGVUOWd1VA?oc=5",
-      "source": "Google News 环境污染",
-      "published": "2026-09-26T23:07:34+00:00",
-      "hotness": 82.7,
-      "score": 82.7,
-      "score_v1": 23.29,
-      "score_v2": 82.7,
+      "link": "https://news.google.com/rss/articles/CBMifEFVX3lxTE51YWFDRGxEMTJ4MkpCNG1DeUhhc21FejBVbk9ERjNKRW1icXFUa1lnMkItYWNnWDhjNG9yLTZxTGpjbW5ral9RTzBrN0xaNGlDanZ4dWs1RHRyc1EzWm9CajNoX0g1Q25DU05EbkE3MktzS1RoTmZJYUlKekw?oc=5",
+      "source": "Google News 环境保护",
+      "published": "2026-09-27T16:39:00+00:00",
+      "hotness": 84.9,
+      "score": 84.9,
+      "score_v1": 23.22,
+      "score_v2": 84.9,
       "score_breakdown": {
         "algorithm": "v3.0",
         "dimension_max": {
@@ -32,61 +32,62 @@
           "information": 16.0
         },
         "authority_score": 8.05,
-        "keyword_idf_score": 6.79,
-        "topic_score": 9.15,
-        "topic_burst_score": 2.36,
-        "topic_burst_count": 2,
+        "keyword_idf_score": 6.84,
+        "topic_score": 10.63,
+        "topic_burst_score": 3.79,
+        "topic_burst_count": 3,
         "resonance_score": 8.76,
-        "info_score": 0.0,
-        "base": 25.96,
+        "info_score": 4.0,
+        "base": 31.44,
         "base_max": 70.0,
-        "time_factor": 0.956,
+        "time_factor": 0.879,
         "density_factor": 1.0,
         "density_note": "",
         "repeat_penalty": 1.0,
         "event_size": 2,
         "event_media_count": 2,
         "event_cluster_source": "ai",
-        "origin_source": "搜狐网",
-        "raw": 24.82,
-        "display_score": 82.7,
+        "origin_source": "zqrb.cn",
+        "raw": 27.64,
+        "display_score": 84.9,
         "display_mode": "absolute"
       },
       "score_v1_breakdown": {
         "base": 5.0,
         "source_score": 3.6,
         "keyword_score": 2.0,
-        "time_score": 8.69,
-        "topic_bonus": 4.0,
-        "total": 23.29
+        "time_score": 6.62,
+        "topic_bonus": 6.0,
+        "total": 23.22
       },
-      "summary": "研究探讨环境污染与微塑料暴露可能导致阿尔茨海默病的关联，分析污染物对神经系统潜在危害。",
-      "analysis": "该条目涉及【微塑料】话题，因来源较权威且发布时间较新，热度上升。",
+      "summary": "生态环境部发布信息称，中国绿色发展动能持续增强，相关政策与实践成效显著。",
+      "analysis": "该条目涉及【生态环境部】话题，因来源较权威且发布时间较新，热度上升。",
       "topic_tags": [
-        "微塑料",
-        "环境污染"
+        "生态环境部",
+        "绿色发展",
+        "政策"
       ],
-      "category": "污染治理",
+      "category": "生态环境",
       "matched_keywords": [
-        "微塑料"
+        "生态环境"
       ],
       "keywords": [
-        "微塑料"
+        "生态环境"
       ]
     },
     {
-      "title": "Sustainable deployment of drinking water treatment residual-derived adsorbents: From synthesis optimization to fixed-bed regeneration and life cycle assessment",
-      "title_en": "Sustainable deployment of drinking water treatment residual-derived adsorbents: From synthesis optimization to fixed-bed regeneration and life cycle assessment",
-      "title_zh": "饮用水处理残留物衍生吸附剂的可持续应用：从合成优化到固定床再生及生命周期评估",
+      "title": "江西加强生态环境监测数据质量监管 查实数据弄虚作假案件7起 - 凤凰网",
+      "title_en": "",
+      "title_zh": "",
       "summary_en": "",
       "summary_zh": "",
-      "link": "https://www.sciencedirect.com/science/article/pii/S0043135426016830?dgcid=rss_sd_all",
-      "source": "Water Research",
-      "published": "2026-09-26T02:28:10.619203+00:00",
-      "hotness": 82.2,
-      "score": 82.2,
-      "score_v1": 22.68,
-      "score_v2": 82.2,
+      "link": "https://news.google.com/rss/articles/CBMiSkFVX3lxTFBqTk5UZ2JQbUJ1OGVnYXU4MGU0Mi1RS2xvazRiRnBna21KRXktN1NWX3c5UHR4OFBpbEw3UkF6TEF2aE1GMHZidkpB?oc=5",
+      "source": "Google News 生态环境",
+      "published": "2026-09-27T12:43:27+00:00",
+      "hotness": 83.6,
+      "score": 83.6,
+      "score_v1": 26.22,
+      "score_v2": 83.6,
       "score_breakdown": {
         "algorithm": "v3.0",
         "dimension_max": {
@@ -95,132 +96,65 @@
           "resonance": 18.0,
           "information": 16.0
         },
-        "authority_score": 18.0,
-        "keyword_idf_score": 10.71,
-        "topic_score": 10.71,
-        "topic_burst_score": 0.0,
-        "topic_burst_count": 1,
+        "authority_score": 8.05,
+        "keyword_idf_score": 10.1,
+        "topic_score": 13.9,
+        "topic_burst_score": 3.79,
+        "topic_burst_count": 3,
         "resonance_score": 0.0,
-        "info_score": 4.0,
-        "base": 32.71,
+        "info_score": 9.0,
+        "base": 30.94,
         "base_max": 70.0,
-        "time_factor": 0.7441,
+        "time_factor": 0.8375,
         "density_factor": 1.0,
         "density_note": "",
         "repeat_penalty": 1.0,
         "event_size": 1,
         "event_media_count": 1,
         "event_cluster_source": "ai",
-        "origin_source": "Water Research",
-        "raw": 24.34,
-        "display_score": 82.2,
+        "origin_source": "凤凰网",
+        "raw": 25.92,
+        "display_score": 83.6,
         "display_mode": "absolute"
       },
       "score_v1_breakdown": {
         "base": 5.0,
-        "source_score": 6.0,
+        "source_score": 3.6,
         "keyword_score": 4.0,
-        "time_score": 3.68,
-        "topic_bonus": 4.0,
-        "total": 22.68
+        "time_score": 5.62,
+        "topic_bonus": 8.0,
+        "total": 26.22
       },
-      "summary": "研究聚焦于利用饮用水处理残渣制备吸附剂，涵盖合成优化、固定床再生及全生命周期评估，推动水处理资源化利用。",
-      "analysis": "该条目涉及【饮用水处理残渣】话题，因来源权威性高，热度上升。",
+      "summary": "江西省加强生态环境监测数据质量监管，查实数据弄虚作假案件7起，强化数据真实性与监管力度。",
+      "analysis": "该条目涉及【生态环境监测】话题，因来源较权威且话题稀缺度高，热度上升。",
       "topic_tags": [
-        "饮用水处理残渣",
-        "吸附剂",
-        "合成优化"
+        "生态环境监测",
+        "数据质量监管",
+        "数据弄虚作假"
       ],
-      "category": "水处理",
+      "category": "生态环境",
       "matched_keywords": [
-        "水处理",
-        "饮用水"
+        "生态环境",
+        "环境监测"
       ],
       "keywords": [
-        "水处理",
-        "饮用水"
+        "生态环境",
+        "环境监测"
       ]
     },
     {
-      "title": "Mapping and mitigating greenhouse gas emissions from urban sewer networks in China",
-      "title_en": "Mapping and mitigating greenhouse gas emissions from urban sewer networks in China",
-      "title_zh": "中国城市污水管网温室气体排放的摸底与减排",
-      "summary_en": "",
-      "summary_zh": "",
-      "link": "https://www.sciencedirect.com/science/article/pii/S0043135426016635?dgcid=rss_sd_all",
-      "source": "Water Research",
-      "published": "2026-09-26T02:28:10.619203+00:00",
-      "hotness": 82.0,
-      "score": 82.0,
-      "score_v1": 22.68,
-      "score_v2": 82.0,
-      "score_breakdown": {
-        "algorithm": "v3.0",
-        "dimension_max": {
-          "authority": 18.0,
-          "topic": 18.0,
-          "resonance": 18.0,
-          "information": 16.0
-        },
-        "authority_score": 18.0,
-        "keyword_idf_score": 10.37,
-        "topic_score": 10.37,
-        "topic_burst_score": 0.0,
-        "topic_burst_count": 1,
-        "resonance_score": 0.0,
-        "info_score": 4.0,
-        "base": 32.37,
-        "base_max": 70.0,
-        "time_factor": 0.7441,
-        "density_factor": 1.0,
-        "density_note": "",
-        "repeat_penalty": 1.0,
-        "event_size": 1,
-        "event_media_count": 1,
-        "event_cluster_source": "ai",
-        "origin_source": "Water Research",
-        "raw": 24.09,
-        "display_score": 82.0,
-        "display_mode": "absolute"
-      },
-      "score_v1_breakdown": {
-        "base": 5.0,
-        "source_score": 6.0,
-        "keyword_score": 4.0,
-        "time_score": 3.68,
-        "topic_bonus": 4.0,
-        "total": 22.68
-      },
-      "summary": "研究绘制中国城市下水道网络温室气体排放图谱，探讨缓解措施，旨在降低下水道系统甲烷等气体排放。",
-      "analysis": "该条目涉及【城市下水道】话题，因来源权威性高，热度上升。",
-      "topic_tags": [
-        "城市下水道",
-        "温室气体",
-        "甲烷排放"
-      ],
-      "category": "水处理",
-      "matched_keywords": [
-        "碳排放",
-        "温室气体"
-      ],
-      "keywords": [
-        "碳排放",
-        "温室气体"
-      ]
-    },
-    {
-      "title": "Scientists may have misread a 2-billion-year-old clue about Earth",
-      "title_en": "Scientists may have misread a 2-billion-year-old clue about Earth",
-      "title_zh": "科学家们可能误读了一条关于地球的、距今20亿年的线索",
-      "summary_en": "Scientists have found that a famous 2-billion-year-old chemical signature, once thought to record a massive global change in Earth’s carbon cycle, may instead have been produced by local magma, hydrocarbons, and methane-eating microbes. The discovery raises new questions about what was really happening as oxygen transformed the young planet.",
-      "summary_zh": "科学家发现，一种著名的、已有20亿年历史的化学特征——曾被认为记录了地球碳循环中的一次重大全球性变化——实际上可能是由局部岩浆、烃类物质以及以甲烷为食的微生物产生的。这一发现引发了新的疑问：当氧气改变这颗年轻行星的面貌时，当时究竟发生了什么。",
-      "link": "https://www.sciencedaily.com/releases/2026/09/260925093201.htm",
-      "source": "ScienceDaily 环境科学",
-      "published": "2026-09-26T14:38:02+00:00",
-      "hotness": 79.2,
-      "score": 79.2,
-      "score_v1": 15.6,
-      "score_v2": 79.2,
+      "title": "New research finds 485 chemicals in US pesticide products linked to breast cancer",
+      "title_en": "New research finds 485 chemicals in US pesticide products linked to breast cancer",
+      "title_zh": "最新研究发现，美国农药产品中的485种化学物质与乳腺癌有关",
+      "summary_en": "Paper raises questions about safety of food and other products as early onset breast cancer rates surge worldwideNew research has identified at least 485 chemicals used in US pesticide products that are linked to breast cancer, raising questions about the safety of food and other products at a time when early onset breast cancer rates are surging worldwide.The new peer-reviewed paper, published in Environmental Health Perspectives, a top journal from the American Chemical Society, highlights what public health advocates say are a range of deficiencies in how US pesticides are regulated. The review includes active pesticide ingredients, but also hundreds of so-called “inert”, or inactive, ingredients that typically do not undergo a thorough safety review. Continue reading...",
+      "summary_zh": "随着全球早发性乳腺癌发病率激增，一篇论文对食品及其他产品的安全性提出了质疑。最新研究发现，美国农药产品中使用的至少485种化学物质与乳腺癌有关，这在全球早发性乳腺癌发病率激增之际，引发了人们对食品及其他产品安全性的质疑。这篇经同行评审的新论文发表于美国化学会顶级期刊《环境健康展望》（Environmental Health Perspectives），突显了公共卫生倡导者所指出的美国农药监管体系中存在的诸多缺陷。 该综述不仅涵盖了农药有效成分，还包括数百种所谓的“惰性”或非活性成分——这些成分通常不会经过全面的安全审查。继续阅读……",
+      "link": "https://www.theguardian.com/us-news/2026/sep/26/breast-cancer-us-pesticide-products",
+      "source": "The Guardian Environment",
+      "published": "2026-09-26T13:00:36+00:00",
+      "hotness": 80.1,
+      "score": 80.1,
+      "score_v1": 15.59,
+      "score_v2": 80.1,
       "score_breakdown": {
         "algorithm": "v3.0",
         "dimension_max": {
@@ -230,181 +164,60 @@
           "information": 16.0
         },
         "authority_score": 12.73,
-        "keyword_idf_score": 0.0,
-        "topic_score": 0.0,
+        "keyword_idf_score": 9.42,
+        "topic_score": 9.42,
         "topic_burst_score": 0.0,
         "topic_burst_count": 1,
         "resonance_score": 0.0,
         "info_score": 12.0,
-        "base": 24.73,
+        "base": 34.15,
         "base_max": 70.0,
-        "time_factor": 0.8577,
+        "time_factor": 0.6474,
         "density_factor": 1.0,
         "density_note": "",
         "repeat_penalty": 1.0,
         "event_size": 1,
         "event_media_count": 1,
         "event_cluster_source": "ai",
-        "origin_source": "ScienceDaily 环境科学",
-        "raw": 21.21,
-        "display_score": 79.2,
+        "origin_source": "The Guardian Environment",
+        "raw": 22.11,
+        "display_score": 80.1,
         "display_mode": "absolute"
       },
       "score_v1_breakdown": {
         "base": 5.0,
         "source_score": 4.5,
-        "keyword_score": 0.0,
-        "time_score": 6.1,
-        "topic_bonus": 0.0,
-        "total": 15.6
+        "keyword_score": 2.0,
+        "time_score": 2.09,
+        "topic_bonus": 2.0,
+        "total": 15.59
       },
-      "summary": "科学家发现，一种著名的、已有20亿年历史的化学特征——曾被认为记录了地球碳循环中的一次重大全球性变化——实际上可能是由局部岩浆、烃类物质以及以甲烷为食的微生物产生的。这一发现引发了新的疑问：当氧气改变这颗年轻行星的面貌时，当时究竟发生了什么。",
-      "analysis": "该条目涉及【环境资讯】话题，因来源权威性高且发布时间较新，热度上升。",
+      "summary": "随着全球早发性乳腺癌发病率激增，一篇论文对食品及其他产品的安全性提出了质疑。最新研究发现，美国农药产品中使用的至少485种化学物质与乳腺癌有关，这在全球早发性乳腺癌发病率激增之际，引发了人们对食品及其他产品安全性的质疑。这篇经同行评审的新论文发表于美国化学会顶级期刊《环境健康展望》（Environmental Health Perspectives），突显了公共卫生倡导者所指出的美国农药监管体系中存在的诸多缺陷。 该综述不仅涵盖了农药有效成分，还包括数百种所谓的“惰性”或非活性成分——这些成分通常不会经过全面的安全审查。继续阅读……",
+      "analysis": "该条目涉及【环境健康】话题，因来源权威性高，热度上升。",
       "topic_tags": [
-        "环境资讯"
+        "环境健康"
       ],
-      "category": "其他",
-      "matched_keywords": [],
-      "keywords": []
-    },
-    {
-      "title": "生态环境法典学习问答第十九期，点击参与！ - 搜狐网",
-      "title_en": "",
-      "title_zh": "",
-      "summary_en": "",
-      "summary_zh": "",
-      "link": "https://news.google.com/rss/articles/CBMijAFBVV95cUxPeE45dENGSHdxelhHcTJKcVpLMlpKcGxOWDV6ZXpJTm9xZ2dBOU1CM0cyWlRHd2NEeFpYMmkwQTBTNWFEM1BFcXhoMUZzS1l2Y0xORTRaMHNWb19YTkI4aGVFYmlZYnA5Uy1NbmZkZlIxX1RnRlFsMmY5aERZUUhQcFJ2LWIxUEhCR3Z0LQ?oc=5",
-      "source": "Google News 生态环境",
-      "published": "2026-09-27T01:27:58+00:00",
-      "hotness": 78.5,
-      "score": 78.5,
-      "score_v1": 28.18,
-      "score_v2": 78.5,
-      "score_breakdown": {
-        "algorithm": "v3.0",
-        "dimension_max": {
-          "authority": 18.0,
-          "topic": 18.0,
-          "resonance": 18.0,
-          "information": 16.0
-        },
-        "authority_score": 8.05,
-        "keyword_idf_score": 10.44,
-        "topic_score": 12.8,
-        "topic_burst_score": 2.36,
-        "topic_burst_count": 2,
-        "resonance_score": 0.0,
-        "info_score": 0.0,
-        "base": 20.85,
-        "base_max": 70.0,
-        "time_factor": 0.9863,
-        "density_factor": 1.0,
-        "density_note": "",
-        "repeat_penalty": 1.0,
-        "event_size": 1,
-        "event_media_count": 1,
-        "event_cluster_source": "ai",
-        "origin_source": "搜狐网",
-        "raw": 20.57,
-        "display_score": 78.5,
-        "display_mode": "absolute"
-      },
-      "score_v1_breakdown": {
-        "base": 5.0,
-        "source_score": 3.6,
-        "keyword_score": 4.0,
-        "time_score": 9.58,
-        "topic_bonus": 6.0,
-        "total": 28.18
-      },
-      "summary": "生态环境法典学习问答第十九期活动开展，围绕入海排污口位置选择要求等法典内容进行专业知识测评和普及。",
-      "analysis": "该条目涉及【环境法典】话题，因来源较权威且发布时间较新，热度上升。",
-      "topic_tags": [
-        "环境法典"
-      ],
-      "category": "生态环境",
+      "category": "环境健康",
       "matched_keywords": [
-        "生态环境",
-        "环境法典"
+        "环境健康"
       ],
       "keywords": [
-        "生态环境",
-        "环境法典"
+        "环境健康"
       ]
     },
     {
-      "title": "‘Your body fights to stay cool’: workers toil in record heat as federal rule frozen",
-      "title_en": "‘Your body fights to stay cool’: workers toil in record heat as federal rule frozen",
-      "title_zh": "“身体在努力保持凉爽”：联邦规定被搁置，工人们在创纪录的高温下辛勤劳作",
-      "summary_en": "Trump officials and Republicans are rolling back protections against heat-related illnesses and deathsWhen it’s 90F on a hot summer day, Esther Minton wears a long-sleeved shirt to work.“Working outside, you don’t have cover. There’s nowhere for you to really go if you’re on a roof or if you’re on the side of a building,” said Minton, a member of the Sheet Metal Workers Local Union 28 in New York City. “Having the sun beaming on your skin all day long, you’ll never make it through, so what you wear makes a difference.” Continue reading...",
-      "summary_zh": "特朗普政府官员和共和党人正在削弱针对高温相关疾病和死亡的防护措施。在炎热的夏日，当气温达到90华氏度时，埃丝特·明顿会穿着长袖衬衫去上班。“在户外工作，你没有遮挡。 “如果你在屋顶上，或者在建筑物侧面，其实根本无处可躲，”明顿说道。她是纽约市第28地方金属板工人工会的一名成员。 “如果一整天都被烈日炙烤着皮肤，你根本撑不下去，所以穿什么真的很重要。” 继续阅读...",
-      "link": "https://www.theguardian.com/environment/2026/sep/25/extreme-heat-regulations-trump",
-      "source": "The Guardian Environment",
-      "published": "2026-09-25T11:00:49+00:00",
-      "hotness": 77.9,
-      "score": 77.9,
-      "score_v1": 11.43,
-      "score_v2": 77.9,
-      "score_breakdown": {
-        "algorithm": "v3.0",
-        "dimension_max": {
-          "authority": 18.0,
-          "topic": 18.0,
-          "resonance": 18.0,
-          "information": 16.0
-        },
-        "authority_score": 12.73,
-        "keyword_idf_score": 0.0,
-        "topic_score": 3.0,
-        "topic_burst_score": 0.0,
-        "topic_burst_count": 1,
-        "resonance_score": 8.76,
-        "info_score": 7.0,
-        "base": 31.49,
-        "base_max": 70.0,
-        "time_factor": 0.6356,
-        "density_factor": 1.0,
-        "density_note": "",
-        "repeat_penalty": 1.0,
-        "event_size": 2,
-        "event_media_count": 2,
-        "event_cluster_source": "ai",
-        "origin_source": "The Guardian Environment",
-        "raw": 20.01,
-        "display_score": 77.9,
-        "display_mode": "absolute"
-      },
-      "score_v1_breakdown": {
-        "base": 5.0,
-        "source_score": 4.5,
-        "keyword_score": 0.0,
-        "time_score": 1.93,
-        "topic_bonus": 0.0,
-        "total": 11.43
-      },
-      "summary": "特朗普政府官员和共和党人正在削弱针对高温相关疾病和死亡的防护措施。在炎热的夏日，当气温达到90华氏度时，埃丝特·明顿会穿着长袖衬衫去上班。“在户外工作，你没有遮挡。 “如果你在屋顶上，或者在建筑物侧面，其实根本无处可躲，”明顿说道。她是纽约市第28地方金属板工人工会的一名成员。 “如果一整天都被烈日炙烤着皮肤，你根本撑不下去，所以穿什么真的很重要。” 继续阅读...",
-      "analysis": "该条目涉及【热浪】话题，因来源权威性高且多家媒体同题报道，热度上升。",
-      "topic_tags": [
-        "热浪",
-        "联邦法规"
-      ],
-      "category": "气候变化",
-      "matched_keywords": [],
-      "keywords": []
-    },
-    {
-      "title": "Pyrogenic carbon drives abiotic methane formation: Hydroxyl radicals and reductive capacity mediate demethylation",
-      "title_en": "Pyrogenic carbon drives abiotic methane formation: Hydroxyl radicals and reductive capacity mediate demethylation",
-      "title_zh": "热解碳驱动非生物甲烷形成：羟基自由基和还原能力介导脱甲基作用",
+      "title": "Stagnant plumbing: Drinking water quality responses to stagnation in controlled systems",
+      "title_en": "Stagnant plumbing: Drinking water quality responses to stagnation in controlled systems",
+      "title_zh": "管道内水体滞留：受控系统中饮用水质量对水体滞留的响应",
       "summary_en": "",
       "summary_zh": "",
-      "link": "https://www.sciencedirect.com/science/article/pii/S0043135426016696?dgcid=rss_sd_all",
+      "link": "https://www.sciencedirect.com/science/article/pii/S0043135426015587?dgcid=rss_sd_all",
       "source": "Water Research",
-      "published": "2026-09-26T02:28:10.619203+00:00",
-      "hotness": 76.3,
-      "score": 76.3,
-      "score_v1": 14.68,
-      "score_v2": 76.3,
+      "published": "2026-09-27T02:31:53.951257+00:00",
+      "hotness": 79.3,
+      "score": 79.3,
+      "score_v1": 22.68,
+      "score_v2": 79.3,
       "score_breakdown": {
         "algorithm": "v3.0",
         "dimension_max": {
@@ -414,181 +227,63 @@
           "information": 16.0
         },
         "authority_score": 18.0,
-        "keyword_idf_score": 0.0,
-        "topic_score": 3.0,
+        "keyword_idf_score": 10.55,
+        "topic_score": 10.55,
         "topic_burst_score": 0.0,
         "topic_burst_count": 1,
-        "resonance_score": 0.0,
-        "info_score": 4.0,
-        "base": 25.0,
-        "base_max": 70.0,
-        "time_factor": 0.7441,
-        "density_factor": 1.0,
-        "density_note": "",
-        "repeat_penalty": 1.0,
-        "event_size": 1,
-        "event_media_count": 1,
-        "event_cluster_source": "ai",
-        "origin_source": "Water Research",
-        "raw": 18.6,
-        "display_score": 76.3,
-        "display_mode": "absolute"
-      },
-      "score_v1_breakdown": {
-        "base": 5.0,
-        "source_score": 6.0,
-        "keyword_score": 0.0,
-        "time_score": 3.68,
-        "topic_bonus": 0.0,
-        "total": 14.68
-      },
-      "summary": "研究发现 Pyrogenic carbon（焦炭）驱动无生物甲烷形成，通过羟基自由基和还原能力介导去甲基化过程，揭示碳循环新机制。",
-      "analysis": "该条目涉及【气候变化】话题，因来源权威性高，热度上升。",
-      "topic_tags": [
-        "气候变化"
-      ],
-      "category": "气候变化",
-      "matched_keywords": [],
-      "keywords": []
-    },
-    {
-      "title": "Beyond inactivation: wavelength-dependent regulation of VBNC formation and resuscitation risk in photochemical disinfection",
-      "title_en": "Beyond inactivation: wavelength-dependent regulation of VBNC formation and resuscitation risk in photochemical disinfection",
-      "title_zh": "超越灭活：光化学消毒中VBNC形成及复苏风险的波长依赖性调控",
-      "summary_en": "",
-      "summary_zh": "",
-      "link": "https://www.sciencedirect.com/science/article/pii/S0043135426016805?dgcid=rss_sd_all",
-      "source": "Water Research",
-      "published": "2026-09-26T02:28:10.619203+00:00",
-      "hotness": 76.3,
-      "score": 76.3,
-      "score_v1": 14.68,
-      "score_v2": 76.3,
-      "score_breakdown": {
-        "algorithm": "v3.0",
-        "dimension_max": {
-          "authority": 18.0,
-          "topic": 18.0,
-          "resonance": 18.0,
-          "information": 16.0
-        },
-        "authority_score": 18.0,
-        "keyword_idf_score": 0.0,
-        "topic_score": 3.0,
-        "topic_burst_score": 0.0,
-        "topic_burst_count": 1,
-        "resonance_score": 0.0,
-        "info_score": 4.0,
-        "base": 25.0,
-        "base_max": 70.0,
-        "time_factor": 0.7441,
-        "density_factor": 1.0,
-        "density_note": "",
-        "repeat_penalty": 1.0,
-        "event_size": 1,
-        "event_media_count": 1,
-        "event_cluster_source": "ai",
-        "origin_source": "Water Research",
-        "raw": 18.6,
-        "display_score": 76.3,
-        "display_mode": "absolute"
-      },
-      "score_v1_breakdown": {
-        "base": 5.0,
-        "source_score": 6.0,
-        "keyword_score": 0.0,
-        "time_score": 3.68,
-        "topic_bonus": 0.0,
-        "total": 14.68
-      },
-      "summary": "研究揭示光消毒中波长对细菌VBNC状态形成及复苏风险的调控机制，提供新视角优化水消毒安全性。",
-      "analysis": "该条目涉及【光消毒】话题，因来源权威性高，热度上升。",
-      "topic_tags": [
-        "光消毒"
-      ],
-      "category": "环境政策",
-      "matched_keywords": [],
-      "keywords": []
-    },
-    {
-      "title": "气候变化和土地利用变化对跨境元江-红河流域水源涵养的影响：历史归因与未来预估 - 生物通",
-      "title_en": "",
-      "title_zh": "",
-      "summary_en": "",
-      "summary_zh": "",
-      "link": "https://news.google.com/rss/articles/CBMibEFVX3lxTE5Rd1FWWDJfUlNITG5heGJfc1NwY0VWMGVTVXl2VVlVdDI3MEJNLVB4RlNIc0RuMmZtQzg1UXV0RDU5UU5EdlQyX2JORDJwcWgxOVRuZHlEbmtST0VGdF9oMFlqaklNcl9OOU1Jdw?oc=5",
-      "source": "Google News 气候变化",
-      "published": "2026-09-27T00:02:45+00:00",
-      "hotness": 76.1,
-      "score": 76.1,
-      "score_v1": 27.63,
-      "score_v2": 76.1,
-      "score_breakdown": {
-        "algorithm": "v3.0",
-        "dimension_max": {
-          "authority": 18.0,
-          "topic": 18.0,
-          "resonance": 18.0,
-          "information": 16.0
-        },
-        "authority_score": 8.05,
-        "keyword_idf_score": 8.64,
-        "topic_score": 11.0,
-        "topic_burst_score": 2.36,
-        "topic_burst_count": 2,
         "resonance_score": 0.0,
         "info_score": 0.0,
-        "base": 19.05,
+        "base": 28.55,
         "base_max": 70.0,
-        "time_factor": 0.9677,
+        "time_factor": 0.7442,
         "density_factor": 1.0,
         "density_note": "",
         "repeat_penalty": 1.0,
         "event_size": 1,
         "event_media_count": 1,
         "event_cluster_source": "ai",
-        "origin_source": "生物通",
-        "raw": 18.44,
-        "display_score": 76.1,
+        "origin_source": "Water Research",
+        "raw": 21.24,
+        "display_score": 79.3,
         "display_mode": "absolute"
       },
       "score_v1_breakdown": {
         "base": 5.0,
-        "source_score": 3.6,
+        "source_score": 6.0,
         "keyword_score": 4.0,
-        "time_score": 9.03,
-        "topic_bonus": 6.0,
-        "total": 27.63
+        "time_score": 3.68,
+        "topic_bonus": 4.0,
+        "total": 22.68
       },
-      "summary": "分析元江-红河流域水源涵养功能受气候变迁和土地利用变化影响的历史归因与未来预测，为跨境水资源保护提供科学依据。",
-      "analysis": "该条目涉及【水源涵养】话题，因来源较权威且发布时间较新，热度上升。",
+      "summary": "研究探讨受控系统中管道静止对饮用水质量的影响，分析停滞状态下水质变化规则与应对措施。",
+      "analysis": "该条目涉及【饮用水质量】话题，因来源权威性高，热度上升。",
       "topic_tags": [
-        "水源涵养",
-        "气候变迁"
+        "饮用水质量",
+        "水质变化"
       ],
       "category": "水处理",
       "matched_keywords": [
-        "气候变化",
-        "流域"
+        "水污染",
+        "饮用水"
       ],
       "keywords": [
-        "气候变化",
-        "流域"
+        "水污染",
+        "饮用水"
       ]
     },
     {
-      "title": "湖北发布生态环境保护“十五五”规划 - 湖北日报传媒集团",
+      "title": "生态环境法典学习问答第十九期，点击参与！ - 手机新浪网",
       "title_en": "",
       "title_zh": "",
       "summary_en": "",
       "summary_zh": "",
-      "link": "https://news.google.com/rss/articles/CBMiXkFVX3lxTE5sSmYzakQ2Y3gtTkl3VXN6R1NwYjNMdjY4T2txbVFsal9jcmxfTjJZcG41QV81RTVYVVFoR1Bsemt3ajJPUWRDaUF6a09VNTBaZWh1WDNDVFRCT2hVWUE?oc=5",
-      "source": "Google News 环境保护",
-      "published": "2026-09-25T05:36:41+00:00",
-      "hotness": 75.4,
-      "score": 75.4,
-      "score_v1": 20.14,
-      "score_v2": 75.4,
+      "link": "https://news.google.com/rss/articles/CBMif0FVX3lxTE9WelExNVc4Nms1bFEwNGxSenZFVGI4OXBEWmpPNDVZeXdReWJjSkdOeVAtVUo4aEJnbmRvdF83eTlETVc3VGJFN3hWaTdwUzNhU1k4QnZqYThTSC1jYXV0WTVELUp5SWsyTHFyYmNNczZyZTZjOTVsVUd2Y05YdE0?oc=5",
+      "source": "Google News 生态环境",
+      "published": "2026-09-27T18:03:33+00:00",
+      "hotness": 77.7,
+      "score": 77.7,
+      "score_v1": 27.62,
+      "score_v2": 77.7,
       "score_breakdown": {
         "algorithm": "v3.0",
         "dimension_max": {
@@ -598,59 +293,59 @@
           "information": 16.0
         },
         "authority_score": 8.05,
-        "keyword_idf_score": 10.04,
-        "topic_score": 12.4,
-        "topic_burst_score": 2.36,
-        "topic_burst_count": 2,
+        "keyword_idf_score": 10.24,
+        "topic_score": 14.03,
+        "topic_burst_score": 3.79,
+        "topic_burst_count": 3,
         "resonance_score": 0.0,
-        "info_score": 9.0,
-        "base": 29.45,
+        "info_score": 0.0,
+        "base": 22.08,
         "base_max": 70.0,
-        "time_factor": 0.6052,
+        "time_factor": 0.8948,
         "density_factor": 1.0,
         "density_note": "",
         "repeat_penalty": 1.0,
         "event_size": 1,
         "event_media_count": 1,
         "event_cluster_source": "ai",
-        "origin_source": "湖北日报传媒集团",
-        "raw": 17.82,
-        "display_score": 75.4,
+        "origin_source": "手机新浪网",
+        "raw": 19.76,
+        "display_score": 77.7,
         "display_mode": "absolute"
       },
       "score_v1_breakdown": {
         "base": 5.0,
         "source_score": 3.6,
         "keyword_score": 4.0,
-        "time_score": 1.54,
-        "topic_bonus": 6.0,
-        "total": 20.14
+        "time_score": 7.02,
+        "topic_bonus": 8.0,
+        "total": 27.62
       },
-      "summary": "湖北省发布‘十五五’规划，明确生态环境保护目标与重点任务，推动生绿发展，构建美丽湖北新格局。",
-      "analysis": "该条目涉及【生态环境保护】话题，因来源较权威且话题稀缺度高，热度上升。",
+      "summary": "生态环境法典学习问答进入第十九期，旨在通过问答形式普及法典知识，提高公众法治意识与环保认知。",
+      "analysis": "该条目涉及【生态环境法典】话题，因来源较权威且发布时间较新，热度上升。",
       "topic_tags": [
-        "生态环境保护",
-        "十五五规划"
+        "生态环境法典",
+        "环保认知"
       ],
-      "category": "生态环境",
+      "category": "环境政策",
       "matched_keywords": [
         "生态环境",
-        "环境保护"
+        "环境法典"
       ],
       "keywords": [
         "生态环境",
-        "环境保护"
+        "环境法典"
       ]
     },
     {
-      "title": "Cascading evolutionary machine learning framework for micropollutants transport behaviors in nanofiltration",
-      "title_en": "Cascading evolutionary machine learning framework for micropollutants transport behaviors in nanofiltration",
-      "title_zh": "用于研究纳滤过程中微污染物迁移行为的级联进化机器学习框架",
+      "title": "SMaRT: A sulfidogenic bioprocess for selective recovery of high-purity rare earth element minerals from acid mine drainage",
+      "title_en": "SMaRT: A sulfidogenic bioprocess for selective recovery of high-purity rare earth element minerals from acid mine drainage",
+      "title_zh": "SMaRT：一种用于从酸性矿山排水中选择性回收高纯度稀土元素矿物的硫化生物工艺",
       "summary_en": "",
       "summary_zh": "",
-      "link": "https://www.sciencedirect.com/science/article/pii/S0043135426016829?dgcid=rss_sd_all",
+      "link": "https://www.sciencedirect.com/science/article/pii/S0043135426016350?dgcid=rss_sd_all",
       "source": "Water Research",
-      "published": "2026-09-26T02:28:10.619203+00:00",
+      "published": "2026-09-27T02:31:53.951257+00:00",
       "hotness": 72.5,
       "score": 72.5,
       "score_v1": 14.68,
@@ -672,7 +367,7 @@
         "info_score": 0.0,
         "base": 21.0,
         "base_max": 70.0,
-        "time_factor": 0.7441,
+        "time_factor": 0.7442,
         "density_factor": 1.0,
         "density_note": "",
         "repeat_penalty": 1.0,
@@ -692,87 +387,29 @@
         "topic_bonus": 0.0,
         "total": 14.68
       },
-      "summary": "提出基于进化机器学习的纳滤系统微污染物输运行为预测框架，提高水处理工艺对微量有机污染物去除的精准度。",
-      "analysis": "该条目涉及【机器学习】话题，因来源权威性高，热度上升。",
+      "summary": "SMaRT工艺利用硫代菌过程，从酸性矿山排水中选择性回收高纯度稀土元素矿物，实现资源化利用与环境治理双赢。",
+      "analysis": "该条目涉及【酸性矿山排水】话题，因来源权威性高，热度上升。",
       "topic_tags": [
-        "机器学习"
+        "酸性矿山排水",
+        "资源化利用"
       ],
-      "category": "科研学术",
+      "category": "水处理",
       "matched_keywords": [],
       "keywords": []
     },
     {
-      "title": "Nor'easter brings flooding as New York and New Jersey declare emergency",
-      "title_en": "Nor'easter brings flooding as New York and New Jersey declare emergency",
-      "title_zh": "东北风暴引发洪水，纽约和新泽西州宣布进入紧急状态",
-      "summary_en": "Tens of millions of people from Maine to Virginia are in the path of the powerful storm.",
-      "summary_zh": "从缅因州到弗吉尼亚州，数千万民众正处于这场强劲风暴的路径上。",
-      "link": "https://www.bbc.co.uk/news/articles/ck1wxxzn5jndo?at_medium=RSS&at_campaign=rss",
-      "source": "BBC 科学与环境",
-      "published": "2026-09-26T22:04:26+00:00",
-      "hotness": 72.4,
-      "score": 72.4,
-      "score_v1": 17.82,
-      "score_v2": 72.4,
-      "score_breakdown": {
-        "algorithm": "v3.0",
-        "dimension_max": {
-          "authority": 18.0,
-          "topic": 18.0,
-          "resonance": 18.0,
-          "information": 16.0
-        },
-        "authority_score": 12.73,
-        "keyword_idf_score": 0.0,
-        "topic_score": 3.0,
-        "topic_burst_score": 0.0,
-        "topic_burst_count": 1,
-        "resonance_score": 0.0,
-        "info_score": 0.75,
-        "base": 16.48,
-        "base_max": 70.0,
-        "time_factor": 0.9429,
-        "density_factor": 1.0,
-        "density_note": "",
-        "repeat_penalty": 1.0,
-        "event_size": 2,
-        "event_media_count": 1,
-        "event_cluster_source": "ai",
-        "origin_source": "BBC 科学与环境",
-        "raw": 15.54,
-        "display_score": 72.4,
-        "display_mode": "absolute"
-      },
-      "score_v1_breakdown": {
-        "base": 5.0,
-        "source_score": 4.5,
-        "keyword_score": 0.0,
-        "time_score": 8.32,
-        "topic_bonus": 0.0,
-        "total": 17.82
-      },
-      "summary": "从缅因州到弗吉尼亚州，数千万民众正处于这场强劲风暴的路径上。",
-      "analysis": "该条目涉及【气候变化】话题，因来源权威性高且发布时间较新，热度上升。",
-      "topic_tags": [
-        "气候变化"
-      ],
-      "category": "气候变化",
-      "matched_keywords": [],
-      "keywords": []
-    },
-    {
-      "title": "【有医说医】环境污染和微塑料，也可能导致阿尔茨海默病 - 上观新闻",
+      "title": "气候资讯｜9月全球前沿气候科学研究&极端天气气候事件 - thepaper.cn",
       "title_en": "",
       "title_zh": "",
       "summary_en": "",
       "summary_zh": "",
-      "link": "https://news.google.com/rss/articles/CBMiXkFVX3lxTE0tbU9lY1VCZHptdzhIX1Z6RWROcnBzOFh0Mjg0VFZRNEdjMWRBeHEzdEpaZnRhQzZkeGJyWTV0b2lJaWUtU282VXk1bHNTUXhFU1BudDZuNGlmdmx0Vnc?oc=5",
-      "source": "Google News 环境污染",
-      "published": "2026-09-26T23:00:00+00:00",
-      "hotness": 71.5,
-      "score": 71.5,
-      "score_v1": 23.25,
-      "score_v2": 71.5,
+      "link": "https://news.google.com/rss/articles/CBMiYEFVX3lxTFB5WFJMSENRS19FcTV3eTRhSXg0XzBrQTNRdVdCcmVZRWhGUjdHS0tySlY5VkZPVXNzS2lKYzJjN2k3TFN6d2kzN2lMUjRwWTdiTlhYbmVUeHpqbk1lN1E4Zg?oc=5",
+      "source": "Google News 气候变化",
+      "published": "2026-09-27T03:31:00+00:00",
+      "hotness": 71.8,
+      "score": 71.8,
+      "score_v1": 12.43,
+      "score_v2": 71.8,
       "score_breakdown": {
         "algorithm": "v3.0",
         "dimension_max": {
@@ -782,38 +419,225 @@
           "information": 16.0
         },
         "authority_score": 8.05,
-        "keyword_idf_score": 6.79,
-        "topic_score": 9.15,
-        "topic_burst_score": 2.36,
-        "topic_burst_count": 2,
+        "keyword_idf_score": 0.0,
+        "topic_score": 3.0,
+        "topic_burst_score": 0.0,
+        "topic_burst_count": 1,
+        "resonance_score": 0.0,
+        "info_score": 9.0,
+        "base": 20.05,
+        "base_max": 70.0,
+        "time_factor": 0.7524,
+        "density_factor": 1.0,
+        "density_note": "",
+        "repeat_penalty": 1.0,
+        "event_size": 2,
+        "event_media_count": 1,
+        "event_cluster_source": "ai",
+        "origin_source": "thepaper.cn",
+        "raw": 15.09,
+        "display_score": 71.8,
+        "display_mode": "absolute"
+      },
+      "score_v1_breakdown": {
+        "base": 5.0,
+        "source_score": 3.6,
+        "keyword_score": 0.0,
+        "time_score": 3.83,
+        "topic_bonus": 0.0,
+        "total": 12.43
+      },
+      "summary": "9月全球前沿气候科学研究发布，联合国环境规划署报告警告全球升温或将突破1.5℃临界点，极端天气气候事件频发。",
+      "analysis": "该条目涉及【全球升温】话题，因来源较权威，热度上升。",
+      "topic_tags": [
+        "全球升温",
+        "联合国环境规划署"
+      ],
+      "category": "气候变化",
+      "matched_keywords": [],
+      "keywords": []
+    },
+    {
+      "title": "福建省海洋环境保护条例 - 新浪财经",
+      "title_en": "",
+      "title_zh": "",
+      "summary_en": "",
+      "summary_zh": "",
+      "link": "https://news.google.com/rss/articles/CBMihgFBVV95cUxOUXNvY1JYNnZoRnNoUS1mOWwxVnh6ZnFaeXI2bVptSmE1MnhiTUFrd3haY2N1azNhdGN2aEp5cjNyLVozY3p5bXdUNXB4amhsMHQzSUZOTzAwblFBZlBWVlpxSkpBOG0zM1NrTHZ0UGw3UjZkMGp1QXZrOUlxMmpsNjRrb1dFQQ?oc=5",
+      "source": "Google News 环境保护",
+      "published": "2026-09-27T06:35:34+00:00",
+      "hotness": 65.7,
+      "score": 65.7,
+      "score_v1": 16.96,
+      "score_v2": 65.7,
+      "score_breakdown": {
+        "algorithm": "v3.0",
+        "dimension_max": {
+          "authority": 18.0,
+          "topic": 18.0,
+          "resonance": 18.0,
+          "information": 16.0
+        },
+        "authority_score": 8.05,
+        "keyword_idf_score": 7.06,
+        "topic_score": 7.06,
+        "topic_burst_score": 0.0,
+        "topic_burst_count": 1,
         "resonance_score": 8.76,
         "info_score": 0.0,
-        "base": 25.96,
+        "base": 23.87,
         "base_max": 70.0,
-        "time_factor": 0.9544,
+        "time_factor": 0.779,
         "density_factor": 1.0,
         "density_note": "",
         "repeat_penalty": 0.6,
         "event_size": 2,
         "event_media_count": 2,
         "event_cluster_source": "ai",
-        "origin_source": "上观新闻",
-        "raw": 14.87,
-        "display_score": 71.5,
+        "origin_source": "新浪财经",
+        "raw": 11.16,
+        "display_score": 65.7,
         "display_mode": "absolute"
       },
       "score_v1_breakdown": {
         "base": 5.0,
         "source_score": 3.6,
         "keyword_score": 2.0,
-        "time_score": 8.65,
-        "topic_bonus": 4.0,
-        "total": 23.25
+        "time_score": 4.36,
+        "topic_bonus": 2.0,
+        "total": 16.96
       },
-      "summary": "报道指出环境污染与微塑料暴露可能成为阿尔茨海默病的潜在风险因素，引发对环境健康影响的深度关注。",
-      "analysis": "该条目涉及【微塑料】话题，因来源较权威且发布时间较新，热度上升。",
+      "summary": "福建省发布海洋环境保护条例，旨在加强海域水质监管、保护海洋生态系统，推动辖区海洋环境治理与可持续发展。",
+      "analysis": "该条目涉及【福建省海洋环境保护条例】话题，因来源较权威且多家媒体同题报道，热度上升。",
       "topic_tags": [
-        "微塑料"
+        "福建省海洋环境保护条例",
+        "海域水质监管",
+        "海洋生态系统"
+      ],
+      "category": "环境政策",
+      "matched_keywords": [
+        "环境保护"
+      ],
+      "keywords": [
+        "环境保护"
+      ]
+    },
+    {
+      "title": "高密度至超高密度粉尘污染环境中的连续气道暴露风险再分布：从鼻孔到终末细支气管 - 生物通",
+      "title_en": "",
+      "title_zh": "",
+      "summary_en": "",
+      "summary_zh": "",
+      "link": "https://news.google.com/rss/articles/CBMibEFVX3lxTE1fZ3hGLUd4VjdzRkdvdWg1S2ltTjBsekZQMWxhRGN3WmhRUG8ycmdHam12clNYOGd0SFBRSVhvVjV4T3c3dXo4SE00WExRZDFJeWNzVkMzVHNtcTRtQkFnd2JNV1R1UzZsbldneg?oc=5",
+      "source": "Google News 环境污染",
+      "published": "2026-09-27T23:48:45+00:00",
+      "hotness": 64.8,
+      "score": 64.8,
+      "score_v1": 17.53,
+      "score_v2": 64.8,
+      "score_breakdown": {
+        "algorithm": "v3.0",
+        "dimension_max": {
+          "authority": 18.0,
+          "topic": 18.0,
+          "resonance": 18.0,
+          "information": 16.0
+        },
+        "authority_score": 8.05,
+        "keyword_idf_score": 0.0,
+        "topic_score": 3.0,
+        "topic_burst_score": 0.0,
+        "topic_burst_count": 1,
+        "resonance_score": 0.0,
+        "info_score": 0.0,
+        "base": 11.05,
+        "base_max": 70.0,
+        "time_factor": 0.9642,
+        "density_factor": 1.0,
+        "density_note": "",
+        "repeat_penalty": 1.0,
+        "event_size": 1,
+        "event_media_count": 1,
+        "event_cluster_source": "ai",
+        "origin_source": "生物通",
+        "raw": 10.65,
+        "display_score": 64.8,
+        "display_mode": "absolute"
+      },
+      "score_v1_breakdown": {
+        "base": 5.0,
+        "source_score": 3.6,
+        "keyword_score": 0.0,
+        "time_score": 8.93,
+        "topic_bonus": 0.0,
+        "total": 17.53
+      },
+      "summary": "研究揭示高密度粉尘污染环境中气道疾病风险从鼻腔向下延伸至终末细支气管的分布规律，阐明粉尘暴露对呼吸系统深部损害机制。",
+      "analysis": "该条目涉及【粉尘污染】话题，因来源较权威且发布时间较新，热度上升。",
+      "topic_tags": [
+        "粉尘污染",
+        "气道疾病",
+        "呼吸系统损害"
+      ],
+      "category": "污染治理",
+      "matched_keywords": [],
+      "keywords": []
+    },
+    {
+      "title": "【有医说医】环境污染和微塑料，也可能导致阿尔茨海默病 - shobserver.com",
+      "title_en": "",
+      "title_zh": "",
+      "summary_en": "",
+      "summary_zh": "",
+      "link": "https://news.google.com/rss/articles/CBMiXkFVX3lxTE5KZUs5alhWQTdWX0Q2Ym5kZ0YzaTMwYlNGX3NvN3NpeTRPZEM2TFc3RGV0Vk9UZ3lpSHZIVHF5MEtOLWJCOW0yV0RlS1JUel9ORWdwbnR2Y2pja3VGSmc?oc=5",
+      "source": "Google News 环境污染",
+      "published": "2026-09-26T23:00:00+00:00",
+      "hotness": 64.5,
+      "score": 64.5,
+      "score_v1": 15.77,
+      "score_v2": 64.5,
+      "score_breakdown": {
+        "algorithm": "v3.0",
+        "dimension_max": {
+          "authority": 18.0,
+          "topic": 18.0,
+          "resonance": 18.0,
+          "information": 16.0
+        },
+        "authority_score": 8.05,
+        "keyword_idf_score": 6.63,
+        "topic_score": 6.63,
+        "topic_burst_score": 0.0,
+        "topic_burst_count": 1,
+        "resonance_score": 0.0,
+        "info_score": 0.0,
+        "base": 14.68,
+        "base_max": 70.0,
+        "time_factor": 0.7162,
+        "density_factor": 1.0,
+        "density_note": "",
+        "repeat_penalty": 1.0,
+        "event_size": 1,
+        "event_media_count": 1,
+        "event_cluster_source": "ai",
+        "origin_source": "shobserver.com",
+        "raw": 10.52,
+        "display_score": 64.5,
+        "display_mode": "absolute"
+      },
+      "score_v1_breakdown": {
+        "base": 5.0,
+        "source_score": 3.6,
+        "keyword_score": 2.0,
+        "time_score": 3.17,
+        "topic_bonus": 2.0,
+        "total": 15.77
+      },
+      "summary": "探讨环境污染与微塑料暴露可能加速阿尔茨海默病进程的潜在生物学机制，警示微塑料累积对神经系统健康的长期威胁。",
+      "analysis": "该条目涉及【微塑料】话题，因来源较权威，热度上升。",
+      "topic_tags": [
+        "微塑料",
+        "环境污染"
       ],
       "category": "污染治理",
       "matched_keywords": [
@@ -824,81 +648,18 @@
       ]
     },
     {
-      "title": "The treasured 'eternal snow' on this tropical island is about to disappear forever",
-      "title_en": "The treasured 'eternal snow' on this tropical island is about to disappear forever",
-      "title_zh": "这座热带岛屿上珍贵的“万年雪”即将永远消失",
-      "summary_en": "Climate change is transforming Papua's snowy peaks, which hold scientific value and spiritual significance.",
-      "summary_zh": "气候变化正在改变巴布亚那些既具有科学价值又蕴含精神意义的雪山。",
-      "link": "https://www.bbc.co.uk/news/articles/cm5ydvww0erdo?at_medium=RSS&at_campaign=rss",
-      "source": "BBC 科学与环境",
-      "published": "2026-09-25T22:12:48+00:00",
-      "hotness": 69.8,
-      "score": 69.8,
-      "score_v1": 18.58,
-      "score_v2": 69.8,
-      "score_breakdown": {
-        "algorithm": "v3.0",
-        "dimension_max": {
-          "authority": 18.0,
-          "topic": 18.0,
-          "resonance": 18.0,
-          "information": 16.0
-        },
-        "authority_score": 12.73,
-        "keyword_idf_score": 3.48,
-        "topic_score": 5.84,
-        "topic_burst_score": 2.36,
-        "topic_burst_count": 2,
-        "resonance_score": 0.0,
-        "info_score": 0.75,
-        "base": 19.32,
-        "base_max": 70.0,
-        "time_factor": 0.7106,
-        "density_factor": 1.0,
-        "density_note": "",
-        "repeat_penalty": 1.0,
-        "event_size": 1,
-        "event_media_count": 1,
-        "event_cluster_source": "ai",
-        "origin_source": "BBC 科学与环境",
-        "raw": 13.73,
-        "display_score": 69.8,
-        "display_mode": "absolute"
-      },
-      "score_v1_breakdown": {
-        "base": 5.0,
-        "source_score": 4.5,
-        "keyword_score": 2.0,
-        "time_score": 3.08,
-        "topic_bonus": 4.0,
-        "total": 18.58
-      },
-      "summary": "气候变化正在改变巴布亚那些既具有科学价值又蕴含精神意义的雪山。",
-      "analysis": "该条目涉及【气候变化】话题，因来源权威性高，热度上升。",
-      "topic_tags": [
-        "气候变化"
-      ],
-      "category": "气候变化",
-      "matched_keywords": [
-        "气候变化"
-      ],
-      "keywords": [
-        "气候变化"
-      ]
-    },
-    {
-      "title": "赋能绿色低碳转型，四川搭建油气环保协同共治新平台 - 四川新闻",
+      "title": "“尼泊尔不需要同情，需要气候正义” - dw.com",
       "title_en": "",
       "title_zh": "",
       "summary_en": "",
       "summary_zh": "",
-      "link": "https://news.google.com/rss/articles/CBMiY0FVX3lxTE94czF5OUs3Q2plSkEzd0hZV1JBdUlQM2JQMEpsMVlJZmcyLW5zREJka1Z5bU5MWjhRa1JvWlZSS1FleU85SlFsdXFnUjlBUHk3MUh1MS1ZZDl2RUJZY1ZDd0FCZw?oc=5",
-      "source": "Google News 环境保护",
-      "published": "2026-09-26T13:14:58+00:00",
-      "hotness": 69.3,
-      "score": 69.3,
-      "score_v1": 18.36,
-      "score_v2": 69.3,
+      "link": "https://news.google.com/rss/articles/CBMi8AFBVV95cUxNSGNKOVNpRnlzOEtTQzFPZEpuSzVTZ2wzS1kyTnVlUEoxMk9iUGppVjJELXFpcDlrd3B0WEd4QXpYd1lmbkJDOGRGX3VieUNxOWlSeEhZdEtGRVVFQzlqd004WWdlbGUyeVFVNExEWDVIQlFkSkNreGV5VVpLMnJyR18xazZNSFlMSW5qMWFLbXJxaHBkbHlic1FFTlFnc0tZRHAzOEJqaU5PcU00eEFiRmJicmpVTVd3bzBwcW8tRUVXSWkyRloxQXdQcVYxRTZEek1FT3pDbjYtdDB2NFUxaUV3ZWFORUhXMHpzMm9LeDXSAfABQVVfeXFMTzhQek1ib09xMDVPWHZTUkVYQW52bzBNMXB3SFE4X0JDNmhaYVNTb0pURjl5dnBXdWo1cEFsd1FGOUZCQW5FWmNUTHpRM3ZKWkhPZ3Z3aEkwYTh0Q0tjbTVvWlplOGl3M2VJZlFQRHVLempLa2I2eXRNeGJON0xDVW9JZHEwaEhSTWFDQ1I1M0xRNmJFWVRNVDR2dldobW1nanA0QjN6RkZoZ3NPMENTRFNBNUtSQ0tNanJHM0ZPQm4zRng3R01FZHlkWk1OSHUxZjNNWEtWTTRjVjB4WW9VZUlJczMtcG5BVWw1dEg2WGFI?oc=5",
+      "source": "Google News 气候变化",
+      "published": "2026-09-27T08:20:47+00:00",
+      "hotness": 61.3,
+      "score": 61.3,
+      "score_v1": 13.29,
+      "score_v2": 61.3,
       "score_breakdown": {
         "algorithm": "v3.0",
         "dimension_max": {
@@ -908,273 +669,192 @@
           "information": 16.0
         },
         "authority_score": 8.05,
-        "keyword_idf_score": 7.87,
-        "topic_score": 7.87,
+        "keyword_idf_score": 0.0,
+        "topic_score": 3.0,
         "topic_burst_score": 0.0,
         "topic_burst_count": 1,
         "resonance_score": 0.0,
         "info_score": 0.0,
-        "base": 15.92,
+        "base": 11.05,
         "base_max": 70.0,
-        "time_factor": 0.8433,
+        "time_factor": 0.795,
         "density_factor": 1.0,
         "density_note": "",
         "repeat_penalty": 1.0,
         "event_size": 1,
         "event_media_count": 1,
         "event_cluster_source": "ai",
-        "origin_source": "四川新闻",
-        "raw": 13.42,
-        "display_score": 69.3,
+        "origin_source": "dw.com",
+        "raw": 8.78,
+        "display_score": 61.3,
         "display_mode": "absolute"
       },
       "score_v1_breakdown": {
         "base": 5.0,
         "source_score": 3.6,
-        "keyword_score": 2.0,
-        "time_score": 5.76,
-        "topic_bonus": 2.0,
-        "total": 18.36
-      },
-      "summary": "四川省搭建油气行业环保协同共治平台，旨在赋能绿色低碳转型，推动油气行业环保治理水平提升。",
-      "analysis": "该条目涉及【环境政策】话题，因来源较权威，热度上升。",
-      "topic_tags": [
-        "环境政策"
-      ],
-      "category": "环境政策",
-      "matched_keywords": [
-        "绿色低碳"
-      ],
-      "keywords": [
-        "绿色低碳"
-      ]
-    },
-    {
-      "title": "Alaska's ‘Rusting’ Waters More Acidic Than Mine Drainage",
-      "title_en": "Alaska's ‘Rusting’ Waters More Acidic Than Mine Drainage",
-      "title_zh": "阿拉斯加“锈迹斑斑”的水体比矿井排水更酸",
-      "summary_en": "As the Arctic warms and tundra thaws, minerals long trapped in frozen soil are leaching into rivers, turning them orange and acidic. A study from northern Alaska found “rusting” waters to be more metallic and acidic than drainage from metal mines.Read more on E360 →",
-      "summary_zh": "随着北极变暖和苔原解冻，长期被冻土封存的矿物质正渗入河流，使河水呈现橙色并变得呈酸性。阿拉斯加北部的一项研究发现，这种“生锈”的水比金属矿的排水更具金属味且酸度更高。在 E360 上阅读更多内容 →",
-      "link": "https://e360.yale.edu/digest/alaska-rusting-rivers",
-      "source": "Yale Environment 360",
-      "published": "2026-09-25T12:20:00+00:00",
-      "hotness": 64.7,
-      "score": 64.7,
-      "score_v1": 11.54,
-      "score_v2": 64.7,
-      "score_breakdown": {
-        "algorithm": "v3.0",
-        "dimension_max": {
-          "authority": 18.0,
-          "topic": 18.0,
-          "resonance": 18.0,
-          "information": 16.0
-        },
-        "authority_score": 12.73,
-        "keyword_idf_score": 0.0,
-        "topic_score": 3.0,
-        "topic_burst_score": 0.0,
-        "topic_burst_count": 1,
-        "resonance_score": 8.76,
-        "info_score": 3.0,
-        "base": 27.49,
-        "base_max": 70.0,
-        "time_factor": 0.6435,
-        "density_factor": 1.0,
-        "density_note": "",
-        "repeat_penalty": 0.6,
-        "event_size": 2,
-        "event_media_count": 2,
-        "event_cluster_source": "ai",
-        "origin_source": "Yale Environment 360",
-        "raw": 10.61,
-        "display_score": 64.7,
-        "display_mode": "absolute"
-      },
-      "score_v1_breakdown": {
-        "base": 5.0,
-        "source_score": 4.5,
         "keyword_score": 0.0,
-        "time_score": 2.04,
+        "time_score": 4.69,
         "topic_bonus": 0.0,
-        "total": 11.54
+        "total": 13.29
       },
-      "summary": "随着北极变暖和苔原解冻，长期被冻土封存的矿物质正渗入河流，使河水呈现橙色并变得呈酸性。阿拉斯加北部的一项研究发现，这种“生锈”的水比金属矿的排水更具金属味且酸度更高。在 E360 上阅读更多内容 →",
-      "analysis": "该条目涉及【水处理】话题，因来源权威性高且多家媒体同题报道，热度上升。",
-      "topic_tags": [
-        "水处理"
-      ],
-      "category": "水处理",
-      "matched_keywords": [],
-      "keywords": []
-    },
-    {
-      "title": "Earth is tearing apart beneath the Pacific Northwest",
-      "title_en": "Earth is tearing apart beneath the Pacific Northwest",
-      "title_zh": "太平洋西北地区地表之下，大地正在裂开",
-      "summary_en": "Scientists have captured a subduction zone off Vancouver Island in the process of tearing itself apart, revealing that these massive tectonic systems may die piece by piece rather than all at once. The discovery could help explain ancient plate fragments, volcanic activity, and how hidden breaks beneath Cascadia may influence future earthquakes.",
-      "summary_zh": "科学家们捕捉到了温哥华岛外海一个正在自行分裂的俯冲带，这表明这些庞大的构造系统可能会一点一点地消亡，而不是一瞬间就消失。这一发现或许有助于解释古代板块碎片、火山活动，以及卡斯卡迪亚下方隐藏的断裂带如何影响未来的地震。",
-      "link": "https://www.sciencedaily.com/releases/2026/09/260924231343.htm",
-      "source": "ScienceDaily 环境科学",
-      "published": "2026-09-25T12:20:18+00:00",
-      "hotness": 63.8,
-      "score": 63.8,
-      "score_v1": 11.54,
-      "score_v2": 63.8,
-      "score_breakdown": {
-        "algorithm": "v3.0",
-        "dimension_max": {
-          "authority": 18.0,
-          "topic": 18.0,
-          "resonance": 18.0,
-          "information": 16.0
-        },
-        "authority_score": 12.73,
-        "keyword_idf_score": 0.0,
-        "topic_score": 0.0,
-        "topic_burst_score": 0.0,
-        "topic_burst_count": 1,
-        "resonance_score": 0.0,
-        "info_score": 3.0,
-        "base": 15.73,
-        "base_max": 70.0,
-        "time_factor": 0.6436,
-        "density_factor": 1.0,
-        "density_note": "",
-        "repeat_penalty": 1.0,
-        "event_size": 1,
-        "event_media_count": 1,
-        "event_cluster_source": "ai",
-        "origin_source": "ScienceDaily 环境科学",
-        "raw": 10.12,
-        "display_score": 63.8,
-        "display_mode": "absolute"
-      },
-      "score_v1_breakdown": {
-        "base": 5.0,
-        "source_score": 4.5,
-        "keyword_score": 0.0,
-        "time_score": 2.04,
-        "topic_bonus": 0.0,
-        "total": 11.54
-      },
-      "summary": "科学家们捕捉到了温哥华岛外海一个正在自行分裂的俯冲带，这表明这些庞大的构造系统可能会一点一点地消亡，而不是一瞬间就消失。这一发现或许有助于解释古代板块碎片、火山活动，以及卡斯卡迪亚下方隐藏的断裂带如何影响未来的地震。",
-      "analysis": "该条目涉及【环境资讯】话题，因来源权威性高，热度上升。",
-      "topic_tags": [
-        "环境资讯"
-      ],
-      "category": "其他",
-      "matched_keywords": [],
-      "keywords": []
-    },
-    {
-      "title": "Bangkok roads submerged as flood disaster declared",
-      "title_en": "Bangkok roads submerged as flood disaster declared",
-      "title_zh": "曼谷道路被洪水淹没，当局宣布进入洪灾紧急状态",
-      "summary_en": "An emergency has been declared across the capital of Thailand as days of heavy rain leave the city inundated.",
-      "summary_zh": "由于连日暴雨导致全市被水淹没，泰国首都已宣布进入紧急状态。",
-      "link": "https://www.bbc.co.uk/news/articles/ck1wxx8n2x3zo?at_medium=RSS&at_campaign=rss",
-      "source": "BBC 科学与环境",
-      "published": "2026-09-26T07:21:30+00:00",
-      "hotness": 59.3,
-      "score": 59.3,
-      "score_v1": 14.01,
-      "score_v2": 59.3,
-      "score_breakdown": {
-        "algorithm": "v3.0",
-        "dimension_max": {
-          "authority": 18.0,
-          "topic": 18.0,
-          "resonance": 18.0,
-          "information": 16.0
-        },
-        "authority_score": 12.73,
-        "keyword_idf_score": 0.0,
-        "topic_score": 3.0,
-        "topic_burst_score": 0.0,
-        "topic_burst_count": 1,
-        "resonance_score": 0.0,
-        "info_score": 0.75,
-        "base": 16.48,
-        "base_max": 70.0,
-        "time_factor": 0.7863,
-        "density_factor": 1.0,
-        "density_note": "",
-        "repeat_penalty": 0.6,
-        "event_size": 2,
-        "event_media_count": 1,
-        "event_cluster_source": "ai",
-        "origin_source": "BBC 科学与环境",
-        "raw": 7.77,
-        "display_score": 59.3,
-        "display_mode": "absolute"
-      },
-      "score_v1_breakdown": {
-        "base": 5.0,
-        "source_score": 4.5,
-        "keyword_score": 0.0,
-        "time_score": 4.51,
-        "topic_bonus": 0.0,
-        "total": 14.01
-      },
-      "summary": "由于连日暴雨导致全市被水淹没，泰国首都已宣布进入紧急状态。",
-      "analysis": "该条目涉及【气候变化】话题，因来源权威性高，热度上升。",
+      "summary": "",
+      "analysis": "该条目涉及【气候变化】话题，因来源较权威，热度上升。",
       "topic_tags": [
         "气候变化"
       ],
       "category": "气候变化",
       "matched_keywords": [],
       "keywords": []
+    },
+    {
+      "title": "中国环境与发展国际合作委员会2026年年会在京开幕 - thepaper.cn",
+      "title_en": "",
+      "title_zh": "",
+      "summary_en": "",
+      "summary_zh": "",
+      "link": "https://news.google.com/rss/articles/CBMiXkFVX3lxTE4zbmM3SmtOTzRxdjZadWlzMmJNdGpVcURFc3FGTFRINXQ1c1dWMXZWaTFMR2FYQ1VZUGE3RzhmQXpWRmg0YVZBbHJQMzg1Rkt2ZHlWUzBCNUJaMC01eGc?oc=5",
+      "source": "Google News 环境污染",
+      "published": "2026-09-27T16:32:00+00:00",
+      "hotness": 60.7,
+      "score": 60.7,
+      "score_v1": 15.19,
+      "score_v2": 60.7,
+      "score_breakdown": {
+        "algorithm": "v3.0",
+        "dimension_max": {
+          "authority": 18.0,
+          "topic": 18.0,
+          "resonance": 18.0,
+          "information": 16.0
+        },
+        "authority_score": 8.05,
+        "keyword_idf_score": 0.0,
+        "topic_score": 3.0,
+        "topic_burst_score": 0.0,
+        "topic_burst_count": 1,
+        "resonance_score": 0.0,
+        "info_score": 5.0,
+        "base": 16.05,
+        "base_max": 70.0,
+        "time_factor": 0.8777,
+        "density_factor": 1.0,
+        "density_note": "",
+        "repeat_penalty": 0.6,
+        "event_size": 2,
+        "event_media_count": 1,
+        "event_cluster_source": "ai",
+        "origin_source": "thepaper.cn",
+        "raw": 8.45,
+        "display_score": 60.7,
+        "display_mode": "absolute"
+      },
+      "score_v1_breakdown": {
+        "base": 5.0,
+        "source_score": 3.6,
+        "keyword_score": 0.0,
+        "time_score": 6.59,
+        "topic_bonus": 0.0,
+        "total": 15.19
+      },
+      "summary": "9月27日，中国环境与发展国际合作委员会2026年年会在北京开幕，主题为“务实创新合作，携手绿色前行”。",
+      "analysis": "该条目涉及【科研学术】话题，因来源较权威且发布时间较新，热度上升。",
+      "topic_tags": [
+        "科研学术"
+      ],
+      "category": "科研学术",
+      "matched_keywords": [],
+      "keywords": []
+    },
+    {
+      "title": "环境新三板-信息披露 - 中国水网",
+      "title_en": "",
+      "title_zh": "",
+      "summary_en": "",
+      "summary_zh": "",
+      "link": "https://news.google.com/rss/articles/CBMiiAFBVV95cUxNMk9FUXRucVFNZ3lUdUZseXE5QTRFdE5wOTQ2T1VfRzFvbUkyZFNVU0pSRzk0TThWNnFoTFZtc2NFS2lHT3V2dXVsUnphem5jX1hlRVV2TVhJSS1mc21kcmpaMDRZaXV3bTZ4d0tZMEVHTzFlZGwyTVNGcG9jOXZZRzFqWC1qTkVD?oc=5",
+      "source": "Google News 中国水网",
+      "published": "2026-09-26T04:13:53+00:00",
+      "hotness": 59.2,
+      "score": 59.2,
+      "score_v1": 10.35,
+      "score_v2": 59.2,
+      "score_breakdown": {
+        "algorithm": "v3.0",
+        "dimension_max": {
+          "authority": 18.0,
+          "topic": 18.0,
+          "resonance": 18.0,
+          "information": 16.0
+        },
+        "authority_score": 9.86,
+        "keyword_idf_score": 0.0,
+        "topic_score": 3.0,
+        "topic_burst_score": 0.0,
+        "topic_burst_count": 1,
+        "resonance_score": 0.0,
+        "info_score": 0.0,
+        "base": 12.86,
+        "base_max": 70.0,
+        "time_factor": 0.5977,
+        "density_factor": 1.0,
+        "density_note": "",
+        "repeat_penalty": 1.0,
+        "event_size": 1,
+        "event_media_count": 1,
+        "event_cluster_source": "ai",
+        "origin_source": "中国水网",
+        "raw": 7.69,
+        "display_score": 59.2,
+        "display_mode": "absolute"
+      },
+      "score_v1_breakdown": {
+        "base": 5.0,
+        "source_score": 3.9,
+        "keyword_score": 0.0,
+        "time_score": 1.45,
+        "topic_bonus": 0.0,
+        "total": 10.35
+      },
+      "summary": "基于标题关键信息，聚焦环境新三板信息披露相关内容。",
+      "analysis": "该条目涉及【水处理】话题，因来源较权威，热度上升。",
+      "topic_tags": [
+        "水处理"
+      ],
+      "category": "水处理",
+      "matched_keywords": [],
+      "keywords": []
     }
   ],
   "keyword_analysis": [
     {
-      "keyword": "微塑料",
-      "count": 2,
-      "term": "微塑料",
-      "category": "污染治理"
-    },
-    {
       "keyword": "生态环境",
-      "count": 2,
+      "count": 3,
       "term": "生态环境",
       "category": "生态环境"
     },
     {
-      "keyword": "气候变化",
-      "count": 2,
-      "term": "气候变化",
-      "category": "气候变化"
-    },
-    {
-      "keyword": "环境污染",
-      "count": 2,
-      "term": "环境污染",
-      "category": "污染治理"
-    },
-    {
-      "keyword": "水处理",
+      "keyword": "环境监测",
       "count": 1,
-      "term": "水处理",
-      "category": "水处理"
+      "term": "环境监测",
+      "category": "科研学术"
+    },
+    {
+      "keyword": "环境健康",
+      "count": 1,
+      "term": "环境健康",
+      "category": "环境健康"
+    },
+    {
+      "keyword": "水污染",
+      "count": 1,
+      "term": "水污染",
+      "category": "污染治理"
     },
     {
       "keyword": "饮用水",
       "count": 1,
       "term": "饮用水",
       "category": "水处理"
-    },
-    {
-      "keyword": "碳排放",
-      "count": 1,
-      "term": "碳排放",
-      "category": "气候变化"
-    },
-    {
-      "keyword": "温室气体",
-      "count": 1,
-      "term": "温室气体",
-      "category": "气候变化"
     },
     {
       "keyword": "环境法典",
@@ -1189,72 +869,84 @@
       "category": "环境政策"
     },
     {
-      "keyword": "绿色低碳",
+      "keyword": "微塑料",
       "count": 1,
-      "term": "绿色低碳",
-      "category": "其他"
+      "term": "微塑料",
+      "category": "污染治理"
     },
     {
-      "keyword": "生态环境保护",
+      "keyword": "生态环境监测",
       "count": 1,
-      "term": "生态环境保护",
+      "term": "生态环境监测",
       "category": "生态环境"
     },
     {
-      "keyword": "酸性水",
+      "keyword": "数据质量监管",
       "count": 1,
-      "term": "酸性水",
+      "term": "数据质量监管",
+      "category": "环境政策"
+    },
+    {
+      "keyword": "饮用水质量",
+      "count": 1,
+      "term": "饮用水质量",
       "category": "水处理"
+    },
+    {
+      "keyword": "生态环境法典",
+      "count": 1,
+      "term": "生态环境法典",
+      "category": "环境政策"
+    },
+    {
+      "keyword": "全球升温",
+      "count": 1,
+      "term": "全球升温",
+      "category": "气候变化"
+    },
+    {
+      "keyword": "海洋环境保护",
+      "count": 1,
+      "term": "海洋环境保护",
+      "category": "生态环境"
+    },
+    {
+      "keyword": "粉尘污染",
+      "count": 1,
+      "term": "粉尘污染",
+      "category": "污染治理"
     }
   ],
   "keywords": [
     {
-      "keyword": "微塑料",
-      "count": 2,
-      "term": "微塑料",
-      "category": "污染治理"
-    },
-    {
       "keyword": "生态环境",
-      "count": 2,
+      "count": 3,
       "term": "生态环境",
       "category": "生态环境"
     },
     {
-      "keyword": "气候变化",
-      "count": 2,
-      "term": "气候变化",
-      "category": "气候变化"
-    },
-    {
-      "keyword": "环境污染",
-      "count": 2,
-      "term": "环境污染",
-      "category": "污染治理"
-    },
-    {
-      "keyword": "水处理",
+      "keyword": "环境监测",
       "count": 1,
-      "term": "水处理",
-      "category": "水处理"
+      "term": "环境监测",
+      "category": "科研学术"
+    },
+    {
+      "keyword": "环境健康",
+      "count": 1,
+      "term": "环境健康",
+      "category": "环境健康"
+    },
+    {
+      "keyword": "水污染",
+      "count": 1,
+      "term": "水污染",
+      "category": "污染治理"
     },
     {
       "keyword": "饮用水",
       "count": 1,
       "term": "饮用水",
       "category": "水处理"
-    },
-    {
-      "keyword": "碳排放",
-      "count": 1,
-      "term": "碳排放",
-      "category": "气候变化"
-    },
-    {
-      "keyword": "温室气体",
-      "count": 1,
-      "term": "温室气体",
-      "category": "气候变化"
     },
     {
       "keyword": "环境法典",
@@ -1269,59 +961,85 @@
       "category": "环境政策"
     },
     {
-      "keyword": "绿色低碳",
+      "keyword": "微塑料",
       "count": 1,
-      "term": "绿色低碳",
-      "category": "其他"
+      "term": "微塑料",
+      "category": "污染治理"
     },
     {
-      "keyword": "生态环境保护",
+      "keyword": "生态环境监测",
       "count": 1,
-      "term": "生态环境保护",
+      "term": "生态环境监测",
       "category": "生态环境"
     },
     {
-      "keyword": "酸性水",
+      "keyword": "数据质量监管",
       "count": 1,
-      "term": "酸性水",
+      "term": "数据质量监管",
+      "category": "环境政策"
+    },
+    {
+      "keyword": "饮用水质量",
+      "count": 1,
+      "term": "饮用水质量",
       "category": "水处理"
+    },
+    {
+      "keyword": "生态环境法典",
+      "count": 1,
+      "term": "生态环境法典",
+      "category": "环境政策"
+    },
+    {
+      "keyword": "全球升温",
+      "count": 1,
+      "term": "全球升温",
+      "category": "气候变化"
+    },
+    {
+      "keyword": "海洋环境保护",
+      "count": 1,
+      "term": "海洋环境保护",
+      "category": "生态环境"
+    },
+    {
+      "keyword": "粉尘污染",
+      "count": 1,
+      "term": "粉尘污染",
+      "category": "污染治理"
     }
   ],
-  "hot_summary": "今日热点围绕微塑料、生态环境、气候变化、环境污染、水处理等话题，共聚合18条资讯。",
-  "summary": "今日热点围绕微塑料、生态环境、气候变化、环境污染、水处理等话题，共聚合18条资讯。",
-  "weekly_summary": "近7天环境热点以生态环境与气候变化为主，污染治理与政策并重，水处理关注度相对较低。",
-  "weekly_insight": "近7天环境热点呈现“生态环境”与“气候变化”双轮驱动的特征，两大类合计近八成条目，显示出生态安全与全球治理的双重关注。污染治理与环境政策紧随其后，体现了治理落地与制度供给的持续发力。水处理与科研学术虽占比相对较小，但作为基础支撑与技术突破的关键力量，其价值日益凸显。总体来看，热点呈现出生态治理与应对气候挑战的协同态势，",
+  "hot_summary": "今日热点围绕生态环境、环境监测、环境健康、水污染、饮用水等话题，共聚合13条资讯。",
+  "summary": "今日热点围绕生态环境、环境监测、环境健康、水污染、饮用水等话题，共聚合13条资讯。",
+  "weekly_summary": "近7天环境热点以气候变化、生态环境、污染治理为主，合计195条。",
+  "weekly_insight": "近7天环境热点呈现“气候变化、生态环境、污染治理”三大类最为集中，整体热度显著上升。科研学术与水处理类内容相对平稳，环境政策热度有所回落，整体格局呈现出前三类主导、后三类相对分散的特征。",
   "weekly_keywords": [
     {
       "term": "微塑料",
       "count": 7
     },
     {
-      "term": "流域",
-      "count": 7
+      "term": "生态环境部",
+      "count": 6
     },
     {
-      "term": "生态环境部",
-      "count": 7
+      "term": "水污染",
+      "count": 6
+    },
+    {
+      "term": "流域",
+      "count": 6
+    },
+    {
+      "term": "环境法典",
+      "count": 5
     },
     {
       "term": "碳排放",
       "count": 5
     },
     {
-      "term": "水污染",
-      "count": 5
-    },
-    {
       "term": "温室气体",
-      "count": 4
-    },
-    {
-      "term": "环境法典",
-      "count": 4
-    },
-    {
-      "term": "十五五规划",
       "count": 4
     },
     {
@@ -1331,23 +1049,13 @@
     {
       "term": "竞赛",
       "count": 4
+    },
+    {
+      "term": "生态修复",
+      "count": 4
     }
   ],
   "weekly_categories": [
-    {
-      "date": "2026-09-21",
-      "categories": {
-        "气候变化": 1,
-        "污染治理": 1,
-        "生态环境": 5,
-        "环境政策": 3,
-        "能源与碳中和": 0,
-        "水处理": 0,
-        "科研学术": 0,
-        "环境健康": 0,
-        "其他": 0
-      }
-    },
     {
       "date": "2026-09-22",
       "categories": {
@@ -1431,24 +1139,26 @@
         "环境健康": 0,
         "其他": 2
       }
+    },
+    {
+      "date": "2026-09-28",
+      "categories": {
+        "气候变化": 2,
+        "污染治理": 2,
+        "生态环境": 2,
+        "环境政策": 2,
+        "能源与碳中和": 0,
+        "水处理": 3,
+        "科研学术": 1,
+        "环境健康": 1,
+        "其他": 0
+      }
     }
   ],
   "today_categories": [
     {
-      "category": "气候变化",
-      "count": 5
-    },
-    {
       "category": "水处理",
-      "count": 4
-    },
-    {
-      "category": "污染治理",
-      "count": 2
-    },
-    {
-      "category": "其他",
-      "count": 2
+      "count": 3
     },
     {
       "category": "生态环境",
@@ -1459,17 +1169,24 @@
       "count": 2
     },
     {
+      "category": "气候变化",
+      "count": 2
+    },
+    {
+      "category": "污染治理",
+      "count": 2
+    },
+    {
+      "category": "环境健康",
+      "count": 1
+    },
+    {
       "category": "科研学术",
       "count": 1
     }
   ],
   "timeline": {
     "气候变化": [
-      {
-        "date": "2026-08-29",
-        "count": 5,
-        "total_heat": 121.5
-      },
       {
         "date": "2026-08-30",
         "count": 4,
@@ -1614,14 +1331,14 @@
         "date": "2026-09-27",
         "count": 5,
         "total_heat": 355.7
+      },
+      {
+        "date": "2026-09-28",
+        "count": 2,
+        "total_heat": 133.1
       }
     ],
     "污染治理": [
-      {
-        "date": "2026-08-29",
-        "count": 3,
-        "total_heat": 52.4
-      },
       {
         "date": "2026-08-30",
         "count": 2,
@@ -1766,14 +1483,14 @@
         "date": "2026-09-27",
         "count": 2,
         "total_heat": 154.2
+      },
+      {
+        "date": "2026-09-28",
+        "count": 2,
+        "total_heat": 129.3
       }
     ],
     "生态环境": [
-      {
-        "date": "2026-08-29",
-        "count": 2,
-        "total_heat": 34.1
-      },
       {
         "date": "2026-08-30",
         "count": 2,
@@ -1918,14 +1635,14 @@
         "date": "2026-09-27",
         "count": 2,
         "total_heat": 153.9
+      },
+      {
+        "date": "2026-09-28",
+        "count": 2,
+        "total_heat": 168.5
       }
     ],
     "环境政策": [
-      {
-        "date": "2026-08-29",
-        "count": 0,
-        "total_heat": 0.0
-      },
       {
         "date": "2026-08-30",
         "count": 0,
@@ -2070,14 +1787,14 @@
         "date": "2026-09-27",
         "count": 2,
         "total_heat": 145.6
+      },
+      {
+        "date": "2026-09-28",
+        "count": 2,
+        "total_heat": 143.4
       }
     ],
     "能源与碳中和": [
-      {
-        "date": "2026-08-29",
-        "count": 0,
-        "total_heat": 0.0
-      },
       {
         "date": "2026-08-30",
         "count": 0,
@@ -2222,14 +1939,14 @@
         "date": "2026-09-27",
         "count": 0,
         "total_heat": 0.0
+      },
+      {
+        "date": "2026-09-28",
+        "count": 0,
+        "total_heat": 0.0
       }
     ],
     "水处理": [
-      {
-        "date": "2026-08-29",
-        "count": 0,
-        "total_heat": 0.0
-      },
       {
         "date": "2026-08-30",
         "count": 1,
@@ -2374,14 +2091,14 @@
         "date": "2026-09-27",
         "count": 4,
         "total_heat": 305.0
+      },
+      {
+        "date": "2026-09-28",
+        "count": 3,
+        "total_heat": 211.0
       }
     ],
     "科研学术": [
-      {
-        "date": "2026-08-29",
-        "count": 0,
-        "total_heat": 0.0
-      },
       {
         "date": "2026-08-30",
         "count": 1,
@@ -2526,14 +2243,14 @@
         "date": "2026-09-27",
         "count": 1,
         "total_heat": 72.5
+      },
+      {
+        "date": "2026-09-28",
+        "count": 1,
+        "total_heat": 60.7
       }
     ],
     "环境健康": [
-      {
-        "date": "2026-08-29",
-        "count": 0,
-        "total_heat": 0.0
-      },
       {
         "date": "2026-08-30",
         "count": 0,
@@ -2678,14 +2395,14 @@
         "date": "2026-09-27",
         "count": 0,
         "total_heat": 0.0
+      },
+      {
+        "date": "2026-09-28",
+        "count": 1,
+        "total_heat": 80.1
       }
     ],
     "其他": [
-      {
-        "date": "2026-08-29",
-        "count": 0,
-        "total_heat": 0.0
-      },
       {
         "date": "2026-08-30",
         "count": 0,
@@ -2830,6 +2547,11 @@
         "date": "2026-09-27",
         "count": 2,
         "total_heat": 143.0
+      },
+      {
+        "date": "2026-09-28",
+        "count": 0,
+        "total_heat": 0.0
       }
     ]
   }

@@ -4460,3 +4460,150 @@
 
 ---
 
+## 2026-09-29
+
+**今日高频关键词**：`#水体` `#气候` `#化石燃料` `#1,2-二氯乙烷` `#a²/o工艺`
+
+**今日 Top10 热点**
+
+### 1. 西北高原所揭示气候变化下我国西北荒漠梭梭潜在适宜生境演变规律 - 生物通
+- **来源**：Google News 气候变化
+- **热度**：88.1
+- **链接**：https://news.google.com/rss/articles/CBMibEFVX3lxTFBGbW9aMGZ4WXdPd3dyb0FYY1NMcXQ2UDdEelVpZktsM0JvTjBZeWE5SFJVQzRybTN4eDFEUWtwWjc3MUE0TTVYZVliNjVSMjd3cmhfNDFnQTBWZU83OXlteWI4azI3RmFLMlpmLQ?oc=5
+- **分析**：该条目涉及【荒漠梭梭】话题，因来源较权威且发布时间较新，热度上升。
+
+### 2. 九江市委书记陈云调度推进全市生态环境重点工作 - 大江网
+- **来源**：Google News 环境保护
+- **热度**：85.1
+- **链接**：https://news.google.com/rss/articles/CBMiakFVX3lxTE4xQ1hYRVY3UG9HbDNmb1lNeEFJSFdIU0xEbU02MExTalc5QUYxZ1FScmNucENhMXlXZWpPQTk4SUJzOU9OSDZOYlZPdzVGSlZoVjgzTTVXeWNkbmxadFdnUEhPTkRLanlJUnc?oc=5
+- **分析**：该条目涉及【生态环境重点工作】话题，因来源较权威且发布时间较新，热度上升。
+
+### 3. Hormone-disrupting herbicide contaminating 25% of continental US rivers, report finds
+- **来源**：The Guardian Environment
+- **热度**：83.0
+- **链接**：https://www.theguardian.com/environment/2026/sep/28/atrazine-herbicide-pollution-rivers
+- **摘要**：阿特拉津已在60个国家被禁， 其污染河流的浓度已达到可能危害野生动物并威胁人类健康的程度。一项对联邦记录的新综述发现，这种具有内分泌干扰作用的除草剂阿特拉津正在污染美国大陆近25%的河流（约86万英里），其污染浓度已达到可能危害野生动物并威胁人类健康的水平。这些水道覆盖了全国20%以上的地表饮用水取水口，以及超过67.5万口私人和商业水井。继续阅读...
+- **分析**：该条目涉及【农业污染】话题，因来源权威性高，热度上升。
+
+### 4. Stagnant plumbing: Drinking water quality responses to stagnation in controlled systems
+- **来源**：Water Research
+- **热度**：80.8
+- **链接**：https://www.sciencedirect.com/science/article/pii/S0043135426015587?dgcid=rss_sd_all
+- **摘要**：管道内水体滞留：受控系统中饮用水质量对水体滞留的响应
+- **分析**：该条目涉及【水体滞留】话题，因来源权威性高且话题稀缺度高，热度上升。
+
+### 5. An historic fishery collapse driven by socioeconomic and environmental factors
+- **来源**：Nature Sustainability
+- **热度**：80.5
+- **链接**：https://www.nature.com/articles/s41893-026-01937-1
+- **摘要**：《自然·可持续性》（Nature Sustainability）， 1570年前后，波罗的海西部鲱鱼渔业的崩溃造成了巨大的破坏。 本研究利用涵盖450年的波罗的海鲱鱼捕捞量时间序列数据，探讨了导致该渔业崩溃的社会经济和环境驱动因素，并为当今的渔业管理提供了借鉴。
+- **分析**：该条目涉及【环境驱动因素】话题，因来源权威性高，热度上升。
+
+### 6. Samuel Alito steps aside in a major climate case amid scrutiny over oil stock holdings
+- **来源**：The Guardian Environment
+- **热度**：80.3
+- **链接**：https://www.theguardian.com/us-news/2026/sep/28/samuel-alito-supreme-court-oil-climate-case
+- **摘要**：在最高法院审理化石燃料企业是否欺骗美国公众一案之前，一位保守派大法官作出了回避决定。最高法院大法官塞缪尔·阿利托周一宣布，因持有石油公司股票而面临要求其回避的呼声，他决定从一起重大气候变化案件中回避。该案中公布的一封信函并未具体说明原因，但这位保守派大法官此前曾因持有相关公司股票而回避过其他案件。继续阅读……
+- **分析**：该条目涉及【气候变化】话题，因来源权威性高且发布时间较新，热度上升。
+
+### 7. 江西加强生态环境监测数据质量监管 查实数据弄虚作假案件7起 - 凤凰网
+- **来源**：Google News 生态环境
+- **热度**：79.0
+- **链接**：https://news.google.com/rss/articles/CBMiSkFVX3lxTFBqTk5UZ2JQbUJ1OGVnYXU4MGU0Mi1RS2xvazRiRnBna21KRXktN1NWX3c5UHR4OFBpbEw3UkF6TEF2aE1GMHZidkpB?oc=5
+- **摘要**：江西加强生态环境监测数据质量监管 查实数据弄虚作假案件7起
+- **分析**：该条目涉及【生态环境监测】话题，因来源较权威且话题稀缺度高，热度上升。
+
+### 8. Hotter than usual: 13-week longitudinal evidence that experienced heat follows local departures beyond absolute levels across 49 US states
+- **来源**：Environmental Research Letters
+- **热度**：78.6
+- **链接**：https://iopscience.iop.org/article/10.1088/1748-9326/aeaa6e
+- **摘要**：全球范围内，与高温相关的死亡风险正在上升。基于影响的预警工具和环境高温暴露证据表明，高温负担并不能完全用绝对温度来解释，而是反映了与“正常状况”的偏差。然而，关于人们如何体验高温的个体层面证据却十分匮乏。 我们在一项为期13周的纵向研究中，将“感知热度”作为独立研究结果进行考察。该研究于2024年夏季开展，涵盖美国49个州的1 080名参与者，共计12 435条观测数据。 研究采用了具有“组内-组间”分解功能的广义加性混合模型，将个体内部的温度偏差与个体间的气候背景区分开来。 结果表明，随着温度偏离当地“通常条件”，热感影响呈非线性增加，在观测范围内未发现离散阈值或衰减现象。在较冷气候地区，个体内的敏感性最强；而在较暖气候地区的居民则表现出较平缓的响应，但基线影响略高，这一模式与气候对感知敏感性的调节作用一致。 湿度与温度之外的个体内部变异存在独立关联。感知影响方差中近一半反映了稳定的个体间差异，其中媒体曝光、政治立场、年龄和居住环境均与气象条件之外的影响相关。综合来看，我们的研究结果表明，人们对热感的体验是相对于当地通常条件而言的，而不仅仅是绝对水平。 基于绝对阈值设计的预警系统，可能会系统性地忽视那些最早感受到高温影响的人群。
+- **分析**：该条目涉及【热浪】话题，因来源权威性高，热度上升。
+
+### 9. DMFNet: A Dynamic Multilevel Fusion Network for long-term multivariate water quality forecasting
+- **来源**：Water Research
+- **热度**：78.4
+- **链接**：https://www.sciencedirect.com/science/article/pii/S0043135426016222?dgcid=rss_sd_all
+- **摘要**：提出基于动态多层融合网络的长期多变量水质预测方法，通过融合多尺度特征提升预测精度，为水体污染防治和水资源管理提供科学预测工具。
+- **分析**：该条目涉及【污染治理】话题，因来源权威性高，热度上升。
+
+### 10. Trump administration to slash clean car rules aimed at cutting climate emissions
+- **来源**：The Guardian Environment
+- **热度**：77.5
+- **链接**：https://www.theguardian.com/us-news/2026/sep/28/trump-administration-slashes-clean-car-rules
+- **摘要**：环保人士谴责放宽汽车制造商控制汽油车污染要求的举措。特朗普政府周一宣布，将大幅削减旨在减少导致全球变暖的排放并推动电动汽车发展的“清洁汽车”法规。这一举措遭到环保人士的批评，该举措放宽了汽车制造商在2022至2031年车型年期间对汽油动力轿车和轻型卡车污染控制的要求。继续阅读……
+- **分析**：该条目涉及【climate emissions】话题，因来源权威性高且发布时间较新，热度上升。
+
+**今日自动提取候选新词**
+
+- **huanbao**（出现 4 次）
+  - 上下文：湖南省固体废物污染防治“十五五”规划（征求意见稿） - huanbao.bjx.com.cn
+  - 上下文：5141万！山东曲阜市建筑垃圾综合处理项目二期工程总承包EPC招标 - huanbao.bjx.com.cn
+  - 上下文：京蓝科技拟5000万元起拍转让中科鼎实股权及债权 - huanbao.bjx.com.cn
+- **bjx**（出现 4 次）
+  - 上下文：湖南省固体废物污染防治“十五五”规划（征求意见稿） - huanbao.bjx.com.cn
+  - 上下文：5141万！山东曲阜市建筑垃圾综合处理项目二期工程总承包EPC招标 - huanbao.bjx.com.cn
+  - 上下文：京蓝科技拟5000万元起拍转让中科鼎实股权及债权 - huanbao.bjx.com.cn
+- **EPC**（出现 3 次）
+  - 上下文：2.35亿！安徽铜陵工业污水处理厂EPC项目招标 - 中国水网
+  - 上下文：5141万！山东曲阜市建筑垃圾综合处理项目二期工程总承包EPC招标 - huanbao.bjx.com.cn
+  - 上下文：中铁四局联合中标安徽池州污水及配套管网EPC+O项目 - 中国水网
+- **中国**（出现 3 次）
+  - 上下文：2.35亿！安徽铜陵工业污水处理厂EPC项目招标 - 中国水网
+  - 上下文：18.6万立方米/日！中国电建签约肯尼亚穆瓦驰水厂及附属工程项目 - 中国水网
+  - 上下文：中铁四局联合中标安徽池州污水及配套管网EPC+O项目 - 中国水网
+- **水网**（出现 3 次）
+  - 上下文：2.35亿！安徽铜陵工业污水处理厂EPC项目招标 - 中国水网
+  - 上下文：18.6万立方米/日！中国电建签约肯尼亚穆瓦驰水厂及附属工程项目 - 中国水网
+  - 上下文：中铁四局联合中标安徽池州污水及配套管网EPC+O项目 - 中国水网
+- **揭示**（出现 2 次）
+  - 上下文：西北高原所揭示气候变化下我国西北荒漠梭梭潜在适宜生境演变规律 - 生物通
+  - 上下文：人才强校 | 资环学院气象系发文揭示气候变暖将大气河引向亚洲人口密集区 - news.cau.edu.cn
+- **water**（出现 2 次）
+  - 上下文：Stagnant plumbing: Drinking water quality responses to stagnation in controlled systems
+  - 上下文：DMFNet: A Dynamic Multilevel Fusion Network for long-term multivariate water quality forecasting
+- **quality**（出现 2 次）
+  - 上下文：Stagnant plumbing: Drinking water quality responses to stagnation in controlled systems
+  - 上下文：DMFNet: A Dynamic Multilevel Fusion Network for long-term multivariate water quality forecasting
+- **climate**（出现 2 次）
+  - 上下文：Samuel Alito steps aside in a major climate case amid scrutiny over oil stock holdings
+  - 上下文：Trump administration to slash clean car rules aimed at cutting climate emissions
+- **江西**（出现 2 次）
+  - 上下文：江西加强生态环境监测数据质量监管 查实数据弄虚作假案件7起 - 凤凰网
+  - 上下文：江西建成全国首个覆盖全省生态环境系统的省级无人机平台 - 凤凰网
+- **Trump**（出现 2 次）
+  - 上下文：Trump administration to slash clean car rules aimed at cutting climate emissions
+  - 上下文：Decades of fossil fuel influence paved way for Trump’s assault on university research, study says
+- **赋能**（出现 2 次）
+  - 上下文：河北顺平：生态环境法典入企 赋能绿色发展 - 搜狐网
+  - 上下文：CRRE循博会全景导览 | 立足资源再利用，产业落地赋能全球低碳转型 - huanbao.bjx.com.cn
+- **京津冀**（出现 2 次）
+  - 上下文：京津冀生态环境志愿服务活动在津启动 - 天津日报
+  - 上下文：“美丽海河·同心守护”京津冀生态环境志愿服务活动天津主会场启动仪式举行 - 搜狐网
+- **志愿**（出现 2 次）
+  - 上下文：京津冀生态环境志愿服务活动在津启动 - 天津日报
+  - 上下文：“美丽海河·同心守护”京津冀生态环境志愿服务活动天津主会场启动仪式举行 - 搜狐网
+- **服务**（出现 2 次）
+  - 上下文：京津冀生态环境志愿服务活动在津启动 - 天津日报
+  - 上下文：“美丽海河·同心守护”京津冀生态环境志愿服务活动天津主会场启动仪式举行 - 搜狐网
+- **启动**（出现 2 次）
+  - 上下文：京津冀生态环境志愿服务活动在津启动 - 天津日报
+  - 上下文：“美丽海河·同心守护”京津冀生态环境志愿服务活动天津主会场启动仪式举行 - 搜狐网
+- **fossil**（出现 2 次）
+  - 上下文：Decades of fossil fuel influence paved way for Trump’s assault on university research, study says
+  - 上下文：Implementing just fossil fuel transition: extreme Citizen Science to enforce the ban on gas flaring activities in the Ecuadorian Amazon
+- **fuel**（出现 2 次）
+  - 上下文：Decades of fossil fuel influence paved way for Trump’s assault on university research, study says
+  - 上下文：Implementing just fossil fuel transition: extreme Citizen Science to enforce the ban on gas flaring activities in the Ecuadorian Amazon
+- **Science**（出现 2 次）
+  - 上下文：Implementing just fossil fuel transition: extreme Citizen Science to enforce the ban on gas flaring activities in the Ecuadorian Amazon
+  - 上下文：Perspectives on Sustainable Computational Science and Engineering
+- **安徽**（出现 2 次）
+  - 上下文：2.35亿！安徽铜陵工业污水处理厂EPC项目招标 - 中国水网
+  - 上下文：中铁四局联合中标安徽池州污水及配套管网EPC+O项目 - 中国水网
+- **全球**（出现 2 次）
+  - 上下文：科学研究 - 今夏全球暴雨与热浪频发，“极端天气”背后是不断加剧的全球变暖 - 客观日本
+  - 上下文：CRRE循博会全景导览 | 立足资源再利用，产业落地赋能全球低碳转型 - huanbao.bjx.com.cn
+
+---
+

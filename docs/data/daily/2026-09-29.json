@@ -1,0 +1,542 @@
+{
+  "report_date": "2026-09-29",
+  "site_name": "环境学子雷达",
+  "total_items": 38,
+  "snapshot_items": 10,
+  "category_stats": {
+    "生态环境": {
+      "count": 8,
+      "total_heat": 610.5
+    },
+    "污染治理": {
+      "count": 5,
+      "total_heat": 367.8
+    },
+    "水处理": {
+      "count": 4,
+      "total_heat": 277.4
+    },
+    "环境政策": {
+      "count": 3,
+      "total_heat": 213.1
+    },
+    "气候变化": {
+      "count": 11,
+      "total_heat": 824.9
+    },
+    "能源与碳中和": {
+      "count": 3,
+      "total_heat": 220.1
+    },
+    "科研学术": {
+      "count": 1,
+      "total_heat": 72.5
+    },
+    "其他": {
+      "count": 3,
+      "total_heat": 202.5
+    }
+  },
+  "total_sources": 28,
+  "success_sources": 26,
+  "failed_sources": 1,
+  "week_total_items": 206,
+  "week_new_keywords": 96,
+  "policy_ratio": 9.7,
+  "items": [
+    {
+      "title": "西北高原所揭示气候变化下我国西北荒漠梭梭潜在适宜生境演变规律 - 生物通",
+      "title_en": "",
+      "title_zh": "",
+      "link": "https://news.google.com/rss/articles/CBMibEFVX3lxTFBGbW9aMGZ4WXdPd3dyb0FYY1NMcXQ2UDdEelVpZktsM0JvTjBZeWE5SFJVQzRybTN4eDFEUWtwWjc3MUE0TTVYZVliNjVSMjd3cmhfNDFnQTBWZU83OXlteWI4azI3RmFLMlpmLQ?oc=5",
+      "source": "Google News 气候变化",
+      "published": "2026-09-29T00:45:10+00:00",
+      "hotness": 88.1,
+      "score_v1": 27.6,
+      "score_v2": 88.1,
+      "score_breakdown": {
+        "algorithm": "v3.0",
+        "dimension_max": {
+          "authority": 18.0,
+          "topic": 18.0,
+          "resonance": 18.0,
+          "information": 16.0
+        },
+        "authority_score": 8.05,
+        "keyword_idf_score": 3.56,
+        "topic_score": 8.22,
+        "topic_burst_score": 4.66,
+        "topic_burst_count": 4,
+        "resonance_score": 13.26,
+        "info_score": 4.0,
+        "base": 33.52,
+        "base_max": 70.0,
+        "time_factor": 0.9665,
+        "density_factor": 1.0,
+        "density_note": "",
+        "repeat_penalty": 1.0,
+        "event_size": 3,
+        "event_media_count": 3,
+        "event_cluster_source": "ai",
+        "origin_source": "生物通",
+        "raw": 32.4,
+        "display_score": 88.1,
+        "display_mode": "absolute"
+      },
+      "summary": "",
+      "analysis": "",
+      "topic_tags": [
+        "荒漠梭梭"
+      ],
+      "category": "生态环境",
+      "matched_keywords": [
+        "气候变化"
+      ]
+    },
+    {
+      "title": "九江市委书记陈云调度推进全市生态环境重点工作 - 大江网",
+      "title_en": "",
+      "title_zh": "",
+      "link": "https://news.google.com/rss/articles/CBMiakFVX3lxTE4xQ1hYRVY3UG9HbDNmb1lNeEFJSFdIU0xEbU02MExTalc5QUYxZ1FScmNucENhMXlXZWpPQTk4SUJzOU9OSDZOYlZPdzVGSlZoVjgzTTVXeWNkbmxadFdnUEhPTkRLanlJUnc?oc=5",
+      "source": "Google News 环境保护",
+      "published": "2026-09-28T23:50:00+00:00",
+      "hotness": 85.1,
+      "score_v1": 33.26,
+      "score_v2": 85.1,
+      "score_breakdown": {
+        "algorithm": "v3.0",
+        "dimension_max": {
+          "authority": 18.0,
+          "topic": 18.0,
+          "resonance": 18.0,
+          "information": 16.0
+        },
+        "authority_score": 8.05,
+        "keyword_idf_score": 6.68,
+        "topic_score": 12.38,
+        "topic_burst_score": 5.7,
+        "topic_burst_count": 7,
+        "resonance_score": 8.76,
+        "info_score": 0.0,
+        "base": 29.19,
+        "base_max": 70.0,
+        "time_factor": 0.9548,
+        "density_factor": 1.0,
+        "density_note": "",
+        "repeat_penalty": 1.0,
+        "event_size": 2,
+        "event_media_count": 2,
+        "event_cluster_source": "ai",
+        "origin_source": "大江网",
+        "raw": 27.87,
+        "display_score": 85.1,
+        "display_mode": "absolute"
+      },
+      "summary": "",
+      "analysis": "",
+      "topic_tags": [
+        "生态环境重点工作",
+        "全市生态环境"
+      ],
+      "category": "生态环境",
+      "matched_keywords": [
+        "生态环境"
+      ]
+    },
+    {
+      "title": "Hormone-disrupting herbicide contaminating 25% of continental US rivers, report finds",
+      "title_en": "Hormone-disrupting herbicide contaminating 25% of continental US rivers, report finds",
+      "title_zh": "报告显示，25%的美国大陆河流受到内分泌干扰型除草剂的污染",
+      "link": "https://www.theguardian.com/environment/2026/sep/28/atrazine-herbicide-pollution-rivers",
+      "source": "The Guardian Environment",
+      "published": "2026-09-28T11:00:31+00:00",
+      "hotness": 83.0,
+      "score_v1": 20.57,
+      "score_v2": 83.0,
+      "score_breakdown": {
+        "algorithm": "v3.0",
+        "dimension_max": {
+          "authority": 18.0,
+          "topic": 18.0,
+          "resonance": 18.0,
+          "information": 16.0
+        },
+        "authority_score": 12.73,
+        "keyword_idf_score": 7.94,
+        "topic_score": 10.3,
+        "topic_burst_score": 2.36,
+        "topic_burst_count": 2,
+        "resonance_score": 0.0,
+        "info_score": 8.0,
+        "base": 31.03,
+        "base_max": 70.0,
+        "time_factor": 0.813,
+        "density_factor": 1.0,
+        "density_note": "",
+        "repeat_penalty": 1.0,
+        "event_size": 1,
+        "event_media_count": 1,
+        "event_cluster_source": "ai",
+        "origin_source": "The Guardian Environment",
+        "raw": 25.23,
+        "display_score": 83.0,
+        "display_mode": "absolute"
+      },
+      "summary": "阿特拉津已在60个国家被禁， 其污染河流的浓度已达到可能危害野生动物并威胁人类健康的程度。一项对联邦记录的新综述发现，这种具有内分泌干扰作用的除草剂阿特拉津正在污染美国大陆近25%的河流（约86万英里），其污染浓度已达到可能危害野生动物并威胁人类健康的水平。这些水道覆盖了全国20%以上的地表饮用水取水口，以及超过67.5万口私人和商业水井。继续阅读...",
+      "analysis": "",
+      "topic_tags": [
+        "农业污染",
+        "水质污染"
+      ],
+      "category": "污染治理",
+      "matched_keywords": [
+        "饮用水"
+      ]
+    },
+    {
+      "title": "Stagnant plumbing: Drinking water quality responses to stagnation in controlled systems",
+      "title_en": "Stagnant plumbing: Drinking water quality responses to stagnation in controlled systems",
+      "title_zh": "管道内水体滞留：受控系统中饮用水质量对水体滞留的响应",
+      "link": "https://www.sciencedirect.com/science/article/pii/S0043135426015587?dgcid=rss_sd_all",
+      "source": "Water Research",
+      "published": "2026-09-28T03:14:52.055510+00:00",
+      "hotness": 80.8,
+      "score_v1": 26.67,
+      "score_v2": 80.8,
+      "score_breakdown": {
+        "algorithm": "v3.0",
+        "dimension_max": {
+          "authority": 18.0,
+          "topic": 18.0,
+          "resonance": 18.0,
+          "information": 16.0
+        },
+        "authority_score": 18.0,
+        "keyword_idf_score": 10.34,
+        "topic_score": 12.71,
+        "topic_burst_score": 2.36,
+        "topic_burst_count": 2,
+        "resonance_score": 0.0,
+        "info_score": 0.0,
+        "base": 30.71,
+        "base_max": 70.0,
+        "time_factor": 0.7439,
+        "density_factor": 1.0,
+        "density_note": "",
+        "repeat_penalty": 1.0,
+        "event_size": 1,
+        "event_media_count": 1,
+        "event_cluster_source": "ai",
+        "origin_source": "Water Research",
+        "raw": 22.84,
+        "display_score": 80.8,
+        "display_mode": "absolute"
+      },
+      "summary": "管道内水体滞留：受控系统中饮用水质量对水体滞留的响应",
+      "analysis": "",
+      "topic_tags": [
+        "水体滞留",
+        "饮用水质量"
+      ],
+      "category": "水处理",
+      "matched_keywords": [
+        "水污染",
+        "饮用水"
+      ]
+    },
+    {
+      "title": "An historic fishery collapse driven by socioeconomic and environmental factors",
+      "title_en": "An historic fishery collapse driven by socioeconomic and environmental factors",
+      "title_zh": "由社会经济和环境因素引发的具有历史意义的渔业崩溃",
+      "link": "https://www.nature.com/articles/s41893-026-01937-1",
+      "source": "Nature Sustainability",
+      "published": "2026-09-28T00:00:00+00:00",
+      "hotness": 80.5,
+      "score_v1": 20.21,
+      "score_v2": 80.5,
+      "score_breakdown": {
+        "algorithm": "v3.0",
+        "dimension_max": {
+          "authority": 18.0,
+          "topic": 18.0,
+          "resonance": 18.0,
+          "information": 16.0
+        },
+        "authority_score": 18.0,
+        "keyword_idf_score": 7.94,
+        "topic_score": 10.3,
+        "topic_burst_score": 2.36,
+        "topic_burst_count": 2,
+        "resonance_score": 0.0,
+        "info_score": 3.0,
+        "base": 31.3,
+        "base_max": 70.0,
+        "time_factor": 0.7181,
+        "density_factor": 1.0,
+        "density_note": "",
+        "repeat_penalty": 1.0,
+        "event_size": 1,
+        "event_media_count": 1,
+        "event_cluster_source": "ai",
+        "origin_source": "Nature Sustainability",
+        "raw": 22.48,
+        "display_score": 80.5,
+        "display_mode": "absolute"
+      },
+      "summary": "《自然·可持续性》（Nature Sustainability）， 1570年前后，波罗的海西部鲱鱼渔业的崩溃造成了巨大的破坏。 本研究利用涵盖450年的波罗的海鲱鱼捕捞量时间序列数据，探讨了导致该渔业崩溃的社会经济和环境驱动因素，并为当今的渔业管理提供了借鉴。",
+      "analysis": "",
+      "topic_tags": [
+        "环境驱动因素"
+      ],
+      "category": "环境政策",
+      "matched_keywords": [
+        "可持续发展"
+      ]
+    },
+    {
+      "title": "Samuel Alito steps aside in a major climate case amid scrutiny over oil stock holdings",
+      "title_en": "Samuel Alito steps aside in a major climate case amid scrutiny over oil stock holdings",
+      "title_zh": "在因持有石油股票而受到审查之际，塞缪尔·阿利托在一宗重大气候案件中回避",
+      "link": "https://www.theguardian.com/us-news/2026/sep/28/samuel-alito-supreme-court-oil-climate-case",
+      "source": "The Guardian Environment",
+      "published": "2026-09-28T21:47:41+00:00",
+      "hotness": 80.3,
+      "score_v1": 27.45,
+      "score_v2": 80.3,
+      "score_breakdown": {
+        "algorithm": "v3.0",
+        "dimension_max": {
+          "authority": 18.0,
+          "topic": 18.0,
+          "resonance": 18.0,
+          "information": 16.0
+        },
+        "authority_score": 12.73,
+        "keyword_idf_score": 3.56,
+        "topic_score": 8.22,
+        "topic_burst_score": 4.66,
+        "topic_burst_count": 4,
+        "resonance_score": 0.0,
+        "info_score": 3.0,
+        "base": 23.94,
+        "base_max": 70.0,
+        "time_factor": 0.9296,
+        "density_factor": 1.0,
+        "density_note": "",
+        "repeat_penalty": 1.0,
+        "event_size": 1,
+        "event_media_count": 1,
+        "event_cluster_source": "ai",
+        "origin_source": "The Guardian Environment",
+        "raw": 22.26,
+        "display_score": 80.3,
+        "display_mode": "absolute"
+      },
+      "summary": "在最高法院审理化石燃料企业是否欺骗美国公众一案之前，一位保守派大法官作出了回避决定。最高法院大法官塞缪尔·阿利托周一宣布，因持有石油公司股票而面临要求其回避的呼声，他决定从一起重大气候变化案件中回避。该案中公布的一封信函并未具体说明原因，但这位保守派大法官此前曾因持有相关公司股票而回避过其他案件。继续阅读……",
+      "analysis": "",
+      "topic_tags": [
+        "气候变化"
+      ],
+      "category": "气候变化",
+      "matched_keywords": [
+        "气候变化"
+      ]
+    },
+    {
+      "title": "江西加强生态环境监测数据质量监管 查实数据弄虚作假案件7起 - 凤凰网",
+      "title_en": "",
+      "title_zh": "",
+      "link": "https://news.google.com/rss/articles/CBMiSkFVX3lxTFBqTk5UZ2JQbUJ1OGVnYXU4MGU0Mi1RS2xvazRiRnBna21KRXktN1NWX3c5UHR4OFBpbEw3UkF6TEF2aE1GMHZidkpB?oc=5",
+      "source": "Google News 生态环境",
+      "published": "2026-09-27T12:43:27+00:00",
+      "hotness": 79.0,
+      "score_v1": 30.6,
+      "score_v2": 79.0,
+      "score_breakdown": {
+        "algorithm": "v3.0",
+        "dimension_max": {
+          "authority": 18.0,
+          "topic": 18.0,
+          "resonance": 18.0,
+          "information": 16.0
+        },
+        "authority_score": 8.05,
+        "keyword_idf_score": 9.94,
+        "topic_score": 15.64,
+        "topic_burst_score": 5.7,
+        "topic_burst_count": 7,
+        "resonance_score": 0.0,
+        "info_score": 9.0,
+        "base": 32.69,
+        "base_max": 70.0,
+        "time_factor": 0.641,
+        "density_factor": 1.0,
+        "density_note": "",
+        "repeat_penalty": 1.0,
+        "event_size": 2,
+        "event_media_count": 1,
+        "event_cluster_source": "ai",
+        "origin_source": "凤凰网",
+        "raw": 20.96,
+        "display_score": 79.0,
+        "display_mode": "absolute"
+      },
+      "summary": "江西加强生态环境监测数据质量监管 查实数据弄虚作假案件7起",
+      "analysis": "",
+      "topic_tags": [
+        "生态环境监测",
+        "数据质量监管",
+        "数据弄虚作假"
+      ],
+      "category": "生态环境",
+      "matched_keywords": [
+        "生态环境",
+        "环境监测"
+      ]
+    },
+    {
+      "title": "Hotter than usual: 13-week longitudinal evidence that experienced heat follows local departures beyond absolute levels across 49 US states",
+      "title_en": "Hotter than usual: 13-week longitudinal evidence that experienced heat follows local departures beyond absolute levels across 49 US states",
+      "title_zh": "比往常更热：一项为期13周的纵向研究表明，在美国49个州，实际经历的高温与当地温度偏离绝对水平的情况密切相关",
+      "link": "https://iopscience.iop.org/article/10.1088/1748-9326/aeaa6e",
+      "source": "Environmental Research Letters",
+      "published": "2026-09-27T23:00:00+00:00",
+      "hotness": 78.6,
+      "score_v1": 14.08,
+      "score_v2": 78.6,
+      "score_breakdown": {
+        "algorithm": "v3.0",
+        "dimension_max": {
+          "authority": 18.0,
+          "topic": 18.0,
+          "resonance": 18.0,
+          "information": 16.0
+        },
+        "authority_score": 18.0,
+        "keyword_idf_score": 0.0,
+        "topic_score": 3.0,
+        "topic_burst_score": 0.0,
+        "topic_burst_count": 1,
+        "resonance_score": 0.0,
+        "info_score": 8.0,
+        "base": 29.0,
+        "base_max": 70.0,
+        "time_factor": 0.7105,
+        "density_factor": 1.0,
+        "density_note": "",
+        "repeat_penalty": 1.0,
+        "event_size": 1,
+        "event_media_count": 1,
+        "event_cluster_source": "ai",
+        "origin_source": "Environmental Research Letters",
+        "raw": 20.6,
+        "display_score": 78.6,
+        "display_mode": "absolute"
+      },
+      "summary": "全球范围内，与高温相关的死亡风险正在上升。基于影响的预警工具和环境高温暴露证据表明，高温负担并不能完全用绝对温度来解释，而是反映了与“正常状况”的偏差。然而，关于人们如何体验高温的个体层面证据却十分匮乏。 我们在一项为期13周的纵向研究中，将“感知热度”作为独立研究结果进行考察。该研究于2024年夏季开展，涵盖美国49个州的1 080名参与者，共计12 435条观测数据。 研究采用了具有“组内-组间”分解功能的广义加性混合模型，将个体内部的温度偏差与个体间的气候背景区分开来。 结果表明，随着温度偏离当地“通常条件”，热感影响呈非线性增加，在观测范围内未发现离散阈值或衰减现象。在较冷气候地区，个体内的敏感性最强；而在较暖气候地区的居民则表现出较平缓的响应，但基线影响略高，这一模式与气候对感知敏感性的调节作用一致。 湿度与温度之外的个体内部变异存在独立关联。感知影响方差中近一半反映了稳定的个体间差异，其中媒体曝光、政治立场、年龄和居住环境均与气象条件之外的影响相关。综合来看，我们的研究结果表明，人们对热感的体验是相对于当地通常条件而言的，而不仅仅是绝对水平。 基于绝对阈值设计的预警系统，可能会系统性地忽视那些最早感受到高温影响的人群。",
+      "analysis": "",
+      "topic_tags": [
+        "热浪",
+        "纵向研究"
+      ],
+      "category": "气候变化",
+      "matched_keywords": []
+    },
+    {
+      "title": "DMFNet: A Dynamic Multilevel Fusion Network for long-term multivariate water quality forecasting",
+      "title_en": "DMFNet: A Dynamic Multilevel Fusion Network for long-term multivariate water quality forecasting",
+      "title_zh": "DMFNet：一种用于长期多变量水质预测的动态多层融合网络",
+      "link": "https://www.sciencedirect.com/science/article/pii/S0043135426016222?dgcid=rss_sd_all",
+      "source": "Water Research",
+      "published": "2026-09-28T03:14:52.055510+00:00",
+      "hotness": 78.4,
+      "score_v1": 20.67,
+      "score_v2": 78.4,
+      "score_breakdown": {
+        "algorithm": "v3.0",
+        "dimension_max": {
+          "authority": 18.0,
+          "topic": 18.0,
+          "resonance": 18.0,
+          "information": 16.0
+        },
+        "authority_score": 18.0,
+        "keyword_idf_score": 7.11,
+        "topic_score": 9.47,
+        "topic_burst_score": 2.36,
+        "topic_burst_count": 2,
+        "resonance_score": 0.0,
+        "info_score": 0.0,
+        "base": 27.47,
+        "base_max": 70.0,
+        "time_factor": 0.7439,
+        "density_factor": 1.0,
+        "density_note": "",
+        "repeat_penalty": 1.0,
+        "event_size": 1,
+        "event_media_count": 1,
+        "event_cluster_source": "ai",
+        "origin_source": "Water Research",
+        "raw": 20.43,
+        "display_score": 78.4,
+        "display_mode": "absolute"
+      },
+      "summary": "提出基于动态多层融合网络的长期多变量水质预测方法，通过融合多尺度特征提升预测精度，为水体污染防治和水资源管理提供科学预测工具。",
+      "analysis": "",
+      "topic_tags": [
+        "污染治理"
+      ],
+      "category": "污染治理",
+      "matched_keywords": [
+        "水污染"
+      ]
+    },
+    {
+      "title": "Trump administration to slash clean car rules aimed at cutting climate emissions",
+      "title_en": "Trump administration to slash clean car rules aimed at cutting climate emissions",
+      "title_zh": "特朗普政府将大幅削减旨在减少气候排放的“清洁汽车”规定",
+      "link": "https://www.theguardian.com/us-news/2026/sep/28/trump-administration-slashes-clean-car-rules",
+      "source": "The Guardian Environment",
+      "published": "2026-09-28T15:56:32+00:00",
+      "hotness": 77.5,
+      "score_v1": 15.73,
+      "score_v2": 77.5,
+      "score_breakdown": {
+        "algorithm": "v3.0",
+        "dimension_max": {
+          "authority": 18.0,
+          "topic": 18.0,
+          "resonance": 18.0,
+          "information": 16.0
+        },
+        "authority_score": 12.73,
+        "keyword_idf_score": 0.0,
+        "topic_score": 3.0,
+        "topic_burst_score": 0.0,
+        "topic_burst_count": 1,
+        "resonance_score": 0.0,
+        "info_score": 7.0,
+        "base": 22.73,
+        "base_max": 70.0,
+        "time_factor": 0.8631,
+        "density_factor": 1.0,
+        "density_note": "",
+        "repeat_penalty": 1.0,
+        "event_size": 1,
+        "event_media_count": 1,
+        "event_cluster_source": "ai",
+        "origin_source": "The Guardian Environment",
+        "raw": 19.62,
+        "display_score": 77.5,
+        "display_mode": "absolute"
+      },
+      "summary": "环保人士谴责放宽汽车制造商控制汽油车污染要求的举措。特朗普政府周一宣布，将大幅削减旨在减少导致全球变暖的排放并推动电动汽车发展的“清洁汽车”法规。这一举措遭到环保人士的批评，该举措放宽了汽车制造商在2022至2031年车型年期间对汽油动力轿车和轻型卡车污染控制的要求。继续阅读……",
+      "analysis": "",
+      "topic_tags": [
+        "climate emissions"
+      ],
+      "category": "气候变化",
+      "matched_keywords": []
+    }
+  ]
+}

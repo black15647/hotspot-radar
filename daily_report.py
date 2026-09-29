@@ -1071,17 +1071,77 @@ def _as_aware_utc(value):
     return value
 
 
-def filter_by_time(items, hours=48):
-    """只保留最近 N 小时内的条目；发布时间缺失则按当前时间减24小时处理"""
+# 无发布时间条目的兜底年龄（小时）。
+#
+# 为什么是 48 而不是 24（2026-09-29 改）：
+#   真实数据里存在**整类不提供发布时间**的源 —— Elsevier 系（Water Research、
+#   Science of the Total Environment…）的 RSS item 里只有 title/link/description/guid，
+#   没有任何 pubDate / dc:date / updated（实测 Sci Total Environ 73 条全部如此）。
+#   旧值 24h 会让这类条目拿到时间因子 0.7442，而**"有日期且恰好 24 小时"的条目
+#   也是 0.7442** —— 等于把"日期缺失"奖励成了"恰好很新"。
+#   实测后果：Water Research 近 4 天上榜 10 次、100% 走这条兜底，占掉 Top10 的
+#   25% 名额，时间因子被高估 2.13 倍；而其余 27 个源合计 0 次。
+#   48h 对应时间因子 0.5889（中位），既保留内容、又不再奖励"日期缺失"。
+PUBLISHED_TIME_FALLBACK_HOURS = 48
+
+
+def _load_time_window_hours(config):
+    """
+    读取时间窗配置，返回 (default_hours, academic_hours, academic_sources)。
+
+    为什么学术源要单独放宽（2026-09-29 新增）：
+      顶刊是周更/月更，48 小时窗对它们近乎"永久不可见"。实测：
+        Nature                 48h 内 0 篇  →  7 天内 75 篇
+        Environmental Research Letters       →  7 天内 10 条
+        ScienceDaily 环境科学   48h 内 2 条  →  7 天内 10 条
+      日更的新闻/媒体源仍保持 48 小时，产品定位（"今天有什么新鲜事"）不变。
+
+    配置缺失或格式异常时退回 (48, 48, 空集) —— 即完全等价于改动前的全局 48 小时单窗口。
+    """
+    tw = (config or {}).get("time_window") or {}
+    try:
+        default_hours = float(tw.get("default_hours", 48))
+    except (TypeError, ValueError):
+        default_hours = 48.0
+    try:
+        academic_hours = float(tw.get("academic_hours", default_hours))
+    except (TypeError, ValueError):
+        academic_hours = default_hours
+    raw_sources = tw.get("academic_sources") or []
+    academic_sources = {str(s).strip() for s in raw_sources if str(s).strip()}
+    return default_hours, academic_hours, academic_sources
+
+
+def filter_by_time(items, hours=48, academic_hours=None, academic_sources=None):
+    """
+    只保留最近 N 小时内的条目。
+
+    - 普通条目：窗口 `hours`（默认 48 小时，日更新闻源）。
+    - 学术源条目：窗口 `academic_hours`；不传则与 `hours` 相同（行为与旧版一致，
+      因此招聘池那个 `hours=RECRUIT_WINDOW_HOURS` 的调用点完全不受影响）。
+    - 发布时间缺失：按 `PUBLISHED_TIME_FALLBACK_HOURS` 小时前处理并保留。兜底年龄
+      取 min(兜底值, 该条目所属窗口)，保证它既不越过窗口、也不会因为所属窗口更宽
+      而被当成"更新"。
+    """
     now = datetime.now(timezone.utc)
-    cutoff = now - timedelta(hours=hours)
+    window_default = hours
+    window_academic = academic_hours if academic_hours is not None else hours
+    cutoff_default = now - timedelta(hours=window_default)
+    cutoff_academic = now - timedelta(hours=window_academic)
+    academic_set = academic_sources or set()
+
     filtered = []
 
     for item in items:
+        is_academic = bool(academic_set) and (item.get("source") or "") in academic_set
+        item_window = window_academic if is_academic else window_default
+        item_cutoff = cutoff_academic if is_academic else cutoff_default
+
         published_dt = _as_aware_utc(item.get("published_dt"))
         if published_dt is None:
-            # 发布时间缺失，按当前时间减24小时处理
-            item["published_dt"] = now - timedelta(hours=24)
+            # 发布时间缺失 → 兜底为「两天前」，不再奖励成「24 小时前」
+            fallback_age = min(PUBLISHED_TIME_FALLBACK_HOURS, item_window)
+            item["published_dt"] = now - timedelta(hours=fallback_age)
             item["published"] = item["published_dt"].isoformat()
             item["_time_fallback"] = True
             filtered.append(item)
@@ -1089,7 +1149,7 @@ def filter_by_time(items, hours=48):
             # 写回归一化后的值：naive 时间在此被补上 UTC 时区，
             # 后续的时间衰减 / 排序都直接可用，不必各自再做一次容错
             item["published_dt"] = published_dt
-            if published_dt >= cutoff:
+            if published_dt >= item_cutoff:
                 filtered.append(item)
 
     return filtered
@@ -1209,6 +1269,19 @@ def _jaccard(set_a, set_b):
     return inter / union if union > 0 else 0.0
 
 
+def _title_overlap(set_a, set_b):
+    """两个 token 集合的**重叠系数** = |A∩B| / min(|A|,|B|)。
+
+    与聚类判据同口径（见 EVENT_CLUSTER_OVERLAP_THRESHOLD 处的实测对照）：
+    中文新闻标题长短差异大，Jaccard 会被长标题稀释，故用重叠系数。
+    任一集合为空时返回 0.0 —— 「无法比较」与「完全不相似」在这里同义，
+    因为下游用途是"够不够格施罚"，采信"无法比较"等于放行扣分，方向是错的。
+    """
+    if not set_a or not set_b:
+        return 0.0
+    return len(set_a & set_b) / min(len(set_a), len(set_b))
+
+
 def calculate_heat_v1(item, keyword_item_count, source_weights, keyword_bonus=2.0, now=None):
     """
     旧热度算法 v1（保持原公式不变），返回 (score_v1, breakdown_v1)
@@ -1295,6 +1368,23 @@ EVENT_CLUSTER_OVERLAP_MAX = 1.0
 _CLUSTER_DIAG_MAX_ITEMS = 500
 # 同一事件中非代表条目的 raw 惩罚系数（不是删除，榜单会保留多条）
 DUPLICATE_PENALTY = 0.6
+# 重复惩罚的**内容校验**阈值（2026-09-29 新增）。
+#
+# 为什么需要它：AI 语义事件聚类只保证"语义上像同一件事"，而重复惩罚是**负向动作**
+# （直接扣分），误判即纯损失。实测 7 天 / 181 条榜单条目：18 条被 ×0.6，逐条人工核对
+# 后真重复仅 2 条（误扣率约 78%）；其中 5 条与当天**任何**条目零共同词，却仍被判
+# "同事件"——如 `Alaska's 'Rusting' Waters More Acidic Than Mine Drainage`。
+# 故施罚前必须另有一道**独立于 AI 判断本身**的校验。
+#
+# 判据：非代表成员与簇代表的**标题 token 重叠系数** >= 本阈值才扣分。
+# 实测赦免曲线（同一批数据）：0.20 → 赦免 11/18；0.30 → 12/18 且**保住那 2 条真重复**；
+# 0.40 → 15/18；0.50 → 15/18（开始误赦真重复）。取 0.30。
+#
+# ⚠ 已知局限（不要宣称"修完就准了"）：字面重叠是**必要不充分条件**。标题模板化时
+#   字面重叠极高而语义无关，例如
+#     `中铁水务与甘肃灵台县签订战略合作协议` ↔ `中铁水务与商丘水投集团签订战略合作协议`
+#   重叠达 0.75（实为两条不同协议）。这类误聚字面阈值拦不住，需要语义判据。
+DUPLICATE_PENALTY_MIN_OVERLAP = 0.30
 
 # ---- 四个加性维度的满分（base 合计 70）----
 HOTNESS_AUTHORITY_MAX = 18.0         # 权威度：谁在说
@@ -1811,6 +1901,12 @@ def calculate_heat_v3(items, config, keyword_item_count=None):
                                                  EVENT_CLUSTER_OVERLAP_THRESHOLD)),
                                EVENT_CLUSTER_OVERLAP_MIN, EVENT_CLUSTER_OVERLAP_MAX)
     dup_penalty = _clamp(float(clu_cfg.get("duplicate_penalty", DUPLICATE_PENALTY)), 0.0, 1.0)
+    # 重复惩罚的内容校验阈值：与聚类阈值同样钳制到 [0,1]。
+    # 不钳制的后果与 EVENT_CLUSTER_OVERLAP_MIN/MAX 处记录的一致（配置笔误 →
+    # 要么全体赦免、要么整批照扣，机制静默消失）。
+    dup_min_overlap = _clamp(
+        float(clu_cfg.get("duplicate_penalty_min_overlap", DUPLICATE_PENALTY_MIN_OVERLAP)),
+        0.0, 1.0)
     reso_tau = _clamp(float(res_cfg.get("tau", RESONANCE_TAU)), 0.1, RESONANCE_TAU_MAX)
     idf_max = _clamp(float(tp_cfg.get("idf_max", TOPIC_IDF_MAX)),
                      0.0, HOTNESS_DIMENSION_MAX_BOUND)
@@ -2022,13 +2118,42 @@ def calculate_heat_v3(items, config, keyword_item_count=None):
         item["_v3_prelim"] = round(base * time_factor * density_factor, 4)
 
     # ---- 事件簇内确定代表：raw 最高者不惩罚，其余 ×dup_penalty ----
+    # 施罚前加一道**独立于 AI 判断本身**的内容校验（2026-09-29），依据见
+    # DUPLICATE_PENALTY_MIN_OVERLAP 处的实测（7 天 18 条被扣，真重复仅 2 条）。
+    # 原实现在这里**只看 len(members) > 1**，等价于完全采信 AI 的"同事件"判断；
+    # 而同一份聚类结果在正向侧（共振加分）本来就有约束——它要求簇内确实有
+    # >=2 家不同原始媒体。负向侧缺同等的约束，于是 AI 一误并即为纯损失。
+    multi_groups = [members for members in assigned.values() if len(members) > 1]
+    token_sets = None
+    if multi_groups:
+        # 只在真的存在多成员簇时才分词：没有多成员簇时本护栏无事可做，
+        # 提前返回可以避免为整批条目白跑一次 jieba（n 大时是纯开销）。
+        token_sets = [
+            _title_token_set(strip_title_source_suffix(it.get("title", "")) or it.get("title", ""))
+            for it in items
+        ]
+    excused = 0
     for rep, members in assigned.items():
         if len(members) > 1:
             best = max(members, key=lambda i: items[i]["_v3_prelim"])
             for m in members:
-                items[m]["_v3_repeat_penalty"] = 1.0 if m == best else dup_penalty
+                if m == best:
+                    items[m]["_v3_repeat_penalty"] = 1.0
+                    continue
+                if _title_overlap(token_sets[best], token_sets[m]) >= dup_min_overlap:
+                    items[m]["_v3_repeat_penalty"] = dup_penalty
+                else:
+                    # 与簇代表的标题字面都不像 -> 判为误聚类，不降权
+                    items[m]["_v3_repeat_penalty"] = 1.0
+                    items[m]["_v3_repeat_excused"] = True
+                    excused += 1
         else:
             items[members[0]]["_v3_repeat_penalty"] = 1.0
+    # 豁免必须报数。否则"护栏生效"与"AI 当天恰好全部聚对"在日志上不可区分，
+    # 又是一次静默——与 09-26 截断可见性、09-29 覆盖率告警同一条纪律。
+    if excused:
+        print(f"[重复惩罚] 赦免 {excused} 条（与簇代表的标题重叠系数 < "
+              f"{dup_min_overlap:.2f}，判定为误聚类，不降权）")
     for item in items:
         item.setdefault("_v3_repeat_penalty", 1.0)
         item["_v3_raw"] = round(
@@ -2089,6 +2214,9 @@ def calculate_heat_v3(items, config, keyword_item_count=None):
             "density_factor": item["_v3_density_factor"],
             "density_note": item["_v3_density_note"],
             "repeat_penalty": item["_v3_repeat_penalty"],
+            # 该条是否因"内容校验不通过"而被豁免重复惩罚（AI 误聚类）
+            # （机器可读值，前端弹窗未列入展示字段；留作数据侧排查与审计用）
+            "repeat_excused": bool(item.get("_v3_repeat_excused", False)),
             "event_size": item["_v3_cluster_size"],
             "event_media_count": item["_v3_cluster_media"],
             # 事件簇来源：ai = AI 语义聚类，token = 标题重叠系数兜底
@@ -2160,7 +2288,8 @@ def calculate_hotness(items, config):
                     "_v3_idf", "_v3_burst", "_v3_burst_k", "_v3_time_factor",
                     "_v3_density_factor", "_v3_density_note", "_v3_base",
                     "_v3_cluster_size", "_v3_cluster_media", "_v3_origin",
-                    "_v3_idf_detail", "_v3_prelim", "_v3_repeat_penalty", "_v3_raw"]:
+                    "_v3_idf_detail", "_v3_prelim", "_v3_repeat_penalty",
+                    "_v3_repeat_excused", "_v3_raw"]:
             item.pop(tmp, None)
         # AI 语义事件聚类的中间字段：信息已折进 score_breakdown 的
         # event_size / event_media_count / event_cluster_source，原始组号不落盘
@@ -8011,9 +8140,18 @@ def main():
               f"类型无法判定 {_recruit_dropped['unknown_type']} 条")
     print()
 
-    # 3. 时间过滤（48小时）
-    print("--- 第三步：时间过滤（最近48小时）---")
-    all_items = filter_by_time(all_items, hours=48)
+    # 3. 时间过滤：日更新闻源 48 小时；学术源用更宽窗口（见 config.time_window）
+    _win_default, _win_academic, _academic_sources = _load_time_window_hours(config)
+    _win_label = f"普通源最近{_win_default:.0f}小时"
+    if _win_academic > _win_default:
+        _win_label += f"，学术源{_win_academic / 24:.0f}天（{len(_academic_sources)}个源）"
+    print(f"--- 第三步：时间过滤（{_win_label}）---")
+    all_items = filter_by_time(
+        all_items,
+        hours=_win_default,
+        academic_hours=_win_academic,
+        academic_sources=_academic_sources,
+    )
     print(f"[统计] 过滤后 {len(all_items)} 条")
     print()
 

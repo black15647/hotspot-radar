@@ -10,6 +10,7 @@
 
 import unittest
 import json
+import math
 import os
 import sys
 import time
@@ -3148,6 +3149,248 @@ class TestRecruitPostingGate(unittest.TestCase):
         self.assertEqual(pool, [])
         self.assertEqual(dropped["not_env"], 1, "该条应死在环境闸门，而不是岗位公告闸门")
         self.assertEqual(dropped["not_posting"], 0)
+
+
+class TestTimeWindowAndFallback(unittest.TestCase):
+    """
+    2026-09-29 改动回归：① 无发布时间条目的兜底年龄 24h → 48h
+                        ② 学术源独立时间窗（默认 7 天），其余源仍 48 小时
+
+    背景一（兜底）：Elsevier 系源（Water Research / Sci Total Environ）的 RSS item
+      不含任何时间字段。旧兜底值 24h 会让这批条目拿到与"恰好 24 小时前"相同的时间
+      因子（0.7442），等于奖励"日期缺失"——实测 Water Research 近 4 天上榜 10 次
+      全部走兜底、占 Top10 的 25%。
+    背景二（窗口）：顶刊周更/月更，48 小时窗下 Nature 48h 内 0 篇、7 天内 75 篇。
+      放宽只影响"能否进候选池"，日更新闻源口径不变。
+    """
+
+    def _mk(self, tag, source, hours_ago=None):
+        it = {"title": tag, "link": "https://example.invalid/" + tag, "source": source}
+        if hours_ago is not None:
+            it["published_dt"] = datetime.now(timezone.utc) - timedelta(hours=hours_ago)
+        return it
+
+    def _age(self, item):
+        return (datetime.now(timezone.utc) - item["published_dt"]).total_seconds() / 3600
+
+    def test_fallback_age_is_48_hours(self):
+        """无发布时间 → 兜底为「两天前」，并打上 _time_fallback 标记"""
+        out = dr.filter_by_time([self._mk("无时间戳", "BBC 科学与环境")], hours=48)
+        self.assertEqual(len(out), 1)
+        self.assertTrue(out[0].get("_time_fallback"))
+        self.assertAlmostEqual(self._age(out[0]), 48, delta=0.5)
+
+    def test_fallback_no_longer_outranks_older_real_items(self):
+        """兜底条目必须比「真实 24 小时前」的条目更老（旧口径下两者相等）"""
+        out = dr.filter_by_time(
+            [self._mk("无时间戳", "BBC 科学与环境"),
+             self._mk("真实24小时前", "BBC 科学与环境", 24)], hours=48)
+        ages = {i["title"]: self._age(i) for i in out}
+        self.assertGreater(ages["无时间戳"], ages["真实24小时前"] + 20)
+
+    def test_fallback_time_factor_is_median_not_high(self):
+        """兜底条目的时间因子应落在 0.589 附近，而不是旧口径的 0.7442"""
+        out = dr.filter_by_time([self._mk("无时间戳", "Water Research")], hours=48)
+        tf = 0.35 + 0.65 * math.exp(-self._age(out[0]) / 48.0)
+        self.assertLess(tf, 0.60)
+        self.assertGreater(tf, 0.58)
+
+    def test_academic_source_gets_wider_window(self):
+        """学术源条目：5 天前应通过 7 天窗"""
+        out = dr.filter_by_time([self._mk("Nature-5天前", "Nature", 120)],
+                                hours=48, academic_hours=168, academic_sources={"Nature"})
+        self.assertEqual(len(out), 1)
+
+    def test_non_academic_source_keeps_48h_window(self):
+        """非学术源条目：5 天前必须被过滤（窗口不能被整体放宽）"""
+        out = dr.filter_by_time([self._mk("新闻-5天前", "Google News 环境保护", 120)],
+                                hours=48, academic_hours=168, academic_sources={"Nature"})
+        self.assertEqual(out, [])
+
+    def test_academic_source_beyond_wider_window_still_filtered(self):
+        """学术源窗口不是无限的：超出 7 天同样要过滤"""
+        out = dr.filter_by_time([self._mk("Nature-8天前", "Nature", 200)],
+                                hours=48, academic_hours=168, academic_sources={"Nature"})
+        self.assertEqual(out, [])
+
+    def test_backward_compatible_without_new_args(self):
+        """不传新参数时，必须完全等价于改动前的单窗口行为（招聘池调用形态）"""
+        out = dr.filter_by_time([self._mk("Nature-5天前", "Nature", 120)], hours=48)
+        self.assertEqual(out, [])
+        out336 = dr.filter_by_time([self._mk("Nature-5天前", "Nature", 120)], hours=336)
+        self.assertEqual(len(out336), 1)
+
+    def test_time_window_config_defaults_when_absent(self):
+        """配置缺失 → 退回 (48, 48, 空集)，即关闭该特性"""
+        d, a, s = dr._load_time_window_hours({})
+        self.assertEqual((d, a), (48.0, 48.0))
+        self.assertEqual(s, set())
+
+    def test_time_window_config_malformed_falls_back(self):
+        """配置格式异常 → 不抛异常，退回默认值"""
+        d, a, s = dr._load_time_window_hours(
+            {"time_window": {"default_hours": "abc", "academic_hours": None,
+                             "academic_sources": None}})
+        self.assertEqual(d, 48.0)
+        self.assertEqual(a, 48.0)
+        self.assertEqual(s, set())
+
+    def test_project_config_academic_sources_match_rss_feeds(self):
+        """
+        项目真实配置的自检：学术源清单里的源名必须全部存在于 rss_feeds。
+
+        这是防静默失效的护栏——源名改一个字（如空格/全半角），该源就会悄悄落回
+        48 小时窗口，不报错、不告警。同时锁定源总数 = 28（已提交计划书的口径）。
+        """
+        cfg = dr.load_config()
+        feeds = set(cfg.get("rss_feeds") or {})
+        _, academic_hours, acc = dr._load_time_window_hours(cfg)
+        self.assertTrue(acc, "academic_sources 不应为空")
+        self.assertEqual(sorted(acc - feeds), [], "学术源清单里有 rss_feeds 中不存在的源名")
+        self.assertGreater(academic_hours, 48, "学术源窗口应宽于默认窗口")
+        self.assertEqual(len(feeds), 28, "源总数变化会影响已提交计划书的口径，需同步更新材料")
+
+
+class TestDuplicatePenaltyGuard(unittest.TestCase):
+    """重复惩罚的「内容校验」护栏（2026-09-29 新增）。
+
+    背景：原实现只看 len(members) > 1 就把非代表条目 ×0.6 —— 等价于完全采信
+    AI 的"这几条是同一事件"判断，没有任何独立校验。而同一份聚类结果在正向侧
+    （共振加分）本来就有约束：它要求簇内确实有 >=2 家不同原始媒体；负向侧
+    却无同等约束，于是 AI 一误并即为纯损失。
+
+    实测依据（7 天 / 181 条榜单条目）：18 条被扣分，逐条人工核对后真重复仅 2 条
+    （误扣率约 78%）；其中 5 条与当天**任何**条目零共同词，却仍被判"同事件"。
+
+    ⚠ 已知局限（不要宣称"修完就准了"）：字面重叠是必要不充分条件。标题模板化时
+      字面重叠极高而语义无关（实测 `中铁水务与甘肃灵台县签订战略合作协议` ↔
+      `中铁水务与商丘水投集团签订战略合作协议` 重叠 0.75，实为两条不同协议），
+      这类误聚字面阈值拦不住，需要语义判据。
+    """
+
+    @classmethod
+    def setUpClass(cls):
+        cls._BASE_CFG = dr.load_config()
+
+    def _cfg(self, **over):
+        cfg = json.loads(json.dumps(self._BASE_CFG))
+        if over:
+            cfg.setdefault("hotness", {}).setdefault("event_cluster", {}).update(over)
+        return cfg
+
+    @staticmethod
+    def _mk(title, source, eid=None):
+        return {
+            "title": title, "source": source, "summary": "",
+            "link": "https://example.com/x",
+            "published_dt": datetime.now(timezone.utc),
+            "_ai_event_id": eid,
+        }
+
+    def _run(self, items, **over):
+        return dr.calculate_heat_v3(list(items), self._cfg(**over))
+
+    @staticmethod
+    def _penalised(out, value=0.6):
+        return [o for o in out if round(o.get("_v3_repeat_penalty", 1.0), 2) == value]
+
+    @staticmethod
+    def _excused(out):
+        return [o for o in out if o.get("_v3_repeat_excused")]
+
+    def test_unrelated_titles_in_same_cluster_are_excused(self):
+        """AI 把两条标题完全无关的条目判为同事件 -> 不该扣分。"""
+        out = self._run([
+            self._mk("A省发布水污染防治条例", "srcA", "E1"),
+            self._mk("B市举办青少年环境监测技能竞赛", "srcB", "E1"),
+        ])
+        self.assertEqual(self._penalised(out), [],
+                         "字面完全无关的簇成员不该被扣分")
+        self.assertEqual(len(self._excused(out)), 1, "应恰好豁免一条（非代表那条）")
+        self.assertEqual(sum(1 for o in out
+                             if (o.get("score_breakdown") or {}).get("repeat_excused") is True),
+                         1, "豁免标记应落盘进 score_breakdown，便于事后统计与审计")
+
+    def test_real_duplicate_still_penalised(self):
+        """标题同题转载（真重复）-> 照旧 ×0.6。"""
+        out = self._run([
+            self._mk("A省发布水污染防治条例", "srcA", "E2"),
+            self._mk("A省发布水污染防治条例", "srcB", "E2"),
+        ])
+        self.assertEqual(len(self._penalised(out)), 1, "真重复应照旧扣分")
+        self.assertEqual(self._excused(out), [], "真重复不该被豁免")
+
+    def test_token_cluster_path_unchanged(self):
+        """token 重叠聚类路径下成员与代表的重叠必然 >= 聚类阈值 -> 护栏永不触发。
+
+        这是零回归的关键断言：护栏若在该路径触发，说明判据口径不一致。
+        """
+        out = self._run([
+            self._mk("A省发布水污染防治条例全文", "srcA"),
+            self._mk("A省发布水污染防治条例", "srcB"),
+        ])
+        self.assertEqual(len(self._penalised(out)), 1, "token 路径应照旧扣分")
+        self.assertEqual(self._excused(out), [],
+                         "token 路径不该触发豁免（否则是回归）")
+
+    def test_threshold_is_configurable_and_effective(self):
+        """同一对标题（重叠约 0.67），仅改阈值 -> 结论相反，证明阈值真的在起作用。"""
+        a = "alaska rusting waters acidic mine drainage"
+        b = "alaska rusting waters acidic sediment study"
+        ov = dr._title_overlap(dr._title_token_set(a), dr._title_token_set(b))
+        self.assertTrue(0.3 < ov < 0.9, "构造前提不成立，实测重叠 %.3f" % ov)
+        hi = self._run([self._mk(a, "s1", "E1"), self._mk(b, "s2", "E1")],
+                       duplicate_penalty_min_overlap=0.9)
+        lo = self._run([self._mk(a, "s1", "E1"), self._mk(b, "s2", "E1")],
+                       duplicate_penalty_min_overlap=0.5)
+        self.assertEqual(self._penalised(hi), [], "阈值 0.9 时应全部豁免")
+        self.assertTrue(self._excused(hi), "阈值 0.9 时应有一条被标记豁免")
+        self.assertEqual(len(self._penalised(lo)), 1, "阈值 0.5 时应照旧扣分")
+
+    def test_threshold_zero_restores_legacy_behaviour(self):
+        """阈值配成 0 = 完全采信 AI（旧行为），便于对比与一键回滚。"""
+        out = self._run([
+            self._mk("A省发布水污染防治条例", "srcA", "E1"),
+            self._mk("B市举办青少年环境监测技能竞赛", "srcB", "E1"),
+        ], duplicate_penalty_min_overlap=0)
+        self.assertEqual(len(self._penalised(out)), 1)
+        self.assertEqual(self._excused(out), [])
+
+    def test_threshold_clamped_into_range(self):
+        """阈值越界必须被钳制到 [0,1]，不得静默失效（配置笔误不得让机制消失）。"""
+        def pair():
+            return [self._mk("A省发布水污染防治条例", "srcA", "E1"),
+                    self._mk("B市举办青少年环境监测技能竞赛", "srcB", "E1")]
+        hi = self._run(pair(), duplicate_penalty_min_overlap=5)
+        lo = self._run(pair(), duplicate_penalty_min_overlap=-3)
+        self.assertEqual(self._penalised(hi), [], "阈值 5 应被钳到 1.0 -> 全豁免")
+        self.assertEqual(len(self._penalised(lo)), 1,
+                         "阈值 -3 应被钳到 0.0 -> 全扣")
+
+    def test_singleton_cluster_unaffected(self):
+        """单条簇不受影响。"""
+        out = self._run([
+            self._mk("A省发布水污染防治条例", "srcA", "E1"),
+            self._mk("B市举办青少年环境监测技能竞赛", "srcB", "E1"),
+            self._mk("D市启动城市湿地修复工程", "srcE"),
+        ])
+        solo = [o for o in out if o["title"].startswith("D市")]
+        self.assertEqual(len(solo), 1)
+        self.assertEqual(round(solo[0].get("_v3_repeat_penalty", 1.0), 2), 1.0)
+        self.assertFalse(solo[0].get("_v3_repeat_excused", False))
+
+    def test_excused_count_is_logged(self):
+        """豁免必须打印条数。否则"护栏生效"与"AI 恰好全部聚对"在日志上不可区分。"""
+        import io
+        import contextlib
+        buf = io.StringIO()
+        with contextlib.redirect_stdout(buf):
+            self._run([
+                self._mk("A省发布水污染防治条例", "srcA", "E1"),
+                self._mk("B市举办青少年环境监测技能竞赛", "srcB", "E1"),
+            ])
+        self.assertIn("赦免", buf.getvalue(),
+                      "豁免了条目却没有日志 —— 静默失效，无法事后核验")
 
 
 if __name__ == "__main__":

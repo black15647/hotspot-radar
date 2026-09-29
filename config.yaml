@@ -207,6 +207,40 @@ content_density:
   max_boilerplate: -1
 
 
+# ---------- 可选：时间窗配置（2026-09-29 新增）----------
+# 为什么需要它：顶刊是周更/月更，48 小时窗对它们近乎"永久不可见"。
+# 实测（2026-09-29）：
+#   Nature                   48h 内 0 篇   →  7 天内 75 篇
+#   Environmental Research Letters         →  7 天内 10 条
+#   ScienceDaily 环境科学     48h 内 2 条   →  7 天内 10 条
+#   Nature Sustainability                  →  7 天内 4 条
+# 所以给学术源单独放宽窗口 —— **日更的新闻/媒体源仍保持 48 小时**，产品定位不变。
+#
+# 重要：放宽窗口只解决"能不能进候选池"。7 天前的条目时间因子仍会被衰减压到
+#   约 0.37（当日新闻约 0.74），所以顶刊不会因此霸榜，只是有了出场机会。
+#   把 academic_hours 设成与 default_hours 相同 = 关闭该特性，退回全局单窗口。
+#
+# 另注：无发布时间条目的兜底年龄由代码常量 PUBLISHED_TIME_FALLBACK_HOURS 控制
+#   （daily_report.py，当前 48 小时），不在此处配置。
+time_window:
+  default_hours: 48
+  academic_hours: 168          # 7 天
+  # 命中此清单的源使用 academic_hours。新增学术源后记得在这里补一行，
+  # 否则该源会悄悄落回 default_hours（与 source_weights 同款机制：写了就以此为准）。
+  academic_sources:
+    - "Nature"
+    - "Nature Sustainability"
+    - "Science"
+    - "PNAS 环境科学"
+    - "Environmental Research Letters"
+    - "Water Research"
+    - "ScienceDaily 环境科学"
+    - "arXiv Environmental Engineering"
+    - "IISD SDG"
+    - "Berkeley Earth"
+    - "Adaptation Fund"
+
+
 # ---------- 可选：热度算法参数（v3.0）----------
 # 热度 = 四个加性维度之和 × 时间衰减 × 信息密度 × 重复惩罚，再标定到 40-100 展示分。
 # 四个维度各自独立、可解释：
@@ -234,6 +268,15 @@ hotness:
     # 实测同一事件的两条标题：Jaccard 0.25（被旧阈值 0.45 漏判）/ overlap 0.60（命中）。
     overlap_threshold: 0.50
     duplicate_penalty: 0.60   # 同一事件中非代表条目的降权系数
+    # 施罚前的「内容校验」阈值（2026-09-29 新增）：非代表条目与簇代表的标题
+    # 重叠系数低于此值时判为 AI 误聚类，**不降权**。
+    #   设 0 = 完全采信 AI（即改动前的旧行为，便于对比与一键回滚）。
+    # 实测依据（7 天 181 条榜单条目）：18 条被扣分中逐条人工核对真重复仅 2 条
+    #   （误扣率约 78%），其中 5 条与当天任何条目零共同词。取 0.30 可赦免 12 条
+    #   且**保住那 2 条真重复**；调高到 0.40/0.50 会开始误赦真重复（赦免 15 条）。
+    # ⚠ 局限：字面重叠是必要不充分条件。标题模板化时（如"XX与YY签订战略合作协议"）
+    #   字面重叠可达 0.75 而语义无关，本阈值拦不住 —— 那需要语义判据。
+    duplicate_penalty_min_overlap: 0.30
   display:
     # absolute（默认）：40 + 60*(1-exp(-raw/k))
     #   同一个 raw 在任何一天都得到同一个分 → 热度分可跨日比较；
@@ -307,3 +350,11 @@ translation_api:
 # ---------- 可选：抓取数量限制 ----------
 # max_items_per_source: 5   # 每个源最大抓取条数（冷启动时自动设为 10）
 # max_total_items: 50        # 总条目上限
+#
+# 招聘类源的**单独条数上限**（键名里含"招聘/就业/实习/校招/人才"的源）。
+# 为什么需要它：这些源是 Google News 的关键词查询，返回的是"提到过环境/招聘"的
+# 普通新闻，命中率很低（实测把 131 条全喂进筛岗闸门只能过 19 条）。沿用主流程的
+# 5 条时，14 天窗口后只剩 7 条候选，两道闸门后剩 0 条 —— 就业窗口长期空着。
+# 调大**不会**污染每日热点：超出的条目会被摘出来，只喂招聘候选池。
+# 设成与 max_items_per_source 相同即等于关闭该特性。
+recruit_max_items_per_source: 30

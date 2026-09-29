@@ -11,6 +11,10 @@
 这里把这些约束固化成可执行检查，在 CI 里每次运行后跑一遍：
 坏数据在提交之前就被拦住，而不是等评委点开首页。
 
+知识库（glossary.json）后来也纳入受管范围：它是条目数最多的手工维护文件，
+且每条解释都应当可核查，所以除结构校验外还额外检查「依据(source)」字段
+的合法性与标注覆盖率。
+
 用法
 ----
     python validate_data.py            # 校验 docs/data 下全部受管数据文件
@@ -339,6 +343,129 @@ def check_recruit(data, f="recruit.json"):
             sum(1 for x in items if x.get("type") == "社招")))
 
 
+# ------------------------------------------------------------
+# glossary.json（知识库，手工维护）
+# ------------------------------------------------------------
+def check_glossary(data, f="glossary.json"):
+    """知识库词条：term / definition / category 必填，source（依据）可选但一经填写必须可用。
+
+    source 是「这条解释的出处」——新增词条一律要求标注，老词条允许暂缺，
+    所以这里做的是「有则必须合法 + 覆盖率护栏」，而不是硬性全量必填。
+    """
+    if data is None:
+        return
+    if not isinstance(data, list) or not data:
+        err(f, "$", "顶层应为非空数组")
+        return
+    seen = set()
+    with_source = 0
+    for i, g in enumerate(data):
+        p = "$[%d]" % i
+        if not need_dict(f, g, p, ["term", "definition", "category"], opt_keys=["source"]):
+            continue
+        need_str(f, g, p, ["term", "definition", "category"])
+        need_str(f, g, p, ["source"], allow_empty=("source",))
+
+        term = g.get("term")
+        if isinstance(term, str):
+            if term in seen:
+                err(f, p + ".term", "词条名重复: %r" % term)
+            seen.add(term)
+
+        src = g.get("source")
+        if isinstance(src, str) and src.strip():
+            with_source += 1
+
+        definition = g.get("definition")
+        if isinstance(definition, str) and 0 < len(definition.strip()) < 10:
+            warn(f, p + ".definition", "释义过短（%d 字），可能没有解释清楚" % len(definition.strip()))
+
+    info(f, "词条 %d 条 / 其中 %d 条标注了依据(source)" % (len(data), with_source))
+    if with_source * 100 < len(data) * 30:
+        warn(f, "$", "仅有 %d/%d 条标注了依据(source)，低于 30%%。"
+                     "新增词条应注明可核查的来源或依据。" % (with_source, len(data)))
+
+
+# ------------------------------------------------------------
+# timeline_backfill.json（历史快照分类回填，手工维护、流水线只读）
+# ------------------------------------------------------------
+# 权威大类定义在 daily_report.CATEGORY_ORDER；本文件不 import 那个模块（会拉起
+# feedparser 等重依赖），所以这里留一份副本，且**漂移只告警不报错**。
+TIMELINE_CATEGORIES = {
+    "气候变化", "污染治理", "生态环境", "环境政策", "能源与碳中和",
+    "水处理", "科研学术", "环境健康", "其他",
+}
+
+
+def check_timeline_backfill(data, f="timeline_backfill.json"):
+    """历史快照分类回填表。
+
+    背景：每日快照的 items 只存 Top10 明细，旧快照因此没有"当日全量分类聚合"，
+    近30天时间线合计仅为真实发布量的约 1/3。本表用**各日输出提交里的
+    docs/data/latest.json**（当日全部入选条目）离线聚合出 category_stats 补上这一块。
+    这里只能校验结构与自洽性——数值本身来自产出提交，无法在此二次核验。
+    """
+    if data is None:
+        info(f, "回填表不存在（可选）：近30天时间线对旧日期将回退为 Top10 明细口径")
+        return
+    if not isinstance(data, dict):
+        err(f, "$", "顶层应为对象（含 days 字段）")
+        return
+    days = data.get("days")
+    if not isinstance(days, dict) or not days:
+        err(f, "$.days", "应为非空对象，键为 YYYY-MM-DD")
+        return
+
+    bad_names = set()
+    ok_days = 0
+    for day, rec in sorted(days.items()):
+        p = "$.days.%s" % day
+        if not re.match(r"^\d{4}-\d{2}-\d{2}$", day):
+            err(f, p, "键应为 YYYY-MM-DD 格式的日期")
+            continue
+        if not isinstance(rec, dict):
+            err(f, p, "应为对象，实际是 %s" % type(rec).__name__)
+            continue
+        missing = [k for k in ("total_items", "category_stats") if k not in rec]
+        if missing:
+            err(f, p, "缺少必填字段：%s" % "、".join(missing))
+            continue
+        total_items = rec.get("total_items")
+        if isinstance(total_items, bool) or not isinstance(total_items, int) or total_items <= 0:
+            err(f, p + ".total_items", "应为正整数，实际 %r" % (total_items,))
+            continue
+        cs = rec.get("category_stats")
+        if not isinstance(cs, dict) or not cs:
+            err(f, p + ".category_stats", "应为非空对象（大类 -> {count, total_heat}）")
+            continue
+        total = 0
+        for cat, ent in cs.items():
+            cp = p + ".category_stats." + cat
+            if cat not in TIMELINE_CATEGORIES:
+                bad_names.add(cat)
+            if not need_dict(f, ent, cp, ["count", "total_heat"]):
+                continue
+            cnt = ent.get("count")
+            if isinstance(cnt, bool) or not isinstance(cnt, int) or cnt <= 0:
+                err(f, cp + ".count", "应为正整数，实际 %r" % (cnt,))
+                continue
+            heat = ent.get("total_heat")
+            if isinstance(heat, bool) or not isinstance(heat, (int, float)) or heat < 0:
+                err(f, cp + ".total_heat", "应为非负数，实际 %r" % (heat,))
+            total += cnt
+        # 唯一的自洽护栏：分类合计必须等于当日总数，否则说明聚合写错了
+        if total and total != total_items:
+            err(f, p, "分类合计 %d 与 total_items %d 不一致" % (total, total_items))
+        else:
+            ok_days += 1
+
+    if bad_names:
+        warn(f, "$.days", "出现未知领域大类：%s（权威定义见 daily_report.CATEGORY_ORDER）"
+                          % "、".join(sorted(bad_names)))
+    info(f, "回填日期 %d 天（%s ~ %s），自洽 %d 天"
+            % (len(days), min(days), max(days), ok_days))
+
+
 def main():
     ap = argparse.ArgumentParser(description="校验 docs/data 下的受管数据文件")
     ap.add_argument("--data-dir", default=os.path.join(
@@ -349,7 +476,9 @@ def main():
     check_schools(load(d, "schools.json", True))
     check_careers(load(d, "careers.json", True))
     check_jobs(load(d, "jobs.json", True))
+    check_glossary(load(d, "glossary.json", True))
     check_recruit(load(d, "recruit.json", False))
+    check_timeline_backfill(load(d, "timeline_backfill.json", False))
 
     print("=" * 60)
     print("数据文件结构校验 · %s" % d)

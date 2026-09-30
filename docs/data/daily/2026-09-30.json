@@ -1,0 +1,570 @@
+{
+  "report_date": "2026-09-30",
+  "site_name": "环境学子雷达",
+  "total_items": 41,
+  "snapshot_items": 10,
+  "category_stats": {
+    "生态环境": {
+      "count": 8,
+      "total_heat": 650.7
+    },
+    "环境政策": {
+      "count": 9,
+      "total_heat": 714.6
+    },
+    "能源与碳中和": {
+      "count": 1,
+      "total_heat": 88.1
+    },
+    "污染治理": {
+      "count": 2,
+      "total_heat": 168.1
+    },
+    "气候变化": {
+      "count": 9,
+      "total_heat": 666.8
+    },
+    "科研学术": {
+      "count": 2,
+      "total_heat": 136.6
+    },
+    "其他": {
+      "count": 6,
+      "total_heat": 418.8
+    },
+    "水处理": {
+      "count": 3,
+      "total_heat": 197.3
+    },
+    "环境健康": {
+      "count": 1,
+      "total_heat": 62.1
+    }
+  },
+  "total_sources": 28,
+  "success_sources": 27,
+  "failed_sources": 1,
+  "week_total_items": 211,
+  "week_new_keywords": 93,
+  "policy_ratio": 12.8,
+  "items": [
+    {
+      "title": "生态环境部部长黄润秋会见中国环境与发展国际合作委员会外方执行副主席、加拿大环境与气候变化部部长达布鲁辛 - ideacarbon.org",
+      "title_en": "",
+      "title_zh": "",
+      "link": "https://news.google.com/rss/articles/CBMiXkFVX3lxTE42V0kzNkxWdWJmaXAyRDlpU3lVWWUtd0FrQ19Ucll0b0xPdGk2dTQzclRwZ0d3c3ctTzU2bEFhZzc0ZUVQOXpteWpETU9tbFVrYnowSFlJR3dER0ExZ1E?oc=5",
+      "source": "Google News 环境保护",
+      "published": "2026-09-30T00:09:00+00:00",
+      "hotness": 90.7,
+      "score_v1": 47.02,
+      "score_v2": 90.7,
+      "score_breakdown": {
+        "algorithm": "v3.0",
+        "dimension_max": {
+          "authority": 18.0,
+          "topic": 18.0,
+          "resonance": 18.0,
+          "information": 16.0
+        },
+        "authority_score": 8.05,
+        "keyword_idf_score": 8.15,
+        "topic_score": 13.97,
+        "topic_burst_score": 5.82,
+        "topic_burst_count": 8,
+        "resonance_score": 16.75,
+        "info_score": 4.0,
+        "base": 42.77,
+        "base_max": 70.0,
+        "time_factor": 0.8708,
+        "density_factor": 1.0,
+        "density_note": "",
+        "repeat_penalty": 1.0,
+        "repeat_excused": false,
+        "event_size": 5,
+        "event_media_count": 5,
+        "event_cluster_source": "ai",
+        "origin_source": "ideacarbon.org",
+        "raw": 37.25,
+        "display_score": 90.7,
+        "display_mode": "absolute"
+      },
+      "summary": "生态环境部部长黄润秋会见加拿大环境与气候变化部部长达布鲁辛，双方就环境国际合作与发展议题进行交流。",
+      "analysis": "",
+      "topic_tags": [
+        "生态环境部"
+      ],
+      "category": "生态环境",
+      "matched_keywords": [
+        "气候变化",
+        "生态环境"
+      ]
+    },
+    {
+      "title": "第三轮第六批中央生态环境保护督察完成督察反馈工作 - 新京报",
+      "title_en": "",
+      "title_zh": "",
+      "link": "https://news.google.com/rss/articles/CBMiZEFVX3lxTE5oXzRtVWxuRmlENlNTOS1MVWNmcnRiaTN5TE9CV3JzTGtIVjJnaTZVSExYbmp3SjB3a1JweTQ1U3ZzVTVwU1NhZU1YTjNQdVdnd21uYmJNbnBGZWRjYnFPbTJPTEQ?oc=5",
+      "source": "Google News 环境保护",
+      "published": "2026-09-29T07:34:00+00:00",
+      "hotness": 88.8,
+      "score_v1": 47.82,
+      "score_v2": 88.8,
+      "score_breakdown": {
+        "algorithm": "v3.0",
+        "dimension_max": {
+          "authority": 18.0,
+          "topic": 18.0,
+          "resonance": 18.0,
+          "information": 16.0
+        },
+        "authority_score": 8.05,
+        "keyword_idf_score": 11.19,
+        "topic_score": 17.01,
+        "topic_burst_score": 5.82,
+        "topic_burst_count": 8,
+        "resonance_score": 16.75,
+        "info_score": 5.0,
+        "base": 46.81,
+        "base_max": 70.0,
+        "time_factor": 0.7187,
+        "density_factor": 1.0,
+        "density_note": "",
+        "repeat_penalty": 1.0,
+        "repeat_excused": true,
+        "event_size": 5,
+        "event_media_count": 5,
+        "event_cluster_source": "ai",
+        "origin_source": "新京报",
+        "raw": 33.64,
+        "display_score": 88.8,
+        "display_mode": "absolute"
+      },
+      "summary": "第三轮第六批中央生态环境保护督察完成督察反馈工作，督察组向被督察地区反馈督察意见与整改情况。",
+      "analysis": "",
+      "topic_tags": [
+        "中央生态环境保护督察",
+        "督察反馈"
+      ],
+      "category": "环境政策",
+      "matched_keywords": [
+        "生态环境",
+        "环境保护",
+        "督察"
+      ]
+    },
+    {
+      "title": "第三轮第六批中央生态环境保护督察组完成督察反馈工作 - chinanews.com.cn",
+      "title_en": "",
+      "title_zh": "",
+      "link": "https://news.google.com/rss/articles/CBMiaEFVX3lxTFB2dkdIeHVvZ2dxdmdiQlNkanktaEVoV0Jhc0ptYlF2VVVTM0FIeHVtWkdRSUl3WjVuMzNtTWZYWmhtSGVzVjdRS1IyN1hKaHNXUnRUem5qdlNsN2JRUkk0bHA4SkNHMnRD?oc=5",
+      "source": "Google News 环境保护",
+      "published": "2026-09-29T07:35:24+00:00",
+      "hotness": 88.8,
+      "score_v1": 47.82,
+      "score_v2": 88.8,
+      "score_breakdown": {
+        "algorithm": "v3.0",
+        "dimension_max": {
+          "authority": 18.0,
+          "topic": 18.0,
+          "resonance": 18.0,
+          "information": 16.0
+        },
+        "authority_score": 8.05,
+        "keyword_idf_score": 11.19,
+        "topic_score": 17.01,
+        "topic_burst_score": 5.82,
+        "topic_burst_count": 8,
+        "resonance_score": 16.75,
+        "info_score": 5.0,
+        "base": 46.81,
+        "base_max": 70.0,
+        "time_factor": 0.7189,
+        "density_factor": 1.0,
+        "density_note": "",
+        "repeat_penalty": 1.0,
+        "repeat_excused": true,
+        "event_size": 5,
+        "event_media_count": 5,
+        "event_cluster_source": "ai",
+        "origin_source": "chinanews.com.cn",
+        "raw": 33.65,
+        "display_score": 88.8,
+        "display_mode": "absolute"
+      },
+      "summary": "第三轮第六批中央生态环境保护督察组完成督察反馈工作，向被督察地区反馈督察意见并督促整改落实。",
+      "analysis": "",
+      "topic_tags": [
+        "中央生态环境保护督察"
+      ],
+      "category": "环境政策",
+      "matched_keywords": [
+        "生态环境",
+        "环境保护",
+        "督察"
+      ]
+    },
+    {
+      "title": "Navigating the land–energy nexus for carbon-neutral power systems in China",
+      "title_en": "Navigating the land–energy nexus for carbon-neutral power systems in China",
+      "title_zh": "探索中国碳中和电力系统的“土地-能源”关联",
+      "link": "https://www.nature.com/articles/s41893-026-01941-5",
+      "source": "Nature Sustainability",
+      "published": "2026-09-30T00:00:00+00:00",
+      "hotness": 88.1,
+      "score_v1": 35.38,
+      "score_v2": 88.1,
+      "score_breakdown": {
+        "algorithm": "v3.0",
+        "dimension_max": {
+          "authority": 18.0,
+          "topic": 18.0,
+          "resonance": 18.0,
+          "information": 16.0
+        },
+        "authority_score": 18.0,
+        "keyword_idf_score": 11.56,
+        "topic_score": 16.22,
+        "topic_burst_score": 4.66,
+        "topic_burst_count": 4,
+        "resonance_score": 0.0,
+        "info_score": 3.0,
+        "base": 37.22,
+        "base_max": 70.0,
+        "time_factor": 0.8692,
+        "density_factor": 1.0,
+        "density_note": "",
+        "repeat_penalty": 1.0,
+        "repeat_excused": false,
+        "event_size": 1,
+        "event_media_count": 1,
+        "event_cluster_source": "ai",
+        "origin_source": "Nature Sustainability",
+        "raw": 32.35,
+        "display_score": 88.1,
+        "display_mode": "absolute"
+      },
+      "summary": "《自然·可持续性》（Nature Sustainability），。随着各国扩大可再生能源规模以实现净零排放，寻找合适的土地正变得越来越具有挑战性。 一项覆盖全中国的最新优化研究表明，土地限制正导致可再生能源开发方向发生转变，增加输电需求，并使2060年的系统成本最高上升4.1%。",
+      "analysis": "",
+      "topic_tags": [
+        "可再生能源",
+        "碳中和"
+      ],
+      "category": "能源与碳中和",
+      "matched_keywords": [
+        "碳中和",
+        "可再生能源",
+        "可持续发展"
+      ]
+    },
+    {
+      "title": "水污染控制与资源绿色循环全国重点实验室开工，全球环境与可持续发展大会永久会址落户方厅水院 - gzw.sh.gov.cn",
+      "title_en": "",
+      "title_zh": "",
+      "link": "https://news.google.com/rss/articles/CBMikgFBVV95cUxNSi1tMlJFbEtJRE1aNVhqbmYyX0tOQ3Zsak5WM2Rlc0c1blNNTkh4WTd6Wk5Jbng4RmViS3dxNGx4X1pFY1BEZVJwVEJUSld3eTJNV1BRNi16U2RqMV9FVWZDQ3NEZkpIRUFyNmRYTWJzU2xRQjB0VElwUXlfSjJibnV4alExUldISWY2MVVZbUdNUQ?oc=5",
+      "source": "Google News 环境污染",
+      "published": "2026-09-30T01:32:01+00:00",
+      "hotness": 84.7,
+      "score_v1": 29.4,
+      "score_v2": 84.7,
+      "score_breakdown": {
+        "algorithm": "v3.0",
+        "dimension_max": {
+          "authority": 18.0,
+          "topic": 18.0,
+          "resonance": 18.0,
+          "information": 16.0
+        },
+        "authority_score": 8.05,
+        "keyword_idf_score": 10.17,
+        "topic_score": 14.83,
+        "topic_burst_score": 4.66,
+        "topic_burst_count": 4,
+        "resonance_score": 0.0,
+        "info_score": 8.0,
+        "base": 30.88,
+        "base_max": 70.0,
+        "time_factor": 0.8861,
+        "density_factor": 1.0,
+        "density_note": "",
+        "repeat_penalty": 1.0,
+        "repeat_excused": false,
+        "event_size": 1,
+        "event_media_count": 1,
+        "event_cluster_source": "ai",
+        "origin_source": "gzw.sh.gov.cn",
+        "raw": 27.36,
+        "display_score": 84.7,
+        "display_mode": "absolute"
+      },
+      "summary": "水污染控制与资源绿色循环全国重点实验室开工，全球环境与可持续发展大会永久会址落户方厅水院。",
+      "analysis": "",
+      "topic_tags": [
+        "水污染控制",
+        "资源绿色循环",
+        "全国重点实验室"
+      ],
+      "category": "污染治理",
+      "matched_keywords": [
+        "水污染",
+        "可持续发展"
+      ]
+    },
+    {
+      "title": "Restoration-driven positive and negative leakage in sub-Saharan Africa",
+      "title_en": "Restoration-driven positive and negative leakage in sub-Saharan Africa",
+      "title_zh": "撒哈拉以南非洲地区由生态修复驱动的正向和负向物质迁移",
+      "link": "https://www.nature.com/articles/s41893-026-01936-2",
+      "source": "Nature Sustainability",
+      "published": "2026-09-30T00:00:00+00:00",
+      "hotness": 84.6,
+      "score_v1": 25.38,
+      "score_v2": 84.6,
+      "score_breakdown": {
+        "algorithm": "v3.0",
+        "dimension_max": {
+          "authority": 18.0,
+          "topic": 18.0,
+          "resonance": 18.0,
+          "information": 16.0
+        },
+        "authority_score": 18.0,
+        "keyword_idf_score": 10.3,
+        "topic_score": 10.3,
+        "topic_burst_score": 0.0,
+        "topic_burst_count": 1,
+        "resonance_score": 0.0,
+        "info_score": 3.0,
+        "base": 31.3,
+        "base_max": 70.0,
+        "time_factor": 0.8692,
+        "density_factor": 1.0,
+        "density_note": "",
+        "repeat_penalty": 1.0,
+        "repeat_excused": false,
+        "event_size": 1,
+        "event_media_count": 1,
+        "event_cluster_source": "ai",
+        "origin_source": "Nature Sustainability",
+        "raw": 27.21,
+        "display_score": 84.6,
+        "display_mode": "absolute"
+      },
+      "summary": "《自然·可持续性》， 生态修复举措对于推进气候和生物多样性政策目标至关重要；然而，这些举措是否会导致树木损失向其他地区转移（泄漏效应）仍不明确。 本研究考察了撒哈拉以南非洲地区生态恢复项目产生的“泄漏”影响。",
+      "analysis": "",
+      "topic_tags": [
+        "生态修复"
+      ],
+      "category": "生态环境",
+      "matched_keywords": [
+        "生态修复",
+        "生物多样性"
+      ]
+    },
+    {
+      "title": "The super El Niño is cooking coral reefs — can lullabies and probiotics save them?",
+      "title_en": "The super El Niño is cooking coral reefs — can lullabies and probiotics save them?",
+      "title_zh": "“超级厄尔尼诺”正在灼伤珊瑚礁——摇篮曲和益生菌能拯救它们吗？",
+      "link": "https://www.nature.com/articles/d41586-026-02965-9",
+      "source": "Nature",
+      "published": "2026-09-30T00:00:00+00:00",
+      "hotness": 83.8,
+      "score_v1": 31.38,
+      "score_v2": 83.8,
+      "score_breakdown": {
+        "algorithm": "v3.0",
+        "dimension_max": {
+          "authority": 18.0,
+          "topic": 18.0,
+          "resonance": 18.0,
+          "information": 16.0
+        },
+        "authority_score": 18.0,
+        "keyword_idf_score": 3.55,
+        "topic_score": 9.06,
+        "topic_burst_score": 5.51,
+        "topic_burst_count": 6,
+        "resonance_score": 0.0,
+        "info_score": 3.0,
+        "base": 30.06,
+        "base_max": 70.0,
+        "time_factor": 0.8692,
+        "density_factor": 1.0,
+        "density_note": "",
+        "repeat_penalty": 1.0,
+        "repeat_excused": false,
+        "event_size": 1,
+        "event_media_count": 1,
+        "event_cluster_source": "ai",
+        "origin_source": "Nature",
+        "raw": 26.13,
+        "display_score": 83.8,
+        "display_mode": "absolute"
+      },
+      "summary": "《自然》杂志， 研究人员正在竭尽所能帮助珊瑚礁抵御气候变化带来的严重热应激，其中包括在水下播放声音。",
+      "analysis": "",
+      "topic_tags": [
+        "气候变化"
+      ],
+      "category": "气候变化",
+      "matched_keywords": [
+        "气候变化"
+      ]
+    },
+    {
+      "title": "Spatially heterogeneous pathways linking atmospheric dryness to deep soil moisture",
+      "title_en": "Spatially heterogeneous pathways linking atmospheric dryness to deep soil moisture",
+      "title_zh": "将大气干湿度与深层土壤水分联系起来的空间异质性路径",
+      "link": "https://iopscience.iop.org/article/10.1088/1748-9326/aeabbe",
+      "source": "Environmental Research Letters",
+      "published": "2026-09-29T23:00:00+00:00",
+      "hotness": 83.4,
+      "score_v1": 23.12,
+      "score_v2": 83.4,
+      "score_breakdown": {
+        "algorithm": "v3.0",
+        "dimension_max": {
+          "authority": 18.0,
+          "topic": 18.0,
+          "resonance": 18.0,
+          "information": 16.0
+        },
+        "authority_score": 18.0,
+        "keyword_idf_score": 6.54,
+        "topic_score": 8.9,
+        "topic_burst_score": 2.36,
+        "topic_burst_count": 2,
+        "resonance_score": 0.0,
+        "info_score": 3.0,
+        "base": 29.9,
+        "base_max": 70.0,
+        "time_factor": 0.8585,
+        "density_factor": 1.0,
+        "density_note": "",
+        "repeat_penalty": 1.0,
+        "repeat_excused": false,
+        "event_size": 1,
+        "event_media_count": 1,
+        "event_cluster_source": "ai",
+        "origin_source": "Environmental Research Letters",
+        "raw": 25.67,
+        "display_score": 83.4,
+        "display_mode": "absolute"
+      },
+      "summary": "在全球变暖背景下，大气水蒸气压缺口（VPD）有所加剧，但其对各深度土壤含水量的影响尚不明确。 我们利用过去几十年间的多套全球月度土壤含水量数据集，结合成对和条件格朗杰因果分析，厘清了VPD与表层（0–28厘米，表层土壤含水量（SSM））及深层（28–100厘米，深层土壤含水量（DSM））土壤含水量之间的关联路径。 我们发现，VPD 对 SSM 和 DSM 均存在广泛的统计性方向性依赖关系，而土壤水分对 VPD 的反向关系则相对较弱。 在全球陆地范围内，我们发现了显著的 VPD–DSM 关系，这些关系在对 SSM 进行条件控制后仍然存在，此处称为“SSM 独立路径”，主要集中于北半球中纬度至高纬度地区，并在大多数森林和稀树草原生态系统中占主导地位。 具有SSM独立路径的区域，其植被绿度和蒸散量均显著高于邻近的SSM介导区域。我们的研究结果揭示了陆地-大气耦合的空间异质性模式，并表明植被介导的水利用在将VPD与DSM变异性联系起来方面发挥着重要作用。",
+      "analysis": "",
+      "topic_tags": [
+        "大气水蒸气压缺口",
+        "深层土壤含水量",
+        "全球月度土壤含水量数据集"
+      ],
+      "category": "污染治理",
+      "matched_keywords": [
+        "生态系统"
+      ]
+    },
+    {
+      "title": "江文高主持召开全区生态环境保护工作推进会 - 大江网",
+      "title_en": "",
+      "title_zh": "",
+      "link": "https://news.google.com/rss/articles/CBMibEFVX3lxTE1waHNCYWFVaXBHTHFXa0dRenZXV0dWc3ZrRFU1UkotVDIxS3hwTlpUb2l6blQwOGkwazVTRXBpcXBmQXNZd1FraWdHRE5fN3ZuS0xGajBGbmtqblNHR0J3TGZzMUw2c3NPbTFTRg?oc=5",
+      "source": "Google News 环境保护",
+      "published": "2026-09-30T07:53:00+00:00",
+      "hotness": 82.9,
+      "score_v1": 47.46,
+      "score_v2": 82.9,
+      "score_breakdown": {
+        "algorithm": "v3.0",
+        "dimension_max": {
+          "authority": 18.0,
+          "topic": 18.0,
+          "resonance": 18.0,
+          "information": 16.0
+        },
+        "authority_score": 8.05,
+        "keyword_idf_score": 9.6,
+        "topic_score": 15.42,
+        "topic_burst_score": 5.82,
+        "topic_burst_count": 8,
+        "resonance_score": 16.75,
+        "info_score": 0.0,
+        "base": 40.22,
+        "base_max": 70.0,
+        "time_factor": 0.9619,
+        "density_factor": 0.65,
+        "density_note": "地方政务通稿",
+        "repeat_penalty": 1.0,
+        "repeat_excused": true,
+        "event_size": 5,
+        "event_media_count": 5,
+        "event_cluster_source": "ai",
+        "origin_source": "大江网",
+        "raw": 25.14,
+        "display_score": 82.9,
+        "display_mode": "absolute"
+      },
+      "summary": "江文高主持召开全区生态环境保护工作推进会，部署全区生态环境保护重点任务与措施。",
+      "analysis": "",
+      "topic_tags": [
+        "全区生态环境保护工作推进会",
+        "生态环境保护重点任务",
+        "生态环境保护措施"
+      ],
+      "category": "生态环境",
+      "matched_keywords": [
+        "生态环境",
+        "环境保护"
+      ]
+    },
+    {
+      "title": "关于2026年第17批新化学物质环境管理简易登记证申请审查情况的公示 - 中华人民共和国生态环境部",
+      "title_en": "",
+      "title_zh": "",
+      "link": "https://news.google.com/rss/articles/CBMiiwFBVV95cUxPTEVWWjdFUlgwaVg1RGI1WWJPOS1ESk5tTXFEUWprYmExS3hCcHF4NmVTV3JRTlZ5eUVQNkRlWVdsZWtnWUxYei1uV2FyTXZEemY2SzB6a2ZVazNnRE1wbTF5MUVnNzE1T0ZRMUQ4VTdRczU4VXlJdW0xR25Cc2dFa3oxNHhuYldsTk04?oc=5",
+      "source": "Google News 生态环境部",
+      "published": "2026-09-29T07:38:35+00:00",
+      "hotness": 82.4,
+      "score_v1": 30.73,
+      "score_v2": 82.4,
+      "score_breakdown": {
+        "algorithm": "v3.0",
+        "dimension_max": {
+          "authority": 18.0,
+          "topic": 18.0,
+          "resonance": 18.0,
+          "information": 16.0
+        },
+        "authority_score": 12.73,
+        "keyword_idf_score": 6.54,
+        "topic_score": 12.36,
+        "topic_burst_score": 5.82,
+        "topic_burst_count": 8,
+        "resonance_score": 0.0,
+        "info_score": 9.0,
+        "base": 34.08,
+        "base_max": 70.0,
+        "time_factor": 0.7193,
+        "density_factor": 1.0,
+        "density_note": "",
+        "repeat_penalty": 1.0,
+        "repeat_excused": false,
+        "event_size": 1,
+        "event_media_count": 1,
+        "event_cluster_source": "ai",
+        "origin_source": "中华人民共和国生态环境部",
+        "raw": 24.52,
+        "display_score": 82.4,
+        "display_mode": "absolute"
+      },
+      "summary": "生态环境部公示2026年第17批新化学物质环境管理简易登记证申请审查结果，涉及化学品登记管理相关事项。",
+      "analysis": "",
+      "topic_tags": [
+        "环境管理简易登记证"
+      ],
+      "category": "生态环境",
+      "matched_keywords": [
+        "生态环境"
+      ]
+    }
+  ]
+}

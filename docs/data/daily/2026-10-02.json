@@ -1,0 +1,551 @@
+{
+  "report_date": "2026-10-02",
+  "site_name": "环境学子雷达",
+  "total_items": 30,
+  "snapshot_items": 10,
+  "category_stats": {
+    "气候变化": {
+      "count": 10,
+      "total_heat": 737.5
+    },
+    "污染治理": {
+      "count": 3,
+      "total_heat": 220.4
+    },
+    "科研学术": {
+      "count": 1,
+      "total_heat": 79.6
+    },
+    "水处理": {
+      "count": 4,
+      "total_heat": 284.2
+    },
+    "生态环境": {
+      "count": 2,
+      "total_heat": 143.7
+    },
+    "环境政策": {
+      "count": 3,
+      "total_heat": 209.2
+    },
+    "其他": {
+      "count": 6,
+      "total_heat": 414.4
+    },
+    "能源与碳中和": {
+      "count": 1,
+      "total_heat": 67.7
+    }
+  },
+  "total_sources": 28,
+  "success_sources": 27,
+  "failed_sources": 1,
+  "week_total_items": 239,
+  "week_new_keywords": 88,
+  "policy_ratio": 9.6,
+  "items": [
+    {
+      "title": "US states and cities sue over Trump EPA’s repeal of emissions rules",
+      "title_en": "US states and cities sue over Trump EPA’s repeal of emissions rules",
+      "title_zh": "美国各州和城市就特朗普政府领导下的美国环保署废除排放规定一事提起诉讼",
+      "link": "https://www.theguardian.com/environment/2026/oct/01/us-states-cities-trump-epa-climate-emissions",
+      "source": "The Guardian Environment",
+      "published": "2026-10-01T22:24:25+00:00",
+      "hotness": 87.1,
+      "score_v1": 25.49,
+      "score_v2": 87.1,
+      "score_breakdown": {
+        "algorithm": "v3.0",
+        "dimension_max": {
+          "authority": 18.0,
+          "topic": 18.0,
+          "resonance": 18.0,
+          "information": 16.0
+        },
+        "authority_score": 12.73,
+        "keyword_idf_score": 10.03,
+        "topic_score": 12.39,
+        "topic_burst_score": 2.36,
+        "topic_burst_count": 2,
+        "resonance_score": 0.0,
+        "info_score": 11.0,
+        "base": 36.12,
+        "base_max": 70.0,
+        "time_factor": 0.8529,
+        "density_factor": 1.0,
+        "density_note": "",
+        "repeat_penalty": 1.0,
+        "repeat_excused": false,
+        "event_size": 2,
+        "event_media_count": 1,
+        "event_cluster_source": "ai",
+        "origin_source": "The Guardian Environment",
+        "raw": 30.8,
+        "display_score": 87.1,
+        "display_mode": "absolute"
+      },
+      "summary": "由民主党领导的联盟表示，削弱关键保护措施将使美国倒退数十年，并加剧气候危机。周四，各州和城市就特朗普政府废除限制燃煤和燃气发电厂温室气体排放的法规一事，对特朗普政府提起诉讼。以纽约州为首的21个州正在对美国环境保护署的发电厂法规提出质疑。 该由民主党主导的联盟还包括宾夕法尼亚州州长、哥伦比亚特区、纽约市、芝加哥以及丹佛市和丹佛县。他们认为，“废除美国最重要的气候保护措施之一”将使美国倒退数十年，并加剧气候危机。继续阅读……",
+      "analysis": "",
+      "topic_tags": [
+        "EPA",
+        "emissions rules",
+        "greenhouse gas emissions"
+      ],
+      "category": "气候变化",
+      "matched_keywords": [
+        "温室气体",
+        "环境保护"
+      ]
+    },
+    {
+      "title": "会议预通知| 2位IPCC诺奖专家+11位两院院士参会报告！Engineering Conference暨首届气候变化与可持续发展工程国际会议于11月在广州召开 - 科学网—新闻",
+      "title_en": "",
+      "title_zh": "",
+      "link": "https://news.google.com/rss/articles/CBMiZkFVX3lxTFBMcHJWSlMyTjhCM1JfaUhwSzQ3NHU3ZjQxYTg4OENBMHpkbGNjUjBwNHV5OEY2RUg2aG9HWGtIUnJHTHFfSk9hbndaQ3l3UEM5dFo5a3M4QTZSNnZ4b3YwcU9fdjlDQQ?oc=5",
+      "source": "Google News 气候变化",
+      "published": "2026-10-02T03:49:02+00:00",
+      "hotness": 82.1,
+      "score_v1": 32.1,
+      "score_v2": 82.1,
+      "score_breakdown": {
+        "algorithm": "v3.0",
+        "dimension_max": {
+          "authority": 18.0,
+          "topic": 18.0,
+          "resonance": 18.0,
+          "information": 16.0
+        },
+        "authority_score": 8.05,
+        "keyword_idf_score": 8.81,
+        "topic_score": 13.47,
+        "topic_burst_score": 4.66,
+        "topic_burst_count": 4,
+        "resonance_score": 0.0,
+        "info_score": 5.0,
+        "base": 26.52,
+        "base_max": 70.0,
+        "time_factor": 0.9129,
+        "density_factor": 1.0,
+        "density_note": "",
+        "repeat_penalty": 1.0,
+        "repeat_excused": false,
+        "event_size": 1,
+        "event_media_count": 1,
+        "event_cluster_source": "ai",
+        "origin_source": "科学网—新闻",
+        "raw": 24.21,
+        "display_score": 82.1,
+        "display_mode": "absolute"
+      },
+      "summary": "广州召开首届气候变化与可持续发展工程国际会议，2位IPCC诺奖专家与11位两院院士共同参会报告，聚焦气候变化与可持续发展工程领域。",
+      "analysis": "",
+      "topic_tags": [
+        "可持续"
+      ],
+      "category": "气候变化",
+      "matched_keywords": [
+        "气候变化",
+        "可持续发展"
+      ]
+    },
+    {
+      "title": "Simulating microplastic distribution in oceans: the impact of morphology and sources",
+      "title_en": "Simulating microplastic distribution in oceans: the impact of morphology and sources",
+      "title_zh": "模拟海洋中微塑料的分布：形态与来源的影响",
+      "link": "https://iopscience.iop.org/article/10.1088/1748-9326/aeaaf6",
+      "source": "Environmental Research Letters",
+      "published": "2026-09-30T23:00:00+00:00",
+      "hotness": 81.3,
+      "score_v1": 21.26,
+      "score_v2": 81.3,
+      "score_breakdown": {
+        "algorithm": "v3.0",
+        "dimension_max": {
+          "authority": 18.0,
+          "topic": 18.0,
+          "resonance": 18.0,
+          "information": 16.0
+        },
+        "authority_score": 18.0,
+        "keyword_idf_score": 10.34,
+        "topic_score": 10.34,
+        "topic_burst_score": 0.0,
+        "topic_burst_count": 1,
+        "resonance_score": 0.0,
+        "info_score": 7.0,
+        "base": 35.34,
+        "base_max": 70.0,
+        "time_factor": 0.6588,
+        "density_factor": 1.0,
+        "density_note": "",
+        "repeat_penalty": 1.0,
+        "repeat_excused": false,
+        "event_size": 1,
+        "event_media_count": 1,
+        "event_cluster_source": "ai",
+        "origin_source": "Environmental Research Letters",
+        "raw": 23.28,
+        "display_score": 81.3,
+        "display_mode": "absolute"
+      },
+      "summary": "微塑料在海洋中广泛存在，已知在亚热带环流区存在富集热点，但其水平和垂直分布尚未完全明确。 微塑料呈现出各种形状和大小，反映了其来源的多样性。这种形态上的多样性影响着它们在海洋中的分布，因此在全球模型中必须予以考虑。在此，我们利用全球数值模型NEMO/PISCES-PLASTIC，研究了微塑料形态对其全球海洋分布的影响。 我们针对不同形态（纤维与碎片）的微塑料进行了明确的海洋分布模拟，这些形态反映了其来源类别（洗衣和家庭灰尘纤维、个人护理产品、汽车轮胎磨损、较大物体的碎片）和来源向量（河流和大陆径流）。 研究结果表明，考虑与微塑料形态相关的垂直行为差异，会显著影响微塑料的全球空间分布和物质收支。 此外，我们的结果表明，纤维作为初级微塑料的主要组成部分，是中层海域（水深 100–1000 米）中占主导地位的微塑料。 最后，基于本研究模型模拟得出的全球微塑料收支表明，为使最新的海洋微塑料来源评估与现有的海洋微塑料收支估算相一致，必须考虑宏观塑料在原位碎裂成微塑料的过程。这些结论对海洋塑料污染评估及减缓措施具有重要启示。",
+      "analysis": "",
+      "topic_tags": [
+        "微塑料",
+        "海洋分布"
+      ],
+      "category": "污染治理",
+      "matched_keywords": [
+        "微塑料",
+        "塑料污染"
+      ]
+    },
+    {
+      "title": "US datacenter discharged large amounts of pollution for almost a year with no permits",
+      "title_en": "US datacenter discharged large amounts of pollution for almost a year with no permits",
+      "title_zh": "美国某数据中心在未取得许可的情况下，近一年来排放了大量污染物",
+      "link": "https://www.theguardian.com/environment/2026/oct/01/us-datacenter-new-jersey-pollution",
+      "source": "The Guardian Environment",
+      "published": "2026-10-01T12:00:51+00:00",
+      "hotness": 79.6,
+      "score_v1": 19.38,
+      "score_v2": 79.6,
+      "score_breakdown": {
+        "algorithm": "v3.0",
+        "dimension_max": {
+          "authority": 18.0,
+          "topic": 18.0,
+          "resonance": 18.0,
+          "information": 16.0
+        },
+        "authority_score": 12.73,
+        "keyword_idf_score": 6.45,
+        "topic_score": 8.82,
+        "topic_burst_score": 2.36,
+        "topic_burst_count": 2,
+        "resonance_score": 0.0,
+        "info_score": 7.0,
+        "base": 28.54,
+        "base_max": 70.0,
+        "time_factor": 0.755,
+        "density_factor": 1.0,
+        "density_note": "",
+        "repeat_penalty": 1.0,
+        "repeat_excused": true,
+        "event_size": 2,
+        "event_media_count": 1,
+        "event_cluster_source": "ai",
+        "origin_source": "The Guardian Environment",
+        "raw": 21.55,
+        "display_score": 79.6,
+        "display_mode": "absolute"
+      },
+      "summary": "记录显示，在新泽西州维恩兰德的一处设施在监管机构介入前曾排放危害健康的污染物。与微软有关联的新泽西州DataOne数据中心因运行未经许可的发电机而最近被处以100万美元罚款，该中心在州监管机构介入前近一年时间里排放了大量危害健康的空气污染物， 据Floodlight获得的公共记录显示。今年8月，Floodlight与《卫报》联合进行的一项视觉调查发现，维恩兰德设施内的62台燃气发电机在未获许可的情况下运行，此事才得以曝光。 新泽西州环境保护部上周就该批发电机组对该公司处以罚款，但未披露这些发电机组已运行多长时间，也未透露过去一年中它们向周边社区排放了多少空气污染物。本报道来自Floodlight——一家致力于调查阻碍气候行动的权势势力的非营利新闻机构。 点击此处订阅《Floodlight》新闻通讯 继续阅读...",
+      "analysis": "",
+      "topic_tags": [
+        "New Jersey datacenter",
+        "emitted pollution"
+      ],
+      "category": "科研学术",
+      "matched_keywords": [
+        "环境保护"
+      ]
+    },
+    {
+      "title": "Oil wells could become mines for critical minerals",
+      "title_en": "Oil wells could become mines for critical minerals",
+      "title_zh": "油井可能会成为关键矿产的矿源",
+      "link": "https://www.science.org/content/article/oil-wells-could-become-mines-critical-minerals",
+      "source": "Science",
+      "published": "2026-10-01T14:30:00+00:00",
+      "hotness": 76.4,
+      "score_v1": 15.31,
+      "score_v2": 76.4,
+      "score_breakdown": {
+        "algorithm": "v3.0",
+        "dimension_max": {
+          "authority": 18.0,
+          "topic": 18.0,
+          "resonance": 18.0,
+          "information": 16.0
+        },
+        "authority_score": 18.0,
+        "keyword_idf_score": 0.0,
+        "topic_score": 3.0,
+        "topic_burst_score": 0.0,
+        "topic_burst_count": 1,
+        "resonance_score": 0.0,
+        "info_score": 3.0,
+        "base": 24.0,
+        "base_max": 70.0,
+        "time_factor": 0.7765,
+        "density_factor": 1.0,
+        "density_note": "",
+        "repeat_penalty": 1.0,
+        "repeat_excused": false,
+        "event_size": 1,
+        "event_media_count": 1,
+        "event_cluster_source": "ai",
+        "origin_source": "Science",
+        "raw": 18.64,
+        "display_score": 76.4,
+        "display_mode": "absolute"
+      },
+      "summary": "经过特殊设计的流体能够从水力压裂储层中提取金属，为太阳能电池和电动汽车提供原材料",
+      "analysis": "",
+      "topic_tags": [
+        "能源与碳中和"
+      ],
+      "category": "气候变化",
+      "matched_keywords": []
+    },
+    {
+      "title": "Threshold-dependent sulfamethoxazole biodegradation in activated sludge: linking extracellular interfacial reorganization to intracellular metabolic activation",
+      "title_en": "Threshold-dependent sulfamethoxazole biodegradation in activated sludge: linking extracellular interfacial reorganization to intracellular metabolic activation",
+      "title_zh": "活性污泥中阈值依赖性的磺胺甲噁唑生物降解：将胞外界面重构与胞内代谢激活联系起来",
+      "link": "https://www.sciencedirect.com/science/article/pii/S0043135426017045?dgcid=rss_sd_all",
+      "source": "Water Research",
+      "published": "2026-09-30T10:41:44.753826+00:00",
+      "hotness": 76.3,
+      "score_v1": 16.35,
+      "score_v2": 76.3,
+      "score_breakdown": {
+        "algorithm": "v3.0",
+        "dimension_max": {
+          "authority": 18.0,
+          "topic": 18.0,
+          "resonance": 18.0,
+          "information": 16.0
+        },
+        "authority_score": 18.0,
+        "keyword_idf_score": 9.51,
+        "topic_score": 9.51,
+        "topic_burst_score": 0.0,
+        "topic_burst_count": 1,
+        "resonance_score": 0.0,
+        "info_score": 4.0,
+        "base": 31.51,
+        "base_max": 70.0,
+        "time_factor": 0.589,
+        "density_factor": 1.0,
+        "density_note": "",
+        "repeat_penalty": 1.0,
+        "repeat_excused": false,
+        "event_size": 1,
+        "event_media_count": 1,
+        "event_cluster_source": "ai",
+        "origin_source": "Water Research",
+        "raw": 18.56,
+        "display_score": 76.3,
+        "display_mode": "absolute"
+      },
+      "summary": "研究揭示硫酸氟哌酸在活性污泥中降解的阈值依赖机制，通过细胞外界面重组引发细胞内代谢激活，阐明了抗生素降解的微观过程。",
+      "analysis": "",
+      "topic_tags": [
+        "活性污泥"
+      ],
+      "category": "水处理",
+      "matched_keywords": [
+        "污泥"
+      ]
+    },
+    {
+      "title": "Radiative impacts of a compound dust-and-rain-on-snow event in Michigan’s Upper Peninsula",
+      "title_en": "Radiative impacts of a compound dust-and-rain-on-snow event in Michigan’s Upper Peninsula",
+      "title_zh": "密歇根州上半岛一次复合性“雪上尘雨”事件的辐射影响",
+      "link": "https://iopscience.iop.org/article/10.1088/1748-9326/aea7b5",
+      "source": "Environmental Research Letters",
+      "published": "2026-09-30T23:00:00+00:00",
+      "hotness": 76.1,
+      "score_v1": 13.26,
+      "score_v2": 76.1,
+      "score_breakdown": {
+        "algorithm": "v3.0",
+        "dimension_max": {
+          "authority": 18.0,
+          "topic": 18.0,
+          "resonance": 18.0,
+          "information": 16.0
+        },
+        "authority_score": 18.0,
+        "keyword_idf_score": 0.0,
+        "topic_score": 3.0,
+        "topic_burst_score": 0.0,
+        "topic_burst_count": 1,
+        "resonance_score": 0.0,
+        "info_score": 7.0,
+        "base": 28.0,
+        "base_max": 70.0,
+        "time_factor": 0.6588,
+        "density_factor": 1.0,
+        "density_note": "",
+        "repeat_penalty": 1.0,
+        "repeat_excused": false,
+        "event_size": 1,
+        "event_media_count": 1,
+        "event_cluster_source": "ai",
+        "origin_source": "Environmental Research Letters",
+        "raw": 18.45,
+        "display_score": 76.1,
+        "display_mode": "absolute"
+      },
+      "summary": "粉尘沉降和雪上降雨事件会显著改变地表反照率，并驱动融雪过程。 二者结合时，可成为快速融水生成的强力催化剂。2025年3月发生的一起独特的尘埃与雪上降雨（ROS）耦合事件——其中尘埃源自美国中部和南部平原——大幅改变了密歇根州上半岛积雪的表面能量平衡。 通过结合实地观测（雪谱反照率、液态水含量和积雪深度）与辐射传输建模，我们分析了这一独特事件对积雪演变的影响。 降雨开始时，宽带反照率迅速下降，从事件发生前的0.65降至新雪降落前的0.52。 当布满尘埃的表面暴露出来时，我们确定，在观测到的环境条件下，尘埃存在所导致的额外辐射强迫可能会导致比预期多出 4.5–7.8 毫米水当量/天的融雪量。 105 W m−2 的峰值辐射强迫与欧洲阿尔卑斯山脉的其他重大沙尘事件相当，这些事件的沙尘来源同样遥远。 据我们所知，这是首次报告关于此类含尘ROS事件辐射影响的测量结果。随着尘源日益普遍，此类事件在全球范围内可能变得更加常见。即使持续时间较短，这些事件加剧的快速融雪仍可能引发洪水并危及基础设施，因此，为减轻风险，理解其影响至关重要。",
+      "analysis": "",
+      "topic_tags": [
+        "能源与碳中和"
+      ],
+      "category": "气候变化",
+      "matched_keywords": []
+    },
+    {
+      "title": "报告：全球1/3人口暴露于高浓度臭氧污染 - 观察者网",
+      "title_en": "",
+      "title_zh": "",
+      "link": "https://news.google.com/rss/articles/CBMic0FVX3lxTE1DR0JqWG9qN2hmYWpuSXhjLS1wOTBjRWNPbFdwdGlzUm1qT1NXbmVKOHlRVDZQSENPRThVbGNxNzVuNmNqNFdoMWd3anJUVmVIZzlkZzNqZDZMbW9VZW9QcWtIQVlsYU5PYmZ5Q19seUF6Vzg?oc=5",
+      "source": "Google News 环境污染",
+      "published": "2026-10-01T06:54:00+00:00",
+      "hotness": 75.8,
+      "score_v1": 15.74,
+      "score_v2": 75.8,
+      "score_breakdown": {
+        "algorithm": "v3.0",
+        "dimension_max": {
+          "authority": 18.0,
+          "topic": 18.0,
+          "resonance": 18.0,
+          "information": 16.0
+        },
+        "authority_score": 8.05,
+        "keyword_idf_score": 8.4,
+        "topic_score": 8.4,
+        "topic_burst_score": 0.0,
+        "topic_burst_count": 1,
+        "resonance_score": 0.0,
+        "info_score": 9.0,
+        "base": 25.45,
+        "base_max": 70.0,
+        "time_factor": 0.714,
+        "density_factor": 1.0,
+        "density_note": "",
+        "repeat_penalty": 1.0,
+        "repeat_excused": false,
+        "event_size": 1,
+        "event_media_count": 1,
+        "event_cluster_source": "ai",
+        "origin_source": "观察者网",
+        "raw": 18.17,
+        "display_score": 75.8,
+        "display_mode": "absolute"
+      },
+      "summary": "全球三分之一人口暴露在高浓度臭氧污染中，报告警示空气质量对公众健康的严重威胁，呼吁加强大气污染防治措施。",
+      "analysis": "",
+      "topic_tags": [
+        "全球臭氧污染",
+        "人口暴露",
+        "空气质量威胁"
+      ],
+      "category": "污染治理",
+      "matched_keywords": [
+        "臭氧"
+      ]
+    },
+    {
+      "title": "Fifty Billion Seedlings: Can Ethiopia Replant Its Ravaged Forests?",
+      "title_en": "Fifty Billion Seedlings: Can Ethiopia Replant Its Ravaged Forests?",
+      "title_zh": "500亿棵树苗：埃塞俄比亚能否重植其遭破坏的森林？",
+      "link": "https://e360.yale.edu/features/ethiopia-green-legacy-initiative",
+      "source": "Yale Environment 360",
+      "published": "2026-10-01T08:57:00+00:00",
+      "hotness": 74.8,
+      "score_v1": 12.92,
+      "score_v2": 74.8,
+      "score_breakdown": {
+        "algorithm": "v3.0",
+        "dimension_max": {
+          "authority": 18.0,
+          "topic": 18.0,
+          "resonance": 18.0,
+          "information": 16.0
+        },
+        "authority_score": 12.73,
+        "keyword_idf_score": 0.0,
+        "topic_score": 3.0,
+        "topic_burst_score": 0.0,
+        "topic_burst_count": 1,
+        "resonance_score": 0.0,
+        "info_score": 8.0,
+        "base": 23.73,
+        "base_max": 70.0,
+        "time_factor": 0.7299,
+        "density_factor": 1.0,
+        "density_note": "",
+        "repeat_penalty": 1.0,
+        "repeat_excused": false,
+        "event_size": 1,
+        "event_media_count": 1,
+        "event_cluster_source": "ai",
+        "origin_source": "Yale Environment 360",
+        "raw": 17.32,
+        "display_score": 74.8,
+        "display_mode": "absolute"
+      },
+      "summary": "长期以来森林砍伐的恶果，导致埃塞俄比亚正面临日益严重的洪涝和干旱。该国正通过一项全球范围内最雄心勃勃且资金最充裕的植树活动，努力恢复其原生森林，但专家们对这些树木能否存活表示怀疑。在 E360 上阅读更多内容 →",
+      "analysis": "",
+      "topic_tags": [
+        "森林重新造林"
+      ],
+      "category": "生态环境",
+      "matched_keywords": []
+    },
+    {
+      "title": "Preparing for disasters",
+      "title_en": "Preparing for disasters",
+      "title_zh": "防灾准备",
+      "link": "https://www.nature.com/articles/s41893-026-01956-y",
+      "source": "Nature Sustainability",
+      "published": "2026-09-30T00:00:00+00:00",
+      "hotness": 74.0,
+      "score_v1": 17.87,
+      "score_v2": 74.0,
+      "score_breakdown": {
+        "algorithm": "v3.0",
+        "dimension_max": {
+          "authority": 18.0,
+          "topic": 18.0,
+          "resonance": 18.0,
+          "information": 16.0
+        },
+        "authority_score": 18.0,
+        "keyword_idf_score": 7.47,
+        "topic_score": 9.83,
+        "topic_burst_score": 2.36,
+        "topic_burst_count": 2,
+        "resonance_score": 0.0,
+        "info_score": 3.0,
+        "base": 30.83,
+        "base_max": 70.0,
+        "time_factor": 0.5412,
+        "density_factor": 1.0,
+        "density_note": "",
+        "repeat_penalty": 1.0,
+        "repeat_excused": false,
+        "event_size": 1,
+        "event_media_count": 1,
+        "event_cluster_source": "ai",
+        "origin_source": "Nature Sustainability",
+        "raw": 16.69,
+        "display_score": 74.0,
+        "display_mode": "absolute"
+      },
+      "summary": "《自然·可持续性》（Nature Sustainability）， 极端自然事件对人类和物理基础设施都造成了巨大影响。为了减轻损失并防止人员伤亡，我们可以也应当采取更多措施。",
+      "analysis": "",
+      "topic_tags": [
+        "环境政策"
+      ],
+      "category": "环境政策",
+      "matched_keywords": [
+        "可持续发展"
+      ]
+    }
+  ]
+}

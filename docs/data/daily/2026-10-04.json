@@ -1,0 +1,545 @@
+{
+  "report_date": "2026-10-04",
+  "site_name": "环境学子雷达",
+  "total_items": 28,
+  "snapshot_items": 10,
+  "category_stats": {
+    "环境政策": {
+      "count": 5,
+      "total_heat": 360.4
+    },
+    "生态环境": {
+      "count": 6,
+      "total_heat": 402.3
+    },
+    "污染治理": {
+      "count": 3,
+      "total_heat": 216.2
+    },
+    "气候变化": {
+      "count": 6,
+      "total_heat": 397.1
+    },
+    "能源与碳中和": {
+      "count": 1,
+      "total_heat": 69.7
+    },
+    "科研学术": {
+      "count": 2,
+      "total_heat": 135.8
+    },
+    "其他": {
+      "count": 5,
+      "total_heat": 324.5
+    }
+  },
+  "total_sources": 28,
+  "success_sources": 27,
+  "failed_sources": 0,
+  "week_total_items": 229,
+  "week_new_keywords": 78,
+  "policy_ratio": 11.8,
+  "items": [
+    {
+      "title": "全国重点区域生态保护红线生态环境保护成效显著 - 凤凰网",
+      "title_en": "",
+      "title_zh": "",
+      "link": "https://news.google.com/rss/articles/CBMiSEFVX3lxTFA0OTNhQ3VFYWZKMXI4TGFzcnZMdzFHckNVdEZSRWlPaGc0MVZ6al9YUkxqQjZGR0E3cENXSU80YWpvdGlqQ3E1OA?oc=5",
+      "source": "Google News 生态环境",
+      "published": "2026-10-03T00:47:31+00:00",
+      "hotness": 80.4,
+      "score_v1": 37.03,
+      "score_v2": 80.4,
+      "score_breakdown": {
+        "algorithm": "v3.0",
+        "dimension_max": {
+          "authority": 18.0,
+          "topic": 18.0,
+          "resonance": 18.0,
+          "information": 16.0
+        },
+        "authority_score": 8.05,
+        "keyword_idf_score": 11.03,
+        "topic_score": 16.54,
+        "topic_burst_score": 5.51,
+        "topic_burst_count": 6,
+        "resonance_score": 8.76,
+        "info_score": 0.0,
+        "base": 33.35,
+        "base_max": 70.0,
+        "time_factor": 0.6705,
+        "density_factor": 1.0,
+        "density_note": "",
+        "repeat_penalty": 1.0,
+        "repeat_excused": false,
+        "event_size": 2,
+        "event_media_count": 2,
+        "event_cluster_source": "ai",
+        "origin_source": "凤凰网",
+        "raw": 22.36,
+        "display_score": 80.4,
+        "display_mode": "absolute"
+      },
+      "summary": "全国重点区域生态保护红线生态环境保护成效显著，生态环境质量持续向好。",
+      "analysis": "",
+      "topic_tags": [
+        "生态保护红线",
+        "生态环境质量"
+      ],
+      "category": "环境政策",
+      "matched_keywords": [
+        "生态环境",
+        "生态保护",
+        "环境保护"
+      ]
+    },
+    {
+      "title": "生态环境污染防治资金怎么用？山东10市启动专项审计调查 - sohu.com",
+      "title_en": "",
+      "title_zh": "",
+      "link": "https://news.google.com/rss/articles/CBMijAFBVV95cUxORFB1Z3BWQVRGUGNpSW4yeExEeU52cVpNN3h0WlJDaHh1Z1VoMDBMSC13Zm9fOHpZd012S2ZKbnZ3ZWw5dW5NSkY3UUNZSW5raGdtVHhKNFV1NktzNkFMV25TcmxaZ0o0RnQtektJQ2VOVzVwS2FabFRoNEo4MXVfQjZ0cnJkdXA1SVZHYw?oc=5",
+      "source": "Google News 环境污染",
+      "published": "2026-10-03T05:27:34+00:00",
+      "hotness": 78.1,
+      "score_v1": 29.55,
+      "score_v2": 78.1,
+      "score_breakdown": {
+        "algorithm": "v3.0",
+        "dimension_max": {
+          "authority": 18.0,
+          "topic": 18.0,
+          "resonance": 18.0,
+          "information": 16.0
+        },
+        "authority_score": 8.05,
+        "keyword_idf_score": 10.13,
+        "topic_score": 15.63,
+        "topic_burst_score": 5.51,
+        "topic_burst_count": 6,
+        "resonance_score": 0.0,
+        "info_score": 5.0,
+        "base": 28.68,
+        "base_max": 70.0,
+        "time_factor": 0.7032,
+        "density_factor": 1.0,
+        "density_note": "",
+        "repeat_penalty": 1.0,
+        "repeat_excused": false,
+        "event_size": 1,
+        "event_media_count": 1,
+        "event_cluster_source": "ai",
+        "origin_source": "sohu.com",
+        "raw": 20.17,
+        "display_score": 78.1,
+        "display_mode": "absolute"
+      },
+      "summary": "山东10市启动生态环境污染防治资金专项审计调查，旨在规范资金管理、提升使用绩效，助力美丽山东建设。",
+      "analysis": "",
+      "topic_tags": [
+        "环境资讯"
+      ],
+      "category": "生态环境",
+      "matched_keywords": [
+        "生态环境",
+        "污染防治"
+      ]
+    },
+    {
+      "title": "萍乡公布2026年第一批生态环境执法典型案例（固体废物领域） - 凤凰网",
+      "title_en": "",
+      "title_zh": "",
+      "link": "https://news.google.com/rss/articles/CBMiSkFVX3lxTE4zbmlLY3NRSGxxTDUtbE5WdUQwaVdLTC1pYU1FWjJTQTN5XzdUU1A4U3pKT2stV1B5Y0xPTi1jUzRWUHlXYU1mTDh3?oc=5",
+      "source": "Google News 生态环境",
+      "published": "2026-10-03T13:01:20+00:00",
+      "hotness": 76.7,
+      "score_v1": 26.65,
+      "score_v2": 76.7,
+      "score_breakdown": {
+        "algorithm": "v3.0",
+        "dimension_max": {
+          "authority": 18.0,
+          "topic": 18.0,
+          "resonance": 18.0,
+          "information": 16.0
+        },
+        "authority_score": 8.05,
+        "keyword_idf_score": 6.23,
+        "topic_score": 11.74,
+        "topic_burst_score": 5.51,
+        "topic_burst_count": 6,
+        "resonance_score": 0.0,
+        "info_score": 5.0,
+        "base": 24.79,
+        "base_max": 70.0,
+        "time_factor": 0.7635,
+        "density_factor": 1.0,
+        "density_note": "",
+        "repeat_penalty": 1.0,
+        "repeat_excused": false,
+        "event_size": 1,
+        "event_media_count": 1,
+        "event_cluster_source": "ai",
+        "origin_source": "凤凰网",
+        "raw": 18.92,
+        "display_score": 76.7,
+        "display_mode": "absolute"
+      },
+      "summary": "萍乡公布2026年第一批生态环境执法典型案例，聚焦固体废物领域，强化执法监督，推动环境问题整改。",
+      "analysis": "",
+      "topic_tags": [
+        "固体废物",
+        "生态环境执法"
+      ],
+      "category": "环境政策",
+      "matched_keywords": [
+        "生态环境"
+      ]
+    },
+    {
+      "title": "Ultrafast micropollutant degradation via reductive activation of periodate under VUV/UV (185/254 nm) irradiation beyond photolysis",
+      "title_en": "Ultrafast micropollutant degradation via reductive activation of periodate under VUV/UV (185/254 nm) irradiation beyond photolysis",
+      "title_zh": "在VUV/UV（185/254 nm）辐照下，通过碘酸盐的还原活化实现微污染物的超快降解，其作用机制超越了光解作用",
+      "link": "https://www.sciencedirect.com/science/article/pii/S0043135426016854?dgcid=rss_sd_all",
+      "source": "Water Research",
+      "published": "2026-10-02T10:43:39.355700+00:00",
+      "hotness": 75.2,
+      "score_v1": 12.35,
+      "score_v2": 75.2,
+      "score_breakdown": {
+        "algorithm": "v3.0",
+        "dimension_max": {
+          "authority": 18.0,
+          "topic": 18.0,
+          "resonance": 18.0,
+          "information": 16.0
+        },
+        "authority_score": 18.0,
+        "keyword_idf_score": 0.0,
+        "topic_score": 3.0,
+        "topic_burst_score": 0.0,
+        "topic_burst_count": 1,
+        "resonance_score": 0.0,
+        "info_score": 9.0,
+        "base": 30.0,
+        "base_max": 70.0,
+        "time_factor": 0.5891,
+        "density_factor": 1.0,
+        "density_note": "",
+        "repeat_penalty": 1.0,
+        "repeat_excused": false,
+        "event_size": 1,
+        "event_media_count": 1,
+        "event_cluster_source": "ai",
+        "origin_source": "Water Research",
+        "raw": 17.67,
+        "display_score": 75.2,
+        "display_mode": "absolute"
+      },
+      "summary": "基于VUV/UV（185/254nm）光照下碘酸盐的还原活化，实现微污染物降解速率显著提升，突破传统光解限制。",
+      "analysis": "",
+      "topic_tags": [
+        "微污染物降解",
+        "还原活化"
+      ],
+      "category": "污染治理",
+      "matched_keywords": []
+    },
+    {
+      "title": "Simulating microplastic distribution in oceans: the impact of morphology and sources",
+      "title_en": "Simulating microplastic distribution in oceans: the impact of morphology and sources",
+      "title_zh": "模拟海洋中微塑料的分布：形态和来源的影响",
+      "link": "https://iopscience.iop.org/article/10.1088/1748-9326/aeaaf6",
+      "source": "Environmental Research Letters",
+      "published": "2026-09-30T23:00:00+00:00",
+      "hotness": 73.3,
+      "score_v1": 19.31,
+      "score_v2": 73.3,
+      "score_breakdown": {
+        "algorithm": "v3.0",
+        "dimension_max": {
+          "authority": 18.0,
+          "topic": 18.0,
+          "resonance": 18.0,
+          "information": 16.0
+        },
+        "authority_score": 18.0,
+        "keyword_idf_score": 9.98,
+        "topic_score": 9.98,
+        "topic_burst_score": 0.0,
+        "topic_burst_count": 1,
+        "resonance_score": 0.0,
+        "info_score": 7.0,
+        "base": 34.98,
+        "base_max": 70.0,
+        "time_factor": 0.4636,
+        "density_factor": 1.0,
+        "density_note": "",
+        "repeat_penalty": 1.0,
+        "repeat_excused": false,
+        "event_size": 1,
+        "event_media_count": 1,
+        "event_cluster_source": "ai",
+        "origin_source": "Environmental Research Letters",
+        "raw": 16.22,
+        "display_score": 73.3,
+        "display_mode": "absolute"
+      },
+      "summary": "微塑料在海洋中广泛存在，已知在亚热带环流区存在富集热点，但其水平和垂直分布尚不完全清楚。 微塑料呈现出各种形状和大小，反映了其来源的多样性。这种形态上的多样性影响着它们在海洋中的分布，因此在全球模型中必须予以考虑。在此，我们利用全球数值模型NEMO/PISCES-PLASTIC，研究了微塑料形态对其全球海洋分布的影响。 我们明确模拟了不同形态（纤维与碎片）微塑料在海洋中的分布，这些形态反映了其来源类别（洗衣和家庭灰尘中的纤维、个人护理产品、汽车轮胎磨损、较大物体的碎片）以及来源路径（河流和大陆径流）。 研究结果表明，考虑与形态相关的微塑料垂直行为的变异性，会显著影响微塑料的全球空间分布和通量。 此外，我们的结果表明，纤维作为初级微塑料的主要组成部分，是中层海域（水深 100–1000 米）中占主导地位的微塑料。 最后，基于本模型模拟得出的全球微塑料收支表明，为使最新的海洋微塑料来源评估与现有的海洋微塑料收支估算相一致，必须考虑宏观塑料在原位碎裂成微塑料的过程。这些结论对海洋塑料污染评估及减缓措施具有重要启示。",
+      "analysis": "",
+      "topic_tags": [
+        "微塑料",
+        "海洋分布"
+      ],
+      "category": "污染治理",
+      "matched_keywords": [
+        "微塑料",
+        "塑料污染"
+      ]
+    },
+    {
+      "title": "山河锦绣处 守护不停歇 湖北生态环保铁军全力守牢假期生态环境安全底线 - sohu.com",
+      "title_en": "",
+      "title_zh": "",
+      "link": "https://news.google.com/rss/articles/CBMijAFBVV95cUxPeEwtc29LMVNLNnE5cW9vNUp1bFBfc3FxamprbFQyT0hLeXhLU2hOUnQweWhRbWRpVEhpTF9RTjNpd1VnVXlsTldIODAtT1dyMGJCZkltenNNNDFlcUk4ZnJNWVJaQTg2RUI2MmhwWkVzQThONS0zTTlVeHBPbk5aenA1LVBfckRQTjh3aw?oc=5",
+      "source": "Google News 生态环境",
+      "published": "2026-10-03T11:04:33+00:00",
+      "hotness": 71.3,
+      "score_v1": 26.33,
+      "score_v2": 71.3,
+      "score_breakdown": {
+        "algorithm": "v3.0",
+        "dimension_max": {
+          "authority": 18.0,
+          "topic": 18.0,
+          "resonance": 18.0,
+          "information": 16.0
+        },
+        "authority_score": 8.05,
+        "keyword_idf_score": 6.23,
+        "topic_score": 11.74,
+        "topic_burst_score": 5.51,
+        "topic_burst_count": 6,
+        "resonance_score": 0.0,
+        "info_score": 0.0,
+        "base": 19.79,
+        "base_max": 70.0,
+        "time_factor": 0.747,
+        "density_factor": 1.0,
+        "density_note": "",
+        "repeat_penalty": 1.0,
+        "repeat_excused": false,
+        "event_size": 1,
+        "event_media_count": 1,
+        "event_cluster_source": "ai",
+        "origin_source": "sohu.com",
+        "raw": 14.78,
+        "display_score": 71.3,
+        "display_mode": "absolute"
+      },
+      "summary": "湖北生态环保铁军在假期全力守牢生态环境安全底线，坚守河流、田间、企业一线，确保全省生态环境安全稳定。",
+      "analysis": "",
+      "topic_tags": [
+        "湖北生态环保",
+        "假期生态环境安全"
+      ],
+      "category": "环境政策",
+      "matched_keywords": [
+        "生态环境"
+      ]
+    },
+    {
+      "title": "Africa’s effort to make most of its own vaccines by 2040 faces significant headwinds",
+      "title_en": "Africa’s effort to make most of its own vaccines by 2040 faces significant headwinds",
+      "title_zh": "非洲力争在2040年前实现疫苗自主生产的目标面临重大阻力",
+      "link": "https://www.science.org/content/article/africa-s-effort-make-most-its-own-vaccines-2040-faces-significant-headwinds",
+      "source": "Science",
+      "published": "2026-10-01T19:00:00+00:00",
+      "hotness": 70.2,
+      "score_v1": 11.7,
+      "score_v2": 70.2,
+      "score_breakdown": {
+        "algorithm": "v3.0",
+        "dimension_max": {
+          "authority": 18.0,
+          "topic": 18.0,
+          "resonance": 18.0,
+          "information": 16.0
+        },
+        "authority_score": 18.0,
+        "keyword_idf_score": 0.0,
+        "topic_score": 3.0,
+        "topic_burst_score": 0.0,
+        "topic_burst_count": 1,
+        "resonance_score": 0.0,
+        "info_score": 5.75,
+        "base": 26.75,
+        "base_max": 70.0,
+        "time_factor": 0.5223,
+        "density_factor": 1.0,
+        "density_note": "",
+        "repeat_penalty": 1.0,
+        "repeat_excused": false,
+        "event_size": 1,
+        "event_media_count": 1,
+        "event_cluster_source": "ai",
+        "origin_source": "Science",
+        "raw": 13.97,
+        "display_score": 70.2,
+        "display_mode": "absolute"
+      },
+      "summary": "那些致力于降低该大陆对外国疫苗依赖程度的企业，必须克服重大的财务和后勤挑战",
+      "analysis": "",
+      "topic_tags": [
+        "能源与碳中和"
+      ],
+      "category": "气候变化",
+      "matched_keywords": []
+    },
+    {
+      "title": "Future energy transition mineral demands and barriers for south and Southeast Asia",
+      "title_en": "Future energy transition mineral demands and barriers for south and Southeast Asia",
+      "title_zh": "南亚和东南亚未来能源转型对矿产的需求及面临的障碍",
+      "link": "https://iopscience.iop.org/article/10.1088/1748-9326/aea7bb",
+      "source": "Environmental Research Letters",
+      "published": "2026-09-30T23:00:00+00:00",
+      "hotness": 69.7,
+      "score_v1": 15.31,
+      "score_v2": 69.7,
+      "score_breakdown": {
+        "algorithm": "v3.0",
+        "dimension_max": {
+          "authority": 18.0,
+          "topic": 18.0,
+          "resonance": 18.0,
+          "information": 16.0
+        },
+        "authority_score": 18.0,
+        "keyword_idf_score": 8.46,
+        "topic_score": 8.46,
+        "topic_burst_score": 0.0,
+        "topic_burst_count": 1,
+        "resonance_score": 0.0,
+        "info_score": 3.0,
+        "base": 29.46,
+        "base_max": 70.0,
+        "time_factor": 0.4636,
+        "density_factor": 1.0,
+        "density_note": "",
+        "repeat_penalty": 1.0,
+        "repeat_excused": false,
+        "event_size": 1,
+        "event_media_count": 1,
+        "event_cluster_source": "ai",
+        "origin_source": "Environmental Research Letters",
+        "raw": 13.66,
+        "display_score": 69.7,
+        "display_mode": "absolute"
+      },
+      "summary": "尽管全球关键矿产的储量可能足以支撑能源转型，但能源转型所需矿产的产销地域分布不均，引发了人们对供应链中断和进口依赖的担忧。虽然欧洲和美国等地区正在积极研究此类脆弱性，但对于新兴经济体而言，这方面仍相对缺乏研究。 本研究采用一种适用于多种大宗商品的新型可定制矿产需求模型，估算了印度、孟加拉国及东盟各国在发电和交通运输领域未来对能源转型矿产的需求。结果表明，到2050年，东盟和南亚可能成为与美国等发达经济体相当的重要消费地区。 在许多情况下，南亚和东南亚当前的采矿产量无法满足预计的区域需求。这两个地区都缺乏必要的石墨和锂产量。南亚还面临镍、稀土、铜、多晶硅和钴的额外短缺。 我们的研究结果揭示了矿产供需失衡现象，这可能在未来引发进口依赖、下游清洁技术制造目标以及确保能源转型矿产供应的公共政策举措之间的权衡风险。这些结果对印度、越南和印度尼西亚等致力于发展国内太阳能、电池和电动汽车产业的国家具有重要启示。 本分析强调，新兴经济体有必要主动评估国家目标中的矿产安全考量，并采取包括回收利用、提高能效、材料研究与替代、国际合作以及矿产开采和加工项目开发等措施，以缓解供需失衡。",
+      "analysis": "",
+      "topic_tags": [
+        "能源转型"
+      ],
+      "category": "能源与碳中和",
+      "matched_keywords": [
+        "能源转型"
+      ]
+    },
+    {
+      "title": "Radiative impacts of a compound dust-and-rain-on-snow event in Michigan’s Upper Peninsula",
+      "title_en": "Radiative impacts of a compound dust-and-rain-on-snow event in Michigan’s Upper Peninsula",
+      "title_zh": "密歇根州上半岛一次复合型“雪上尘雨”事件的辐射影响",
+      "link": "https://iopscience.iop.org/article/10.1088/1748-9326/aea7b5",
+      "source": "Environmental Research Letters",
+      "published": "2026-09-30T23:00:00+00:00",
+      "hotness": 68.6,
+      "score_v1": 11.31,
+      "score_v2": 68.6,
+      "score_breakdown": {
+        "algorithm": "v3.0",
+        "dimension_max": {
+          "authority": 18.0,
+          "topic": 18.0,
+          "resonance": 18.0,
+          "information": 16.0
+        },
+        "authority_score": 18.0,
+        "keyword_idf_score": 0.0,
+        "topic_score": 3.0,
+        "topic_burst_score": 0.0,
+        "topic_burst_count": 1,
+        "resonance_score": 0.0,
+        "info_score": 7.0,
+        "base": 28.0,
+        "base_max": 70.0,
+        "time_factor": 0.4636,
+        "density_factor": 1.0,
+        "density_note": "",
+        "repeat_penalty": 1.0,
+        "repeat_excused": false,
+        "event_size": 1,
+        "event_media_count": 1,
+        "event_cluster_source": "ai",
+        "origin_source": "Environmental Research Letters",
+        "raw": 12.98,
+        "display_score": 68.6,
+        "display_mode": "absolute"
+      },
+      "summary": "粉尘沉积和降雪后降雨事件会显著改变地表反照率，并驱动融雪过程。 二者结合时，可成为引发快速融水生成的强力催化剂。2025年3月发生了一次独特的尘埃与降雪伴随降雨（ROS）耦合事件，尘埃源自美国中部和南部平原，该事件显著改变了密歇根州上半岛积雪表面的能量平衡。 通过结合实地观测（雪谱反照率、液态水含量和积雪深度）与辐射传输建模，我们分析了这一独特事件对积雪演变的影响。 降雨开始时，宽带反照率迅速下降，从事件发生前的0.65降至新雪降落前的0.52。 当布满尘埃的表面暴露出来时，我们确定，在观测到的环境条件下，尘埃的存在所导致的额外辐射强迫可能会导致比预期多出 4.5–7.8 毫米水当量/天的融雪量。 105 W m−2 的峰值辐射强迫与欧洲阿尔卑斯山脉的其他重大沙尘事件相当，这些事件的沙尘来源同样遥远。 据我们所知，这是首次报告关于此类含尘ROS事件辐射影响的测量结果。随着尘源日益普遍，此类事件在全球范围内可能变得更加常见。即使持续时间较短，这些事件加剧的快速融雪仍可能引发洪水并危及基础设施，因此，为降低风险，理解其影响至关重要。",
+      "analysis": "",
+      "topic_tags": [
+        "能源与碳中和"
+      ],
+      "category": "气候变化",
+      "matched_keywords": []
+    },
+    {
+      "title": "Mapping agricultural dynamics in displacement-affected landscapes using satellite foundation model embeddings",
+      "title_en": "Mapping agricultural dynamics in displacement-affected landscapes using satellite foundation model embeddings",
+      "title_zh": "利用卫星基础模型嵌入技术，绘制受流离失所影响地区农业动态图",
+      "link": "https://iopscience.iop.org/article/10.1088/1748-9326/aeabbc",
+      "source": "Environmental Research Letters",
+      "published": "2026-09-30T23:00:00+00:00",
+      "hotness": 68.6,
+      "score_v1": 11.31,
+      "score_v2": 68.6,
+      "score_breakdown": {
+        "algorithm": "v3.0",
+        "dimension_max": {
+          "authority": 18.0,
+          "topic": 18.0,
+          "resonance": 18.0,
+          "information": 16.0
+        },
+        "authority_score": 18.0,
+        "keyword_idf_score": 0.0,
+        "topic_score": 3.0,
+        "topic_burst_score": 0.0,
+        "topic_burst_count": 1,
+        "resonance_score": 0.0,
+        "info_score": 7.0,
+        "base": 28.0,
+        "base_max": 70.0,
+        "time_factor": 0.4636,
+        "density_factor": 1.0,
+        "density_note": "",
+        "repeat_penalty": 1.0,
+        "repeat_excused": false,
+        "event_size": 1,
+        "event_media_count": 1,
+        "event_cluster_source": "ai",
+        "origin_source": "Environmental Research Letters",
+        "raw": 12.98,
+        "display_score": 68.6,
+        "display_mode": "absolute"
+      },
+      "summary": "撒哈拉以南非洲地区已经面临人类发展水平低下、极端气候风险和环境退化等问题——而武装冲突导致的大规模人口流离失所，进一步加剧了这些压力。 在乌干达，这些相互交织的挑战表现得最为明显。该国目前收容着非洲最多的难民（近200万人），这给土地管理、自然资源和当地粮食系统带来了巨大压力。 与所有流离失所情境一样，乌干达收容难民地区的空间明确的农业基线数据仍然稀缺，这限制了土地利用规划、粮食安全评估和人道主义干预。 我们利用卫星基础模型嵌入技术和机器学习，首次对乌干达北部各难民营的农田动态（2017–2024 年）进行了高分辨率评估。 我们利用谷歌的 10 米分辨率 AlphaEarth 基础模型嵌入数据结合随机森林分类算法生成年度农田分布图，并通过基于样本的准确率评估和面积估算方法来量化不确定性。 总体分类准确率在0.75至0.87之间（F1分数：0.65–0.84）。 经面积校正的估算结果显示出显著的年际变异性：2017年至2019年期间快速扩张，2020年因新冠疫情扰动和洪灾事件而萎缩，2022年达到峰值（447,809 12,733 公顷）， 并于2024年出现显著下降（223,159 9,744公顷），这与人道主义援助资金削减及干旱事件同时发生。为量化这些动态的驱动因素，我们建立了一个线性混合效应模型，将农田覆盖率与距聚居地边界的距离、降雨和温度异常以及年份相关联。 耕地覆盖率随距聚居地边界的距离增加而显著下降（ , ），并与降雨异常呈正相关（ , ），而温度异常并非显著预测因子。这些结果提供了定量证据，表明聚居地邻近程度和降雨亏缺与观测到的耕地覆盖率变化相关。",
+      "analysis": "",
+      "topic_tags": [
+        "自然资源"
+      ],
+      "category": "科研学术",
+      "matched_keywords": []
+    }
+  ]
+}

@@ -5334,3 +5334,147 @@
 
 ---
 
+## 2026-10-06
+
+**今日高频关键词**：`#可持续发展` `#气候变化` `#湿地` `#生态环境` `#碳中和`
+
+**今日 Top10 热点**
+
+### 1. Climate change increases northern peatland burning and combustion carbon loss
+- **来源**：Environmental Research Letters
+- **热度**：87.4
+- **链接**：https://iopscience.iop.org/article/10.1088/1748-9326/aea91c
+- **摘要**：气候变化导致的温度升高、水蒸气压缺口扩大以及干旱频率增加，可能加剧泥炭地野火活动并加重燃烧强度，从而可能释放大量储存的远古碳。在此，我们利用一个综合建模框架，量化了北部泥炭地野火燃烧对预测气候变化的敏感性。 我们利用“全球火灾排放数据库”（Global Fire Emissions Database）的过火面积数据集（v5.1），对北美和欧亚大陆的随机森林模型进行训练，以预测景观过火频率与土地覆盖及气候变量的关系。 根据多个全球气候模式及多种气候情景，估算了未来过火面积的变化。泥炭燃烧强度则基于Hydrus-1D模拟的泥炭含水率剖面进行估算，该模型对初始地下水位位置、潜在蒸散发速率、干燥时间以及泥炭的水理物理性质进行了变量调整。 集合分析结果预测，到本世纪末，北方泥炭地过火面积将出现适度增长（在各种气候情景下为3.2–3.6 Mha yr−1），而我们对当前过火面积的估算值为2.75 Mha yr−1。 受烧面积增加与燃烧深度加深的综合影响，预计到本世纪末，泥炭地阴燃碳排放量将达到47.5–55.3 Mt C yr−1，而我们当前的集合估计值为35.8 Mt C yr−1。 尽管北美和欧亚大陆的模拟燃烧强度相当，但由于平均燃烧速率更高且泥炭地面积更大，预计欧亚大陆将贡献北方泥炭地阴燃碳排放量的约70%。 由于泥炭地阴燃碳排放量的增加，我们关于本世纪末泥炭地燃烧的研究结果表明，在高排放情景下，从区域角度看，泥炭地有可能从净碳汇转变为净碳源。因此，将泥炭地燃烧的机理过程纳入地球系统模型对于减少不
+- **分析**：该条目涉及【全球火灾排放数据库】话题，因来源权威性高且发布时间较新，热度上升。
+
+### 2. Design principles for functional carbon materials derived from biomass conversion
+- **来源**：Nature Sustainability
+- **热度**：85.5
+- **链接**：https://www.nature.com/articles/s41893-026-01948-y
+- **摘要**：《自然·可持续性》（Nature Sustainability）， 生物质衍生的碳材料在各种可持续技术领域具有广阔的应用前景。 本文认为，仅凭生物质成分不足以预测材料性能，并提出了一种以转化路径为指导的框架，以优化材料的反应性、传输性能和稳定性。
+- **分析**：该条目涉及【环境政策】话题，因来源权威性高且发布时间较新，热度上升。
+
+### 3. Understanding the physical mechanism of record-breaking 2025 Korea–Japan heatwave
+- **来源**：Environmental Research Letters
+- **热度**：85.3
+- **链接**：https://iopscience.iop.org/article/10.1088/1748-9326/aeaaf5
+- **摘要**：韩日（KJ）地区的变暖速度超过了全球平均水平，最终在2025年夏季引发了一场创纪录的热浪。 尽管2023年至2025年的三个夏季均在持续负相位的太平洋十年振荡背景下形成，但只有2025年出现了此类极端事件。 我们表明，其底层热强迫的子午向结构起到了决定性作用：2023年，与厄尔尼诺现象相关的广泛热带-亚热带变暖将热强迫分布于一个宽阔的纬度带； 2024年，同样广泛的热带变暖信号持续存在；而2025年，随着热带地区相对变冷，变暖现象仅局限于北太平洋中纬度地区。 这种局限于中纬度的狭窄强迫触发了驱动地表热浪的动力学链：喷流向赤道一侧的上对流层温度梯度减弱、喷流减弱并向极地偏移、持续的阻塞天气、云量减少以及地表短波辐射增强。 增强的辐射进而使下层海洋变暖，而气海耦合（ASC）进一步放大了这一事件并使其持续。 我们进一步证明，自2016年以来该区域的ASC已增强，其中2025年创下了有记录以来的最极端表现。这些发现表明，要预测未来KJ热浪的风险，不仅需要全球平均变暖的预测，还必须理解热强迫的空间结构以及区域ASC强度的演变。
+- **分析**：该条目涉及【2025年热浪】话题，因来源权威性高且发布时间较新，热度上升。
+
+### 4. UK oil refinery broke toxic pollution limits dozens of times, documents reveal
+- **来源**：BBC 科学与环境
+- **热度**：84.6
+- **链接**：https://www.bbc.co.uk/news/articles/c64g15v2jqy8o?at_medium=RSS&at_campaign=rss
+- **摘要**：据与英国广播公司（BBC）分享的文件显示，污染物已泄漏到当地河流和受保护区域。
+- **分析**：该条目涉及【污染治理】话题，因来源权威性高且发布时间较新，热度上升。
+
+### 5. Beyond efficiency: disentangling structural and behavioral sufficiency in U.S. residential decarbonization pathways
+- **来源**：Environmental Research Letters
+- **热度**：82.4
+- **链接**：https://iopscience.iop.org/article/10.1088/1748-9326/aead03
+- **摘要**：住宅领域的脱碳战略主要侧重于降低能源供应的碳强度和提高终端用能效率。所谓“适足性”——即在维持生活质量的同时避免不必要的能源需求——在国家能源系统分析中仍基本被忽视，这使得效率与适足性在降低能源需求方面所发挥的相对作用及综合作用变得模糊不清。 本文厘清了结构性充足与行为性充足对住宅能源需求和排放的影响，并量化了它们在能效提升和供暖电气化背景下的单独及综合效应。 通过一个将美国住房存量更替与每小时建筑能源需求相联结的综合建模框架，我们发现，在“一切照旧”的趋势下，2020年至2050年间建筑面积将扩大55%，能源需求随之增加8%。 与这一2050年发展轨迹相比，能效提升和结构性充足性可分别使需求减少26%和24%，二者结合则可使需求减少44%。采用基于健康考量且较为保守的恒温器设定值，可进一步将能源需求降低29%–44%。 这些结果表明，将“充足性”因素纳入考量会改变脱碳路径下可实现的住宅能源需求削减规模，这凸显了在推动该部门向深度脱碳迈进的同时保持家庭福祉的过程中，建筑的使用方式与建筑本身同样重要。
+- **分析**：该条目涉及【气候变化】话题，因来源权威性高且发布时间较新，热度上升。
+
+### 6. Correction for Doughty et al., Compounded effects on wetland greenhouse gas fluxes from climate change and water management along a saline to freshwater gradient
+- **来源**：PNAS 环境科学
+- **热度**：82.3
+- **链接**：https://www.pnas.org/doi/abs/10.1073/pnas.2633441123?af=R
+- **摘要**：《美国国家科学院院刊》，，，2026年10月。
+- **分析**：该条目涉及【湿地温室气体通量】话题，因来源权威性高且话题稀缺度高，热度上升。
+
+### 7. Combustion-derived air pollution and heat from gas-fired appliances in commercial kitchens can exceed health-based guidelines
+- **来源**：Environmental Research Letters
+- **热度**：82.1
+- **链接**：https://iopscience.iop.org/article/10.1088/1748-9326/ae9d96
+- **摘要**：据估计，商业厨房可能使约1570万美国工人暴露在空气污染和高温环境中，但现实情况下的测量数据有限，且此前尚无研究将使用燃气设备的商业厨房与全电式商业厨房进行过比较。 我们对加利福尼亚州、宾夕法尼亚州和纽约州的27家商用厨房（包括24家使用天然气或丙烷的厨房和3家全电厨房）在工作期间和闲置期间的污染物及温度进行了监测。 我们在每间厨房内与厨师和烹饪人员相关的五个位置，测量了二氧化氮（）、一氧化碳（CO）、二氧化碳（CO₂）、甲烷（CH₄）、苯以及温度。在工作期间， 在24个使用燃气设备的厨房中，有17个（70%）的厨房在排烟罩外侧及厨房环境区域测得的（100 ），其中4个厨房的最高浓度超过1000 总体而言，我们记录到约170个工作小时，期间排气罩外或厨房环境区域的1小时 在三间配备燃气灶具的厨房中，抽油烟机外及厨房环境区域的一氧化碳（CO）浓度在10小时内超过了加利福尼亚州1小时指导值（20 ）；而在五间不同的厨房中，苯浓度在12小时内超过了加利福尼亚州1小时暴露指导值（8.4 ）。 同样，19 个使用化石燃料的厨房中有 13 个（68%）超过了 OSHA 拟定的 90°F（32.2 °C）高温阈值，其中 10 个厨房的最高温度超过了 100°F（37.8 °C）。 总体而言，在我们抽样的配备燃气设备的厨房中，约70%的厨房内，尽管设有通风系统，但工人仍经常面临超过基于健康标准的指导值的污染物和高温暴露。 所有电热厨房均未超过污染物或温度阈值。虽然我们在工作时间内经常观察到高浓度的污染物，但在通风系统关闭但 Pilot 灯仍保持点燃状态的夜间，三分之二的化石燃料厨房中 、CO、CO₂、CH₄ 和苯的浓度中位数更高。
+- **分析**：该条目涉及【空气污染】话题，因来源权威性高且发布时间较新，热度上升。
+
+### 8. The Great Barrier Reef requires special attention in the developing super El Niño
+- **来源**：Nature
+- **热度**：82.0
+- **链接**：https://www.nature.com/articles/d41586-026-03174-0
+- **摘要**：《自然》杂志，在大规模“超级厄尔尼诺”现象发展过程中，大堡礁需要特别关注
+- **分析**：该条目涉及【超级厄尔尼诺】话题，因来源权威性高且发布时间较新，热度上升。
+
+### 9. “以开放共享科研成果”|可持续发展|气候变化|可再生能源|联合国|老龄化 - 新浪财经
+- **来源**：Google News 气候变化
+- **热度**：81.4
+- **链接**：https://news.google.com/rss/articles/CBMihgFBVV95cUxNVGRHd0djZVk4SjVZUW5hQ2FhTTRDUF8wTnNSNXBfM0kwN2hqdkZvLVN1OG1LcmE3WUE2VHByaEduSlNvMkkybkJjN25rYjQ2WTlpVkpMa0NKNENrNW0yVlY2T2RadjZEVUdEUWNvSWwxb3JvckhoM3JKUVEwZjBpZWxPSGQ2QQ?oc=5
+- **摘要**：访施普林格·自然集团公司事务负责人洛里根，探讨开放共享科研成果在可持续发展、气候变化及可再生能源领域的应用，支持中国政府科研工作。
+- **分析**：该条目涉及【开放共享科研成果】话题，因来源较权威且话题稀缺度高，热度上升。
+
+### 10. Air filters with sustained breathability
+- **来源**：Nature Sustainability
+- **热度**：79.8
+- **链接**：https://www.nature.com/articles/s41893-026-01943-3
+- **摘要**：《自然·可持续性》（Nature Sustainability），。尽管空气净化技术对保护人类健康至关重要，但其存在滤芯堵塞、使用寿命短以及需反复更换滤芯等问题。 一种湿式界面过滤器设计现已解决了这些难题，既能高效捕获空气中的污染物，又能延长过滤器的使用寿命。
+- **分析**：该条目涉及【空气净化】话题，因来源权威性高，热度上升。
+
+**今日自动提取候选新词**
+
+- **climate**（出现 4 次）
+  - 上下文：Correction for Doughty et al., Compounded effects on wetland greenhouse gas fluxes from climate change and water management along a saline to freshwater gradient
+  - 上下文：Coordinating assessment of climate adaptation and methane mitigation in rice production systems
+  - 上下文：More than 1,200 Colorado students have earned a climate ‘seal’: ‘We’re the ones growing up in this world’
+- **water**（出现 3 次）
+  - 上下文：Correction for Doughty et al., Compounded effects on wetland greenhouse gas fluxes from climate change and water management along a saline to freshwater gradient
+  - 上下文：Significant sunlight-driven methane production at the wetland sediment-water interface
+  - 上下文：Scientists just found a new way to make hydrogen from water
+- **hydrogen**（出现 3 次）
+  - 上下文：Green synthesis of hydrogen and formaldehyde from methanol with enhanced quantum efficiency
+  - 上下文：Variation of dissolved organic nitrogen in full-scale wastewater treatment revealed by HRMS coupled with hydrogen/deuterium isotope labeling
+  - 上下文：Scientists just found a new way to make hydrogen from water
+- **change**（出现 2 次）
+  - 上下文：Climate change increases northern peatland burning and combustion carbon loss
+  - 上下文：Correction for Doughty et al., Compounded effects on wetland greenhouse gas fluxes from climate change and water management along a saline to freshwater gradient
+- **carbon**（出现 2 次）
+  - 上下文：Climate change increases northern peatland burning and combustion carbon loss
+  - 上下文：Design principles for functional carbon materials derived from biomass conversion
+- **derived**（出现 2 次）
+  - 上下文：Design principles for functional carbon materials derived from biomass conversion
+  - 上下文：Combustion-derived air pollution and heat from gas-fired appliances in commercial kitchens can exceed health-based guidelines
+- **oil**（出现 2 次）
+  - 上下文：UK oil refinery broke toxic pollution limits dozens of times, documents reveal
+  - 上下文：US supreme court hears big oil’s bid to block climate damage lawsuits
+- **pollution**（出现 2 次）
+  - 上下文：UK oil refinery broke toxic pollution limits dozens of times, documents reveal
+  - 上下文：Combustion-derived air pollution and heat from gas-fired appliances in commercial kitchens can exceed health-based guidelines
+- **efficiency**（出现 2 次）
+  - 上下文：Beyond efficiency: disentangling structural and behavioral sufficiency in U.S. residential decarbonization pathways
+  - 上下文：Green synthesis of hydrogen and formaldehyde from methanol with enhanced quantum efficiency
+- **effects**（出现 2 次）
+  - 上下文：Correction for Doughty et al., Compounded effects on wetland greenhouse gas fluxes from climate change and water management along a saline to freshwater gradient
+  - 上下文：Passive sampling for grazer cues incorporates top-down effects in harmful algal bloom monitoring and toxin prediction
+- **wetland**（出现 2 次）
+  - 上下文：Correction for Doughty et al., Compounded effects on wetland greenhouse gas fluxes from climate change and water management along a saline to freshwater gradient
+  - 上下文：Significant sunlight-driven methane production at the wetland sediment-water interface
+- **gas**（出现 2 次）
+  - 上下文：Correction for Doughty et al., Compounded effects on wetland greenhouse gas fluxes from climate change and water management along a saline to freshwater gradient
+  - 上下文：Combustion-derived air pollution and heat from gas-fired appliances in commercial kitchens can exceed health-based guidelines
+- **air**（出现 2 次）
+  - 上下文：Combustion-derived air pollution and heat from gas-fired appliances in commercial kitchens can exceed health-based guidelines
+  - 上下文：Highly efficient air purification by a charge-induced liquid-lined filter
+- **requires**（出现 2 次）
+  - 上下文：The Great Barrier Reef requires special attention in the developing super El Niño
+  - 上下文：Maintaining global science collaboration during conflict requires fairer rules
+- **财经**（出现 2 次）
+  - 上下文：“以开放共享科研成果”|可持续发展|气候变化|可再生能源|联合国|老龄化 - 新浪财经
+  - 上下文：黑龙江五部门打击生态环境监测机构弄虚作假 - 新浪财经
+- **enhanced**（出现 2 次）
+  - 上下文：Green synthesis of hydrogen and formaldehyde from methanol with enhanced quantum efficiency
+  - 上下文：Nitrogen removal and microbial community responses in anammox-enhanced biofilters across diverse urban waters
+- **methane**（出现 2 次）
+  - 上下文：Coordinating assessment of climate adaptation and methane mitigation in rice production systems
+  - 上下文：Significant sunlight-driven methane production at the wetland sediment-water interface
+- **production**（出现 2 次）
+  - 上下文：Coordinating assessment of climate adaptation and methane mitigation in rice production systems
+  - 上下文：Significant sunlight-driven methane production at the wetland sediment-water interface
+- **生物通**（出现 2 次）
+  - 上下文：气候变化对药用植物产量衰退、代谢物变异与分布范围迁移的影响评估 - 生物通
+  - 上下文：环境空气污染年均暴露、多基因风险与主要慢性病发病风险：一项大规模前瞻性队列研究 - 生物通
+- **make**（出现 2 次）
+  - 上下文：Scientists just found a new way to make hydrogen from water
+  - 上下文：Africa’s effort to make most of its own vaccines by 2040 faces significant headwinds
+
+---
+

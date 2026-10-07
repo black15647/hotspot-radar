@@ -1,20 +1,38 @@
 [
   {
-    "term": "climate",
-    "count": 4,
+    "term": "中国",
+    "count": 7,
     "contexts": [
-      "Correction for Doughty et al., Compounded effects on wetland greenhouse gas fluxes from climate change and water management along a saline to freshwater gradient",
-      "Coordinating assessment of climate adaptation and methane mitigation in rice production systems",
-      "More than 1,200 Colorado students have earned a climate ‘seal’: ‘We’re the ones growing up in this world’"
+      "中国北冰洋考察获一手数据 助力解码全球气候变化 - 央视网",
+      "- 中国环境网",
+      "给水管网水质化学稳定性判别软件开发与应用 - 中国水网"
     ]
   },
   {
-    "term": "water",
+    "term": "assessment",
     "count": 3,
     "contexts": [
-      "Correction for Doughty et al., Compounded effects on wetland greenhouse gas fluxes from climate change and water management along a saline to freshwater gradient",
-      "Significant sunlight-driven methane production at the wetland sediment-water interface",
-      "Scientists just found a new way to make hydrogen from water"
+      "Decarbonizing under water stress: an integrated assessment of Chile’s pathway to carbon neutrality by 2050",
+      "Probabilistic tropical cyclone rainfall generator for flood hazard assessment along the U.S. Atlantic and Gulf Coasts",
+      "Enhancing urban flood risk assessment: A PCA-integrated deep learning surrogate for hazard and damage prediction"
+    ]
+  },
+  {
+    "term": "climate",
+    "count": 3,
+    "contexts": [
+      "Techno-optimistic scientists take fewer climate actions",
+      "Decadal climate predictions correctly forecast the direction of Northern Hemisphere Wind Stilling but underestimate its magnitude",
+      "US supreme court hears big oil’s bid to block climate damage lawsuits"
+    ]
+  },
+  {
+    "term": "生态",
+    "count": 3,
+    "contexts": [
+      "【“绿”动河北·山水间的答卷】层层净化守碧水 府河河口湿地擦亮白洋淀生态底色 - 河北广播电视台",
+      "新法护佳节 生态惠民生 生态环境法典护航 守护城市烟火气 - 广州日报新花城",
+      "赵立平督导溶洞生态环境污染排查治理工作：抓实排查整治守护岩溶安全- 永州 - 新湖南"
     ]
   },
   {
@@ -22,32 +40,96 @@
     "count": 3,
     "contexts": [
       "Green synthesis of hydrogen and formaldehyde from methanol with enhanced quantum efficiency",
-      "Variation of dissolved organic nitrogen in full-scale wastewater treatment revealed by HRMS coupled with hydrogen/deuterium isotope labeling",
+      "From laboratory to field: performance and mechanisms of enhanced ventilation for hydrogen sulfide control in gravity sewers",
       "Scientists just found a new way to make hydrogen from water"
     ]
   },
   {
-    "term": "change",
+    "term": "water",
     "count": 2,
     "contexts": [
-      "Climate change increases northern peatland burning and combustion carbon loss",
-      "Correction for Doughty et al., Compounded effects on wetland greenhouse gas fluxes from climate change and water management along a saline to freshwater gradient"
+      "Decarbonizing under water stress: an integrated assessment of Chile’s pathway to carbon neutrality by 2050",
+      "Scientists just found a new way to make hydrogen from water"
     ]
   },
   {
-    "term": "carbon",
+    "term": "integrated",
     "count": 2,
     "contexts": [
-      "Climate change increases northern peatland burning and combustion carbon loss",
-      "Design principles for functional carbon materials derived from biomass conversion"
+      "Decarbonizing under water stress: an integrated assessment of Chile’s pathway to carbon neutrality by 2050",
+      "Enhancing urban flood risk assessment: A PCA-integrated deep learning surrogate for hazard and damage prediction"
     ]
   },
   {
-    "term": "derived",
+    "term": "flood",
     "count": 2,
     "contexts": [
-      "Design principles for functional carbon materials derived from biomass conversion",
-      "Combustion-derived air pollution and heat from gas-fired appliances in commercial kitchens can exceed health-based guidelines"
+      "Probabilistic tropical cyclone rainfall generator for flood hazard assessment along the U.S. Atlantic and Gulf Coasts",
+      "Enhancing urban flood risk assessment: A PCA-integrated deep learning surrogate for hazard and damage prediction"
+    ]
+  },
+  {
+    "term": "hazard",
+    "count": 2,
+    "contexts": [
+      "Probabilistic tropical cyclone rainfall generator for flood hazard assessment along the U.S. Atlantic and Gulf Coasts",
+      "Enhancing urban flood risk assessment: A PCA-integrated deep learning surrogate for hazard and damage prediction"
+    ]
+  },
+  {
+    "term": "全球",
+    "count": 2,
+    "contexts": [
+      "中国北冰洋考察获一手数据 助力解码全球气候变化 - 央视网",
+      "《海洋与全球变化（英文）》（Ocean and Global Change）丨新刊推介 - 潮新闻客户端"
+    ]
+  },
+  {
+    "term": "河北",
+    "count": 2,
+    "contexts": [
+      "【“绿”动河北·山水间的答卷】层层净化守碧水 府河河口湿地擦亮白洋淀生态底色 - 河北广播电视台",
+      "【一线经济观察】一项环保政策如何撬动县域特色产业转型升级 - 河北广播电视台"
+    ]
+  },
+  {
+    "term": "电视台",
+    "count": 2,
+    "contexts": [
+      "【“绿”动河北·山水间的答卷】层层净化守碧水 府河河口湿地擦亮白洋淀生态底色 - 河北广播电视台",
+      "【一线经济观察】一项环保政策如何撬动县域特色产业转型升级 - 河北广播电视台"
+    ]
+  },
+  {
+    "term": "enhanced",
+    "count": 2,
+    "contexts": [
+      "Green synthesis of hydrogen and formaldehyde from methanol with enhanced quantum efficiency",
+      "From laboratory to field: performance and mechanisms of enhanced ventilation for hydrogen sulfide control in gravity sewers"
+    ]
+  },
+  {
+    "term": "生物通",
+    "count": 2,
+    "contexts": [
+      "气候变化下摩洛哥东部Figuig绿洲海枣（Phoenix dactylifera L.）Aziza品种的种植者感知、生殖风险与适应需求 - 生物通",
+      "蜜蜂作为环境全氟和多氟烷基物质（PFASs）污染的生物指示物及其对肠道微生物群落的潜在影响 - 生物通"
+    ]
+  },
+  {
+    "term": "damage",
+    "count": 2,
+    "contexts": [
+      "Enhancing urban flood risk assessment: A PCA-integrated deep learning surrogate for hazard and damage prediction",
+      "US supreme court hears big oil’s bid to block climate damage lawsuits"
+    ]
+  },
+  {
+    "term": "守护",
+    "count": 2,
+    "contexts": [
+      "新法护佳节 生态惠民生 生态环境法典护航 守护城市烟火气 - 广州日报新花城",
+      "赵立平督导溶洞生态环境污染排查治理工作：抓实排查整治守护岩溶安全- 永州 - 新湖南"
     ]
   },
   {
@@ -59,107 +141,27 @@
     ]
   },
   {
-    "term": "pollution",
+    "term": "particles",
     "count": 2,
     "contexts": [
-      "UK oil refinery broke toxic pollution limits dozens of times, documents reveal",
-      "Combustion-derived air pollution and heat from gas-fired appliances in commercial kitchens can exceed health-based guidelines"
+      "Hydrodynamic controls on vertical transport and retention of microplastic particles in subsurface sediments",
+      "'Ghost particles' from space telescope wins physics Nobel"
     ]
   },
   {
-    "term": "efficiency",
+    "term": "Ocean",
     "count": 2,
     "contexts": [
-      "Beyond efficiency: disentangling structural and behavioral sufficiency in U.S. residential decarbonization pathways",
-      "Green synthesis of hydrogen and formaldehyde from methanol with enhanced quantum efficiency"
+      "《海洋与全球变化（英文）》（Ocean and Global Change）丨新刊推介 - 潮新闻客户端",
+      "Ocean heatwaves are hiding months of extra warming"
     ]
   },
   {
-    "term": "effects",
+    "term": "环保",
     "count": 2,
     "contexts": [
-      "Correction for Doughty et al., Compounded effects on wetland greenhouse gas fluxes from climate change and water management along a saline to freshwater gradient",
-      "Passive sampling for grazer cues incorporates top-down effects in harmful algal bloom monitoring and toxin prediction"
-    ]
-  },
-  {
-    "term": "wetland",
-    "count": 2,
-    "contexts": [
-      "Correction for Doughty et al., Compounded effects on wetland greenhouse gas fluxes from climate change and water management along a saline to freshwater gradient",
-      "Significant sunlight-driven methane production at the wetland sediment-water interface"
-    ]
-  },
-  {
-    "term": "gas",
-    "count": 2,
-    "contexts": [
-      "Correction for Doughty et al., Compounded effects on wetland greenhouse gas fluxes from climate change and water management along a saline to freshwater gradient",
-      "Combustion-derived air pollution and heat from gas-fired appliances in commercial kitchens can exceed health-based guidelines"
-    ]
-  },
-  {
-    "term": "air",
-    "count": 2,
-    "contexts": [
-      "Combustion-derived air pollution and heat from gas-fired appliances in commercial kitchens can exceed health-based guidelines",
-      "Highly efficient air purification by a charge-induced liquid-lined filter"
-    ]
-  },
-  {
-    "term": "requires",
-    "count": 2,
-    "contexts": [
-      "The Great Barrier Reef requires special attention in the developing super El Niño",
-      "Maintaining global science collaboration during conflict requires fairer rules"
-    ]
-  },
-  {
-    "term": "财经",
-    "count": 2,
-    "contexts": [
-      "“以开放共享科研成果”|可持续发展|气候变化|可再生能源|联合国|老龄化 - 新浪财经",
-      "黑龙江五部门打击生态环境监测机构弄虚作假 - 新浪财经"
-    ]
-  },
-  {
-    "term": "enhanced",
-    "count": 2,
-    "contexts": [
-      "Green synthesis of hydrogen and formaldehyde from methanol with enhanced quantum efficiency",
-      "Nitrogen removal and microbial community responses in anammox-enhanced biofilters across diverse urban waters"
-    ]
-  },
-  {
-    "term": "methane",
-    "count": 2,
-    "contexts": [
-      "Coordinating assessment of climate adaptation and methane mitigation in rice production systems",
-      "Significant sunlight-driven methane production at the wetland sediment-water interface"
-    ]
-  },
-  {
-    "term": "production",
-    "count": 2,
-    "contexts": [
-      "Coordinating assessment of climate adaptation and methane mitigation in rice production systems",
-      "Significant sunlight-driven methane production at the wetland sediment-water interface"
-    ]
-  },
-  {
-    "term": "生物通",
-    "count": 2,
-    "contexts": [
-      "气候变化对药用植物产量衰退、代谢物变异与分布范围迁移的影响评估 - 生物通",
-      "环境空气污染年均暴露、多基因风险与主要慢性病发病风险：一项大规模前瞻性队列研究 - 生物通"
-    ]
-  },
-  {
-    "term": "make",
-    "count": 2,
-    "contexts": [
-      "Scientists just found a new way to make hydrogen from water",
-      "Africa’s effort to make most of its own vaccines by 2040 faces significant headwinds"
+      "环保天地 - 加纳政府加强环境监控是否特别针对中国企业？ - RFI",
+      "【一线经济观察】一项环保政策如何撬动县域特色产业转型升级 - 河北广播电视台"
     ]
   }
 ]

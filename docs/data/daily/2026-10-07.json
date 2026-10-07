@@ -1,0 +1,547 @@
+{
+  "report_date": "2026-10-07",
+  "site_name": "环境学子雷达",
+  "total_items": 40,
+  "snapshot_items": 10,
+  "category_stats": {
+    "水处理": {
+      "count": 4,
+      "total_heat": 311.2
+    },
+    "生态环境": {
+      "count": 8,
+      "total_heat": 563.9
+    },
+    "科研学术": {
+      "count": 3,
+      "total_heat": 229.2
+    },
+    "气候变化": {
+      "count": 11,
+      "total_heat": 769.2
+    },
+    "其他": {
+      "count": 5,
+      "total_heat": 336.4
+    },
+    "环境政策": {
+      "count": 5,
+      "total_heat": 345.0
+    },
+    "污染治理": {
+      "count": 4,
+      "total_heat": 276.6
+    }
+  },
+  "total_sources": 28,
+  "success_sources": 27,
+  "failed_sources": 0,
+  "week_total_items": 231,
+  "week_new_keywords": 73,
+  "policy_ratio": 9.5,
+  "items": [
+    {
+      "title": "Decarbonizing under water stress: an integrated assessment of Chile’s pathway to carbon neutrality by 2050",
+      "title_en": "Decarbonizing under water stress: an integrated assessment of Chile’s pathway to carbon neutrality by 2050",
+      "title_zh": "在水资源压力下的脱碳：对智利到2050年实现碳中和路径的综合评估",
+      "link": "https://iopscience.iop.org/article/10.1088/1748-9326/aeac70",
+      "source": "Environmental Research Letters",
+      "published": "2026-10-06T23:00:00+00:00",
+      "hotness": 91.7,
+      "score_v1": 38.99,
+      "score_v2": 91.7,
+      "score_breakdown": {
+        "algorithm": "v3.0",
+        "dimension_max": {
+          "authority": 18.0,
+          "topic": 18.0,
+          "resonance": 18.0,
+          "information": 16.0
+        },
+        "authority_score": 18.0,
+        "keyword_idf_score": 11.59,
+        "topic_score": 16.25,
+        "topic_burst_score": 4.66,
+        "topic_burst_count": 4,
+        "resonance_score": 0.0,
+        "info_score": 12.0,
+        "base": 46.25,
+        "base_max": 70.0,
+        "time_factor": 0.8529,
+        "density_factor": 1.0,
+        "density_note": "",
+        "repeat_penalty": 1.0,
+        "repeat_excused": false,
+        "event_size": 1,
+        "event_media_count": 1,
+        "event_cluster_source": "token",
+        "origin_source": "Environmental Research Letters",
+        "raw": 39.45,
+        "display_score": 91.7,
+        "display_mode": "absolute"
+      },
+      "summary": "人为导致的气候变化正在加剧地中海气候地区（如智利中部）的水资源短缺问题——该地区原本年降水量就较低——从而增加了可能出现永久性“特大干旱”的风险。 尽管碳中和政策通常将能源和土地部门的措施相结合，但这些政策对智利水-能源-土地（WEL）相互作用的具体影响仍未得到充分探讨。 本研究首次在国家层面应用 GCAM-Chile 模型，评估在水资源本已紧张的背景下，能源和土地部门相结合的碳中和路径将如何重塑各行业的水需求模式。 我们考察了一个基准情景和八种替代性碳中和路径，这些路径将能源部门的脱碳与不同强度的土地部门减缓（LM）措施相结合，同时保持流域供水量不变，因此结果反映的是水需求的变化，而非未来的水资源可用性。 研究结果表明，依托可再生能源的脱碳通过将发电与热力冷却需求脱钩，大幅减少了电力部门的水取水量，在水资源匮乏的背景下带来了直接的水需求协同效益。 假设低成本碳捕获与封存技术出现的场景中，由于配备这些技术的化石燃料发电带来的更高用水需求，电力取水量的减少幅度较小。然而，农业灌溉仍是总取水量的主要来源，且在所有场景下其用水量仍在持续增长。 LM 通过限制农业生产来减少灌溉需求，但由此会与粮食生产产生权衡关系。这些相互作用的影响可能在智利不久的将来催生水-能源-土地（WEL）相互作用的新政策格局，因此有必要进一步关注气候政策在水资源匮乏背景下对水-能源-土地关联的影响。",
+      "analysis": "",
+      "topic_tags": [
+        "水资源短缺",
+        "碳中和",
+        "水-能源-土地相互作用"
+      ],
+      "category": "水处理",
+      "matched_keywords": [
+        "气候变化",
+        "碳中和",
+        "流域",
+        "可再生能源"
+      ]
+    },
+    {
+      "title": "The role of domestic and international markets in the loss of nature across Brazil",
+      "title_en": "The role of domestic and international markets in the loss of nature across Brazil",
+      "title_zh": "国内和国际市场在巴西全境自然丧失中的作用",
+      "link": "https://iopscience.iop.org/article/10.1088/1748-9326/aeacfe",
+      "source": "Environmental Research Letters",
+      "published": "2026-10-06T23:00:00+00:00",
+      "hotness": 86.3,
+      "score_v1": 26.99,
+      "score_v2": 86.3,
+      "score_breakdown": {
+        "algorithm": "v3.0",
+        "dimension_max": {
+          "authority": 18.0,
+          "topic": 18.0,
+          "resonance": 18.0,
+          "information": 16.0
+        },
+        "authority_score": 18.0,
+        "keyword_idf_score": 11.24,
+        "topic_score": 13.6,
+        "topic_burst_score": 2.36,
+        "topic_burst_count": 2,
+        "resonance_score": 0.0,
+        "info_score": 3.0,
+        "base": 34.6,
+        "base_max": 70.0,
+        "time_factor": 0.8529,
+        "density_factor": 1.0,
+        "density_note": "",
+        "repeat_penalty": 1.0,
+        "repeat_excused": false,
+        "event_size": 1,
+        "event_media_count": 1,
+        "event_cluster_source": "token",
+        "origin_source": "Environmental Research Letters",
+        "raw": 29.51,
+        "display_score": 86.3,
+        "display_mode": "absolute"
+      },
+      "summary": "人类为了农业开发，将大片自然区域——包括森林、稀树草原、湿地和草原——改造成了农田。尽管国内市场占全球农业产量和土地利用变化的70%以上，但国内供应链和终端用途却很少被系统地梳理。 本文提出了一个针对巴西的跨区域投入产出模型。巴西作为主要的农业生产国和市场，其农业前沿不断扩展，自2000年以来已发生70 Mha公顷的植被转化。 我们捕捉了2010年至2015年间巴西六个生物群落中土地转用的驱动因素，并将这些因素与36个经济部门、47个巴西地区以及四个外部贸易伙伴（欧盟、美国、中国和世界其他地区）联系起来。 研究发现，37.8%的土地转化由本地（州内）消费驱动，35.2%由巴西其他州的需求驱动，剩余27%则源于国际贸易。总体而言，非森林土地的转化面积超过了森林土地，这一现象在国内市场和对华出口中尤为显著。 我们的研究方法揭示了土地转用如何渗透到整个经济体系中，许多行业间接采购了与土地转用相关的产品和副产品。值得注意的是，我们发现10.3%的土地转用与乳制品消费相关，7.9%与服务业（如酒店、餐厅和咖啡馆）相关。 尽管当前的环境治理工作主要侧重于“零砍伐”承诺和“第一英里”可追溯性（例如从农场到屠宰场），但我们的研究结果为问责机制提供了依据，使其能够将目光投向上游，让零售、乳制品、皮革和加工食品等行业参与其中——这些行业所使用的产品与巴西各生物群落中自然资源的流失密切相关。",
+      "analysis": "",
+      "topic_tags": [
+        "生态环境"
+      ],
+      "category": "生态环境",
+      "matched_keywords": [
+        "湿地",
+        "环境治理"
+      ]
+    },
+    {
+      "title": "Techno-optimistic scientists take fewer climate actions",
+      "title_en": "Techno-optimistic scientists take fewer climate actions",
+      "title_zh": "对技术持乐观态度的科学家采取的气候行动较少",
+      "link": "https://iopscience.iop.org/article/10.1088/1748-9326/aea4c7",
+      "source": "Environmental Research Letters",
+      "published": "2026-10-06T23:00:00+00:00",
+      "hotness": 85.4,
+      "score_v1": 26.99,
+      "score_v2": 85.4,
+      "score_breakdown": {
+        "algorithm": "v3.0",
+        "dimension_max": {
+          "authority": 18.0,
+          "topic": 18.0,
+          "resonance": 18.0,
+          "information": 16.0
+        },
+        "authority_score": 18.0,
+        "keyword_idf_score": 3.53,
+        "topic_score": 8.19,
+        "topic_burst_score": 4.66,
+        "topic_burst_count": 4,
+        "resonance_score": 0.0,
+        "info_score": 7.0,
+        "base": 33.19,
+        "base_max": 70.0,
+        "time_factor": 0.8529,
+        "density_factor": 1.0,
+        "density_note": "",
+        "repeat_penalty": 1.0,
+        "repeat_excused": false,
+        "event_size": 1,
+        "event_media_count": 1,
+        "event_cluster_source": "token",
+        "origin_source": "Environmental Research Letters",
+        "raw": 28.31,
+        "display_score": 85.4,
+        "display_mode": "absolute"
+      },
+      "summary": "技术创新是缓解气候变化的关键，但对技术的过度依赖可能会削弱应对气候变化所需的更广泛的社会转型。作为知识生产者和受公众信赖的公众人物，科学家在塑造社会对气候变化的理解和应对方式方面发挥着重要作用。 我们利用来自各国科学家的调查数据，考察了科学家群体中的“技术乐观主义”——此处将其定义为相信技术将在很大程度上解决气候变化所引发的问题。 研究结果表明，技术乐观主义在应用科学和自然科学领域的科学家以及政治观点偏右的科学家中最为普遍，但与研究内容与气候变化的相关程度无关。 持技术乐观主义态度的科学家参与公民气候行动的可能性显著较低（低23%），进行重大生活方式改变的可能性也较低（低18%）。我们希望本研究能为以下问题的批判性讨论提供参考：科学家的个人信念和世界观如何影响其对气候行动的理解及参与程度。",
+      "analysis": "",
+      "topic_tags": [
+        "技术乐观主义"
+      ],
+      "category": "科研学术",
+      "matched_keywords": [
+        "气候变化"
+      ]
+    },
+    {
+      "title": "Decadal climate predictions correctly forecast the direction of Northern Hemisphere Wind Stilling but underestimate its magnitude",
+      "title_en": "Decadal climate predictions correctly forecast the direction of Northern Hemisphere Wind Stilling but underestimate its magnitude",
+      "title_zh": "十年尺度气候预测准确预测了北半球风力减弱的趋势，但低估了其程度",
+      "link": "https://iopscience.iop.org/article/10.1088/1748-9326/aeadb6",
+      "source": "Environmental Research Letters",
+      "published": "2026-10-06T23:00:00+00:00",
+      "hotness": 82.0,
+      "score_v1": 20.99,
+      "score_v2": 82.0,
+      "score_breakdown": {
+        "algorithm": "v3.0",
+        "dimension_max": {
+          "authority": 18.0,
+          "topic": 18.0,
+          "resonance": 18.0,
+          "information": 16.0
+        },
+        "authority_score": 18.0,
+        "keyword_idf_score": 7.2,
+        "topic_score": 7.2,
+        "topic_burst_score": 0.0,
+        "topic_burst_count": 1,
+        "resonance_score": 0.0,
+        "info_score": 3.0,
+        "base": 28.2,
+        "base_max": 70.0,
+        "time_factor": 0.8529,
+        "density_factor": 1.0,
+        "density_note": "",
+        "repeat_penalty": 1.0,
+        "repeat_excused": false,
+        "event_size": 1,
+        "event_media_count": 1,
+        "event_cluster_source": "token",
+        "origin_source": "Environmental Research Letters",
+        "raw": 24.05,
+        "display_score": 82.0,
+        "display_mode": "absolute"
+      },
+      "summary": "陆地上空近地表（10 米）风速在整个期间内平均有所下降",
+      "analysis": "",
+      "topic_tags": [
+        "气候变化"
+      ],
+      "category": "气候变化",
+      "matched_keywords": [
+        "温室气体"
+      ]
+    },
+    {
+      "title": "Probabilistic tropical cyclone rainfall generator for flood hazard assessment along the U.S. Atlantic and Gulf Coasts",
+      "title_en": "Probabilistic tropical cyclone rainfall generator for flood hazard assessment along the U.S. Atlantic and Gulf Coasts",
+      "title_zh": "用于评估美国大西洋沿岸和墨西哥湾沿岸洪水风险的概率性热带气旋降雨生成器",
+      "link": "https://iopscience.iop.org/article/10.1088/1748-9326/aeac6f",
+      "source": "Environmental Research Letters",
+      "published": "2026-10-06T23:00:00+00:00",
+      "hotness": 81.8,
+      "score_v1": 16.99,
+      "score_v2": 81.8,
+      "score_breakdown": {
+        "algorithm": "v3.0",
+        "dimension_max": {
+          "authority": 18.0,
+          "topic": 18.0,
+          "resonance": 18.0,
+          "information": 16.0
+        },
+        "authority_score": 18.0,
+        "keyword_idf_score": 0.0,
+        "topic_score": 3.0,
+        "topic_burst_score": 0.0,
+        "topic_burst_count": 1,
+        "resonance_score": 0.0,
+        "info_score": 7.0,
+        "base": 28.0,
+        "base_max": 70.0,
+        "time_factor": 0.8529,
+        "density_factor": 1.0,
+        "density_note": "",
+        "repeat_penalty": 1.0,
+        "repeat_excused": false,
+        "event_size": 1,
+        "event_media_count": 1,
+        "event_cluster_source": "token",
+        "origin_source": "Environmental Research Letters",
+        "raw": 23.88,
+        "display_score": 81.8,
+        "display_mode": "absolute"
+      },
+      "summary": "基于历史观测数据的热带气旋降水（TCR）统计模型，能够通过为大量热带气旋路径集合高效生成降水分布场，从而为洪水风险评估提供支持。尽管人们一直在努力改进对TCR的表征，但现有模型的性能仍显有限。 TCR误差建模框架提供了一种替代方法，通过由确定性成分和随机性成分组成的乘法误差模型来表征误差，从而突破这一局限。 本文以机构间性能评估工作组（IPET）降水分析模型为基础模型，将该框架应用于美国大西洋沿岸和墨西哥湾沿岸的113个局部区域，开发出一种基于误差校正的概率性TCR生成器。 对于确定性成分，我们拟合了总体偏差和降雨依赖性偏差模型，以校正 IPET 模型降雨量估计中的系统性偏差。随后，通过表征残差的边缘分布和空间依赖性，对剩余残差进行概率建模。 我们证明，IPET总降水量的系统偏差得到了有效校正，平均总体偏差从0.7增加到1.07，接近无偏差值1。 我们还表明，该热带气旋路径生成器生成的降水场在空间上具有合理性，并能捕捉径向降水剖面的变异性，在82%的径向分区中，参考降水强度均落在模拟的90%置信区间内。 该框架具有普适性，可推广至世界其他地区，并可应用于其他热带气旋模型以及观测和模拟的热带气旋路径。",
+      "analysis": "",
+      "topic_tags": [
+        "热带气旋降水",
+        "洪水风险评估",
+        "统计模型"
+      ],
+      "category": "水处理",
+      "matched_keywords": []
+    },
+    {
+      "title": "中国北冰洋考察获一手数据 助力解码全球气候变化 - 央视网",
+      "title_en": "",
+      "title_zh": "",
+      "link": "https://news.google.com/rss/articles/CBMieEFVX3lxTFBCOGxzd3dxWEMxZEFTbFlTcGNDamtvM0NiWnE1eVhGdWoxSFN0V1lyRXJmaXRDR213WlFVSnRfZ01LbWdiOXU0aXV4NlBBamMzTExwR1N5V2QyRVVqTS1CNmJHN3M2RE1LakUyV1QyWU4yVGhzTGRldA?oc=5",
+      "source": "Google News 气候变化",
+      "published": "2026-10-07T07:36:06+00:00",
+      "hotness": 77.1,
+      "score_v1": 27.17,
+      "score_v2": 77.1,
+      "score_breakdown": {
+        "algorithm": "v3.0",
+        "dimension_max": {
+          "authority": 18.0,
+          "topic": 18.0,
+          "resonance": 18.0,
+          "information": 16.0
+        },
+        "authority_score": 8.05,
+        "keyword_idf_score": 3.53,
+        "topic_score": 8.19,
+        "topic_burst_score": 4.66,
+        "topic_burst_count": 4,
+        "resonance_score": 0.0,
+        "info_score": 4.0,
+        "base": 20.24,
+        "base_max": 70.0,
+        "time_factor": 0.9516,
+        "density_factor": 1.0,
+        "density_note": "",
+        "repeat_penalty": 1.0,
+        "repeat_excused": false,
+        "event_size": 1,
+        "event_media_count": 1,
+        "event_cluster_source": "token",
+        "origin_source": "央视网",
+        "raw": 19.26,
+        "display_score": 77.1,
+        "display_mode": "absolute"
+      },
+      "summary": "中国北冰洋考察团获取一手数据，助力解码全球气候变化规律。",
+      "analysis": "",
+      "topic_tags": [
+        "气候变化规律",
+        "一手数据"
+      ],
+      "category": "气候变化",
+      "matched_keywords": [
+        "气候变化"
+      ]
+    },
+    {
+      "title": "【“绿”动河北·山水间的答卷】层层净化守碧水 府河河口湿地擦亮白洋淀生态底色 - 河北广播电视台",
+      "title_en": "",
+      "title_zh": "",
+      "link": "https://news.google.com/rss/articles/CBMibEFVX3lxTE1uN1BXTnV5TjEzem84OVZyVWJSeHhqOTVPZDN0bXhoVkdpN3lITEx1Z3c3Y3NWSjQzMi1jcFdQT2dwVlZQbFN2b0tlcmtTUWhFNlhtbUVFOTBMRUdYNDVtTk4yRjJ0cDhsYzEzNQ?oc=5",
+      "source": "Google News 生态环境",
+      "published": "2026-10-07T10:56:42+00:00",
+      "hotness": 76.2,
+      "score_v1": 24.45,
+      "score_v2": 76.2,
+      "score_breakdown": {
+        "algorithm": "v3.0",
+        "dimension_max": {
+          "authority": 18.0,
+          "topic": 18.0,
+          "resonance": 18.0,
+          "information": 16.0
+        },
+        "authority_score": 8.05,
+        "keyword_idf_score": 8.19,
+        "topic_score": 10.55,
+        "topic_burst_score": 2.36,
+        "topic_burst_count": 2,
+        "resonance_score": 0.0,
+        "info_score": 0.0,
+        "base": 18.6,
+        "base_max": 70.0,
+        "time_factor": 0.995,
+        "density_factor": 1.0,
+        "density_note": "",
+        "repeat_penalty": 1.0,
+        "repeat_excused": false,
+        "event_size": 1,
+        "event_media_count": 1,
+        "event_cluster_source": "token",
+        "origin_source": "河北广播电视台",
+        "raw": 18.51,
+        "display_score": 76.2,
+        "display_mode": "absolute"
+      },
+      "summary": "河北层层净化守护碧水，府河河口湿地生态底色亮白洋淀。",
+      "analysis": "",
+      "topic_tags": [
+        "府河河口湿地"
+      ],
+      "category": "生态环境",
+      "matched_keywords": [
+        "湿地"
+      ]
+    },
+    {
+      "title": "The Great Barrier Reef requires special attention in the developing super El Niño",
+      "title_en": "The Great Barrier Reef requires special attention in the developing super El Niño",
+      "title_zh": "在大规模“超级厄尔尼诺”现象发展过程中，大堡礁需要特别关注",
+      "link": "https://www.nature.com/articles/d41586-026-03174-0",
+      "source": "Nature",
+      "published": "2026-10-06T00:00:00+00:00",
+      "hotness": 76.2,
+      "score_v1": 13.3,
+      "score_v2": 76.2,
+      "score_breakdown": {
+        "algorithm": "v3.0",
+        "dimension_max": {
+          "authority": 18.0,
+          "topic": 18.0,
+          "resonance": 18.0,
+          "information": 16.0
+        },
+        "authority_score": 18.0,
+        "keyword_idf_score": 0.0,
+        "topic_score": 3.0,
+        "topic_burst_score": 0.0,
+        "topic_burst_count": 1,
+        "resonance_score": 0.0,
+        "info_score": 7.0,
+        "base": 28.0,
+        "base_max": 70.0,
+        "time_factor": 0.6615,
+        "density_factor": 1.0,
+        "density_note": "",
+        "repeat_penalty": 1.0,
+        "repeat_excused": false,
+        "event_size": 1,
+        "event_media_count": 1,
+        "event_cluster_source": "token",
+        "origin_source": "Nature",
+        "raw": 18.52,
+        "display_score": 76.2,
+        "display_mode": "absolute"
+      },
+      "summary": "《自然》杂志，在大规模“超级厄尔尼诺”现象发展过程中，大堡礁需要特别关注",
+      "analysis": "",
+      "topic_tags": [
+        "厄尔尼诺",
+        "海洋生态"
+      ],
+      "category": "气候变化",
+      "matched_keywords": []
+    },
+    {
+      "title": "- 中国环境网",
+      "title_en": "",
+      "title_zh": "",
+      "link": "https://news.google.com/rss/articles/CBMiVkFVX3lxTE5jVDRJS3lnTmZKUkNVdFNORXhCRUlyUU1ibV9WR2o5eGNUQVZEQWNmaFhZQ0NMekd3MWFqQi1QNkpqU3RJcjh2NjdFeVdYcTQ2VmlaS0Jn?oc=5",
+      "source": "Google News 中国环境网",
+      "published": "2026-10-06T09:14:01+00:00",
+      "hotness": 75.4,
+      "score_v1": 12.87,
+      "score_v2": 75.4,
+      "score_breakdown": {
+        "algorithm": "v3.0",
+        "dimension_max": {
+          "authority": 18.0,
+          "topic": 18.0,
+          "resonance": 18.0,
+          "information": 16.0
+        },
+        "authority_score": 12.73,
+        "keyword_idf_score": 0.0,
+        "topic_score": 3.0,
+        "topic_burst_score": 0.0,
+        "topic_burst_count": 1,
+        "resonance_score": 8.76,
+        "info_score": 0.0,
+        "base": 24.49,
+        "base_max": 70.0,
+        "time_factor": 0.7275,
+        "density_factor": 1.0,
+        "density_note": "",
+        "repeat_penalty": 1.0,
+        "repeat_excused": false,
+        "event_size": 5,
+        "event_media_count": 2,
+        "event_cluster_source": "token",
+        "origin_source": "Google News 中国环境网",
+        "raw": 17.81,
+        "display_score": 75.4,
+        "display_mode": "absolute"
+      },
+      "summary": "",
+      "analysis": "",
+      "topic_tags": [
+        "环境资讯"
+      ],
+      "category": "其他",
+      "matched_keywords": []
+    },
+    {
+      "title": "As Deforestation Surges, Indonesia Hinders Access to Forest Data",
+      "title_en": "As Deforestation Surges, Indonesia Hinders Access to Forest Data",
+      "title_zh": "随着森林砍伐激增，印度尼西亚限制森林数据的获取",
+      "link": "https://e360.yale.edu/digest/indonesia-prison-forest-data",
+      "source": "Yale Environment 360",
+      "published": "2026-10-06T12:56:00+00:00",
+      "hotness": 74.6,
+      "score_v1": 13.44,
+      "score_v2": 74.6,
+      "score_breakdown": {
+        "algorithm": "v3.0",
+        "dimension_max": {
+          "authority": 18.0,
+          "topic": 18.0,
+          "resonance": 18.0,
+          "information": 16.0
+        },
+        "authority_score": 12.73,
+        "keyword_idf_score": 0.0,
+        "topic_score": 3.0,
+        "topic_burst_score": 0.0,
+        "topic_burst_count": 1,
+        "resonance_score": 0.0,
+        "info_score": 7.0,
+        "base": 22.73,
+        "base_max": 70.0,
+        "time_factor": 0.7578,
+        "density_factor": 1.0,
+        "density_note": "",
+        "repeat_penalty": 1.0,
+        "repeat_excused": false,
+        "event_size": 1,
+        "event_media_count": 1,
+        "event_cluster_source": "token",
+        "origin_source": "Yale Environment 360",
+        "raw": 17.22,
+        "display_score": 74.6,
+        "display_mode": "absolute"
+      },
+      "summary": "印度尼西亚正在限制公众获取有关该国森林状况的政府数据。就在该国森林砍伐现象激增之际，这些新限制措施应运而生。在 E360 上阅读更多内容 →",
+      "analysis": "",
+      "topic_tags": [
+        "森林数据",
+        "森林砍伐"
+      ],
+      "category": "生态环境",
+      "matched_keywords": []
+    }
+  ]
+}

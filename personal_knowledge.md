@@ -5478,3 +5478,148 @@
 
 ---
 
+## 2026-10-07
+
+**今日高频关键词**：`#气候变化` `#可持续发展` `#湿地` `#生态环境` `#碳中和`
+
+**今日 Top10 热点**
+
+### 1. Decarbonizing under water stress: an integrated assessment of Chile’s pathway to carbon neutrality by 2050
+- **来源**：Environmental Research Letters
+- **热度**：91.7
+- **链接**：https://iopscience.iop.org/article/10.1088/1748-9326/aeac70
+- **摘要**：人为导致的气候变化正在加剧地中海气候地区（如智利中部）的水资源短缺问题——该地区原本年降水量就较低——从而增加了可能出现永久性“特大干旱”的风险。 尽管碳中和政策通常将能源和土地部门的措施相结合，但这些政策对智利水-能源-土地（WEL）相互作用的具体影响仍未得到充分探讨。 本研究首次在国家层面应用 GCAM-Chile 模型，评估在水资源本已紧张的背景下，能源和土地部门相结合的碳中和路径将如何重塑各行业的水需求模式。 我们考察了一个基准情景和八种替代性碳中和路径，这些路径将能源部门的脱碳与不同强度的土地部门减缓（LM）措施相结合，同时保持流域供水量不变，因此结果反映的是水需求的变化，而非未来的水资源可用性。 研究结果表明，依托可再生能源的脱碳通过将发电与热力冷却需求脱钩，大幅减少了电力部门的水取水量，在水资源匮乏的背景下带来了直接的水需求协同效益。 假设低成本碳捕获与封存技术出现的场景中，由于配备这些技术的化石燃料发电带来的更高用水需求，电力取水量的减少幅度较小。然而，农业灌溉仍是总取水量的主要来源，且在所有场景下其用水量仍在持续增长。 LM 通过限制农业生产来减少灌溉需求，但由此会与粮食生产产生权衡关系。这些相互作用的影响可能在智利不久的将来催生水-能源-土地（WEL）相互作用的新政策格局，因此有必要进一步关注气候政策在水资源匮乏背景下对水-能源-土地关联的影响。
+- **分析**：该条目涉及【水资源短缺】话题，因来源权威性高且发布时间较新，热度上升。
+
+### 2. The role of domestic and international markets in the loss of nature across Brazil
+- **来源**：Environmental Research Letters
+- **热度**：86.3
+- **链接**：https://iopscience.iop.org/article/10.1088/1748-9326/aeacfe
+- **摘要**：人类为了农业开发，将大片自然区域——包括森林、稀树草原、湿地和草原——改造成了农田。尽管国内市场占全球农业产量和土地利用变化的70%以上，但国内供应链和终端用途却很少被系统地梳理。 本文提出了一个针对巴西的跨区域投入产出模型。巴西作为主要的农业生产国和市场，其农业前沿不断扩展，自2000年以来已发生70 Mha公顷的植被转化。 我们捕捉了2010年至2015年间巴西六个生物群落中土地转用的驱动因素，并将这些因素与36个经济部门、47个巴西地区以及四个外部贸易伙伴（欧盟、美国、中国和世界其他地区）联系起来。 研究发现，37.8%的土地转化由本地（州内）消费驱动，35.2%由巴西其他州的需求驱动，剩余27%则源于国际贸易。总体而言，非森林土地的转化面积超过了森林土地，这一现象在国内市场和对华出口中尤为显著。 我们的研究方法揭示了土地转用如何渗透到整个经济体系中，许多行业间接采购了与土地转用相关的产品和副产品。值得注意的是，我们发现10.3%的土地转用与乳制品消费相关，7.9%与服务业（如酒店、餐厅和咖啡馆）相关。 尽管当前的环境治理工作主要侧重于“零砍伐”承诺和“第一英里”可追溯性（例如从农场到屠宰场），但我们的研究结果为问责机制提供了依据，使其能够将目光投向上游，让零售、乳制品、皮革和加工食品等行业参与其中——这些行业所使用的产品与巴西各生物群落中自然资源的流失密切相关。
+- **分析**：该条目涉及【生态环境】话题，因来源权威性高且发布时间较新，热度上升。
+
+### 3. Techno-optimistic scientists take fewer climate actions
+- **来源**：Environmental Research Letters
+- **热度**：85.4
+- **链接**：https://iopscience.iop.org/article/10.1088/1748-9326/aea4c7
+- **摘要**：技术创新是缓解气候变化的关键，但对技术的过度依赖可能会削弱应对气候变化所需的更广泛的社会转型。作为知识生产者和受公众信赖的公众人物，科学家在塑造社会对气候变化的理解和应对方式方面发挥着重要作用。 我们利用来自各国科学家的调查数据，考察了科学家群体中的“技术乐观主义”——此处将其定义为相信技术将在很大程度上解决气候变化所引发的问题。 研究结果表明，技术乐观主义在应用科学和自然科学领域的科学家以及政治观点偏右的科学家中最为普遍，但与研究内容与气候变化的相关程度无关。 持技术乐观主义态度的科学家参与公民气候行动的可能性显著较低（低23%），进行重大生活方式改变的可能性也较低（低18%）。我们希望本研究能为以下问题的批判性讨论提供参考：科学家的个人信念和世界观如何影响其对气候行动的理解及参与程度。
+- **分析**：该条目涉及【技术乐观主义】话题，因来源权威性高且发布时间较新，热度上升。
+
+### 4. Decadal climate predictions correctly forecast the direction of Northern Hemisphere Wind Stilling but underestimate its magnitude
+- **来源**：Environmental Research Letters
+- **热度**：82.0
+- **链接**：https://iopscience.iop.org/article/10.1088/1748-9326/aeadb6
+- **摘要**：陆地上空近地表（10 米）风速在整个期间内平均有所下降
+- **分析**：该条目涉及【气候变化】话题，因来源权威性高且发布时间较新，热度上升。
+
+### 5. Probabilistic tropical cyclone rainfall generator for flood hazard assessment along the U.S. Atlantic and Gulf Coasts
+- **来源**：Environmental Research Letters
+- **热度**：81.8
+- **链接**：https://iopscience.iop.org/article/10.1088/1748-9326/aeac6f
+- **摘要**：基于历史观测数据的热带气旋降水（TCR）统计模型，能够通过为大量热带气旋路径集合高效生成降水分布场，从而为洪水风险评估提供支持。尽管人们一直在努力改进对TCR的表征，但现有模型的性能仍显有限。 TCR误差建模框架提供了一种替代方法，通过由确定性成分和随机性成分组成的乘法误差模型来表征误差，从而突破这一局限。 本文以机构间性能评估工作组（IPET）降水分析模型为基础模型，将该框架应用于美国大西洋沿岸和墨西哥湾沿岸的113个局部区域，开发出一种基于误差校正的概率性TCR生成器。 对于确定性成分，我们拟合了总体偏差和降雨依赖性偏差模型，以校正 IPET 模型降雨量估计中的系统性偏差。随后，通过表征残差的边缘分布和空间依赖性，对剩余残差进行概率建模。 我们证明，IPET总降水量的系统偏差得到了有效校正，平均总体偏差从0.7增加到1.07，接近无偏差值1。 我们还表明，该热带气旋路径生成器生成的降水场在空间上具有合理性，并能捕捉径向降水剖面的变异性，在82%的径向分区中，参考降水强度均落在模拟的90%置信区间内。 该框架具有普适性，可推广至世界其他地区，并可应用于其他热带气旋模型以及观测和模拟的热带气旋路径。
+- **分析**：该条目涉及【热带气旋降水】话题，因来源权威性高且发布时间较新，热度上升。
+
+### 6. 中国北冰洋考察获一手数据 助力解码全球气候变化 - 央视网
+- **来源**：Google News 气候变化
+- **热度**：77.1
+- **链接**：https://news.google.com/rss/articles/CBMieEFVX3lxTFBCOGxzd3dxWEMxZEFTbFlTcGNDamtvM0NiWnE1eVhGdWoxSFN0V1lyRXJmaXRDR213WlFVSnRfZ01LbWdiOXU0aXV4NlBBamMzTExwR1N5V2QyRVVqTS1CNmJHN3M2RE1LakUyV1QyWU4yVGhzTGRldA?oc=5
+- **摘要**：中国北冰洋考察团获取一手数据，助力解码全球气候变化规律。
+- **分析**：该条目涉及【气候变化规律】话题，因来源较权威且发布时间较新，热度上升。
+
+### 7. 【“绿”动河北·山水间的答卷】层层净化守碧水 府河河口湿地擦亮白洋淀生态底色 - 河北广播电视台
+- **来源**：Google News 生态环境
+- **热度**：76.2
+- **链接**：https://news.google.com/rss/articles/CBMibEFVX3lxTE1uN1BXTnV5TjEzem84OVZyVWJSeHhqOTVPZDN0bXhoVkdpN3lITEx1Z3c3Y3NWSjQzMi1jcFdQT2dwVlZQbFN2b0tlcmtTUWhFNlhtbUVFOTBMRUdYNDVtTk4yRjJ0cDhsYzEzNQ?oc=5
+- **摘要**：河北层层净化守护碧水，府河河口湿地生态底色亮白洋淀。
+- **分析**：该条目涉及【府河河口湿地】话题，因来源较权威且发布时间较新，热度上升。
+
+### 8. The Great Barrier Reef requires special attention in the developing super El Niño
+- **来源**：Nature
+- **热度**：76.2
+- **链接**：https://www.nature.com/articles/d41586-026-03174-0
+- **摘要**：《自然》杂志，在大规模“超级厄尔尼诺”现象发展过程中，大堡礁需要特别关注
+- **分析**：该条目涉及【厄尔尼诺】话题，因来源权威性高，热度上升。
+
+### 9. - 中国环境网
+- **来源**：Google News 中国环境网
+- **热度**：75.4
+- **链接**：https://news.google.com/rss/articles/CBMiVkFVX3lxTE5jVDRJS3lnTmZKUkNVdFNORXhCRUlyUU1ibV9WR2o5eGNUQVZEQWNmaFhZQ0NMekd3MWFqQi1QNkpqU3RJcjh2NjdFeVdYcTQ2VmlaS0Jn?oc=5
+- **分析**：该条目涉及【环境资讯】话题，因来源权威性高且多家媒体同题报道，热度上升。
+
+### 10. As Deforestation Surges, Indonesia Hinders Access to Forest Data
+- **来源**：Yale Environment 360
+- **热度**：74.6
+- **链接**：https://e360.yale.edu/digest/indonesia-prison-forest-data
+- **摘要**：印度尼西亚正在限制公众获取有关该国森林状况的政府数据。就在该国森林砍伐现象激增之际，这些新限制措施应运而生。在 E360 上阅读更多内容 →
+- **分析**：该条目涉及【森林数据】话题，因来源权威性高，热度上升。
+
+**今日自动提取候选新词**
+
+- **中国**（出现 7 次）
+  - 上下文：中国北冰洋考察获一手数据 助力解码全球气候变化 - 央视网
+  - 上下文：- 中国环境网
+  - 上下文：给水管网水质化学稳定性判别软件开发与应用 - 中国水网
+- **assessment**（出现 3 次）
+  - 上下文：Decarbonizing under water stress: an integrated assessment of Chile’s pathway to carbon neutrality by 2050
+  - 上下文：Probabilistic tropical cyclone rainfall generator for flood hazard assessment along the U.S. Atlantic and Gulf Coasts
+  - 上下文：Enhancing urban flood risk assessment: A PCA-integrated deep learning surrogate for hazard and damage prediction
+- **climate**（出现 3 次）
+  - 上下文：Techno-optimistic scientists take fewer climate actions
+  - 上下文：Decadal climate predictions correctly forecast the direction of Northern Hemisphere Wind Stilling but underestimate its magnitude
+  - 上下文：US supreme court hears big oil’s bid to block climate damage lawsuits
+- **生态**（出现 3 次）
+  - 上下文：【“绿”动河北·山水间的答卷】层层净化守碧水 府河河口湿地擦亮白洋淀生态底色 - 河北广播电视台
+  - 上下文：新法护佳节 生态惠民生 生态环境法典护航 守护城市烟火气 - 广州日报新花城
+  - 上下文：赵立平督导溶洞生态环境污染排查治理工作：抓实排查整治守护岩溶安全- 永州 - 新湖南
+- **hydrogen**（出现 3 次）
+  - 上下文：Green synthesis of hydrogen and formaldehyde from methanol with enhanced quantum efficiency
+  - 上下文：From laboratory to field: performance and mechanisms of enhanced ventilation for hydrogen sulfide control in gravity sewers
+  - 上下文：Scientists just found a new way to make hydrogen from water
+- **water**（出现 2 次）
+  - 上下文：Decarbonizing under water stress: an integrated assessment of Chile’s pathway to carbon neutrality by 2050
+  - 上下文：Scientists just found a new way to make hydrogen from water
+- **integrated**（出现 2 次）
+  - 上下文：Decarbonizing under water stress: an integrated assessment of Chile’s pathway to carbon neutrality by 2050
+  - 上下文：Enhancing urban flood risk assessment: A PCA-integrated deep learning surrogate for hazard and damage prediction
+- **flood**（出现 2 次）
+  - 上下文：Probabilistic tropical cyclone rainfall generator for flood hazard assessment along the U.S. Atlantic and Gulf Coasts
+  - 上下文：Enhancing urban flood risk assessment: A PCA-integrated deep learning surrogate for hazard and damage prediction
+- **hazard**（出现 2 次）
+  - 上下文：Probabilistic tropical cyclone rainfall generator for flood hazard assessment along the U.S. Atlantic and Gulf Coasts
+  - 上下文：Enhancing urban flood risk assessment: A PCA-integrated deep learning surrogate for hazard and damage prediction
+- **全球**（出现 2 次）
+  - 上下文：中国北冰洋考察获一手数据 助力解码全球气候变化 - 央视网
+  - 上下文：《海洋与全球变化（英文）》（Ocean and Global Change）丨新刊推介 - 潮新闻客户端
+- **河北**（出现 2 次）
+  - 上下文：【“绿”动河北·山水间的答卷】层层净化守碧水 府河河口湿地擦亮白洋淀生态底色 - 河北广播电视台
+  - 上下文：【一线经济观察】一项环保政策如何撬动县域特色产业转型升级 - 河北广播电视台
+- **电视台**（出现 2 次）
+  - 上下文：【“绿”动河北·山水间的答卷】层层净化守碧水 府河河口湿地擦亮白洋淀生态底色 - 河北广播电视台
+  - 上下文：【一线经济观察】一项环保政策如何撬动县域特色产业转型升级 - 河北广播电视台
+- **enhanced**（出现 2 次）
+  - 上下文：Green synthesis of hydrogen and formaldehyde from methanol with enhanced quantum efficiency
+  - 上下文：From laboratory to field: performance and mechanisms of enhanced ventilation for hydrogen sulfide control in gravity sewers
+- **生物通**（出现 2 次）
+  - 上下文：气候变化下摩洛哥东部Figuig绿洲海枣（Phoenix dactylifera L.）Aziza品种的种植者感知、生殖风险与适应需求 - 生物通
+  - 上下文：蜜蜂作为环境全氟和多氟烷基物质（PFASs）污染的生物指示物及其对肠道微生物群落的潜在影响 - 生物通
+- **damage**（出现 2 次）
+  - 上下文：Enhancing urban flood risk assessment: A PCA-integrated deep learning surrogate for hazard and damage prediction
+  - 上下文：US supreme court hears big oil’s bid to block climate damage lawsuits
+- **守护**（出现 2 次）
+  - 上下文：新法护佳节 生态惠民生 生态环境法典护航 守护城市烟火气 - 广州日报新花城
+  - 上下文：赵立平督导溶洞生态环境污染排查治理工作：抓实排查整治守护岩溶安全- 永州 - 新湖南
+- **oil**（出现 2 次）
+  - 上下文：UK oil refinery broke toxic pollution limits dozens of times, documents reveal
+  - 上下文：US supreme court hears big oil’s bid to block climate damage lawsuits
+- **particles**（出现 2 次）
+  - 上下文：Hydrodynamic controls on vertical transport and retention of microplastic particles in subsurface sediments
+  - 上下文：'Ghost particles' from space telescope wins physics Nobel
+- **Ocean**（出现 2 次）
+  - 上下文：《海洋与全球变化（英文）》（Ocean and Global Change）丨新刊推介 - 潮新闻客户端
+  - 上下文：Ocean heatwaves are hiding months of extra warming
+- **环保**（出现 2 次）
+  - 上下文：环保天地 - 加纳政府加强环境监控是否特别针对中国企业？ - RFI
+  - 上下文：【一线经济观察】一项环保政策如何撬动县域特色产业转型升级 - 河北广播电视台
+
+---
+

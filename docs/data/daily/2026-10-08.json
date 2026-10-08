@@ -1,0 +1,553 @@
+{
+  "report_date": "2026-10-08",
+  "site_name": "环境学子雷达",
+  "total_items": 40,
+  "snapshot_items": 10,
+  "category_stats": {
+    "气候变化": {
+      "count": 12,
+      "total_heat": 859.6
+    },
+    "生态环境": {
+      "count": 8,
+      "total_heat": 579.3
+    },
+    "能源与碳中和": {
+      "count": 1,
+      "total_heat": 81.8
+    },
+    "环境政策": {
+      "count": 6,
+      "total_heat": 457.0
+    },
+    "科研学术": {
+      "count": 2,
+      "total_heat": 153.5
+    },
+    "其他": {
+      "count": 5,
+      "total_heat": 370.9
+    },
+    "污染治理": {
+      "count": 3,
+      "total_heat": 223.1
+    },
+    "环境健康": {
+      "count": 1,
+      "total_heat": 71.3
+    },
+    "水处理": {
+      "count": 2,
+      "total_heat": 127.9
+    }
+  },
+  "total_sources": 28,
+  "success_sources": 27,
+  "failed_sources": 0,
+  "week_total_items": 222,
+  "week_new_keywords": 65,
+  "policy_ratio": 11.7,
+  "items": [
+    {
+      "title": "Woody ‘blankets’ are being deployed on Arctic permafrost to reduce carbon emissions",
+      "title_en": "Woody ‘blankets’ are being deployed on Arctic permafrost to reduce carbon emissions",
+      "title_zh": "为减少碳排放，北极永久冻土层上正在铺设“伍迪毯”",
+      "link": "https://www.nature.com/articles/d41586-026-03045-8",
+      "source": "Nature",
+      "published": "2026-10-08T00:00:00+00:00",
+      "hotness": 88.0,
+      "score_v1": 29.17,
+      "score_v2": 88.0,
+      "score_breakdown": {
+        "algorithm": "v3.0",
+        "dimension_max": {
+          "authority": 18.0,
+          "topic": 18.0,
+          "resonance": 18.0,
+          "information": 16.0
+        },
+        "authority_score": 18.0,
+        "keyword_idf_score": 9.95,
+        "topic_score": 12.31,
+        "topic_burst_score": 2.36,
+        "topic_burst_count": 2,
+        "resonance_score": 0.0,
+        "info_score": 7.0,
+        "base": 37.31,
+        "base_max": 70.0,
+        "time_factor": 0.8605,
+        "density_factor": 1.0,
+        "density_note": "",
+        "repeat_penalty": 1.0,
+        "repeat_excused": false,
+        "event_size": 1,
+        "event_media_count": 1,
+        "event_cluster_source": "ai",
+        "origin_source": "Nature",
+        "raw": 32.11,
+        "display_score": 88.0,
+        "display_mode": "absolute"
+      },
+      "summary": "《自然》杂志， 一家初创公司正在测试，稳定快速侵蚀的永久冻土区域是否能够防止温室气体排放。",
+      "analysis": "",
+      "topic_tags": [
+        "carbon emissions",
+        "rapid erosion"
+      ],
+      "category": "气候变化",
+      "matched_keywords": [
+        "碳排放",
+        "温室气体"
+      ]
+    },
+    {
+      "title": "Multi-breadbasket failures, climate change, and risks for crop prices and regional consumption",
+      "title_en": "Multi-breadbasket failures, climate change, and risks for crop prices and regional consumption",
+      "title_zh": "多个粮仓减产、气候变化以及作物价格和区域消费面临的风险",
+      "link": "https://iopscience.iop.org/article/10.1088/1748-9326/aeae54",
+      "source": "Environmental Research Letters",
+      "published": "2026-10-07T23:00:00+00:00",
+      "hotness": 85.7,
+      "score_v1": 28.92,
+      "score_v2": 85.7,
+      "score_breakdown": {
+        "algorithm": "v3.0",
+        "dimension_max": {
+          "authority": 18.0,
+          "topic": 18.0,
+          "resonance": 18.0,
+          "information": 16.0
+        },
+        "authority_score": 18.0,
+        "keyword_idf_score": 3.53,
+        "topic_score": 8.71,
+        "topic_burst_score": 5.19,
+        "topic_burst_count": 5,
+        "resonance_score": 0.0,
+        "info_score": 7.0,
+        "base": 33.71,
+        "base_max": 70.0,
+        "time_factor": 0.8499,
+        "density_factor": 1.0,
+        "density_note": "",
+        "repeat_penalty": 1.0,
+        "repeat_excused": false,
+        "event_size": 1,
+        "event_media_count": 1,
+        "event_cluster_source": "ai",
+        "origin_source": "Environmental Research Letters",
+        "raw": 28.65,
+        "display_score": 85.7,
+        "display_mode": "absolute"
+      },
+      "summary": "预计气候变化将导致主要产粮地区同时发生作物歉收的频率增加，这引发了人们对全球粮食安全的担忧。虽然以往的研究主要关注产量影响，但由此产生的社会经济后果尚未得到充分探讨。本文评估了气候驱动的多个粮仓同时歉收如何转化为全球粮食价格和区域消费的系统性风险。 我们利用基于代理的农业贸易模型“Agrimate”，结合历史时期（2006–2015年）及升温2℃气候条件下的概率性减产情景进行模拟，结果表明：气候变化导致全球主要粮仓地区同时减产的频率增加，将显著提高世界市场价格飙升的可能性。 小麦每两周价格超过历史第90百分位峰值的概率几乎翻倍，而玉米和大豆的该概率分别增加了2.70倍和2.45倍。 这些动态变化意味着，小麦、玉米和大豆的人均年条件性消费风险分别增加了 0.24、0.71 和 1.20 百万卡路里（ ）。 历史上的区域消费风险差异极大，所有农作物的风险范围从微乎其微到超过20不等，在受影响严重的地区甚至超过100。 这些模式反映了粮食系统的结构性特征：生产集中、对进口的依赖以及供应商基数小都会放大风险，而较高的库存与使用比率则能起到缓冲作用。在以出口为导向的地区，如果缺乏保护性政策，当世界市场需求激增导致供应转向国外时，国内消费的风险可能会增加。 气候变化进一步加剧了这些结构性脆弱性，导致在受影响最严重的地区，消费风险增幅高达6。综合来看，这些发现表明需要制定一项协调一致的政策议程：实现生产和贸易多元化，加强仓储管理……",
+      "analysis": "",
+      "topic_tags": [
+        "气候变化"
+      ],
+      "category": "气候变化",
+      "matched_keywords": [
+        "气候变化"
+      ]
+    },
+    {
+      "title": "【曝光】生态环境局明察暗访发现一批突出生态环境问题 - 搜狐网",
+      "title_en": "",
+      "title_zh": "",
+      "link": "https://news.google.com/rss/articles/CBMijAFBVV95cUxOMjdyaUZVZUFXN3ZvWVYtNTZYcFRpSkJLbHh3Wk5lV2dHTmxzeVVJTzhNY0JaZ2FDR25La1NLakpmcUlNSmI0NFB4WGtkNF9vN3VKZy1RdTU4dUxFZWtMeWNrQl9JTkhCcmZ6aGVOZzg3MTRXQldDM0k1eEpDTDV5Z3NmckVFN3pMVDZtcQ?oc=5",
+      "source": "Google News 环境污染",
+      "published": "2026-10-08T10:37:31+00:00",
+      "hotness": 84.3,
+      "score_v1": 30.2,
+      "score_v2": 84.3,
+      "score_breakdown": {
+        "algorithm": "v3.0",
+        "dimension_max": {
+          "authority": 18.0,
+          "topic": 18.0,
+          "resonance": 18.0,
+          "information": 16.0
+        },
+        "authority_score": 8.05,
+        "keyword_idf_score": 5.87,
+        "topic_score": 11.06,
+        "topic_burst_score": 5.19,
+        "topic_burst_count": 5,
+        "resonance_score": 0.0,
+        "info_score": 8.0,
+        "base": 27.11,
+        "base_max": 70.0,
+        "time_factor": 0.987,
+        "density_factor": 1.0,
+        "density_note": "",
+        "repeat_penalty": 1.0,
+        "repeat_excused": false,
+        "event_size": 1,
+        "event_media_count": 1,
+        "event_cluster_source": "ai",
+        "origin_source": "搜狐网",
+        "raw": 26.76,
+        "display_score": 84.3,
+        "display_mode": "absolute"
+      },
+      "summary": "郑州市生态环境局聚焦全市重点区域、重点行业常态化开展明察暗访行动，为充分发挥警示教育作用，推动以案促改、以案促治，现将9月28日至10月7日明察暗访发现的突出生态环境问题进行曝光。",
+      "analysis": "",
+      "topic_tags": [
+        "生态环境局",
+        "大气污染防治"
+      ],
+      "category": "生态环境",
+      "matched_keywords": [
+        "生态环境"
+      ]
+    },
+    {
+      "title": "The cost of regulatory delay: quantifying how permitting timelines affect offshore wind energy costs",
+      "title_en": "The cost of regulatory delay: quantifying how permitting timelines affect offshore wind energy costs",
+      "title_zh": "监管延误的成本：量化许可审批时限对海上风电成本的影响",
+      "link": "https://iopscience.iop.org/article/10.1088/1748-9326/aea6f2",
+      "source": "Environmental Research Letters",
+      "published": "2026-10-07T23:00:00+00:00",
+      "hotness": 81.8,
+      "score_v1": 20.92,
+      "score_v2": 81.8,
+      "score_breakdown": {
+        "algorithm": "v3.0",
+        "dimension_max": {
+          "authority": 18.0,
+          "topic": 18.0,
+          "resonance": 18.0,
+          "information": 16.0
+        },
+        "authority_score": 18.0,
+        "keyword_idf_score": 7.04,
+        "topic_score": 7.04,
+        "topic_burst_score": 0.0,
+        "topic_burst_count": 1,
+        "resonance_score": 0.0,
+        "info_score": 3.0,
+        "base": 28.04,
+        "base_max": 70.0,
+        "time_factor": 0.8499,
+        "density_factor": 1.0,
+        "density_note": "",
+        "repeat_penalty": 1.0,
+        "repeat_excused": false,
+        "event_size": 1,
+        "event_media_count": 1,
+        "event_cluster_source": "ai",
+        "origin_source": "Environmental Research Letters",
+        "raw": 23.84,
+        "display_score": 81.8,
+        "display_mode": "absolute"
+      },
+      "summary": "海上可再生能源及输电基础设施的快速部署，可为能源系统的脱碳进程作出重大贡献。然而，监管义务往往导致部署延迟，而这些延迟通常未以成本形式进行量化。此类延迟的成本应纳入项目和技术评估中。 本文构建了一个评估框架，将项目启动至投运之间的开发滞后期视为监管及相关义务的时间代理变量，并通过平准化度电成本（LCOE）计算将其纳入考量，从而量化延迟所产生的成本。 利用该框架，可在统一基准下对传统高压电缆输电与海上电解制氢（PtH）方案进行比较。 该框架被应用于三种将海上风电设施的能源输送至岸上的策略。结果表明，以一座1吉瓦的电厂为例，若能提前一年投运，可节省1.1亿欧元——这一指标对于衡量旨在加快部署的政策成本具有重要参考价值。 在PtH部署速度快于高压电缆的情景下，结果表明PtH输电成本更低的决策空间有限，这表明PtH需要在成本上实现其他效益，才能与高压电缆输电竞争。随后，在考虑部署时间差异的基础上，对基于电力和基于氢能的输电方案的盈利能力进行了比较。 现有氢气和电价条件表明，当考虑部署滞后差异时，PtH路径可能更具盈利性。 在本研究考虑的示例中，部署滞后差异可产生更多探索性价格情景，在这些情景下，PtH的盈利能力更强。该框架有助于量化监管义务的影响，并优化政策以加速低碳能源的部署。",
+      "analysis": "",
+      "topic_tags": [
+        "海上风电",
+        "监管延迟"
+      ],
+      "category": "能源与碳中和",
+      "matched_keywords": [
+        "可再生能源"
+      ]
+    },
+    {
+      "title": "How the U.S. Public Lost Its Say on Environmental Policy",
+      "title_en": "How the U.S. Public Lost Its Say on Environmental Policy",
+      "title_zh": "美国公众是如何失去对环境政策的话语权的",
+      "link": "https://e360.yale.edu/features/public-comment-environment-regulations-permits",
+      "source": "Yale Environment 360",
+      "published": "2026-10-08T08:30:00+00:00",
+      "hotness": 81.0,
+      "score_v1": 22.29,
+      "score_v2": 81.0,
+      "score_breakdown": {
+        "algorithm": "v3.0",
+        "dimension_max": {
+          "authority": 18.0,
+          "topic": 18.0,
+          "resonance": 18.0,
+          "information": 16.0
+        },
+        "authority_score": 12.73,
+        "keyword_idf_score": 8.22,
+        "topic_score": 8.22,
+        "topic_burst_score": 0.0,
+        "topic_burst_count": 1,
+        "resonance_score": 0.0,
+        "info_score": 3.0,
+        "base": 23.95,
+        "base_max": 70.0,
+        "time_factor": 0.9594,
+        "density_factor": 1.0,
+        "density_note": "",
+        "repeat_penalty": 1.0,
+        "repeat_excused": false,
+        "event_size": 1,
+        "event_media_count": 1,
+        "event_cluster_source": "ai",
+        "origin_source": "Yale Environment 360",
+        "raw": 22.97,
+        "display_score": 81.0,
+        "display_mode": "absolute"
+      },
+      "summary": "长期以来，联邦机构在起草新法规或审批大型项目（从高速公路到数据中心）时，一直被要求征求公众意见。特朗普政府正在系统性地削弱这一流程，在规避联邦法律的同时扼杀公众参与。在 E360 上阅读更多内容 →",
+      "analysis": "",
+      "topic_tags": [
+        "环境政策"
+      ],
+      "category": "环境政策",
+      "matched_keywords": [
+        "环境政策"
+      ]
+    },
+    {
+      "title": "Techno-optimistic scientists take fewer climate actions",
+      "title_en": "Techno-optimistic scientists take fewer climate actions",
+      "title_zh": "对技术持乐观态度的科学家采取的气候行动较少",
+      "link": "https://iopscience.iop.org/article/10.1088/1748-9326/aea4c7",
+      "source": "Environmental Research Letters",
+      "published": "2026-10-06T23:00:00+00:00",
+      "hotness": 80.0,
+      "score_v1": 25.18,
+      "score_v2": 80.0,
+      "score_breakdown": {
+        "algorithm": "v3.0",
+        "dimension_max": {
+          "authority": 18.0,
+          "topic": 18.0,
+          "resonance": 18.0,
+          "information": 16.0
+        },
+        "authority_score": 18.0,
+        "keyword_idf_score": 3.53,
+        "topic_score": 8.71,
+        "topic_burst_score": 5.19,
+        "topic_burst_count": 5,
+        "resonance_score": 0.0,
+        "info_score": 7.0,
+        "base": 33.71,
+        "base_max": 70.0,
+        "time_factor": 0.6532,
+        "density_factor": 1.0,
+        "density_note": "",
+        "repeat_penalty": 1.0,
+        "repeat_excused": false,
+        "event_size": 1,
+        "event_media_count": 1,
+        "event_cluster_source": "ai",
+        "origin_source": "Environmental Research Letters",
+        "raw": 22.02,
+        "display_score": 80.0,
+        "display_mode": "absolute"
+      },
+      "summary": "技术创新是缓解气候变化的关键，但对技术的过度依赖可能会削弱应对气候变化所需的更广泛的社会转型。作为知识生产者和受公众信赖的公众人物，科学家在塑造社会对气候变化的理解和应对方式方面发挥着重要作用。 我们利用来自各国科学家的调查数据，考察了科学家群体中的“技术乐观主义”——此处将其定义为相信技术将在很大程度上解决气候变化所引发的问题。 研究结果表明，技术乐观主义在应用科学和自然科学领域的科学家以及政治观点偏右的科学家中最为普遍，但与研究内容与气候变化的相关程度无关。 持技术乐观主义态度的科学家参与公民气候行动的可能性显著较低（低23%），进行重大生活方式改变的可能性也较低（低18%）。我们希望本研究能为以下问题的批判性讨论提供参考：科学家的个人信念和世界观如何影响他们对气候行动的理解及参与程度。",
+      "analysis": "",
+      "topic_tags": [
+        "技术乐观主义"
+      ],
+      "category": "科研学术",
+      "matched_keywords": [
+        "气候变化"
+      ]
+    },
+    {
+      "title": "生态环境法典满月.一线观察 - 广州日报新花城",
+      "title_en": "",
+      "title_zh": "",
+      "link": "https://news.google.com/rss/articles/CBMiigFBVV95cUxNTHFYa1Vmd1l2clZIS2RlTUoxMFNwVGNfRlJIOExmaGVlam5rYU1QWWNWdnBDblI4VzdCa0JGSHUtUnBLZnRuaG1mU2JCekFlSXdXTlduUXZoWXNVQUh2WmdhelFFMUNHb1h4TmlOcTlWSlZqWXlndC1ENTBnUmhhbFhFYTU4VEwzbEE?oc=5",
+      "source": "Google News 生态环境",
+      "published": "2026-10-08T08:25:22+00:00",
+      "hotness": 79.7,
+      "score_v1": 33.36,
+      "score_v2": 79.7,
+      "score_breakdown": {
+        "algorithm": "v3.0",
+        "dimension_max": {
+          "authority": 18.0,
+          "topic": 18.0,
+          "resonance": 18.0,
+          "information": 16.0
+        },
+        "authority_score": 8.05,
+        "keyword_idf_score": 9.38,
+        "topic_score": 14.57,
+        "topic_burst_score": 5.19,
+        "topic_burst_count": 5,
+        "resonance_score": 0.0,
+        "info_score": 0.0,
+        "base": 22.62,
+        "base_max": 70.0,
+        "time_factor": 0.9584,
+        "density_factor": 1.0,
+        "density_note": "",
+        "repeat_penalty": 1.0,
+        "repeat_excused": false,
+        "event_size": 1,
+        "event_media_count": 1,
+        "event_cluster_source": "ai",
+        "origin_source": "广州日报新花城",
+        "raw": 21.68,
+        "display_score": 79.7,
+        "display_mode": "absolute"
+      },
+      "summary": "《中华人民共和国生态环境法典》正式施行，针对广场舞噪声、商家油烟、户外电子大屏光污染等生活环境问题，法典均给出具体规定，引导治理生活环境突出问题，提升城市人居环境质量。",
+      "analysis": "",
+      "topic_tags": [
+        "生态环境法典"
+      ],
+      "category": "环境政策",
+      "matched_keywords": [
+        "生态环境",
+        "环境法典"
+      ]
+    },
+    {
+      "title": "2025年瑞典工业环境保护成本持平- 新闻和统计 - IndexBox",
+      "title_en": "",
+      "title_zh": "",
+      "link": "https://news.google.com/rss/articles/CBMinwFBVV95cUxQRDl1dkFtejNqei1KQUJUWGhpT2VNdV81cXgwVGNGSzB0cEZMOVJSaXRlWFg2OVUweFhtam5WV0oxUlU4UGd3WnFwRmxzTXFKSzUwdW5MUVBUOFRBU1laZmpKNlNrRmN4bGd4UWViVTRXTVVoa0tJWGs1XzRmV0ZreUhsZ2c1WUJoejRUcmx2T2xoQXRRdThvQlhpc2gtOTA?oc=5",
+      "source": "Google News 环境保护",
+      "published": "2026-10-08T10:00:58+00:00",
+      "hotness": 79.2,
+      "score_v1": 23.96,
+      "score_v2": 79.2,
+      "score_breakdown": {
+        "algorithm": "v3.0",
+        "dimension_max": {
+          "authority": 18.0,
+          "topic": 18.0,
+          "resonance": 18.0,
+          "information": 16.0
+        },
+        "authority_score": 8.05,
+        "keyword_idf_score": 6.26,
+        "topic_score": 8.62,
+        "topic_burst_score": 2.36,
+        "topic_burst_count": 2,
+        "resonance_score": 0.0,
+        "info_score": 5.0,
+        "base": 21.67,
+        "base_max": 70.0,
+        "time_factor": 0.9789,
+        "density_factor": 1.0,
+        "density_note": "",
+        "repeat_penalty": 1.0,
+        "repeat_excused": false,
+        "event_size": 1,
+        "event_media_count": 1,
+        "event_cluster_source": "ai",
+        "origin_source": "IndexBox",
+        "raw": 21.21,
+        "display_score": 79.2,
+        "display_mode": "absolute"
+      },
+      "summary": "IndexBox新闻报道显示，2025年瑞典工业环境保护成本持平，反映其工业部门在环保投入与经济运行之间保持平衡，相关成本指标稳定。",
+      "analysis": "",
+      "topic_tags": [
+        "环境政策"
+      ],
+      "category": "环境政策",
+      "matched_keywords": [
+        "环境保护"
+      ]
+    },
+    {
+      "title": "Spatiotemporal shifts in composite weather stress across US croplands",
+      "title_en": "Spatiotemporal shifts in composite weather stress across US croplands",
+      "title_zh": "美国农田复合气象胁迫的时空变化",
+      "link": "https://iopscience.iop.org/article/10.1088/1748-9326/aead01",
+      "source": "Environmental Research Letters",
+      "published": "2026-10-07T23:00:00+00:00",
+      "hotness": 78.4,
+      "score_v1": 16.92,
+      "score_v2": 78.4,
+      "score_breakdown": {
+        "algorithm": "v3.0",
+        "dimension_max": {
+          "authority": 18.0,
+          "topic": 18.0,
+          "resonance": 18.0,
+          "information": 16.0
+        },
+        "authority_score": 18.0,
+        "keyword_idf_score": 0.0,
+        "topic_score": 3.0,
+        "topic_burst_score": 0.0,
+        "topic_burst_count": 1,
+        "resonance_score": 0.0,
+        "info_score": 3.0,
+        "base": 24.0,
+        "base_max": 70.0,
+        "time_factor": 0.8499,
+        "density_factor": 1.0,
+        "density_note": "",
+        "repeat_penalty": 1.0,
+        "repeat_excused": false,
+        "event_size": 1,
+        "event_media_count": 1,
+        "event_cluster_source": "ai",
+        "origin_source": "Environmental Research Letters",
+        "raw": 20.4,
+        "display_score": 78.4,
+        "display_mode": "absolute"
+      },
+      "summary": "天气应激因素影响着全美范围内的作物产量、农场管理以及长期农业适宜性。这些应激因素在不同农业区域之间存在差异。尽管现有的天气指数众多，但目前仍缺乏一种针对特定地区农业背景量身定制的通用指标。 本文提出了一种多胁迫因子框架，整合了32项基于天气的胁迫指标，这些指标代表了1980年至2023年间美国本土48州（CONUS）范围内发生的复合干旱、洪涝、极端高温、极端低温及热量累积等事件。 该框架采用针对农业生态区（Agro-Ecological Zones）的加权平均方案，在为各应激因子赋予区域特异性权重的同时，最大限度地减少了指数冗余。 随后，我们采用时空类比追踪方法，以描述相对于历史基准时期的气象胁迫变化。该方法产生了两个综合指标——气象胁迫偏离度和气象胁迫相似度，分别量化了当前气象胁迫与历史基准的偏差及其空间对应关系。 为评估其相关性，我们考察了这些指标与玉米、大豆和小麦在县一级的去趋势产量异常值之间的关联。产量异常值与气象胁迫偏离呈负相关（数值越高表明与历史条件偏差越大），而在部分县中则与气象胁迫相似性呈正相关。 美国本土（CONUS）超过50%的耕地面积出现了天气压力差异的加剧，这主要由干旱和极端高温驱动；与此同时，许多耕地的天气压力相似性则有所下降。 最显著的空间类比变化集中于东部农业地区，这凸显了当前天气模式与历史基准之间对应关系的日益丧失。尽管技术进步和适应性管理促进了长期产量的提高，但复合天气压力指标却",
+      "analysis": "",
+      "topic_tags": [
+        "环境资讯"
+      ],
+      "category": "其他",
+      "matched_keywords": []
+    },
+    {
+      "title": "Jonathan, a 192-Year-Old Giant Tortoise, Holds Insights for Aging Well",
+      "title_en": "Jonathan, a 192-Year-Old Giant Tortoise, Holds Insights for Aging Well",
+      "title_zh": "192岁的巨型陆龟乔纳森为健康老龄化提供了启示",
+      "link": "https://e360.yale.edu/digest/jonathan-giant-tortoise-aging",
+      "source": "Yale Environment 360",
+      "published": "2026-10-07T18:00:00+00:00",
+      "hotness": 77.7,
+      "score_v1": 14.3,
+      "score_v2": 77.7,
+      "score_breakdown": {
+        "algorithm": "v3.0",
+        "dimension_max": {
+          "authority": 18.0,
+          "topic": 18.0,
+          "resonance": 18.0,
+          "information": 16.0
+        },
+        "authority_score": 12.73,
+        "keyword_idf_score": 0.0,
+        "topic_score": 0.0,
+        "topic_burst_score": 0.0,
+        "topic_burst_count": 1,
+        "resonance_score": 0.0,
+        "info_score": 12.0,
+        "base": 24.73,
+        "base_max": 70.0,
+        "time_factor": 0.8005,
+        "density_factor": 1.0,
+        "density_note": "",
+        "repeat_penalty": 1.0,
+        "repeat_excused": false,
+        "event_size": 1,
+        "event_media_count": 1,
+        "event_cluster_source": "ai",
+        "origin_source": "Yale Environment 360",
+        "raw": 19.79,
+        "display_score": 77.7,
+        "display_mode": "absolute"
+      },
+      "summary": "192岁的巨龟乔纳森是已知最长寿的现存陆地动物。一项新研究为其惊人的长寿提供了线索。在E360上阅读更多内容 →",
+      "analysis": "",
+      "topic_tags": [
+        "环境资讯"
+      ],
+      "category": "环境健康",
+      "matched_keywords": []
+    }
+  ]
+}

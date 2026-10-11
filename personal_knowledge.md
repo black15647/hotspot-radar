@@ -6065,3 +6065,170 @@
 
 ---
 
+## 2026-10-11
+
+**今日高频关键词**：`#生态环境` `#气候变化` `#环境保护` `#微塑料` `#督察`
+
+**今日 Top10 热点**
+
+### 1. 关于对《北京市生态环境行政检查、行政强制裁量权基准（2026年版）》（征求意见稿）公开征集意见的公告 - 北京市人民政府门户网站
+- **来源**：Google News 生态环境
+- **热度**：88.3
+- **链接**：https://news.google.com/rss/articles/CBMiggFBVV95cUxPbEh5SFhrbDBmSUYyeVNJcWpzdW5GQXNIMWUyNWdQWG4yQUxZZFpOVExUVzdOS0FKQkp5T3NWS0ZqSF9obDg5anZscGkwT2tiNmNXblBjNTVQb0FQaU5TYmVoSEN2ZXpRWUpTMUFwcEtaMlFLMW5zTnZneDd0dUtoLVFB?oc=5
+- **摘要**：北京市发布2026年版生态环境行政检查、行政强制裁量权基准，面向社会公开征集意见，旨在规范执法程序与裁量标准。
+- **分析**：该条目涉及【北京市生态环境行政检查】话题，因来源较权威且发布时间较新，热度上升。
+
+### 2. 上海交大楼紫阳教授团队Nature Communications发文揭示生活垃圾填埋场中微塑料的时空分布格局与管控措施对微塑料污染的削减潜力 - 生物通
+- **来源**：Google News 环境污染
+- **热度**：85.6
+- **链接**：https://news.google.com/rss/articles/CBMibkFVX3lxTFBUeWIyZGRxaEFWdGhRcmxUbk5ENV91RVVCSS1Eakp1QmtmdzdVVGVydTRucEQ0TTNYVnI5NUc3VEpUTC1zdEEycmdJUGt6ZUZtVmNxRVRtTmJ6T0YyY1dOQmRCMkRveEJhU0lPSXhn?oc=5
+- **摘要**：上海交通大学团队在Nature Communications发表研究，揭示生活垃圾填埋场微塑料的时空分布特征，并评估不同管控措施对微塑料污染的削减潜力。
+- **分析**：该条目涉及【生活垃圾填埋场】话题，因来源较权威且发布时间较新，热度上升。
+
+### 3. 山东省土壤、地下水和农业农村生态环境保护“十五五”规划 - 中国水网
+- **来源**：Google News 环境保护
+- **热度**：85.0
+- **链接**：https://news.google.com/rss/articles/CBMiVEFVX3lxTFByS2M1UVVRM3ZMXzIxU0hEYUFHUTQ1MEtUYm04ZlpqLW93NGYtejZFaFlnX1g4V09tTUhncHFFUk9mUFVFdXRfUElVT01CbmVIV0FabA?oc=5
+- **摘要**：山东省发布土壤、地下水及农业农村生态环境保护“十五五”规划，旨在统筹治理土壤污染、地下水污染与农村生态环境保护。
+- **分析**：该条目涉及【土壤污染】话题，因来源较权威且多家媒体同题报道，热度上升。
+
+### 4. 惠州召开通气会，晒出应对气候变化“绿色成绩单” - 奥一网
+- **来源**：Google News 气候变化
+- **热度**：82.4
+- **链接**：https://news.google.com/rss/articles/CBMiZkFVX3lxTFB0VGdtOGk3NGh4b1JTaWJxQ3lvdXB2VU56RkY3aUJfWWV5MTYzTzA5WXZQRnk2c3JMS2M5MWROc0NSYjRRcVdHVzNySGczWDI3MVRfZ0k0OGt2aHdQS2RMZno5X0M0dw?oc=5
+- **摘要**：惠州召开通气会，发布应对气候变化“绿色成绩单”，展示该市在碳减排、绿色发展等方面的具体成效与措施。
+- **分析**：该条目涉及【绿色发展】话题，因来源较权威且发布时间较新，热度上升。
+
+### 5. 粮农组织在联合国气候变化大会第三十届缔约方大会 (COP30) - Food and Agriculture Organization
+- **来源**：Google News 气候变化
+- **热度**：80.1
+- **链接**：https://news.google.com/rss/articles/CBMiX0FVX3lxTFA1SUFxX05hb1Bodi1EVlZXWVJhME40ZHZncmZ1WFUyZE1OUTV0Ti1vWnJLN2YyV1ZzTHpaWDU4R0ZqOHhnUWt3R0lscU5VMkdwbFpMTi1vYy05NVdvVWsw?oc=5
+- **摘要**：粮农组织在COP30大会上强调，气候行动的核心在于构建可持续、具抗灾能力的农业粮食体系，该体系是保障12亿人口粮食安全与营养的关键。
+- **分析**：该条目涉及【可持续农业】话题，因来源较权威，热度上升。
+
+### 6. 生物活性炭技术及在污水处理中的应用 - 中国水网
+- **来源**：Google News 中国水网
+- **热度**：80.0
+- **链接**：https://news.google.com/rss/articles/CBMiXEFVX3lxTE9JbVR4aVA4OElDQWdjVlRTd2VsWDRqcXNuVUphOUp3OTI3em1QUnBQT1dlVVJpeUxhWE1nSlJ2dkU1RFp4T0RWLXkxTk9scHplVldJRGh6aHotVzNf?oc=5
+- **摘要**：文章探讨了生物活性炭技术在污水处理领域的应用研究，分析了其在水体净化与污染控制方面的技术路径与效果。
+- **分析**：该条目涉及【污水处理】话题，因来源较权威且多家媒体同题报道，热度上升。
+
+### 7. 产学研用协同创新 赋能农业绿色低碳发展 - 中国科技网
+- **来源**：Google News 环境保护
+- **热度**：77.5
+- **链接**：https://news.google.com/rss/articles/CBMicEFVX3lxTE9rR1RSMUtpVFBhbmdDZ01HdXVVVmQ1R2EweWFvbU9qbXBLRC1kZU5wdUFWY29xVWdJVGZKLU4tXzZhTnloRExhUUx3ZHJzXzNPYkRUWWtaLU1tcUpkbVhJNHpoV3dGbGhyMThPeE8tQ1U?oc=5
+- **摘要**：科技日报报道，农业农村部近日召开会议，重点讨论产学研用协同创新如何赋能农业绿色低碳发展，推动行业转型升级。
+- **分析**：该条目涉及【农业绿色低碳发展】话题，因来源较权威且多家媒体同题报道，热度上升。
+
+### 8. Review and reframing of the operationalisation of the water planetary boundary for river basin planning
+- **来源**：Environmental Research Letters
+- **热度**：77.5
+- **链接**：https://iopscience.iop.org/article/10.1088/1748-9326/aea919
+- **摘要**：“行星边界”框架通过为包括水循环在内的关键地球系统组成部分设定生物物理边界，为人类界定了安全运作空间（SOS）。该框架是应对日益加剧的人为压力以及气候变化对水系统影响所带来挑战的一种极具前景的范式。 然而，水行星边界（WPB）框架尚未被系统地融入流域尺度的水资源管理规划中。为应对这一挑战，我们首先回顾了全球WPB概念的发展历程，总结了在亚全球尺度应用该概念的方法，同时指出了其优点和不足。 在此综述基础上，我们认为，现有关于在亚全球尺度上将“社会-生态系统”（SOS）水边界概念付诸实践的研究往往仅考察有限的变量，忽视了全面的流域尺度方法，且未能为其他地区或未来情景提供可适应的框架。与此同时，全球水行星边界（WPB）框架虽然设定了远大目标，却缺乏可操作的实施策略。 我们提出了一个在流域尺度上落实“水边界”原则的新框架，将社会生态功能纳入流域尺度水边界的评估中。该框架基于以下假设：要在流域层面落实“水边界”原则，必须优先确保地球在类全新世状态下的稳定性以及社会公平。 这包括保护对生态系统服务至关重要的水功能，并确保水系统为当代及后代具备韧性。该框架的应用可加深对人类活动如何干扰水循环的理解，并突出必须解决的关键问题，以在流域尺度上维持水系统处于类似全新世的状态。
+- **分析**：该条目涉及【水行星边界】话题，因来源权威性高且话题稀缺度高，热度上升。
+
+### 9. 省第一生态环境保护督察组督察长沙市第二轮督察“回头看”情况反馈会召开 - 搜狐网
+- **来源**：Google News 生态环境
+- **热度**：76.7
+- **链接**：https://news.google.com/rss/articles/CBMiiAFBVV95cUxPX3VOekl5Z3pGTmhxRGdXMlN3M19LUDVYMHRtNk8tMEZqUWVNeGZaVy1QeFE4RURPS1pJcWJjeThLZ1EtTU9ZYmg4VEZsSTlIMEVUWi05Ym4xYWQ0NEVTTjlndlQwdzZyN2pUTjdzeF9BQzhkLTlSeXRSdXZOdVk3QzVQRFY2N01C?oc=5
+- **摘要**：省第一生态环境保护督察组在长沙召开第二轮督察“回头看”反馈会，组长宣读督察意见，市领导作表态发言，聚焦生态环境保护工作情况。
+- **分析**：该条目涉及【省第一生态环境保护督察组】话题，因来源较权威且多家媒体同题报道，热度上升。
+
+### 10. 气候变化背景下摩洛哥坦西夫盆地八个子流域径流变化的模拟与情景预测 - 生物通
+- **来源**：Google News 气候变化
+- **热度**：76.6
+- **链接**：https://news.google.com/rss/articles/CBMibkFVX3lxTE1yUEp1U0lvcHd3U0RHUlFPbHdKWS1fd0RwN2stRnM4VnN1a1hxb1VET0dESHNHdlZIWXJCSHY2Z21CbHNhV0ZGbU1EZTladzd0VjZhRlA4Tm9zYWpoMEZyWUY1Z09BSXE5N1hVRDln?oc=5
+- **摘要**：研究聚焦气候变化对摩洛哥坦西夫盆地八个子流域径流的影响，通过模拟与情景预测分析水资源变化趋势与适应策略。
+- **分析**：该条目涉及【水资源】话题，因来源较权威且发布时间较新，热度上升。
+
+**今日自动提取候选新词**
+
+- **生态**（出现 6 次）
+  - 上下文：山东省土壤、地下水和农业农村生态环境保护“十五五”规划 - 中国水网
+  - 上下文：省第一生态环境保护督察组督察长沙市第二轮督察“回头看”情况反馈会召开 - 搜狐网
+  - 上下文：“生态颜值”与“发展价值”双提升 重庆以高水平保护支撑高质量发展 - 华龙网
+- **中国**（出现 3 次）
+  - 上下文：山东省土壤、地下水和农业农村生态环境保护“十五五”规划 - 中国水网
+  - 上下文：生物活性炭技术及在污水处理中的应用 - 中国水网
+  - 上下文：产学研用协同创新 赋能农业绿色低碳发展 - 中国科技网
+- **召开**（出现 3 次）
+  - 上下文：惠州召开通气会，晒出应对气候变化“绿色成绩单” - 奥一网
+  - 上下文：省第一生态环境保护督察组督察长沙市第二轮督察“回头看”情况反馈会召开 - 搜狐网
+  - 上下文：省第一生态环境保护督察组督察长沙市第二轮督察“回头看”情况反馈会召开-掌上长沙 - 长沙晚报
+- **water**（出现 3 次）
+  - 上下文：Review and reframing of the operationalisation of the water planetary boundary for river basin planning
+  - 上下文：Occurrence, non-target screening, and sediment-water partitioning of traditional and novel polyhalogenated carbazoles in the Yangtze River
+  - 上下文：Correction for Doughty et al., Compounded effects on wetland greenhouse gas fluxes from climate change and water management along a saline to freshwater gradient
+- **财经**（出现 3 次）
+  - 上下文：生态环境部党组书记孙金龙赴辽宁省调研生态环境保护工作 - 新浪财经
+  - 上下文：跟着案例学法典|河北沙河：以公益诉讼推动养殖污染治理|无害化处理|生态环境|环境污染|沙河地区|养殖场 - 新浪财经
+  - 上下文：【生态环境提档升级总体战】一线监督“啄木鸟” 生态共治护源头——西山瑶族乡人大聚力守护灌江绿水青山 - 新浪财经
+- **生物通**（出现 2 次）
+  - 上下文：上海交大楼紫阳教授团队Nature Communications发文揭示生活垃圾填埋场中微塑料的时空分布格局与管控措施对微塑料污染的削减潜力 - 生物通
+  - 上下文：气候变化背景下摩洛哥坦西夫盆地八个子流域径流变化的模拟与情景预测 - 生物通
+- **农业**（出现 2 次）
+  - 上下文：山东省土壤、地下水和农业农村生态环境保护“十五五”规划 - 中国水网
+  - 上下文：产学研用协同创新 赋能农业绿色低碳发展 - 中国科技网
+- **十五**（出现 2 次）
+  - 上下文：山东省土壤、地下水和农业农村生态环境保护“十五五”规划 - 中国水网
+  - 上下文：《美丽江西建设“十五五”规划》系列解读（二）｜持续打好蓝天提升攻坚战 - 凤凰网
+- **水网**（出现 2 次）
+  - 上下文：山东省土壤、地下水和农业农村生态环境保护“十五五”规划 - 中国水网
+  - 上下文：生物活性炭技术及在污水处理中的应用 - 中国水网
+- **绿色**（出现 2 次）
+  - 上下文：惠州召开通气会，晒出应对气候变化“绿色成绩单” - 奥一网
+  - 上下文：产学研用协同创新 赋能农业绿色低碳发展 - 中国科技网
+- **第一**（出现 2 次）
+  - 上下文：省第一生态环境保护督察组督察长沙市第二轮督察“回头看”情况反馈会召开 - 搜狐网
+  - 上下文：省第一生态环境保护督察组督察长沙市第二轮督察“回头看”情况反馈会召开-掌上长沙 - 长沙晚报
+- **督察组**（出现 2 次）
+  - 上下文：省第一生态环境保护督察组督察长沙市第二轮督察“回头看”情况反馈会召开 - 搜狐网
+  - 上下文：省第一生态环境保护督察组督察长沙市第二轮督察“回头看”情况反馈会召开-掌上长沙 - 长沙晚报
+- **长沙市**（出现 2 次）
+  - 上下文：省第一生态环境保护督察组督察长沙市第二轮督察“回头看”情况反馈会召开 - 搜狐网
+  - 上下文：省第一生态环境保护督察组督察长沙市第二轮督察“回头看”情况反馈会召开-掌上长沙 - 长沙晚报
+- **第二轮**（出现 2 次）
+  - 上下文：省第一生态环境保护督察组督察长沙市第二轮督察“回头看”情况反馈会召开 - 搜狐网
+  - 上下文：省第一生态环境保护督察组督察长沙市第二轮督察“回头看”情况反馈会召开-掌上长沙 - 长沙晚报
+- **回头**（出现 2 次）
+  - 上下文：省第一生态环境保护督察组督察长沙市第二轮督察“回头看”情况反馈会召开 - 搜狐网
+  - 上下文：省第一生态环境保护督察组督察长沙市第二轮督察“回头看”情况反馈会召开-掌上长沙 - 长沙晚报
+- **情况**（出现 2 次）
+  - 上下文：省第一生态环境保护督察组督察长沙市第二轮督察“回头看”情况反馈会召开 - 搜狐网
+  - 上下文：省第一生态环境保护督察组督察长沙市第二轮督察“回头看”情况反馈会召开-掌上长沙 - 长沙晚报
+- **反馈**（出现 2 次）
+  - 上下文：省第一生态环境保护督察组督察长沙市第二轮督察“回头看”情况反馈会召开 - 搜狐网
+  - 上下文：省第一生态环境保护督察组督察长沙市第二轮督察“回头看”情况反馈会召开-掌上长沙 - 长沙晚报
+- **high**（出现 2 次）
+  - 上下文：Limited agricultural gains but high flood risk from global wetland reclamation
+  - 上下文：A terrain-guided and physics-constrained dual-stream network for real-time high-resolution urban flood mapping
+- **flood**（出现 2 次）
+  - 上下文：Limited agricultural gains but high flood risk from global wetland reclamation
+  - 上下文：A terrain-guided and physics-constrained dual-stream network for real-time high-resolution urban flood mapping
+- **global**（出现 2 次）
+  - 上下文：Limited agricultural gains but high flood risk from global wetland reclamation
+  - 上下文：Metagenomic insights into the global occurrence of ESKAPE-targeting bacteriophages in urban wastewater
+- **wetland**（出现 2 次）
+  - 上下文：Limited agricultural gains but high flood risk from global wetland reclamation
+  - 上下文：Correction for Doughty et al., Compounded effects on wetland greenhouse gas fluxes from climate change and water management along a saline to freshwater gradient
+- **River**（出现 2 次）
+  - 上下文：Precise identification and validation of microplastics using deep learning models in the Yellow River
+  - 上下文：Occurrence, non-target screening, and sediment-water partitioning of traditional and novel polyhalogenated carbazoles in the Yangtze River
+- **Hurricane**（出现 2 次）
+  - 上下文：Four dead and thousands without power after Hurricane Isaias lashes US
+  - 上下文：Hurricane Isaias downgraded after making landfall in Florida
+- **Isaias**（出现 2 次）
+  - 上下文：Four dead and thousands without power after Hurricane Isaias lashes US
+  - 上下文：Hurricane Isaias downgraded after making landfall in Florida
+- **urban**（出现 2 次）
+  - 上下文：Metagenomic insights into the global occurrence of ESKAPE-targeting bacteriophages in urban wastewater
+  - 上下文：A terrain-guided and physics-constrained dual-stream network for real-time high-resolution urban flood mapping
+- **activation**（出现 2 次）
+  - 上下文：Asymmetric enzymatic hydrophosphorylation through O2 activation | Science
+  - 上下文：Redox-gated polyvinylferrocene interfaces for cathodic peroxymonosulfate activation
+- **Science**（出现 2 次）
+  - 上下文：Asymmetric enzymatic hydrophosphorylation through O2 activation | Science
+  - 上下文：The genetic basis for the production of toxic quinolizidine alkaloids in lupins | Science
+
+---
+

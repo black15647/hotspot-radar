@@ -1,0 +1,555 @@
+{
+  "report_date": "2026-10-12",
+  "site_name": "环境学子雷达",
+  "total_items": 32,
+  "snapshot_items": 10,
+  "category_stats": {
+    "环境政策": {
+      "count": 3,
+      "total_heat": 247.4
+    },
+    "科研学术": {
+      "count": 3,
+      "total_heat": 224.4
+    },
+    "水处理": {
+      "count": 4,
+      "total_heat": 278.8
+    },
+    "气候变化": {
+      "count": 7,
+      "total_heat": 487.5
+    },
+    "其他": {
+      "count": 3,
+      "total_heat": 212.4
+    },
+    "生态环境": {
+      "count": 6,
+      "total_heat": 424.8
+    },
+    "污染治理": {
+      "count": 4,
+      "total_heat": 272.2
+    },
+    "环境健康": {
+      "count": 2,
+      "total_heat": 132.6
+    }
+  },
+  "total_sources": 28,
+  "success_sources": 27,
+  "failed_sources": 0,
+  "week_total_items": 260,
+  "week_new_keywords": 70,
+  "policy_ratio": 11.2,
+  "items": [
+    {
+      "title": "第三轮第七批中央生态环境保护督察全面启动 - 中国新闻网",
+      "title_en": "",
+      "title_zh": "",
+      "link": "https://news.google.com/rss/articles/CBMiaEFVX3lxTE8zbjNuaGM5Z213WFBJNmlabUt2OUY5ejNpMGxyZ3VnX0U5bmJwQTFjWFVEZUdJRzgyajZFQVhkMDN5M2ZoYjV3VUNVRTk5NUdlVHBRdVFoQXhLOVpMUnJLRThabE9xbmVn?oc=5",
+      "source": "Google News 环境保护",
+      "published": "2026-10-12T07:18:07+00:00",
+      "hotness": 91.7,
+      "score_v1": 44.7,
+      "score_v2": 91.7,
+      "score_breakdown": {
+        "algorithm": "v3.0",
+        "dimension_max": {
+          "authority": 18.0,
+          "topic": 18.0,
+          "resonance": 18.0,
+          "information": 16.0
+        },
+        "authority_score": 8.05,
+        "keyword_idf_score": 10.75,
+        "topic_score": 15.94,
+        "topic_burst_score": 5.19,
+        "topic_burst_count": 5,
+        "resonance_score": 13.26,
+        "info_score": 5.0,
+        "base": 42.24,
+        "base_max": 70.0,
+        "time_factor": 0.9349,
+        "density_factor": 1.0,
+        "density_note": "",
+        "repeat_penalty": 1.0,
+        "repeat_excused": false,
+        "event_size": 3,
+        "event_media_count": 3,
+        "event_cluster_source": "ai",
+        "origin_source": "中国新闻网",
+        "raw": 39.49,
+        "display_score": 91.7,
+        "display_mode": "absolute"
+      },
+      "summary": "第三轮第七批中央生态环境保护督察全面启动，聚焦生态环境突出问题开展督察，旨在强化生态环境保护责任落实。",
+      "analysis": "",
+      "topic_tags": [
+        "中央生态环境保护督察"
+      ],
+      "category": "环境政策",
+      "matched_keywords": [
+        "生态环境",
+        "环境保护",
+        "督察"
+      ]
+    },
+    {
+      "title": "COVID-19 impacts on anthropogenic NOx emissions in China, the contiguous U.S., and Europe: insights from joint TROPOMI and surface NO2 data assimilation",
+      "title_en": "COVID-19 impacts on anthropogenic NOx emissions in China, the contiguous U.S., and Europe: insights from joint TROPOMI and surface NO2 data assimilation",
+      "title_zh": "新冠疫情对中国、美国本土及欧洲的人为氮氧化物（NOx）排放的影响：基于TROPOMI与地表二氧化氮（NO₂）数据联合同化的见解",
+      "link": "https://iopscience.iop.org/article/10.1088/1748-9326/aeaf6b",
+      "source": "Environmental Research Letters",
+      "published": "2026-10-11T23:00:00+00:00",
+      "hotness": 85.0,
+      "score_v1": 16.73,
+      "score_v2": 85.0,
+      "score_breakdown": {
+        "algorithm": "v3.0",
+        "dimension_max": {
+          "authority": 18.0,
+          "topic": 18.0,
+          "resonance": 18.0,
+          "information": 16.0
+        },
+        "authority_score": 18.0,
+        "keyword_idf_score": 0.0,
+        "topic_score": 3.0,
+        "topic_burst_score": 0.0,
+        "topic_burst_count": 1,
+        "resonance_score": 0.0,
+        "info_score": 12.0,
+        "base": 33.0,
+        "base_max": 70.0,
+        "time_factor": 0.842,
+        "density_factor": 1.0,
+        "density_note": "",
+        "repeat_penalty": 1.0,
+        "repeat_excused": false,
+        "event_size": 1,
+        "event_media_count": 1,
+        "event_cluster_source": "ai",
+        "origin_source": "Environmental Research Letters",
+        "raw": 27.79,
+        "display_score": 85.0,
+        "display_mode": "absolute"
+      },
+      "summary": "本研究通过集合平方根滤波器和GEOS-Chem模型，整合了卫星和地面，估算了2019–2020年期间中国、美国本土及欧洲的人为，并进一步探讨了新冠疫情如何改变了排放模式及各部门的排放贡献。 研究结果表明，2020年，中国的人为± 5.87 Tg，美国本土为8.96 ± 2.90 Tg，欧洲为10.56 ± 2.95 Tg。 与2019年相比，中国的排放量减少了约5.38%，美国本土减少了8.94%，欧洲减少了15.38%。 在中国，减排主要来自交通运输、发电厂和工业领域。相比之下，美国本土和欧洲的减排几乎完全来自交通运输领域。这些差异反映了发达经济体与发展中经济体在能源结构和产业模式上的根本性差距。 在疫情第一波期间，与2019年同期相比，排放量急剧下降。其中，中国下降了18.04%，美国本土下降了10.56%，欧洲下降了21.74%。 各区域内部均观察到显著的空间差异。本研究提供了关于新冠疫情期间全球主要地区氮氧化物（）排放变化的观测证据，突显了在突发公共卫生危机下，排放行为可能呈现出的不同表现。这些研究结果有助于核查自下而上的排放清单、评估极端事件对空气质量的影响，以及制定更有效的减排政策。",
+      "analysis": "",
+      "topic_tags": [
+        "NOx排放",
+        "中国",
+        "卫星数据"
+      ],
+      "category": "科研学术",
+      "matched_keywords": []
+    },
+    {
+      "title": "Global meta-analysis and machine learning uncover region-specific salinity thresholds and risks for sustainable wheat production under saline irrigation",
+      "title_en": "Global meta-analysis and machine learning uncover region-specific salinity thresholds and risks for sustainable wheat production under saline irrigation",
+      "title_zh": "全球荟萃分析与机器学习揭示了在盐渍灌溉条件下可持续小麦生产所面临的区域特异性盐度阈值及风险",
+      "link": "https://iopscience.iop.org/article/10.1088/1748-9326/aeaf6c",
+      "source": "Environmental Research Letters",
+      "published": "2026-10-11T23:00:00+00:00",
+      "hotness": 81.5,
+      "score_v1": 16.73,
+      "score_v2": 81.5,
+      "score_breakdown": {
+        "algorithm": "v3.0",
+        "dimension_max": {
+          "authority": 18.0,
+          "topic": 18.0,
+          "resonance": 18.0,
+          "information": 16.0
+        },
+        "authority_score": 18.0,
+        "keyword_idf_score": 0.0,
+        "topic_score": 3.0,
+        "topic_burst_score": 0.0,
+        "topic_burst_count": 1,
+        "resonance_score": 0.0,
+        "info_score": 7.0,
+        "base": 28.0,
+        "base_max": 70.0,
+        "time_factor": 0.842,
+        "density_factor": 1.0,
+        "density_note": "",
+        "repeat_penalty": 1.0,
+        "repeat_excused": false,
+        "event_size": 1,
+        "event_media_count": 1,
+        "event_cluster_source": "ai",
+        "origin_source": "Environmental Research Letters",
+        "raw": 23.58,
+        "display_score": 81.5,
+        "display_mode": "absolute"
+      },
+      "summary": "在淡水稀缺的情况下，盐水灌溉是提高作物产量的关键替代策略。然而，以往的研究主要量化了平均产量响应，而环境与管理条件如何相互作用，从而决定各地区特有的灌溉水盐度阈值及相关空间风险，这一问题在全球主要粮仓地区仍未明朗。 本研究将551项田间观测数据的荟萃分析与机器学习（ML）相结合，旨在量化全球小麦对盐渍灌溉的产量响应，确定各区域的最佳阈值，并评估四个主要小麦产区——华北平原（NCP）、 印度-恒河平原（IGP）、中东（ME）以及加利福尼亚中部谷地（CCV）。元分析结果表明，咸水灌溉导致平均产量显著下降，降幅从华北平原（NCP）的12.4%到加利福尼亚中部谷地（CCV）的31.4%不等。 ML进一步表明，灌溉水盐度、生长期温度和灌溉量是主要影响因素，共同解释了超过54%的产量变异。在盐渍条件下，500毫米的灌溉量是实现产量最大化的最优值。 各区域的特定最佳实践包括：NCP地区在开花（FL）和灌浆期采用边行灌溉；IGP地区在上述阶段采用滴灌；ME和CCV地区在开花期采用滴灌。空间风险评估揭示了盐分耐受阈值与实际暴露情况之间存在不匹配。 在保守的5%减产情景下，IGP区域的模型推导盐度阈值最高（4.14 dS m−1），但因背景盐度偏高，其风险区域比例最大；而ME区域面临的风险最低，风险区域仅占7.7%，表明该区域利用咸水的潜力巨大。 这些发现突显了通用水质指南的局限性，并证明了实施本地化管理是必要的。通过建立一个数据驱动的框架",
+      "analysis": "",
+      "topic_tags": [
+        "盐水灌溉",
+        "机器学习",
+        "全球分析"
+      ],
+      "category": "水处理",
+      "matched_keywords": []
+    },
+    {
+      "title": "新华社权威快报丨第三轮第七批中央生态环保督察启动 - 新华网",
+      "title_en": "",
+      "title_zh": "",
+      "link": "https://news.google.com/rss/articles/CBMigwFBVV95cUxONXFLdGxsQkhnTGlzMVRwTG1NeU5GN18tM0F0S1dZbEVqRWoxMms3cHBCUDVtbE1jaXVpTkJjdVl2NzM5N2NvMnpVV1NRLWctRkphU1YzdnQxTlo2Z0NtSFU2eFR1bmpWTm1SSTNFd0xuTWdkUmxVUENha3l6b0l1Q1otUQ?oc=5",
+      "source": "Google News 生态环境",
+      "published": "2026-10-12T07:05:12+00:00",
+      "hotness": 80.9,
+      "score_v1": 30.63,
+      "score_v2": 80.9,
+      "score_breakdown": {
+        "algorithm": "v3.0",
+        "dimension_max": {
+          "authority": 18.0,
+          "topic": 18.0,
+          "resonance": 18.0,
+          "information": 16.0
+        },
+        "authority_score": 8.05,
+        "keyword_idf_score": 10.87,
+        "topic_score": 14.66,
+        "topic_burst_score": 3.79,
+        "topic_burst_count": 3,
+        "resonance_score": 13.26,
+        "info_score": 5.0,
+        "base": 40.97,
+        "base_max": 70.0,
+        "time_factor": 0.9323,
+        "density_factor": 1.0,
+        "density_note": "",
+        "repeat_penalty": 0.6,
+        "repeat_excused": false,
+        "event_size": 3,
+        "event_media_count": 3,
+        "event_cluster_source": "ai",
+        "origin_source": "新华网",
+        "raw": 22.92,
+        "display_score": 80.9,
+        "display_mode": "absolute"
+      },
+      "summary": "新华社权威快报发布第三轮第七批中央生态环保督察启动，聚焦生态环境突出问题开展督察，旨在强化生态环境保护责任落实。",
+      "analysis": "",
+      "topic_tags": [
+        "中央生态环保督察",
+        "生态环境突出问题"
+      ],
+      "category": "环境政策",
+      "matched_keywords": [
+        "环保督察",
+        "督察"
+      ]
+    },
+    {
+      "title": "澎湃新闻·地球频道全新上线：气候变化不再是远方新闻，而是此刻日常 - 搜狐",
+      "title_en": "",
+      "title_zh": "",
+      "link": "https://news.google.com/rss/articles/CBMiiAFBVV95cUxNVWNONnhWSXBDYmRJNGtvRkIzbk9BeUxvdnR2aXdBQ3V3NVZqdGJHOEtzY3A3LWRhUzlXZTRkU2laM2NHdGRMZV9EYmdrUVZXNkRvblJVV3NocHB2M3V6Sjh4S1VieU9HVTNabDRocFdhWXliV2NwNm1JM25UdFFlbDVRZ0pPaF9T?oc=5",
+      "source": "Google News 气候变化",
+      "published": "2026-10-11T23:12:31+00:00",
+      "hotness": 78.3,
+      "score_v1": 22.38,
+      "score_v2": 78.3,
+      "score_breakdown": {
+        "algorithm": "v3.0",
+        "dimension_max": {
+          "authority": 18.0,
+          "topic": 18.0,
+          "resonance": 18.0,
+          "information": 16.0
+        },
+        "authority_score": 8.05,
+        "keyword_idf_score": 3.52,
+        "topic_score": 7.31,
+        "topic_burst_score": 3.79,
+        "topic_burst_count": 3,
+        "resonance_score": 8.76,
+        "info_score": 0.0,
+        "base": 24.12,
+        "base_max": 70.0,
+        "time_factor": 0.8442,
+        "density_factor": 1.0,
+        "density_note": "",
+        "repeat_penalty": 1.0,
+        "repeat_excused": false,
+        "event_size": 2,
+        "event_media_count": 2,
+        "event_cluster_source": "ai",
+        "origin_source": "搜狐",
+        "raw": 20.36,
+        "display_score": 78.3,
+        "display_mode": "absolute"
+      },
+      "summary": "澎湃新闻·地球频道全新上线，聚焦气候变化日常影响，记录全球升温、极端气候及生物多样性变化，引导关注环境日常。",
+      "analysis": "",
+      "topic_tags": [
+        "厄尔尼诺",
+        "极端天气"
+      ],
+      "category": "气候变化",
+      "matched_keywords": [
+        "气候变化"
+      ]
+    },
+    {
+      "title": "NASA captures a stunning transformation in Australia's red outback",
+      "title_en": "NASA captures a stunning transformation in Australia's red outback",
+      "title_zh": "美国宇航局（NASA）捕捉到澳大利亚红色内陆地区令人惊叹的蜕变",
+      "link": "https://www.sciencedaily.com/releases/2026/10/261008102710.htm",
+      "source": "ScienceDaily 环境科学",
+      "published": "2026-10-12T08:19:03+00:00",
+      "hotness": 76.4,
+      "score_v1": 17.95,
+      "score_v2": 76.4,
+      "score_breakdown": {
+        "algorithm": "v3.0",
+        "dimension_max": {
+          "authority": 18.0,
+          "topic": 18.0,
+          "resonance": 18.0,
+          "information": 16.0
+        },
+        "authority_score": 12.73,
+        "keyword_idf_score": 0.0,
+        "topic_score": 0.0,
+        "topic_burst_score": 0.0,
+        "topic_burst_count": 1,
+        "resonance_score": 0.0,
+        "info_score": 7.0,
+        "base": 19.73,
+        "base_max": 70.0,
+        "time_factor": 0.9475,
+        "density_factor": 1.0,
+        "density_note": "",
+        "repeat_penalty": 1.0,
+        "repeat_excused": false,
+        "event_size": 1,
+        "event_media_count": 1,
+        "event_cluster_source": "ai",
+        "origin_source": "ScienceDaily 环境科学",
+        "raw": 18.69,
+        "display_score": 76.4,
+        "display_mode": "absolute"
+      },
+      "summary": "澳大利亚通常干燥、呈锈红色的内陆地区，在经历了一场异常强降雨后，绽放出一片壮观的野花地毯，这可能是近20年来最令人叹为观止的花期。美国宇航局（NASA）的卫星图像捕捉到了这一惊人的变化，甚至让罕见的野花出现在了一座偏远深空观测站的场地内。",
+      "analysis": "",
+      "topic_tags": [
+        "环境资讯"
+      ],
+      "category": "其他",
+      "matched_keywords": []
+    },
+    {
+      "title": "福州市召开全市深入打击生态环境监测机构弄虚作假问题部署推进会 - 福州市人民政府",
+      "title_en": "",
+      "title_zh": "",
+      "link": "https://news.google.com/rss/articles/CBMiggFBVV95cUxPb3gwMGxPN3dydTZ4M3ktaEc4bDhWNC16MHRZYzRaSVVPanJ5Wm1hNGJESUtCeGRaYThTUHBaMUE1NnFtaDF5a25iVmI0NmRLTk1mQXlEOVFmdzB3c05fNDRaVDZYSUVQNXdvWXZMejctVEdEWjVXNm9nM1RlaWRSWXZR?oc=5",
+      "source": "Google News 生态环境",
+      "published": "2026-10-12T01:29:00+00:00",
+      "hotness": 75.2,
+      "score_v1": 30.95,
+      "score_v2": 75.2,
+      "score_breakdown": {
+        "algorithm": "v3.0",
+        "dimension_max": {
+          "authority": 18.0,
+          "topic": 18.0,
+          "resonance": 18.0,
+          "information": 16.0
+        },
+        "authority_score": 8.05,
+        "keyword_idf_score": 9.25,
+        "topic_score": 14.44,
+        "topic_burst_score": 5.19,
+        "topic_burst_count": 5,
+        "resonance_score": 8.76,
+        "info_score": 0.0,
+        "base": 31.25,
+        "base_max": 70.0,
+        "time_factor": 0.8682,
+        "density_factor": 0.65,
+        "density_note": "地方政务通稿",
+        "repeat_penalty": 1.0,
+        "repeat_excused": false,
+        "event_size": 2,
+        "event_media_count": 2,
+        "event_cluster_source": "ai",
+        "origin_source": "福州市人民政府",
+        "raw": 17.63,
+        "display_score": 75.2,
+        "display_mode": "absolute"
+      },
+      "summary": "福州市召开部署推进会，深入打击生态环境监测机构弄虚作假问题，强化监测数据真实性，守护生态环境监管严肃性。",
+      "analysis": "",
+      "topic_tags": [
+        "生态环境监测机构"
+      ],
+      "category": "生态环境",
+      "matched_keywords": [
+        "生态环境",
+        "环境监测"
+      ]
+    },
+    {
+      "title": "第三轮第七批中央生态环保督察启动对湖南等7省区市开展溶洞天坑山谷污染问题生态环境保护专项督察 - 凤凰网",
+      "title_en": "",
+      "title_zh": "",
+      "link": "https://news.google.com/rss/articles/CBMiTkFVX3lxTE5EQ3Itd3JaWm5qVXJaNnVOekhYNXFiS3QwNnlscE02eVpSOW9BT0VGNWphc0NDSnZmeF9vNlNmSEQ2b2xNdGIxRlVTN3VVUQ?oc=5",
+      "source": "Google News 环境保护",
+      "published": "2026-10-12T09:32:38+00:00",
+      "hotness": 74.8,
+      "score_v1": 51.49,
+      "score_v2": 74.8,
+      "score_breakdown": {
+        "algorithm": "v3.0",
+        "dimension_max": {
+          "authority": 18.0,
+          "topic": 18.0,
+          "resonance": 18.0,
+          "information": 16.0
+        },
+        "authority_score": 8.05,
+        "keyword_idf_score": 11.7,
+        "topic_score": 16.88,
+        "topic_burst_score": 5.19,
+        "topic_burst_count": 5,
+        "resonance_score": 13.26,
+        "info_score": 8.0,
+        "base": 46.19,
+        "base_max": 70.0,
+        "time_factor": 0.9629,
+        "density_factor": 0.65,
+        "density_note": "地方政务通稿",
+        "repeat_penalty": 0.6,
+        "repeat_excused": false,
+        "event_size": 3,
+        "event_media_count": 3,
+        "event_cluster_source": "ai",
+        "origin_source": "凤凰网",
+        "raw": 17.35,
+        "display_score": 74.8,
+        "display_mode": "absolute"
+      },
+      "summary": "第三轮第七批中央生态环保督察启动对湖南等7省区市开展溶洞天坑山谷污染问题生态环境保护专项督察 凤凰网直通部委｜第三轮第七批中央生态环保督察启动 职业教育基本涵盖国民经济各领域 Jiemian.com第三轮第七批中央生态环保督察启动 聚焦多省市区专项督察 中华网",
+      "analysis": "",
+      "topic_tags": [
+        "中央生态环保督察",
+        "溶洞天坑山谷污染"
+      ],
+      "category": "环境政策",
+      "matched_keywords": [
+        "生态环境",
+        "环境保护",
+        "环保督察",
+        "督察"
+      ]
+    },
+    {
+      "title": "青海用好绿色税制守护生态环境-政务公开 - 青海省人民政府",
+      "title_en": "",
+      "title_zh": "",
+      "link": "https://news.google.com/rss/articles/CBMickFVX3lxTFBpZmNZM1RBcDZBS3QyNDdGRGx6dmlyYThQeWFDSkRFU3dFdU9wcFRlTGlzR2lhRjNoQTY3ZmYwcVJjU29ycEtKWUVRbTJFMjhpVlViRTFOVUwtTEhHV3JjemNjMTVIWHIydERFbGxJa0NSZw?oc=5",
+      "source": "Google News 生态环境",
+      "published": "2026-10-11T22:50:00+00:00",
+      "hotness": 72.8,
+      "score_v1": 26.29,
+      "score_v2": 72.8,
+      "score_breakdown": {
+        "algorithm": "v3.0",
+        "dimension_max": {
+          "authority": 18.0,
+          "topic": 18.0,
+          "resonance": 18.0,
+          "information": 16.0
+        },
+        "authority_score": 8.05,
+        "keyword_idf_score": 5.6,
+        "topic_score": 10.79,
+        "topic_burst_score": 5.19,
+        "topic_burst_count": 5,
+        "resonance_score": 0.0,
+        "info_score": 0.0,
+        "base": 18.84,
+        "base_max": 70.0,
+        "time_factor": 0.8403,
+        "density_factor": 1.0,
+        "density_note": "",
+        "repeat_penalty": 1.0,
+        "repeat_excused": false,
+        "event_size": 1,
+        "event_media_count": 1,
+        "event_cluster_source": "ai",
+        "origin_source": "青海省人民政府",
+        "raw": 15.83,
+        "display_score": 72.8,
+        "display_mode": "absolute"
+      },
+      "summary": "青海用好绿色税制守护生态环境，通过税制手段激励环保行为，有效引导企业和个人减排，助力生态环境保护高质量发展。",
+      "analysis": "",
+      "topic_tags": [
+        "绿色税制",
+        "生态环境"
+      ],
+      "category": "生态环境",
+      "matched_keywords": [
+        "生态环境"
+      ]
+    },
+    {
+      "title": "Despair after 200-year-old ‘grandmother’ tree toppled for Trump’s border wall: ‘It crushes your heart’",
+      "title_en": "Despair after 200-year-old ‘grandmother’ tree toppled for Trump’s border wall: ‘It crushes your heart’",
+      "title_zh": "一棵树龄200年的“老祖母”树为修建特朗普的边境墙而被砍倒，引发悲痛：“这让人心碎”",
+      "link": "https://www.theguardian.com/us-news/2026/oct/10/cottonwood-tree-toppling-trump-mexico-border-wall-arizona",
+      "source": "The Guardian Environment",
+      "published": "2026-10-10T20:57:32+00:00",
+      "hotness": 71.8,
+      "score_v1": 11.44,
+      "score_v2": 71.8,
+      "score_breakdown": {
+        "algorithm": "v3.0",
+        "dimension_max": {
+          "authority": 18.0,
+          "topic": 18.0,
+          "resonance": 18.0,
+          "information": 16.0
+        },
+        "authority_score": 12.73,
+        "keyword_idf_score": 0.0,
+        "topic_score": 3.0,
+        "topic_burst_score": 0.0,
+        "topic_burst_count": 1,
+        "resonance_score": 0.0,
+        "info_score": 8.0,
+        "base": 23.73,
+        "base_max": 70.0,
+        "time_factor": 0.636,
+        "density_factor": 1.0,
+        "density_note": "",
+        "repeat_penalty": 1.0,
+        "repeat_excused": false,
+        "event_size": 1,
+        "event_media_count": 1,
+        "event_cluster_source": "ai",
+        "origin_source": "The Guardian Environment",
+        "raw": 15.09,
+        "display_score": 71.8,
+        "display_mode": "absolute"
+      },
+      "summary": "抗议者们在古杨树下占领了数月之久。 随后，与美国边境巡逻队的紧张对峙达到了白热化阶段。位于美墨边境附近、被称为“祖母”的一棵树龄200年的杨树，尽管抗议者为拯救它进行了长达数月的努力，但最终仍被砍伐，为唐纳德·特朗普的边境墙建设让路。7月下旬，土地捍卫者们在亚利桑那州洛基尔（Lochiel）这座鬼镇开始进行“树上静坐”抗议，轮流占据树冠高处的平台。该团体在那里坚守了70多天。继续阅读……",
+      "analysis": "",
+      "topic_tags": [
+        "科研学术"
+      ],
+      "category": "科研学术",
+      "matched_keywords": []
+    }
+  ]
+}

@@ -1,136 +1,139 @@
 # 环境学子雷达 - 每日热点报告
 
-**日期**：2026-10-12
-**总条目数**：32
+**日期**：2026-10-13
+**总条目数**：39
 
-**近7天见解**：近7天环境热点呈现“气候变化、生态环境、环境政策”三大类集中，总计155条，占近七成，显示公众关注度持续向核心议题聚焦。污染治理、水处理与科研学术热度相对平稳，整体格局呈现“核心热点上升、基础领域稳固”的特征。
+**近7天见解**：近7天环境热点呈现显著的分类集中特征，气候变化与生态环境两大类合计125条，占据近半数热点，显示出公众关注的核心方向已向生态安全与气候议题倾斜。污染治理与环境政策作为治理手段与制度保障，虽条目数量相对较少，但作为前两大热点的支撑与延伸，其讨论强度与日益提升的频次值得关注。水处理作为技术细分领域，虽条目总数适中，
 
 ---
 
 ## 今日热点 TOP 10
 
-### 1. [第三轮第七批中央生态环境保护督察全面启动 - 中国新闻网](https://news.google.com/rss/articles/CBMiaEFVX3lxTE8zbjNuaGM5Z213WFBJNmlabUt2OUY5ejNpMGxyZ3VnX0U5bmJwQTFjWFVEZUdJRzgyajZFQVhkMDN5M2ZoYjV3VUNVRTk5NUdlVHBRdVFoQXhLOVpMUnJLRThabE9xbmVn?oc=5)
+### 1. [Surface solar radiation and day-to-day temperature variability in China during 1961–2022: evidence from the dimming–brightening transition](https://iopscience.iop.org/article/10.1088/1748-9326/aead00)
+
+- **来源**：Environmental Research Letters
+- **热度**：88.6
+- **发布时间**：2026-10-12T23:00:00+00:00
+- **关键词**：气候变化, 流域
+
+> 气候变化不仅通过平均气温的变化，还通过连续几天之间的快速气温波动，对自然和人类系统产生影响。 利用1961–2022年间中国1759个匹配观测站经同化处理的日均温和日最高温观测数据，以及重建的地表太阳辐射数据，我们评估了日间温度变异性（DTD和DTDMAX）的季节周期、概率分布和长期趋势。 通过回归调整，提取了与同期辐射异常在统计上相关联的温度异常拟合分量。结果表明，无论是DTD还是DTDMAX，其冬季和春季的数值均高于夏季和秋季，且DTDMAX与辐射相关的差异更为显著。 在对大多数流域进行回归调整后，其分布均向左偏移，其中 DTDMAX 的分布对比远大于 DTD。大多数地区的年 DTD 和 DTDMAX 均呈现出跨十年尺度转变，这与“全球变暗与变亮”现象高度一致。 在1991–2022年期间，经回归调整后的DTD和DTDMAX上升趋势较原始数据系列更为微弱，这表明其长期上升趋势的一部分在统计上与同期太阳辐射相关。 在长江流域，DTD的斜率从0.015变为−0.004 °C/10a，DTDMAX的斜率从0.049变为0.001 °C/10a。 在剔除线性趋势并控制年降水量后，81.28%的网格单元中 DTD 与日辐射变异性呈正相关，89.60%的网格单元中 DTDMAX 与日辐射变异性呈正相关。 结果表明，短期温度变异性与地表辐射变异性存在关联，尤其是日最高温度。这些发现深化了我们对中国境内短期温度变异性的理解，并对气候相关影响及环境
+
+**分析**：该条目涉及【中国】话题，因来源权威性高且话题稀缺度高，热度上升。
+
+---
+
+### 2. [新华社权威快报丨第三轮第七批中央生态环保督察启动 - 新华网](https://news.google.com/rss/articles/CBMigwFBVV95cUxONXFLdGxsQkhnTGlzMVRwTG1NeU5GN18tM0F0S1dZbEVqRWoxMms3cHBCUDVtbE1jaXVpTkJjdVl2NzM5N2NvMnpVV1NRLWctRkphU1YzdnQxTlo2Z0NtSFU2eFR1bmpWTm1SSTNFd0xuTWdkUmxVUENha3l6b0l1Q1otUQ?oc=5)
 
 - **来源**：Google News 环境保护
-- **热度**：91.7
-- **发布时间**：2026-10-12T07:18:07+00:00
-- **关键词**：生态环境, 环境保护, 督察
-
-> 第三轮第七批中央生态环境保护督察全面启动，聚焦生态环境突出问题开展督察，旨在强化生态环境保护责任落实。
-
-**分析**：该条目涉及【中央生态环境保护督察】话题，因来源较权威且发布时间较新，热度上升。
-
----
-
-### 2. [COVID-19 impacts on anthropogenic NOx emissions in China, the contiguous U.S., and Europe: insights from joint TROPOMI and surface NO2 data assimilation](https://iopscience.iop.org/article/10.1088/1748-9326/aeaf6b)
-
-- **来源**：Environmental Research Letters
-- **热度**：85.0
-- **发布时间**：2026-10-11T23:00:00+00:00
-
-> 本研究通过集合平方根滤波器和GEOS-Chem模型，整合了卫星和地面，估算了2019–2020年期间中国、美国本土及欧洲的人为，并进一步探讨了新冠疫情如何改变了排放模式及各部门的排放贡献。 研究结果表明，2020年，中国的人为± 5.87 Tg，美国本土为8.96 ± 2.90 Tg，欧洲为10.56 ± 2.95 Tg。 与2019年相比，中国的排放量减少了约5.38%，美国本土减少了8.94%，欧洲减少了15.38%。 在中国，减排主要来自交通运输、发电厂和工业领域。相比之下，美国本土和欧洲的减排几乎完全来自交通运输领域。这些差异反映了发达经济体与发展中经济体在能源结构和产业模式上的根本性差距。 在疫情第一波期间，与2019年同期相比，排放量急剧下降。其中，中国下降了18.04%，美国本土下降了10.56%，欧洲下降了21.74%。 各区域内部均观察到显著的空间差异。本研究提供了关于新冠疫情期间全球主要地区氮氧化物（）排放变化的观测证据，突显了在突发公共卫生危机下，排放行为可能呈现出的不同表现。这些研究结果有助于核查自下而上的排放清单、评估极端事件对空气质量的影响，以及制定更有效的减排政策。
-
-**分析**：该条目涉及【NOx排放】话题，因来源权威性高，热度上升。
-
----
-
-### 3. [Global meta-analysis and machine learning uncover region-specific salinity thresholds and risks for sustainable wheat production under saline irrigation](https://iopscience.iop.org/article/10.1088/1748-9326/aeaf6c)
-
-- **来源**：Environmental Research Letters
-- **热度**：81.5
-- **发布时间**：2026-10-11T23:00:00+00:00
-
-> 在淡水稀缺的情况下，盐水灌溉是提高作物产量的关键替代策略。然而，以往的研究主要量化了平均产量响应，而环境与管理条件如何相互作用，从而决定各地区特有的灌溉水盐度阈值及相关空间风险，这一问题在全球主要粮仓地区仍未明朗。 本研究将551项田间观测数据的荟萃分析与机器学习（ML）相结合，旨在量化全球小麦对盐渍灌溉的产量响应，确定各区域的最佳阈值，并评估四个主要小麦产区——华北平原（NCP）、 印度-恒河平原（IGP）、中东（ME）以及加利福尼亚中部谷地（CCV）。元分析结果表明，咸水灌溉导致平均产量显著下降，降幅从华北平原（NCP）的12.4%到加利福尼亚中部谷地（CCV）的31.4%不等。 ML进一步表明，灌溉水盐度、生长期温度和灌溉量是主要影响因素，共同解释了超过54%的产量变异。在盐渍条件下，500毫米的灌溉量是实现产量最大化的最优值。 各区域的特定最佳实践包括：NCP地区在开花（FL）和灌浆期采用边行灌溉；IGP地区在上述阶段采用滴灌；ME和CCV地区在开花期采用滴灌。空间风险评估揭示了盐分耐受阈值与实际暴露情况之间存在不匹配。 在保守的5%减产情景下，IGP区域的模型推导盐度阈值最高（4.14 dS m−1），但因背景盐度偏高，其风险区域比例最大；而ME区域面临的风险最低，风险区域仅占7.7%，表明该区域利用咸水的潜力巨大。 这些发现突显了通用水质指南的局限性，并证明了实施本地化管理是必要的。通过建立一个数据驱动的框架
-
-**分析**：该条目涉及【盐水灌溉】话题，因来源权威性高，热度上升。
-
----
-
-### 4. [新华社权威快报丨第三轮第七批中央生态环保督察启动 - 新华网](https://news.google.com/rss/articles/CBMigwFBVV95cUxONXFLdGxsQkhnTGlzMVRwTG1NeU5GN18tM0F0S1dZbEVqRWoxMms3cHBCUDVtbE1jaXVpTkJjdVl2NzM5N2NvMnpVV1NRLWctRkphU1YzdnQxTlo2Z0NtSFU2eFR1bmpWTm1SSTNFd0xuTWdkUmxVUENha3l6b0l1Q1otUQ?oc=5)
-
-- **来源**：Google News 生态环境
-- **热度**：80.9
+- **热度**：86.3
 - **发布时间**：2026-10-12T07:05:12+00:00
-- **关键词**：环保督察, 督察
-
-> 新华社权威快报发布第三轮第七批中央生态环保督察启动，聚焦生态环境突出问题开展督察，旨在强化生态环境保护责任落实。
-
-**分析**：该条目涉及【中央生态环保督察】话题，因来源较权威且发布时间较新，热度上升。
-
----
-
-### 5. [澎湃新闻·地球频道全新上线：气候变化不再是远方新闻，而是此刻日常 - 搜狐](https://news.google.com/rss/articles/CBMiiAFBVV95cUxNVWNONnhWSXBDYmRJNGtvRkIzbk9BeUxvdnR2aXdBQ3V3NVZqdGJHOEtzY3A3LWRhUzlXZTRkU2laM2NHdGRMZV9EYmdrUVZXNkRvblJVV3NocHB2M3V6Sjh4S1VieU9HVTNabDRocFdhWXliV2NwNm1JM25UdFFlbDVRZ0pPaF9T?oc=5)
-
-- **来源**：Google News 气候变化
-- **热度**：78.3
-- **发布时间**：2026-10-11T23:12:31+00:00
-- **关键词**：气候变化
-
-> 澎湃新闻·地球频道全新上线，聚焦气候变化日常影响，记录全球升温、极端气候及生物多样性变化，引导关注环境日常。
-
-**分析**：该条目涉及【厄尔尼诺】话题，因来源较权威且多家媒体同题报道，热度上升。
-
----
-
-### 6. [NASA captures a stunning transformation in Australia's red outback](https://www.sciencedaily.com/releases/2026/10/261008102710.htm)
-
-- **来源**：ScienceDaily 环境科学
-- **热度**：76.4
-- **发布时间**：2026-10-12T08:19:03+00:00
-
-> 澳大利亚通常干燥、呈锈红色的内陆地区，在经历了一场异常强降雨后，绽放出一片壮观的野花地毯，这可能是近20年来最令人叹为观止的花期。美国宇航局（NASA）的卫星图像捕捉到了这一惊人的变化，甚至让罕见的野花出现在了一座偏远深空观测站的场地内。
-
-**分析**：该条目涉及【环境资讯】话题，因来源权威性高且发布时间较新，热度上升。
-
----
-
-### 7. [福州市召开全市深入打击生态环境监测机构弄虚作假问题部署推进会 - 福州市人民政府](https://news.google.com/rss/articles/CBMiggFBVV95cUxPb3gwMGxPN3dydTZ4M3ktaEc4bDhWNC16MHRZYzRaSVVPanJ5Wm1hNGJESUtCeGRaYThTUHBaMUE1NnFtaDF5a25iVmI0NmRLTk1mQXlEOVFmdzB3c05fNDRaVDZYSUVQNXdvWXZMejctVEdEWjVXNm9nM1RlaWRSWXZR?oc=5)
-
-- **来源**：Google News 生态环境
-- **热度**：75.2
-- **发布时间**：2026-10-12T01:29:00+00:00
-- **关键词**：生态环境, 环境监测
-
-> 福州市召开部署推进会，深入打击生态环境监测机构弄虚作假问题，强化监测数据真实性，守护生态环境监管严肃性。
-
-**分析**：该条目涉及【生态环境监测机构】话题，因来源较权威且发布时间较新，热度上升。
-
----
-
-### 8. [第三轮第七批中央生态环保督察启动对湖南等7省区市开展溶洞天坑山谷污染问题生态环境保护专项督察 - 凤凰网](https://news.google.com/rss/articles/CBMiTkFVX3lxTE5EQ3Itd3JaWm5qVXJaNnVOekhYNXFiS3QwNnlscE02eVpSOW9BT0VGNWphc0NDSnZmeF9vNlNmSEQ2b2xNdGIxRlVTN3VVUQ?oc=5)
-
-- **来源**：Google News 环境保护
-- **热度**：74.8
-- **发布时间**：2026-10-12T09:32:38+00:00
 - **关键词**：生态环境, 环境保护, 环保督察, 督察
 
-> 第三轮第七批中央生态环保督察启动对湖南等7省区市开展溶洞天坑山谷污染问题生态环境保护专项督察 凤凰网直通部委｜第三轮第七批中央生态环保督察启动 职业教育基本涵盖国民经济各领域 Jiemian.com第三轮第七批中央生态环保督察启动 聚焦多省市区专项督察 中华网
+> 新华社权威快报丨第三轮第七批中央生态环保督察启动 新华网第三轮第七批中央生态环保督察启动对湖南等7省区市开展溶洞天坑山谷污染问题生态环境保护专项督察 凤凰网直通部委｜第三轮第七批中央生态环保督察启动 职业教育基本涵盖国民经济各领域 Jiemian.com第三轮第七批中央生态环保督察启动 聚焦多省市区专项督察 中华网
 
-**分析**：该条目涉及【中央生态环保督察】话题，因来源较权威且发布时间较新，热度上升。
+**分析**：该条目涉及【中央生态环保督察】话题，因来源较权威且多家媒体同题报道，热度上升。
 
 ---
 
-### 9. [青海用好绿色税制守护生态环境-政务公开 - 青海省人民政府](https://news.google.com/rss/articles/CBMickFVX3lxTFBpZmNZM1RBcDZBS3QyNDdGRGx6dmlyYThQeWFDSkRFU3dFdU9wcFRlTGlzR2lhRjNoQTY3ZmYwcVJjU29ycEtKWUVRbTJFMjhpVlViRTFOVUwtTEhHV3JjemNjMTVIWHIydERFbGxJa0NSZw?oc=5)
+### 3. [Indoor air quality at the climate-health nexus: the case for enforceable standards](https://iopscience.iop.org/article/10.1088/1748-9326/aeabc0)
+
+- **来源**：Environmental Research Letters
+- **热度**：86.3
+- **发布时间**：2026-10-12T23:00:00+00:00
+- **关键词**：气候变化, 大气污染
+
+> 新冠疫情暴露了一个长期存在的治理缺口：尽管大多数人大部分时间都在室内度过，但室内空气质量的监管却远不如室外空气严格。 气候变化正通过增加野火烟雾的频率和严重程度，以及因高温导致的建筑物关闭，进一步加剧这一差距——这两者都会导致家庭、学校、工作场所及其他有人活动的空间内的空气质量恶化。 因此，室内空气质量差已不再仅仅是建筑性能问题；它已成为一个涉及气候与健康的问题，对感染控制、慢性病、认知能力及公平性均有明确影响。越来越多的证据表明，不作为的代价巨大，而改善室内环境带来的益处则可量化，这进一步强化了采取行动的必要性。 本文认为，应通过具有法定效力、可强制执行且基于性能的标准来规范室内空气质量，并优先从暴露不可避免且脆弱性较高的场所着手。本文以澳大利亚为例，说明如何将监测、机构责任和分阶段实施纳入切实可行的监管路径。
+
+**分析**：该条目涉及【室内空气质量】话题，因来源权威性高且话题稀缺度高，热度上升。
+
+---
+
+### 4. [从“治病”向“健美”转变，四川“十五五”生态环境治理进入新阶段丨关注四川“十五五”美丽四川建设 - 四川新闻](https://news.google.com/rss/articles/CBMiY0FVX3lxTFAwb3ZVaVRpa2FTcGlOOWxoVFgwdTVlWW9qZDNtbjAzc25SU3YzSkE0WUpvUkVwYTZYSVRVQjAyX0pNYThnSGRQU1JYUUtsUXU4SzRSQkVWTHltZl92YjlFUGJnVQ?oc=5)
 
 - **来源**：Google News 生态环境
-- **热度**：72.8
-- **发布时间**：2026-10-11T22:50:00+00:00
-- **关键词**：生态环境
+- **热度**：84.9
+- **发布时间**：2026-10-13T09:22:23+00:00
+- **关键词**：生态环境, 环境治理
 
-> 青海用好绿色税制守护生态环境，通过税制手段激励环保行为，有效引导企业和个人减排，助力生态环境保护高质量发展。
+> 聚焦四川“十五五”生态环境治理转型，文章阐述了从传统“治病”模式向“健美”生态建设的转变，旨在通过系统治理提升区域生态质量和美丽四川建设水平。
 
-**分析**：该条目涉及【绿色税制】话题，因来源较权威，热度上升。
+**分析**：该条目涉及【生态环境治理】话题，因来源较权威且发布时间较新，热度上升。
 
 ---
 
-### 10. [Despair after 200-year-old ‘grandmother’ tree toppled for Trump’s border wall: ‘It crushes your heart’](https://www.theguardian.com/us-news/2026/oct/10/cottonwood-tree-toppling-trump-mexico-border-wall-arizona)
+### 5. [Can Class 3 e-bikes help meet California’s VMT and climate goals? A mobility-substitution screening](https://iopscience.iop.org/article/10.1088/1748-9326/aeaf6a)
 
-- **来源**：The Guardian Environment
-- **热度**：71.8
-- **发布时间**：2026-10-10T20:57:32+00:00
+- **来源**：Environmental Research Letters
+- **热度**：84.9
+- **发布时间**：2026-10-12T23:00:00+00:00
+- **关键词**：温室气体
 
-> 抗议者们在古杨树下占领了数月之久。 随后，与美国边境巡逻队的紧张对峙达到了白热化阶段。位于美墨边境附近、被称为“祖母”的一棵树龄200年的杨树，尽管抗议者为拯救它进行了长达数月的努力，但最终仍被砍伐，为唐纳德·特朗普的边境墙建设让路。7月下旬，土地捍卫者们在亚利桑那州洛基尔（Lochiel）这座鬼镇开始进行“树上静坐”抗议，轮流占据树冠高处的平台。该团体在那里坚守了70多天。继续阅读……
+> 交通运输是加利福尼亚州最大的温室气体排放源，而仅靠车辆电气化并不能减少车辆行驶里程（VMT）。本文探讨了第3类电动自行车——即最高时速可达28英里且配备踏板辅助功能的车型——能否替代部分传统自行车鲜少覆盖的中距离通勤需求。 基于2024年洛杉矶县LOCUS出行数据，我们将目标通勤区间定义为工作日高峰时段单程5–15英里的机动车出行。 该市场每周工作日的人次英里总量达1198万，而在采用相同筛选条件的情况下，传统自行车仅占其中约0.3%。 欧洲高速电动助力自行车（speed-pedelec）的实证数据表明，这些距离处于其常规行驶范围之内。由于LOCUS将电动自行车纳入“机动化出行”范畴，因此各种情景分析会明确调整该类别中汽车的占比，以及实际替代汽车出行的第3类出行（Class 3）的占比。 在完全替代的上限情景下，10%的出行模式转换每年可减少2.83亿车辆英里和101.6千吨二氧化碳当量。这一减排量是洛杉矶大都会区（LA Metro）公布的自行车道车辆英里（VMT）减排效益的5.6倍，主要原因在于此处考虑的出行距离更长。 然而，同一情景仅减少了模型中该县客运车辆行驶里程（VMT）的约0.43%，而30%的压力测试情景也仅减少了约1.3%。因此，第三类电动自行车虽是潜在的重要中距离出行选择，但仅是加利福尼亚州所需更大规模出行转型中的一部分。
 
-**分析**：该条目涉及【科研学术】话题，因来源权威性高，热度上升。
+**分析**：该条目涉及【温室气体排放】话题，因来源权威性高，热度上升。
+
+---
+
+### 6. [直面气候变化新挑战 四川采取措施“扛”住极端天气 - 搜狐网](https://news.google.com/rss/articles/CBMiiwFBVV95cUxOa25ZSklRWUJWdnpJWVBSdDB1c2Z3RmFzM2R6NE9uZGRGQ1JwbXdaRmxLZ21pWm5WQzdtTjZYbS0yeE04RHRMbEZaWmFtVjBiemxqUUhfQ2pXbW9ZN1NjYXRKN1VxQmlCZWREWWJmTkFMUVpqN2dKUFhDQzdTcGFOM3Z6X2xrWFBlTWVF?oc=5)
+
+- **来源**：Google News 气候变化
+- **热度**：82.4
+- **发布时间**：2026-10-13T09:03:05+00:00
+- **关键词**：气候变化
+
+> 四川应对气候变化挑战，连续13年气温偏高且今年7月创下历史最高纪录。文章报道该省针对高温、暴雨等极端天气频发采取的具体应对措施，以应对日益严峻的环境健康问题。
+
+**分析**：该条目涉及【极端天气】话题，因来源较权威且发布时间较新，热度上升。
+
+---
+
+### 7. [Seasonality defines groundwater recharge thresholds across Australia](https://iopscience.iop.org/article/10.1088/1748-9326/aea91e)
+
+- **来源**：Environmental Research Letters
+- **热度**：82.1
+- **发布时间**：2026-10-12T23:00:00+00:00
+- **关键词**：地下水
+
+> 可靠地预测降雨对地下水的补给对水资源管理至关重要，但在科学上却颇具挑战性。先前研究表明，洞穴、矿井和隧道为观察降雨补给的时间点和阈值（即在给定时间段内导致空洞顶部滴水量发生变化的降雨量）提供了有用的“观察窗口”。 我们利用分布于澳大利亚大陆各地的滴水记录仪发现，16个观测点的年降雨补给阈值（RRT）在统计上具有相似性。然而，这些阈值会随季节而变化。在以冬季降雨为主的气候条件下，即使出现强降雨事件，夏季和秋季也很难发生地下水补给。 同样，在干旱年份，即使降雨量达到RRT，冬季降雨也可能不足以引发补给。相反，山区和夏季多雨的站点对超过RRT的降雨事件表现出更可靠的补给响应。在建模含水层动态及规划可持续地下水利用时，应将对补给动态的这一深入理解纳入考量。
+
+**分析**：该条目涉及【地下水补给】话题，因来源权威性高，热度上升。
+
+---
+
+### 8. [省第三生态环境保护督察组督察岳阳市第二轮督察“回头看”情况反馈会召开 - 岳阳市人民政府](https://news.google.com/rss/articles/CBMiYkFVX3lxTE5vcXBrV2wtd0t1WllsLUdLejdpZjhaWmVLNE9HTHc2dUdjRkliSWY2dkhoZHBZM3hRa0p5UUhWSnlodnVBSEFNZUF1X3VuRjB3WU50aGt6cWY5MURJekhIVjFn?oc=5)
+
+- **来源**：Google News 生态环境
+- **热度**：80.2
+- **发布时间**：2026-10-13T04:03:46+00:00
+- **关键词**：生态环境, 环境保护, 督察
+
+> 生态环境保护督察组对岳阳市进行第二轮“回头看”督察，通过反馈会形式督察督办情况，旨在检查生态环境治理成效，推动问题整改，确保生态环境保护责任落实到位。
+
+**分析**：该条目涉及【生态环境保护督察】话题，因来源较权威且发布时间较新，热度上升。
+
+---
+
+### 9. [Thousands of Handwritten Records Reveal Scale of Warming in the Congo](https://e360.yale.edu/digest/congo-climate-records)
+
+- **来源**：Yale Environment 360
+- **热度**：79.4
+- **发布时间**：2026-10-12T13:04:00+00:00
+- **关键词**：气候变化
+
+> 刚果盆地是地球上为数不多的几个地区之一，政府间气候变化专门委员会（IPCC）未能在此追踪极端高温和降雨的长期变化趋势。原因在于缺乏现成的数据。为填补这一空白，科学家们将数千份手写气象记录进行了数字化处理，这些记录揭示了该地区变暖带来的影响。 在 E360 上阅读更多内容 →
+
+**分析**：该条目涉及【Climate Change】话题，因来源权威性高，热度上升。
+
+---
+
+### 10. [When microbes degrade plastic, where does it go?](https://www.nature.com/articles/d41586-026-03246-1)
+
+- **来源**：Nature
+- **热度**：78.5
+- **发布时间**：2026-10-13T00:00:00+00:00
+
+> 《自然》杂志， 当微生物降解塑料时，塑料去了哪里？
+
+**分析**：该条目涉及【塑料降解】话题，因来源权威性高且发布时间较新，热度上升。
 
 ---

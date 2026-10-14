@@ -1,0 +1,557 @@
+{
+  "report_date": "2026-10-14",
+  "site_name": "环境学子雷达",
+  "total_items": 36,
+  "snapshot_items": 10,
+  "category_stats": {
+    "气候变化": {
+      "count": 9,
+      "total_heat": 673.8
+    },
+    "生态环境": {
+      "count": 10,
+      "total_heat": 748.0
+    },
+    "能源与碳中和": {
+      "count": 1,
+      "total_heat": 84.1
+    },
+    "污染治理": {
+      "count": 3,
+      "total_heat": 222.2
+    },
+    "科研学术": {
+      "count": 3,
+      "total_heat": 213.9
+    },
+    "环境政策": {
+      "count": 3,
+      "total_heat": 218.4
+    },
+    "水处理": {
+      "count": 3,
+      "total_heat": 203.6
+    },
+    "其他": {
+      "count": 4,
+      "total_heat": 283.7
+    }
+  },
+  "total_sources": 28,
+  "success_sources": 27,
+  "failed_sources": 0,
+  "week_total_items": 263,
+  "week_new_keywords": 70,
+  "policy_ratio": 10.3,
+  "items": [
+    {
+      "title": "Dynamic urban decarbonization pathways revealed in rapidly urbanizing Chinese cities",
+      "title_en": "Dynamic urban decarbonization pathways revealed in rapidly urbanizing Chinese cities",
+      "title_zh": "中国快速城市化城市中揭示的动态城市脱碳路径",
+      "link": "https://iopscience.iop.org/article/10.1088/1748-9326/aeb14a",
+      "source": "Environmental Research Letters",
+      "published": "2026-10-13T23:00:00+00:00",
+      "hotness": 88.1,
+      "score_v1": 27.4,
+      "score_v2": 88.1,
+      "score_breakdown": {
+        "algorithm": "v3.0",
+        "dimension_max": {
+          "authority": 18.0,
+          "topic": 18.0,
+          "resonance": 18.0,
+          "information": 16.0
+        },
+        "authority_score": 18.0,
+        "keyword_idf_score": 9.92,
+        "topic_score": 12.28,
+        "topic_burst_score": 2.36,
+        "topic_burst_count": 2,
+        "resonance_score": 0.0,
+        "info_score": 7.0,
+        "base": 37.28,
+        "base_max": 70.0,
+        "time_factor": 0.8701,
+        "density_factor": 1.0,
+        "density_note": "",
+        "repeat_penalty": 1.0,
+        "repeat_excused": false,
+        "event_size": 1,
+        "event_media_count": 1,
+        "event_cluster_source": "ai",
+        "origin_source": "Environmental Research Letters",
+        "raw": 32.44,
+        "display_score": 88.1,
+        "display_mode": "absolute"
+      },
+      "summary": "城市经济及其相关的排放量取决于特定的城市结构，且会动态变化。然而，目前鲜有研究捕捉到碳排放与更广泛的城市发展之间的共生演变，也未识别出不同类型城市中与这种变化相关的治理因素。 本研究通过分析1999年至2019年间中国232个城市的数据，填补了这一研究空白。作为一项关键贡献，我们通过将-Means++聚类算法应用于汇总的城市-年观测数据，将城市类型视为动态状态进行研究，并识别出六种城市碳演变原型以及三条典型的转型路径。 我们进一步应用低碳城市指标框架，并从五种候选算法中选定一个聚合CatBoost模型，利用SHAP值解释各原型在碳排放预测中特征贡献的差异。 我们识别出的路径表明，碳控制与快速经济发展可以兼顾。尽管人均排放量相似的城市，其转型成熟度仍可能存在差异，这凸显了各城市在进一步脱碳方面的不同能力和优先事项。 SHAP分析表明，在早期以工业为主导的阶段，预测排放量与工业活动和能源结构指标的相关性最强；而在更成熟的阶段，更广泛的预测因子特征表明，脱碳优先事项已从特定部门的改进转向部门内部及跨部门的系统性行动。 特别是，“原型5”类低碳领先转型型高制冷能耗特大城市占2019年总排放量的45%，这表明跨系统协调以及将创新投入转化为能效提升和低碳基础设施，值得作为潜在的减排方向进行进一步评估。 本研究构建了一个综合框架，将动态的城市碳原型、针对不同发展阶段的转型路径以及差异化的政策优先事项联系起来。",
+      "analysis": "",
+      "topic_tags": [
+        "城市碳排放",
+        "治理因素"
+      ],
+      "category": "气候变化",
+      "matched_keywords": [
+        "碳排放",
+        "绿色低碳"
+      ]
+    },
+    {
+      "title": "Scientists deploy a 24-armed secret weapon to save California’s kelp forests",
+      "title_en": "Scientists deploy a 24-armed secret weapon to save California’s kelp forests",
+      "title_zh": "科学家们出动了一件拥有24条触手的“秘密武器”，以拯救加利福尼亚州的巨藻林",
+      "link": "https://www.theguardian.com/environment/2026/oct/13/sunflower-sea-star-california-kelp-forests",
+      "source": "The Guardian Environment",
+      "published": "2026-10-13T12:00:01+00:00",
+      "hotness": 86.6,
+      "score_v1": 17.55,
+      "score_v2": 86.6,
+      "score_breakdown": {
+        "algorithm": "v3.0",
+        "dimension_max": {
+          "authority": 18.0,
+          "topic": 18.0,
+          "resonance": 18.0,
+          "information": 16.0
+        },
+        "authority_score": 12.73,
+        "keyword_idf_score": 5.79,
+        "topic_score": 5.79,
+        "topic_burst_score": 0.0,
+        "topic_burst_count": 1,
+        "resonance_score": 8.76,
+        "info_score": 12.0,
+        "base": 39.27,
+        "base_max": 70.0,
+        "time_factor": 0.7636,
+        "density_factor": 1.0,
+        "density_note": "",
+        "repeat_penalty": 1.0,
+        "repeat_excused": false,
+        "event_size": 2,
+        "event_media_count": 2,
+        "event_cluster_source": "ai",
+        "origin_source": "The Guardian Environment",
+        "raw": 29.99,
+        "display_score": 86.6,
+        "display_mode": "absolute"
+      },
+      "summary": "研究团队正致力于恢复向日葵海星种群，因为在过去十年间，太平洋沿岸95%的这类关键水下生态系统已遭到严重破坏。在加利福尼亚州蒙特雷近海，一支研究团队正准备进行当天首次潜水，潜入太平洋寒冷且波涛汹涌的海水中。在船尾甲板上，非营利组织“向日葵海星实验室”的联合创始人阿什莉·基德向潜水员们下达了最后的指令：“第一潜……水中寻星。” 继续阅读……",
+      "analysis": "",
+      "topic_tags": [
+        "加州海藻森林",
+        "潜水"
+      ],
+      "category": "生态环境",
+      "matched_keywords": [
+        "生态系统"
+      ]
+    },
+    {
+      "title": "最高10万元！重庆市生态环境局有奖征集生态环境技术服务机构弄虚作假问题线索 - 凤凰网",
+      "title_en": "",
+      "title_zh": "",
+      "link": "https://news.google.com/rss/articles/CBMiSkFVX3lxTE5OX0hZdDVLQXZpRGUtTktTc2NrbFJmVUlzdEN4eEJtZkNyWUVxNGNsNVUwM3EtSXBMMDEtS1J0Vi1tMHFKbDdSOFhB?oc=5",
+      "source": "Google News 生态环境",
+      "published": "2026-10-14T01:42:22+00:00",
+      "hotness": 85.9,
+      "score_v1": 31.77,
+      "score_v2": 85.9,
+      "score_breakdown": {
+        "algorithm": "v3.0",
+        "dimension_max": {
+          "authority": 18.0,
+          "topic": 18.0,
+          "resonance": 18.0,
+          "information": 16.0
+        },
+        "authority_score": 8.05,
+        "keyword_idf_score": 5.49,
+        "topic_score": 11.19,
+        "topic_burst_score": 5.7,
+        "topic_burst_count": 7,
+        "resonance_score": 0.0,
+        "info_score": 13.0,
+        "base": 32.24,
+        "base_max": 70.0,
+        "time_factor": 0.9003,
+        "density_factor": 1.0,
+        "density_note": "",
+        "repeat_penalty": 1.0,
+        "repeat_excused": false,
+        "event_size": 1,
+        "event_media_count": 1,
+        "event_cluster_source": "ai",
+        "origin_source": "凤凰网",
+        "raw": 29.03,
+        "display_score": 85.9,
+        "display_mode": "absolute"
+      },
+      "summary": "重庆市生态环境局发布奖励公告，最高10万元奖金征集生态环境技术服务机构弄虚作假线索，旨在打击行业乱象，规范生态环境监管服务。",
+      "analysis": "",
+      "topic_tags": [
+        "重庆市生态环境局",
+        "生态环境技术服务机构"
+      ],
+      "category": "生态环境",
+      "matched_keywords": [
+        "生态环境"
+      ]
+    },
+    {
+      "title": "生态环境部已新设核电建造安全监管司、核电运行安全监管司 - 21财经",
+      "title_en": "",
+      "title_zh": "",
+      "link": "https://news.google.com/rss/articles/CBMijwFBVV95cUxPcXNzazQtMDQ0N3N3emMyRGhjUWZlRlJpNTNRV0ZaOTkyZG1jNGdzQ0l6QUJwT1FoNkl1TjZMTVNPZ2E5TkJXX3h0RmRqaHU2QTNzNTZLM05CM0ZlWjU3cFI2OGNQOS1lTW01YkhURkU5MEFlUDNrVVJoanh3OUJBaHREMzJfVF95eWtURGZxdw?oc=5",
+      "source": "Google News 环境保护",
+      "published": "2026-10-14T05:16:00+00:00",
+      "hotness": 84.1,
+      "score_v1": 32.91,
+      "score_v2": 84.1,
+      "score_breakdown": {
+        "algorithm": "v3.0",
+        "dimension_max": {
+          "authority": 18.0,
+          "topic": 18.0,
+          "resonance": 18.0,
+          "information": 16.0
+        },
+        "authority_score": 8.05,
+        "keyword_idf_score": 5.49,
+        "topic_score": 11.19,
+        "topic_burst_score": 5.7,
+        "topic_burst_count": 7,
+        "resonance_score": 0.0,
+        "info_score": 9.0,
+        "base": 28.24,
+        "base_max": 70.0,
+        "time_factor": 0.9427,
+        "density_factor": 1.0,
+        "density_note": "",
+        "repeat_penalty": 1.0,
+        "repeat_excused": false,
+        "event_size": 1,
+        "event_media_count": 1,
+        "event_cluster_source": "ai",
+        "origin_source": "21财经",
+        "raw": 26.62,
+        "display_score": 84.1,
+        "display_mode": "absolute"
+      },
+      "summary": "生态环境部近日新设核电建造安全监管司和核电运行安全监管司，进一步强化核电全生命周期安全监管体系，提升核电安全监管专业化水平。",
+      "analysis": "",
+      "topic_tags": [
+        "核电建造安全监管司",
+        "核电运行安全监管司"
+      ],
+      "category": "能源与碳中和",
+      "matched_keywords": [
+        "生态环境"
+      ]
+    },
+    {
+      "title": "Indoor air quality at the climate-health nexus: the case for enforceable standards",
+      "title_en": "Indoor air quality at the climate-health nexus: the case for enforceable standards",
+      "title_zh": "室内空气质量与气候健康的关系：制定可执行标准的必要性",
+      "link": "https://iopscience.iop.org/article/10.1088/1748-9326/aeabc0",
+      "source": "Environmental Research Letters",
+      "published": "2026-10-12T23:00:00+00:00",
+      "hotness": 80.8,
+      "score_v1": 27.36,
+      "score_v2": 80.8,
+      "score_breakdown": {
+        "algorithm": "v3.0",
+        "dimension_max": {
+          "authority": 18.0,
+          "topic": 18.0,
+          "resonance": 18.0,
+          "information": 16.0
+        },
+        "authority_score": 18.0,
+        "keyword_idf_score": 8.63,
+        "topic_score": 13.29,
+        "topic_burst_score": 4.66,
+        "topic_burst_count": 4,
+        "resonance_score": 0.0,
+        "info_score": 3.0,
+        "base": 34.29,
+        "base_max": 70.0,
+        "time_factor": 0.6655,
+        "density_factor": 1.0,
+        "density_note": "",
+        "repeat_penalty": 1.0,
+        "repeat_excused": false,
+        "event_size": 1,
+        "event_media_count": 1,
+        "event_cluster_source": "ai",
+        "origin_source": "Environmental Research Letters",
+        "raw": 22.82,
+        "display_score": 80.8,
+        "display_mode": "absolute"
+      },
+      "summary": "新冠疫情暴露了一个长期存在的治理缺口：尽管大多数人大部分时间都在室内度过，但室内空气质量的监管却远不如室外空气严格。 气候变化正通过增加野火烟雾的频率和严重程度，以及因高温导致的建筑物关闭，进一步加剧这一差距——这两者都会导致家庭、学校、工作场所及其他有人活动的空间内的空气质量恶化。 因此，室内空气质量差已不再仅仅是建筑性能问题；它已成为一个涉及气候与健康的问题，对感染控制、慢性病、认知能力及公平性均有明确影响。越来越多的证据表明，不作为的代价巨大，而改善室内环境带来的益处则可量化，这进一步强化了采取行动的必要性。 本文认为，应通过具有法定效力、可强制执行且基于性能的标准来规范室内空气质量，并优先从暴露不可避免且脆弱性较高的场所着手。本文以澳大利亚为例，说明如何将监测、机构责任和分阶段实施纳入切实可行的监管路径。",
+      "analysis": "",
+      "topic_tags": [
+        "室内空气质量",
+        "可执行标准"
+      ],
+      "category": "污染治理",
+      "matched_keywords": [
+        "气候变化",
+        "大气污染"
+      ]
+    },
+    {
+      "title": "Generative AI enables human-centered design of sustainable plant-based foods",
+      "title_en": "Generative AI enables human-centered design of sustainable plant-based foods",
+      "title_zh": "生成式人工智能助力以人为本的可持续植物基食品设计",
+      "link": "https://arxiv.org/abs/2610.15616",
+      "source": "arXiv Environmental Engineering",
+      "published": "2026-10-14T04:00:00+00:00",
+      "hotness": 79.3,
+      "score_v1": 26.49,
+      "score_v2": 79.3,
+      "score_breakdown": {
+        "algorithm": "v3.0",
+        "dimension_max": {
+          "authority": 18.0,
+          "topic": 18.0,
+          "resonance": 18.0,
+          "information": 16.0
+        },
+        "authority_score": 8.05,
+        "keyword_idf_score": 9.59,
+        "topic_score": 11.95,
+        "topic_burst_score": 2.36,
+        "topic_burst_count": 2,
+        "resonance_score": 0.0,
+        "info_score": 3.0,
+        "base": 23.0,
+        "base_max": 70.0,
+        "time_factor": 0.9272,
+        "density_factor": 1.0,
+        "density_note": "",
+        "repeat_penalty": 1.0,
+        "repeat_excused": false,
+        "event_size": 1,
+        "event_media_count": 1,
+        "event_cluster_source": "ai",
+        "origin_source": "arXiv Environmental Engineering",
+        "raw": 21.33,
+        "display_score": 79.3,
+        "display_mode": "absolute"
+      },
+      "summary": "arXiv:2610.15616v1 An: new Abstract: Dietary transitions away from animal-based meat could reduce food-related environmental burdens, but plant-based alternatives must compete on flavor, texture, and overall liking. Here we extend a generative AI framework with 469 plant-based burger recipes and use it to create six formulations across five primary ingredients: bean, chickpea, lentil, mushroom, and oat. An executive chef translates the AI-generated formulations into standardized preparation protocols and refines the ingredient quantities based on culinary expertise. The integration of generative modeling and culinary expertise defines a human-centered generative AI framework for food design. We evaluate the six burgers in a blinded sensory survey with 101 participants in an operating restaurant and quantify their land use, greenhouse gas emissions, eutrophication potential, and scarcity-weighted water use. We use Big Mac scores from a previous survey as an iconic commercial benchmark. The mushroom burger achieves mean flavor, texture, and overall liking scores similar to the Big Mac, with less than one-third of its estimated environmental impact. The other formulations reduce the estimated impact further, in several cases to near one-tenth of the Big Mac value, but receive lower liking scores. Mixed-effects models quantify associations between sensory attributes and human liking and retain predictive accuracy on independent survey data, with mean absolute errors",
+      "analysis": "",
+      "topic_tags": [
+        "生成式人工智能"
+      ],
+      "category": "科研学术",
+      "matched_keywords": [
+        "碳排放",
+        "温室气体"
+      ]
+    },
+    {
+      "title": "宜春五部门联合亮剑 严打生态环境监测机构弄虚作假 - 凤凰网",
+      "title_en": "",
+      "title_zh": "",
+      "link": "https://news.google.com/rss/articles/CBMiSkFVX3lxTE9Tdm11ck44bjQ4eUk5aW1yQy1ZTnFUMVJwV0RNaEtHWU1SbXdNQjZCR2xiUE4zUHowR3d5anBxQXhLM0QydGR1Z0hB?oc=5",
+      "source": "Google News 生态环境",
+      "published": "2026-10-14T03:09:41+00:00",
+      "hotness": 78.9,
+      "score_v1": 36.22,
+      "score_v2": 78.9,
+      "score_breakdown": {
+        "algorithm": "v3.0",
+        "dimension_max": {
+          "authority": 18.0,
+          "topic": 18.0,
+          "resonance": 18.0,
+          "information": 16.0
+        },
+        "authority_score": 8.05,
+        "keyword_idf_score": 9.08,
+        "topic_score": 14.78,
+        "topic_burst_score": 5.7,
+        "topic_burst_count": 7,
+        "resonance_score": 0.0,
+        "info_score": 0.0,
+        "base": 22.83,
+        "base_max": 70.0,
+        "time_factor": 0.9172,
+        "density_factor": 1.0,
+        "density_note": "",
+        "repeat_penalty": 1.0,
+        "repeat_excused": false,
+        "event_size": 1,
+        "event_media_count": 1,
+        "event_cluster_source": "ai",
+        "origin_source": "凤凰网",
+        "raw": 20.94,
+        "display_score": 78.9,
+        "display_mode": "absolute"
+      },
+      "summary": "宜春市五部门联合行动，严厉打击生态环境监测机构弄虚作假行为，通过联合执法提升监测数据真实性，保障生态环境监管决策科学有效。",
+      "analysis": "",
+      "topic_tags": [
+        "生态环境监测机构"
+      ],
+      "category": "生态环境",
+      "matched_keywords": [
+        "生态环境",
+        "环境监测"
+      ]
+    },
+    {
+      "title": "Gales and heavy rain to impact UK as yellow wind warning issued",
+      "title_en": "Gales and heavy rain to impact UK as yellow wind warning issued",
+      "title_zh": "英国将遭遇强风和暴雨，已发布黄色大风预警",
+      "link": "https://www.bbc.co.uk/weather/articles/cxvgdq0jj8d2o?at_medium=RSS&at_campaign=rss",
+      "source": "BBC 科学与环境",
+      "published": "2026-10-13T23:55:49+00:00",
+      "hotness": 77.9,
+      "score_v1": 16.16,
+      "score_v2": 77.9,
+      "score_breakdown": {
+        "algorithm": "v3.0",
+        "dimension_max": {
+          "authority": 18.0,
+          "topic": 18.0,
+          "resonance": 18.0,
+          "information": 16.0
+        },
+        "authority_score": 12.73,
+        "keyword_idf_score": 0.0,
+        "topic_score": 3.0,
+        "topic_burst_score": 0.0,
+        "topic_burst_count": 1,
+        "resonance_score": 0.0,
+        "info_score": 7.0,
+        "base": 22.73,
+        "base_max": 70.0,
+        "time_factor": 0.8803,
+        "density_factor": 1.0,
+        "density_note": "",
+        "repeat_penalty": 1.0,
+        "repeat_excused": false,
+        "event_size": 1,
+        "event_media_count": 1,
+        "event_cluster_source": "ai",
+        "origin_source": "BBC 科学与环境",
+        "raw": 20.01,
+        "display_score": 77.9,
+        "display_mode": "absolute"
+      },
+      "summary": "正如本·里奇所解释的那样，英国气象局已针对周三苏格兰西北部的强风发布了黄色预警，预计阵风风速可能达到每小时70英里。",
+      "analysis": "",
+      "topic_tags": [
+        "能源与碳中和"
+      ],
+      "category": "气候变化",
+      "matched_keywords": []
+    },
+    {
+      "title": "青海：针对青藏高原特殊生态环境制定多项首创标准 - 搜狐",
+      "title_en": "",
+      "title_zh": "",
+      "link": "https://news.google.com/rss/articles/CBMiiAFBVV95cUxPLWtLOE1zakl1MU9MQWt2OWpqekY0R01ra1ZsdThzX2ZkQ1pFcHZvcktsY0lUVlNQX095ZWNuTUh5Njlkc1l1VVNpd2hBZkV2U1gxVk15WTIwTlJvbnM2NlpDTEQ1a3FCM1ZoVmxtU05nV1JsazVadExoOFlqUjZYdF9tdkRPak1S?oc=5",
+      "source": "Google News 生态环境",
+      "published": "2026-10-14T08:55:47+00:00",
+      "hotness": 76.8,
+      "score_v1": 34.28,
+      "score_v2": 76.8,
+      "score_breakdown": {
+        "algorithm": "v3.0",
+        "dimension_max": {
+          "authority": 18.0,
+          "topic": 18.0,
+          "resonance": 18.0,
+          "information": 16.0
+        },
+        "authority_score": 8.05,
+        "keyword_idf_score": 5.49,
+        "topic_score": 11.19,
+        "topic_burst_score": 5.7,
+        "topic_burst_count": 7,
+        "resonance_score": 0.0,
+        "info_score": 0.0,
+        "base": 19.24,
+        "base_max": 70.0,
+        "time_factor": 0.9897,
+        "density_factor": 1.0,
+        "density_note": "",
+        "repeat_penalty": 1.0,
+        "repeat_excused": false,
+        "event_size": 1,
+        "event_media_count": 1,
+        "event_cluster_source": "ai",
+        "origin_source": "搜狐",
+        "raw": 19.04,
+        "display_score": 76.8,
+        "display_mode": "absolute"
+      },
+      "summary": "青海省围绕青藏高原特殊生态环境，建成国标打底、地标补位、团标随市场、企标做研发的四级标准体系，制定多项具有高原特色的首创标准，助力高原生态保护。",
+      "analysis": "",
+      "topic_tags": [
+        "首创标准",
+        "生态环境"
+      ],
+      "category": "环境政策",
+      "matched_keywords": [
+        "生态环境"
+      ]
+    },
+    {
+      "title": "关于塑料污染的政府间谈判委员会| 联合国环境规划署 - UNEP - UN Environment Programme",
+      "title_en": "",
+      "title_zh": "",
+      "link": "https://news.google.com/rss/articles/CBMimAFBVV95cUxObmxTRUg3YmxEUFF2TXNfM1hGXzZseERGd1M5WEdmbnd4YktoYlptMWdsRkN5aEFXVWdyV1diUmFGR0VhWFZzUXRiYVlLd0dNQmwxNkFJVV8zcFM4ZmItUHdmQlhBTXdNbUk3Q0VXWGM5ZjJSWFRyRm1ibGx3dWl4bGFLdUJJSmQyd1YwN2JKMDZEYU1TY2RSbw?oc=5",
+      "source": "Google News 环境污染",
+      "published": "2026-10-14T07:37:04+00:00",
+      "hotness": 76.7,
+      "score_v1": 21.77,
+      "score_v2": 76.7,
+      "score_breakdown": {
+        "algorithm": "v3.0",
+        "dimension_max": {
+          "authority": 18.0,
+          "topic": 18.0,
+          "resonance": 18.0,
+          "information": 16.0
+        },
+        "authority_score": 8.05,
+        "keyword_idf_score": 7.42,
+        "topic_score": 7.42,
+        "topic_burst_score": 0.0,
+        "topic_burst_count": 1,
+        "resonance_score": 0.0,
+        "info_score": 4.0,
+        "base": 19.47,
+        "base_max": 70.0,
+        "time_factor": 0.9724,
+        "density_factor": 1.0,
+        "density_note": "",
+        "repeat_penalty": 1.0,
+        "repeat_excused": false,
+        "event_size": 1,
+        "event_media_count": 1,
+        "event_cluster_source": "ai",
+        "origin_source": "UN Environment Programme",
+        "raw": 18.93,
+        "display_score": 76.7,
+        "display_mode": "absolute"
+      },
+      "summary": "联合国环境规划署就塑料污染主持政府间谈判，旨在制定全球性的塑料污染国际公约，推动各国共同应对塑料污染危机，实现塑料生命周期的循环利用。",
+      "analysis": "",
+      "topic_tags": [
+        "塑料污染",
+        "联合国环境大会"
+      ],
+      "category": "环境政策",
+      "matched_keywords": [
+        "塑料污染"
+      ]
+    }
+  ]
+}

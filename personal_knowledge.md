@@ -6785,3 +6785,130 @@
 
 ---
 
+## 2026-10-16
+
+**今日高频关键词**：`#生态环境` `#环境保护` `#督察` `#气候变化` `#可持续发展`
+
+**今日 Top10 热点**
+
+### 1. 一图读懂 | 《生态环境基准工作方案（2026—2030年）》 - 中华人民共和国生态环境部
+- **来源**：Google News 生态环境
+- **热度**：87.1
+- **链接**：https://news.google.com/rss/articles/CBMicEFVX3lxTE1ic21sbkhCc0xkeHp4UnZhb3RaNDNvWWxCZFFMTDBEN29iNVpGX3lfbzc2ekZ4UkZUWVp4b0ExNklwSHk0OHB2NUhfTGdELThCSFN1R29SQnRvaVFSdEg4LUhubzZuTThiaFFPc204YXM?oc=5
+- **分析**：该条目涉及【生态环境基准】话题，因来源较权威且发布时间较新，热度上升。
+
+### 2. 生态环境部党组召开会议 - 中华人民共和国生态环境部
+- **来源**：Google News 环境保护
+- **热度**：86.2
+- **链接**：https://news.google.com/rss/articles/CBMidkFVX3lxTFBuOUgzaVFXZ1RlWnBiZFI4MTBIQ0ZNNnBHOUJRWVlGY0ZaQjVJcXJGMmlSZ0hxWUg5Z29sS2tvbWstbFdsYUxwTG1jbENfYmh1RGMxUzZqS3I1eG5VQlJ5N1I5YndKS3hPdnVpTDJPNW91WmdNLXc?oc=5
+- **分析**：该条目涉及【生态环境部】话题，因来源较权威且发布时间较新，热度上升。
+
+### 3. A股绿色周报｜18家上市公司暴露环境风险，子公司进口再生浆被判定为固废被罚，山鹰国际：未造成环境污染 - 每日经济新闻
+- **来源**：Google News 环境污染
+- **热度**：83.2
+- **链接**：https://news.google.com/rss/articles/CBMiZkFVX3lxTFA2dHJqY3F5alJHNGR0eU51MVpPNEZ4U2FOc3JFV2pPYXBlaVV5T3NLYTM4bnhER0ZBV19Oa0VTRFdCNXJpM1c5NFdza05weERSTWdvYlQwdkNUN2U2VXVDWWQ5N0dQUQ?oc=5
+- **摘要**：A股绿色周报｜18家上市公司暴露环境风险，子公司进口再生浆被判定为固废被罚，山鹰国际：未造成环境污染…
+- **分析**：该条目涉及【A股绿色周报】话题，因来源较权威且发布时间较新，热度上升。
+
+### 4. 【一线】生态环境局实地督导第三轮中央生态环境保护督察问题整改工作 - 搜狐
+- **来源**：Google News 环境保护
+- **热度**：83.0
+- **链接**：https://news.google.com/rss/articles/CBMijAFBVV95cUxOS0R2T243dnVwcTJuVzhVUFdSUGNULWFHUF9WcXA0NS1xd1BHV2ZvRVpSX2JUcEJWZ3kteVNpcWVBVTdwSDh5T0c3VDJRSWV6XzdLaEd3alNFQ2QzTk8waEhheGt4Z3Q3bDV6MW1GZ2lTQlFIZlk5NEh3RzU4OGNPc1JKM25PbXdLbEZ0RQ?oc=5
+- **摘要**：【一线】生态环境局实地督导第三轮中央生态环境保护督察问题整改工作
+- **分析**：该条目涉及【第三轮中央生态环境保护督察】话题，因来源较权威且话题稀缺度高，热度上升。
+
+### 5. 气候变化对西大西洋海岸海洋生物多样性的影响：基于物种丰富度与特有性指数的综合评估 - 生物通
+- **来源**：Google News 气候变化
+- **热度**：81.6
+- **链接**：https://news.google.com/rss/articles/CBMibkFVX3lxTE5KOExnTnhfdDNDb25maHlqajFyd2RPRGlOX0ZXcV94eFJjQXJWdWdvWms4TnV4Z1pmT01YcWE5bHkySkJtWVE0RzBtQTFJR0U3UmJBV0RFRmJ4My12TU5NOG1NVGVlZVFDVXFBUGh3?oc=5
+- **分析**：该条目涉及【海洋生物多样性】话题，因来源较权威且发布时间较新，热度上升。
+
+### 6. Skill and spatial mismatches for sustainable development in Brazil
+- **来源**：Nature Sustainability
+- **热度**：81.6
+- **链接**：https://www.nature.com/articles/s41893-026-01939-z
+- **摘要**：《自然·可持续性》（Nature Sustainability）， 减少森林砍伐的发展路径虽可降低排放，但在技能和地域流动性受限的情况下，工人如何适应尚不明确。 对巴西就业转型的建模分析表明，更环保的发展路径虽能使高技能职业的劳动者受益，但会加剧低技能劳动者的失业问题，而流动性政策可对此起到缓解作用。
+- **分析**：该条目涉及【森林砍伐】话题，因来源权威性高，热度上升。
+
+### 7. 浙江农林大学举办绿色产业专场招聘会，专业扎实、能力综合更受欢迎 - 搜狐
+- **来源**：Google News 环保招聘
+- **热度**：80.8
+- **链接**：https://news.google.com/rss/articles/CBMijAFBVV95cUxQS2k1XzJaZE1aQXQtSlljWnNsNS0tMFVpUTZjMXNOZEVQUl85azlzNU1vVlBFZTBXa1UzOUhKT0piam5BczNzNTE0alluN05mOTdDc0syd1hFeVB3U08xUjdEWEJPTk9HVjd2eV8zVmdReUNuaWIzeEdPRWFGcVBUMUVXdlBHYXdqTEZUYw?oc=5
+- **摘要**：浙江农林大学举办绿色产业专场招聘会，旨在促进毕业生就业，专业扎实能力综合受欢迎。
+- **分析**：该条目涉及【浙江农林大学】话题，因来源较权威且发布时间较新，热度上升。
+
+### 8. 机器人“闻”出污染、微生物降解抗生素，全国大学生绿色低碳创新赛在沪决胜 - 搜狐
+- **来源**：Google News 环境污染
+- **热度**：80.7
+- **链接**：https://news.google.com/rss/articles/CBMijAFBVV95cUxNTGFXaWQtZERtTk5FUXNCQUhkbXAwUlRkd2MxM1ZwSTdVMzJabWlPX3MtdlR0SFpiU3hXTDRUWndnb05abUdQMkdPQzdueWFwT0o4Yi01allQLUdJclNkVmwxVkxtc3pQejBfNlF1VlFrTmd0Z1BpUGw2a2ZuQ1JRUlNvVGhORm9OcHN3Sw?oc=5
+- **摘要**：机器人识别空气异常气体追踪污染源，微生物菌群降解水中抗生素，全国绿色低碳创新赛在沪决胜。
+- **分析**：该条目涉及【空气污染】话题，因来源较权威且发布时间较新，热度上升。
+
+### 9. Quantifying assets for the geopolitics of climate change mitigation
+- **来源**：Nature Sustainability
+- **热度**：80.7
+- **链接**：https://www.nature.com/articles/s41893-026-01971-z
+- **摘要**：《自然·可持续性》（Nature Sustainability）， 气候行动重塑了能源和环境资源的得失格局，从而引发了新的地缘政治问题。 一项最新研究量化了169个国家中四类与气候相关的资产类型，并揭示了资产再分配的不均衡现象——主要大国的受影响程度往往较低。
+- **分析**：该条目涉及【气候行动】话题，因来源权威性高且话题稀缺度高，热度上升。
+
+### 10. 第三轮第七批中央生态环保督察全部实现督察进驻 - 搜狐
+- **来源**：Google News 环境保护
+- **热度**：80.1
+- **链接**：https://news.google.com/rss/articles/CBMiiAFBVV95cUxPUkRYc1JWdFM1MUxybndSMGtyVlJzd2Y2NW9vdEg2VXZDWmk5ZVcza19vQUVKZFZWYUZsR0hIbDJuRlhRUi1qbkZJZGVObTFqTVF2aV9JRFN3MDN2RW1kNG1sVC15Zy1fR3pTWkgyRFVjdklKYjVOZ3ZFYXAzYjl6aHFLbFVZcEFl?oc=5
+- **摘要**：第三轮第七批5个中央生态环保督察组全部进驻，分别督察住建部、农业农村部，督察期1个月。
+- **分析**：该条目涉及【中央生态环保督察】话题，因来源较权威且话题稀缺度高，热度上升。
+
+**今日自动提取候选新词**
+
+- **绿色**（出现 3 次）
+  - 上下文：A股绿色周报｜18家上市公司暴露环境风险，子公司进口再生浆被判定为固废被罚，山鹰国际：未造成环境污染 - 每日经济新闻
+  - 上下文：浙江农林大学举办绿色产业专场招聘会，专业扎实、能力综合更受欢迎 - 搜狐
+  - 上下文：机器人“闻”出污染、微生物降解抗生素，全国大学生绿色低碳创新赛在沪决胜 - 搜狐
+- **第三轮**（出现 3 次）
+  - 上下文：【一线】生态环境局实地督导第三轮中央生态环境保护督察问题整改工作 - 搜狐
+  - 上下文：第三轮第七批中央生态环保督察全部实现督察进驻 - 搜狐
+  - 上下文：第三轮第七批中央生态环境保护督察全部实现督察进驻 - 搜狐
+- **生态**（出现 3 次）
+  - 上下文：第三轮第七批中央生态环保督察全部实现督察进驻 - 搜狐
+  - 上下文：2026年中老生态环境保护国际交流活动在昆明举办 - 搜狐
+  - 上下文：中央第一生态环境保护督察组督察住房城乡建设部动员会在北京召开 - 搜狐
+- **网友**（出现 3 次）
+  - 上下文：网友0446079614 - 中国环境报 - 中国环境网
+- **中国**（出现 3 次）
+  - 上下文：网友0446079614 - 中国环境报 - 中国环境网
+- **中华人民共和国**（出现 2 次）
+  - 上下文：一图读懂 | 《生态环境基准工作方案（2026—2030年）》 - 中华人民共和国生态环境部
+  - 上下文：生态环境部党组召开会议 - 中华人民共和国生态环境部
+- **召开**（出现 2 次）
+  - 上下文：生态环境部党组召开会议 - 中华人民共和国生态环境部
+  - 上下文：中央第一生态环境保护督察组督察住房城乡建设部动员会在北京召开 - 搜狐
+- **影响**（出现 2 次）
+  - 上下文：气候变化对西大西洋海岸海洋生物多样性的影响：基于物种丰富度与特有性指数的综合评估 - 生物通
+  - 上下文：勃朗峰雪顶“长高”了 气候变化影响待观察 - 中华网
+- **development**（出现 2 次）
+  - 上下文：Skill and spatial mismatches for sustainable development in Brazil
+  - 上下文：Environmental chemical mixtures reprogram mammary epithelial development to epigenetic states associated with breast cancer
+- **举办**（出现 2 次）
+  - 上下文：浙江农林大学举办绿色产业专场招聘会，专业扎实、能力综合更受欢迎 - 搜狐
+  - 上下文：2026年中老生态环境保护国际交流活动在昆明举办 - 搜狐
+- **第七批**（出现 2 次）
+  - 上下文：第三轮第七批中央生态环保督察全部实现督察进驻 - 搜狐
+  - 上下文：第三轮第七批中央生态环境保护督察全部实现督察进驻 - 搜狐
+- **中央**（出现 2 次）
+  - 上下文：第三轮第七批中央生态环保督察全部实现督察进驻 - 搜狐
+  - 上下文：中央第一生态环境保护督察组督察住房城乡建设部动员会在北京召开 - 搜狐
+- **进驻**（出现 2 次）
+  - 上下文：第三轮第七批中央生态环保督察全部实现督察进驻 - 搜狐
+  - 上下文：第三轮第七批中央生态环境保护督察全部实现督察进驻 - 搜狐
+- **driven**（出现 2 次）
+  - 上下文：Light-driven algal-bacterial granular sludge enables high-rate anammox for mature landfill leachate treatment
+  - 上下文：Geogenic PAHs fractionation and mobilization driven by acid mine drainage in karst coal mining watersheds
+- **长江**（出现 2 次）
+  - 上下文：江西省“天工杯”长江大保护生态环境执法·应急职工职业技能竞赛开幕 - 凤凰网
+  - 上下文：赛场砺剑，守护长江！江西这场硬核大比武今日开幕 - 凤凰网
+- **开幕**（出现 2 次）
+  - 上下文：江西省“天工杯”长江大保护生态环境执法·应急职工职业技能竞赛开幕 - 凤凰网
+  - 上下文：赛场砺剑，守护长江！江西这场硬核大比武今日开幕 - 凤凰网
+
+---
+

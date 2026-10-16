@@ -20,11 +20,14 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 20
     steps:
+      # Action 版本与 main.yml 保持一致（2026-10-17 统一升级：checkout v4→v7、
+      # setup-python v5→v7、upload-artifact v4→v7）。upload-artifact v7 的输入参数
+      # （name / path / if-no-files-found）与 v4 相同，新增的 `archive` 参数为可选项，此处不用。
       - name: Checkout repository
-        uses: actions/checkout@v4
+        uses: actions/checkout@v7
 
       - name: Set up Python 3.10
-        uses: actions/setup-python@v5
+        uses: actions/setup-python@v7
         with:
           python-version: '3.10'
 
@@ -52,7 +55,7 @@ jobs:
 
       - name: Upload result
         if: always()
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v7
         with:
           name: probe-result
           path: tools/probe_result.json

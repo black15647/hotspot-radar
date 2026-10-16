@@ -36,6 +36,23 @@ concurrency:
   group: daily-hotspot-report
   cancel-in-progress: false
 
+# ===== Action 版本策略（2026-10-17 统一升级，改动前请先读完）=====
+# 触发原因：GitHub 持续在检查项上告警 "Node.js 20 is deprecated"
+# （setup-python@v5 / action-gh-release@v2 被强制运行在 Node 24 上），
+# 且 ubuntu-latest 自 2026-10-19 起迁移到 Ubuntu 26。
+# 本次统一升到各 action 的当前主版本：
+#     actions/checkout             v5 → v7
+#     actions/setup-python         v5 → v7
+#     softprops/action-gh-release  v2 → v3
+# 升级前已逐项核对破坏性变更，三项在本工作流里均为**零改动升级**：
+#   · checkout v7      新增的限制只针对 pull_request_target / workflow_run 检出 fork PR，
+#                      本仓库不用这两种触发方式，不受影响；
+#   · setup-python v7  移除的是本工作流未使用的 `pip-install` 输入；被清理的是已 EOL 的
+#                      Python 版本，实测 3.10 仍在官方 manifest 支持列表内（含 ubuntu-24.04 构建）；
+#   · action-gh-release v3  只把运行时从 Node 20 换成 Node 24，输入参数未变。
+# 升级前的三份 .yml 已在本地另存备份，如需回滚直接覆盖即可。
+# ===============================================================
+
 jobs:
   # 幂等守卫：当天快照已存在，说明今天已经跑成功过，本次就是重复触发——
   # 直接跳过 build，避免重复提交与重复消耗 AI 额度。
@@ -52,7 +69,7 @@ jobs:
       skip: ${{ steps.check.outputs.skip }}
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v5
+        uses: actions/checkout@v7
 
       - name: Check today's snapshot
         id: check
@@ -77,10 +94,10 @@ jobs:
 
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v5
+        uses: actions/checkout@v7
 
       - name: Set up Python 3.10
-        uses: actions/setup-python@v5
+        uses: actions/setup-python@v7
         with:
           python-version: '3.10'
           # 缓存 pip 下载包，显著缩短重复运行的依赖安装耗时
@@ -164,7 +181,7 @@ jobs:
 
       - name: Upload backup to GitHub Release
         if: success()
-        uses: softprops/action-gh-release@v2
+        uses: softprops/action-gh-release@v3
         with:
           tag_name: backup
           name: "数据备份"

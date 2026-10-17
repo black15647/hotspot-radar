@@ -6912,3 +6912,142 @@
 
 ---
 
+## 2026-10-17
+
+**今日高频关键词**：`#生态环境` `#可持续发展` `#气候变化` `#环境保护` `#督察`
+
+**今日 Top10 热点**
+
+### 1. 正式会议通知｜Engineering Conference：第一届气候变化与可持续发展工程国际会议注册报名（第一轮通知） - 科学网—新闻
+- **来源**：Google News 气候变化
+- **热度**：87.6
+- **链接**：https://news.google.com/rss/articles/CBMiZkFVX3lxTE1MZVdtbFE4SDJOWmtZcG9UNzZDMy1LOWdSOWdnd1RNb0FISTFHUTd3LUZYQkVrczZBbnVObVBhMDVJV0FwbHNpUW5nQ3J1aGRUTG1hYi1ZZGRTSE9HYlNtSDhKLXlVdw?oc=5
+- **摘要**：首届国际工程会议聚焦气候变化与可持续发展，面向全球征集报名参与。
+- **分析**：该条目涉及【可持续】话题，因来源较权威且发布时间较新，热度上升。
+
+### 2. 视频 | 第三轮第七批中央生态环境保护督察全部实现督察进驻 （央视《新闻联播》） - 中华人民共和国生态环境部
+- **来源**：Google News 环境保护
+- **热度**：86.9
+- **链接**：https://news.google.com/rss/articles/CBMicEFVX3lxTE9KRFpobGlVQ29Ud2FuNHl0QlZCVWJDbGdMMTkwc054N1EtbHJuNGdDZ2t6SXc2cWFhdWk1MFdSUFg5Wlg3LWdqZVhrbFJ1c25DeHo4MS1iMjBaR25UNHhTUUNQYzlCbkRTNWlUQmdIYzY?oc=5
+- **摘要**：中央生态环境保护督察第三轮第七批工作全面进驻，持续推进生态环境问题整改。
+- **分析**：该条目涉及【中央生态环境保护督察】话题，因来源较权威且多家媒体同题报道，热度上升。
+
+### 3. 聚焦12项重点任务！宁夏启动冬春季大气污染防治攻坚战 - 搜狐
+- **来源**：Google News 环境污染
+- **热度**：85.2
+- **链接**：https://news.google.com/rss/articles/CBMiiAFBVV95cUxPUjduT3Y0NUJJNHpkRjFiY0pUdmpQbVFiWjhicWNoVExRZDlWTnJfMTBuLWZERHh1amRLeXdoWVpYeUJJSmxOMlFOallzRV9ZbU1pU2hrSm9DdE5McEJOYmRZNFdCQ2I5T015aW9ZcXo1bWJCRGpoODFVUmZZY2JrY2xDZl9wR0VB?oc=5
+- **摘要**：宁夏启动2026至2027年冬春季大气污染防治攻坚，聚焦12项重点任务巩固提升空气质量。
+- **分析**：该条目涉及【冬春季大气污染防治】话题，因来源较权威且发布时间较新，热度上升。
+
+### 4. Material circularity implications of battery degradation in shared electric mobility
+- **来源**：Nature Sustainability
+- **热度**：84.3
+- **链接**：https://www.nature.com/articles/s41893-026-01969-7
+- **摘要**：《自然·可持续性》（Nature Sustainability）， 共享出行旨在节约材料，但高强度使用会加速电池退化，并可能影响这些节约效果。 本研究通过结合中国车队规模预测、电池退化及动态材料流分析，评估了共享出行带来的影响。
+- **分析**：该条目涉及【电池退化】话题，因来源权威性高且话题稀缺度高，热度上升。
+
+### 5. 生态环境部新设两个司 - 21财经
+- **来源**：Google News 生态环境
+- **热度**：83.5
+- **链接**：https://news.google.com/rss/articles/CBMijwFBVV95cUxQbktYSVlaT0Z3LWF6Wmc3SFVGWGtRZmdTVzY4ZWFmeVlXOERmQUJ6X1ZLVEl0SzFtRmljTEZNNWRQelE0TDVlVmZ5Yy1GcjhlUVVkbTd3OFZpc1M2R2RyMjJjVTJiMk1KZFJZZjE3N2NpbHQzcUJoY0FnV3NQT3U3ZWFqMkJEblJDNm43dXFBSQ?oc=5
+- **摘要**：生态环境部近期新设两个司局，机构调整彻底反映生态治理体系优化与人才布局变化。
+- **分析**：该条目涉及【生态环境部】话题，因来源较权威且发布时间较新，热度上升。
+
+### 6. 生态环境部部长黄润秋出席《生物多样性公约》第十七次缔约方大会领导人峰会 - 中华人民共和国生态环境部
+- **来源**：Google News 生态环境
+- **热度**：83.1
+- **链接**：https://news.google.com/rss/articles/CBMidkFVX3lxTE5aR3phTzlUbVpwNWVXaURiYlVnVnowTTdPVzk0WWZXWFY2bGtSTmFuOUNIWWl2Z2ZaeTFNSF82WHlvVXNTbEF3QVVtSUl1RE9XQnVlMGs4Qm5OZGpGS1o0VXlLY1A4QVhnekRuay1OZE5qVWZrdEE?oc=5
+- **摘要**：生态环境部部长黄润秋出席《生物多样性公约》第十七次大会领导人峰会，推动全球生物多样性保护合作。
+- **分析**：该条目涉及【生态环境部】话题，因来源较权威且发布时间较新，热度上升。
+
+### 7. Brazil sees record fall in Amazon deforestation as key election looms
+- **来源**：BBC 科学与环境
+- **热度**：82.1
+- **链接**：https://www.bbc.co.uk/news/articles/cqe8rzg6zl00o?at_medium=RSS&at_campaign=rss
+- **摘要**：亚马逊雨林是应对气候变化的关键缓冲带——但在前总统雅伊尔·博索纳罗执政期间，森林砍伐范围却有所扩大。
+- **分析**：该条目涉及【亚马逊森林砍伐】话题，因来源权威性高且发布时间较新，热度上升。
+
+### 8. Artificial intelligence for life-cycle-aware sustainable materials discovery
+- **来源**：Nature Sustainability
+- **热度**：81.7
+- **链接**：https://www.nature.com/articles/s41893-026-01950-4
+- **摘要**：《自然·可持续性》（Nature Sustainability），。基于人工智能的材料发现通常优先考虑功能性能，却很少顾及可扩展性、环境影响或报废管理。 本文提出了一份路线图，旨在将生命周期考量融入材料发现过程，从而从一开始就设计出可持续的材料。
+- **分析**：该条目涉及【人工智能】话题，因来源权威性高，热度上升。
+
+### 9. 吉林省前9个月水生态环境质量保持稳定向好- 中国日报网 - China Daily
+- **来源**：Google News 环境保护
+- **热度**：80.1
+- **链接**：https://news.google.com/rss/articles/CBMifEFVX3lxTE0waUhneHRNbG1UNHVYRUJ3Q1dGbHNNZHJ5b1A4ZXBWNEhmWWpiWGRTVjhmS1pjZEJCc2JSSm1rajZVVFNGLXlJUmttUUI3Q1JQWWxyb0hGc2IybUlma1lCVGpwZmpKbnd1N0hJTEpsekVtOGVUS0dJRkJ0d2w?oc=5
+- **摘要**：吉林省前9个月水生态环境质量保持稳定向好，持续改善水环境状况。
+- **分析**：该条目涉及【水生态环境】话题，因来源较权威且发布时间较新，热度上升。
+
+### 10. 中节能香港公司参与首批深港跨境碳交易结算 - 中国水网
+- **来源**：Google News 中国水网
+- **热度**：79.8
+- **链接**：https://news.google.com/rss/articles/CBMiVEFVX3lxTE1yUjZJUGRkbVM0RE9vUjlJdFZBQnp0YlUxQTlPSm5UeFF6SFFuc1RNNkkxdWV6Z3VLWjFYVk0wV3lpY1BnbjdkdFZRM19QTjdRdGs3dg?oc=5
+- **摘要**：中节能香港公司参与首批深港跨境碳交易结算，推动跨境碳市场合作。
+- **分析**：该条目涉及【深港跨境碳交易】话题，因来源较权威且多家媒体同题报道，热度上升。
+
+**今日自动提取候选新词**
+
+- **中华人民共和国**（出现 3 次）
+  - 上下文：视频 | 第三轮第七批中央生态环境保护督察全部实现督察进驻 （央视《新闻联播》） - 中华人民共和国生态环境部
+  - 上下文：生态环境部部长黄润秋出席《生物多样性公约》第十七次缔约方大会领导人峰会 - 中华人民共和国生态环境部
+  - 上下文：生态环境部召开部务会议 - 中华人民共和国生态环境部
+- **degradation**（出现 3 次）
+  - 上下文：Material circularity implications of battery degradation in shared electric mobility
+  - 上下文：Prediction and verification of emerging contaminants catalytic degradation based on machine learning and molecular fingerprint
+  - 上下文：Microbubble-enhanced ozone/peroxymonosulfate oxidation for DEET degradation: Mass transfer–reaction coupled radical generation, oxidant contributions and energy efficiency
+- **life**（出现 3 次）
+  - 上下文：Artificial intelligence for life-cycle-aware sustainable materials discovery
+  - 上下文：Sidestream vs. mainstream AnMBR for low-carbon wastewater treatment: a comprehensive life-cycle techno-economic and environmental assessment under stochastic uncertainties
+  - 上下文：Unprecedented atlas explores mitochondria across the tree of life
+- **potential**（出现 3 次）
+  - 上下文：Iron-functionalized carbonized melamine sponge reinforces aerobic granular sludge and reconfigures nitrogen-metabolic potential
+  - 上下文：IceCube just won a Nobel prize. Protect astroparticle physics projects with the same potential
+  - 上下文：The potential of seafood to mitigate environmental impacts through diet choices
+- **会议**（出现 2 次）
+  - 上下文：正式会议通知｜Engineering Conference：第一届气候变化与可持续发展工程国际会议注册报名（第一轮通知） - 科学网—新闻
+  - 上下文：生态环境部召开部务会议 - 中华人民共和国生态环境部
+- **国际**（出现 2 次）
+  - 上下文：正式会议通知｜Engineering Conference：第一届气候变化与可持续发展工程国际会议注册报名（第一轮通知） - 科学网—新闻
+  - 上下文：A股绿色周报｜18家上市公司暴露环境风险，子公司进口再生浆被判定为固废被罚，山鹰国际：未造成环境污染 - 每日经济新闻
+- **财经**（出现 2 次）
+  - 上下文：生态环境部新设两个司 - 21财经
+  - 上下文：中山二区检：循“味”溯源治废气公益诉讼护蓝天|人民检察院|大气环境|中山市|污染物|广东省 - 新浪财经
+- **cycle**（出现 2 次）
+  - 上下文：Artificial intelligence for life-cycle-aware sustainable materials discovery
+  - 上下文：Sidestream vs. mainstream AnMBR for low-carbon wastewater treatment: a comprehensive life-cycle techno-economic and environmental assessment under stochastic uncertainties
+- **sustainable**（出现 2 次）
+  - 上下文：Artificial intelligence for life-cycle-aware sustainable materials discovery
+  - 上下文：Small-molecule-bound biopolymer networks for sustainable multifunctional composites
+- **China**（出现 2 次）
+  - 上下文：吉林省前9个月水生态环境质量保持稳定向好- 中国日报网 - China Daily
+  - 上下文：Cyclonic and zonal vertical circulation drive a distinct type of heatwaves over South China
+- **中国**（出现 2 次）
+  - 上下文：中节能香港公司参与首批深港跨境碳交易结算 - 中国水网
+  - 上下文：世界生态环境十大科技进展（2026）发布 - 中国科技网
+- **Scientists**（出现 2 次）
+  - 上下文：Scientists discover a plastic-eating “Pac-Man” enzyme with a surprising secret
+  - 上下文：Scientists uncover the 2.3-billion-year-old secret that helped keep Earth habitable
+- **secret**（出现 2 次）
+  - 上下文：Scientists discover a plastic-eating “Pac-Man” enzyme with a surprising secret
+  - 上下文：Scientists uncover the 2.3-billion-year-old secret that helped keep Earth habitable
+- **environmental**（出现 2 次）
+  - 上下文：Sidestream vs. mainstream AnMBR for low-carbon wastewater treatment: a comprehensive life-cycle techno-economic and environmental assessment under stochastic uncertainties
+  - 上下文：The potential of seafood to mitigate environmental impacts through diet choices
+- **绿色**（出现 2 次）
+  - 上下文：A股绿色周报｜18家上市公司暴露环境风险，子公司进口再生浆被判定为固废被罚，山鹰国际：未造成环境污染 - 每日经济新闻
+  - 上下文：统筹高质量发展和高水平保护坚定不移走生态优先绿色发展之路 - 南方日报
+- **呼吁**（出现 2 次）
+  - 上下文：古特雷斯呼吁各方加快行动并增加投入，以遏制生物多样性丧失 - UN News
+  - 上下文：中方呼吁加强全球气候治理 - 新华网
+- **metabolic**（出现 2 次）
+  - 上下文：Iron-functionalized carbonized melamine sponge reinforces aerobic granular sludge and reconfigures nitrogen-metabolic potential
+  - 上下文：Resolving metabolic interdependencies during chlorobenzene dechlorination in a <em>Dehalobacter</em>-containing community
+- **生态**（出现 2 次）
+  - 上下文：视频丨中央第三生态环境保护督察组对湖北、湖南、广西3省（区）开展溶洞天坑山谷污染问题生态环境保护专项督察 - 湖南省人民政府
+  - 上下文：统筹高质量发展和高水平保护坚定不移走生态优先绿色发展之路 - 南方日报
+
+---
+

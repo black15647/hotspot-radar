@@ -308,6 +308,11 @@ summary_api:
     cache_enabled: True      # 进程内结果缓存：同一 prompt 重复调用不再发请求
     cache_max_entries: 512   # 缓存条数上限，超出按写入顺序淘汰最早的一批
     honor_retry_after: True  # 是否采信服务端 Retry-After 建议的等待时长
+    # 单次运行的 AI 时间预算（秒）。超过后所有 AI 功能自动退回规则模式，
+    # 用来防「AI 段太慢 → job 被 timeout-minutes 硬杀 → 当天 0 产出」。
+    # 1140s=19 分钟：给抓取/打分/写文件/commit 留余量，整体压在 25 分钟内。
+    # 设 0 关闭这道闸（不建议，除非确认 AI 延迟已经稳定）。
+    run_time_budget_seconds: 1140
 
   # ---- AI 参与算法流程 ----
   # 目前只有一项：语义事件聚类，为热度算法 v3.0 的「事件共振」维度提供输入。

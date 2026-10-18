@@ -2982,6 +2982,14 @@ AI_LIMITS = {
     "cache_enabled": True,      # 进程内结果缓存开关
     "cache_max_entries": 512,   # 缓存条数上限（超出按写入顺序淘汰 1/8）
     "honor_retry_after": True,  # 是否采信服务端 Retry-After 建议
+    # 单次运行的「AI 时间预算」（秒）。超过后 _ai_call 直接返回 None，
+    # 所有 AI 功能自动退回规则模式 —— 用质量降级换「当天一定有榜」。
+    # 为什么需要这一条（2026-10-19）：job 的 timeout-minutes 是**硬杀**，
+    # 被杀时连 commit 都没走到，当天直接 0 产出；而 AI 段耗时是外部服务决定的，
+    # 不可控。设 1140s(19min) 是为了给抓取、打分、写文件、commit/push 留出余量，
+    # 整体稳定落在 25 分钟以内（job 上限另设 45 分钟，双保险）。
+    # 设为 0 表示关闭这道闸。
+    "run_time_budget_seconds": 1140,
 }
 
 AI_MAX_ATTEMPTS = 4             # 首次 + 3 次重试（与旧 [5,15,30] 行为一致）
@@ -2996,6 +3004,8 @@ _AI_CALL_TS = []                # 最近 60 秒内发起请求的时间戳（滑
 _AI_LAST_TS = 0.0               # 上一次发起请求的时间戳（用于最小间隔）
 _AI_CALL_COUNT = 0              # 本次运行已发起的 HTTP 请求数
 _AI_BUDGET_WARNED = False       # 预算耗尽提示是否已打印（只提示一次）
+_AI_RUN_START_TS = time.time()  # 进程启动时刻：运行时长预算的起算点（模块导入即开始计时）
+_AI_TIME_BUDGET_WARNED = False  # 时长预算耗尽提示是否已打印（只提示一次）
 _AI_RESULT_CACHE = {}           # {缓存键: AI 返回文本}，进程内，不落盘
 _AI_CACHE_HITS = 0
 _AI_CALL_LOG = defaultdict(int)  # {功能名: 实际发出的 HTTP 请求数}
@@ -3215,10 +3225,24 @@ def _ai_call(prompt, api_config, max_tokens=None, json_mode=False, feature="AI�
 
     返回生成的文本；任何不可恢复的失败都返回 None（调用方负责规则降级）。
     """
-    global _AI_RETRY_LOG
+    global _AI_RETRY_LOG, _AI_TIME_BUDGET_WARNED
     if not api_config.get("summary_enabled") or not api_config.get("api_key"):
         return None
     if not REQUESTS_AVAILABLE:
+        return None
+    # 运行时长预算：AI 慢的时候单次调用要 60~70s（45s 超时 + 退避 + 重试成功），
+    # 20 多次调用就能吃掉 25 分钟，然后 job 被 timeout-minutes 硬杀 —— 连 commit
+    # 都没执行，当天 0 产出（2026-10-18 全天 4 个窗口都是这么死的）。
+    # 因此在**唯一出口**兜一道时间闸：预算耗尽后一律返回 None，调用方按既有约定
+    # 自动降级为规则模式。宁可当天榜单质量降一档，也不能当天没有榜。
+    _time_budget = float(AI_LIMITS.get("run_time_budget_seconds", 0) or 0)
+    if _time_budget > 0 and (time.time() - _AI_RUN_START_TS) > _time_budget:
+        if not _AI_TIME_BUDGET_WARNED:
+            _AI_TIME_BUDGET_WARNED = True
+            _elapsed_min = (time.time() - _AI_RUN_START_TS) / 60.0
+            print(f"[AI时长预算] 本次运行已用 {_elapsed_min:.1f} 分钟，超过 AI 时间预算 "
+                  f"{_time_budget / 60.0:.0f} 分钟 → 剩余 AI 功能全部降级为规则模式，"
+                  f"优先保证当天榜单能提交（后续同类提示不再重复打印）")
         return None
     # 仅当"该功能自身"连续失败达到阈值时才跳过，不影响其他功能
     if _ai_func_disabled(feature):

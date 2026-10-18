@@ -21,6 +21,9 @@ on:
 
 permissions:
   contents: read
+  # 归因需要读 main.yml 当天的运行记录（见下方「今天到底跑没跑」）。
+  # 只读，最小权限。
+  actions: read
 
 jobs:
   check:
@@ -32,6 +35,7 @@ jobs:
       - name: Verify today's snapshot exists
         env:
           NTFY_TOPIC: ${{ secrets.NTFY_TOPIC }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           TODAY=$(date -u +%F)
           F="docs/data/daily/${TODAY}.json"
@@ -45,7 +49,30 @@ jobs:
             exit 0
           fi
 
-          echo "::error::今日（${TODAY}）快照缺失：流水线很可能未被调度（而非执行失败）"
+          # 归因（2026-10-19 加）：不能一律写成「没有被调度」。
+          # 10-18 那天实际被调度了 4 次，每次都跑满 25 分钟被 timeout-minutes 强杀，
+          # 旧文案会把排查方向直接带偏（去查调度器，真正该查的是执行耗时）。
+          # 这里先查一眼「今天 main.yml 跑过几次、结论是什么」；API 挂了就退回 unknown，
+          # 不影响下面的告警与退出码。
+          DAY_START="${TODAY}T00:00:00Z"
+          RUNS_JSON=$(curl -s --max-time 20 -H "Authorization: Bearer ${GITHUB_TOKEN}" \
+            "https://api.github.com/repos/${GITHUB_REPOSITORY}/actions/workflows/main.yml/runs?created=%3E%3D${DAY_START}&per_page=5" || true)
+          # 只做字符串统计，不引 jq/python：少一个依赖就少一个失败点。
+          # run_attempt 每个 run 只出现一次；conclusion 在"仍在运行"时是 null，故另行兜底。
+          RUN_COUNT=$(printf '%s' "$RUNS_JSON" | grep -c '"run_attempt":' || true)
+          CONCL=$(printf '%s' "$RUNS_JSON" | grep -o '"conclusion":"[a-z]*"' \
+            | sed 's/.*:"//; s/"$//' | tr '\n' ',' | sed 's/,$//' || true)
+          if printf '%s' "$RUNS_JSON" | grep -q '"message"'; then
+            RUN_INFO="归因未知（运行记录查询失败，多为 token 权限不足）"
+          elif [ "${RUN_COUNT:-0}" -eq 0 ]; then
+            RUN_INFO="今天 0 次运行 → 确实未被调度"
+          else
+            [ -z "$CONCL" ] && CONCL="仍在运行"
+            RUN_INFO="今天已运行 ${RUN_COUNT} 次，结论：${CONCL}"
+          fi
+          echo "归因：${RUN_INFO}"
+
+          echo "::error::今日（${TODAY}）快照缺失 —— ${RUN_INFO}"
           echo "排查入口：https://github.com/${{ github.repository }}/actions/workflows/main.yml"
           echo "立即恢复：该页面右上角 Run workflow 手动触发一次"
 
@@ -57,6 +84,6 @@ jobs:
             -H "Title: 环境学子雷达 - 今日未产出" \
             -H "Priority: high" \
             -H "Click: https://github.com/${{ github.repository }}/actions/workflows/main.yml" \
-            -d "到 UTC $(date -u +%H:%M) 为止，docs/data/daily/${TODAY}.json 仍未生成。这不是执行失败，是没有被调度。请打开 Actions 页手动触发 Daily Hotspot Report。" \
+            -d "到 UTC $(date -u +%H:%M) 为止，docs/data/daily/${TODAY}.json 仍未生成。${RUN_INFO}。请打开 Actions 页手动触发 Daily Hotspot Report。" \
             || echo "ntfy.sh 不可达，推送失败"
           exit 1

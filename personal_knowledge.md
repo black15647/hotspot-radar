@@ -7051,3 +7051,143 @@
 
 ---
 
+## 2026-10-19
+
+**今日高频关键词**：`#可持续发展` `#气候变化` `#饮用水` `#生态环境` `#大气污染`
+
+**今日 Top10 热点**
+
+### 1. EPA quietly backtracks on claims US has phased out toxic Pfas compounds
+- **来源**：The Guardian Environment
+- **热度**：88.1
+- **链接**：https://www.theguardian.com/environment/2026/oct/18/epa-pfas-compounds-toxins
+- **摘要**：随着一家总部位于得克萨斯州的公司继续生产塑料容器屏障，该机构修改了网站上的措辞。美国环境保护署已悄然收回了此前关于美国已逐步淘汰两种最危险的PFAH化合物——PFOA和PFOS——的说法。美国环保署发现，饮用水中这两种物质的暴露量几乎没有任何安全阈值，而国际癌症研究机构将PFOA列为“对人类致癌”，将PFOA列为“可能致癌”。 尽管如此，美国环保署仍允许总部位于休斯顿的Inhance公司生产塑料容器，而此前已发现PFOA会从这些容器中大量渗入其所盛装的物品中。 该公司每年生产多达2亿米用于全美各行业塑料容器的阻隔层。本文于2026年10月18日进行了修订，更正了帕特里夏·范·伊（Patricia van Ee）的头衔；此前报道称Inhance公司生产塑料容器，实为生产容器的阻隔层。继续阅读...
+- **分析**：该条目涉及【EPA】话题，因来源权威性高且发布时间较新，热度上升。
+
+### 2. 碳排放权交易稳居全国首位 长江生态环境权益交易平台上线一年交易总额突破820亿元 - 极目新闻
+- **来源**：Google News 生态环境
+- **热度**：87.0
+- **链接**：https://news.google.com/rss/articles/CBMiW0FVX3lxTE1pZjhmMkdiWTNqVXpOZldNTmJFZS1DUHBUQjVFckpqbDI2SWNVZTFLb01nQk50cEZGZEVtejBxQ0txMkdkc3pzTGQwLVJmTF9kYnpISG9MdHd5Qlk?oc=5
+- **摘要**：湖北长江生态环境权益交易平台上线一年，交易总额突破820亿元稳居全国首位，生态价值转化成效显著。
+- **分析**：该条目涉及【碳排放权交易】话题，因来源较权威且多家媒体同题报道，热度上升。
+
+### 3. 生态环境部发布10月下半月全国空气质量预报会商结果：以优良为主 - ThePaper.cn
+- **来源**：Google News 环境污染
+- **热度**：85.8
+- **链接**：https://news.google.com/rss/articles/CBMiYEFVX3lxTE5NZmRfb3d4azZKM184cTUwenZBT05KSjJhMnFDNzhLazZvODdldDJmck05aWVkUmZ4S1hoUmM2M1V3OVpZY3pOMGxjV3B3YVppSVpwMEtoMDRRbnFCSVJHag?oc=5
+- **摘要**：生态环境部联合气象部门发布10月下半月空气质量预报，以优良天气为主，整体空气质量形势良好。
+- **分析**：该条目涉及【生态环境部】话题，因来源较权威且多家媒体同题报道，热度上升。
+
+### 4. 超强厄尔尼诺来了!今年秋冬，大气污染会更严重吗? 最强事件或加剧雾霾风险 - 中华网
+- **来源**：Google News 环境污染
+- **热度**：83.4
+- **链接**：https://news.google.com/rss/articles/CBMicEFVX3lxTE9ZWXRURF92dk5OWUNOSnBXM21XXzZpdkliNGhDcWc3ZWNpQkpTTUZMS3lqSl9CNFpFRHBRWGczN3NIQ2JYbGFVWXczdkdGZVZQSlJab0lTdEkwRWQ0WlJaSWpPS3duNTQ5ZF9VOWlrbVo?oc=5
+- **摘要**：预计今年秋冬厄尔尼诺事件增强，或加剧大气污染和雾霾风险，需关注天气变化对空气质量的影响。
+- **分析**：该条目涉及【厄尔尼诺】话题，因来源较权威且发布时间较新，热度上升。
+
+### 5. 超强厄尔尼诺来了，今年秋冬大气污染会加重吗？ - 凤凰网
+- **来源**：Google News 环境污染
+- **热度**：82.9
+- **链接**：https://news.google.com/rss/articles/CBMiTEFVX3lxTE16UTZQMFotakNWTWV0NTREQnJSaXBoeWlZWkpsaUktTlp6Z0RpUDZQVkViVjBuSHBEYTJPVlJ1RmtnMTRhbmE5MTM4cy0?oc=5
+- **摘要**：分析厄尔尼诺事件对秋冬季大气污染的潜在影响，关注气候变化对空气质量加重的风险因素。
+- **分析**：该条目涉及【厄尔尼诺】话题，因来源较权威且多家媒体同题报道，热度上升。
+
+### 6. A 24-year study uncovers a surprising climate benefit beneath forests
+- **来源**：ScienceDaily 环境科学
+- **热度**：78.7
+- **链接**：https://www.sciencedaily.com/releases/2026/10/261014015525.htm
+- **摘要**：科学家发现，随着气温升高和降雨减少，某些森林土壤清除大气中甲烷的能力竟出人意料地增强了。一项历时长达24年的研究发现，甲烷吸收量平均每年增加3%，这挑战了此前关于气候变化对森林影响的预测。
+- **分析**：该条目涉及【森林土壤】话题，因来源权威性高，热度上升。
+
+### 7. Single-entity tracking of intracellular resistance gene degradation by lattice-engineered nFe<sup>0</sup> in anoxic groundwater
+- **来源**：Water Research
+- **热度**：78.1
+- **链接**：https://www.sciencedirect.com/science/article/pii/S0043135426018257?dgcid=rss_sd_all
+- **摘要**：利用晶格工程改造的nFe<sup>0</sup>对细胞内抗性基因降解进行单分子追踪，在
+- **分析**：该条目涉及【抗性基因降解】话题，因来源权威性高，热度上升。
+
+### 8. Material circularity implications of battery degradation in shared electric mobility
+- **来源**：Nature Sustainability
+- **热度**：77.6
+- **链接**：https://www.nature.com/articles/s41893-026-01969-7
+- **摘要**：《自然·可持续性》（Nature Sustainability），。共享出行旨在节约材料，但高强度使用会加速电池退化，并可能影响这些节约效果。 本研究通过结合中国车队规模预测、电池退化及动态材料流分析，评估了共享出行带来的影响。
+- **分析**：该条目涉及【电池退化】话题，因来源权威性高且话题稀缺度高，热度上升。
+
+### 9. Arizona joins Nevada to fight proposed cuts to their shares of Colorado River
+- **来源**：The Guardian Environment
+- **热度**：75.5
+- **链接**：https://www.theguardian.com/us-news/2026/oct/17/arizona-nevada-water-rights-colorado-river
+- **摘要**：此举发生在特朗普政府宣布可能大幅削减供水的限制措施之后。亚利桑那州已加入内华达州，共同对特朗普政府拟议削减两州在日益干涸的科罗拉多河中的配额一事提起法律诉讼。此前，内政部于今年夏天宣布了限制措施，根据河流状况，未来两年内供应给下游流域各州——亚利桑那州、加利福尼亚州和内华达州——的水量可能会大幅减少。继续阅读...
+- **分析**：该条目涉及【Nevada】话题，因来源权威性高，热度上升。
+
+### 10. Sustainable coagulant optimization via inverse filtration control and ensemble learning in a full-scale drinking water plant
+- **来源**：Water Research
+- **热度**：75.5
+- **链接**：https://www.sciencedirect.com/science/article/pii/S0043135426018075?dgcid=rss_sd_all
+- **摘要**：全尺度饮用水厂通过逆向过滤控制和集成学习优化絮凝剂，实现水处理过程精准化与资源化利用。
+- **分析**：该条目涉及【全尺度饮用水厂】话题，因来源权威性高且话题稀缺度高，热度上升。
+
+**今日自动提取候选新词**
+
+- **River**（出现 3 次）
+  - 上下文：Arizona joins Nevada to fight proposed cuts to their shares of Colorado River
+  - 上下文：Synchronized heat extremes over western Europe and the Yangtze–Huai River Basin during summer 2025
+  - 上下文：Fuel leak spreads more than two miles along River Taff
+- **中国**（出现 3 次）
+  - 上下文：习近平总书记关切事｜让湖泊扮靓美丽中国 - 求是
+  - 上下文：气候变化与氮肥施用对中国小麦产量的交互影响及优化施氮策略 - 生物通
+  - 上下文：习近平总书记关切事｜让湖泊扮靓美丽中国 - 光明网
+- **全国**（出现 2 次）
+  - 上下文：碳排放权交易稳居全国首位 长江生态环境权益交易平台上线一年交易总额突破820亿元 - 极目新闻
+  - 上下文：生态环境部发布10月下半月全国空气质量预报会商结果：以优良为主 - ThePaper.cn
+- **超强**（出现 2 次）
+  - 上下文：超强厄尔尼诺来了!今年秋冬，大气污染会更严重吗? 最强事件或加剧雾霾风险 - 中华网
+  - 上下文：超强厄尔尼诺来了，今年秋冬大气污染会加重吗？ - 凤凰网
+- **厄尔尼诺**（出现 2 次）
+  - 上下文：超强厄尔尼诺来了!今年秋冬，大气污染会更严重吗? 最强事件或加剧雾霾风险 - 中华网
+  - 上下文：超强厄尔尼诺来了，今年秋冬大气污染会加重吗？ - 凤凰网
+- **秋冬**（出现 2 次）
+  - 上下文：超强厄尔尼诺来了!今年秋冬，大气污染会更严重吗? 最强事件或加剧雾霾风险 - 中华网
+  - 上下文：超强厄尔尼诺来了，今年秋冬大气污染会加重吗？ - 凤凰网
+- **surprising**（出现 2 次）
+  - 上下文：A 24-year study uncovers a surprising climate benefit beneath forests
+  - 上下文：Scientists discover a plastic-eating “Pac-Man” enzyme with a surprising secret
+- **degradation**（出现 2 次）
+  - 上下文：Single-entity tracking of intracellular resistance gene degradation by lattice-engineered nFe<sup>0</sup> in anoxic groundwater
+  - 上下文：Material circularity implications of battery degradation in shared electric mobility
+- **life**（出现 2 次）
+  - 上下文：Artificial intelligence for life-cycle-aware sustainable materials discovery
+  - 上下文：Unprecedented atlas explores mitochondria across the tree of life
+- **sustainable**（出现 2 次）
+  - 上下文：Artificial intelligence for life-cycle-aware sustainable materials discovery
+  - 上下文：Small-molecule-bound biopolymer networks for sustainable multifunctional composites
+- **heat**（出现 2 次）
+  - 上下文：Synchronized heat extremes over western Europe and the Yangtze–Huai River Basin during summer 2025
+  - 上下文：US workers facing deadly heat borrow from tomato pickers to win key protections
+- **习近平**（出现 2 次）
+  - 上下文：习近平总书记关切事｜让湖泊扮靓美丽中国 - 求是
+  - 上下文：习近平总书记关切事｜让湖泊扮靓美丽中国 - 光明网
+- **总书记**（出现 2 次）
+  - 上下文：习近平总书记关切事｜让湖泊扮靓美丽中国 - 求是
+  - 上下文：习近平总书记关切事｜让湖泊扮靓美丽中国 - 光明网
+- **关切**（出现 2 次）
+  - 上下文：习近平总书记关切事｜让湖泊扮靓美丽中国 - 求是
+  - 上下文：习近平总书记关切事｜让湖泊扮靓美丽中国 - 光明网
+- **湖泊**（出现 2 次）
+  - 上下文：习近平总书记关切事｜让湖泊扮靓美丽中国 - 求是
+  - 上下文：习近平总书记关切事｜让湖泊扮靓美丽中国 - 光明网
+- **扮靓**（出现 2 次）
+  - 上下文：习近平总书记关切事｜让湖泊扮靓美丽中国 - 求是
+  - 上下文：习近平总书记关切事｜让湖泊扮靓美丽中国 - 光明网
+- **美丽**（出现 2 次）
+  - 上下文：习近平总书记关切事｜让湖泊扮靓美丽中国 - 求是
+  - 上下文：习近平总书记关切事｜让湖泊扮靓美丽中国 - 光明网
+- **California**（出现 2 次）
+  - 上下文：A California town’s beaches are washing away. Can its residents turn the tide?
+  - 上下文：Fast-moving California wildfire burns homes as people are ordered to leave
+- **potential**（出现 2 次）
+  - 上下文：The potential of seafood to mitigate environmental impacts through diet choices
+  - 上下文：IceCube just won a Nobel prize. Protect astroparticle physics projects with the same potential
+
+---
+

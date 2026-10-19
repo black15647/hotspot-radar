@@ -1,0 +1,565 @@
+{
+  "report_date": "2026-10-19",
+  "site_name": "环境学子雷达",
+  "total_items": 35,
+  "snapshot_items": 10,
+  "category_stats": {
+    "污染治理": {
+      "count": 2,
+      "total_heat": 159.8
+    },
+    "气候变化": {
+      "count": 9,
+      "total_heat": 666.8
+    },
+    "生态环境": {
+      "count": 3,
+      "total_heat": 233.3
+    },
+    "科研学术": {
+      "count": 3,
+      "total_heat": 227.4
+    },
+    "能源与碳中和": {
+      "count": 2,
+      "total_heat": 153.1
+    },
+    "水处理": {
+      "count": 3,
+      "total_heat": 211.8
+    },
+    "其他": {
+      "count": 11,
+      "total_heat": 728.9
+    },
+    "环境政策": {
+      "count": 2,
+      "total_heat": 142.8
+    }
+  },
+  "total_sources": 28,
+  "success_sources": 26,
+  "failed_sources": 0,
+  "week_total_items": 216,
+  "week_new_keywords": 65,
+  "policy_ratio": 9.3,
+  "items": [
+    {
+      "title": "EPA quietly backtracks on claims US has phased out toxic Pfas compounds",
+      "title_en": "EPA quietly backtracks on claims US has phased out toxic Pfas compounds",
+      "title_zh": "美国环保署悄然收回了关于美国已逐步淘汰有毒全氟烷基物质（PFAS）的说法",
+      "link": "https://www.theguardian.com/environment/2026/oct/18/epa-pfas-compounds-toxins",
+      "source": "The Guardian Environment",
+      "published": "2026-10-18T22:53:27+00:00",
+      "hotness": 88.1,
+      "score_v1": 32.54,
+      "score_v2": 88.1,
+      "score_breakdown": {
+        "algorithm": "v3.0",
+        "dimension_max": {
+          "authority": 18.0,
+          "topic": 18.0,
+          "resonance": 18.0,
+          "information": 16.0
+        },
+        "authority_score": 12.73,
+        "keyword_idf_score": 11.27,
+        "topic_score": 13.63,
+        "topic_burst_score": 2.36,
+        "topic_burst_count": 2,
+        "resonance_score": 0.0,
+        "info_score": 7.0,
+        "base": 33.36,
+        "base_max": 70.0,
+        "time_factor": 0.9679,
+        "density_factor": 1.0,
+        "density_note": "",
+        "repeat_penalty": 1.0,
+        "repeat_excused": false,
+        "event_size": 1,
+        "event_media_count": 1,
+        "event_cluster_source": "ai",
+        "origin_source": "The Guardian Environment",
+        "raw": 32.29,
+        "display_score": 88.1,
+        "display_mode": "absolute"
+      },
+      "summary": "随着一家总部位于得克萨斯州的公司继续生产塑料容器屏障，该机构修改了网站上的措辞。美国环境保护署已悄然收回了此前关于美国已逐步淘汰两种最危险的PFAH化合物——PFOA和PFOS——的说法。美国环保署发现，饮用水中这两种物质的暴露量几乎没有任何安全阈值，而国际癌症研究机构将PFOA列为“对人类致癌”，将PFOA列为“可能致癌”。 尽管如此，美国环保署仍允许总部位于休斯顿的Inhance公司生产塑料容器，而此前已发现PFOA会从这些容器中大量渗入其所盛装的物品中。 该公司每年生产多达2亿米用于全美各行业塑料容器的阻隔层。本文于2026年10月18日进行了修订，更正了帕特里夏·范·伊（Patricia van Ee）的头衔；此前报道称Inhance公司生产塑料容器，实为生产容器的阻隔层。继续阅读...",
+      "analysis": "",
+      "topic_tags": [
+        "EPA",
+        "PFAS",
+        "Pfoa"
+      ],
+      "category": "污染治理",
+      "matched_keywords": [
+        "饮用水",
+        "新污染物",
+        "环境保护"
+      ]
+    },
+    {
+      "title": "碳排放权交易稳居全国首位 长江生态环境权益交易平台上线一年交易总额突破820亿元 - 极目新闻",
+      "title_en": "",
+      "title_zh": "",
+      "link": "https://news.google.com/rss/articles/CBMiW0FVX3lxTE1pZjhmMkdiWTNqVXpOZldNTmJFZS1DUHBUQjVFckpqbDI2SWNVZTFLb01nQk50cEZGZEVtejBxQ0txMkdkc3pzTGQwLVJmTF9kYnpISG9MdHd5Qlk?oc=5",
+      "source": "Google News 生态环境",
+      "published": "2026-10-18T10:15:42+00:00",
+      "hotness": 87.0,
+      "score_v1": 23.94,
+      "score_v2": 87.0,
+      "score_breakdown": {
+        "algorithm": "v3.0",
+        "dimension_max": {
+          "authority": 18.0,
+          "topic": 18.0,
+          "resonance": 18.0,
+          "information": 16.0
+        },
+        "authority_score": 8.05,
+        "keyword_idf_score": 8.99,
+        "topic_score": 11.35,
+        "topic_burst_score": 2.36,
+        "topic_burst_count": 2,
+        "resonance_score": 8.76,
+        "info_score": 9.0,
+        "base": 37.16,
+        "base_max": 70.0,
+        "time_factor": 0.825,
+        "density_factor": 1.0,
+        "density_note": "",
+        "repeat_penalty": 1.0,
+        "repeat_excused": false,
+        "event_size": 2,
+        "event_media_count": 2,
+        "event_cluster_source": "ai",
+        "origin_source": "极目新闻",
+        "raw": 30.66,
+        "display_score": 87.0,
+        "display_mode": "absolute"
+      },
+      "summary": "湖北长江生态环境权益交易平台上线一年，交易总额突破820亿元稳居全国首位，生态价值转化成效显著。",
+      "analysis": "",
+      "topic_tags": [
+        "碳排放权交易",
+        "长江生态环境权益交易平台"
+      ],
+      "category": "气候变化",
+      "matched_keywords": [
+        "碳排放",
+        "生态环境"
+      ]
+    },
+    {
+      "title": "生态环境部发布10月下半月全国空气质量预报会商结果：以优良为主 - ThePaper.cn",
+      "title_en": "",
+      "title_zh": "",
+      "link": "https://news.google.com/rss/articles/CBMiYEFVX3lxTE5NZmRfb3d4azZKM184cTUwenZBT05KSjJhMnFDNzhLazZvODdldDJmck05aWVkUmZ4S1hoUmM2M1V3OVpZY3pOMGxjV3B3YVppSVpwMEtoMDRRbnFCSVJHag?oc=5",
+      "source": "Google News 环境污染",
+      "published": "2026-10-18T03:11:00+00:00",
+      "hotness": 85.8,
+      "score_v1": 18.58,
+      "score_v2": 85.8,
+      "score_breakdown": {
+        "algorithm": "v3.0",
+        "dimension_max": {
+          "authority": 18.0,
+          "topic": 18.0,
+          "resonance": 18.0,
+          "information": 16.0
+        },
+        "authority_score": 8.05,
+        "keyword_idf_score": 5.3,
+        "topic_score": 7.66,
+        "topic_burst_score": 2.36,
+        "topic_burst_count": 2,
+        "resonance_score": 13.26,
+        "info_score": 9.0,
+        "base": 37.96,
+        "base_max": 70.0,
+        "time_factor": 0.7598,
+        "density_factor": 1.0,
+        "density_note": "",
+        "repeat_penalty": 1.0,
+        "repeat_excused": false,
+        "event_size": 3,
+        "event_media_count": 3,
+        "event_cluster_source": "ai",
+        "origin_source": "ThePaper.cn",
+        "raw": 28.85,
+        "display_score": 85.8,
+        "display_mode": "absolute"
+      },
+      "summary": "生态环境部联合气象部门发布10月下半月空气质量预报，以优良天气为主，整体空气质量形势良好。",
+      "analysis": "",
+      "topic_tags": [
+        "生态环境部",
+        "空气质量预报"
+      ],
+      "category": "生态环境",
+      "matched_keywords": [
+        "生态环境"
+      ]
+    },
+    {
+      "title": "超强厄尔尼诺来了!今年秋冬，大气污染会更严重吗? 最强事件或加剧雾霾风险 - 中华网",
+      "title_en": "",
+      "title_zh": "",
+      "link": "https://news.google.com/rss/articles/CBMicEFVX3lxTE9ZWXRURF92dk5OWUNOSnBXM21XXzZpdkliNGhDcWc3ZWNpQkpTTUZMS3lqSl9CNFpFRHBRWGczN3NIQ2JYbGFVWXczdkdGZVZQSlJab0lTdEkwRWQ0WlJaSWpPS3duNTQ5ZF9VOWlrbVo?oc=5",
+      "source": "Google News 环境污染",
+      "published": "2026-10-19T00:16:54+00:00",
+      "hotness": 83.4,
+      "score_v1": 24.18,
+      "score_v2": 83.4,
+      "score_breakdown": {
+        "algorithm": "v3.0",
+        "dimension_max": {
+          "authority": 18.0,
+          "topic": 18.0,
+          "resonance": 18.0,
+          "information": 16.0
+        },
+        "authority_score": 8.05,
+        "keyword_idf_score": 6.88,
+        "topic_score": 9.25,
+        "topic_burst_score": 2.36,
+        "topic_burst_count": 2,
+        "resonance_score": 8.76,
+        "info_score": 0.0,
+        "base": 26.05,
+        "base_max": 70.0,
+        "time_factor": 0.9861,
+        "density_factor": 1.0,
+        "density_note": "",
+        "repeat_penalty": 1.0,
+        "repeat_excused": true,
+        "event_size": 2,
+        "event_media_count": 2,
+        "event_cluster_source": "ai",
+        "origin_source": "中华网",
+        "raw": 25.69,
+        "display_score": 83.4,
+        "display_mode": "absolute"
+      },
+      "summary": "预计今年秋冬厄尔尼诺事件增强，或加剧大气污染和雾霾风险，需关注天气变化对空气质量的影响。",
+      "analysis": "",
+      "topic_tags": [
+        "厄尔尼诺",
+        "大气污染",
+        "雾霾"
+      ],
+      "category": "气候变化",
+      "matched_keywords": [
+        "大气污染"
+      ]
+    },
+    {
+      "title": "超强厄尔尼诺来了，今年秋冬大气污染会加重吗？ - 凤凰网",
+      "title_en": "",
+      "title_zh": "",
+      "link": "https://news.google.com/rss/articles/CBMiTEFVX3lxTE16UTZQMFotakNWTWV0NTREQnJSaXBoeWlZWkpsaUktTlp6Z0RpUDZQVkViVjBuSHBEYTJPVlJ1RmtnMTRhbmE5MTM4cy0?oc=5",
+      "source": "Google News 环境污染",
+      "published": "2026-10-18T09:46:35+00:00",
+      "hotness": 82.9,
+      "score_v1": 19.83,
+      "score_v2": 82.9,
+      "score_breakdown": {
+        "algorithm": "v3.0",
+        "dimension_max": {
+          "authority": 18.0,
+          "topic": 18.0,
+          "resonance": 18.0,
+          "information": 16.0
+        },
+        "authority_score": 8.05,
+        "keyword_idf_score": 6.88,
+        "topic_score": 9.25,
+        "topic_burst_score": 2.36,
+        "topic_burst_count": 2,
+        "resonance_score": 13.26,
+        "info_score": 0.0,
+        "base": 30.55,
+        "base_max": 70.0,
+        "time_factor": 0.8202,
+        "density_factor": 1.0,
+        "density_note": "",
+        "repeat_penalty": 1.0,
+        "repeat_excused": true,
+        "event_size": 3,
+        "event_media_count": 3,
+        "event_cluster_source": "ai",
+        "origin_source": "凤凰网",
+        "raw": 25.06,
+        "display_score": 82.9,
+        "display_mode": "absolute"
+      },
+      "summary": "分析厄尔尼诺事件对秋冬季大气污染的潜在影响，关注气候变化对空气质量加重的风险因素。",
+      "analysis": "",
+      "topic_tags": [
+        "厄尔尼诺",
+        "秋冬大气污染"
+      ],
+      "category": "气候变化",
+      "matched_keywords": [
+        "大气污染"
+      ]
+    },
+    {
+      "title": "A 24-year study uncovers a surprising climate benefit beneath forests",
+      "title_en": "A 24-year study uncovers a surprising climate benefit beneath forests",
+      "title_zh": "一项为期24年的研究揭示了森林之下令人惊讶的气候效益",
+      "link": "https://www.sciencedaily.com/releases/2026/10/261014015525.htm",
+      "source": "ScienceDaily 环境科学",
+      "published": "2026-10-17T11:33:48+00:00",
+      "hotness": 78.7,
+      "score_v1": 19.57,
+      "score_v2": 78.7,
+      "score_breakdown": {
+        "algorithm": "v3.0",
+        "dimension_max": {
+          "authority": 18.0,
+          "topic": 18.0,
+          "resonance": 18.0,
+          "information": 16.0
+        },
+        "authority_score": 12.73,
+        "keyword_idf_score": 3.5,
+        "topic_score": 7.3,
+        "topic_burst_score": 3.79,
+        "topic_burst_count": 3,
+        "resonance_score": 0.0,
+        "info_score": 12.0,
+        "base": 32.02,
+        "base_max": 70.0,
+        "time_factor": 0.646,
+        "density_factor": 1.0,
+        "density_note": "",
+        "repeat_penalty": 1.0,
+        "repeat_excused": false,
+        "event_size": 1,
+        "event_media_count": 1,
+        "event_cluster_source": "ai",
+        "origin_source": "ScienceDaily 环境科学",
+        "raw": 20.69,
+        "display_score": 78.7,
+        "display_mode": "absolute"
+      },
+      "summary": "科学家发现，随着气温升高和降雨减少，某些森林土壤清除大气中甲烷的能力竟出人意料地增强了。一项历时长达24年的研究发现，甲烷吸收量平均每年增加3%，这挑战了此前关于气候变化对森林影响的预测。",
+      "analysis": "",
+      "topic_tags": [
+        "森林土壤",
+        "气候缓解",
+        "长期研究"
+      ],
+      "category": "生态环境",
+      "matched_keywords": [
+        "气候变化"
+      ]
+    },
+    {
+      "title": "Single-entity tracking of intracellular resistance gene degradation by lattice-engineered nFe<sup>0</sup> in anoxic groundwater",
+      "title_en": "Single-entity tracking of intracellular resistance gene degradation by lattice-engineered nFe<sup>0</sup> in anoxic groundwater",
+      "title_zh": "利用晶格工程改造的nFe<sup>0</sup>在缺氧地下水中对细胞内抗性基因降解进行单实体追踪",
+      "link": "https://www.sciencedirect.com/science/article/pii/S0043135426018257?dgcid=rss_sd_all",
+      "source": "Water Research",
+      "published": "2026-10-17T01:15:52.045165+00:00",
+      "hotness": 78.1,
+      "score_v1": 16.35,
+      "score_v2": 78.1,
+      "score_breakdown": {
+        "algorithm": "v3.0",
+        "dimension_max": {
+          "authority": 18.0,
+          "topic": 18.0,
+          "resonance": 18.0,
+          "information": 16.0
+        },
+        "authority_score": 18.0,
+        "keyword_idf_score": 7.19,
+        "topic_score": 7.19,
+        "topic_burst_score": 0.0,
+        "topic_burst_count": 1,
+        "resonance_score": 0.0,
+        "info_score": 9.0,
+        "base": 34.19,
+        "base_max": 70.0,
+        "time_factor": 0.5888,
+        "density_factor": 1.0,
+        "density_note": "",
+        "repeat_penalty": 1.0,
+        "repeat_excused": false,
+        "event_size": 1,
+        "event_media_count": 1,
+        "event_cluster_source": "ai",
+        "origin_source": "Water Research",
+        "raw": 20.13,
+        "display_score": 78.1,
+        "display_mode": "absolute"
+      },
+      "summary": "利用晶格工程改造的nFe<sup>0</sup>对细胞内抗性基因降解进行单分子追踪，在",
+      "analysis": "",
+      "topic_tags": [
+        "抗性基因降解",
+        "厌氧地下水"
+      ],
+      "category": "科研学术",
+      "matched_keywords": [
+        "地下水"
+      ]
+    },
+    {
+      "title": "Material circularity implications of battery degradation in shared electric mobility",
+      "title_en": "Material circularity implications of battery degradation in shared electric mobility",
+      "title_zh": "共享电动出行中电池退化对材料循环利用的影响",
+      "link": "https://www.nature.com/articles/s41893-026-01969-7",
+      "source": "Nature Sustainability",
+      "published": "2026-10-16T00:00:00+00:00",
+      "hotness": 77.6,
+      "score_v1": 25.47,
+      "score_v2": 77.6,
+      "score_breakdown": {
+        "algorithm": "v3.0",
+        "dimension_max": {
+          "authority": 18.0,
+          "topic": 18.0,
+          "resonance": 18.0,
+          "information": 16.0
+        },
+        "authority_score": 18.0,
+        "keyword_idf_score": 10.4,
+        "topic_score": 15.06,
+        "topic_burst_score": 4.66,
+        "topic_burst_count": 4,
+        "resonance_score": 0.0,
+        "info_score": 7.0,
+        "base": 40.06,
+        "base_max": 70.0,
+        "time_factor": 0.4911,
+        "density_factor": 1.0,
+        "density_note": "",
+        "repeat_penalty": 1.0,
+        "repeat_excused": false,
+        "event_size": 1,
+        "event_media_count": 1,
+        "event_cluster_source": "ai",
+        "origin_source": "Nature Sustainability",
+        "raw": 19.67,
+        "display_score": 77.6,
+        "display_mode": "absolute"
+      },
+      "summary": "《自然·可持续性》（Nature Sustainability），。共享出行旨在节约材料，但高强度使用会加速电池退化，并可能影响这些节约效果。 本研究通过结合中国车队规模预测、电池退化及动态材料流分析，评估了共享出行带来的影响。",
+      "analysis": "",
+      "topic_tags": [
+        "电池退化"
+      ],
+      "category": "能源与碳中和",
+      "matched_keywords": [
+        "循环经济",
+        "可持续发展"
+      ]
+    },
+    {
+      "title": "Arizona joins Nevada to fight proposed cuts to their shares of Colorado River",
+      "title_en": "Arizona joins Nevada to fight proposed cuts to their shares of Colorado River",
+      "title_zh": "亚利桑那州与内华达州联手，共同反对削减两州在科罗拉多河水资源分配份额的提议",
+      "link": "https://www.theguardian.com/us-news/2026/oct/17/arizona-nevada-water-rights-colorado-river",
+      "source": "The Guardian Environment",
+      "published": "2026-10-17T23:40:11+00:00",
+      "hotness": 75.5,
+      "score_v1": 18.93,
+      "score_v2": 75.5,
+      "score_breakdown": {
+        "algorithm": "v3.0",
+        "dimension_max": {
+          "authority": 18.0,
+          "topic": 18.0,
+          "resonance": 18.0,
+          "information": 16.0
+        },
+        "authority_score": 12.73,
+        "keyword_idf_score": 6.37,
+        "topic_score": 8.73,
+        "topic_burst_score": 2.36,
+        "topic_burst_count": 2,
+        "resonance_score": 0.0,
+        "info_score": 3.0,
+        "base": 24.46,
+        "base_max": 70.0,
+        "time_factor": 0.7309,
+        "density_factor": 1.0,
+        "density_note": "",
+        "repeat_penalty": 1.0,
+        "repeat_excused": false,
+        "event_size": 1,
+        "event_media_count": 1,
+        "event_cluster_source": "ai",
+        "origin_source": "The Guardian Environment",
+        "raw": 17.88,
+        "display_score": 75.5,
+        "display_mode": "absolute"
+      },
+      "summary": "此举发生在特朗普政府宣布可能大幅削减供水的限制措施之后。亚利桑那州已加入内华达州，共同对特朗普政府拟议削减两州在日益干涸的科罗拉多河中的配额一事提起法律诉讼。此前，内政部于今年夏天宣布了限制措施，根据河流状况，未来两年内供应给下游流域各州——亚利桑那州、加利福尼亚州和内华达州——的水量可能会大幅减少。继续阅读...",
+      "analysis": "",
+      "topic_tags": [
+        "Nevada",
+        "Colorado River",
+        "水资源分配"
+      ],
+      "category": "能源与碳中和",
+      "matched_keywords": [
+        "流域"
+      ]
+    },
+    {
+      "title": "Sustainable coagulant optimization via inverse filtration control and ensemble learning in a full-scale drinking water plant",
+      "title_en": "Sustainable coagulant optimization via inverse filtration control and ensemble learning in a full-scale drinking water plant",
+      "title_zh": "通过逆向过滤控制和集合学习，在全规模饮用水处理厂中实现可持续的絮凝剂优化",
+      "link": "https://www.sciencedirect.com/science/article/pii/S0043135426018075?dgcid=rss_sd_all",
+      "source": "Water Research",
+      "published": "2026-10-17T01:15:52.045165+00:00",
+      "hotness": 75.5,
+      "score_v1": 22.35,
+      "score_v2": 75.5,
+      "score_breakdown": {
+        "algorithm": "v3.0",
+        "dimension_max": {
+          "authority": 18.0,
+          "topic": 18.0,
+          "resonance": 18.0,
+          "information": 16.0
+        },
+        "authority_score": 18.0,
+        "keyword_idf_score": 10.13,
+        "topic_score": 12.49,
+        "topic_burst_score": 2.36,
+        "topic_burst_count": 2,
+        "resonance_score": 0.0,
+        "info_score": 0.0,
+        "base": 30.49,
+        "base_max": 70.0,
+        "time_factor": 0.5888,
+        "density_factor": 1.0,
+        "density_note": "",
+        "repeat_penalty": 1.0,
+        "repeat_excused": false,
+        "event_size": 1,
+        "event_media_count": 1,
+        "event_cluster_source": "ai",
+        "origin_source": "Water Research",
+        "raw": 17.95,
+        "display_score": 75.5,
+        "display_mode": "absolute"
+      },
+      "summary": "全尺度饮用水厂通过逆向过滤控制和集成学习优化絮凝剂，实现水处理过程精准化与资源化利用。",
+      "analysis": "",
+      "topic_tags": [
+        "全尺度饮用水厂"
+      ],
+      "category": "水处理",
+      "matched_keywords": [
+        "水处理",
+        "饮用水"
+      ]
+    }
+  ]
+}

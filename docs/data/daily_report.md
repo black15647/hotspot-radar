@@ -1,140 +1,140 @@
 # 环境学子雷达 - 每日热点报告
 
-**日期**：2026-10-17
-**总条目数**：37
+**日期**：2026-10-19
+**总条目数**：35
 
-**近7天见解**：近7天环境热点呈现出“气候变化”与“生态环境”双轮驱动的态势，两大类合计逾半数的关注度，显示出公众对长期趋势与当下生态态势的高度关注。污染治理与环境政策虽作为基础类热点保持稳定输出，但相较于气候与生态的快速增长，其关注度呈现出明显的相对平稳特征。水处理与科研学术作为细分领域，虽条目数量较少，
+**近7天见解**：近7天环境热点呈现“气候变化、生态环境、污染治理”三大类集中，总计127条，占全量近六成，显示公众关注度已从单一议题向综合生态安全转移。科研学术与水处理等专业领域虽保持稳定热度，但整体热点呈现明显的行业关注度上升态势，政策与科研的协同效应值得持续关注。
 
 ---
 
 ## 今日热点 TOP 10
 
-### 1. [正式会议通知｜Engineering Conference：第一届气候变化与可持续发展工程国际会议注册报名（第一轮通知） - 科学网—新闻](https://news.google.com/rss/articles/CBMiZkFVX3lxTE1MZVdtbFE4SDJOWmtZcG9UNzZDMy1LOWdSOWdnd1RNb0FISTFHUTd3LUZYQkVrczZBbnVObVBhMDVJV0FwbHNpUW5nQ3J1aGRUTG1hYi1ZZGRTSE9HYlNtSDhKLXlVdw?oc=5)
+### 1. [EPA quietly backtracks on claims US has phased out toxic Pfas compounds](https://www.theguardian.com/environment/2026/oct/18/epa-pfas-compounds-toxins)
 
-- **来源**：Google News 气候变化
-- **热度**：87.6
-- **发布时间**：2026-10-17T04:34:49+00:00
-- **关键词**：气候变化, 可持续发展
+- **来源**：The Guardian Environment
+- **热度**：88.1
+- **发布时间**：2026-10-18T22:53:27+00:00
+- **关键词**：饮用水, 新污染物, 环境保护
 
-> 首届国际工程会议聚焦气候变化与可持续发展，面向全球征集报名参与。
+> 随着一家总部位于得克萨斯州的公司继续生产塑料容器屏障，该机构修改了网站上的措辞。美国环境保护署已悄然收回了此前关于美国已逐步淘汰两种最危险的PFAH化合物——PFOA和PFOS——的说法。美国环保署发现，饮用水中这两种物质的暴露量几乎没有任何安全阈值，而国际癌症研究机构将PFOA列为“对人类致癌”，将PFOA列为“可能致癌”。 尽管如此，美国环保署仍允许总部位于休斯顿的Inhance公司生产塑料容器，而此前已发现PFOA会从这些容器中大量渗入其所盛装的物品中。 该公司每年生产多达2亿米用于全美各行业塑料容器的阻隔层。本文于2026年10月18日进行了修订，更正了帕特里夏·范·伊（Patricia van Ee）的头衔；此前报道称Inhance公司生产塑料容器，实为生产容器的阻隔层。继续阅读...
 
-**分析**：该条目涉及【可持续】话题，因来源较权威且发布时间较新，热度上升。
-
----
-
-### 2. [视频 | 第三轮第七批中央生态环境保护督察全部实现督察进驻 （央视《新闻联播》） - 中华人民共和国生态环境部](https://news.google.com/rss/articles/CBMicEFVX3lxTE9KRFpobGlVQ29Ud2FuNHl0QlZCVWJDbGdMMTkwc054N1EtbHJuNGdDZ2t6SXc2cWFhdWk1MFdSUFg5Wlg3LWdqZVhrbFJ1c25DeHo4MS1iMjBaR25UNHhTUUNQYzlCbkRTNWlUQmdIYzY?oc=5)
-
-- **来源**：Google News 环境保护
-- **热度**：86.9
-- **发布时间**：2026-10-16T08:38:15+00:00
-- **关键词**：生态环境, 环境保护, 督察
-
-> 中央生态环境保护督察第三轮第七批工作全面进驻，持续推进生态环境问题整改。
-
-**分析**：该条目涉及【中央生态环境保护督察】话题，因来源较权威且多家媒体同题报道，热度上升。
+**分析**：该条目涉及【EPA】话题，因来源权威性高且发布时间较新，热度上升。
 
 ---
 
-### 3. [聚焦12项重点任务！宁夏启动冬春季大气污染防治攻坚战 - 搜狐](https://news.google.com/rss/articles/CBMiiAFBVV95cUxPUjduT3Y0NUJJNHpkRjFiY0pUdmpQbVFiWjhicWNoVExRZDlWTnJfMTBuLWZERHh1amRLeXdoWVpYeUJJSmxOMlFOallzRV9ZbU1pU2hrSm9DdE5McEJOYmRZNFdCQ2I5T015aW9ZcXo1bWJCRGpoODFVUmZZY2JrY2xDZl9wR0VB?oc=5)
+### 2. [碳排放权交易稳居全国首位 长江生态环境权益交易平台上线一年交易总额突破820亿元 - 极目新闻](https://news.google.com/rss/articles/CBMiW0FVX3lxTE1pZjhmMkdiWTNqVXpOZldNTmJFZS1DUHBUQjVFckpqbDI2SWNVZTFLb01nQk50cEZGZEVtejBxQ0txMkdkc3pzTGQwLVJmTF9kYnpISG9MdHd5Qlk?oc=5)
+
+- **来源**：Google News 生态环境
+- **热度**：87.0
+- **发布时间**：2026-10-18T10:15:42+00:00
+- **关键词**：碳排放, 生态环境
+
+> 湖北长江生态环境权益交易平台上线一年，交易总额突破820亿元稳居全国首位，生态价值转化成效显著。
+
+**分析**：该条目涉及【碳排放权交易】话题，因来源较权威且多家媒体同题报道，热度上升。
+
+---
+
+### 3. [生态环境部发布10月下半月全国空气质量预报会商结果：以优良为主 - ThePaper.cn](https://news.google.com/rss/articles/CBMiYEFVX3lxTE5NZmRfb3d4azZKM184cTUwenZBT05KSjJhMnFDNzhLazZvODdldDJmck05aWVkUmZ4S1hoUmM2M1V3OVpZY3pOMGxjV3B3YVppSVpwMEtoMDRRbnFCSVJHag?oc=5)
 
 - **来源**：Google News 环境污染
-- **热度**：85.2
-- **发布时间**：2026-10-17T00:30:00+00:00
-- **关键词**：大气污染, 污染防治
+- **热度**：85.8
+- **发布时间**：2026-10-18T03:11:00+00:00
+- **关键词**：生态环境
 
-> 宁夏启动2026至2027年冬春季大气污染防治攻坚，聚焦12项重点任务巩固提升空气质量。
+> 生态环境部联合气象部门发布10月下半月空气质量预报，以优良天气为主，整体空气质量形势良好。
 
-**分析**：该条目涉及【冬春季大气污染防治】话题，因来源较权威且发布时间较新，热度上升。
+**分析**：该条目涉及【生态环境部】话题，因来源较权威且多家媒体同题报道，热度上升。
 
 ---
 
-### 4. [Material circularity implications of battery degradation in shared electric mobility](https://www.nature.com/articles/s41893-026-01969-7)
+### 4. [超强厄尔尼诺来了!今年秋冬，大气污染会更严重吗? 最强事件或加剧雾霾风险 - 中华网](https://news.google.com/rss/articles/CBMicEFVX3lxTE9ZWXRURF92dk5OWUNOSnBXM21XXzZpdkliNGhDcWc3ZWNpQkpTTUZMS3lqSl9CNFpFRHBRWGczN3NIQ2JYbGFVWXczdkdGZVZQSlJab0lTdEkwRWQ0WlJaSWpPS3duNTQ5ZF9VOWlrbVo?oc=5)
+
+- **来源**：Google News 环境污染
+- **热度**：83.4
+- **发布时间**：2026-10-19T00:16:54+00:00
+- **关键词**：大气污染
+
+> 预计今年秋冬厄尔尼诺事件增强，或加剧大气污染和雾霾风险，需关注天气变化对空气质量的影响。
+
+**分析**：该条目涉及【厄尔尼诺】话题，因来源较权威且发布时间较新，热度上升。
+
+---
+
+### 5. [超强厄尔尼诺来了，今年秋冬大气污染会加重吗？ - 凤凰网](https://news.google.com/rss/articles/CBMiTEFVX3lxTE16UTZQMFotakNWTWV0NTREQnJSaXBoeWlZWkpsaUktTlp6Z0RpUDZQVkViVjBuSHBEYTJPVlJ1RmtnMTRhbmE5MTM4cy0?oc=5)
+
+- **来源**：Google News 环境污染
+- **热度**：82.9
+- **发布时间**：2026-10-18T09:46:35+00:00
+- **关键词**：大气污染
+
+> 分析厄尔尼诺事件对秋冬季大气污染的潜在影响，关注气候变化对空气质量加重的风险因素。
+
+**分析**：该条目涉及【厄尔尼诺】话题，因来源较权威且多家媒体同题报道，热度上升。
+
+---
+
+### 6. [A 24-year study uncovers a surprising climate benefit beneath forests](https://www.sciencedaily.com/releases/2026/10/261014015525.htm)
+
+- **来源**：ScienceDaily 环境科学
+- **热度**：78.7
+- **发布时间**：2026-10-17T11:33:48+00:00
+- **关键词**：气候变化
+
+> 科学家发现，随着气温升高和降雨减少，某些森林土壤清除大气中甲烷的能力竟出人意料地增强了。一项历时长达24年的研究发现，甲烷吸收量平均每年增加3%，这挑战了此前关于气候变化对森林影响的预测。
+
+**分析**：该条目涉及【森林土壤】话题，因来源权威性高，热度上升。
+
+---
+
+### 7. [Single-entity tracking of intracellular resistance gene degradation by lattice-engineered nFe<sup>0</sup> in anoxic groundwater](https://www.sciencedirect.com/science/article/pii/S0043135426018257?dgcid=rss_sd_all)
+
+- **来源**：Water Research
+- **热度**：78.1
+- **发布时间**：2026-10-17T01:15:52.045165+00:00
+- **关键词**：地下水
+
+> 利用晶格工程改造的nFe<sup>0</sup>对细胞内抗性基因降解进行单分子追踪，在
+
+**分析**：该条目涉及【抗性基因降解】话题，因来源权威性高，热度上升。
+
+---
+
+### 8. [Material circularity implications of battery degradation in shared electric mobility](https://www.nature.com/articles/s41893-026-01969-7)
 
 - **来源**：Nature Sustainability
-- **热度**：84.3
+- **热度**：77.6
 - **发布时间**：2026-10-16T00:00:00+00:00
 - **关键词**：循环经济, 可持续发展
 
-> 《自然·可持续性》（Nature Sustainability）， 共享出行旨在节约材料，但高强度使用会加速电池退化，并可能影响这些节约效果。 本研究通过结合中国车队规模预测、电池退化及动态材料流分析，评估了共享出行带来的影响。
+> 《自然·可持续性》（Nature Sustainability），。共享出行旨在节约材料，但高强度使用会加速电池退化，并可能影响这些节约效果。 本研究通过结合中国车队规模预测、电池退化及动态材料流分析，评估了共享出行带来的影响。
 
 **分析**：该条目涉及【电池退化】话题，因来源权威性高且话题稀缺度高，热度上升。
 
 ---
 
-### 5. [生态环境部新设两个司 - 21财经](https://news.google.com/rss/articles/CBMijwFBVV95cUxQbktYSVlaT0Z3LWF6Wmc3SFVGWGtRZmdTVzY4ZWFmeVlXOERmQUJ6X1ZLVEl0SzFtRmljTEZNNWRQelE0TDVlVmZ5Yy1GcjhlUVVkbTd3OFZpc1M2R2RyMjJjVTJiMk1KZFJZZjE3N2NpbHQzcUJoY0FnV3NQT3U3ZWFqMkJEblJDNm43dXFBSQ?oc=5)
+### 9. [Arizona joins Nevada to fight proposed cuts to their shares of Colorado River](https://www.theguardian.com/us-news/2026/oct/17/arizona-nevada-water-rights-colorado-river)
 
-- **来源**：Google News 生态环境
-- **热度**：83.5
-- **发布时间**：2026-10-17T04:29:00+00:00
-- **关键词**：生态环境
+- **来源**：The Guardian Environment
+- **热度**：75.5
+- **发布时间**：2026-10-17T23:40:11+00:00
+- **关键词**：流域
 
-> 生态环境部近期新设两个司局，机构调整彻底反映生态治理体系优化与人才布局变化。
+> 此举发生在特朗普政府宣布可能大幅削减供水的限制措施之后。亚利桑那州已加入内华达州，共同对特朗普政府拟议削减两州在日益干涸的科罗拉多河中的配额一事提起法律诉讼。此前，内政部于今年夏天宣布了限制措施，根据河流状况，未来两年内供应给下游流域各州——亚利桑那州、加利福尼亚州和内华达州——的水量可能会大幅减少。继续阅读...
 
-**分析**：该条目涉及【生态环境部】话题，因来源较权威且发布时间较新，热度上升。
-
----
-
-### 6. [生态环境部部长黄润秋出席《生物多样性公约》第十七次缔约方大会领导人峰会 - 中华人民共和国生态环境部](https://news.google.com/rss/articles/CBMidkFVX3lxTE5aR3phTzlUbVpwNWVXaURiYlVnVnowTTdPVzk0WWZXWFY2bGtSTmFuOUNIWWl2Z2ZaeTFNSF82WHlvVXNTbEF3QVVtSUl1RE9XQnVlMGs4Qm5OZGpGS1o0VXlLY1A4QVhnekRuay1OZE5qVWZrdEE?oc=5)
-
-- **来源**：Google News 生态环境
-- **热度**：83.1
-- **发布时间**：2026-10-17T06:23:28+00:00
-- **关键词**：生态环境, 生物多样性
-
-> 生态环境部部长黄润秋出席《生物多样性公约》第十七次大会领导人峰会，推动全球生物多样性保护合作。
-
-**分析**：该条目涉及【生态环境部】话题，因来源较权威且发布时间较新，热度上升。
+**分析**：该条目涉及【Nevada】话题，因来源权威性高，热度上升。
 
 ---
 
-### 7. [Brazil sees record fall in Amazon deforestation as key election looms](https://www.bbc.co.uk/news/articles/cqe8rzg6zl00o?at_medium=RSS&at_campaign=rss)
+### 10. [Sustainable coagulant optimization via inverse filtration control and ensemble learning in a full-scale drinking water plant](https://www.sciencedirect.com/science/article/pii/S0043135426018075?dgcid=rss_sd_all)
 
-- **来源**：BBC 科学与环境
-- **热度**：82.1
-- **发布时间**：2026-10-17T02:33:09+00:00
-- **关键词**：气候变化
+- **来源**：Water Research
+- **热度**：75.5
+- **发布时间**：2026-10-17T01:15:52.045165+00:00
+- **关键词**：水处理, 饮用水
 
-> 亚马逊雨林是应对气候变化的关键缓冲带——但在前总统雅伊尔·博索纳罗执政期间，森林砍伐范围却有所扩大。
+> 全尺度饮用水厂通过逆向过滤控制和集成学习优化絮凝剂，实现水处理过程精准化与资源化利用。
 
-**分析**：该条目涉及【亚马逊森林砍伐】话题，因来源权威性高且发布时间较新，热度上升。
-
----
-
-### 8. [Artificial intelligence for life-cycle-aware sustainable materials discovery](https://www.nature.com/articles/s41893-026-01950-4)
-
-- **来源**：Nature Sustainability
-- **热度**：81.7
-- **发布时间**：2026-10-16T00:00:00+00:00
-- **关键词**：可持续发展
-
-> 《自然·可持续性》（Nature Sustainability），。基于人工智能的材料发现通常优先考虑功能性能，却很少顾及可扩展性、环境影响或报废管理。 本文提出了一份路线图，旨在将生命周期考量融入材料发现过程，从而从一开始就设计出可持续的材料。
-
-**分析**：该条目涉及【人工智能】话题，因来源权威性高，热度上升。
-
----
-
-### 9. [吉林省前9个月水生态环境质量保持稳定向好- 中国日报网 - China Daily](https://news.google.com/rss/articles/CBMifEFVX3lxTE0waUhneHRNbG1UNHVYRUJ3Q1dGbHNNZHJ5b1A4ZXBWNEhmWWpiWGRTVjhmS1pjZEJCc2JSSm1rajZVVFNGLXlJUmttUUI3Q1JQWWxyb0hGc2IybUlma1lCVGpwZmpKbnd1N0hJTEpsekVtOGVUS0dJRkJ0d2w?oc=5)
-
-- **来源**：Google News 环境保护
-- **热度**：80.1
-- **发布时间**：2026-10-17T04:17:48+00:00
-- **关键词**：生态环境
-
-> 吉林省前9个月水生态环境质量保持稳定向好，持续改善水环境状况。
-
-**分析**：该条目涉及【水生态环境】话题，因来源较权威且发布时间较新，热度上升。
-
----
-
-### 10. [中节能香港公司参与首批深港跨境碳交易结算 - 中国水网](https://news.google.com/rss/articles/CBMiVEFVX3lxTE1yUjZJUGRkbVM0RE9vUjlJdFZBQnp0YlUxQTlPSm5UeFF6SFFuc1RNNkkxdWV6Z3VLWjFYVk0wV3lpY1BnbjdkdFZRM19QTjdRdGs3dg?oc=5)
-
-- **来源**：Google News 中国水网
-- **热度**：79.8
-- **发布时间**：2026-10-16T01:09:00+00:00
-- **关键词**：碳交易
-
-> 中节能香港公司参与首批深港跨境碳交易结算，推动跨境碳市场合作。
-
-**分析**：该条目涉及【深港跨境碳交易】话题，因来源较权威且多家媒体同题报道，热度上升。
+**分析**：该条目涉及【全尺度饮用水厂】话题，因来源权威性高且话题稀缺度高，热度上升。
 
 ---

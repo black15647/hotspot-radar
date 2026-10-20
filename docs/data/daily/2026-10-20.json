@@ -1,0 +1,553 @@
+{
+  "report_date": "2026-10-20",
+  "site_name": "环境学子雷达",
+  "total_items": 40,
+  "snapshot_items": 10,
+  "category_stats": {
+    "气候变化": {
+      "count": 8,
+      "total_heat": 607.6
+    },
+    "生态环境": {
+      "count": 7,
+      "total_heat": 532.2
+    },
+    "科研学术": {
+      "count": 2,
+      "total_heat": 156.0
+    },
+    "环境政策": {
+      "count": 5,
+      "total_heat": 365.0
+    },
+    "水处理": {
+      "count": 5,
+      "total_heat": 371.4
+    },
+    "污染治理": {
+      "count": 4,
+      "total_heat": 279.3
+    },
+    "其他": {
+      "count": 9,
+      "total_heat": 661.2
+    }
+  },
+  "total_sources": 28,
+  "success_sources": 27,
+  "failed_sources": 0,
+  "week_total_items": 217,
+  "week_new_keywords": 66,
+  "policy_ratio": 10.1,
+  "items": [
+    {
+      "title": "A systematic review of nature-based solutions for climate action in African cities",
+      "title_en": "A systematic review of nature-based solutions for climate action in African cities",
+      "title_zh": "关于非洲城市气候行动中基于自然的解决方案的系统性综述",
+      "link": "https://iopscience.iop.org/article/10.1088/1748-9326/aeb0ba",
+      "source": "Environmental Research Letters",
+      "published": "2026-10-19T23:00:00+00:00",
+      "hotness": 87.7,
+      "score_v1": 43.43,
+      "score_v2": 87.7,
+      "score_breakdown": {
+        "algorithm": "v3.0",
+        "dimension_max": {
+          "authority": 18.0,
+          "topic": 18.0,
+          "resonance": 18.0,
+          "information": 16.0
+        },
+        "authority_score": 18.0,
+        "keyword_idf_score": 9.87,
+        "topic_score": 15.38,
+        "topic_burst_score": 5.51,
+        "topic_burst_count": 6,
+        "resonance_score": 0.0,
+        "info_score": 3.0,
+        "base": 36.38,
+        "base_max": 70.0,
+        "time_factor": 0.8711,
+        "density_factor": 1.0,
+        "density_note": "",
+        "repeat_penalty": 1.0,
+        "repeat_excused": false,
+        "event_size": 1,
+        "event_media_count": 1,
+        "event_cluster_source": "ai",
+        "origin_source": "Environmental Research Letters",
+        "raw": 31.69,
+        "display_score": 87.7,
+        "display_mode": "absolute"
+      },
+      "summary": "基于自然的解决方案（NbS），包括基于生态系统的适应措施，正越来越多地被提议用于非洲城市的气候行动，但相关证据基础较为零散，且缺乏对具体措施的实施情况、实施地点及有效性的系统性综述。 我们分析了从一项系统综述中筛选出的112项研究，这些研究覆盖了42个国家的134个城市区域，其中包括45个非正规定居点。通过归纳法，我们归纳出五类基于自然的解决方案类型，包括：绿地；河流、流域和排水系统；沿海系统；绿色建筑；以及城市农业和多功能花园。 城市绿地在证据中占据主导地位（占研究的49%），也是功能最多元的类别。城市农业和多功能花园在研究标题中未得到充分重视，仅在5%的研究中被列为主要内容，但在更广泛的干预组合中却占34%。 相关证据虽在增加，但地理上主要集中于大城市。72%的研究报告了成功的气候变化适应成果，27%的研究报告了减缓成果。热岛效应缓解是最常被量化的适应成果，据报告，在整个欧洲大陆的城市绿地和蓝地附近，温度降低了高达12.2 °C。 定性证据表明，城市基于自然的解决方案与有效的海岸保护、洪水风险降低以及水安全提升密切相关。以地方行为体为支柱的多利益相关方治理，以及有意义的社区参与，是有效实施的一致推动因素。然而，长期资金不足、生计中断和人口流离失所等问题，引发了人们对长期影响的担忧。 亟待填补的研究空白包括：纵向有效性监测、针对非正式环境的融资机制、对导致不平等结果的机制进行系统性评估，以及来自代表性不足的地区和较小城市的实证数据。",
+      "analysis": "",
+      "topic_tags": [
+        "气候行动",
+        "生态系统适应"
+      ],
+      "category": "气候变化",
+      "matched_keywords": [
+        "气候变化",
+        "流域",
+        "生态系统"
+      ]
+    },
+    {
+      "title": "Northern Ireland needs 'courage and leadership' to tackle climate change",
+      "title_en": "Northern Ireland needs 'courage and leadership' to tackle climate change",
+      "title_zh": "北爱尔兰需要“勇气和领导力”来应对气候变化",
+      "link": "https://www.bbc.co.uk/news/articles/cxzd6j5q0g7eo?at_medium=RSS&at_campaign=rss",
+      "source": "BBC 科学与环境",
+      "published": "2026-10-20T05:27:15+00:00",
+      "hotness": 86.3,
+      "score_v1": 31.91,
+      "score_v2": 86.3,
+      "score_breakdown": {
+        "algorithm": "v3.0",
+        "dimension_max": {
+          "authority": 18.0,
+          "topic": 18.0,
+          "resonance": 18.0,
+          "information": 16.0
+        },
+        "authority_score": 12.73,
+        "keyword_idf_score": 3.5,
+        "topic_score": 9.01,
+        "topic_burst_score": 5.51,
+        "topic_burst_count": 6,
+        "resonance_score": 8.76,
+        "info_score": 0.75,
+        "base": 31.25,
+        "base_max": 70.0,
+        "time_factor": 0.9461,
+        "density_factor": 1.0,
+        "density_note": "",
+        "repeat_penalty": 1.0,
+        "repeat_excused": false,
+        "event_size": 2,
+        "event_media_count": 2,
+        "event_cluster_source": "ai",
+        "origin_source": "BBC 科学与环境",
+        "raw": 29.56,
+        "display_score": 86.3,
+        "display_mode": "absolute"
+      },
+      "summary": "气候变化委员会的新任主席正在北爱尔兰进行为期两天的实地考察。",
+      "analysis": "",
+      "topic_tags": [
+        "climate change"
+      ],
+      "category": "气候变化",
+      "matched_keywords": [
+        "气候变化"
+      ]
+    },
+    {
+      "title": "生态环境监测为美丽北京建设提供坚实支撑 - 北京市人民政府门户网站",
+      "title_en": "",
+      "title_zh": "",
+      "link": "https://news.google.com/rss/articles/CBMidEFVX3lxTE0ySFdfV050NzhMbkdDaGFJUVBMMnU2dlhiRmdrbEpKcGNIbU10aUNVenhqdkE2RExkSlRPbUYtVHJRaVhuN1RTaS1VbGlnRTdfUkxreER6MW5RZk1sYjA3NkRmeUxPNHNJNWN6bzdlQ3l6Tndq?oc=5",
+      "source": "Google News 环境保护",
+      "published": "2026-10-20T06:59:00+00:00",
+      "hotness": 86.2,
+      "score_v1": 31.56,
+      "score_v2": 86.2,
+      "score_breakdown": {
+        "algorithm": "v3.0",
+        "dimension_max": {
+          "authority": 18.0,
+          "topic": 18.0,
+          "resonance": 18.0,
+          "information": 16.0
+        },
+        "authority_score": 8.05,
+        "keyword_idf_score": 8.99,
+        "topic_score": 13.65,
+        "topic_burst_score": 4.66,
+        "topic_burst_count": 4,
+        "resonance_score": 8.76,
+        "info_score": 0.0,
+        "base": 30.46,
+        "base_max": 70.0,
+        "time_factor": 0.9654,
+        "density_factor": 1.0,
+        "density_note": "",
+        "repeat_penalty": 1.0,
+        "repeat_excused": false,
+        "event_size": 2,
+        "event_media_count": 2,
+        "event_cluster_source": "ai",
+        "origin_source": "北京市人民政府门户网站",
+        "raw": 29.41,
+        "display_score": 86.2,
+        "display_mode": "absolute"
+      },
+      "summary": "北京市生态环境监测工作持续发力，为美丽北京建设提供坚实数据支撑与技术保障。",
+      "analysis": "",
+      "topic_tags": [
+        "生态环境监测"
+      ],
+      "category": "生态环境",
+      "matched_keywords": [
+        "生态环境",
+        "环境监测"
+      ]
+    },
+    {
+      "title": "Hot drought reshapes the relationship between tree species diversity and forest resilience",
+      "title_en": "Hot drought reshapes the relationship between tree species diversity and forest resilience",
+      "title_zh": "高温干旱重塑了树种多样性与森林韧性之间的关系",
+      "link": "https://iopscience.iop.org/article/10.1088/1748-9326/aeb1df",
+      "source": "Environmental Research Letters",
+      "published": "2026-10-19T23:00:00+00:00",
+      "hotness": 84.1,
+      "score_v1": 25.43,
+      "score_v2": 84.1,
+      "score_breakdown": {
+        "algorithm": "v3.0",
+        "dimension_max": {
+          "authority": 18.0,
+          "topic": 18.0,
+          "resonance": 18.0,
+          "information": 16.0
+        },
+        "authority_score": 18.0,
+        "keyword_idf_score": 5.68,
+        "topic_score": 9.48,
+        "topic_burst_score": 3.79,
+        "topic_burst_count": 3,
+        "resonance_score": 0.0,
+        "info_score": 3.0,
+        "base": 30.48,
+        "base_max": 70.0,
+        "time_factor": 0.8711,
+        "density_factor": 1.0,
+        "density_note": "",
+        "repeat_penalty": 1.0,
+        "repeat_excused": false,
+        "event_size": 1,
+        "event_media_count": 1,
+        "event_cluster_source": "ai",
+        "origin_source": "Environmental Research Letters",
+        "raw": 26.55,
+        "display_score": 84.1,
+        "display_mode": "absolute"
+      },
+      "summary": "气候变暖正导致高温干旱事件日益频繁，此类干旱中，水分短缺与异常高温同时出现，给森林生态系统和碳封存带来了日益加剧的风险。然而，在单纯干旱和高温干旱条件下，树种多样性（TSD）对森林韧性的影响是否存在差异，目前尚不明确。 在此，我们针对仅干旱和高温干旱事件后，树种多样性对基于NDVI的森林韧性的影响进行了全球性评估。 通过整合基于卫星的韧性估算值、全球树种丰富度数据以及十个主要森林生物群落的环境因素，我们发现，在全球范围内，两种干旱条件下森林的干旱后生长均有所减弱，而在高温干旱条件下，生长减弱的空间范围更为广泛。 重要的是，这两种干旱类型中树种多样性与森林韧性之间的关系存在显著差异。在仅干旱条件下，树种多样性对森林韧性的影响普遍为负，而在高温干旱条件下则主要为正。与仅干旱事件相比，高温干旱还放大了树种多样性的正负双重影响。 交互作用分析进一步表明，在仅干旱条件下，TSD效应总体上受年平均气温和水汽压缺口调节；而在高温干旱条件下，年平均气温是唯一对TSD效应产生广泛调节作用的环境变量。此外，在高温干旱条件下以及物种贫乏的森林中，森林韧性对树种数量更为敏感。 我们的研究结果强调，伴随干旱出现的异常高温会重塑温度-季节性差异（TSD）效应在森林韧性方面的方向和幅度，并指出物种丰富度较低的地区是战略重点区域，在此类地区采取管理干预措施可能带来更大的生态效益。",
+      "analysis": "",
+      "topic_tags": [
+        "高温干旱",
+        "森林韧性"
+      ],
+      "category": "气候变化",
+      "matched_keywords": [
+        "生态系统"
+      ]
+    },
+    {
+      "title": "南信大—伯明翰大学气候变化应对与可持续发展联合研究中心揭牌仪式举行 - 南京信息工程大学",
+      "title_en": "",
+      "title_zh": "",
+      "link": "https://news.google.com/rss/articles/CBMiWkFVX3lxTE5xdzJPOWNSajNwM1hqejdGRFFoQzdNVmxreXI0QTlQdmViYUxOSkxuNWxYTUFjTEZ6Y1FIRVR5d1RJcWwwWUNBZ0tadWM4enRzR3VPc0VpSnNHUQ?oc=5",
+      "source": "Google News 气候变化",
+      "published": "2026-10-20T01:48:43+00:00",
+      "hotness": 84.0,
+      "score_v1": 41.83,
+      "score_v2": 84.0,
+      "score_breakdown": {
+        "algorithm": "v3.0",
+        "dimension_max": {
+          "authority": 18.0,
+          "topic": 18.0,
+          "resonance": 18.0,
+          "information": 16.0
+        },
+        "authority_score": 8.05,
+        "keyword_idf_score": 7.73,
+        "topic_score": 13.24,
+        "topic_burst_score": 5.51,
+        "topic_burst_count": 6,
+        "resonance_score": 0.0,
+        "info_score": 8.0,
+        "base": 29.29,
+        "base_max": 70.0,
+        "time_factor": 0.9025,
+        "density_factor": 1.0,
+        "density_note": "",
+        "repeat_penalty": 1.0,
+        "repeat_excused": false,
+        "event_size": 1,
+        "event_media_count": 1,
+        "event_cluster_source": "ai",
+        "origin_source": "南京信息工程大学",
+        "raw": 26.43,
+        "display_score": 84.0,
+        "display_mode": "absolute"
+      },
+      "summary": "南信大与伯明翰大学共同揭牌成立气候变化应对与可持续发展研究中心，旨在深化两校在气候治理与可持续发展领域的合作。",
+      "analysis": "",
+      "topic_tags": [
+        "伯明翰大学",
+        "气候变化应对",
+        "可持续发展研究中心"
+      ],
+      "category": "科研学术",
+      "matched_keywords": [
+        "气候变化",
+        "可持续发展"
+      ]
+    },
+    {
+      "title": "全文｜北京市生态环境行政处罚信息公示期限管理规定 - 搜狐",
+      "title_en": "",
+      "title_zh": "",
+      "link": "https://news.google.com/rss/articles/CBMiiAFBVV95cUxOdkJ1Vklqbk0teUg4OEVwak9GZ1h6OVRlalFqTjdmYnBlX3JOcTFZbXVHN3E4TS15eUVhUHhqbXJuVko1LXhsTnFPcjR6SGdyNmNka3lETE94bkdNUk82dkVuSlNCRlAyZDNpZ2JZZkYzVFF6WnJrLUFyb0ZUbTlIN1Q0a2pYTGxv?oc=5",
+      "source": "Google News 生态环境",
+      "published": "2026-10-20T08:16:00+00:00",
+      "hotness": 83.8,
+      "score_v1": 28.06,
+      "score_v2": 83.8,
+      "score_breakdown": {
+        "algorithm": "v3.0",
+        "dimension_max": {
+          "authority": 18.0,
+          "topic": 18.0,
+          "resonance": 18.0,
+          "information": 16.0
+        },
+        "authority_score": 8.05,
+        "keyword_idf_score": 5.25,
+        "topic_score": 9.92,
+        "topic_burst_score": 4.66,
+        "topic_burst_count": 4,
+        "resonance_score": 8.76,
+        "info_score": 0.0,
+        "base": 26.72,
+        "base_max": 70.0,
+        "time_factor": 0.9821,
+        "density_factor": 1.0,
+        "density_note": "",
+        "repeat_penalty": 1.0,
+        "repeat_excused": false,
+        "event_size": 2,
+        "event_media_count": 2,
+        "event_cluster_source": "ai",
+        "origin_source": "搜狐",
+        "raw": 26.24,
+        "display_score": 83.8,
+        "display_mode": "absolute"
+      },
+      "summary": "北京市发布生态环境行政处罚信息公示管理规定，明确处罚信息公示期限，规范行政处罚程序，提升执法透明度与公信力。",
+      "analysis": "",
+      "topic_tags": [
+        "生态环境行政处罚"
+      ],
+      "category": "环境政策",
+      "matched_keywords": [
+        "生态环境"
+      ]
+    },
+    {
+      "title": "直面气候变局，500余位中外专家共议治水“韧性”之道 - 中国江苏网",
+      "title_en": "",
+      "title_zh": "",
+      "link": "https://news.google.com/rss/articles/CBMiiwFBVV95cUxNd2cxX3BreXdWU0s5RTRQWS1aMllPWkNITW1CMmVZcXdNcC1vS3pNVGE1Y0FwR3o3VFE1cEg1d3FvVm83b0NuU3FrS1hRaDJEZ2dMM294MDB2ODRmQnZOaGlzQncwa0ZvRTQ0OFNpMDUyYkZRYzM5XzRCXzZPczRMRzM4TE9KWUd1QW8w?oc=5",
+      "source": "Google News 气候变化",
+      "published": "2026-10-20T03:08:00+00:00",
+      "hotness": 80.8,
+      "score_v1": 16.23,
+      "score_v2": 80.8,
+      "score_breakdown": {
+        "algorithm": "v3.0",
+        "dimension_max": {
+          "authority": 18.0,
+          "topic": 18.0,
+          "resonance": 18.0,
+          "information": 16.0
+        },
+        "authority_score": 8.05,
+        "keyword_idf_score": 0.0,
+        "topic_score": 3.0,
+        "topic_burst_score": 0.0,
+        "topic_burst_count": 1,
+        "resonance_score": 8.76,
+        "info_score": 5.0,
+        "base": 24.81,
+        "base_max": 70.0,
+        "time_factor": 0.9179,
+        "density_factor": 1.0,
+        "density_note": "",
+        "repeat_penalty": 1.0,
+        "repeat_excused": true,
+        "event_size": 2,
+        "event_media_count": 2,
+        "event_cluster_source": "ai",
+        "origin_source": "中国江苏网",
+        "raw": 22.77,
+        "display_score": 80.8,
+        "display_mode": "absolute"
+      },
+      "summary": "近500位中外专家聚焦气候变化挑战，围绕水资源治理韧性展开深入研讨，探索应对气候冲击的水安全新路径。",
+      "analysis": "",
+      "topic_tags": [
+        "水资源治理"
+      ],
+      "category": "水处理",
+      "matched_keywords": []
+    },
+    {
+      "title": "世界生态环境十大科技进展（2026）发布 - 搜狐",
+      "title_en": "",
+      "title_zh": "",
+      "link": "https://news.google.com/rss/articles/CBMipAFBVV95cUxNV08ycVdUQzE4azBKMzBJSGg1QWprYU5reXVEN3FsSnFkU3Q0T05tY09FdXdjSnBTWFZHdnAxUHhtMUNaUnc1XzBaSG14Nkdrc2FqNmdhVTNSZjgwa20xTm5wNVVMRWVQTExySEVFQ29JaFZVR3Z5Rms3ZGEyY2laVUo0NUJzWHkwVkpZQTAxVTBKSXBwWXgxcklrLUNHNVdfZDg0SQ?oc=5",
+      "source": "Google News 生态环境",
+      "published": "2026-10-20T08:26:02+00:00",
+      "hotness": 80.6,
+      "score_v1": 28.12,
+      "score_v2": 80.6,
+      "score_breakdown": {
+        "algorithm": "v3.0",
+        "dimension_max": {
+          "authority": 18.0,
+          "topic": 18.0,
+          "resonance": 18.0,
+          "information": 16.0
+        },
+        "authority_score": 8.05,
+        "keyword_idf_score": 5.25,
+        "topic_score": 9.92,
+        "topic_burst_score": 4.66,
+        "topic_burst_count": 4,
+        "resonance_score": 0.0,
+        "info_score": 5.0,
+        "base": 22.97,
+        "base_max": 70.0,
+        "time_factor": 0.9843,
+        "density_factor": 1.0,
+        "density_note": "",
+        "repeat_penalty": 1.0,
+        "repeat_excused": false,
+        "event_size": 1,
+        "event_media_count": 1,
+        "event_cluster_source": "ai",
+        "origin_source": "搜狐",
+        "raw": 22.6,
+        "display_score": 80.6,
+        "display_mode": "absolute"
+      },
+      "summary": "中国科协组织多学科专家遴选，发布2026年世界生态环境十大科技进展，涵盖气候、生态、能源等前沿突破性成果。",
+      "analysis": "",
+      "topic_tags": [
+        "世界生态环境十大科技进展",
+        "中国科协生态环境产学联合体"
+      ],
+      "category": "生态环境",
+      "matched_keywords": [
+        "生态环境"
+      ]
+    },
+    {
+      "title": "EPA quietly backtracks on claims US has phased out toxic Pfas compounds",
+      "title_en": "EPA quietly backtracks on claims US has phased out toxic Pfas compounds",
+      "title_zh": "美国环保署悄然收回了关于美国已逐步淘汰有毒全氟烷基物质（PFAS）的说法",
+      "link": "https://www.theguardian.com/environment/2026/oct/18/epa-pfas-compounds-toxins",
+      "source": "The Guardian Environment",
+      "published": "2026-10-18T22:53:27+00:00",
+      "hotness": 80.2,
+      "score_v1": 25.85,
+      "score_v2": 80.2,
+      "score_breakdown": {
+        "algorithm": "v3.0",
+        "dimension_max": {
+          "authority": 18.0,
+          "topic": 18.0,
+          "resonance": 18.0,
+          "information": 16.0
+        },
+        "authority_score": 12.73,
+        "keyword_idf_score": 11.19,
+        "topic_score": 13.55,
+        "topic_burst_score": 2.36,
+        "topic_burst_count": 2,
+        "resonance_score": 0.0,
+        "info_score": 7.0,
+        "base": 33.28,
+        "base_max": 70.0,
+        "time_factor": 0.6653,
+        "density_factor": 1.0,
+        "density_note": "",
+        "repeat_penalty": 1.0,
+        "repeat_excused": false,
+        "event_size": 1,
+        "event_media_count": 1,
+        "event_cluster_source": "ai",
+        "origin_source": "The Guardian Environment",
+        "raw": 22.14,
+        "display_score": 80.2,
+        "display_mode": "absolute"
+      },
+      "summary": "随着一家总部位于得克萨斯州的公司继续生产塑料容器屏障，该机构修改了网站上的措辞。美国环境保护署已悄然收回了此前关于美国已逐步淘汰两种最危险的PFAH化合物——PFOA和PFOS——的声明。美国环保署发现，饮用水中这两种物质的暴露量几乎没有任何安全阈值，而国际癌症研究机构将PFOA列为“对人类致癌”，将PFOA列为“可能致癌”。 尽管如此，美国环保署仍允许总部位于休斯顿的Inhance公司生产塑料容器，而此前已发现PFOA会从这些容器中大量渗入其所盛装的物品中。 该公司每年生产多达2亿米用于全美各行业塑料容器的阻隔层。本文于2026年10月18日进行了修订，更正了帕特里夏·范·伊（Patricia van Ee）的头衔；此前报道称Inhance公司生产塑料容器，实为生产容器的阻隔层。继续阅读...",
+      "analysis": "",
+      "topic_tags": [
+        "EPA",
+        "PFAS",
+        "Pfoa"
+      ],
+      "category": "污染治理",
+      "matched_keywords": [
+        "饮用水",
+        "新污染物",
+        "环境保护"
+      ]
+    },
+    {
+      "title": "116亿元！山东财政“真金白银”支持美丽中国省域先行区建设 - 搜狐网",
+      "title_en": "",
+      "title_zh": "",
+      "link": "https://news.google.com/rss/articles/CBMijwFBVV95cUxOWXhRcDhVbnVwQzk1SEVla2QtN2Vnc0s5b0s0TmdkQXFmZ290NEl1MG9WR29xS2ZhbnhxZExlbE9fd3hpR1FUSHVEeVRFRkJGOUkxMUsyalpPblVkMDlQZ2h6eUF4ODZqcXRkdDlPYnJ1U0tLc1JzZVVOZmU1UWwwMzlNZmgzbG5IQ0xFS1ZXbw?oc=5",
+      "source": "Google News 环境保护",
+      "published": "2026-10-20T08:30:59+00:00",
+      "hotness": 79.5,
+      "score_v1": 18.15,
+      "score_v2": 79.5,
+      "score_breakdown": {
+        "algorithm": "v3.0",
+        "dimension_max": {
+          "authority": 18.0,
+          "topic": 18.0,
+          "resonance": 18.0,
+          "information": 16.0
+        },
+        "authority_score": 8.05,
+        "keyword_idf_score": 0.0,
+        "topic_score": 0.0,
+        "topic_burst_score": 0.0,
+        "topic_burst_count": 1,
+        "resonance_score": 8.76,
+        "info_score": 5.0,
+        "base": 21.81,
+        "base_max": 70.0,
+        "time_factor": 0.9853,
+        "density_factor": 1.0,
+        "density_note": "",
+        "repeat_penalty": 1.0,
+        "repeat_excused": true,
+        "event_size": 2,
+        "event_media_count": 2,
+        "event_cluster_source": "ai",
+        "origin_source": "搜狐网",
+        "raw": 21.49,
+        "display_score": 79.5,
+        "display_mode": "absolute"
+      },
+      "summary": "山东省财政厅介绍支持美丽中国省域先行区建设举措，计划下达116亿元专项资金，旨在推动生态文明建设。",
+      "analysis": "",
+      "topic_tags": [
+        "环境资讯"
+      ],
+      "category": "其他",
+      "matched_keywords": []
+    }
+  ]
+}

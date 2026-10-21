@@ -7325,3 +7325,142 @@
 
 ---
 
+## 2026-10-21
+
+**今日高频关键词**：`#生态环境` `#气候变化` `#环境保护` `#生态系统` `#碳中和`
+
+**今日 Top10 热点**
+
+### 1. 浙江省人民政府关于印发美丽浙江建设（生态环境保护）“十五五”规划的通知 - 碳索储能网
+- **来源**：Google News 环境保护
+- **热度**：88.1
+- **链接**：https://news.google.com/rss/articles/CBMiYEFVX3lxTE41U3NSZ2RhQkl5ejd4Mnc4YW1HQXlMQkZYbUVjamZXdTJzVFUxZ2ZUalQwbm9IcUpORktzWW5RRUZxWGpqSWV4UURhbHpnRy1WZUpIWXFDN1BySm1MZWl6bQ?oc=5
+- **摘要**：浙江省人民政府印发美丽浙江建设生态环境保护十五五规划，重点加快三澳核电海上风电等项目建设，推动生态文明建设。
+- **分析**：该条目涉及【生态环境保护】话题，因来源较权威且发布时间较新，热度上升。
+
+### 2. 生态环境部：我国应对气候变化成效显著 - 凤凰网
+- **来源**：Google News 气候变化
+- **热度**：87.9
+- **链接**：https://news.google.com/rss/articles/CBMiSEFVX3lxTFA3TnRmMjQtMGRld0dxeWhuQUxmajdVMDcyZkdaNGs5elhHMFNENkJ3ZHBoY1IyWE1NZ0dEU0Q3XzhmZzRKWXk2eg?oc=5
+- **摘要**：生态环境部表示我国应对气候变化取得显著成效，积极推进绿色低碳转型，努力冲刺碳达峰目标，应对气候国际合作持续深入。
+- **分析**：该条目涉及【绿色低碳转型】话题，因来源较权威且发布时间较新，热度上升。
+
+### 3. 生态环境部：全方位构建高质量碳信用体系 - 新华网
+- **来源**：Google News 生态环境
+- **热度**：86.5
+- **链接**：https://news.google.com/rss/articles/CBMigwFBVV95cUxOWFhtdDE5LWsxRVlvMFFNeE8tUVpuaFZwSGRYUzNrWVhLemlwQkFTVVVaZ2Nwc0ZKSFZIZWJZZkRXUThjUjhkMVJ2NTlxSUZzQWNVc0poTHZfR2dNV0ZvQzUzR1JYQ1diQVE0by1WTXlvMnZTMTVHNm1Pei1vczNLVzQtZw?oc=5
+- **摘要**：生态环境部：全方位构建高质量碳信用体系
+- **分析**：该条目涉及【生态环境部】话题，因来源较权威且发布时间较新，热度上升。
+
+### 4. 盛秋平督导检查中央生态环保督察发现问题整改落实情况 - 凤凰网
+- **来源**：Google News 环境保护
+- **热度**：86.4
+- **链接**：https://news.google.com/rss/articles/CBMiSkFVX3lxTE95Q1FheHYzUERaR1V6dUNkV0tCQW53alRmWlN2b3RwQjUxTk9BUjQ4RHdRaHBiS3dsQUpablQycnd3WXpteWp4QmV3?oc=5
+- **摘要**：盛秋平督导检查中央生态环保督察问题整改情况，强调问题导向，推动整改措施落实，确保生态环境保护责任落实到位。
+- **分析**：该条目涉及【中央生态环保督察】话题，因来源较权威且发布时间较新，热度上升。
+
+### 5. Global emissions slow — but world hurtles towards 2 °C of warming
+- **来源**：Nature
+- **热度**：86.0
+- **链接**：https://www.nature.com/articles/d41586-026-03355-x
+- **摘要**：《自然》杂志， 联合国最新的气候报告有力地提醒我们，将全球变暖控制在最安全的水平，如今恐怕已难以实现。
+- **分析**：该条目涉及【全球排放】话题，因来源权威性高且发布时间较新，热度上升。
+
+### 6. 生态环境部点赞大湾区！加快碳足迹落地，引导金融机构丰富产品 - 21财经
+- **来源**：Google News 生态环境
+- **热度**：85.3
+- **链接**：https://news.google.com/rss/articles/CBMijwFBVV95cUxOT01iQWd5cVpUM09fLXlFMEtRT1VsMXZzLVN6MkM1RE9fS3FRcUtGdFU3bXg0VlVlYzM0dm4tTmh4NFROV2RWR20xM3JFZVVDOGFWUmxXSmlleWJDRG4wSmtTVjEybzZBY0FPVkhhZTJkaHhXN2xLUmxtaE5kREZNRVdlVml4N0lCWEIycWw1TQ?oc=5
+- **摘要**：生态环境部点赞大湾区加快碳足迹落地工作，引导金融机构丰富绿色金融产品，支持大湾区绿色低碳发展。
+- **分析**：该条目涉及【生态环境部】话题，因来源较权威且发布时间较新，热度上升。
+
+### 7. A systematic review of nature-based solutions for climate action in African cities
+- **来源**：Environmental Research Letters
+- **热度**：82.1
+- **链接**：https://iopscience.iop.org/article/10.1088/1748-9326/aeb0ba
+- **摘要**：基于自然的解决方案（NbS），包括基于生态系统的适应措施，正越来越多地被提议用于非洲城市的气候行动，但相关证据基础较为零散，且缺乏对具体措施的实施情况、实施地点及有效性的系统性综述。 我们分析了从一项系统综述中筛选出的112项研究，这些研究覆盖了42个国家的134个城市区域，其中包括45个非正规定居点。通过归纳法，我们归纳出五类基于自然的解决方案类型，包括：绿地；河流、流域和排水系统；沿海系统；绿色建筑；以及城市农业和多功能花园。 城市绿地在证据中占据主导地位（占研究的49%），也是功能最多元的类别。城市农业和多功能花园在研究标题中未得到充分重视，仅在5%的研究中被列为主要内容，但在更广泛的干预组合中却占34%。 相关证据虽在增加，但地理上主要集中于大城市。72%的研究报告了成功的气候变化适应成果，27%的研究报告了减缓成果。热岛效应缓解是最常被量化的适应成果，据报告，在整个欧洲大陆的城市绿地和蓝地附近，温度降低了高达12.2 °C。 定性证据表明，城市基于自然的解决方案与有效的海岸保护、洪水风险降低以及水安全提升密切相关。以地方行为体为支柱的多利益相关方治理，以及有意义的社区参与，是有效实施的一致推动因素。然而，长期资金不足、生计中断和人口流离失所等问题，引发了人们对长期影响的担忧。 亟待填补的研究空白包括：纵向有效性监测、针对非正式环境的融资机制、对导致不平等结果的机制进行系统性评估，以及来自代表性不足的地区和小城市的实证数据。
+- **分析**：该条目涉及【气候行动】话题，因来源权威性高且话题稀缺度高，热度上升。
+
+### 8. 未依法取得排污许可证排放污染物 安徽霍山永欣新材料被罚20.8万元 - 信网
+- **来源**：Google News 环境污染
+- **热度**：80.8
+- **链接**：https://news.google.com/rss/articles/CBMiUkFVX3lxTE1ZRFNjN2FUMF9LbGtWMTRzV0ZvMDMyOVpYMFduSTdUWFhlT3FlVnp6QV93eXcyZnBqN3I2YVo1dG5Dd082QmFhdnNlS0lpdjNtamc?oc=5
+- **摘要**：安徽霍山永欣新材料因未取得排污许可证擅自排放污染物，被六安市生态环境局依法查处并处以20.8万元罚款。
+- **分析**：该条目涉及【六安市生态环境局】话题，因来源较权威且发布时间较新，热度上升。
+
+### 9. 【协会动态】2026副省级城市环境保护产业协会联席会第二次工作会议召开 - 搜狐
+- **来源**：Google News 环境保护
+- **热度**：80.6
+- **链接**：https://news.google.com/rss/articles/CBMijAFBVV95cUxPV0ZBR1ZCUFkwZGNvWDJCM2tnVXJKeHhzVGZ3bEV2NVgxVy1LZDBkelVkQ2JERHZKbHhZSEpULWhkVWJLOUFLUnA1V3dqNF9WR1daZGtxMEJuODRNV3o5OW14d0l4LV83MnQ4cVpFMDluem9LRE1UcUFhSkVfTEFVNXJ5XzV4dHFQNlE5TA?oc=5
+- **摘要**：月15日，副省级城市环境保护产业协会联席会第二次工作会议在哈尔滨市环境保护产业协会召开，成员单位就相关事务进行交流。
+- **分析**：该条目涉及【环境保护产业协会联席会】话题，因来源较权威且发布时间较新，热度上升。
+
+### 10. 《中国应对气候变化的政策与行动2026年度报告》正式发布 - 光明网
+- **来源**：Google News 气候变化
+- **热度**：79.9
+- **链接**：https://news.google.com/rss/articles/CBMiZkFVX3lxTE9sOTY4em9tNmRERDMtOGdqbXJ0RllLSU5HUklDaWxEVDAwQ2xvVmVqcXlPOXRfR1FuOUotUlR0NTFyd3JxcU9NVzZjMzJQcmY4UEJaUDU0anB2QThrbzM2UWxscmhaZw?oc=5
+- **摘要**：《中国应对气候变化的政策与行动2026年度报告》正式发布，全面梳理我国应对气候变化的政策措施与行动成效。
+- **分析**：该条目涉及【气候变化政策】话题，因来源较权威且发布时间较新，热度上升。
+
+**今日自动提取候选新词**
+
+- **中国**（出现 5 次）
+  - 上下文：《中国应对气候变化的政策与行动2026年度报告》正式发布 - 光明网
+  - 上下文：网友0446079614 - 中国环境网 - 中国环境网
+  - 上下文：新央企！国家数据集团成立 - 中国水网
+- **美丽**（出现 3 次）
+  - 上下文：浙江省人民政府关于印发美丽浙江建设（生态环境保护）“十五五”规划的通知 - 碳索储能网
+  - 上下文：生态环境监测为美丽北京建设提供坚实支撑 - 北京市人民政府门户网站
+  - 上下文：风直播：江西省生态环境厅厅长李军发布《美丽江西建设“十五五”规划》新闻 - 凤凰网
+- **生态**（出现 3 次）
+  - 上下文：浙江省人民政府关于印发美丽浙江建设（生态环境保护）“十五五”规划的通知 - 碳索储能网
+  - 上下文：盛秋平督导检查中央生态环保督察发现问题整改落实情况 - 凤凰网
+  - 上下文：生态环境监测为美丽北京建设提供坚实支撑 - 北京市人民政府门户网站
+- **水网**（出现 3 次）
+  - 上下文：新央企！国家数据集团成立 - 中国水网
+  - 上下文：近5亿！内蒙古一供水特许经营项目即将招标 - 中国水网
+  - 上下文：泊乐幻影荣获2026中国水利部节水先进成熟适用技术设备！ - 中国水网
+- **印发**（出现 2 次）
+  - 上下文：浙江省人民政府关于印发美丽浙江建设（生态环境保护）“十五五”规划的通知 - 碳索储能网
+  - 上下文：一图读懂、音频解读：北京市生态环境局关于印发《北京市生态环境行政处罚信息公示期限管理规定》的通知 - 北京市人民政府门户网站
+- **十五**（出现 2 次）
+  - 上下文：浙江省人民政府关于印发美丽浙江建设（生态环境保护）“十五五”规划的通知 - 碳索储能网
+  - 上下文：风直播：江西省生态环境厅厅长李军发布《美丽江西建设“十五五”规划》新闻 - 凤凰网
+- **应对**（出现 2 次）
+  - 上下文：生态环境部：我国应对气候变化成效显著 - 凤凰网
+  - 上下文：《中国应对气候变化的政策与行动2026年度报告》正式发布 - 光明网
+- **warming**（出现 2 次）
+  - 上下文：Global emissions slow — but world hurtles towards 2 °C of warming
+  - 上下文：Diminishing cooling returns of urban greening amid a warming climate
+- **财经**（出现 2 次）
+  - 上下文：生态环境部点赞大湾区！加快碳足迹落地，引导金融机构丰富产品 - 21财经
+  - 上下文：华东理工大学吴玉鸣：自然资本正在持续损耗，气候变化已不再只是遥远的环境议题 - 新浪财经
+- **climate**（出现 2 次）
+  - 上下文：A systematic review of nature-based solutions for climate action in African cities
+  - 上下文：Diminishing cooling returns of urban greening amid a warming climate
+- **Sea**（出现 2 次）
+  - 上下文：Sixteen Years After Deepwater Horizon, Deep Sea Life Shows Few Signs of Recovery
+  - 上下文：El Niño Brings Exotic Sea Life to the California Coast
+- **Life**（出现 2 次）
+  - 上下文：Sixteen Years After Deepwater Horizon, Deep Sea Life Shows Few Signs of Recovery
+  - 上下文：El Niño Brings Exotic Sea Life to the California Coast
+- **risk**（出现 2 次）
+  - 上下文：Author Correction: Rice–fish co-culturing reduces schistosomiasis risk and increases yields and incomes
+  - 上下文：Fluoroquinolones are primary drivers of antibiotic resistance selection risk for priority pathogens in Chinese rivers
+- **公示**（出现 2 次）
+  - 上下文：深圳市生态环境局龙华管理局关于2026年10月龙华区建筑施工污染源在线监测设备变更（鹰眼系统）的公示 - 深圳政府在线
+  - 上下文：一图读懂、音频解读：北京市生态环境局关于印发《北京市生态环境行政处罚信息公示期限管理规定》的通知 - 北京市人民政府门户网站
+- **Environmental**（出现 2 次）
+  - 上下文：Environmental and kinetic controls on aerobic heterotrophic denitrification and N<sub>2</sub>O emission in acidic aerated biofilms
+  - 上下文：Environmental chemical mixtures reprogram mammary epithelial development to epigenetic states associated with breast cancer
+- **北京市人民政府**（出现 2 次）
+  - 上下文：生态环境监测为美丽北京建设提供坚实支撑 - 北京市人民政府门户网站
+  - 上下文：一图读懂、音频解读：北京市生态环境局关于印发《北京市生态环境行政处罚信息公示期限管理规定》的通知 - 北京市人民政府门户网站
+- **门户网站**（出现 2 次）
+  - 上下文：生态环境监测为美丽北京建设提供坚实支撑 - 北京市人民政府门户网站
+  - 上下文：一图读懂、音频解读：北京市生态环境局关于印发《北京市生态环境行政处罚信息公示期限管理规定》的通知 - 北京市人民政府门户网站
+- **sustainable**（出现 2 次）
+  - 上下文：Artificial intelligence for life-cycle-aware sustainable materials discovery
+  - 上下文：Small-molecule-bound biopolymer networks for sustainable multifunctional composites
+
+---
+

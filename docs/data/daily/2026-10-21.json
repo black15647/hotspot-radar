@@ -1,0 +1,562 @@
+{
+  "report_date": "2026-10-21",
+  "site_name": "环境学子雷达",
+  "total_items": 38,
+  "snapshot_items": 10,
+  "category_stats": {
+    "生态环境": {
+      "count": 12,
+      "total_heat": 930.6
+    },
+    "气候变化": {
+      "count": 11,
+      "total_heat": 856.5
+    },
+    "环境政策": {
+      "count": 3,
+      "total_heat": 233.3
+    },
+    "其他": {
+      "count": 3,
+      "total_heat": 201.1
+    },
+    "水处理": {
+      "count": 4,
+      "total_heat": 295.8
+    },
+    "环境健康": {
+      "count": 2,
+      "total_heat": 147.9
+    },
+    "科研学术": {
+      "count": 2,
+      "total_heat": 142.6
+    },
+    "污染治理": {
+      "count": 1,
+      "total_heat": 72.3
+    }
+  },
+  "total_sources": 28,
+  "success_sources": 27,
+  "failed_sources": 0,
+  "week_total_items": 219,
+  "week_new_keywords": 69,
+  "policy_ratio": 10.0,
+  "items": [
+    {
+      "title": "浙江省人民政府关于印发美丽浙江建设（生态环境保护）“十五五”规划的通知 - 碳索储能网",
+      "title_en": "",
+      "title_zh": "",
+      "link": "https://news.google.com/rss/articles/CBMiYEFVX3lxTE41U3NSZ2RhQkl5ejd4Mnc4YW1HQXlMQkZYbUVjamZXdTJzVFUxZ2ZUalQwbm9IcUpORktzWW5RRUZxWGpqSWV4UURhbHpnRy1WZUpIWXFDN1BySm1MZWl6bQ?oc=5",
+      "source": "Google News 环境保护",
+      "published": "2026-10-21T01:27:48+00:00",
+      "hotness": 88.1,
+      "score_v1": 45.74,
+      "score_v2": 88.1,
+      "score_breakdown": {
+        "algorithm": "v3.0",
+        "dimension_max": {
+          "authority": 18.0,
+          "topic": 18.0,
+          "resonance": 18.0,
+          "information": 16.0
+        },
+        "authority_score": 8.05,
+        "keyword_idf_score": 8.3,
+        "topic_score": 14.23,
+        "topic_burst_score": 5.93,
+        "topic_burst_count": 10,
+        "resonance_score": 8.76,
+        "info_score": 5.0,
+        "base": 36.04,
+        "base_max": 70.0,
+        "time_factor": 0.8994,
+        "density_factor": 1.0,
+        "density_note": "",
+        "repeat_penalty": 1.0,
+        "repeat_excused": false,
+        "event_size": 2,
+        "event_media_count": 2,
+        "event_cluster_source": "ai",
+        "origin_source": "碳索储能网",
+        "raw": 32.42,
+        "display_score": 88.1,
+        "display_mode": "absolute"
+      },
+      "summary": "浙江省人民政府印发美丽浙江建设生态环境保护十五五规划，重点加快三澳核电海上风电等项目建设，推动生态文明建设。",
+      "analysis": "",
+      "topic_tags": [
+        "生态环境保护",
+        "十五五规划",
+        "三澳核电"
+      ],
+      "category": "生态环境",
+      "matched_keywords": [
+        "生态环境",
+        "环境保护"
+      ]
+    },
+    {
+      "title": "生态环境部：我国应对气候变化成效显著 - 凤凰网",
+      "title_en": "",
+      "title_zh": "",
+      "link": "https://news.google.com/rss/articles/CBMiSEFVX3lxTFA3TnRmMjQtMGRld0dxeWhuQUxmajdVMDcyZkdaNGs5elhHMFNENkJ3ZHBoY1IyWE1NZ0dEU0Q3XzhmZzRKWXk2eg?oc=5",
+      "source": "Google News 气候变化",
+      "published": "2026-10-21T05:03:20+00:00",
+      "hotness": 87.9,
+      "score_v1": 52.9,
+      "score_v2": 87.9,
+      "score_breakdown": {
+        "algorithm": "v3.0",
+        "dimension_max": {
+          "authority": 18.0,
+          "topic": 18.0,
+          "resonance": 18.0,
+          "information": 16.0
+        },
+        "authority_score": 8.05,
+        "keyword_idf_score": 7.19,
+        "topic_score": 13.13,
+        "topic_burst_score": 5.93,
+        "topic_burst_count": 10,
+        "resonance_score": 8.76,
+        "info_score": 4.0,
+        "base": 33.94,
+        "base_max": 70.0,
+        "time_factor": 0.9421,
+        "density_factor": 1.0,
+        "density_note": "",
+        "repeat_penalty": 1.0,
+        "repeat_excused": false,
+        "event_size": 2,
+        "event_media_count": 2,
+        "event_cluster_source": "ai",
+        "origin_source": "凤凰网",
+        "raw": 31.97,
+        "display_score": 87.9,
+        "display_mode": "absolute"
+      },
+      "summary": "生态环境部表示我国应对气候变化取得显著成效，积极推进绿色低碳转型，努力冲刺碳达峰目标，应对气候国际合作持续深入。",
+      "analysis": "",
+      "topic_tags": [
+        "绿色低碳转型",
+        "碳达峰"
+      ],
+      "category": "气候变化",
+      "matched_keywords": [
+        "气候变化",
+        "生态环境"
+      ]
+    },
+    {
+      "title": "生态环境部：全方位构建高质量碳信用体系 - 新华网",
+      "title_en": "",
+      "title_zh": "",
+      "link": "https://news.google.com/rss/articles/CBMigwFBVV95cUxOWFhtdDE5LWsxRVlvMFFNeE8tUVpuaFZwSGRYUzNrWVhLemlwQkFTVVVaZ2Nwc0ZKSFZIZWJZZkRXUThjUjhkMVJ2NTlxSUZzQWNVc0poTHZfR2dNV0ZvQzUzR1JYQ1diQVE0by1WTXlvMnZTMTVHNm1Pei1vczNLVzQtZw?oc=5",
+      "source": "Google News 生态环境",
+      "published": "2026-10-21T04:19:27+00:00",
+      "hotness": 86.5,
+      "score_v1": 38.65,
+      "score_v2": 86.5,
+      "score_breakdown": {
+        "algorithm": "v3.0",
+        "dimension_max": {
+          "authority": 18.0,
+          "topic": 18.0,
+          "resonance": 18.0,
+          "information": 16.0
+        },
+        "authority_score": 8.05,
+        "keyword_idf_score": 5.21,
+        "topic_score": 11.15,
+        "topic_burst_score": 5.93,
+        "topic_burst_count": 10,
+        "resonance_score": 8.76,
+        "info_score": 4.0,
+        "base": 31.96,
+        "base_max": 70.0,
+        "time_factor": 0.9331,
+        "density_factor": 1.0,
+        "density_note": "",
+        "repeat_penalty": 1.0,
+        "repeat_excused": true,
+        "event_size": 2,
+        "event_media_count": 2,
+        "event_cluster_source": "ai",
+        "origin_source": "新华网",
+        "raw": 29.82,
+        "display_score": 86.5,
+        "display_mode": "absolute"
+      },
+      "summary": "生态环境部：全方位构建高质量碳信用体系",
+      "analysis": "",
+      "topic_tags": [
+        "生态环境部",
+        "碳市场"
+      ],
+      "category": "生态环境",
+      "matched_keywords": [
+        "生态环境"
+      ]
+    },
+    {
+      "title": "盛秋平督导检查中央生态环保督察发现问题整改落实情况 - 凤凰网",
+      "title_en": "",
+      "title_zh": "",
+      "link": "https://news.google.com/rss/articles/CBMiSkFVX3lxTE95Q1FheHYzUERaR1V6dUNkV0tCQW53alRmWlN2b3RwQjUxTk9BUjQ4RHdRaHBiS3dsQUpablQycnd3WXpteWp4QmV3?oc=5",
+      "source": "Google News 环境保护",
+      "published": "2026-10-21T00:13:27+00:00",
+      "hotness": 86.4,
+      "score_v1": 25.38,
+      "score_v2": 86.4,
+      "score_breakdown": {
+        "algorithm": "v3.0",
+        "dimension_max": {
+          "authority": 18.0,
+          "topic": 18.0,
+          "resonance": 18.0,
+          "information": 16.0
+        },
+        "authority_score": 8.05,
+        "keyword_idf_score": 10.32,
+        "topic_score": 12.69,
+        "topic_burst_score": 2.36,
+        "topic_burst_count": 2,
+        "resonance_score": 8.76,
+        "info_score": 4.0,
+        "base": 33.49,
+        "base_max": 70.0,
+        "time_factor": 0.8854,
+        "density_factor": 1.0,
+        "density_note": "",
+        "repeat_penalty": 1.0,
+        "repeat_excused": false,
+        "event_size": 2,
+        "event_media_count": 2,
+        "event_cluster_source": "ai",
+        "origin_source": "凤凰网",
+        "raw": 29.65,
+        "display_score": 86.4,
+        "display_mode": "absolute"
+      },
+      "summary": "盛秋平督导检查中央生态环保督察问题整改情况，强调问题导向，推动整改措施落实，确保生态环境保护责任落实到位。",
+      "analysis": "",
+      "topic_tags": [
+        "中央生态环保督察",
+        "问题整改"
+      ],
+      "category": "环境政策",
+      "matched_keywords": [
+        "环保督察",
+        "督察"
+      ]
+    },
+    {
+      "title": "Global emissions slow — but world hurtles towards 2 °C of warming",
+      "title_en": "Global emissions slow — but world hurtles towards 2 °C of warming",
+      "title_zh": "全球排放增速放缓——但世界正朝着气温上升2℃的方向飞速前进",
+      "link": "https://www.nature.com/articles/d41586-026-03355-x",
+      "source": "Nature",
+      "published": "2026-10-21T00:00:00+00:00",
+      "hotness": 86.0,
+      "score_v1": 17.72,
+      "score_v2": 86.0,
+      "score_breakdown": {
+        "algorithm": "v3.0",
+        "dimension_max": {
+          "authority": 18.0,
+          "topic": 18.0,
+          "resonance": 18.0,
+          "information": 16.0
+        },
+        "authority_score": 18.0,
+        "keyword_idf_score": 0.0,
+        "topic_score": 3.0,
+        "topic_burst_score": 0.0,
+        "topic_burst_count": 1,
+        "resonance_score": 0.0,
+        "info_score": 12.0,
+        "base": 33.0,
+        "base_max": 70.0,
+        "time_factor": 0.8829,
+        "density_factor": 1.0,
+        "density_note": "",
+        "repeat_penalty": 1.0,
+        "repeat_excused": false,
+        "event_size": 1,
+        "event_media_count": 1,
+        "event_cluster_source": "ai",
+        "origin_source": "Nature",
+        "raw": 29.14,
+        "display_score": 86.0,
+        "display_mode": "absolute"
+      },
+      "summary": "《自然》杂志， 联合国最新的气候报告有力地提醒我们，将全球变暖控制在最安全的水平，如今恐怕已难以实现。",
+      "analysis": "",
+      "topic_tags": [
+        "全球排放",
+        "2摄氏度升温",
+        "气候报告"
+      ],
+      "category": "气候变化",
+      "matched_keywords": []
+    },
+    {
+      "title": "生态环境部点赞大湾区！加快碳足迹落地，引导金融机构丰富产品 - 21财经",
+      "title_en": "",
+      "title_zh": "",
+      "link": "https://news.google.com/rss/articles/CBMijwFBVV95cUxOT01iQWd5cVpUM09fLXlFMEtRT1VsMXZzLVN6MkM1RE9fS3FRcUtGdFU3bXg0VlVlYzM0dm4tTmh4NFROV2RWR20xM3JFZVVDOGFWUmxXSmlleWJDRG4wSmtTVjEybzZBY0FPVkhhZTJkaHhXN2xLUmxtaE5kREZNRVdlVml4N0lCWEIycWw1TQ?oc=5",
+      "source": "Google News 生态环境",
+      "published": "2026-10-21T09:19:00+00:00",
+      "hotness": 85.3,
+      "score_v1": 40.51,
+      "score_v2": 85.3,
+      "score_breakdown": {
+        "algorithm": "v3.0",
+        "dimension_max": {
+          "authority": 18.0,
+          "topic": 18.0,
+          "resonance": 18.0,
+          "information": 16.0
+        },
+        "authority_score": 8.05,
+        "keyword_idf_score": 5.21,
+        "topic_score": 11.15,
+        "topic_burst_score": 5.93,
+        "topic_burst_count": 10,
+        "resonance_score": 0.0,
+        "info_score": 9.0,
+        "base": 28.2,
+        "base_max": 70.0,
+        "time_factor": 0.997,
+        "density_factor": 1.0,
+        "density_note": "",
+        "repeat_penalty": 1.0,
+        "repeat_excused": false,
+        "event_size": 1,
+        "event_media_count": 1,
+        "event_cluster_source": "ai",
+        "origin_source": "21财经",
+        "raw": 28.11,
+        "display_score": 85.3,
+        "display_mode": "absolute"
+      },
+      "summary": "生态环境部点赞大湾区加快碳足迹落地工作，引导金融机构丰富绿色金融产品，支持大湾区绿色低碳发展。",
+      "analysis": "",
+      "topic_tags": [
+        "生态环境部",
+        "碳足迹"
+      ],
+      "category": "生态环境",
+      "matched_keywords": [
+        "生态环境"
+      ]
+    },
+    {
+      "title": "A systematic review of nature-based solutions for climate action in African cities",
+      "title_en": "A systematic review of nature-based solutions for climate action in African cities",
+      "title_zh": "关于非洲城市气候行动中基于自然的解决方案的系统性综述",
+      "link": "https://iopscience.iop.org/article/10.1088/1748-9326/aeb0ba",
+      "source": "Environmental Research Letters",
+      "published": "2026-10-19T23:00:00+00:00",
+      "hotness": 82.1,
+      "score_v1": 39.37,
+      "score_v2": 82.1,
+      "score_breakdown": {
+        "algorithm": "v3.0",
+        "dimension_max": {
+          "authority": 18.0,
+          "topic": 18.0,
+          "resonance": 18.0,
+          "information": 16.0
+        },
+        "authority_score": 18.0,
+        "keyword_idf_score": 9.82,
+        "topic_score": 15.33,
+        "topic_burst_score": 5.51,
+        "topic_burst_count": 6,
+        "resonance_score": 0.0,
+        "info_score": 3.0,
+        "base": 36.33,
+        "base_max": 70.0,
+        "time_factor": 0.6666,
+        "density_factor": 1.0,
+        "density_note": "",
+        "repeat_penalty": 1.0,
+        "repeat_excused": false,
+        "event_size": 1,
+        "event_media_count": 1,
+        "event_cluster_source": "ai",
+        "origin_source": "Environmental Research Letters",
+        "raw": 24.22,
+        "display_score": 82.1,
+        "display_mode": "absolute"
+      },
+      "summary": "基于自然的解决方案（NbS），包括基于生态系统的适应措施，正越来越多地被提议用于非洲城市的气候行动，但相关证据基础较为零散，且缺乏对具体措施的实施情况、实施地点及有效性的系统性综述。 我们分析了从一项系统综述中筛选出的112项研究，这些研究覆盖了42个国家的134个城市区域，其中包括45个非正规定居点。通过归纳法，我们归纳出五类基于自然的解决方案类型，包括：绿地；河流、流域和排水系统；沿海系统；绿色建筑；以及城市农业和多功能花园。 城市绿地在证据中占据主导地位（占研究的49%），也是功能最多元的类别。城市农业和多功能花园在研究标题中未得到充分重视，仅在5%的研究中被列为主要内容，但在更广泛的干预组合中却占34%。 相关证据虽在增加，但地理上主要集中于大城市。72%的研究报告了成功的气候变化适应成果，27%的研究报告了减缓成果。热岛效应缓解是最常被量化的适应成果，据报告，在整个欧洲大陆的城市绿地和蓝地附近，温度降低了高达12.2 °C。 定性证据表明，城市基于自然的解决方案与有效的海岸保护、洪水风险降低以及水安全提升密切相关。以地方行为体为支柱的多利益相关方治理，以及有意义的社区参与，是有效实施的一致推动因素。然而，长期资金不足、生计中断和人口流离失所等问题，引发了人们对长期影响的担忧。 亟待填补的研究空白包括：纵向有效性监测、针对非正式环境的融资机制、对导致不平等结果的机制进行系统性评估，以及来自代表性不足的地区和小城市的实证数据。",
+      "analysis": "",
+      "topic_tags": [
+        "气候行动",
+        "生态系统适应"
+      ],
+      "category": "气候变化",
+      "matched_keywords": [
+        "气候变化",
+        "流域",
+        "生态系统"
+      ]
+    },
+    {
+      "title": "未依法取得排污许可证排放污染物 安徽霍山永欣新材料被罚20.8万元 - 信网",
+      "title_en": "",
+      "title_zh": "",
+      "link": "https://news.google.com/rss/articles/CBMiUkFVX3lxTE1ZRFNjN2FUMF9LbGtWMTRzV0ZvMDMyOVpYMFduSTdUWFhlT3FlVnp6QV93eXcyZnBqN3I2YVo1dG5Dd082QmFhdnNlS0lpdjNtamc?oc=5",
+      "source": "Google News 环境污染",
+      "published": "2026-10-21T09:20:52+00:00",
+      "hotness": 80.8,
+      "score_v1": 22.52,
+      "score_v2": 80.8,
+      "score_breakdown": {
+        "algorithm": "v3.0",
+        "dimension_max": {
+          "authority": 18.0,
+          "topic": 18.0,
+          "resonance": 18.0,
+          "information": 16.0
+        },
+        "authority_score": 8.05,
+        "keyword_idf_score": 9.79,
+        "topic_score": 9.79,
+        "topic_burst_score": 0.0,
+        "topic_burst_count": 1,
+        "resonance_score": 0.0,
+        "info_score": 5.0,
+        "base": 22.84,
+        "base_max": 70.0,
+        "time_factor": 0.9975,
+        "density_factor": 1.0,
+        "density_note": "",
+        "repeat_penalty": 1.0,
+        "repeat_excused": false,
+        "event_size": 1,
+        "event_media_count": 1,
+        "event_cluster_source": "ai",
+        "origin_source": "信网",
+        "raw": 22.78,
+        "display_score": 80.8,
+        "display_mode": "absolute"
+      },
+      "summary": "安徽霍山永欣新材料因未取得排污许可证擅自排放污染物，被六安市生态环境局依法查处并处以20.8万元罚款。",
+      "analysis": "",
+      "topic_tags": [
+        "六安市生态环境局",
+        "未依法取得排污许可证",
+        "排放污染物"
+      ],
+      "category": "生态环境",
+      "matched_keywords": [
+        "排污许可"
+      ]
+    },
+    {
+      "title": "【协会动态】2026副省级城市环境保护产业协会联席会第二次工作会议召开 - 搜狐",
+      "title_en": "",
+      "title_zh": "",
+      "link": "https://news.google.com/rss/articles/CBMijAFBVV95cUxPV0ZBR1ZCUFkwZGNvWDJCM2tnVXJKeHhzVGZ3bEV2NVgxVy1LZDBkelVkQ2JERHZKbHhZSEpULWhkVWJLOUFLUnA1V3dqNF9WR1daZGtxMEJuODRNV3o5OW14d0l4LV83MnQ4cVpFMDluem9LRE1UcUFhSkVfTEFVNXJ5XzV4dHFQNlE5TA?oc=5",
+      "source": "Google News 环境保护",
+      "published": "2026-10-21T09:01:10+00:00",
+      "hotness": 80.6,
+      "score_v1": 26.39,
+      "score_v2": 80.6,
+      "score_breakdown": {
+        "algorithm": "v3.0",
+        "dimension_max": {
+          "authority": 18.0,
+          "topic": 18.0,
+          "resonance": 18.0,
+          "information": 16.0
+        },
+        "authority_score": 8.05,
+        "keyword_idf_score": 5.46,
+        "topic_score": 9.25,
+        "topic_burst_score": 3.79,
+        "topic_burst_count": 3,
+        "resonance_score": 8.76,
+        "info_score": 9.0,
+        "base": 35.06,
+        "base_max": 70.0,
+        "time_factor": 0.9931,
+        "density_factor": 0.65,
+        "density_note": "地方政务通稿",
+        "repeat_penalty": 1.0,
+        "repeat_excused": true,
+        "event_size": 2,
+        "event_media_count": 2,
+        "event_cluster_source": "ai",
+        "origin_source": "搜狐",
+        "raw": 22.63,
+        "display_score": 80.6,
+        "display_mode": "absolute"
+      },
+      "summary": "月15日，副省级城市环境保护产业协会联席会第二次工作会议在哈尔滨市环境保护产业协会召开，成员单位就相关事务进行交流。",
+      "analysis": "",
+      "topic_tags": [
+        "环境保护产业协会联席会"
+      ],
+      "category": "环境政策",
+      "matched_keywords": [
+        "环境保护"
+      ]
+    },
+    {
+      "title": "《中国应对气候变化的政策与行动2026年度报告》正式发布 - 光明网",
+      "title_en": "",
+      "title_zh": "",
+      "link": "https://news.google.com/rss/articles/CBMiZkFVX3lxTE9sOTY4em9tNmRERDMtOGdqbXJ0RllLSU5HUklDaWxEVDAwQ2xvVmVqcXlPOXRfR1FuOUotUlR0NTFyd3JxcU9NVzZjMzJQcmY4UEJaUDU0anB2QThrbzM2UWxscmhaZw?oc=5",
+      "source": "Google News 气候变化",
+      "published": "2026-10-21T08:58:00+00:00",
+      "hotness": 79.9,
+      "score_v1": 32.37,
+      "score_v2": 79.9,
+      "score_breakdown": {
+        "algorithm": "v3.0",
+        "dimension_max": {
+          "authority": 18.0,
+          "topic": 18.0,
+          "resonance": 18.0,
+          "information": 16.0
+        },
+        "authority_score": 8.05,
+        "keyword_idf_score": 3.5,
+        "topic_score": 9.01,
+        "topic_burst_score": 5.51,
+        "topic_burst_count": 6,
+        "resonance_score": 0.0,
+        "info_score": 5.0,
+        "base": 22.06,
+        "base_max": 70.0,
+        "time_factor": 0.9923,
+        "density_factor": 1.0,
+        "density_note": "",
+        "repeat_penalty": 1.0,
+        "repeat_excused": false,
+        "event_size": 1,
+        "event_media_count": 1,
+        "event_cluster_source": "ai",
+        "origin_source": "光明网",
+        "raw": 21.89,
+        "display_score": 79.9,
+        "display_mode": "absolute"
+      },
+      "summary": "《中国应对气候变化的政策与行动2026年度报告》正式发布，全面梳理我国应对气候变化的政策措施与行动成效。",
+      "analysis": "",
+      "topic_tags": [
+        "气候变化政策"
+      ],
+      "category": "气候变化",
+      "matched_keywords": [
+        "气候变化"
+      ]
+    }
+  ]
+}

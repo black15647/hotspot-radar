@@ -1,0 +1,554 @@
+{
+  "report_date": "2026-10-22",
+  "site_name": "环境学子雷达",
+  "total_items": 40,
+  "snapshot_items": 10,
+  "category_stats": {
+    "生态环境": {
+      "count": 10,
+      "total_heat": 783.8
+    },
+    "环境政策": {
+      "count": 4,
+      "total_heat": 312.8
+    },
+    "气候变化": {
+      "count": 9,
+      "total_heat": 653.9
+    },
+    "能源与碳中和": {
+      "count": 1,
+      "total_heat": 82.0
+    },
+    "其他": {
+      "count": 8,
+      "total_heat": 558.0
+    },
+    "污染治理": {
+      "count": 2,
+      "total_heat": 139.3
+    },
+    "环境健康": {
+      "count": 1,
+      "total_heat": 72.1
+    },
+    "水处理": {
+      "count": 4,
+      "total_heat": 273.5
+    },
+    "科研学术": {
+      "count": 1,
+      "total_heat": 67.9
+    }
+  },
+  "total_sources": 28,
+  "success_sources": 27,
+  "failed_sources": 0,
+  "week_total_items": 222,
+  "week_new_keywords": 73,
+  "policy_ratio": 8.6,
+  "items": [
+    {
+      "title": "生态环境部部长黄润秋出席《生物多样性公约》第十七次缔约方大会期间会见欧盟委员会执行副主席里贝拉等外方高级别代表 - 中华人民共和国生态环境部",
+      "title_en": "",
+      "title_zh": "",
+      "link": "https://news.google.com/rss/articles/CBMidkFVX3lxTE8tVlR0eTJ5eDdyYzJZSjZsUjI0cVRULXZpdktsT2F1ZjdOLTQwQm93emc1MVdkY01JbjZaUFR6dUZQclZNemJhS1RhckRGSlIta2JjWUJISlR5REJ4bGk4dTA1aTZHeDFJTjlhUGp6di02ZlJHQUE?oc=5",
+      "source": "Google News 环境保护",
+      "published": "2026-10-22T02:36:18+00:00",
+      "hotness": 88.1,
+      "score_v1": 36.07,
+      "score_v2": 88.1,
+      "score_breakdown": {
+        "algorithm": "v3.0",
+        "dimension_max": {
+          "authority": 18.0,
+          "topic": 18.0,
+          "resonance": 18.0,
+          "information": 16.0
+        },
+        "authority_score": 8.05,
+        "keyword_idf_score": 8.99,
+        "topic_score": 14.69,
+        "topic_burst_score": 5.7,
+        "topic_burst_count": 7,
+        "resonance_score": 8.76,
+        "info_score": 4.0,
+        "base": 35.5,
+        "base_max": 70.0,
+        "time_factor": 0.9119,
+        "density_factor": 1.0,
+        "density_note": "",
+        "repeat_penalty": 1.0,
+        "repeat_excused": false,
+        "event_size": 2,
+        "event_media_count": 2,
+        "event_cluster_source": "ai",
+        "origin_source": "中华人民共和国生态环境部",
+        "raw": 32.37,
+        "display_score": 88.1,
+        "display_mode": "absolute"
+      },
+      "summary": "生态环境部部长黄润秋在第十七次缔约方大会期间会见欧盟委员会执行副主席里贝拉等外方高级别代表，就生物多样性国际合作交换意见。",
+      "analysis": "",
+      "topic_tags": [
+        "生物多样性公约"
+      ],
+      "category": "生态环境",
+      "matched_keywords": [
+        "生态环境",
+        "生物多样性"
+      ]
+    },
+    {
+      "title": "Urban vegetation experienced less damage than rural vegetation during the 2022 compound hot–dry event in eastern China",
+      "title_en": "Urban vegetation experienced less damage than rural vegetation during the 2022 compound hot–dry event in eastern China",
+      "title_zh": "在2022年中国东部发生的复合性干热事件期间，城市植被遭受的损害程度小于农村植被",
+      "link": "https://iopscience.iop.org/article/10.1088/1748-9326/aeb435",
+      "source": "Environmental Research Letters",
+      "published": "2026-10-21T23:00:00+00:00",
+      "hotness": 85.2,
+      "score_v1": 21.43,
+      "score_v2": 85.2,
+      "score_breakdown": {
+        "algorithm": "v3.0",
+        "dimension_max": {
+          "authority": 18.0,
+          "topic": 18.0,
+          "resonance": 18.0,
+          "information": 16.0
+        },
+        "authority_score": 18.0,
+        "keyword_idf_score": 6.14,
+        "topic_score": 6.14,
+        "topic_burst_score": 0.0,
+        "topic_burst_count": 1,
+        "resonance_score": 0.0,
+        "info_score": 8.0,
+        "base": 32.14,
+        "base_max": 70.0,
+        "time_factor": 0.8713,
+        "density_factor": 1.0,
+        "density_note": "",
+        "repeat_penalty": 1.0,
+        "repeat_excused": false,
+        "event_size": 1,
+        "event_media_count": 1,
+        "event_cluster_source": "ai",
+        "origin_source": "Environmental Research Letters",
+        "raw": 28.0,
+        "display_score": 85.2,
+        "display_mode": "absolute"
+      },
+      "summary": "复合型干热事件（CHDE）对植被生长构成的威胁日益加剧，但城市环境究竟会放大还是缓冲植被对这类极端事件的响应，目前尚不明确。 本研究通过整合2022年中国长江流域（YZB）复合热干事件期间标准化增强植被指数（EVI）的异常值与抗性和恢复指标，考察了城乡植被响应的差异。 研究结果表明，复合干热事件导致长江流域（YZB）范围内EVI普遍下降，但城市植被的下降幅度小于农村植被和农田，受影响像元中的受损面积较小，抗逆性也更高。 相比之下，事件后的恢复情况在不同土地利用类型之间差异不大。这表明，城市植被在此次极端高温干旱事件期间下降幅度较小，主要与应激期受损程度较低有关，而非应激后恢复能力更强。城乡差异与若干气候、环境及城市化相关因素有关。 我们的研究结果强调，在复合气候极端事件影响评估中，有必要明确将城市植被纳入考量，并在日益加剧的热应力和水应力背景下加强适应性管理。",
+      "analysis": "",
+      "topic_tags": [
+        "标准化增强植被指数"
+      ],
+      "category": "环境政策",
+      "matched_keywords": [
+        "流域"
+      ]
+    },
+    {
+      "title": "以“双碳”为牵引加快全面绿色转型——生态环境部介绍我国应对气候变化工作成效 - 新华网",
+      "title_en": "",
+      "title_zh": "",
+      "link": "https://news.google.com/rss/articles/CBMigwFBVV95cUxOUWkxSTUxMVlTV2NyYzhaYS16cl8zLWFsb09EOE4xVXg4TVExSGNEcFZvZDA4WlQxYTdVSWl4ZEJPa0pLMHJSZDdvcVVybWFGRWR2Vjlmem1rcXFPa0VjSUhmcFpSVTFyUXNVWUtHMnVhU3VWYzF0RTVhdndqRm1DSklkUQ?oc=5",
+      "source": "Google News 气候变化",
+      "published": "2026-10-21T10:07:25+00:00",
+      "hotness": 84.8,
+      "score_v1": 38.36,
+      "score_v2": 84.8,
+      "score_breakdown": {
+        "algorithm": "v3.0",
+        "dimension_max": {
+          "authority": 18.0,
+          "topic": 18.0,
+          "resonance": 18.0,
+          "information": 16.0
+        },
+        "authority_score": 8.05,
+        "keyword_idf_score": 7.16,
+        "topic_score": 12.87,
+        "topic_burst_score": 5.7,
+        "topic_burst_count": 7,
+        "resonance_score": 8.76,
+        "info_score": 7.0,
+        "base": 36.67,
+        "base_max": 70.0,
+        "time_factor": 0.7486,
+        "density_factor": 1.0,
+        "density_note": "",
+        "repeat_penalty": 1.0,
+        "repeat_excused": false,
+        "event_size": 2,
+        "event_media_count": 2,
+        "event_cluster_source": "ai",
+        "origin_source": "新华网",
+        "raw": 27.46,
+        "display_score": 84.8,
+        "display_mode": "absolute"
+      },
+      "summary": "以“双碳”为牵引加快全面绿色转型——生态环境部介绍我国应对气候变化工作成效 新华网我国应对气候变化工作取得显著成效 凤凰网副部长李高：我将再次担任中国代表团团长 新浪财经",
+      "analysis": "",
+      "topic_tags": [
+        "双碳",
+        "生态环境部",
+        "气候变化工作成效"
+      ],
+      "category": "环境政策",
+      "matched_keywords": [
+        "气候变化",
+        "生态环境"
+      ]
+    },
+    {
+      "title": "一图读懂｜生态环境基准工作方案（2026—2030年） - 新浪财经",
+      "title_en": "",
+      "title_zh": "",
+      "link": "https://news.google.com/rss/articles/CBMieEFVX3lxTE9ZcVBjczdoS0VncXZDbUs2Zm4tY0xBekRVYkFtcjJiVEpjRjNiNzRlMVlyWGlMa2xYVHpBejJoV1VlS1FWaGduSkE4WVZMNWtjN2tOa0JlaHNteHlpVXB6cGNLclBpT0hDOWhxaWxiZlFkbUVhV05SMw?oc=5",
+      "source": "Google News 生态环境",
+      "published": "2026-10-21T13:02:05+00:00",
+      "hotness": 83.0,
+      "score_v1": 28.85,
+      "score_v2": 83.0,
+      "score_breakdown": {
+        "algorithm": "v3.0",
+        "dimension_max": {
+          "authority": 18.0,
+          "topic": 18.0,
+          "resonance": 18.0,
+          "information": 16.0
+        },
+        "authority_score": 8.05,
+        "keyword_idf_score": 5.18,
+        "topic_score": 10.88,
+        "topic_burst_score": 5.7,
+        "topic_burst_count": 7,
+        "resonance_score": 8.76,
+        "info_score": 5.0,
+        "base": 32.69,
+        "base_max": 70.0,
+        "time_factor": 0.7736,
+        "density_factor": 1.0,
+        "density_note": "",
+        "repeat_penalty": 1.0,
+        "repeat_excused": false,
+        "event_size": 2,
+        "event_media_count": 2,
+        "event_cluster_source": "ai",
+        "origin_source": "新浪财经",
+        "raw": 25.28,
+        "display_score": 83.0,
+        "display_mode": "absolute"
+      },
+      "summary": "生态环境基准工作方案（2026—2030年）明确总体目标和重点任务，旨在规范生态环境基准建设，提升数据支撑能力，为美丽中国建设提供基础保障。",
+      "analysis": "",
+      "topic_tags": [
+        "生态环境基准工作方案",
+        "生态环境基准"
+      ],
+      "category": "生态环境",
+      "matched_keywords": [
+        "生态环境"
+      ]
+    },
+    {
+      "title": "气候大会在即，联合国报告明确1.5℃温控目标落空 - 界面新闻",
+      "title_en": "",
+      "title_zh": "",
+      "link": "https://news.google.com/rss/articles/CBMiWEFVX3lxTE5kdS1pODB0aHB1TmRfUnJKTE9YcnNDN2h3cWtXOWRvS0ZUazh5b0RVNXdOSHpoQnI0Q1JETnZUR2s1QzV0UG1ZbmJfNjhNdFVaYzcwVHV3cTE?oc=5",
+      "source": "Google News 气候变化",
+      "published": "2026-10-22T08:26:42+00:00",
+      "hotness": 82.3,
+      "score_v1": 18.13,
+      "score_v2": 82.3,
+      "score_breakdown": {
+        "algorithm": "v3.0",
+        "dimension_max": {
+          "authority": 18.0,
+          "topic": 18.0,
+          "resonance": 18.0,
+          "information": 16.0
+        },
+        "authority_score": 8.05,
+        "keyword_idf_score": 0.0,
+        "topic_score": 3.0,
+        "topic_burst_score": 0.0,
+        "topic_burst_count": 1,
+        "resonance_score": 8.76,
+        "info_score": 5.0,
+        "base": 24.81,
+        "base_max": 70.0,
+        "time_factor": 0.9847,
+        "density_factor": 1.0,
+        "density_note": "",
+        "repeat_penalty": 1.0,
+        "repeat_excused": true,
+        "event_size": 2,
+        "event_media_count": 2,
+        "event_cluster_source": "ai",
+        "origin_source": "界面新闻",
+        "raw": 24.43,
+        "display_score": 82.3,
+        "display_mode": "absolute"
+      },
+      "summary": "联合国报告明确当前1.5℃温控目标已落空，气候大会在即。土耳其将于11月举办COP31，正式启动《巴黎协定》下的第二次全球盘点并提出量化目标。",
+      "analysis": "",
+      "topic_tags": [
+        "全球盘点"
+      ],
+      "category": "气候变化",
+      "matched_keywords": []
+    },
+    {
+      "title": "Reduced summer carbon dioxide efflux from semi-arid agrivoltaic compared to conventional horticultural soil",
+      "title_en": "Reduced summer carbon dioxide efflux from semi-arid agrivoltaic compared to conventional horticultural soil",
+      "title_zh": "与传统园艺土壤相比，半干旱地区农光互补系统的夏季二氧化碳排放量有所减少",
+      "link": "https://iopscience.iop.org/article/10.1088/1748-9326/aeb1dd",
+      "source": "Environmental Research Letters",
+      "published": "2026-10-21T23:00:00+00:00",
+      "hotness": 82.0,
+      "score_v1": 21.43,
+      "score_v2": 82.0,
+      "score_breakdown": {
+        "algorithm": "v3.0",
+        "dimension_max": {
+          "authority": 18.0,
+          "topic": 18.0,
+          "resonance": 18.0,
+          "information": 16.0
+        },
+        "authority_score": 18.0,
+        "keyword_idf_score": 6.58,
+        "topic_score": 6.58,
+        "topic_burst_score": 0.0,
+        "topic_burst_count": 1,
+        "resonance_score": 0.0,
+        "info_score": 3.0,
+        "base": 27.58,
+        "base_max": 70.0,
+        "time_factor": 0.8713,
+        "density_factor": 1.0,
+        "density_note": "",
+        "repeat_penalty": 1.0,
+        "repeat_excused": false,
+        "event_size": 1,
+        "event_media_count": 1,
+        "event_cluster_source": "ai",
+        "origin_source": "Environmental Research Letters",
+        "raw": 24.03,
+        "display_score": 82.0,
+        "display_mode": "absolute"
+      },
+      "summary": "农业光伏（AV）系统将园艺作物与光伏（PV）基础设施结合在同一地块上，可在半干旱气候条件下为作物长势、发电量和用水效率带来互利效益。但半干旱地区的农业光伏系统是否能为土壤发育和碳（C）积累带来额外效益，目前尚不明确。 在半干旱地区，某些作物的农光系统已被观察到具有更高的地上部生物量和产量，这可能会通过促进更持续、更广泛的微生物和根系呼吸作用而加速碳损失，导致一个生长季内土壤碳的净变化为零或呈负值。 另一方面，AV系统也可能通过减少应激诱导的呼吸作用来保留更多的土壤碳。为了验证这些相互矛盾的假设，我们对比了在美国亚利桑那州南部一个实验性AV站点中种植的两种园艺作物的生物量和产量、土壤碳库，以及半连续微气候和二氧化碳（CO₂）排放量。 在一个夏季生长季内，我们观察到豆科作物 （牛豆，Vigna unguiculata）的日均土壤二氧化碳排放量减少了约9%，而芳香草本植物（罗勒，Ocimum basilicum）种植床的排放量则减少了48%，其中AV系统的影响在植物成熟的季风季节初期最为显著。 在昼夜时间尺度上，与传统园艺种植床相比，AV土壤二氧化碳通量在一天中的较晚时段达到峰值，这与太阳能电池板下土壤温度的滞后升高相吻合。 AV系统中较低的二氧化碳排放量恰与地上部作物生物量翻倍同时发生。在整个生长季节，无论是作物还是覆盖类型，土壤碳含量均呈现类似的下降趋势，这表明在此期间，二氧化碳排放量的减少并未对应土壤碳含量的可测量的增加，同时也突显了厘清其他碳转化和损失途径的必要性。 除了已广为人知的食物、水和能源方面的益处外，我们还发现AV在减少土壤二氧化碳释放方面具有潜力，并敦促未来的研究确定土壤碳含量的变化。",
+      "analysis": "",
+      "topic_tags": [
+        "农业光伏",
+        "半干旱",
+        "土壤碳积累"
+      ],
+      "category": "能源与碳中和",
+      "matched_keywords": [
+        "碳排放"
+      ]
+    },
+    {
+      "title": "Scientists put a salt marsh in a giant wave-machine: here's what they learned",
+      "title_en": "Scientists put a salt marsh in a giant wave-machine: here's what they learned",
+      "title_zh": "科学家将一片盐沼放入巨型造浪机中：以下是他们的发现",
+      "link": "https://www.nature.com/articles/d41586-026-03376-6",
+      "source": "Nature",
+      "published": "2026-10-21T00:00:00+00:00",
+      "hotness": 80.2,
+      "score_v1": 19.47,
+      "score_v2": 80.2,
+      "score_breakdown": {
+        "algorithm": "v3.0",
+        "dimension_max": {
+          "authority": 18.0,
+          "topic": 18.0,
+          "resonance": 18.0,
+          "information": 16.0
+        },
+        "authority_score": 18.0,
+        "keyword_idf_score": 5.58,
+        "topic_score": 7.94,
+        "topic_burst_score": 2.36,
+        "topic_burst_count": 2,
+        "resonance_score": 0.0,
+        "info_score": 7.0,
+        "base": 32.94,
+        "base_max": 70.0,
+        "time_factor": 0.6728,
+        "density_factor": 1.0,
+        "density_note": "",
+        "repeat_penalty": 1.0,
+        "repeat_excused": false,
+        "event_size": 1,
+        "event_media_count": 1,
+        "event_cluster_source": "ai",
+        "origin_source": "Nature",
+        "raw": 22.16,
+        "display_score": 80.2,
+        "display_mode": "absolute"
+      },
+      "summary": "《自然》杂志，。一项实验揭示了这些生态系统如何保护海岸线免受巨大风暴的侵袭——此外，新证据还暗示了丹尼索瓦人可能长什么样子。",
+      "analysis": "",
+      "topic_tags": [
+        "生态环境"
+      ],
+      "category": "生态环境",
+      "matched_keywords": [
+        "生态系统"
+      ]
+    },
+    {
+      "title": "审计现场丨助力生态环境保护提质增效 - 中华人民共和国审计署",
+      "title_en": "",
+      "title_zh": "",
+      "link": "https://news.google.com/rss/articles/CBMiZEFVX3lxTE5kSGlheFJZNWF2YU93bEtJQmRWTDdaLWo4czMzaTViUU51LWxSS1A3QnUtaURTR256clB2UFNJa1hydVVOc0g2NGNpdzg0cjlnSzRvdTBDcmJqd29zaW1jeHUwV2M?oc=5",
+      "source": "Google News 环境保护",
+      "published": "2026-10-22T09:00:32+00:00",
+      "hotness": 79.9,
+      "score_v1": 42.36,
+      "score_v2": 79.9,
+      "score_breakdown": {
+        "algorithm": "v3.0",
+        "dimension_max": {
+          "authority": 18.0,
+          "topic": 18.0,
+          "resonance": 18.0,
+          "information": 16.0
+        },
+        "authority_score": 8.05,
+        "keyword_idf_score": 8.25,
+        "topic_score": 13.95,
+        "topic_burst_score": 5.7,
+        "topic_burst_count": 7,
+        "resonance_score": 0.0,
+        "info_score": 0.0,
+        "base": 22.0,
+        "base_max": 70.0,
+        "time_factor": 0.9921,
+        "density_factor": 1.0,
+        "density_note": "",
+        "repeat_penalty": 1.0,
+        "repeat_excused": false,
+        "event_size": 1,
+        "event_media_count": 1,
+        "event_cluster_source": "ai",
+        "origin_source": "中华人民共和国审计署",
+        "raw": 21.83,
+        "display_score": 79.9,
+        "display_mode": "absolute"
+      },
+      "summary": "审计现场聚焦生态环境保护，通过提质增效审计手段，督促相关部落实环保责任，推动生态环境治理工作规范化、精准化落实。",
+      "analysis": "",
+      "topic_tags": [
+        "生态环境"
+      ],
+      "category": "生态环境",
+      "matched_keywords": [
+        "生态环境",
+        "环境保护"
+      ]
+    },
+    {
+      "title": "实施方案出炉！到2030年川渝地区美丽中国先行区基本建成 - 华龙网",
+      "title_en": "",
+      "title_zh": "",
+      "link": "https://news.google.com/rss/articles/CBMifkFVX3lxTE5NcjE3U2pJWG5EbUFkZUl4VktnNDFMcnVJQzg0bVdVSFpjbWFqY0ZqNzRfeUdHNHFzM1pKdEJ0X05GQjZQdTFyY0prQ3Fab25GZ1dUVGcyRkpDR1diQmV2alNJRHF4NHYxazFNRWxKMEVXYXl1TXprT1l6M0l2Zw?oc=5",
+      "source": "Google News 环境保护",
+      "published": "2026-10-22T06:34:57+00:00",
+      "hotness": 79.0,
+      "score_v1": 17.42,
+      "score_v2": 79.0,
+      "score_breakdown": {
+        "algorithm": "v3.0",
+        "dimension_max": {
+          "authority": 18.0,
+          "topic": 18.0,
+          "resonance": 18.0,
+          "information": 16.0
+        },
+        "authority_score": 8.05,
+        "keyword_idf_score": 0.0,
+        "topic_score": 0.0,
+        "topic_burst_score": 0.0,
+        "topic_burst_count": 1,
+        "resonance_score": 8.76,
+        "info_score": 5.0,
+        "base": 21.81,
+        "base_max": 70.0,
+        "time_factor": 0.9605,
+        "density_factor": 1.0,
+        "density_note": "",
+        "repeat_penalty": 1.0,
+        "repeat_excused": true,
+        "event_size": 2,
+        "event_media_count": 2,
+        "event_cluster_source": "ai",
+        "origin_source": "华龙网",
+        "raw": 20.95,
+        "display_score": 79.0,
+        "display_mode": "absolute"
+      },
+      "summary": "川渝地区印发《美丽中国先行区建设实施方案》，目标到2030年基本建成美丽中国先行区。川渝携手共建，推动区域生态文明建设取得实质性进展。",
+      "analysis": "",
+      "topic_tags": [
+        "环境资讯"
+      ],
+      "category": "其他",
+      "matched_keywords": []
+    },
+    {
+      "title": "Increasing tropical forest fragmentation intensifies extreme high temperatures",
+      "title_en": "Increasing tropical forest fragmentation intensifies extreme high temperatures",
+      "title_zh": "热带森林破碎化加剧导致极端高温现象加剧",
+      "link": "https://iopscience.iop.org/article/10.1088/1748-9326/aeaa6f",
+      "source": "Environmental Research Letters",
+      "published": "2026-10-21T23:00:00+00:00",
+      "hotness": 78.9,
+      "score_v1": 17.43,
+      "score_v2": 78.9,
+      "score_breakdown": {
+        "algorithm": "v3.0",
+        "dimension_max": {
+          "authority": 18.0,
+          "topic": 18.0,
+          "resonance": 18.0,
+          "information": 16.0
+        },
+        "authority_score": 18.0,
+        "keyword_idf_score": 0.0,
+        "topic_score": 3.0,
+        "topic_burst_score": 0.0,
+        "topic_burst_count": 1,
+        "resonance_score": 0.0,
+        "info_score": 3.0,
+        "base": 24.0,
+        "base_max": 70.0,
+        "time_factor": 0.8713,
+        "density_factor": 1.0,
+        "density_note": "",
+        "repeat_penalty": 1.0,
+        "repeat_excused": false,
+        "event_size": 1,
+        "event_media_count": 1,
+        "event_cluster_source": "ai",
+        "origin_source": "Environmental Research Letters",
+        "raw": 20.91,
+        "display_score": 78.9,
+        "display_mode": "absolute"
+      },
+      "summary": "森林砍伐作为最紧迫的全球环境挑战之一，会通过改变地表特性（如反照率、粗糙度和蒸散量）以及相关的陆地-大气相互作用，加剧当地的极端气温。 先前的研究主要关注网格尺度上森林覆盖变化的影响，而亚网格尺度森林破碎化变化的影响则相对较少受到关注。 利用基于卫星的森林破碎化指数（FFI）数据和 ERA5-Land 再分析数据，我们研究了热带森林中 FFI 变化对当地极端温度指数的影响，包括日最高温度的年均值和最大值（分别表示为 TXm 和 TXx）。 研究结果表明，FFI的增加（即森林破碎化程度加深）会显著加剧极端温度，FFI每增加一个单位，TXm和TXx分别上升0.35 °C–1.14 °C和0.83 °C –2.85 °C。这些现象主要归因于森林破碎化导致的地表能量分配变化，这种变化会降低潜热通量并增强显热加热。 极端温度对 FFI 增加的敏感性因地区而异，其中刚果盆地最为显著（TXm 为 1.14 °C/单位，TXx 为 2.85 °C/单位），而亚马逊盆地 （TXm 为 0.58 °C/单位，TXx 为 1.21 °C/单位）以及东南亚（TXm 为 0.35 °C/单位，TXx 为 0.83 °C/单位）则较弱。 这些区域差异源于背景水文气候条件和陆地-大气耦合强度能够调节森林破碎化变化对极端温度的影响。这些发现凸显了森林破碎化加剧在放大局部温度极端事件中的重要作用，这对制定旨在增强在持续变暖背景下应对极端气候事件韧性的森林管理策略具有重要意义。",
+      "analysis": "",
+      "topic_tags": [
+        "森林破碎化"
+      ],
+      "category": "生态环境",
+      "matched_keywords": []
+    }
+  ]
+}

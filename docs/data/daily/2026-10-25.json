@@ -1,0 +1,556 @@
+{
+  "report_date": "2026-10-25",
+  "site_name": "环境学子雷达",
+  "total_items": 34,
+  "snapshot_items": 10,
+  "category_stats": {
+    "污染治理": {
+      "count": 5,
+      "total_heat": 379.9
+    },
+    "生态环境": {
+      "count": 6,
+      "total_heat": 453.7
+    },
+    "能源与碳中和": {
+      "count": 1,
+      "total_heat": 77.3
+    },
+    "科研学术": {
+      "count": 1,
+      "total_heat": 76.8
+    },
+    "气候变化": {
+      "count": 13,
+      "total_heat": 912.9
+    },
+    "环境政策": {
+      "count": 6,
+      "total_heat": 391.1
+    },
+    "水处理": {
+      "count": 1,
+      "total_heat": 67.7
+    },
+    "其他": {
+      "count": 1,
+      "total_heat": 66.7
+    }
+  },
+  "total_sources": 28,
+  "success_sources": 26,
+  "failed_sources": 0,
+  "week_total_items": 273,
+  "week_new_keywords": 80,
+  "policy_ratio": 9.9,
+  "items": [
+    {
+      "title": "生态环境部就地下水污染防治重点区管理征求意见 - 证券之星",
+      "title_en": "",
+      "title_zh": "",
+      "link": "https://news.google.com/rss/articles/CBMiYEFVX3lxTE1JRzNmNm9INUhvU2lkWnVhWVVDbk9GdW5hUUp1SHJYMnJEaExLLU41MXhUR3ZSZDVfWGxLeFZkZkhwc2tDQ3NyLXAxdWpWbHRINGdEaFFmbVE3ZHRNNXA0WQ?oc=5",
+      "source": "Google News 环境污染",
+      "published": "2026-10-25T00:50:50+00:00",
+      "hotness": 85.7,
+      "score_v1": 41.62,
+      "score_v2": 85.7,
+      "score_breakdown": {
+        "algorithm": "v3.0",
+        "dimension_max": {
+          "authority": 18.0,
+          "topic": 18.0,
+          "resonance": 18.0,
+          "information": 16.0
+        },
+        "authority_score": 8.05,
+        "keyword_idf_score": 11.59,
+        "topic_score": 17.1,
+        "topic_burst_score": 5.51,
+        "topic_burst_count": 6,
+        "resonance_score": 0.0,
+        "info_score": 4.0,
+        "base": 29.15,
+        "base_max": 70.0,
+        "time_factor": 0.8946,
+        "density_factor": 1.1,
+        "density_note": "国家级政策文件",
+        "repeat_penalty": 1.0,
+        "repeat_excused": false,
+        "event_size": 1,
+        "event_media_count": 1,
+        "event_cluster_source": "ai",
+        "origin_source": "证券之星",
+        "raw": 28.68,
+        "display_score": 85.7,
+        "display_mode": "absolute"
+      },
+      "summary": "生态环境部发布地下水污染防治重点区管理征求意见稿，旨在强化重点区域地下水污染监管与治理。",
+      "analysis": "",
+      "topic_tags": [
+        "地下水污染防治"
+      ],
+      "category": "污染治理",
+      "matched_keywords": [
+        "水污染",
+        "地下水",
+        "生态环境",
+        "污染防治"
+      ]
+    },
+    {
+      "title": "生态环境部党组召开会议 - 中华人民共和国生态环境部",
+      "title_en": "",
+      "title_zh": "",
+      "link": "https://news.google.com/rss/articles/CBMidkFVX3lxTE9VOVJJSlhKNkc5YktpQzlxZTZfU0pWYnRyV2owWkpudTZPV0k4cHd6UEszQV9na1A3OVl4RHkyQnA4NjVDUEs3OHJKMWdBOGZFRWFyWUZGS2R2UHlyc0U0eW1TcmRZS3ZrSmgyY0JCWmhTUlFJNWc?oc=5",
+      "source": "Google News 生态环境",
+      "published": "2026-10-24T02:47:53+00:00",
+      "hotness": 82.7,
+      "score_v1": 25.4,
+      "score_v2": 82.7,
+      "score_breakdown": {
+        "algorithm": "v3.0",
+        "dimension_max": {
+          "authority": 18.0,
+          "topic": 18.0,
+          "resonance": 18.0,
+          "information": 16.0
+        },
+        "authority_score": 8.05,
+        "keyword_idf_score": 5.07,
+        "topic_score": 10.58,
+        "topic_burst_score": 5.51,
+        "topic_burst_count": 6,
+        "resonance_score": 13.26,
+        "info_score": 4.0,
+        "base": 35.88,
+        "base_max": 70.0,
+        "time_factor": 0.694,
+        "density_factor": 1.0,
+        "density_note": "",
+        "repeat_penalty": 1.0,
+        "repeat_excused": false,
+        "event_size": 3,
+        "event_media_count": 3,
+        "event_cluster_source": "ai",
+        "origin_source": "中华人民共和国生态环境部",
+        "raw": 24.9,
+        "display_score": 82.7,
+        "display_mode": "absolute"
+      },
+      "summary": "生态环境部党组召开会议，研究部署生态环境保护重大工作，强调统筹推进污染防治与生态文明建设。",
+      "analysis": "",
+      "topic_tags": [
+        "生态环境部",
+        "污染防治"
+      ],
+      "category": "生态环境",
+      "matched_keywords": [
+        "生态环境"
+      ]
+    },
+    {
+      "title": "第二届深圳生态环境科技创新大赛总决赛收官 - 搜狐网",
+      "title_en": "",
+      "title_zh": "",
+      "link": "https://news.google.com/rss/articles/CBMijAFBVV95cUxQU2JLREV6Y1AtQmhsVTQxemR6ZnkxdXVuREtjanJWR3U4R0NQVTlBQjB0bUtqLVdfb1RPbnV3anVTUlBPRXMxY183el9xeldjVG16bXdGUzQwZ21xR2JpYzlfaDhZSENfUzZmS1htNnJkYllVLTd2SnFOMG5iVTI2U0lFcG5PUzg0SkkxOQ?oc=5",
+      "source": "Google News 生态环境",
+      "published": "2026-10-24T14:17:00+00:00",
+      "hotness": 82.5,
+      "score_v1": 27.12,
+      "score_v2": 82.5,
+      "score_breakdown": {
+        "algorithm": "v3.0",
+        "dimension_max": {
+          "authority": 18.0,
+          "topic": 18.0,
+          "resonance": 18.0,
+          "information": 16.0
+        },
+        "authority_score": 8.05,
+        "keyword_idf_score": 5.07,
+        "topic_score": 10.58,
+        "topic_burst_score": 5.51,
+        "topic_burst_count": 6,
+        "resonance_score": 8.76,
+        "info_score": 4.0,
+        "base": 31.38,
+        "base_max": 70.0,
+        "time_factor": 0.787,
+        "density_factor": 1.0,
+        "density_note": "",
+        "repeat_penalty": 1.0,
+        "repeat_excused": false,
+        "event_size": 2,
+        "event_media_count": 2,
+        "event_cluster_source": "ai",
+        "origin_source": "搜狐网",
+        "raw": 24.7,
+        "display_score": 82.5,
+        "display_mode": "absolute"
+      },
+      "summary": "第二届深圳生态环境科技创新大赛总决赛落幕，表彰一批生态环境科技创新成果，促进绿色技术转化应用。",
+      "analysis": "",
+      "topic_tags": [
+        "深圳生态环境科技创新大赛",
+        "生态环境科技创新"
+      ],
+      "category": "生态环境",
+      "matched_keywords": [
+        "生态环境"
+      ]
+    },
+    {
+      "title": "被污染的泥塘有人管了 - 手机新浪网",
+      "title_en": "",
+      "title_zh": "",
+      "link": "https://news.google.com/rss/articles/CBMickFVX3lxTE45RkJEMFJ4VHhkai15ZG04ZXZlMDEyelNrTVZ4MkRYeFk3a3ctaDNIMXNoaUhUSUhwTUNNNm83Tk5QS0ZONVlmdUlRamVOX2RXYTVEWWd4MW0zcXEydmVSVTdXUFgtMGNRaEJUOUdKTm1hUQ?oc=5",
+      "source": "Google News 生态环境",
+      "published": "2026-10-25T08:16:00+00:00",
+      "hotness": 77.4,
+      "score_v1": 18.16,
+      "score_v2": 77.4,
+      "score_breakdown": {
+        "algorithm": "v3.0",
+        "dimension_max": {
+          "authority": 18.0,
+          "topic": 18.0,
+          "resonance": 18.0,
+          "information": 16.0
+        },
+        "authority_score": 8.05,
+        "keyword_idf_score": 0.0,
+        "topic_score": 3.0,
+        "topic_burst_score": 0.0,
+        "topic_burst_count": 1,
+        "resonance_score": 8.76,
+        "info_score": 0.0,
+        "base": 19.81,
+        "base_max": 70.0,
+        "time_factor": 0.9856,
+        "density_factor": 1.0,
+        "density_note": "",
+        "repeat_penalty": 1.0,
+        "repeat_excused": true,
+        "event_size": 2,
+        "event_media_count": 2,
+        "event_cluster_source": "ai",
+        "origin_source": "手机新浪网",
+        "raw": 19.52,
+        "display_score": 77.4,
+        "display_mode": "absolute"
+      },
+      "summary": "针对被污染的泥塘治理问题，相关部门介入监管与修复，探索农村水体治理的有效机制与长效管护模式。",
+      "analysis": "",
+      "topic_tags": [
+        "泥塘污染",
+        "水体治理",
+        "农村水体"
+      ],
+      "category": "污染治理",
+      "matched_keywords": []
+    },
+    {
+      "title": "聚焦医学与生命科学、能源环境与气候变化有新成果 - 新浪新闻_手机新浪网",
+      "title_en": "",
+      "title_zh": "",
+      "link": "https://news.google.com/rss/articles/CBMidEFVX3lxTE1VZDgzTmFBOVZ0QWh6eXV1R1pSemtkOUpHZ2Qxa2dPNU9HakNDUld4b3BKLU5paXVwbkZQeUFQOXBOQ0NyVXhUZXlwdEhKajNKUm4yeldLMndEZlo2RGVUTzBhTjBXeVo0bW52QXNCekJfekNP?oc=5",
+      "source": "Google News 气候变化",
+      "published": "2026-10-25T06:26:23+00:00",
+      "hotness": 77.3,
+      "score_v1": 27.46,
+      "score_v2": 77.3,
+      "score_breakdown": {
+        "algorithm": "v3.0",
+        "dimension_max": {
+          "authority": 18.0,
+          "topic": 18.0,
+          "resonance": 18.0,
+          "information": 16.0
+        },
+        "authority_score": 8.05,
+        "keyword_idf_score": 3.49,
+        "topic_score": 8.15,
+        "topic_burst_score": 4.66,
+        "topic_burst_count": 4,
+        "resonance_score": 0.0,
+        "info_score": 4.0,
+        "base": 20.2,
+        "base_max": 70.0,
+        "time_factor": 0.9619,
+        "density_factor": 1.0,
+        "density_note": "",
+        "repeat_penalty": 1.0,
+        "repeat_excused": false,
+        "event_size": 1,
+        "event_media_count": 1,
+        "event_cluster_source": "ai",
+        "origin_source": "手机新浪网",
+        "raw": 19.43,
+        "display_score": 77.3,
+        "display_mode": "absolute"
+      },
+      "summary": "在医学生命科学与能源环境气候变化领域取得新科研成果，突破关键技术瓶颈，为健康与生态可持续发展提供支撑。",
+      "analysis": "",
+      "topic_tags": [
+        "能源环境",
+        "突破关键技术"
+      ],
+      "category": "能源与碳中和",
+      "matched_keywords": [
+        "气候变化"
+      ]
+    },
+    {
+      "title": "Efficient carbon dioxide separation with molecularly thin bilayer carbon membranes",
+      "title_en": "Efficient carbon dioxide separation with molecularly thin bilayer carbon membranes",
+      "title_zh": "利用分子级薄双层碳膜实现高效的二氧化碳分离",
+      "link": "https://www.nature.com/articles/s41893-026-01973-x",
+      "source": "Nature Sustainability",
+      "published": "2026-10-23T00:00:00+00:00",
+      "hotness": 76.8,
+      "score_v1": 25.92,
+      "score_v2": 76.8,
+      "score_breakdown": {
+        "algorithm": "v3.0",
+        "dimension_max": {
+          "authority": 18.0,
+          "topic": 18.0,
+          "resonance": 18.0,
+          "information": 16.0
+        },
+        "authority_score": 18.0,
+        "keyword_idf_score": 9.06,
+        "topic_score": 13.72,
+        "topic_burst_score": 4.66,
+        "topic_burst_count": 4,
+        "resonance_score": 0.0,
+        "info_score": 3.0,
+        "base": 34.72,
+        "base_max": 70.0,
+        "time_factor": 0.5468,
+        "density_factor": 1.0,
+        "density_note": "",
+        "repeat_penalty": 1.0,
+        "repeat_excused": false,
+        "event_size": 1,
+        "event_media_count": 1,
+        "event_cluster_source": "ai",
+        "origin_source": "Nature Sustainability",
+        "raw": 18.99,
+        "display_score": 76.8,
+        "display_mode": "absolute"
+      },
+      "summary": "《自然·可持续性》（Nature Sustainability）， 基于膜的分离技术为减少二氧化碳排放提供了一种极具前景且节能的方法。",
+      "analysis": "",
+      "topic_tags": [
+        "膜分离技术"
+      ],
+      "category": "科研学术",
+      "matched_keywords": [
+        "碳排放",
+        "可持续发展"
+      ]
+    },
+    {
+      "title": "EPA has failed to tackle cancer-linked pesticide pollution, lawsuit alleges",
+      "title_en": "EPA has failed to tackle cancer-linked pesticide pollution, lawsuit alleges",
+      "title_zh": "诉讼称，美国环保署未能解决与癌症相关的农药污染问题",
+      "link": "https://www.theguardian.com/us-news/2026/oct/23/lawsuit-atrazine-pesticide-cancer-epa",
+      "source": "The Guardian Environment",
+      "published": "2026-10-23T12:00:26+00:00",
+      "hotness": 76.4,
+      "score_v1": 15.01,
+      "score_v2": 76.4,
+      "score_breakdown": {
+        "algorithm": "v3.0",
+        "dimension_max": {
+          "authority": 18.0,
+          "topic": 18.0,
+          "resonance": 18.0,
+          "information": 16.0
+        },
+        "authority_score": 12.73,
+        "keyword_idf_score": 7.19,
+        "topic_score": 7.19,
+        "topic_burst_score": 0.0,
+        "topic_burst_count": 1,
+        "resonance_score": 0.0,
+        "info_score": 11.0,
+        "base": 30.92,
+        "base_max": 70.0,
+        "time_factor": 0.6028,
+        "density_factor": 1.0,
+        "density_note": "",
+        "repeat_penalty": 1.0,
+        "repeat_excused": false,
+        "event_size": 1,
+        "event_media_count": 1,
+        "event_cluster_source": "ai",
+        "origin_source": "The Guardian Environment",
+        "raw": 18.64,
+        "display_score": 76.4,
+        "display_mode": "absolute"
+      },
+      "summary": "诉讼称，美国环保署数十年来未能根据《清洁水法》解决地表水中的阿特拉津污染问题。一起新诉讼要求联邦法官下令特朗普政府解决由内分泌干扰物农药阿特拉津造成的广泛污染——该物质的检测浓度经常达到威胁野生动物和人类健康的水平。根据近期对联邦记录的审查，这种与癌症相关的化学物质目前已污染了美国大陆近25%的河流，总长度约86万英里。 这些水道覆盖了全国20%以上的地表饮用水取水口，以及超过67.5万口私人和商业水井。继续阅读...",
+      "analysis": "",
+      "topic_tags": [
+        "农药污染",
+        "癌症"
+      ],
+      "category": "污染治理",
+      "matched_keywords": [
+        "饮用水"
+      ]
+    },
+    {
+      "title": "Rosebank: Life on the oil field at the centre of a political storm",
+      "title_en": "Rosebank: Life on the oil field at the centre of a political storm",
+      "title_zh": "罗斯班克：身处政治风暴中心的油田生活",
+      "link": "https://www.bbc.co.uk/news/articles/cqy8ljkle97ro?at_medium=RSS&at_campaign=rss",
+      "source": "BBC 科学与环境",
+      "published": "2026-10-25T07:15:38+00:00",
+      "hotness": 75.9,
+      "score_v1": 18.67,
+      "score_v2": 75.9,
+      "score_breakdown": {
+        "algorithm": "v3.0",
+        "dimension_max": {
+          "authority": 18.0,
+          "topic": 18.0,
+          "resonance": 18.0,
+          "information": 16.0
+        },
+        "authority_score": 12.73,
+        "keyword_idf_score": 0.0,
+        "topic_score": 3.0,
+        "topic_burst_score": 0.0,
+        "topic_burst_count": 1,
+        "resonance_score": 0.0,
+        "info_score": 3.0,
+        "base": 18.73,
+        "base_max": 70.0,
+        "time_factor": 0.9724,
+        "density_factor": 1.0,
+        "density_note": "",
+        "repeat_penalty": 1.0,
+        "repeat_excused": false,
+        "event_size": 1,
+        "event_media_count": 1,
+        "event_cluster_source": "ai",
+        "origin_source": "BBC 科学与环境",
+        "raw": 18.21,
+        "display_score": 75.9,
+        "display_mode": "absolute"
+      },
+      "summary": "《苏格兰》杂志编辑詹姆斯·库克探访了一艘停泊在待开发油田、静待命运的船只，了解船上生活是怎样的。",
+      "analysis": "",
+      "topic_tags": [
+        "气候变化"
+      ],
+      "category": "气候变化",
+      "matched_keywords": []
+    },
+    {
+      "title": "A thin carbon membrane to capture carbon",
+      "title_en": "A thin carbon membrane to capture carbon",
+      "title_zh": "一种用于捕获碳的薄碳膜",
+      "link": "https://www.nature.com/articles/s41893-026-01960-2",
+      "source": "Nature Sustainability",
+      "published": "2026-10-23T00:00:00+00:00",
+      "hotness": 75.8,
+      "score_v1": 31.92,
+      "score_v2": 75.8,
+      "score_breakdown": {
+        "algorithm": "v3.0",
+        "dimension_max": {
+          "authority": 18.0,
+          "topic": 18.0,
+          "resonance": 18.0,
+          "information": 16.0
+        },
+        "authority_score": 18.0,
+        "keyword_idf_score": 7.58,
+        "topic_score": 12.24,
+        "topic_burst_score": 4.66,
+        "topic_burst_count": 4,
+        "resonance_score": 0.0,
+        "info_score": 3.0,
+        "base": 33.24,
+        "base_max": 70.0,
+        "time_factor": 0.5468,
+        "density_factor": 1.0,
+        "density_note": "",
+        "repeat_penalty": 1.0,
+        "repeat_excused": false,
+        "event_size": 1,
+        "event_media_count": 1,
+        "event_cluster_source": "ai",
+        "origin_source": "Nature Sustainability",
+        "raw": 18.18,
+        "display_score": 75.8,
+        "display_mode": "absolute"
+      },
+      "summary": "《自然·可持续性》（Nature Sustainability）， 人为排放正导致大气中二氧化碳浓度迅速上升，这对全球气候造成了严重后果。 研究人员开发了一种厚度仅为两层分子的碳膜，该膜能够以极高的通量和选择性对二氧化碳进行分离和捕获，为气候变化减缓技术带来了希望。",
+      "analysis": "",
+      "topic_tags": [
+        "气候变化减缓"
+      ],
+      "category": "气候变化",
+      "matched_keywords": [
+        "气候变化",
+        "可持续发展"
+      ]
+    },
+    {
+      "title": "何川调研西南岗经开区项目建设和全县生态环境保护工作 - 新浪财经",
+      "title_en": "",
+      "title_zh": "",
+      "link": "https://news.google.com/rss/articles/CBMidkFVX3lxTE1YUS03dkxYTWxEdmo4Z1ZXNW1OZjFud1F5dC1tLU8tYl9vMG84bjJSaTI0azAxWlh1VXlPczNuRF9Ec3pKbFRQTXA0cXA5QmdmX3lDbEw1dEdxRTlHWXFKbWlQN1RDZnZFWW9pVVF0cjNUZF93NGc?oc=5",
+      "source": "Google News 环境保护",
+      "published": "2026-10-24T15:26:57+00:00",
+      "hotness": 75.7,
+      "score_v1": 33.35,
+      "score_v2": 75.7,
+      "score_breakdown": {
+        "algorithm": "v3.0",
+        "dimension_max": {
+          "authority": 18.0,
+          "topic": 18.0,
+          "resonance": 18.0,
+          "information": 16.0
+        },
+        "authority_score": 8.05,
+        "keyword_idf_score": 8.12,
+        "topic_score": 13.63,
+        "topic_burst_score": 5.51,
+        "topic_burst_count": 6,
+        "resonance_score": 13.26,
+        "info_score": 0.0,
+        "base": 34.93,
+        "base_max": 70.0,
+        "time_factor": 0.7978,
+        "density_factor": 0.65,
+        "density_note": "地方政务通稿",
+        "repeat_penalty": 1.0,
+        "repeat_excused": true,
+        "event_size": 3,
+        "event_media_count": 3,
+        "event_cluster_source": "ai",
+        "origin_source": "新浪财经",
+        "raw": 18.11,
+        "display_score": 75.7,
+        "display_mode": "absolute"
+      },
+      "summary": "何川调研西南岗经开区项目建设情况，重点督导全县生态环境保护工作，推动项目建设与环境保护协同发展。",
+      "analysis": "",
+      "topic_tags": [
+        "生态环境保护"
+      ],
+      "category": "生态环境",
+      "matched_keywords": [
+        "生态环境",
+        "环境保护"
+      ]
+    }
+  ]
+}

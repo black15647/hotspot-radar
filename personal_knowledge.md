@@ -8007,3 +8007,131 @@
 
 ---
 
+## 2026-10-26
+
+**今日高频关键词**：`#气候变化` `#生态环境` `#可持续发展` `#微塑料` `#水处理`
+
+**今日 Top10 热点**
+
+### 1. 生态环境部公布2026年9月和1—9月全国环境空气质量状况 - 中华人民共和国生态环境部
+- **来源**：Google News 生态环境
+- **热度**：89.7
+- **链接**：https://news.google.com/rss/articles/CBMicEFVX3lxTE9wSGRLTDllUkZ0cTU3TzZkUmhjQVhvLVVvVERVWTdpMk0xeFFFOEhWbjVrY3NBYTF6cXdjMm1vTGJrSW9peUduZXZQX2hVc2xYODhYSEc0al93Q1IwaFJGTTFyV0NHd21IODVwckxFbjI?oc=5
+- **摘要**：生态环境部发布2026年9月及1至9月全国环境空气质量状况报告，公布近期空气质量数据。
+- **分析**：该条目涉及【生态环境部】话题，因来源较权威且发布时间较新，热度上升。
+
+### 2. 好心时评 | 从水东湾白鹭翩飞看生态环境治理六大深刻变化 - 21财经
+- **来源**：Google News 生态环境
+- **热度**：84.7
+- **链接**：https://news.google.com/rss/articles/CBMijwFBVV95cUxPTE1yVHpwemR2OVNCSzJfM0k0cF83bHlQRDVnekhwcVFPOHB2S053VFBKbEtoUkRObDgzRzNTU1JaeEw5Qmw3XzJuM3o0R1R3T2lDVjVmVWxlSF95VllMV1czYTg0T3hUbXRkekdGeElTNGJ0d1Z5cjVOZ1VIdnMyTG1Jd0tLM1V0T2JpMTB2TQ?oc=5
+- **摘要**：时评文章基于水东湾白鹭翩飞现象，分析生态环境治理取得六大深刻变化与成效。
+- **分析**：该条目涉及【水东湾】话题，因来源较权威且发布时间较新，热度上升。
+
+### 3. “未来地球与气候变化科学”卫星研讨会在京举行 - 科学网—新闻
+- **来源**：Google News 气候变化
+- **热度**：82.6
+- **链接**：https://news.google.com/rss/articles/CBMiZkFVX3lxTFBsMVBRUk9oSDBFQ256MnpYTHdvb3dwT3B4TEYyWng2ZXJZODF2SW94aDVxNDlObGNZNVYtTFBTbVdXOE1QRGpUWlZNZ1ViM21JdzRNS1ptdDV6aHE1OVZUdVR6bmJnQQ?oc=5
+- **摘要**：在京举行“未来地球与气候变化科学”卫星研讨会，聚焦卫星技术与气候变化科学前沿议题。
+- **分析**：该条目涉及【气候变化科学】话题，因来源较权威且发布时间较新，热度上升。
+
+### 4. 许小峰：气候变化需要提高区域适应能力和综合风险治理水平 - 科学网—新闻
+- **来源**：Google News 气候变化
+- **热度**：82.6
+- **链接**：https://news.google.com/rss/articles/CBMiZkFVX3lxTE4ySERiQnc3eVhYSXk4MFNUUGZJdzBDVjZRdk9HTzRKYWRBOGN1SjJLSXk0c2tKTlFVVmhUb3BQTVFLNXd5QzZ3SGlzcFZIZWszSXpRZS1VcWNDd0luZWtmb0h2aDU3dw?oc=5
+- **摘要**：许小峰指出气候变化需提高区域适应能力与综合风险治理水平，加强应对气候挑战的综合能力。
+- **分析**：该条目涉及【综合风险治理】话题，因来源较权威且发布时间较新，热度上升。
+
+### 5. Sewer-relevant aging of microplastics drives plastic-class-dependent N<sub>2</sub>O emissions from denitrifying sludge
+- **来源**：Water Research
+- **热度**：81.0
+- **链接**：https://www.sciencedirect.com/science/article/pii/S004313542601866X?dgcid=rss_sd_all
+- **摘要**：研究表明，与下水道相关的微塑料老化过程驱动反硝化污泥中塑料类型依赖性的一氧化二氮排放。
+- **分析**：该条目涉及【微塑料】话题，因来源权威性高且话题稀缺度高，热度上升。
+
+### 6. 市生态环境局调研马尾区大气污染防治工作_工作动态_福州市生态环境局 - 福州市人民政府
+- **来源**：Google News 生态环境
+- **热度**：80.7
+- **链接**：https://news.google.com/rss/articles/CBMiggFBVV95cUxPb2NsZzN4Wld4WTdTcjRMQ0o0bHZaWXVUT0VJbFVuVXhmR0lPbTlUUGZackxfOFZjb2JMQnpMaVpqMmpfZ3Q3NjR5Sm5qVy0xWHhZWUdGc1BNZUp2a3JJdGZyVi1lTzV2c3VvSVREcmMzZ0ppU3pRS1FPMmtFNXR6V2ZR?oc=5
+- **摘要**：福州市生态环境局调研组深入马尾区督导检查大气污染防治工作，重点审查近期执法整改及重点时段管控措施落实情况。
+- **分析**：该条目涉及【福州市生态环境局】话题，因来源较权威且发布时间较新，热度上升。
+
+### 7. Quantifying CO and NO2 transport fluxes over southeastern Australia: implications from the 2019–2020 Black Summer and multi-year variability
+- **来源**：Environmental Research Letters
+- **热度**：80.7
+- **链接**：https://iopscience.iop.org/article/10.1088/1748-9326/aea86e
+- **摘要**：The 2019–2020 Black Summer wildfires provide a representative case for quantifying how extreme biomass burning affects regional pollutant transport. In this study, we combine satellite-derived column concentrations, ground-based observations, flux diag
+- **分析**：该条目涉及【环境资讯】话题，因来源权威性高且发布时间较新，热度上升。
+
+### 8. 海南：平稳推进2030年禁售燃油车 - ThePaper.cn
+- **来源**：Google News 生态环境
+- **热度**：79.4
+- **链接**：https://news.google.com/rss/articles/CBMiYEFVX3lxTE9iQmNEUy0tbWJ5TDhreTZTZmlzdXl4OXNPM09tdkVfS21mcnRKbGJqYVFpTTNDT1FJcnBoWlYxSFo3TlNCcFl0RWRFR01ZZ3BPbS03amF6ekI4bUlqaXBEVQ?oc=5
+- **摘要**：海南省人民政府发布意见，计划到2030年全面禁售燃油车，旨在推动新能源汽车产业转型，构建生态环境友好型自由贸易港。
+- **分析**：该条目涉及【生态环境友好型自由贸易港】话题，因来源较权威且发布时间较新，热度上升。
+
+### 9. 聚焦医学与生命科学、能源环境与气候变化有新成果 - 新浪新闻_手机新浪网
+- **来源**：Google News 气候变化
+- **热度**：79.0
+- **链接**：https://news.google.com/rss/articles/CBMidEFVX3lxTE1VZDgzTmFBOVZ0QWh6eXV1R1pSemtkOUpHZ2Qxa2dPNU9HakNDUld4b3BKLU5paXVwbkZQeUFQOXBOQ0NyVXhUZXlwdEhKajNKUm4yeldLMndEZlo2RGVUTzBhTjBXeVo0bW52QXNCekJfekNP?oc=5
+- **摘要**：学术界在医学生命科学与能源环境领域取得突破性进展，特别是在气候变化应对与绿色低碳技术创新方面取得新成果。
+- **分析**：该条目涉及【能源环境】话题，因来源较权威且多家媒体同题报道，热度上升。
+
+### 10. 我为环保作贡献、献良策、当卫士｜七件小事守护生态环境 - 搜狐网
+- **来源**：Google News 环境保护
+- **热度**：77.8
+- **链接**：https://news.google.com/rss/articles/CBMijAFBVV95cUxNMU52TFBtWkhiMmlvUE9oeXRxRDlPS2xCMy1HRThkbGxyMnFOVW5pcE1sRHpZQmtEWUZiNlhqS0RMQmVaSEhiUFhQQjdGcnZ6WUhXWG1VWWxFVDhGakEwS1JRUnlaNks5S19YaHRKVzVRMzZKUTNhTXZTd0ZwbjllR19MMjhzMDRNVDRzLQ?oc=5
+- **摘要**：文章倡导公众从日常小事做起，七件实用环保行动指导公众践行生态文明，共同守护美好家园。
+- **分析**：该条目涉及【生态文明】话题，因来源较权威且多家媒体同题报道，热度上升。
+
+**今日自动提取候选新词**
+
+- **生态**（出现 3 次）
+  - 上下文：好心时评 | 从水东湾白鹭翩飞看生态环境治理六大深刻变化 - 21财经
+  - 上下文：宁波一生态公司94%股权及相关债权拟转让 - 中国水网
+  - 上下文：追回漏缴的环保税，检税携手共护“生态绿”！ - 新浪财经
+- **中国**（出现 3 次）
+  - 上下文：宁波一生态公司94%股权及相关债权拟转让 - 中国水网
+  - 上下文：第二届中国生命周期评价（LCA）产业应用学术年会暨长三角碳中和产教融合共同体会议在同济大学举行 - 同济大学新闻网
+  - 上下文：上市公司--信息披露 - 中国水网
+- **财经**（出现 2 次）
+  - 上下文：好心时评 | 从水东湾白鹭翩飞看生态环境治理六大深刻变化 - 21财经
+  - 上下文：追回漏缴的环保税，检税携手共护“生态绿”！ - 新浪财经
+- **科学网**（出现 2 次）
+  - 上下文：“未来地球与气候变化科学”卫星研讨会在京举行 - 科学网—新闻
+  - 上下文：许小峰：气候变化需要提高区域适应能力和综合风险治理水平 - 科学网—新闻
+- **southeastern**（出现 2 次）
+  - 上下文：Quantifying CO and NO2 transport fluxes over southeastern Australia: implications from the 2019–2020 Black Summer and multi-year variability
+  - 上下文：Contrasting drivers of summer extreme hourly precipitation over the southeastern and northeastern Tibetan Plateau
+- **环保**（出现 2 次）
+  - 上下文：我为环保作贡献、献良策、当卫士｜七件小事守护生态环境 - 搜狐网
+  - 上下文：追回漏缴的环保税，检税携手共护“生态绿”！ - 新浪财经
+- **水网**（出现 2 次）
+  - 上下文：宁波一生态公司94%股权及相关债权拟转让 - 中国水网
+  - 上下文：上市公司--信息披露 - 中国水网
+- **carbon**（出现 2 次）
+  - 上下文：Efficient carbon dioxide separation with molecularly thin bilayer carbon membranes
+  - 上下文：A thin carbon membrane to capture carbon
+- **thin**（出现 2 次）
+  - 上下文：Efficient carbon dioxide separation with molecularly thin bilayer carbon membranes
+  - 上下文：A thin carbon membrane to capture carbon
+- **water**（出现 2 次）
+  - 上下文：Topology-informed survival modelling for predicting future pipe failures in water distribution networks
+  - 上下文：Wetland hydrological multifunctionality as a nature-based solution for improving agricultural water security
+- **networks**（出现 2 次）
+  - 上下文：Topology-informed survival modelling for predicting future pipe failures in water distribution networks
+  - 上下文：Functional hydrological connectivity reshapes nutrient source-response relationships in plain river networks
+- **hydrological**（出现 2 次）
+  - 上下文：Wetland hydrological multifunctionality as a nature-based solution for improving agricultural water security
+  - 上下文：Functional hydrological connectivity reshapes nutrient source-response relationships in plain river networks
+- **improving**（出现 2 次）
+  - 上下文：Wetland hydrological multifunctionality as a nature-based solution for improving agricultural water security
+  - 上下文：Hurricane warning maps are improving, but a dangerous problem remains
+- **flow**（出现 2 次）
+  - 上下文：Recyclable flow battery chemistry
+  - 上下文：A circular oligo(disulfide) anolyte enables practical aqueous redox flow batteries
+- **redox**（出现 2 次）
+  - 上下文：A circular oligo(disulfide) anolyte enables practical aqueous redox flow batteries
+  - 上下文：Opposite dual functions of sulfate: regulated iron redox cycling and microbial succession in pyrophosphate-mediated Feammox system
+
+---
+

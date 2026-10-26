@@ -1,138 +1,138 @@
 # 环境学子雷达 - 每日热点报告
 
-**日期**：2026-10-25
+**日期**：2026-10-26
 **总条目数**：34
 
-**近7天见解**：近7天环境热点呈现出“气候变化”与“生态环境”双轮驱动的特征，前者以气候治理与碳中和为核心，后者聚焦生物多样性与生态修复，两者合计占据近半数以上热度，展现出生态治理与气候行动并重的双重趋势；与此同时，“环境政策”与“水处理”板块虽规模相对较小，但政策导向的刚性与水资源管理的刚需依然是稳固基石，
+**近7天见解**：近7天环境热点呈现“气候变化、生态环境、环境政策”三大类集中，合计超半数热点聚焦于生态治理与政策导向。水处理与污染治理虽占比不高，但作为基础设施与末端治理的关键支撑，其热度稳定且具备实际落地价值；科研学术热点相对分散，整体趋势显示生态治理与政策执行的紧迫性与协同性日益凸显。
 
 ---
 
 ## 今日热点 TOP 10
 
-### 1. [生态环境部就地下水污染防治重点区管理征求意见 - 证券之星](https://news.google.com/rss/articles/CBMiYEFVX3lxTE1JRzNmNm9INUhvU2lkWnVhWVVDbk9GdW5hUUp1SHJYMnJEaExLLU41MXhUR3ZSZDVfWGxLeFZkZkhwc2tDQ3NyLXAxdWpWbHRINGdEaFFmbVE3ZHRNNXA0WQ?oc=5)
-
-- **来源**：Google News 环境污染
-- **热度**：85.7
-- **发布时间**：2026-10-25T00:50:50+00:00
-- **关键词**：水污染, 地下水, 生态环境, 污染防治
-
-> 生态环境部发布地下水污染防治重点区管理征求意见稿，旨在强化重点区域地下水污染监管与治理。
-
-**分析**：该条目涉及【地下水污染防治】话题，因来源较权威且发布时间较新，热度上升。
-
----
-
-### 2. [生态环境部党组召开会议 - 中华人民共和国生态环境部](https://news.google.com/rss/articles/CBMidkFVX3lxTE9VOVJJSlhKNkc5YktpQzlxZTZfU0pWYnRyV2owWkpudTZPV0k4cHd6UEszQV9na1A3OVl4RHkyQnA4NjVDUEs3OHJKMWdBOGZFRWFyWUZGS2R2UHlyc0U0eW1TcmRZS3ZrSmgyY0JCWmhTUlFJNWc?oc=5)
+### 1. [生态环境部公布2026年9月和1—9月全国环境空气质量状况 - 中华人民共和国生态环境部](https://news.google.com/rss/articles/CBMicEFVX3lxTE9wSGRLTDllUkZ0cTU3TzZkUmhjQVhvLVVvVERVWTdpMk0xeFFFOEhWbjVrY3NBYTF6cXdjMm1vTGJrSW9peUduZXZQX2hVc2xYODhYSEc0al93Q1IwaFJGTTFyV0NHd21IODVwckxFbjI?oc=5)
 
 - **来源**：Google News 生态环境
-- **热度**：82.7
-- **发布时间**：2026-10-24T02:47:53+00:00
+- **热度**：89.7
+- **发布时间**：2026-10-26T10:04:24+00:00
 - **关键词**：生态环境
 
-> 生态环境部党组召开会议，研究部署生态环境保护重大工作，强调统筹推进污染防治与生态文明建设。
+> 生态环境部发布2026年9月及1至9月全国环境空气质量状况报告，公布近期空气质量数据。
 
-**分析**：该条目涉及【生态环境部】话题，因来源较权威且多家媒体同题报道，热度上升。
+**分析**：该条目涉及【生态环境部】话题，因来源较权威且发布时间较新，热度上升。
 
 ---
 
-### 3. [第二届深圳生态环境科技创新大赛总决赛收官 - 搜狐网](https://news.google.com/rss/articles/CBMijAFBVV95cUxQU2JLREV6Y1AtQmhsVTQxemR6ZnkxdXVuREtjanJWR3U4R0NQVTlBQjB0bUtqLVdfb1RPbnV3anVTUlBPRXMxY183el9xeldjVG16bXdGUzQwZ21xR2JpYzlfaDhZSENfUzZmS1htNnJkYllVLTd2SnFOMG5iVTI2U0lFcG5PUzg0SkkxOQ?oc=5)
+### 2. [好心时评 | 从水东湾白鹭翩飞看生态环境治理六大深刻变化 - 21财经](https://news.google.com/rss/articles/CBMijwFBVV95cUxPTE1yVHpwemR2OVNCSzJfM0k0cF83bHlQRDVnekhwcVFPOHB2S053VFBKbEtoUkRObDgzRzNTU1JaeEw5Qmw3XzJuM3o0R1R3T2lDVjVmVWxlSF95VllMV1czYTg0T3hUbXRkekdGeElTNGJ0d1Z5cjVOZ1VIdnMyTG1Jd0tLM1V0T2JpMTB2TQ?oc=5)
 
 - **来源**：Google News 生态环境
-- **热度**：82.5
-- **发布时间**：2026-10-24T14:17:00+00:00
-- **关键词**：生态环境
+- **热度**：84.7
+- **发布时间**：2026-10-26T09:51:00+00:00
+- **关键词**：生态环境, 环境治理
 
-> 第二届深圳生态环境科技创新大赛总决赛落幕，表彰一批生态环境科技创新成果，促进绿色技术转化应用。
+> 时评文章基于水东湾白鹭翩飞现象，分析生态环境治理取得六大深刻变化与成效。
 
-**分析**：该条目涉及【深圳生态环境科技创新大赛】话题，因来源较权威且多家媒体同题报道，热度上升。
-
----
-
-### 4. [被污染的泥塘有人管了 - 手机新浪网](https://news.google.com/rss/articles/CBMickFVX3lxTE45RkJEMFJ4VHhkai15ZG04ZXZlMDEyelNrTVZ4MkRYeFk3a3ctaDNIMXNoaUhUSUhwTUNNNm83Tk5QS0ZONVlmdUlRamVOX2RXYTVEWWd4MW0zcXEydmVSVTdXUFgtMGNRaEJUOUdKTm1hUQ?oc=5)
-
-- **来源**：Google News 生态环境
-- **热度**：77.4
-- **发布时间**：2026-10-25T08:16:00+00:00
-
-> 针对被污染的泥塘治理问题，相关部门介入监管与修复，探索农村水体治理的有效机制与长效管护模式。
-
-**分析**：该条目涉及【泥塘污染】话题，因来源较权威且发布时间较新，热度上升。
+**分析**：该条目涉及【水东湾】话题，因来源较权威且发布时间较新，热度上升。
 
 ---
 
-### 5. [聚焦医学与生命科学、能源环境与气候变化有新成果 - 新浪新闻_手机新浪网](https://news.google.com/rss/articles/CBMidEFVX3lxTE1VZDgzTmFBOVZ0QWh6eXV1R1pSemtkOUpHZ2Qxa2dPNU9HakNDUld4b3BKLU5paXVwbkZQeUFQOXBOQ0NyVXhUZXlwdEhKajNKUm4yeldLMndEZlo2RGVUTzBhTjBXeVo0bW52QXNCekJfekNP?oc=5)
+### 3. [“未来地球与气候变化科学”卫星研讨会在京举行 - 科学网—新闻](https://news.google.com/rss/articles/CBMiZkFVX3lxTFBsMVBRUk9oSDBFQ256MnpYTHdvb3dwT3B4TEYyWng2ZXJZODF2SW94aDVxNDlObGNZNVYtTFBTbVdXOE1QRGpUWlZNZ1ViM21JdzRNS1ptdDV6aHE1OVZUdVR6bmJnQQ?oc=5)
 
 - **来源**：Google News 气候变化
-- **热度**：77.3
+- **热度**：82.6
+- **发布时间**：2026-10-26T08:13:21+00:00
+- **关键词**：气候变化
+
+> 在京举行“未来地球与气候变化科学”卫星研讨会，聚焦卫星技术与气候变化科学前沿议题。
+
+**分析**：该条目涉及【气候变化科学】话题，因来源较权威且发布时间较新，热度上升。
+
+---
+
+### 4. [许小峰：气候变化需要提高区域适应能力和综合风险治理水平 - 科学网—新闻](https://news.google.com/rss/articles/CBMiZkFVX3lxTE4ySERiQnc3eVhYSXk4MFNUUGZJdzBDVjZRdk9HTzRKYWRBOGN1SjJLSXk0c2tKTlFVVmhUb3BQTVFLNXd5QzZ3SGlzcFZIZWszSXpRZS1VcWNDd0luZWtmb0h2aDU3dw?oc=5)
+
+- **来源**：Google News 气候变化
+- **热度**：82.6
+- **发布时间**：2026-10-26T08:14:12+00:00
+- **关键词**：气候变化
+
+> 许小峰指出气候变化需提高区域适应能力与综合风险治理水平，加强应对气候挑战的综合能力。
+
+**分析**：该条目涉及【综合风险治理】话题，因来源较权威且发布时间较新，热度上升。
+
+---
+
+### 5. [Sewer-relevant aging of microplastics drives plastic-class-dependent N<sub>2</sub>O emissions from denitrifying sludge](https://www.sciencedirect.com/science/article/pii/S004313542601866X?dgcid=rss_sd_all)
+
+- **来源**：Water Research
+- **热度**：81.0
+- **发布时间**：2026-10-24T10:25:19.650373+00:00
+- **关键词**：污泥, 微塑料
+
+> 研究表明，与下水道相关的微塑料老化过程驱动反硝化污泥中塑料类型依赖性的一氧化二氮排放。
+
+**分析**：该条目涉及【微塑料】话题，因来源权威性高且话题稀缺度高，热度上升。
+
+---
+
+### 6. [市生态环境局调研马尾区大气污染防治工作_工作动态_福州市生态环境局 - 福州市人民政府](https://news.google.com/rss/articles/CBMiggFBVV95cUxPb2NsZzN4Wld4WTdTcjRMQ0o0bHZaWXVUT0VJbFVuVXhmR0lPbTlUUGZackxfOFZjb2JMQnpMaVpqMmpfZ3Q3NjR5Sm5qVy0xWHhZWUdGc1BNZUp2a3JJdGZyVi1lTzV2c3VvSVREcmMzZ0ppU3pRS1FPMmtFNXR6V2ZR?oc=5)
+
+- **来源**：Google News 生态环境
+- **热度**：80.7
+- **发布时间**：2026-10-26T07:13:00+00:00
+- **关键词**：大气污染, 生态环境, 污染防治
+
+> 福州市生态环境局调研组深入马尾区督导检查大气污染防治工作，重点审查近期执法整改及重点时段管控措施落实情况。
+
+**分析**：该条目涉及【福州市生态环境局】话题，因来源较权威且发布时间较新，热度上升。
+
+---
+
+### 7. [Quantifying CO and NO2 transport fluxes over southeastern Australia: implications from the 2019–2020 Black Summer and multi-year variability](https://iopscience.iop.org/article/10.1088/1748-9326/aea86e)
+
+- **来源**：Environmental Research Letters
+- **热度**：80.7
+- **发布时间**：2026-10-26T00:00:00+00:00
+
+> The 2019–2020 Black Summer wildfires provide a representative case for quantifying how extreme biomass burning affects regional pollutant transport. In this study, we combine satellite-derived column concentrations, ground-based observations, flux diag
+
+**分析**：该条目涉及【环境资讯】话题，因来源权威性高且发布时间较新，热度上升。
+
+---
+
+### 8. [海南：平稳推进2030年禁售燃油车 - ThePaper.cn](https://news.google.com/rss/articles/CBMiYEFVX3lxTE9iQmNEUy0tbWJ5TDhreTZTZmlzdXl4OXNPM09tdkVfS21mcnRKbGJqYVFpTTNDT1FJcnBoWlYxSFo3TlNCcFl0RWRFR01ZZ3BPbS03amF6ekI4bUlqaXBEVQ?oc=5)
+
+- **来源**：Google News 生态环境
+- **热度**：79.4
+- **发布时间**：2026-10-26T08:53:00+00:00
+
+> 海南省人民政府发布意见，计划到2030年全面禁售燃油车，旨在推动新能源汽车产业转型，构建生态环境友好型自由贸易港。
+
+**分析**：该条目涉及【生态环境友好型自由贸易港】话题，因来源较权威且发布时间较新，热度上升。
+
+---
+
+### 9. [聚焦医学与生命科学、能源环境与气候变化有新成果 - 新浪新闻_手机新浪网](https://news.google.com/rss/articles/CBMidEFVX3lxTE1VZDgzTmFBOVZ0QWh6eXV1R1pSemtkOUpHZ2Qxa2dPNU9HakNDUld4b3BKLU5paXVwbkZQeUFQOXBOQ0NyVXhUZXlwdEhKajNKUm4yeldLMndEZlo2RGVUTzBhTjBXeVo0bW52QXNCekJfekNP?oc=5)
+
+- **来源**：Google News 气候变化
+- **热度**：79.0
 - **发布时间**：2026-10-25T06:26:23+00:00
 - **关键词**：气候变化
 
-> 在医学生命科学与能源环境气候变化领域取得新科研成果，突破关键技术瓶颈，为健康与生态可持续发展提供支撑。
+> 学术界在医学生命科学与能源环境领域取得突破性进展，特别是在气候变化应对与绿色低碳技术创新方面取得新成果。
 
-**分析**：该条目涉及【能源环境】话题，因来源较权威且发布时间较新，热度上升。
-
----
-
-### 6. [Efficient carbon dioxide separation with molecularly thin bilayer carbon membranes](https://www.nature.com/articles/s41893-026-01973-x)
-
-- **来源**：Nature Sustainability
-- **热度**：76.8
-- **发布时间**：2026-10-23T00:00:00+00:00
-- **关键词**：碳排放, 可持续发展
-
-> 《自然·可持续性》（Nature Sustainability）， 基于膜的分离技术为减少二氧化碳排放提供了一种极具前景且节能的方法。
-
-**分析**：该条目涉及【膜分离技术】话题，因来源权威性高且话题稀缺度高，热度上升。
+**分析**：该条目涉及【能源环境】话题，因来源较权威且多家媒体同题报道，热度上升。
 
 ---
 
-### 7. [EPA has failed to tackle cancer-linked pesticide pollution, lawsuit alleges](https://www.theguardian.com/us-news/2026/oct/23/lawsuit-atrazine-pesticide-cancer-epa)
-
-- **来源**：The Guardian Environment
-- **热度**：76.4
-- **发布时间**：2026-10-23T12:00:26+00:00
-- **关键词**：饮用水
-
-> 诉讼称，美国环保署数十年来未能根据《清洁水法》解决地表水中的阿特拉津污染问题。一起新诉讼要求联邦法官下令特朗普政府解决由内分泌干扰物农药阿特拉津造成的广泛污染——该物质的检测浓度经常达到威胁野生动物和人类健康的水平。根据近期对联邦记录的审查，这种与癌症相关的化学物质目前已污染了美国大陆近25%的河流，总长度约86万英里。 这些水道覆盖了全国20%以上的地表饮用水取水口，以及超过67.5万口私人和商业水井。继续阅读...
-
-**分析**：该条目涉及【农药污染】话题，因来源权威性高，热度上升。
-
----
-
-### 8. [Rosebank: Life on the oil field at the centre of a political storm](https://www.bbc.co.uk/news/articles/cqy8ljkle97ro?at_medium=RSS&at_campaign=rss)
-
-- **来源**：BBC 科学与环境
-- **热度**：75.9
-- **发布时间**：2026-10-25T07:15:38+00:00
-
-> 《苏格兰》杂志编辑詹姆斯·库克探访了一艘停泊在待开发油田、静待命运的船只，了解船上生活是怎样的。
-
-**分析**：该条目涉及【气候变化】话题，因来源权威性高且发布时间较新，热度上升。
-
----
-
-### 9. [A thin carbon membrane to capture carbon](https://www.nature.com/articles/s41893-026-01960-2)
-
-- **来源**：Nature Sustainability
-- **热度**：75.8
-- **发布时间**：2026-10-23T00:00:00+00:00
-- **关键词**：气候变化, 可持续发展
-
-> 《自然·可持续性》（Nature Sustainability）， 人为排放正导致大气中二氧化碳浓度迅速上升，这对全球气候造成了严重后果。 研究人员开发了一种厚度仅为两层分子的碳膜，该膜能够以极高的通量和选择性对二氧化碳进行分离和捕获，为气候变化减缓技术带来了希望。
-
-**分析**：该条目涉及【气候变化减缓】话题，因来源权威性高且话题稀缺度高，热度上升。
-
----
-
-### 10. [何川调研西南岗经开区项目建设和全县生态环境保护工作 - 新浪财经](https://news.google.com/rss/articles/CBMidkFVX3lxTE1YUS03dkxYTWxEdmo4Z1ZXNW1OZjFud1F5dC1tLU8tYl9vMG84bjJSaTI0azAxWlh1VXlPczNuRF9Ec3pKbFRQTXA0cXA5QmdmX3lDbEw1dEdxRTlHWXFKbWlQN1RDZnZFWW9pVVF0cjNUZF93NGc?oc=5)
+### 10. [我为环保作贡献、献良策、当卫士｜七件小事守护生态环境 - 搜狐网](https://news.google.com/rss/articles/CBMijAFBVV95cUxNMU52TFBtWkhiMmlvUE9oeXRxRDlPS2xCMy1HRThkbGxyMnFOVW5pcE1sRHpZQmtEWUZiNlhqS0RMQmVaSEhiUFhQQjdGcnZ6WUhXWG1VWWxFVDhGakEwS1JRUnlaNks5S19YaHRKVzVRMzZKUTNhTXZTd0ZwbjllR19MMjhzMDRNVDRzLQ?oc=5)
 
 - **来源**：Google News 环境保护
-- **热度**：75.7
-- **发布时间**：2026-10-24T15:26:57+00:00
-- **关键词**：生态环境, 环境保护
+- **热度**：77.8
+- **发布时间**：2026-10-25T11:15:00+00:00
+- **关键词**：生态环境
 
-> 何川调研西南岗经开区项目建设情况，重点督导全县生态环境保护工作，推动项目建设与环境保护协同发展。
+> 文章倡导公众从日常小事做起，七件实用环保行动指导公众践行生态文明，共同守护美好家园。
 
-**分析**：该条目涉及【生态环境保护】话题，因来源较权威且多家媒体同题报道，热度上升。
+**分析**：该条目涉及【生态文明】话题，因来源较权威且多家媒体同题报道，热度上升。
 
 ---

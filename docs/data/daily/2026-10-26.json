@@ -1,0 +1,552 @@
+{
+  "report_date": "2026-10-26",
+  "site_name": "环境学子雷达",
+  "total_items": 34,
+  "snapshot_items": 10,
+  "category_stats": {
+    "生态环境": {
+      "count": 5,
+      "total_heat": 398.4
+    },
+    "水处理": {
+      "count": 4,
+      "total_heat": 295.5
+    },
+    "气候变化": {
+      "count": 13,
+      "total_heat": 898.3
+    },
+    "环境政策": {
+      "count": 5,
+      "total_heat": 366.4
+    },
+    "污染治理": {
+      "count": 2,
+      "total_heat": 146.1
+    },
+    "其他": {
+      "count": 4,
+      "total_heat": 274.2
+    },
+    "能源与碳中和": {
+      "count": 1,
+      "total_heat": 79.0
+    }
+  },
+  "total_sources": 28,
+  "success_sources": 27,
+  "failed_sources": 0,
+  "week_total_items": 272,
+  "week_new_keywords": 77,
+  "policy_ratio": 11.0,
+  "items": [
+    {
+      "title": "生态环境部公布2026年9月和1—9月全国环境空气质量状况 - 中华人民共和国生态环境部",
+      "title_en": "",
+      "title_zh": "",
+      "link": "https://news.google.com/rss/articles/CBMicEFVX3lxTE9wSGRLTDllUkZ0cTU3TzZkUmhjQVhvLVVvVERVWTdpMk0xeFFFOEhWbjVrY3NBYTF6cXdjMm1vTGJrSW9peUduZXZQX2hVc2xYODhYSEc0al93Q1IwaFJGTTFyV0NHd21IODVwckxFbjI?oc=5",
+      "source": "Google News 生态环境",
+      "published": "2026-10-26T10:04:24+00:00",
+      "hotness": 89.7,
+      "score_v1": 28.45,
+      "score_v2": 89.7,
+      "score_breakdown": {
+        "algorithm": "v3.0",
+        "dimension_max": {
+          "authority": 18.0,
+          "topic": 18.0,
+          "resonance": 18.0,
+          "information": 16.0
+        },
+        "authority_score": 8.05,
+        "keyword_idf_score": 5.04,
+        "topic_score": 9.7,
+        "topic_burst_score": 4.66,
+        "topic_burst_count": 4,
+        "resonance_score": 8.76,
+        "info_score": 9.0,
+        "base": 35.51,
+        "base_max": 70.0,
+        "time_factor": 0.9951,
+        "density_factor": 1.0,
+        "density_note": "",
+        "repeat_penalty": 1.0,
+        "repeat_excused": false,
+        "event_size": 2,
+        "event_media_count": 2,
+        "event_cluster_source": "ai",
+        "origin_source": "中华人民共和国生态环境部",
+        "raw": 35.33,
+        "display_score": 89.7,
+        "display_mode": "absolute"
+      },
+      "summary": "生态环境部发布2026年9月及1至9月全国环境空气质量状况报告，公布近期空气质量数据。",
+      "analysis": "",
+      "topic_tags": [
+        "生态环境部",
+        "空气质量"
+      ],
+      "category": "生态环境",
+      "matched_keywords": [
+        "生态环境"
+      ]
+    },
+    {
+      "title": "好心时评 | 从水东湾白鹭翩飞看生态环境治理六大深刻变化 - 21财经",
+      "title_en": "",
+      "title_zh": "",
+      "link": "https://news.google.com/rss/articles/CBMijwFBVV95cUxPTE1yVHpwemR2OVNCSzJfM0k0cF83bHlQRDVnekhwcVFPOHB2S053VFBKbEtoUkRObDgzRzNTU1JaeEw5Qmw3XzJuM3o0R1R3T2lDVjVmVWxlSF95VllMV1czYTg0T3hUbXRkekdGeElTNGJ0d1Z5cjVOZ1VIdnMyTG1Jd0tLM1V0T2JpMTB2TQ?oc=5",
+      "source": "Google News 生态环境",
+      "published": "2026-10-26T09:51:00+00:00",
+      "hotness": 84.7,
+      "score_v1": 32.36,
+      "score_v2": 84.7,
+      "score_breakdown": {
+        "algorithm": "v3.0",
+        "dimension_max": {
+          "authority": 18.0,
+          "topic": 18.0,
+          "resonance": 18.0,
+          "information": 16.0
+        },
+        "authority_score": 8.05,
+        "keyword_idf_score": 9.87,
+        "topic_score": 14.53,
+        "topic_burst_score": 4.66,
+        "topic_burst_count": 4,
+        "resonance_score": 0.0,
+        "info_score": 5.0,
+        "base": 27.58,
+        "base_max": 70.0,
+        "time_factor": 0.9922,
+        "density_factor": 1.0,
+        "density_note": "",
+        "repeat_penalty": 1.0,
+        "repeat_excused": false,
+        "event_size": 1,
+        "event_media_count": 1,
+        "event_cluster_source": "ai",
+        "origin_source": "21财经",
+        "raw": 27.36,
+        "display_score": 84.7,
+        "display_mode": "absolute"
+      },
+      "summary": "时评文章基于水东湾白鹭翩飞现象，分析生态环境治理取得六大深刻变化与成效。",
+      "analysis": "",
+      "topic_tags": [
+        "水东湾",
+        "生态环境治理"
+      ],
+      "category": "水处理",
+      "matched_keywords": [
+        "生态环境",
+        "环境治理"
+      ]
+    },
+    {
+      "title": "“未来地球与气候变化科学”卫星研讨会在京举行 - 科学网—新闻",
+      "title_en": "",
+      "title_zh": "",
+      "link": "https://news.google.com/rss/articles/CBMiZkFVX3lxTFBsMVBRUk9oSDBFQ256MnpYTHdvb3dwT3B4TEYyWng2ZXJZODF2SW94aDVxNDlObGNZNVYtTFBTbVdXOE1QRGpUWlZNZ1ViM21JdzRNS1ptdDV6aHE1OVZUdVR6bmJnQQ?oc=5",
+      "source": "Google News 气候变化",
+      "published": "2026-10-26T08:13:21+00:00",
+      "hotness": 82.6,
+      "score_v1": 29.72,
+      "score_v2": 82.6,
+      "score_breakdown": {
+        "algorithm": "v3.0",
+        "dimension_max": {
+          "authority": 18.0,
+          "topic": 18.0,
+          "resonance": 18.0,
+          "information": 16.0
+        },
+        "authority_score": 8.05,
+        "keyword_idf_score": 3.49,
+        "topic_score": 8.68,
+        "topic_burst_score": 5.19,
+        "topic_burst_count": 5,
+        "resonance_score": 8.76,
+        "info_score": 0.0,
+        "base": 25.49,
+        "base_max": 70.0,
+        "time_factor": 0.9707,
+        "density_factor": 1.0,
+        "density_note": "",
+        "repeat_penalty": 1.0,
+        "repeat_excused": true,
+        "event_size": 3,
+        "event_media_count": 2,
+        "event_cluster_source": "ai",
+        "origin_source": "科学网—新闻",
+        "raw": 24.74,
+        "display_score": 82.6,
+        "display_mode": "absolute"
+      },
+      "summary": "在京举行“未来地球与气候变化科学”卫星研讨会，聚焦卫星技术与气候变化科学前沿议题。",
+      "analysis": "",
+      "topic_tags": [
+        "气候变化科学"
+      ],
+      "category": "气候变化",
+      "matched_keywords": [
+        "气候变化"
+      ]
+    },
+    {
+      "title": "许小峰：气候变化需要提高区域适应能力和综合风险治理水平 - 科学网—新闻",
+      "title_en": "",
+      "title_zh": "",
+      "link": "https://news.google.com/rss/articles/CBMiZkFVX3lxTE4ySERiQnc3eVhYSXk4MFNUUGZJdzBDVjZRdk9HTzRKYWRBOGN1SjJLSXk0c2tKTlFVVmhUb3BQTVFLNXd5QzZ3SGlzcFZIZWszSXpRZS1VcWNDd0luZWtmb0h2aDU3dw?oc=5",
+      "source": "Google News 气候变化",
+      "published": "2026-10-26T08:14:12+00:00",
+      "hotness": 82.6,
+      "score_v1": 29.73,
+      "score_v2": 82.6,
+      "score_breakdown": {
+        "algorithm": "v3.0",
+        "dimension_max": {
+          "authority": 18.0,
+          "topic": 18.0,
+          "resonance": 18.0,
+          "information": 16.0
+        },
+        "authority_score": 8.05,
+        "keyword_idf_score": 3.49,
+        "topic_score": 8.68,
+        "topic_burst_score": 5.19,
+        "topic_burst_count": 5,
+        "resonance_score": 8.76,
+        "info_score": 0.0,
+        "base": 25.49,
+        "base_max": 70.0,
+        "time_factor": 0.9709,
+        "density_factor": 1.0,
+        "density_note": "",
+        "repeat_penalty": 1.0,
+        "repeat_excused": false,
+        "event_size": 3,
+        "event_media_count": 2,
+        "event_cluster_source": "ai",
+        "origin_source": "科学网—新闻",
+        "raw": 24.75,
+        "display_score": 82.6,
+        "display_mode": "absolute"
+      },
+      "summary": "许小峰指出气候变化需提高区域适应能力与综合风险治理水平，加强应对气候挑战的综合能力。",
+      "analysis": "",
+      "topic_tags": [
+        "综合风险治理"
+      ],
+      "category": "环境政策",
+      "matched_keywords": [
+        "气候变化"
+      ]
+    },
+    {
+      "title": "Sewer-relevant aging of microplastics drives plastic-class-dependent N<sub>2</sub>O emissions from denitrifying sludge",
+      "title_en": "Sewer-relevant aging of microplastics drives plastic-class-dependent N<sub>2</sub>O emissions from denitrifying sludge",
+      "title_zh": "与污水相关的微塑料老化导致脱氮污泥中产生依赖于塑料类别的 N<sub>2</sub>O 排放",
+      "link": "https://www.sciencedirect.com/science/article/pii/S004313542601866X?dgcid=rss_sd_all",
+      "source": "Water Research",
+      "published": "2026-10-24T10:25:19.650373+00:00",
+      "hotness": 81.0,
+      "score_v1": 22.35,
+      "score_v2": 81.0,
+      "score_breakdown": {
+        "algorithm": "v3.0",
+        "dimension_max": {
+          "authority": 18.0,
+          "topic": 18.0,
+          "resonance": 18.0,
+          "information": 16.0
+        },
+        "authority_score": 18.0,
+        "keyword_idf_score": 9.68,
+        "topic_score": 12.04,
+        "topic_burst_score": 2.36,
+        "topic_burst_count": 2,
+        "resonance_score": 0.0,
+        "info_score": 9.0,
+        "base": 39.04,
+        "base_max": 70.0,
+        "time_factor": 0.5891,
+        "density_factor": 1.0,
+        "density_note": "",
+        "repeat_penalty": 1.0,
+        "repeat_excused": false,
+        "event_size": 1,
+        "event_media_count": 1,
+        "event_cluster_source": "ai",
+        "origin_source": "Water Research",
+        "raw": 23.0,
+        "display_score": 81.0,
+        "display_mode": "absolute"
+      },
+      "summary": "研究表明，与下水道相关的微塑料老化过程驱动反硝化污泥中塑料类型依赖性的一氧化二氮排放。",
+      "analysis": "",
+      "topic_tags": [
+        "微塑料",
+        "下水道",
+        "反硝化污泥"
+      ],
+      "category": "污染治理",
+      "matched_keywords": [
+        "污泥",
+        "微塑料"
+      ]
+    },
+    {
+      "title": "市生态环境局调研马尾区大气污染防治工作_工作动态_福州市生态环境局 - 福州市人民政府",
+      "title_en": "",
+      "title_zh": "",
+      "link": "https://news.google.com/rss/articles/CBMiggFBVV95cUxPb2NsZzN4Wld4WTdTcjRMQ0o0bHZaWXVUT0VJbFVuVXhmR0lPbTlUUGZackxfOFZjb2JMQnpMaVpqMmpfZ3Q3NjR5Sm5qVy0xWHhZWUdGc1BNZUp2a3JJdGZyVi1lTzV2c3VvSVREcmMzZ0ppU3pRS1FPMmtFNXR6V2ZR?oc=5",
+      "source": "Google News 生态环境",
+      "published": "2026-10-26T07:13:00+00:00",
+      "hotness": 80.7,
+      "score_v1": 35.35,
+      "score_v2": 80.7,
+      "score_breakdown": {
+        "algorithm": "v3.0",
+        "dimension_max": {
+          "authority": 18.0,
+          "topic": 18.0,
+          "resonance": 18.0,
+          "information": 16.0
+        },
+        "authority_score": 8.05,
+        "keyword_idf_score": 10.91,
+        "topic_score": 15.57,
+        "topic_burst_score": 4.66,
+        "topic_burst_count": 4,
+        "resonance_score": 8.76,
+        "info_score": 4.0,
+        "base": 36.38,
+        "base_max": 70.0,
+        "time_factor": 0.9579,
+        "density_factor": 0.65,
+        "density_note": "地方政务通稿",
+        "repeat_penalty": 1.0,
+        "repeat_excused": true,
+        "event_size": 2,
+        "event_media_count": 2,
+        "event_cluster_source": "ai",
+        "origin_source": "福州市人民政府",
+        "raw": 22.65,
+        "display_score": 80.7,
+        "display_mode": "absolute"
+      },
+      "summary": "福州市生态环境局调研组深入马尾区督导检查大气污染防治工作，重点审查近期执法整改及重点时段管控措施落实情况。",
+      "analysis": "",
+      "topic_tags": [
+        "福州市生态环境局",
+        "大气污染防治"
+      ],
+      "category": "生态环境",
+      "matched_keywords": [
+        "大气污染",
+        "生态环境",
+        "污染防治"
+      ]
+    },
+    {
+      "title": "Quantifying CO and NO2 transport fluxes over southeastern Australia: implications from the 2019–2020 Black Summer and multi-year variability",
+      "title_en": "Quantifying CO and NO2 transport fluxes over southeastern Australia: implications from the 2019–2020 Black Summer and multi-year variability",
+      "title_zh": "量化澳大利亚东南部地区一氧化碳和二氧化氮的传输通量：2019–2020年“黑色之夏”及多年际变率带来的启示",
+      "link": "https://iopscience.iop.org/article/10.1088/1748-9326/aea86e",
+      "source": "Environmental Research Letters",
+      "published": "2026-10-26T00:00:00+00:00",
+      "hotness": 80.7,
+      "score_v1": 17.47,
+      "score_v2": 80.7,
+      "score_breakdown": {
+        "algorithm": "v3.0",
+        "dimension_max": {
+          "authority": 18.0,
+          "topic": 18.0,
+          "resonance": 18.0,
+          "information": 16.0
+        },
+        "authority_score": 18.0,
+        "keyword_idf_score": 0.0,
+        "topic_score": 0.0,
+        "topic_burst_score": 0.0,
+        "topic_burst_count": 1,
+        "resonance_score": 0.0,
+        "info_score": 8.0,
+        "base": 26.0,
+        "base_max": 70.0,
+        "time_factor": 0.873,
+        "density_factor": 1.0,
+        "density_note": "",
+        "repeat_penalty": 1.0,
+        "repeat_excused": false,
+        "event_size": 1,
+        "event_media_count": 1,
+        "event_cluster_source": "ai",
+        "origin_source": "Environmental Research Letters",
+        "raw": 22.7,
+        "display_score": 80.7,
+        "display_mode": "absolute"
+      },
+      "summary": "The 2019–2020 Black Summer wildfires provide a representative case for quantifying how extreme biomass burning affects regional pollutant transport. In this study, we combine satellite-derived column concentrations, ground-based observations, flux diag",
+      "analysis": "",
+      "topic_tags": [
+        "环境资讯"
+      ],
+      "category": "其他",
+      "matched_keywords": []
+    },
+    {
+      "title": "海南：平稳推进2030年禁售燃油车 - ThePaper.cn",
+      "title_en": "",
+      "title_zh": "",
+      "link": "https://news.google.com/rss/articles/CBMiYEFVX3lxTE9iQmNEUy0tbWJ5TDhreTZTZmlzdXl4OXNPM09tdkVfS21mcnRKbGJqYVFpTTNDT1FJcnBoWlYxSFo3TlNCcFl0RWRFR01ZZ3BPbS03amF6ekI4bUlqaXBEVQ?oc=5",
+      "source": "Google News 生态环境",
+      "published": "2026-10-26T08:53:00+00:00",
+      "hotness": 79.4,
+      "score_v1": 17.97,
+      "score_v2": 79.4,
+      "score_breakdown": {
+        "algorithm": "v3.0",
+        "dimension_max": {
+          "authority": 18.0,
+          "topic": 18.0,
+          "resonance": 18.0,
+          "information": 16.0
+        },
+        "authority_score": 8.05,
+        "keyword_idf_score": 0.0,
+        "topic_score": 0.0,
+        "topic_burst_score": 0.0,
+        "topic_burst_count": 1,
+        "resonance_score": 8.76,
+        "info_score": 5.0,
+        "base": 21.81,
+        "base_max": 70.0,
+        "time_factor": 0.9793,
+        "density_factor": 1.0,
+        "density_note": "",
+        "repeat_penalty": 1.0,
+        "repeat_excused": false,
+        "event_size": 2,
+        "event_media_count": 2,
+        "event_cluster_source": "ai",
+        "origin_source": "ThePaper.cn",
+        "raw": 21.36,
+        "display_score": 79.4,
+        "display_mode": "absolute"
+      },
+      "summary": "海南省人民政府发布意见，计划到2030年全面禁售燃油车，旨在推动新能源汽车产业转型，构建生态环境友好型自由贸易港。",
+      "analysis": "",
+      "topic_tags": [
+        "生态环境友好型自由贸易港"
+      ],
+      "category": "生态环境",
+      "matched_keywords": []
+    },
+    {
+      "title": "聚焦医学与生命科学、能源环境与气候变化有新成果 - 新浪新闻_手机新浪网",
+      "title_en": "",
+      "title_zh": "",
+      "link": "https://news.google.com/rss/articles/CBMidEFVX3lxTE1VZDgzTmFBOVZ0QWh6eXV1R1pSemtkOUpHZ2Qxa2dPNU9HakNDUld4b3BKLU5paXVwbkZQeUFQOXBOQ0NyVXhUZXlwdEhKajNKUm4yeldLMndEZlo2RGVUTzBhTjBXeVo0bW52QXNCekJfekNP?oc=5",
+      "source": "Google News 气候变化",
+      "published": "2026-10-25T06:26:23+00:00",
+      "hotness": 79.0,
+      "score_v1": 23.71,
+      "score_v2": 79.0,
+      "score_breakdown": {
+        "algorithm": "v3.0",
+        "dimension_max": {
+          "authority": 18.0,
+          "topic": 18.0,
+          "resonance": 18.0,
+          "information": 16.0
+        },
+        "authority_score": 8.05,
+        "keyword_idf_score": 3.49,
+        "topic_score": 8.68,
+        "topic_burst_score": 5.19,
+        "topic_burst_count": 5,
+        "resonance_score": 8.76,
+        "info_score": 4.0,
+        "base": 29.49,
+        "base_max": 70.0,
+        "time_factor": 0.7128,
+        "density_factor": 1.0,
+        "density_note": "",
+        "repeat_penalty": 1.0,
+        "repeat_excused": true,
+        "event_size": 3,
+        "event_media_count": 2,
+        "event_cluster_source": "ai",
+        "origin_source": "手机新浪网",
+        "raw": 21.02,
+        "display_score": 79.0,
+        "display_mode": "absolute"
+      },
+      "summary": "学术界在医学生命科学与能源环境领域取得突破性进展，特别是在气候变化应对与绿色低碳技术创新方面取得新成果。",
+      "analysis": "",
+      "topic_tags": [
+        "能源环境",
+        "气候变化应对",
+        "绿色低碳技术创新"
+      ],
+      "category": "能源与碳中和",
+      "matched_keywords": [
+        "气候变化"
+      ]
+    },
+    {
+      "title": "我为环保作贡献、献良策、当卫士｜七件小事守护生态环境 - 搜狐网",
+      "title_en": "",
+      "title_zh": "",
+      "link": "https://news.google.com/rss/articles/CBMijAFBVV95cUxNMU52TFBtWkhiMmlvUE9oeXRxRDlPS2xCMy1HRThkbGxyMnFOVW5pcE1sRHpZQmtEWUZiNlhqS0RMQmVaSEhiUFhQQjdGcnZ6WUhXWG1VWWxFVDhGakEwS1JRUnlaNks5S19YaHRKVzVRMzZKUTNhTXZTd0ZwbjllR19MMjhzMDRNVDRzLQ?oc=5",
+      "source": "Google News 环境保护",
+      "published": "2026-10-25T11:15:00+00:00",
+      "hotness": 77.8,
+      "score_v1": 22.41,
+      "score_v2": 77.8,
+      "score_breakdown": {
+        "algorithm": "v3.0",
+        "dimension_max": {
+          "authority": 18.0,
+          "topic": 18.0,
+          "resonance": 18.0,
+          "information": 16.0
+        },
+        "authority_score": 8.05,
+        "keyword_idf_score": 5.04,
+        "topic_score": 9.7,
+        "topic_burst_score": 4.66,
+        "topic_burst_count": 4,
+        "resonance_score": 8.76,
+        "info_score": 0.0,
+        "base": 26.51,
+        "base_max": 70.0,
+        "time_factor": 0.751,
+        "density_factor": 1.0,
+        "density_note": "",
+        "repeat_penalty": 1.0,
+        "repeat_excused": true,
+        "event_size": 2,
+        "event_media_count": 2,
+        "event_cluster_source": "ai",
+        "origin_source": "搜狐网",
+        "raw": 19.91,
+        "display_score": 77.8,
+        "display_mode": "absolute"
+      },
+      "summary": "文章倡导公众从日常小事做起，七件实用环保行动指导公众践行生态文明，共同守护美好家园。",
+      "analysis": "",
+      "topic_tags": [
+        "生态文明",
+        "环保行动"
+      ],
+      "category": "环境政策",
+      "matched_keywords": [
+        "生态环境"
+      ]
+    }
+  ]
+}

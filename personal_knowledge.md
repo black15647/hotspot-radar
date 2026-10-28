@@ -8299,3 +8299,194 @@
 
 ---
 
+## 2026-10-28
+
+**今日高频关键词**：`#生态环境` `#气候变化` `#可持续发展` `#生态系统` `#生态文明建设`
+
+**今日 Top10 热点**
+
+### 1. 环境新闻茶座举办，多方共议水生态环境治理与节水护水新路径 - ThePaper.cn
+- **来源**：Google News 环境保护
+- **热度**：87.5
+- **链接**：https://news.google.com/rss/articles/CBMiYEFVX3lxTE9PcjNQYTltSjlsd0ZOS2dwMmpYUmp6S0xfejVZUDVaR3N5Ql9yeW5OZmVTcGp4WXh3MW5ZelRLUW9qakw5MTQ0VnRWSDNJZFFBb1VGZDNJSWt2OGhLUEZYNw?oc=5
+- **摘要**：生态环境部部长黄润秋出席“一带一路”绿色创新大会2026，聚焦国际绿色创新合作与生态文明建设。
+- **分析**：该条目涉及【生态环境部】话题，因来源较权威且发布时间较新，热度上升。
+
+### 2. Lithium constraints on India’s transport electrification: system-level impacts and policy implications for the net-zero transition
+- **来源**：Environmental Research Letters
+- **热度**：87.3
+- **链接**：https://iopscience.iop.org/article/10.1088/1748-9326/aeb03a
+- **摘要**：能源转型路径在很大程度上将关键矿物视为低碳能源技术部署中不受限制的因素。 本文针对印度——全球第三大能源消费国及电池级矿产的主要进口国——对这一假设提出了质疑：通过在综合能源系统框架内纳入锂供应限制因素，并量化其对技术选择、电气化进程及转型成本的影响。 本研究从关键矿产可用性约束的角度出发，利用长期能源系统模型评估了脱碳路径的可行性。 利用KINESYS-TIMES模型，十七种情景将三种锂强度敏感性（每千瓦时装机电池容量所需的锂公斤数）与四种可用性情况（分别占无约束净零（NZ）需求的30%、60%和90%，以及无约束）相结合， 两种动态回收变体，以及在中等雄心水平的“加速政策”情景下的三次模拟运行。可用性约束在优化过程中得到严格执行；因此，替代性源于成本最小化，而非事后核算，且该约束的边际价值也得以凸显。 2030年至2070年间，运营车队中保留的锂量增长了二十倍，从36.8千吨/年增至728.4千吨/年，其中2040年后是风险期。 在严格约束下，在建模的固定锂离子技术集范围内，系统会进行重组而非崩溃；电气化进程被放缓，氢能和生物燃料得以扩展，混合动力车辆则内生性地重新进入市场。 在 2045 年之前，回收利用的贡献微乎其微，但到 2070 年，可用量将从 218 kt yr−1 增加到 452 kt yr−1。 在达到上限之前，该约束的影子价格为零，之后呈凸性增长，2070年三项上限的比率分别为1.00:2.79:7.94，而化学创新将使达到上限的时间推迟十五年。 在中等减排目标下，67.9%的化石燃料满足约束上限，而新西兰目标下这一比例仅为10.6%。这些资源
+- **分析**：该条目涉及【技术选择】话题，因来源权威性高且发布时间较新，热度上升。
+
+### 3. Observed sub-surface warming in Northern Eurasia (1963–2022)
+- **来源**：Environmental Research Letters
+- **热度**：86.9
+- **链接**：https://iopscience.iop.org/article/10.1088/1748-9326/aeb0b8
+- **摘要**：由于观测数据有限，此前关于高纬度地区长期土壤温度变化的研究主要集中于近地表空气和近地表土壤温度。这一空白仍使这些气候敏感地区多层土壤中垂直热变化的时空变化及其相关过程难以厘清。 本研究利用1963–2022年期间七个土壤深度层的月度温度数据，对北欧亚地区的土壤温度变化进行了调查。本研究考察了三个粗分土壤深度层（地表以下1米、2米和3米）在不同季节的过去趋势。 结果表明，北欧亚地区的垂直热变化呈现多样性。 大多数观测站显示，年平均近地表气温出现具有统计学意义的变暖，这主要归因于北半球春季普遍出现的显著变暖（占观测站总数的 96%），而北半球冬季和秋季的变暖现象相对较弱（分别占 47% 和 55%）。 在连续永久冻土区域内，深层土壤的变暖趋势更为显著，特别是在北半球夏季，这表明变暖的垂直分布发生了从春季向夏季的转变。 研究结果表明，作为对气候变化的响应，北欧亚地区的变暖趋势随土壤深度的增加而呈现差异。本研究突显了长期多深度土壤温度数据作为北欧亚等高纬度地区模型评估参考的价值。
+- **分析**：该条目涉及【土壤温度】话题，因来源权威性高且发布时间较新，热度上升。
+
+### 4. A century of streamwater quality degradation by input from urban water infrastructure as revealed by tree-ring records
+- **来源**：Environmental Research Letters
+- **热度**：84.3
+- **链接**：https://iopscience.iop.org/article/10.1088/1748-9326/aeb560
+- **摘要**：城市供水网络向天然溪流的输水，是导致溪流水质恶化的驱动因素之一，这种现象很可能在全球范围内普遍存在。我们利用树轮中的锶同位素比值（87Sr/86Sr）开发了一种新的替代指标，以重建市政用水对天然溪流影响的多十年历史。 我们将该方法应用于美国得克萨斯州中部三个分别代表高度城市化、快速城市化和农村环境的流域。自至少1945年以来——即奥斯汀市市政供水基础设施网络首次扩建仅25年后——市政供水在城市流域的径流中一直占据主导地位（>90%）。 在快速城市化流域中，经模型估算的市政用水在溪流基流中的占比，仅在35年内就从约12%上升至33%——增幅达175%，这与人口密度85%的增长相吻合。 相比之下，自1840年代以来，农村流域中市政用水的贡献比例一直较低。城市流域和快速城市化流域中锶同位素浓度上升的时间点表明，市政用水在供水基础设施建成后的短短二十年间，就能显著改变河流的化学成分。 这一替代指标使我们能够重建20世纪和21世纪城市化发展期间的水质恶化过程，包括现代水质监测启动之前的时期。我们的方法为诊断水基础设施在加速城市化和气候压力下的韧性提供了一种工具，有助于制定保护全球淡水资源的主动策略。
+- **分析**：该条目涉及【城市供水网络】话题，因来源权威性高且发布时间较新，热度上升。
+
+### 5. Human mobility-associated ambient PM2.5 differences and inequality in China
+- **来源**：Environmental Research Letters
+- **热度**：83.0
+- **链接**：https://iopscience.iop.org/article/10.1088/1748-9326/aeb683
+- **摘要**：无论是在长期迁移还是短期人口流动过程中，起始地与目的地之间的环境PM2.5状况可能存在差异，但这些差异的程度和异质性尚不明确。 本文利用一项针对约17万名国内移民的全国代表性调查，以及基于百度位置服务数据得出的每日城际流动数据，量化了中国境内与移民及人口流动相关的环境PM2.5浓度差异。我们进一步采用线性回归模型分析了其与社会经济因素的关联。 总体而言，经调查加权后的起始地与目的地（OD）PM2.5 浓度差的平均值为 −3.29 μg m−3，57.15% 的移民迁往了 PM2.5 浓度较低的目的地。 与迁移相关的PM2.5差异在迁移类型、距离和家庭收入方面存在显著异质性，其中跨省迁移、长距离迁移和高收入迁移者更倾向于迁往PM2.5浓度较低的目的地。回归模型进一步表明，迁往经济更发达的目的地并不一定意味着PM2.5差异更有利。 在日尺度上，与人口流动相关的PM2.5源区-目的地差异在春节返乡高峰期间发生显著变化，而在非节假日期间则呈现规律的周周期。这些发现强调，在描述不同环境污染条件下的人口分布特征时，考虑人口流动模式及其异质性至关重要。
+- **分析**：该条目涉及【PM2.5】话题，因来源权威性高且发布时间较新，热度上升。
+
+### 6. 新化学物质环境管理登记办法 - 中华人民共和国生态环境部
+- **来源**：Google News 生态环境部
+- **热度**：81.8
+- **链接**：https://news.google.com/rss/articles/CBMifkFVX3lxTE9udy01OXk2aWNCYU1id3FucU9fQzUxQ01Mbmhsa1Fic1FDcXZZMHpIVVl3OUh1Sm9RNXJBdExLQmdLSFc4SkJhcWpNQ2RfUTJhZjdEb3NESEFxd3Y1d2FJVklGblJvTlJxWG5nUnpPYnZEYVJGVWhQMzY1M3Y2QQ?oc=5
+- **摘要**：生态环境部发布新化学物质管理登记办法，规范化学物质环境登记流程，强化化学品环境风险监管与防控能力。
+- **分析**：该条目涉及【环境管理】话题，因来源权威性高，热度上升。
+
+### 7. Adapting to the risk of Atlantic circulation change
+- **来源**：Nature Sustainability
+- **热度**：80.8
+- **链接**：https://www.nature.com/articles/s41893-026-01961-1
+- **摘要**：《自然·可持续性》， 大西洋环流减弱可能导致各大洲的气温和降水发生变化，推高区域海平面，扰乱粮食生产和海洋生态系统，并削弱海洋碳汇。 受影响最严重的国家在规划中尚未将这些风险纳入考量；我们提出五项措施以弥补这一盲点。
+- **分析**：该条目涉及【气候变化风险】话题，因来源权威性高，热度上升。
+
+### 8. 生态环境部部长黄润秋出席“一带一路”绿色创新大会2026 - 中华人民共和国生态环境部
+- **来源**：Google News 环境保护
+- **热度**：79.6
+- **链接**：https://news.google.com/rss/articles/CBMidkFVX3lxTE0wMDJTLTVmNWVjeEdGdm1PUklseWRheFkta3BPank3QUZsMUtzak5fWTZUZ2Y1R2JHYjZHWmRyUVpFQUFrUzBodzZxYnJPdHk5TTZjTGpDbHhDZXhKUHJzUFVHOTNldi1iazZpZ0ZQRnN5QVF3eGc?oc=5
+- **摘要**：生态环境部部长黄润秋出席“一带一路”绿色创新大会2026，推动国际绿色技术交流与合作，助力全球生态文明建设。
+- **分析**：该条目涉及【生态环境部】话题，因来源较权威，热度上升。
+
+### 9. Methane emissions remain flat even as biggest US oil region opens the tap
+- **来源**：Nature
+- **热度**：79.0
+- **链接**：https://www.nature.com/articles/d41586-026-03388-2
+- **摘要**：《自然》杂志， 在二叠纪盆地油气产量增长三倍的这段时间里，该盆地的温室气体排放量一直保持在近乎恒定的水平。
+- **分析**：该条目涉及【温室气体排放】话题，因来源权威性高，热度上升。
+
+### 10. Emergent constraints improve near-term temperature projections over China: evaluations against observations based on the preindustrial baseline
+- **来源**：Environmental Research Letters
+- **热度**：78.9
+- **链接**：https://iopscience.iop.org/article/10.1088/1748-9326/aeb559
+- **摘要**：突现约束（ECs）被广泛用于降低气候预测中的不确定性，但其可靠性鲜少通过观测数据进行评估。 我们采用一种基于历史全球地表气温趋势和局部残余变暖趋势的成熟EC方法，将其应用于耦合模式相互比较计划第5和第6阶段（CMIP5/6）集合中2006–2025年中国气温变化预测。 与原始预测相比，受约束的预测偏倚较小，模型间差异也较小：泰勒得分提高了 25.6%（8.5%），均方根误差降低了 18.2%（18.2%）， 模型间离散度缩小了45.2%（52.0%）（CMIP5/CMIP6）。 与1986–2005年相比，以1850–1900年为基准时，这些改进更为稳健，这与更强的自发关系以及内部变率贡献较小有关。这些发现支持将约束条件（ECs）应用于区域温度预测，并突显了基准选择在提高受约束温度预测可信度方面的的重要性。
+- **分析**：该条目涉及【气温预测】话题，因来源权威性高且发布时间较新，热度上升。
+
+**今日自动提取候选新词**
+
+- **生态**（出现 3 次）
+  - 上下文：环境新闻茶座举办，多方共议水生态环境治理与节水护水新路径 - ThePaper.cn
+  - 上下文：临平活动周丨聚焦临平区生态环境建设与保护，集智聚力擦亮生态底色 - 杭州政协
+  - 上下文：聚焦水生态环境保护 第十二期环境新闻茶座在北京举办 - 新浪财经
+- **China**（出现 3 次）
+  - 上下文：Human mobility-associated ambient PM2.5 differences and inequality in China
+  - 上下文：Emergent constraints improve near-term temperature projections over China: evaluations against observations based on the preindustrial baseline
+  - 上下文：Two in Three Cars Sold in China Last Month Were Electric
+- **term**（出现 3 次）
+  - 上下文：Emergent constraints improve near-term temperature projections over China: evaluations against observations based on the preindustrial baseline
+  - 上下文：Lake depth modulates phytoplankton resource use efficiency during long-term restoration: a seasonal study of 20 Danish lakes
+  - 上下文：Release of per- and polyfluoroalkyl substances (PFAS) from spent granular activated carbon: Importance of the long-term releasable PFAS pool and suppression by calcium ions
+- **财经**（出现 3 次）
+  - 上下文：21专访丨国家气候变化专家委员会副主任潘家华：零碳转型，发展中经济体“超车”的必由之路 - 新浪财经
+  - 上下文：聚焦水生态环境保护 第十二期环境新闻茶座在北京举办 - 新浪财经
+  - 上下文：欧盟委员会提出加强欧盟气候风险应对能力 - 新浪财经
+- **carbon**（出现 3 次）
+  - 上下文：Release of per- and polyfluoroalkyl substances (PFAS) from spent granular activated carbon: Importance of the long-term releasable PFAS pool and suppression by calcium ions
+  - 上下文：Efficient carbon dioxide separation with molecularly thin bilayer carbon membranes
+  - 上下文：A thin carbon membrane to capture carbon
+- **傅涛**（出现 3 次）
+  - 上下文：傅涛：新供水条例下行业的价值重塑_视频 - 中国水网
+  - 上下文：傅涛：新供水条例之下行业如何做好角色重塑？_视频 - 中国水网
+  - 上下文：傅涛：新供水条例下投资重塑，政企各归其位_视频 - 中国水网
+- **供水**（出现 3 次）
+  - 上下文：傅涛：新供水条例下行业的价值重塑_视频 - 中国水网
+  - 上下文：傅涛：新供水条例之下行业如何做好角色重塑？_视频 - 中国水网
+  - 上下文：傅涛：新供水条例下投资重塑，政企各归其位_视频 - 中国水网
+- **条例**（出现 3 次）
+  - 上下文：傅涛：新供水条例下行业的价值重塑_视频 - 中国水网
+  - 上下文：傅涛：新供水条例之下行业如何做好角色重塑？_视频 - 中国水网
+  - 上下文：傅涛：新供水条例下投资重塑，政企各归其位_视频 - 中国水网
+- **重塑**（出现 3 次）
+  - 上下文：傅涛：新供水条例下行业的价值重塑_视频 - 中国水网
+  - 上下文：傅涛：新供水条例之下行业如何做好角色重塑？_视频 - 中国水网
+  - 上下文：傅涛：新供水条例下投资重塑，政企各归其位_视频 - 中国水网
+- **中国**（出现 3 次）
+  - 上下文：傅涛：新供水条例下行业的价值重塑_视频 - 中国水网
+  - 上下文：傅涛：新供水条例之下行业如何做好角色重塑？_视频 - 中国水网
+  - 上下文：傅涛：新供水条例下投资重塑，政企各归其位_视频 - 中国水网
+- **水网**（出现 3 次）
+  - 上下文：傅涛：新供水条例下行业的价值重塑_视频 - 中国水网
+  - 上下文：傅涛：新供水条例之下行业如何做好角色重塑？_视频 - 中国水网
+  - 上下文：傅涛：新供水条例下投资重塑，政企各归其位_视频 - 中国水网
+- **茶座**（出现 2 次）
+  - 上下文：环境新闻茶座举办，多方共议水生态环境治理与节水护水新路径 - ThePaper.cn
+  - 上下文：聚焦水生态环境保护 第十二期环境新闻茶座在北京举办 - 新浪财经
+- **举办**（出现 2 次）
+  - 上下文：环境新闻茶座举办，多方共议水生态环境治理与节水护水新路径 - ThePaper.cn
+  - 上下文：聚焦水生态环境保护 第十二期环境新闻茶座在北京举办 - 新浪财经
+- **ThePaper**（出现 2 次）
+  - 上下文：环境新闻茶座举办，多方共议水生态环境治理与节水护水新路径 - ThePaper.cn
+  - 上下文：《柳叶刀》：气候变化应被宣布为“全球卫生紧急事件” - ThePaper.cn
+- **constraints**（出现 2 次）
+  - 上下文：Lithium constraints on India’s transport electrification: system-level impacts and policy implications for the net-zero transition
+  - 上下文：Emergent constraints improve near-term temperature projections over China: evaluations against observations based on the preindustrial baseline
+- **urban**（出现 2 次）
+  - 上下文：A century of streamwater quality degradation by input from urban water infrastructure as revealed by tree-ring records
+  - 上下文：The combat of retrofitting urban drainage networks with nature-based solutions: a benchmark comparison
+- **Human**（出现 2 次）
+  - 上下文：Human mobility-associated ambient PM2.5 differences and inequality in China
+  - 上下文：Industry Knew for Decades That Microplastics Could Infiltrate Human Bodies
+- **中华人民共和国**（出现 2 次）
+  - 上下文：新化学物质环境管理登记办法 - 中华人民共和国生态环境部
+  - 上下文：生态环境部部长黄润秋出席“一带一路”绿色创新大会2026 - 中华人民共和国生态环境部
+- **绿色**（出现 2 次）
+  - 上下文：生态环境部部长黄润秋出席“一带一路”绿色创新大会2026 - 中华人民共和国生态环境部
+  - 上下文：逾340家展商汇聚香港第21届国际环保博览 展示环球绿色科技 - 搜狐网
+- **emissions**（出现 2 次）
+  - 上下文：Methane emissions remain flat even as biggest US oil region opens the tap
+  - 上下文：Trump says government to ‘terminate’ Biden-era methane emissions rules
+- **based**（出现 2 次）
+  - 上下文：Emergent constraints improve near-term temperature projections over China: evaluations against observations based on the preindustrial baseline
+  - 上下文：The combat of retrofitting urban drainage networks with nature-based solutions: a benchmark comparison
+- **long**（出现 2 次）
+  - 上下文：Lake depth modulates phytoplankton resource use efficiency during long-term restoration: a seasonal study of 20 Danish lakes
+  - 上下文：Release of per- and polyfluoroalkyl substances (PFAS) from spent granular activated carbon: Importance of the long-term releasable PFAS pool and suppression by calcium ions
+- **Trump**（出现 2 次）
+  - 上下文：Trump says government to ‘terminate’ Biden-era methane emissions rules
+  - 上下文：Trump’s cuts have exposed US to ‘cascade’ of El Niño dangers, experts warn
+- **无废**（出现 2 次）
+  - 上下文：温州加码固废资源化与“无废城市”建设 - 温州新闻
+  - 上下文：推进全域“无废城市” 建设--> - 天津日报
+- **城市**（出现 2 次）
+  - 上下文：温州加码固废资源化与“无废城市”建设 - 温州新闻
+  - 上下文：推进全域“无废城市” 建设--> - 天津日报
+- **New**（出现 2 次）
+  - 上下文：Nanotyrannus skeleton sells for $47.3m in New York auction
+  - 上下文：Adaptation Fund Board Approves Nearly US$100M in New Projects, Underscores Urgency of Paris Agreement Transition
+- **聚焦**（出现 2 次）
+  - 上下文：临平活动周丨聚焦临平区生态环境建设与保护，集智聚力擦亮生态底色 - 杭州政协
+  - 上下文：聚焦水生态环境保护 第十二期环境新闻茶座在北京举办 - 新浪财经
+- **Scotland**（出现 2 次）
+  - 上下文：Weather warning lifted as third storm to hit Scotland eases off
+  - 上下文：Scotland's recycling rates at five-year low. How is your area doing?
+- **柳叶刀**（出现 2 次）
+  - 上下文：《柳叶刀》：气候变化应被宣布为“全球卫生紧急事件” - ThePaper.cn
+  - 上下文：柳叶刀倒计时报告：气候变化对人类健康的危害正加速攀升 - 凤凰网科技
+- **科技**（出现 2 次）
+  - 上下文：柳叶刀倒计时报告：气候变化对人类健康的危害正加速攀升 - 凤凰网科技
+  - 上下文：逾340家展商汇聚香港第21届国际环保博览 展示环球绿色科技 - 搜狐网
+- **thin**（出现 2 次）
+  - 上下文：Efficient carbon dioxide separation with molecularly thin bilayer carbon membranes
+  - 上下文：A thin carbon membrane to capture carbon
+- **Earth**（出现 2 次）
+  - 上下文：Introducing Berkeley Earth’s Data Pipeline 2.0
+  - 上下文：Sunlight at night: US startup’s demonstration of lighting Earth from space draws criticism
+- **flow**（出现 2 次）
+  - 上下文：Recyclable flow battery chemistry
+  - 上下文：A circular oligo(disulfide) anolyte enables practical aqueous redox flow batteries
+
+---
+

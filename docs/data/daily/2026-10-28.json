@@ -1,0 +1,550 @@
+{
+  "report_date": "2026-10-28",
+  "site_name": "环境学子雷达",
+  "total_items": 50,
+  "snapshot_items": 10,
+  "category_stats": {
+    "生态环境": {
+      "count": 9,
+      "total_heat": 695.2
+    },
+    "科研学术": {
+      "count": 4,
+      "total_heat": 310.3
+    },
+    "水处理": {
+      "count": 1,
+      "total_heat": 84.3
+    },
+    "污染治理": {
+      "count": 5,
+      "total_heat": 368.6
+    },
+    "气候变化": {
+      "count": 16,
+      "total_heat": 1139.3
+    },
+    "其他": {
+      "count": 9,
+      "total_heat": 594.5
+    },
+    "环境政策": {
+      "count": 6,
+      "total_heat": 373.2
+    }
+  },
+  "total_sources": 28,
+  "success_sources": 27,
+  "failed_sources": 0,
+  "week_total_items": 284,
+  "week_new_keywords": 77,
+  "policy_ratio": 10.9,
+  "items": [
+    {
+      "title": "环境新闻茶座举办，多方共议水生态环境治理与节水护水新路径 - ThePaper.cn",
+      "title_en": "",
+      "title_zh": "",
+      "link": "https://news.google.com/rss/articles/CBMiYEFVX3lxTE9PcjNQYTltSjlsd0ZOS2dwMmpYUmp6S0xfejVZUDVaR3N5Ql9yeW5OZmVTcGp4WXh3MW5ZelRLUW9qakw5MTQ0VnRWSDNJZFFBb1VGZDNJSWt2OGhLUEZYNw?oc=5",
+      "source": "Google News 环境保护",
+      "published": "2026-10-28T08:53:00+00:00",
+      "hotness": 87.5,
+      "score_v1": 37.84,
+      "score_v2": 87.5,
+      "score_breakdown": {
+        "algorithm": "v3.0",
+        "dimension_max": {
+          "authority": 18.0,
+          "topic": 18.0,
+          "resonance": 18.0,
+          "information": 16.0
+        },
+        "authority_score": 8.05,
+        "keyword_idf_score": 9.74,
+        "topic_score": 15.44,
+        "topic_burst_score": 5.7,
+        "topic_burst_count": 7,
+        "resonance_score": 8.76,
+        "info_score": 0.0,
+        "base": 32.25,
+        "base_max": 70.0,
+        "time_factor": 0.9748,
+        "density_factor": 1.0,
+        "density_note": "",
+        "repeat_penalty": 1.0,
+        "repeat_excused": false,
+        "event_size": 2,
+        "event_media_count": 2,
+        "event_cluster_source": "ai",
+        "origin_source": "ThePaper.cn",
+        "raw": 31.43,
+        "display_score": 87.5,
+        "display_mode": "absolute"
+      },
+      "summary": "生态环境部部长黄润秋出席“一带一路”绿色创新大会2026，聚焦国际绿色创新合作与生态文明建设。",
+      "analysis": "",
+      "topic_tags": [
+        "生态环境部",
+        "一带一路绿色创新大会"
+      ],
+      "category": "生态环境",
+      "matched_keywords": [
+        "生态环境",
+        "环境治理"
+      ]
+    },
+    {
+      "title": "Lithium constraints on India’s transport electrification: system-level impacts and policy implications for the net-zero transition",
+      "title_en": "Lithium constraints on India’s transport electrification: system-level impacts and policy implications for the net-zero transition",
+      "title_zh": "锂资源对印度交通电气化的制约：系统层面的影响及对净零转型的政策启示",
+      "link": "https://iopscience.iop.org/article/10.1088/1748-9326/aeb03a",
+      "source": "Environmental Research Letters",
+      "published": "2026-10-28T00:00:00+00:00",
+      "hotness": 87.3,
+      "score_v1": 25.38,
+      "score_v2": 87.3,
+      "score_breakdown": {
+        "algorithm": "v3.0",
+        "dimension_max": {
+          "authority": 18.0,
+          "topic": 18.0,
+          "resonance": 18.0,
+          "information": 16.0
+        },
+        "authority_score": 18.0,
+        "keyword_idf_score": 10.77,
+        "topic_score": 10.77,
+        "topic_burst_score": 0.0,
+        "topic_burst_count": 1,
+        "resonance_score": 0.0,
+        "info_score": 7.0,
+        "base": 35.77,
+        "base_max": 70.0,
+        "time_factor": 0.8692,
+        "density_factor": 1.0,
+        "density_note": "",
+        "repeat_penalty": 1.0,
+        "repeat_excused": false,
+        "event_size": 1,
+        "event_media_count": 1,
+        "event_cluster_source": "ai",
+        "origin_source": "Environmental Research Letters",
+        "raw": 31.09,
+        "display_score": 87.3,
+        "display_mode": "absolute"
+      },
+      "summary": "能源转型路径在很大程度上将关键矿物视为低碳能源技术部署中不受限制的因素。 本文针对印度——全球第三大能源消费国及电池级矿产的主要进口国——对这一假设提出了质疑：通过在综合能源系统框架内纳入锂供应限制因素，并量化其对技术选择、电气化进程及转型成本的影响。 本研究从关键矿产可用性约束的角度出发，利用长期能源系统模型评估了脱碳路径的可行性。 利用KINESYS-TIMES模型，十七种情景将三种锂强度敏感性（每千瓦时装机电池容量所需的锂公斤数）与四种可用性情况（分别占无约束净零（NZ）需求的30%、60%和90%，以及无约束）相结合， 两种动态回收变体，以及在中等雄心水平的“加速政策”情景下的三次模拟运行。可用性约束在优化过程中得到严格执行；因此，替代性源于成本最小化，而非事后核算，且该约束的边际价值也得以凸显。 2030年至2070年间，运营车队中保留的锂量增长了二十倍，从36.8千吨/年增至728.4千吨/年，其中2040年后是风险期。 在严格约束下，在建模的固定锂离子技术集范围内，系统会进行重组而非崩溃；电气化进程被放缓，氢能和生物燃料得以扩展，混合动力车辆则内生性地重新进入市场。 在 2045 年之前，回收利用的贡献微乎其微，但到 2070 年，可用量将从 218 kt yr−1 增加到 452 kt yr−1。 在达到上限之前，该约束的影子价格为零，之后呈凸性增长，2070年三项上限的比率分别为1.00:2.79:7.94，而化学创新将使达到上限的时间推迟十五年。 在中等减排目标下，67.9%的化石燃料满足约束上限，而新西兰目标下这一比例仅为10.6%。这些资源",
+      "analysis": "",
+      "topic_tags": [
+        "技术选择"
+      ],
+      "category": "科研学术",
+      "matched_keywords": [
+        "碳中和",
+        "能源转型"
+      ]
+    },
+    {
+      "title": "Observed sub-surface warming in Northern Eurasia (1963–2022)",
+      "title_en": "Observed sub-surface warming in Northern Eurasia (1963–2022)",
+      "title_zh": "欧亚大陆北部观测到的地表以下变暖现象（1963–2022）",
+      "link": "https://iopscience.iop.org/article/10.1088/1748-9326/aeb0b8",
+      "source": "Environmental Research Letters",
+      "published": "2026-10-28T00:00:00+00:00",
+      "hotness": 86.9,
+      "score_v1": 31.38,
+      "score_v2": 86.9,
+      "score_breakdown": {
+        "algorithm": "v3.0",
+        "dimension_max": {
+          "authority": 18.0,
+          "topic": 18.0,
+          "resonance": 18.0,
+          "information": 16.0
+        },
+        "authority_score": 18.0,
+        "keyword_idf_score": 3.49,
+        "topic_score": 9.0,
+        "topic_burst_score": 5.51,
+        "topic_burst_count": 6,
+        "resonance_score": 0.0,
+        "info_score": 8.0,
+        "base": 35.0,
+        "base_max": 70.0,
+        "time_factor": 0.8692,
+        "density_factor": 1.0,
+        "density_note": "",
+        "repeat_penalty": 1.0,
+        "repeat_excused": false,
+        "event_size": 1,
+        "event_media_count": 1,
+        "event_cluster_source": "ai",
+        "origin_source": "Environmental Research Letters",
+        "raw": 30.42,
+        "display_score": 86.9,
+        "display_mode": "absolute"
+      },
+      "summary": "由于观测数据有限，此前关于高纬度地区长期土壤温度变化的研究主要集中于近地表空气和近地表土壤温度。这一空白仍使这些气候敏感地区多层土壤中垂直热变化的时空变化及其相关过程难以厘清。 本研究利用1963–2022年期间七个土壤深度层的月度温度数据，对北欧亚地区的土壤温度变化进行了调查。本研究考察了三个粗分土壤深度层（地表以下1米、2米和3米）在不同季节的过去趋势。 结果表明，北欧亚地区的垂直热变化呈现多样性。 大多数观测站显示，年平均近地表气温出现具有统计学意义的变暖，这主要归因于北半球春季普遍出现的显著变暖（占观测站总数的 96%），而北半球冬季和秋季的变暖现象相对较弱（分别占 47% 和 55%）。 在连续永久冻土区域内，深层土壤的变暖趋势更为显著，特别是在北半球夏季，这表明变暖的垂直分布发生了从春季向夏季的转变。 研究结果表明，作为对气候变化的响应，北欧亚地区的变暖趋势随土壤深度的增加而呈现差异。本研究突显了长期多深度土壤温度数据作为北欧亚等高纬度地区模型评估参考的价值。",
+      "analysis": "",
+      "topic_tags": [
+        "土壤温度",
+        "深层土壤",
+        "观测数据"
+      ],
+      "category": "科研学术",
+      "matched_keywords": [
+        "气候变化"
+      ]
+    },
+    {
+      "title": "A century of streamwater quality degradation by input from urban water infrastructure as revealed by tree-ring records",
+      "title_en": "A century of streamwater quality degradation by input from urban water infrastructure as revealed by tree-ring records",
+      "title_zh": "树轮记录揭示：城市供水基础设施排放导致河流水质恶化已持续一个世纪",
+      "link": "https://iopscience.iop.org/article/10.1088/1748-9326/aeb560",
+      "source": "Environmental Research Letters",
+      "published": "2026-10-28T00:00:00+00:00",
+      "hotness": 84.3,
+      "score_v1": 21.38,
+      "score_v2": 84.3,
+      "score_breakdown": {
+        "algorithm": "v3.0",
+        "dimension_max": {
+          "authority": 18.0,
+          "topic": 18.0,
+          "resonance": 18.0,
+          "information": 16.0
+        },
+        "authority_score": 18.0,
+        "keyword_idf_score": 5.86,
+        "topic_score": 5.86,
+        "topic_burst_score": 0.0,
+        "topic_burst_count": 1,
+        "resonance_score": 0.0,
+        "info_score": 7.0,
+        "base": 30.86,
+        "base_max": 70.0,
+        "time_factor": 0.8692,
+        "density_factor": 1.0,
+        "density_note": "",
+        "repeat_penalty": 1.0,
+        "repeat_excused": false,
+        "event_size": 1,
+        "event_media_count": 1,
+        "event_cluster_source": "ai",
+        "origin_source": "Environmental Research Letters",
+        "raw": 26.83,
+        "display_score": 84.3,
+        "display_mode": "absolute"
+      },
+      "summary": "城市供水网络向天然溪流的输水，是导致溪流水质恶化的驱动因素之一，这种现象很可能在全球范围内普遍存在。我们利用树轮中的锶同位素比值（87Sr/86Sr）开发了一种新的替代指标，以重建市政用水对天然溪流影响的多十年历史。 我们将该方法应用于美国得克萨斯州中部三个分别代表高度城市化、快速城市化和农村环境的流域。自至少1945年以来——即奥斯汀市市政供水基础设施网络首次扩建仅25年后——市政供水在城市流域的径流中一直占据主导地位（>90%）。 在快速城市化流域中，经模型估算的市政用水在溪流基流中的占比，仅在35年内就从约12%上升至33%——增幅达175%，这与人口密度85%的增长相吻合。 相比之下，自1840年代以来，农村流域中市政用水的贡献比例一直较低。城市流域和快速城市化流域中锶同位素浓度上升的时间点表明，市政用水在供水基础设施建成后的短短二十年间，就能显著改变河流的化学成分。 这一替代指标使我们能够重建20世纪和21世纪城市化发展期间的水质恶化过程，包括现代水质监测启动之前的时期。我们的方法为诊断水基础设施在加速城市化和气候压力下的韧性提供了一种工具，有助于制定保护全球淡水资源的主动策略。",
+      "analysis": "",
+      "topic_tags": [
+        "城市供水网络",
+        "溪流水质"
+      ],
+      "category": "水处理",
+      "matched_keywords": [
+        "流域"
+      ]
+    },
+    {
+      "title": "Human mobility-associated ambient PM2.5 differences and inequality in China",
+      "title_en": "Human mobility-associated ambient PM2.5 differences and inequality in China",
+      "title_zh": "中国与人类流动相关的环境PM2.5差异及不平等现象",
+      "link": "https://iopscience.iop.org/article/10.1088/1748-9326/aeb683",
+      "source": "Environmental Research Letters",
+      "published": "2026-10-28T00:00:00+00:00",
+      "hotness": 83.0,
+      "score_v1": 17.38,
+      "score_v2": 83.0,
+      "score_breakdown": {
+        "algorithm": "v3.0",
+        "dimension_max": {
+          "authority": 18.0,
+          "topic": 18.0,
+          "resonance": 18.0,
+          "information": 16.0
+        },
+        "authority_score": 18.0,
+        "keyword_idf_score": 0.0,
+        "topic_score": 3.0,
+        "topic_burst_score": 0.0,
+        "topic_burst_count": 1,
+        "resonance_score": 0.0,
+        "info_score": 8.0,
+        "base": 29.0,
+        "base_max": 70.0,
+        "time_factor": 0.8692,
+        "density_factor": 1.0,
+        "density_note": "",
+        "repeat_penalty": 1.0,
+        "repeat_excused": false,
+        "event_size": 1,
+        "event_media_count": 1,
+        "event_cluster_source": "ai",
+        "origin_source": "Environmental Research Letters",
+        "raw": 25.21,
+        "display_score": 83.0,
+        "display_mode": "absolute"
+      },
+      "summary": "无论是在长期迁移还是短期人口流动过程中，起始地与目的地之间的环境PM2.5状况可能存在差异，但这些差异的程度和异质性尚不明确。 本文利用一项针对约17万名国内移民的全国代表性调查，以及基于百度位置服务数据得出的每日城际流动数据，量化了中国境内与移民及人口流动相关的环境PM2.5浓度差异。我们进一步采用线性回归模型分析了其与社会经济因素的关联。 总体而言，经调查加权后的起始地与目的地（OD）PM2.5 浓度差的平均值为 −3.29 μg m−3，57.15% 的移民迁往了 PM2.5 浓度较低的目的地。 与迁移相关的PM2.5差异在迁移类型、距离和家庭收入方面存在显著异质性，其中跨省迁移、长距离迁移和高收入迁移者更倾向于迁往PM2.5浓度较低的目的地。回归模型进一步表明，迁往经济更发达的目的地并不一定意味着PM2.5差异更有利。 在日尺度上，与人口流动相关的PM2.5源区-目的地差异在春节返乡高峰期间发生显著变化，而在非节假日期间则呈现规律的周周期。这些发现强调，在描述不同环境污染条件下的人口分布特征时，考虑人口流动模式及其异质性至关重要。",
+      "analysis": "",
+      "topic_tags": [
+        "PM2.5",
+        "环境差异"
+      ],
+      "category": "污染治理",
+      "matched_keywords": []
+    },
+    {
+      "title": "新化学物质环境管理登记办法 - 中华人民共和国生态环境部",
+      "title_en": "",
+      "title_zh": "",
+      "link": "https://news.google.com/rss/articles/CBMifkFVX3lxTE9udy01OXk2aWNCYU1id3FucU9fQzUxQ01Mbmhsa1Fic1FDcXZZMHpIVVl3OUh1Sm9RNXJBdExLQmdLSFc4SkJhcWpNQ2RfUTJhZjdEb3NESEFxd3Y1d2FJVklGblJvTlJxWG5nUnpPYnZEYVJGVWhQMzY1M3Y2QQ?oc=5",
+      "source": "Google News 生态环境部",
+      "published": "2026-10-27T16:07:02+00:00",
+      "hotness": 81.8,
+      "score_v1": 30.09,
+      "score_v2": 81.8,
+      "score_breakdown": {
+        "algorithm": "v3.0",
+        "dimension_max": {
+          "authority": 18.0,
+          "topic": 18.0,
+          "resonance": 18.0,
+          "information": 16.0
+        },
+        "authority_score": 12.73,
+        "keyword_idf_score": 4.97,
+        "topic_score": 10.68,
+        "topic_burst_score": 5.7,
+        "topic_burst_count": 7,
+        "resonance_score": 0.0,
+        "info_score": 4.0,
+        "base": 27.4,
+        "base_max": 70.0,
+        "time_factor": 0.7906,
+        "density_factor": 1.1,
+        "density_note": "国家级政策文件",
+        "repeat_penalty": 1.0,
+        "repeat_excused": false,
+        "event_size": 1,
+        "event_media_count": 1,
+        "event_cluster_source": "ai",
+        "origin_source": "中华人民共和国生态环境部",
+        "raw": 23.83,
+        "display_score": 81.8,
+        "display_mode": "absolute"
+      },
+      "summary": "生态环境部发布新化学物质管理登记办法，规范化学物质环境登记流程，强化化学品环境风险监管与防控能力。",
+      "analysis": "",
+      "topic_tags": [
+        "环境管理"
+      ],
+      "category": "生态环境",
+      "matched_keywords": [
+        "生态环境"
+      ]
+    },
+    {
+      "title": "Adapting to the risk of Atlantic circulation change",
+      "title_en": "Adapting to the risk of Atlantic circulation change",
+      "title_zh": "应对大西洋环流变化带来的风险",
+      "link": "https://www.nature.com/articles/s41893-026-01961-1",
+      "source": "Nature Sustainability",
+      "published": "2026-10-27T00:00:00+00:00",
+      "hotness": 80.8,
+      "score_v1": 21.35,
+      "score_v2": 80.8,
+      "score_breakdown": {
+        "algorithm": "v3.0",
+        "dimension_max": {
+          "authority": 18.0,
+          "topic": 18.0,
+          "resonance": 18.0,
+          "information": 16.0
+        },
+        "authority_score": 18.0,
+        "keyword_idf_score": 5.54,
+        "topic_score": 9.33,
+        "topic_burst_score": 3.79,
+        "topic_burst_count": 3,
+        "resonance_score": 0.0,
+        "info_score": 7.0,
+        "base": 34.33,
+        "base_max": 70.0,
+        "time_factor": 0.6649,
+        "density_factor": 1.0,
+        "density_note": "",
+        "repeat_penalty": 1.0,
+        "repeat_excused": false,
+        "event_size": 1,
+        "event_media_count": 1,
+        "event_cluster_source": "ai",
+        "origin_source": "Nature Sustainability",
+        "raw": 22.83,
+        "display_score": 80.8,
+        "display_mode": "absolute"
+      },
+      "summary": "《自然·可持续性》， 大西洋环流减弱可能导致各大洲的气温和降水发生变化，推高区域海平面，扰乱粮食生产和海洋生态系统，并削弱海洋碳汇。 受影响最严重的国家在规划中尚未将这些风险纳入考量；我们提出五项措施以弥补这一盲点。",
+      "analysis": "",
+      "topic_tags": [
+        "气候变化风险",
+        "海平面上升",
+        "海洋生态系统"
+      ],
+      "category": "气候变化",
+      "matched_keywords": [
+        "生态系统"
+      ]
+    },
+    {
+      "title": "生态环境部部长黄润秋出席“一带一路”绿色创新大会2026 - 中华人民共和国生态环境部",
+      "title_en": "",
+      "title_zh": "",
+      "link": "https://news.google.com/rss/articles/CBMidkFVX3lxTE0wMDJTLTVmNWVjeEdGdm1PUklseWRheFkta3BPank3QUZsMUtzak5fWTZUZ2Y1R2JHYjZHWmRyUVpFQUFrUzBodzZxYnJPdHk5TTZjTGpDbHhDZXhKUHJzUFVHOTNldi1iazZpZ0ZQRnN5QVF3eGc?oc=5",
+      "source": "Google News 环境保护",
+      "published": "2026-10-27T02:04:55+00:00",
+      "hotness": 79.6,
+      "score_v1": 27.16,
+      "score_v2": 79.6,
+      "score_breakdown": {
+        "algorithm": "v3.0",
+        "dimension_max": {
+          "authority": 18.0,
+          "topic": 18.0,
+          "resonance": 18.0,
+          "information": 16.0
+        },
+        "authority_score": 8.05,
+        "keyword_idf_score": 4.97,
+        "topic_score": 10.68,
+        "topic_burst_score": 5.7,
+        "topic_burst_count": 7,
+        "resonance_score": 0.0,
+        "info_score": 13.0,
+        "base": 31.73,
+        "base_max": 70.0,
+        "time_factor": 0.6789,
+        "density_factor": 1.0,
+        "density_note": "",
+        "repeat_penalty": 1.0,
+        "repeat_excused": false,
+        "event_size": 1,
+        "event_media_count": 1,
+        "event_cluster_source": "ai",
+        "origin_source": "中华人民共和国生态环境部",
+        "raw": 21.54,
+        "display_score": 79.6,
+        "display_mode": "absolute"
+      },
+      "summary": "生态环境部部长黄润秋出席“一带一路”绿色创新大会2026，推动国际绿色技术交流与合作，助力全球生态文明建设。",
+      "analysis": "",
+      "topic_tags": [
+        "生态环境部",
+        "绿色创新大会"
+      ],
+      "category": "生态环境",
+      "matched_keywords": [
+        "生态环境"
+      ]
+    },
+    {
+      "title": "Methane emissions remain flat even as biggest US oil region opens the tap",
+      "title_en": "Methane emissions remain flat even as biggest US oil region opens the tap",
+      "title_zh": "尽管美国最大的石油产区已全面开采，但甲烷排放量仍保持平稳",
+      "link": "https://www.nature.com/articles/d41586-026-03388-2",
+      "source": "Nature",
+      "published": "2026-10-27T00:00:00+00:00",
+      "hotness": 79.0,
+      "score_v1": 17.35,
+      "score_v2": 79.0,
+      "score_breakdown": {
+        "algorithm": "v3.0",
+        "dimension_max": {
+          "authority": 18.0,
+          "topic": 18.0,
+          "resonance": 18.0,
+          "information": 16.0
+        },
+        "authority_score": 18.0,
+        "keyword_idf_score": 6.53,
+        "topic_score": 6.53,
+        "topic_burst_score": 0.0,
+        "topic_burst_count": 1,
+        "resonance_score": 0.0,
+        "info_score": 7.0,
+        "base": 31.53,
+        "base_max": 70.0,
+        "time_factor": 0.6649,
+        "density_factor": 1.0,
+        "density_note": "",
+        "repeat_penalty": 1.0,
+        "repeat_excused": false,
+        "event_size": 1,
+        "event_media_count": 1,
+        "event_cluster_source": "ai",
+        "origin_source": "Nature",
+        "raw": 20.96,
+        "display_score": 79.0,
+        "display_mode": "absolute"
+      },
+      "summary": "《自然》杂志， 在二叠纪盆地油气产量增长三倍的这段时间里，该盆地的温室气体排放量一直保持在近乎恒定的水平。",
+      "analysis": "",
+      "topic_tags": [
+        "温室气体排放"
+      ],
+      "category": "气候变化",
+      "matched_keywords": [
+        "温室气体"
+      ]
+    },
+    {
+      "title": "Emergent constraints improve near-term temperature projections over China: evaluations against observations based on the preindustrial baseline",
+      "title_en": "Emergent constraints improve near-term temperature projections over China: evaluations against observations based on the preindustrial baseline",
+      "title_zh": "新兴约束条件提高了对中国近期气温预测的准确性：基于工业化前基准的观测数据验证",
+      "link": "https://iopscience.iop.org/article/10.1088/1748-9326/aeb559",
+      "source": "Environmental Research Letters",
+      "published": "2026-10-28T00:00:00+00:00",
+      "hotness": 78.9,
+      "score_v1": 17.38,
+      "score_v2": 78.9,
+      "score_breakdown": {
+        "algorithm": "v3.0",
+        "dimension_max": {
+          "authority": 18.0,
+          "topic": 18.0,
+          "resonance": 18.0,
+          "information": 16.0
+        },
+        "authority_score": 18.0,
+        "keyword_idf_score": 0.0,
+        "topic_score": 3.0,
+        "topic_burst_score": 0.0,
+        "topic_burst_count": 1,
+        "resonance_score": 0.0,
+        "info_score": 3.0,
+        "base": 24.0,
+        "base_max": 70.0,
+        "time_factor": 0.8692,
+        "density_factor": 1.0,
+        "density_note": "",
+        "repeat_penalty": 1.0,
+        "repeat_excused": false,
+        "event_size": 1,
+        "event_media_count": 1,
+        "event_cluster_source": "ai",
+        "origin_source": "Environmental Research Letters",
+        "raw": 20.86,
+        "display_score": 78.9,
+        "display_mode": "absolute"
+      },
+      "summary": "突现约束（ECs）被广泛用于降低气候预测中的不确定性，但其可靠性鲜少通过观测数据进行评估。 我们采用一种基于历史全球地表气温趋势和局部残余变暖趋势的成熟EC方法，将其应用于耦合模式相互比较计划第5和第6阶段（CMIP5/6）集合中2006–2025年中国气温变化预测。 与原始预测相比，受约束的预测偏倚较小，模型间差异也较小：泰勒得分提高了 25.6%（8.5%），均方根误差降低了 18.2%（18.2%）， 模型间离散度缩小了45.2%（52.0%）（CMIP5/CMIP6）。 与1986–2005年相比，以1850–1900年为基准时，这些改进更为稳健，这与更强的自发关系以及内部变率贡献较小有关。这些发现支持将约束条件（ECs）应用于区域温度预测，并突显了基准选择在提高受约束温度预测可信度方面的的重要性。",
+      "analysis": "",
+      "topic_tags": [
+        "气温预测"
+      ],
+      "category": "气候变化",
+      "matched_keywords": []
+    }
+  ]
+}

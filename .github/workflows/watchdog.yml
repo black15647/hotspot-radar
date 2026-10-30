@@ -21,9 +21,18 @@ on:
 
 permissions:
   contents: read
-  # 归因需要读 main.yml 当天的运行记录（见下方「今天到底跑没跑」）。
-  # 只读，最小权限。
-  actions: read
+  # 2026-10-29：从 read 提到 write。
+  #   read  —— 归因要读 main.yml 当天的运行记录（见下方「今天到底跑没跑」）；
+  #   write —— 自愈要用同一套 API 反手触发一次 main.yml（见下方「自动补跑」）。
+  # write 隐含 read，所以只写一行，不重复列。
+  actions: write
+
+# 手动触发与定时触发撞车时串行执行，避免同一时刻补跑两次。
+# 注意：main.yml 自己另有 group=daily-hotspot-report 的并发保护，
+# 所以这里的串行只是减少无意义的重复请求，不是仓库安全的必要条件。
+concurrency:
+  group: watchdog-check
+  cancel-in-progress: false
 
 jobs:
   check:
@@ -59,9 +68,15 @@ jobs:
             "https://api.github.com/repos/${GITHUB_REPOSITORY}/actions/workflows/main.yml/runs?created=%3E%3D${DAY_START}&per_page=5" || true)
           # 只做字符串统计，不引 jq/python：少一个依赖就少一个失败点。
           # run_attempt 每个 run 只出现一次；conclusion 在"仍在运行"时是 null，故另行兜底。
-          RUN_COUNT=$(printf '%s' "$RUNS_JSON" | grep -c '"run_attempt":' || true)
-          CONCL=$(printf '%s' "$RUNS_JSON" | grep -o '"conclusion":"[a-z]*"' \
-            | sed 's/.*:"//; s/"$//' | tr '\n' ',' | sed 's/,$//' || true)
+          #
+          # 2026-10-29 修：原来写的是 `grep -c '"run_attempt":'`，但 -c 数的是**行数**，
+          # 而 GitHub 返回的是紧凑单行 JSON → 无论实际跑了 4 次还是 1 次，结果恒为 1。
+          # 实测（本地 mock 3 个 run）确实吐出"今天已运行 1 次"。改成 grep -o | wc -l
+          # 才是数"匹配次数"。这个数字是排查时第一眼要看的，错了会把方向带偏。
+          # 同时正则容忍键值间空格（"conclusion": "x"），不依赖压缩格式。
+          RUN_COUNT=$(printf '%s' "$RUNS_JSON" | grep -o '"run_attempt"' | wc -l | tr -d ' ')
+          CONCL=$(printf '%s' "$RUNS_JSON" | grep -o '"conclusion": *"[a-z]*"' \
+            | sed 's/.*"\([a-z]*\)"$/\1/' | tr '\n' ',' | sed 's/,$//' || true)
           if printf '%s' "$RUNS_JSON" | grep -q '"message"'; then
             RUN_INFO="归因未知（运行记录查询失败，多为 token 权限不足）"
           elif [ "${RUN_COUNT:-0}" -eq 0 ]; then
@@ -74,7 +89,41 @@ jobs:
 
           echo "::error::今日（${TODAY}）快照缺失 —— ${RUN_INFO}"
           echo "排查入口：https://github.com/${{ github.repository }}/actions/workflows/main.yml"
-          echo "立即恢复：该页面右上角 Run workflow 手动触发一次"
+
+          # ---- 自动补跑（2026-10-29 加）----
+          # 10-29 的教训：当天 4 个 cron 窗口被 GitHub 直接丢了 3 个，最后靠
+          # 第 4 个窗口晚到 6.5 小时才补上。这种「根本没跑」不会产生 failure，
+          # main.yml 里的 if: failure() 通知永远不会响——巡检既然已经确认
+          # 「今天没产出」，就别只喊人，顺手用 API 反手补一次。
+          #
+          # 为什么不会写出重复数据 / 死循环：
+          #   · main.yml 的 guard 先查当天快照，已存在则整个 run 跳过 → 重复触发无副作用；
+          #   · main.yml 的 concurrency 是 daily-hotspot-report + cancel-in-progress:false，
+          #     哪怕此刻有 schedule run 正在排队，两次也会**串行**执行，
+          #     后者的 guard 一定会看到前者刚提交的快照，不会并发写仓库；
+          #   · 用 GITHUB_TOKEN 调 workflow_dispatch 是官方允许的例外
+          #     （push/pull_request 才防递归），不存在自己触发自己的循环——
+          #     watchdog 触发的是 main.yml，而 main.yml 不会触发 watchdog。
+          echo "尝试自动补跑一次 Daily Hotspot Report…"
+          DISPATCH_CODE=$(curl -s -o /tmp/dispatch.json -w '%{http_code}' -X POST \
+            -H "Authorization: Bearer ${GITHUB_TOKEN}" \
+            -H "Accept: application/vnd.github+json" \
+            -H "X-GitHub-Api-Version: 2022-11-28" \
+            "https://api.github.com/repos/${GITHUB_REPOSITORY}/actions/workflows/main.yml/dispatches" \
+            -d '{"ref":"main"}' || echo "000")
+          if [ "$DISPATCH_CODE" = "204" ]; then
+            echo "补跑已提交（HTTP 204），Actions 页会出现一次 workflow_dispatch 运行"
+            AUTO_FIX="已自动补跑一次"
+          else
+            echo "::warning::自动补跑失败（HTTP ${DISPATCH_CODE}），响应体见下"
+            # 响应体用来区分原因：403 → token 缺 actions: write；
+            # 404 → 工作流文件名不对或未在默认分支启用。末尾补 echo 是因为
+            # 响应体通常不带换行，否则会和下一行日志粘在一起。
+            cat /tmp/dispatch.json 2>/dev/null | head -c 500 || true
+            echo
+            AUTO_FIX="自动补跑失败（HTTP ${DISPATCH_CODE}），需手动触发"
+          fi
+          echo "结果：${AUTO_FIX}"
 
           if [ -z "$NTFY_TOPIC" ]; then
             echo "未配置 secret NTFY_TOPIC，跳过手机推送"
@@ -84,6 +133,6 @@ jobs:
             -H "Title: 环境学子雷达 - 今日未产出" \
             -H "Priority: high" \
             -H "Click: https://github.com/${{ github.repository }}/actions/workflows/main.yml" \
-            -d "到 UTC $(date -u +%H:%M) 为止，docs/data/daily/${TODAY}.json 仍未生成。${RUN_INFO}。请打开 Actions 页手动触发 Daily Hotspot Report。" \
+            -d "到 UTC $(date -u +%H:%M) 为止，docs/data/daily/${TODAY}.json 仍未生成。${RUN_INFO}。${AUTO_FIX}。" \
             || echo "ntfy.sh 不可达，推送失败"
           exit 1

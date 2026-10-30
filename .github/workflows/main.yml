@@ -120,6 +120,24 @@ jobs:
           # readability-lxml / html2text 为其失败时的降级链。
           pip install -r requirements.txt
 
+      # ===== 生成日志落盘（2026-10-29 加，改动前请先读完）=====
+      # 动机：job 级原始日志要 admin 权限才能读（匿名 API 一律 403），
+      # 所以 10-18 全天零产出、10-29 三个窗口丢失这两次排查，结论全靠
+      # step 时间戳 + 产物反推，从来没有真正看到过脚本报错的那一行。
+      # 现在把 stdout+stderr 同时 tee 到 run.log，再由下面的 always() 步骤
+      # 上传成 artifact —— 普通失败（脚本抛错、校验不过、依赖装不上）
+      # 都能直接下载日志看，不用再猜。
+      #
+      # ⚠ 两个必须保留的开关，删了会出事故：
+      #   ① set -o pipefail —— 本工作流没写 shell:，走的是 GitHub 的默认模板
+      #      `bash -e {0}`（**只有 -e，没有 pipefail**；只有显式写 shell: bash
+      #      才会变成 `bash --noprofile --norc -eo pipefail {0}`，见官方
+      #      workflow-syntax 的 shell 对照表）。
+      #      少了它，`python | tee` 的退出码取 tee 的（恒为 0），python 报错
+      #      会被吞成 success → 提交不到东西 → run 记绿但当天零产出，而且
+      #      if: failure() 的通知也不会响。这正是本项目最怕的静默失败。
+      #   ② python -u —— 输出接到管道时 Python 会自动切成块缓冲，
+      #      不加 -u 日志顺序会乱、进程被杀时尾部还会整段丢失。
       - name: Run daily report generator
         env:
           NVIDIA_API_KEY: ${{ secrets.NVIDIA_API_KEY }}
@@ -128,14 +146,20 @@ jobs:
           BAIDU_APPID: ${{ secrets.BAIDU_APPID }}
           BAIDU_SECRET_KEY: ${{ secrets.BAIDU_SECRET_KEY }}
         run: |
-          python daily_report.py
+          set -o pipefail
+          python -u daily_report.py 2>&1 | tee run.log
 
       # 数据文件结构校验：三个手工维护的 JSON（schools / careers / jobs）与
       # 流水线新产出的 recruit.json 都在这里过一遍。放「提交之前」是为了让坏数据
       # 根本进不了仓库——历史上曾因为 schools.json 少一个字段导致整页白屏，
       # 而且只有用户打开网页才会发现。校验不过直接失败，不提交。
+      #
+      # 2026-10-29：同样接进 run.log（-a 追加），让 artifact 里是一条完整链路，
+      # 而不是只有生成段。这里的 pipefail 要重新设一次——每个 step 是独立 shell。
       - name: Validate data files
-        run: python validate_data.py
+        run: |
+          set -o pipefail
+          python -u validate_data.py 2>&1 | tee -a run.log
 
       # sitemap 的 lastmod 原先停在手写那天，之后再没更新过——搜索引擎看到的是
       # 「这个站点很久没变」。提交前把它刷成当天日期。
@@ -176,6 +200,32 @@ jobs:
           done
           echo "::error::连续 3 次推送均失败"
           exit 1
+
+      # ===== 日志与诊断产物上传（2026-10-29 加）=====
+      # 放在 commit 之后、备份之前：一是让推送（最关键的一步）优先占用时间，
+      # 二是 artifact 里带上 source_health.json / latest.json，以后判断
+      # 「今天抓到了什么、AI 有没有降级」不用再去翻 API 或前端页面。
+      #
+      # `if: always()` 保证前面任何一步失败都仍然上传——失败时的日志才是最有价值的。
+      # ⚠ 一个已知盲区：job 撞 timeout-minutes 被强杀时，后面的 always() 步骤
+      #   也不会执行（GitHub 会先终止整个 job）。这条路径现在由 45 分钟上限
+      #   + daily_report.py 的 19 分钟 AI 预算闸门兜底，不再靠日志排查。
+      - name: Upload run log and diagnostics
+        if: always()
+        uses: actions/upload-artifact@v7
+        with:
+          # 名字带 run_id + attempt，手动重跑不会互相覆盖
+          name: run-log-${{ github.run_id }}-${{ github.run_attempt }}
+          path: |
+            run.log
+            docs/data/source_health.json
+            docs/data/latest.json
+          if-no-files-found: warn
+          retention-days: 14
+        # 上传失败不该影响后面的备份与 Release（那两步是 if: success()，
+        # 本步骤一旦判失败就会连带把它们跳过）。日志是辅助产物，不能反过来
+        # 把主流程拖下水。
+        continue-on-error: true
 
       - name: Package backup files
         if: success()

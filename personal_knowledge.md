@@ -8838,3 +8838,135 @@
 
 ---
 
+## 2026-10-31
+
+**今日高频关键词**：`#生态环境` `#气候变化` `#生态保护` `#水污染` `#环境保护`
+
+**今日 Top10 热点**
+
+### 1. 江西持续提升生态保护监管效能 国家级自然保护区重点生态环境问题实现动态清零 - 凤凰网
+- **来源**：Google News 环境保护
+- **热度**：84.8
+- **链接**：https://news.google.com/rss/articles/CBMiSkFVX3lxTE9rRVVYT3h6czlsQ2NNV0dNYnhqWUhnMURTZGJ1Q2UzbkZrQzNtMUVtRzFNNkNMTlhuejNEbGtWRG5EWXBSTTM3ektB?oc=5
+- **摘要**：江西省持续提升生态保护监管效能，国家级自然保护区重点生态环境问题实现动态清零。
+- **分析**：该条目涉及【生态保护】话题，因来源较权威且发布时间较新，热度上升。
+
+### 2. 昆明生态环境治理以“惠企”为主线 推动环评审批与执法服务提质增效 - 搜狐网
+- **来源**：Google News 生态环境
+- **热度**：82.4
+- **链接**：https://news.google.com/rss/articles/CBMijAFBVV95cUxQcGdtUmtqWmNGY1Ntbk5PLV9ZWjM2SnNtNW1MMmtKZWl4Yjh6NkZEWS1LZHlxY0RpLTc4ejJnNFY5VkUxcHdPN1BHS01lekpUamI4bEJ4VGVxc2F2Sk8zeTJrX2s4aWdiVVo5YlJWV1J1V2o4Z1Y4NWZWQU5pYjFVdkZnOGlSRHhtSkFsbw?oc=5
+- **摘要**：昆明生态环境治理以‘惠企’为主线，推动环评审批与执法服务提质增效。
+- **分析**：该条目涉及【生态环境治理】话题，因来源较权威且发布时间较新，热度上升。
+
+### 3. UK could see 10 days without rain after 'wettest week in two years'
+- **来源**：BBC 科学与环境
+- **热度**：82.1
+- **链接**：https://www.bbc.co.uk/weather/articles/cq98zrwd42jzo?at_medium=RSS&at_campaign=rss
+- **摘要**：随着英国上空高压系统逐渐形成，11月初的天气预计将非常稳定，预报显示不会有明显降雨。
+- **分析**：该条目涉及【rain】话题，因来源权威性高且发布时间较新，热度上升。
+
+### 4. 利用暗管、渗坑排放水污染物！洛阳正大食品平顶山分公司被罚51.68万元 - 凤凰网
+- **来源**：Google News 环境污染
+- **热度**：81.6
+- **链接**：https://news.google.com/rss/articles/CBMiTEFVX3lxTFBIUlR3VzFOM0RwM05yR1ZvZ3RZN1g4ZVhGNHNrWHcyX1hCdUVBbkFNN2s2S1NrV3cxcTJMZ1RyLUpBbVMzeHM4V3ZsWlU?oc=5
+- **摘要**：洛阳正大食品平顶山分公司利用暗管、渗坑排放水污染物，被罚款51.68万元。
+- **分析**：该条目涉及【暗管排放】话题，因来源较权威且发布时间较新，热度上升。
+
+### 5. 用十个为什么读懂生态环境法典，上海市2026年“双百”活动专场报告会举行 - 上观新闻
+- **来源**：Google News 环境污染
+- **热度**：78.8
+- **链接**：https://news.google.com/rss/articles/CBMiWkFVX3lxTE5WTDlRakp2WTNmbXJuZWVyOHMtZGxuY3cyQ2NFYTh6QTdPQWFVd0ZqemNDMEVldGdPeEROXzh5cE5PUzAxdFdOcm1mUy1McDNRbGZNdDBaVk5jZw?oc=5
+- **摘要**：上海市2026年‘双百’活动专场报告会举行，旨在用‘十个为什么’读懂生态环境法典。
+- **分析**：该条目涉及【生态环境法典】话题，因来源较权威且话题稀缺度高，热度上升。
+
+### 6. Feedbacks between natural climate solutions and plant invasions
+- **来源**：Environmental Research Letters
+- **热度**：78.7
+- **链接**：https://iopscience.iop.org/article/10.1088/1748-9326/aeb0b9
+- **摘要**：生物入侵和碳封存是当今许多土地管理决策的重要依据。然而，入侵与自然气候解决方案（NCS）——即旨在维持或增加土地碳汇的举措——之间的交集，无论是在入侵研究文献还是气候减缓文献中，都尚未得到充分关注。 因此，我们回顾了植物入侵如何影响自然气候解决方案，反之亦然，重点探讨了通过避免栖息地转化、生态修复、森林和农田管理、农林复合经营以及优化放牧所带来的减排和碳移除效应。 我们发现，尽管在某些情况下入侵植物会增加碳储量，从而形成生物多样性与气候减缓之间的权衡，但植物入侵可能会干扰自然气候解决方案的快速实施，并降低许多系统中碳储存的持久性。 与此同时，研究发现，若干自然碳储量措施可增强群落对入侵的抵抗力/韧性，特别是在森林中，从而抑制入侵物种在这些系统中的扩散。 这些动态表明，NCS 与入侵物种之间存在正反馈循环：NCS 有助于控制入侵，而成功的入侵控制反过来又促进了 NCS 的进一步实施。只要 NCS 项目获得用于持续管理入侵物种的资源，这种反馈就能加速陆地碳储量的增长，并为生物多样性带来协同效益。 我们重点指出了需要进一步研究的领域，包括如何利用气候行动的金融机制来克服入侵物种引发的实施障碍。
+- **分析**：该条目涉及【自然气候解决方案】话题，因来源权威性高，热度上升。
+
+### 7. Far-right slows energy transition
+- **来源**：Nature Sustainability
+- **热度**：78.3
+- **链接**：https://www.nature.com/articles/s41893-026-01974-w
+- **摘要**：《自然·可持续性》（Nature Sustainability），。众所周知，政治认同会影响人们对气候问题的态度，但其对现实世界中清洁技术采用的影响尚不明确。 如今，来自德国的数据表明，极右翼支持率的上升会减缓屋顶太阳能和电动汽车的普及速度。不过，这些影响尚不足以阻碍能源转型进程。
+- **分析**：该条目涉及【电动汽车】话题，因来源权威性高，热度上升。
+
+### 8. 生态环境部召开部常务会议 - 中华人民共和国生态环境部
+- **来源**：Google News 生态环境
+- **热度**：78.2
+- **链接**：https://news.google.com/rss/articles/CBMidkFVX3lxTFBiYWloZVZjU3RaMk4wblpNNXdaeGdGU2s0dV9ZWU1rYXppZlllRlhsVXBDb3FVY09mZmxsSTRMcjlhdE5FYWlHYjM2bDBJRHNJS2NxRnhTS0dpcnZfNnBGZGVSNXdzRWNBaFg4WjAzZGgwUXR6VHc?oc=5
+- **分析**：该条目涉及【生态环境部】话题，因来源较权威且发布时间较新，热度上升。
+
+### 9. 2026年度《柳叶刀人群健康与气候变化倒计时报告》在京发布 - 中国日报网
+- **来源**：Google News 气候变化
+- **热度**：77.7
+- **链接**：https://news.google.com/rss/articles/CBMifEFVX3lxTE9PdDU2dmVzUWtJdXRhVEtoUXY3Q2N0VTI4LUpxMl9vMkVkUnhfSWJPNUc4Yk9tNDEycDl0Z2kyRGVQRkQyWlgxeE5ZSWx2VThWRG0xMlhRZWxNajZheFEyTVktX293SDYzdURfRmtLVnRsM0JkZkQtdTlUaTY?oc=5
+- **摘要**：中国日报网报道，2026年度《柳叶刀人群健康与气候变化倒计时报告》在京发布，聚焦人群健康与气候变化关联。
+- **分析**：该条目涉及【人群健康】话题，因来源较权威且发布时间较新，热度上升。
+
+### 10. 网友0446079614 - 中国环境网 - 中国环境网
+- **来源**：Google News 中国环境网
+- **热度**：77.3
+- **链接**：https://news.google.com/rss/articles/CBMiXEFVX3lxTFBJam5ON01kV2llNXdTdktvZGtxNmx3VTVYT0xHMFZ6UkEzdUpxXzIwNEtvSmEwejJFM191cV9XQ2dEOS1rSFNrOUF0UFBzajBBX0tuVC02alpfR0th?oc=5
+- **摘要**：中国环境网报道，网友0446079614相关内容引发环境议题关注，具体信息待进一步核实。
+- **分析**：该条目涉及【环境资讯】话题，因来源权威性高且发布时间较新，热度上升。
+
+**今日自动提取候选新词**
+
+- **生态**（出现 4 次）
+  - 上下文：江西持续提升生态保护监管效能 国家级自然保护区重点生态环境问题实现动态清零 - 凤凰网
+  - 上下文：昆明生态环境治理以“惠企”为主线 推动环评审批与执法服务提质增效 - 搜狐网
+  - 上下文：秦岭生态环境保护文化宣传系列活动（2026—2027）在留坝启动 - 光明网
+- **climate**（出现 3 次）
+  - 上下文：Feedbacks between natural climate solutions and plant invasions
+  - 上下文：Five reasons why the US midterms matter for the climate – and your energy bill
+  - 上下文：128,000-year-old ice in Tibet could rewrite climate history
+- **energy**（出现 3 次）
+  - 上下文：Far-right slows energy transition
+  - 上下文：Five reasons why the US midterms matter for the climate – and your energy bill
+  - 上下文：Author Correction: Urban energy and transport impacts of autonomous robotaxi deployment
+- **carbon**（出现 3 次）
+  - 上下文：Assessment of ion-exchange membrane adsorber and granular activated carbon for precursors removal of regulated THMs and novel sulfonated DBPs
+  - 上下文：Reconciling carbon sequestration with nitrogen budgets in Nordic forests
+  - 上下文：Ecological regime shifts alter organic carbon burial in a large plateau lake under multiple anthropogenic and natural pressures
+- **江西**（出现 2 次）
+  - 上下文：江西持续提升生态保护监管效能 国家级自然保护区重点生态环境问题实现动态清零 - 凤凰网
+  - 上下文：江西：持续加强生态保护与修复监管 筑牢绿色生态屏障 - 央视网
+- **保护**（出现 2 次）
+  - 上下文：江西持续提升生态保护监管效能 国家级自然保护区重点生态环境问题实现动态清零 - 凤凰网
+  - 上下文：江西：持续加强生态保护与修复监管 筑牢绿色生态屏障 - 央视网
+- **举行**（出现 2 次）
+  - 上下文：用十个为什么读懂生态环境法典，上海市2026年“双百”活动专场报告会举行 - 上观新闻
+  - 上下文：“美丽中国·健康同行”2026环境健康成都行活动在蓉举行 - 每日经济新闻
+- **natural**（出现 2 次）
+  - 上下文：Feedbacks between natural climate solutions and plant invasions
+  - 上下文：Ecological regime shifts alter organic carbon burial in a large plateau lake under multiple anthropogenic and natural pressures
+- **中国**（出现 2 次）
+  - 上下文：网友0446079614 - 中国环境网 - 中国环境网
+  - 上下文：“美丽中国·健康同行”2026环境健康成都行活动在蓉举行 - 每日经济新闻
+- **Scientists**（出现 2 次）
+  - 上下文：Scientists confirm global warming is accelerating faster than ever recorded
+  - 上下文：Scientists discover a hidden oxygen reservoir deep inside Earth
+- **global**（出现 2 次）
+  - 上下文：Scientists confirm global warming is accelerating faster than ever recorded
+  - 上下文：Detecting acceleration in global mean temperature using supralinear trends
+- **assessment**（出现 2 次）
+  - 上下文：Beyond targets: Benefits of a multi-assessment approach in determining chemical water quality for water reuse
+  - 上下文：National-scale PM2.5 health consequences of a proposed LNG power project in South Korea: looking beyond localized assessment boundaries
+- **organic**（出现 2 次）
+  - 上下文：Targeted PFAS and adsorbable organic fluorine in the Tampa Bay estuary and adjacent waterways
+  - 上下文：Ecological regime shifts alter organic carbon burial in a large plateau lake under multiple anthropogenic and natural pressures
+- **ThePaper**（出现 2 次）
+  - 上下文：联合国：全球高温致死人数达71万，超7成死亡可归因于人为造成的气候变化 - ThePaper.cn
+  - 上下文：马上评｜能查村支书威胁环保博主事，也定能彻查环境污染事 - ThePaper.cn
+- **威胁**（出现 2 次）
+  - 上下文：马上评｜能查村支书威胁环保博主事，也定能彻查环境污染事 - ThePaper.cn
+  - 上下文：云南陆良通报“环保博主遭威胁” - 搜狐网
+- **环保**（出现 2 次）
+  - 上下文：马上评｜能查村支书威胁环保博主事，也定能彻查环境污染事 - ThePaper.cn
+  - 上下文：云南陆良通报“环保博主遭威胁” - 搜狐网
+
+---
+

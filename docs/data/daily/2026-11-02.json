@@ -1,0 +1,548 @@
+{
+  "report_date": "2026-11-02",
+  "site_name": "环境学子雷达",
+  "total_items": 29,
+  "snapshot_items": 10,
+  "category_stats": {
+    "环境政策": {
+      "count": 5,
+      "total_heat": 363.4
+    },
+    "生态环境": {
+      "count": 6,
+      "total_heat": 433.4
+    },
+    "水处理": {
+      "count": 1,
+      "total_heat": 75.2
+    },
+    "科研学术": {
+      "count": 2,
+      "total_heat": 148.2
+    },
+    "污染治理": {
+      "count": 3,
+      "total_heat": 214.0
+    },
+    "气候变化": {
+      "count": 7,
+      "total_heat": 458.3
+    },
+    "其他": {
+      "count": 5,
+      "total_heat": 339.0
+    }
+  },
+  "total_sources": 28,
+  "success_sources": 26,
+  "failed_sources": 1,
+  "week_total_items": 281,
+  "week_new_keywords": 77,
+  "policy_ratio": 10.7,
+  "items": [
+    {
+      "title": "Food redistribution: a critical review of an overlooked priority measure against food waste",
+      "title_en": "Food redistribution: a critical review of an overlooked priority measure against food waste",
+      "title_zh": "食品再分配：对一项被忽视的、旨在减少食物浪费的优先措施的批判性回顾",
+      "link": "https://iopscience.iop.org/article/10.1088/1748-9326/aeb4c8",
+      "source": "Environmental Research Letters",
+      "published": "2026-11-02T00:00:00+00:00",
+      "hotness": 82.3,
+      "score_v1": 22.86,
+      "score_v2": 82.3,
+      "score_breakdown": {
+        "algorithm": "v3.0",
+        "dimension_max": {
+          "authority": 18.0,
+          "topic": 18.0,
+          "resonance": 18.0,
+          "information": 16.0
+        },
+        "authority_score": 18.0,
+        "keyword_idf_score": 5.41,
+        "topic_score": 7.77,
+        "topic_burst_score": 2.36,
+        "topic_burst_count": 2,
+        "resonance_score": 0.0,
+        "info_score": 3.0,
+        "base": 28.77,
+        "base_max": 70.0,
+        "time_factor": 0.8477,
+        "density_factor": 1.0,
+        "density_note": "",
+        "repeat_penalty": 1.0,
+        "repeat_excused": false,
+        "event_size": 1,
+        "event_media_count": 1,
+        "event_cluster_source": "ai",
+        "origin_source": "Environmental Research Letters",
+        "raw": 24.39,
+        "display_score": 82.3,
+        "display_mode": "absolute"
+      },
+      "summary": "食品再分配被广泛视为减少食品损失和浪费的首选策略。然而，它仍主要被视为慈善救济，而其在治理中的更广泛作用以及有效实施的条件尚未得到充分阐述。 本研究基于“三重底线”视角和可持续发展目标耦合框架，综合分析了文献、国际实践及中国实地研究的证据，以考察食品再分配的贡献、影响其绩效的制约因素，以及可实现规模化推广的模式。 我们发现，现有研究在社会效益方面的证据远比经济机制或环境成果方面的证据更为充分，而后者仍受制于价值与成本的不匹配、替代假设的不确定性以及活动数据的匮乏。 跨维度的评估以及对协同效应的分析也仍显薄弱。在实践中，国际经验表明，基于“枢纽-辐条”网络和标准化流程的运营架构具有可移植性，但成功的规模化实施取决于将政策工具与运营机制相协调，以减少系统性摩擦。 中国的案例通过识别两种互补的实施模式——集中式和分散式（分别适应不同的制度和市场条件）——拓展了这一认识。这些发现共同突显了食物再分配在可持续食品和废弃物治理中的重要作用，并为综合评估和更广泛的实施提供了实践支持。",
+      "analysis": "",
+      "topic_tags": [
+        "可持续发展目标"
+      ],
+      "category": "环境政策",
+      "matched_keywords": [
+        "可持续发展"
+      ]
+    },
+    {
+      "title": "南极活动与环境保护法草案三审 规定国家统筹南极科学研究方向 - 中国新闻网",
+      "title_en": "",
+      "title_zh": "",
+      "link": "https://news.google.com/rss/articles/CBMiaEFVX3lxTE9DeDctY3E1UTJVUmE5b2FESmE4U1FXVndtZ1k2clBXSWxXZndPSGlDOTVnUFV1VVoxUV96M3pjZ3RNVVBBdkdRVTE0YmwzNEVHMWZ1bl8wVlluandBeEdLeENYa3BvTHl1?oc=5",
+      "source": "Google News 环境保护",
+      "published": "2026-11-02T03:17:08+00:00",
+      "hotness": 80.9,
+      "score_v1": 19.32,
+      "score_v2": 80.9,
+      "score_breakdown": {
+        "algorithm": "v3.0",
+        "dimension_max": {
+          "authority": 18.0,
+          "topic": 18.0,
+          "resonance": 18.0,
+          "information": 16.0
+        },
+        "authority_score": 8.05,
+        "keyword_idf_score": 5.14,
+        "topic_score": 5.14,
+        "topic_burst_score": 0.0,
+        "topic_burst_count": 1,
+        "resonance_score": 8.76,
+        "info_score": 4.0,
+        "base": 25.95,
+        "base_max": 70.0,
+        "time_factor": 0.883,
+        "density_factor": 1.0,
+        "density_note": "",
+        "repeat_penalty": 1.0,
+        "repeat_excused": false,
+        "event_size": 2,
+        "event_media_count": 2,
+        "event_cluster_source": "ai",
+        "origin_source": "中国新闻网",
+        "raw": 22.91,
+        "display_score": 80.9,
+        "display_mode": "absolute"
+      },
+      "summary": "南极环境保护法草案完成三审，明确规定国家统筹南极科学研究方向，旨在加强对南极活动的环境管理与保护。",
+      "analysis": "",
+      "topic_tags": [
+        "南极环保法"
+      ],
+      "category": "环境政策",
+      "matched_keywords": [
+        "环境保护"
+      ]
+    },
+    {
+      "title": "贵州务川：8座人工湿地“上岗” - 搜狐网",
+      "title_en": "",
+      "title_zh": "",
+      "link": "https://news.google.com/rss/articles/CBMioAFBVV95cUxQSmZkR0ZCeUtDTHpoZGZFRW54ak00cTBWYTAwVWlzZ1I5UG1OSF9rem9VeUlncnB5bHJ4ZjVZTFpSdi1KYlEtMlRGQnBYY0gtZlRNWHFvZG04OUFzQlJGcVdUZGY0eXFUbnlzUHJIZl9aRHBwNUw0OUJjR19aYkU5Z2l4bG5UMk1mMnlOR2dGdkZKME5XM2toNDhMcF92MzQx?oc=5",
+      "source": "Google News 环境污染",
+      "published": "2026-11-02T09:54:00+00:00",
+      "hotness": 77.1,
+      "score_v1": 21.46,
+      "score_v2": 77.1,
+      "score_breakdown": {
+        "algorithm": "v3.0",
+        "dimension_max": {
+          "authority": 18.0,
+          "topic": 18.0,
+          "resonance": 18.0,
+          "information": 16.0
+        },
+        "authority_score": 8.05,
+        "keyword_idf_score": 7.0,
+        "topic_score": 7.0,
+        "topic_burst_score": 0.0,
+        "topic_burst_count": 1,
+        "resonance_score": 0.0,
+        "info_score": 5.0,
+        "base": 20.05,
+        "base_max": 70.0,
+        "time_factor": 0.9617,
+        "density_factor": 1.0,
+        "density_note": "",
+        "repeat_penalty": 1.0,
+        "repeat_excused": false,
+        "event_size": 1,
+        "event_media_count": 1,
+        "event_cluster_source": "ai",
+        "origin_source": "搜狐网",
+        "raw": 19.28,
+        "display_score": 77.1,
+        "display_mode": "absolute"
+      },
+      "summary": "贵州务川8座人工湿地正式投入使用，通过自然净化方式处理水体，有效提升当地水环境质量与生态保护水平。",
+      "analysis": "",
+      "topic_tags": [
+        "人工湿地",
+        "水环境",
+        "生态保护"
+      ],
+      "category": "生态环境",
+      "matched_keywords": [
+        "湿地"
+      ]
+    },
+    {
+      "title": "Apparent threshold and potential mechanisms of typhoon-induced N<sub>2</sub>O production in coastal waters revealed by laboratory incubations and field observations",
+      "title_en": "Apparent threshold and potential mechanisms of typhoon-induced N<sub>2</sub>O production in coastal waters revealed by laboratory incubations and field observations",
+      "title_zh": "通过实验室培养和实地观测揭示的台风诱导沿海水域N<sub>2</sub>O生成的显性阈值及潜在机制",
+      "link": "https://www.sciencedirect.com/science/article/pii/S0043135426018956?dgcid=rss_sd_all",
+      "source": "Water Research",
+      "published": "2026-10-31T12:48:11.973696+00:00",
+      "hotness": 75.2,
+      "score_v1": 12.35,
+      "score_v2": 75.2,
+      "score_breakdown": {
+        "algorithm": "v3.0",
+        "dimension_max": {
+          "authority": 18.0,
+          "topic": 18.0,
+          "resonance": 18.0,
+          "information": 16.0
+        },
+        "authority_score": 18.0,
+        "keyword_idf_score": 0.0,
+        "topic_score": 3.0,
+        "topic_burst_score": 0.0,
+        "topic_burst_count": 1,
+        "resonance_score": 0.0,
+        "info_score": 9.0,
+        "base": 30.0,
+        "base_max": 70.0,
+        "time_factor": 0.5891,
+        "density_factor": 1.0,
+        "density_note": "",
+        "repeat_penalty": 1.0,
+        "repeat_excused": false,
+        "event_size": 1,
+        "event_media_count": 1,
+        "event_cluster_source": "ai",
+        "origin_source": "Water Research",
+        "raw": 17.67,
+        "display_score": 75.2,
+        "display_mode": "absolute"
+      },
+      "summary": "通过实验室培养和实地观测揭示的沿海水域中A<sub>2</sub>O的生成过程",
+      "analysis": "",
+      "topic_tags": [
+        "沿海水域",
+        "实验室培养"
+      ],
+      "category": "水处理",
+      "matched_keywords": []
+    },
+    {
+      "title": "坚持精准治污、科学治污、 依法治污提升生态环境治理效能 - 天津日报",
+      "title_en": "",
+      "title_zh": "",
+      "link": "https://news.google.com/rss/articles/CBMiggFBVV95cUxNRlJBX0tYT1pkTGpKeXFIdVFHc0I0azEySlpXV2dtTHlWWGVsVkMwSF9wQXBiWnpqb3h6SXlmWjlJekVwMHlUSDBwb2dQWXd6a19tdmh4ckgzNFhUMl8zM3Y2T2NPaVhMNDQ1T3lvRlp1NFhwU2VtMWxidXZhbTZLZUdB?oc=5",
+      "source": "Google News 环境污染",
+      "published": "2026-11-01T21:11:55+00:00",
+      "hotness": 74.8,
+      "score_v1": 25.82,
+      "score_v2": 74.8,
+      "score_breakdown": {
+        "algorithm": "v3.0",
+        "dimension_max": {
+          "authority": 18.0,
+          "topic": 18.0,
+          "resonance": 18.0,
+          "information": 16.0
+        },
+        "authority_score": 8.05,
+        "keyword_idf_score": 9.33,
+        "topic_score": 13.12,
+        "topic_burst_score": 3.79,
+        "topic_burst_count": 3,
+        "resonance_score": 0.0,
+        "info_score": 0.0,
+        "base": 21.17,
+        "base_max": 70.0,
+        "time_factor": 0.8195,
+        "density_factor": 1.0,
+        "density_note": "",
+        "repeat_penalty": 1.0,
+        "repeat_excused": false,
+        "event_size": 1,
+        "event_media_count": 1,
+        "event_cluster_source": "ai",
+        "origin_source": "天津日报",
+        "raw": 17.35,
+        "display_score": 74.8,
+        "display_mode": "absolute"
+      },
+      "summary": "天津日报报道生态环境治理坚持精准、科学、依法原则，旨在通过精细化管理显著提升污染防治效率与生态环境质量。",
+      "analysis": "",
+      "topic_tags": [
+        "生态环境"
+      ],
+      "category": "生态环境",
+      "matched_keywords": [
+        "生态环境",
+        "环境治理"
+      ]
+    },
+    {
+      "title": "Bute House protested by environmental campaigners",
+      "title_en": "Bute House protested by environmental campaigners",
+      "title_zh": "环保活动人士在布特府前举行抗议活动",
+      "link": "https://www.bbc.co.uk/news/articles/c9rkypk1g7k0o?at_medium=RSS&at_campaign=rss",
+      "source": "BBC 科学与环境",
+      "published": "2026-10-31T13:41:07+00:00",
+      "hotness": 74.8,
+      "score_v1": 10.9,
+      "score_v2": 74.8,
+      "score_breakdown": {
+        "algorithm": "v3.0",
+        "dimension_max": {
+          "authority": 18.0,
+          "topic": 18.0,
+          "resonance": 18.0,
+          "information": 16.0
+        },
+        "authority_score": 12.73,
+        "keyword_idf_score": 0.0,
+        "topic_score": 3.0,
+        "topic_burst_score": 0.0,
+        "topic_burst_count": 1,
+        "resonance_score": 8.76,
+        "info_score": 4.75,
+        "base": 29.24,
+        "base_max": 70.0,
+        "time_factor": 0.5935,
+        "density_factor": 1.0,
+        "density_note": "",
+        "repeat_penalty": 1.0,
+        "repeat_excused": false,
+        "event_size": 2,
+        "event_media_count": 2,
+        "event_cluster_source": "ai",
+        "origin_source": "BBC 科学与环境",
+        "raw": 17.35,
+        "display_score": 74.8,
+        "display_mode": "absolute"
+      },
+      "summary": "一场以万圣节为主题、反对化石燃料的抗议活动将目标锁定在爱丁堡的第一部长官官邸。",
+      "analysis": "",
+      "topic_tags": [
+        "环境活动家"
+      ],
+      "category": "科研学术",
+      "matched_keywords": []
+    },
+    {
+      "title": "Enhanced ozone oxidation pretreatment with micro-nano bubbles for mitigating membrane fouling during the reuse of aerobic granular sludge effluent",
+      "title_en": "Enhanced ozone oxidation pretreatment with micro-nano bubbles for mitigating membrane fouling during the reuse of aerobic granular sludge effluent",
+      "title_zh": "采用微纳米气泡增强臭氧氧化预处理，以减轻好氧颗粒污泥出水再利用过程中的膜污堵现象",
+      "link": "https://www.sciencedirect.com/science/article/pii/S0043135426019123?dgcid=rss_sd_all",
+      "source": "Water Research",
+      "published": "2026-10-31T12:48:11.973696+00:00",
+      "hotness": 73.9,
+      "score_v1": 20.35,
+      "score_v2": 73.9,
+      "score_breakdown": {
+        "algorithm": "v3.0",
+        "dimension_max": {
+          "authority": 18.0,
+          "topic": 18.0,
+          "resonance": 18.0,
+          "information": 16.0
+        },
+        "authority_score": 18.0,
+        "keyword_idf_score": 10.29,
+        "topic_score": 10.29,
+        "topic_burst_score": 0.0,
+        "topic_burst_count": 1,
+        "resonance_score": 0.0,
+        "info_score": 0.0,
+        "base": 28.29,
+        "base_max": 70.0,
+        "time_factor": 0.5891,
+        "density_factor": 1.0,
+        "density_note": "",
+        "repeat_penalty": 1.0,
+        "repeat_excused": false,
+        "event_size": 1,
+        "event_media_count": 1,
+        "event_cluster_source": "ai",
+        "origin_source": "Water Research",
+        "raw": 16.66,
+        "display_score": 73.9,
+        "display_mode": "absolute"
+      },
+      "summary": "研究提出微纳气泡增强臭氧氧化预处理技术，有效缓解好氧颗粒污泥废水重复使用过程中的膜污染问题，提高水处理效率。",
+      "analysis": "",
+      "topic_tags": [
+        "臭氧氧化",
+        "膜污染",
+        "好氧颗粒污泥"
+      ],
+      "category": "污染治理",
+      "matched_keywords": [
+        "臭氧",
+        "污泥"
+      ]
+    },
+    {
+      "title": "A System Dynamics Model for Zero-emission Heavy Vehicle Transition in Australia",
+      "title_en": "A System Dynamics Model for Zero-emission Heavy Vehicle Transition in Australia",
+      "title_zh": "澳大利亚重型车辆向零排放转型的系统动力学模型",
+      "link": "https://arxiv.org/abs/2610.41042",
+      "source": "arXiv Environmental Engineering",
+      "published": "2026-11-02T05:00:00+00:00",
+      "hotness": 73.4,
+      "score_v1": 15.82,
+      "score_v2": 73.4,
+      "score_breakdown": {
+        "algorithm": "v3.0",
+        "dimension_max": {
+          "authority": 18.0,
+          "topic": 18.0,
+          "resonance": 18.0,
+          "information": 16.0
+        },
+        "authority_score": 8.05,
+        "keyword_idf_score": 0.0,
+        "topic_score": 3.0,
+        "topic_burst_score": 0.0,
+        "topic_burst_count": 1,
+        "resonance_score": 0.0,
+        "info_score": 7.0,
+        "base": 18.05,
+        "base_max": 70.0,
+        "time_factor": 0.9023,
+        "density_factor": 1.0,
+        "density_note": "",
+        "repeat_penalty": 1.0,
+        "repeat_excused": false,
+        "event_size": 1,
+        "event_media_count": 1,
+        "event_cluster_source": "ai",
+        "origin_source": "arXiv Environmental Engineering",
+        "raw": 16.29,
+        "display_score": 73.4,
+        "display_mode": "absolute"
+      },
+      "summary": "arXiv:2610.41042v1 An: new Abstract: What would it take to accelerate the adoption of zero-emission trucks? Even if battery electric trucks become cheaper to own over their lifetime than diesel trucks, that alone is adding ten points would require a road user charge of about 5 AUD per litre, fifteen times the 2025-26 rate. A 70 AUD per tonne carbon price and a purchase subsidy covering 60% of the price premium do little better. Per percentage change in cost, operating-cost su' confidence in the network, cut operating costs and recycle road-charge revenue into infrastructure.",
+      "analysis": "",
+      "topic_tags": [
+        "系统动力学模型",
+        "零排放重型车辆"
+      ],
+      "category": "科研学术",
+      "matched_keywords": []
+    },
+    {
+      "title": "巴中市生态环境局召开全面从严治党工作推进会议传达学习党的二十届五中全会精神_市州 - 四川法治报",
+      "title_en": "",
+      "title_zh": "",
+      "link": "https://news.google.com/rss/articles/CBMiXEFVX3lxTE9NbHRnN2N5UXRGa3dFaFVIeThQLVc1OTJHZGxheDVOcmRfMHl3ZWIzR0Y3bEJhZ0NVeUU5ejB5RjNIanVTdG41a2wyMHdENExPWkJqOHU4US03TzNV?oc=5",
+      "source": "Google News 生态环境",
+      "published": "2026-11-02T10:06:15+00:00",
+      "hotness": 73.2,
+      "score_v1": 25.53,
+      "score_v2": 73.2,
+      "score_breakdown": {
+        "algorithm": "v3.0",
+        "dimension_max": {
+          "authority": 18.0,
+          "topic": 18.0,
+          "resonance": 18.0,
+          "information": 16.0
+        },
+        "authority_score": 8.05,
+        "keyword_idf_score": 4.84,
+        "topic_score": 8.63,
+        "topic_burst_score": 3.79,
+        "topic_burst_count": 3,
+        "resonance_score": 0.0,
+        "info_score": 9.0,
+        "base": 25.68,
+        "base_max": 70.0,
+        "time_factor": 0.9643,
+        "density_factor": 0.65,
+        "density_note": "地方政务通稿",
+        "repeat_penalty": 1.0,
+        "repeat_excused": false,
+        "event_size": 1,
+        "event_media_count": 1,
+        "event_cluster_source": "ai",
+        "origin_source": "四川法治报",
+        "raw": 16.1,
+        "display_score": 73.2,
+        "display_mode": "absolute"
+      },
+      "summary": "巴中市生态环境局召开全面从严治党工作推进会议，传达学习党的二十届五中全会精神，部署近期生态环境保护重点任务。",
+      "analysis": "",
+      "topic_tags": [
+        "巴中市生态环境局",
+        "生态环境保护重点任务"
+      ],
+      "category": "生态环境",
+      "matched_keywords": [
+        "生态环境"
+      ]
+    },
+    {
+      "title": "市生态环境局党组书记唐家富作为地方代表在闭幕式上致辞2026-11-02 - 上海市人民政府",
+      "title_en": "",
+      "title_zh": "",
+      "link": "https://news.google.com/rss/articles/CBMiigFBVV95cUxQc2ZUd3hjUTFKY0RPZ1MweWphdnVWRHl1TWRoSEI1RnRXYzBXdEhVME9rd0NFV0RHbzR4ZGM0WV9lcnlxVXBKc0tLdHdmM1V6V3cyVWJhcktsaWxRb0QxZzRseXRnbDdTYk5GUlZ5bGhUenE5bWU5QVMzSW9Uem1iaGpkVGNtVS1DTHc?oc=5",
+      "source": "Google News 生态环境",
+      "published": "2026-11-02T09:27:09+00:00",
+      "hotness": 73.0,
+      "score_v1": 25.29,
+      "score_v2": 73.0,
+      "score_breakdown": {
+        "algorithm": "v3.0",
+        "dimension_max": {
+          "authority": 18.0,
+          "topic": 18.0,
+          "resonance": 18.0,
+          "information": 16.0
+        },
+        "authority_score": 8.05,
+        "keyword_idf_score": 4.84,
+        "topic_score": 8.63,
+        "topic_burst_score": 3.79,
+        "topic_burst_count": 3,
+        "resonance_score": 0.0,
+        "info_score": 9.0,
+        "base": 25.68,
+        "base_max": 70.0,
+        "time_factor": 0.956,
+        "density_factor": 0.65,
+        "density_note": "地方政务通稿",
+        "repeat_penalty": 1.0,
+        "repeat_excused": false,
+        "event_size": 1,
+        "event_media_count": 1,
+        "event_cluster_source": "ai",
+        "origin_source": "上海市人民政府",
+        "raw": 15.96,
+        "display_score": 73.0,
+        "display_mode": "absolute"
+      },
+      "summary": "市生态环境局党组书记唐家富作为地方代表在COP17中国角闭幕式上致辞，重点阐述生物多样性保护与跨界共生理念。",
+      "analysis": "",
+      "topic_tags": [
+        "生物多样性",
+        "联合国生物多样性公约"
+      ],
+      "category": "生态环境",
+      "matched_keywords": [
+        "生态环境"
+      ]
+    }
+  ]
+}

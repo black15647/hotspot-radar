@@ -1,28 +1,28 @@
 {
-  "report_date": "2026-11-01",
-  "date": "2026-11-01",
+  "report_date": "2026-11-02",
+  "date": "2026-11-02",
   "site_name": "环境学子雷达",
-  "total_items": 31,
+  "total_items": 29,
   "total_sources": 28,
-  "success_sources": 25,
+  "success_sources": 26,
   "failed_sources": 1,
-  "week_total_items": 286,
-  "week_new_keywords": 74,
-  "policy_ratio": 10.5,
+  "week_total_items": 281,
+  "week_new_keywords": 77,
+  "policy_ratio": 10.7,
   "items": [
     {
-      "title": "聚焦气候变化与健康 中德科学院合办第三届“科学与未来”双边研讨会 - 新浪财经",
-      "title_en": "",
-      "title_zh": "",
-      "summary_en": "",
-      "summary_zh": "",
-      "link": "https://news.google.com/rss/articles/CBMieEFVX3lxTFAwN1NlUE5ISnhCNzJydWFEeVI4dlB1YngzZEF3Vm5TMjU4Y21EcjI4eURhVmgybk5rcTZrNnNXMjhUU0kxUDBxRzFnQ1BVMDN3ejVxV19zMWJUSWxETTF0bTdFZ0tHbkVmNkdfOFJ2VEpsUXNpc21Jdw?oc=5",
-      "source": "Google News 气候变化",
-      "published": "2026-11-01T03:19:19+00:00",
-      "hotness": 83.7,
-      "score": 83.7,
-      "score_v1": 25.72,
-      "score_v2": 83.7,
+      "title": "Food redistribution: a critical review of an overlooked priority measure against food waste",
+      "title_en": "Food redistribution: a critical review of an overlooked priority measure against food waste",
+      "title_zh": "食品再分配：对一项被忽视的、旨在减少食物浪费的优先措施的批判性回顾",
+      "summary_en": "Food redistribution is widely recognized as a preferred strategy for reducing food loss and waste. Yet it is still treated mainly as charitable relief, while its broader role in governance and the conditions for effective implementation remain insufficiently articulated. Drawing on a triple bottom line perspective and sustainable development goal coupling framework, this study synthesizes evidence from the literature, international practice, and field research in China to examine the contributions of food redistribution, the constraints that shape its performance, and the models through which it can be scaled. We find that existing research provides much stronger evidence on social benefits than on economic mechanisms or environmental outcomes, which remain constrained by value-cost mismatches, uncertainty in substitution assumptions, and limited activity data. Cross-dimensional evaluation and analysis of synergies also remain weak. In practice, international experience points to a transferable operational architecture based on hub-and-spoke networks and standardized procedures, but successful scaling depends on aligning policy tools with operational mechanisms to reduce systemic frictions. The Chinese cases extend this understanding by identifying two complementary implementation models, centralized and decentralized, each adapted to different institutional and market conditions. Together, these findings highlight the important role of food redistribution in sustainable food and waste governance, and offer practical support for integrated evaluation and wider implementation.",
+      "summary_zh": "食品再分配被广泛视为减少食品损失和浪费的首选策略。然而，它仍主要被视为慈善救济，而其在治理中的更广泛作用以及有效实施的条件尚未得到充分阐述。 本研究基于“三重底线”视角和可持续发展目标耦合框架，综合分析了文献、国际实践及中国实地研究的证据，以考察食品再分配的贡献、影响其绩效的制约因素，以及可实现规模化推广的模式。 我们发现，现有研究在社会效益方面的证据远比经济机制或环境成果方面的证据更为充分，而后者仍受制于价值与成本的不匹配、替代假设的不确定性以及活动数据的匮乏。 跨维度的评估以及对协同效应的分析也仍显薄弱。在实践中，国际经验表明，基于“枢纽-辐条”网络和标准化流程的运营架构具有可移植性，但成功的规模化实施取决于将政策工具与运营机制相协调，以减少系统性摩擦。 中国的案例通过识别两种互补的实施模式——集中式和分散式（分别适应不同的制度和市场条件）——拓展了这一认识。这些发现共同突显了食物再分配在可持续食品和废弃物治理中的重要作用，并为综合评估和更广泛的实施提供了实践支持。",
+      "link": "https://iopscience.iop.org/article/10.1088/1748-9326/aeb4c8",
+      "source": "Environmental Research Letters",
+      "published": "2026-11-02T00:00:00+00:00",
+      "hotness": 82.3,
+      "score": 82.3,
+      "score_v1": 22.86,
+      "score_v2": 82.3,
       "score_breakdown": {
         "algorithm": "v3.0",
         "dimension_max": {
@@ -31,63 +31,62 @@
           "resonance": 18.0,
           "information": 16.0
         },
-        "authority_score": 8.05,
-        "keyword_idf_score": 3.48,
-        "topic_score": 8.15,
-        "topic_burst_score": 4.66,
-        "topic_burst_count": 4,
-        "resonance_score": 8.76,
-        "info_score": 4.0,
-        "base": 28.95,
+        "authority_score": 18.0,
+        "keyword_idf_score": 5.41,
+        "topic_score": 7.77,
+        "topic_burst_score": 2.36,
+        "topic_burst_count": 2,
+        "resonance_score": 0.0,
+        "info_score": 3.0,
+        "base": 28.77,
         "base_max": 70.0,
-        "time_factor": 0.8986,
+        "time_factor": 0.8477,
         "density_factor": 1.0,
         "density_note": "",
         "repeat_penalty": 1.0,
         "repeat_excused": false,
-        "event_size": 3,
-        "event_media_count": 2,
+        "event_size": 1,
+        "event_media_count": 1,
         "event_cluster_source": "ai",
-        "origin_source": "新浪财经",
-        "raw": 26.02,
-        "display_score": 83.7,
+        "origin_source": "Environmental Research Letters",
+        "raw": 24.39,
+        "display_score": 82.3,
         "display_mode": "absolute"
       },
       "score_v1_breakdown": {
         "base": 5.0,
-        "source_score": 3.6,
+        "source_score": 6.0,
         "keyword_score": 2.0,
-        "time_score": 7.12,
-        "topic_bonus": 8.0,
-        "total": 25.72
+        "time_score": 5.86,
+        "topic_bonus": 4.0,
+        "total": 22.86
       },
-      "summary": "中德科研机构聚焦气候变化健康影响，举办第三届双边研讨会，探讨科学与未来关联议题。",
-      "analysis": "该条目涉及【气候变化健康】话题，因来源较权威且发布时间较新，热度上升。",
+      "summary": "食品再分配被广泛视为减少食品损失和浪费的首选策略。然而，它仍主要被视为慈善救济，而其在治理中的更广泛作用以及有效实施的条件尚未得到充分阐述。 本研究基于“三重底线”视角和可持续发展目标耦合框架，综合分析了文献、国际实践及中国实地研究的证据，以考察食品再分配的贡献、影响其绩效的制约因素，以及可实现规模化推广的模式。 我们发现，现有研究在社会效益方面的证据远比经济机制或环境成果方面的证据更为充分，而后者仍受制于价值与成本的不匹配、替代假设的不确定性以及活动数据的匮乏。 跨维度的评估以及对协同效应的分析也仍显薄弱。在实践中，国际经验表明，基于“枢纽-辐条”网络和标准化流程的运营架构具有可移植性，但成功的规模化实施取决于将政策工具与运营机制相协调，以减少系统性摩擦。 中国的案例通过识别两种互补的实施模式——集中式和分散式（分别适应不同的制度和市场条件）——拓展了这一认识。这些发现共同突显了食物再分配在可持续食品和废弃物治理中的重要作用，并为综合评估和更广泛的实施提供了实践支持。",
+      "analysis": "该条目涉及【可持续发展目标】话题，因来源权威性高，热度上升。",
       "topic_tags": [
-        "气候变化健康",
-        "中德科研机构"
+        "可持续发展目标"
       ],
-      "category": "气候变化",
+      "category": "环境政策",
       "matched_keywords": [
-        "气候变化"
+        "可持续发展"
       ],
       "keywords": [
-        "气候变化"
+        "可持续发展"
       ]
     },
     {
-      "title": "2026年度《柳叶刀人群健康与气候变化倒计时报告》在京发布 - 新浪财经",
+      "title": "南极活动与环境保护法草案三审 规定国家统筹南极科学研究方向 - 中国新闻网",
       "title_en": "",
       "title_zh": "",
       "summary_en": "",
       "summary_zh": "",
-      "link": "https://news.google.com/rss/articles/CBMieEFVX3lxTE9HX3hCLXNTcVMxcWJrZEJvbE9oOGdGRTUxakRENHp6ZmxUbk9EVFhCSTVyVFdiNUdVT20zTTZoU0wyOUV2bzEtNGNTeWk0ZU9SOUctZ0xERnV1N0RJejg0Y2V2dUh6NzRva1JqNElfbnFCbXhlMHFReQ?oc=5",
-      "source": "Google News 气候变化",
-      "published": "2026-10-31T12:34:35+00:00",
-      "hotness": 80.6,
-      "score": 80.6,
-      "score_v1": 22.45,
-      "score_v2": 80.6,
+      "link": "https://news.google.com/rss/articles/CBMiaEFVX3lxTE9DeDctY3E1UTJVUmE5b2FESmE4U1FXVndtZ1k2clBXSWxXZndPSGlDOTVnUFV1VVoxUV96M3pjZ3RNVVBBdkdRVTE0YmwzNEVHMWZ1bl8wVlluandBeEdLeENYa3BvTHl1?oc=5",
+      "source": "Google News 环境保护",
+      "published": "2026-11-02T03:17:08+00:00",
+      "hotness": 80.9,
+      "score": 80.9,
+      "score_v1": 19.32,
+      "score_v2": 80.9,
       "score_breakdown": {
         "algorithm": "v3.0",
         "dimension_max": {
@@ -97,61 +96,61 @@
           "information": 16.0
         },
         "authority_score": 8.05,
-        "keyword_idf_score": 3.48,
-        "topic_score": 8.15,
-        "topic_burst_score": 4.66,
-        "topic_burst_count": 4,
+        "keyword_idf_score": 5.14,
+        "topic_score": 5.14,
+        "topic_burst_score": 0.0,
+        "topic_burst_count": 1,
         "resonance_score": 8.76,
-        "info_score": 5.0,
-        "base": 29.95,
+        "info_score": 4.0,
+        "base": 25.95,
         "base_max": 70.0,
-        "time_factor": 0.7535,
+        "time_factor": 0.883,
         "density_factor": 1.0,
         "density_note": "",
         "repeat_penalty": 1.0,
-        "repeat_excused": true,
-        "event_size": 3,
+        "repeat_excused": false,
+        "event_size": 2,
         "event_media_count": 2,
         "event_cluster_source": "ai",
-        "origin_source": "新浪财经",
-        "raw": 22.57,
-        "display_score": 80.6,
+        "origin_source": "中国新闻网",
+        "raw": 22.91,
+        "display_score": 80.9,
         "display_mode": "absolute"
       },
       "score_v1_breakdown": {
         "base": 5.0,
         "source_score": 3.6,
         "keyword_score": 2.0,
-        "time_score": 3.85,
-        "topic_bonus": 8.0,
-        "total": 22.45
+        "time_score": 6.72,
+        "topic_bonus": 2.0,
+        "total": 19.32
       },
-      "summary": "《柳叶刀》2026年度倒计时报告在京发布，聚焦人群健康与气候变化关联，引发全球关注。",
-      "analysis": "该条目涉及【人群健康】话题，因来源较权威且多家媒体同题报道，热度上升。",
+      "summary": "南极环境保护法草案完成三审，明确规定国家统筹南极科学研究方向，旨在加强对南极活动的环境管理与保护。",
+      "analysis": "该条目涉及【南极环保法】话题，因来源较权威且发布时间较新，热度上升。",
       "topic_tags": [
-        "人群健康"
+        "南极环保法"
       ],
-      "category": "环境健康",
+      "category": "环境政策",
       "matched_keywords": [
-        "气候变化"
+        "环境保护"
       ],
       "keywords": [
-        "气候变化"
+        "环境保护"
       ]
     },
     {
-      "title": "2026年度《柳叶刀人群健康与气候变化倒计时报告》在京发布 - 中国日报网",
+      "title": "贵州务川：8座人工湿地“上岗” - 搜狐网",
       "title_en": "",
       "title_zh": "",
       "summary_en": "",
       "summary_zh": "",
-      "link": "https://news.google.com/rss/articles/CBMifEFVX3lxTE9PdDU2dmVzUWtJdXRhVEtoUXY3Q2N0VTI4LUpxMl9vMkVkUnhfSWJPNUc4Yk9tNDEycDl0Z2kyRGVQRkQyWlgxeE5ZSWx2VThWRG0xMlhRZWxNajZheFEyTVktX293SDYzdURfRmtLVnRsM0JkZkQtdTlUaTY?oc=5",
-      "source": "Google News 气候变化",
-      "published": "2026-10-31T05:28:59+00:00",
-      "hotness": 78.9,
-      "score": 78.9,
-      "score_v1": 21.47,
-      "score_v2": 78.9,
+      "link": "https://news.google.com/rss/articles/CBMioAFBVV95cUxQSmZkR0ZCeUtDTHpoZGZFRW54ak00cTBWYTAwVWlzZ1I5UG1OSF9rem9VeUlncnB5bHJ4ZjVZTFpSdi1KYlEtMlRGQnBYY0gtZlRNWHFvZG04OUFzQlJGcVdUZGY0eXFUbnlzUHJIZl9aRHBwNUw0OUJjR19aYkU5Z2l4bG5UMk1mMnlOR2dGdkZKME5XM2toNDhMcF92MzQx?oc=5",
+      "source": "Google News 环境污染",
+      "published": "2026-11-02T09:54:00+00:00",
+      "hotness": 77.1,
+      "score": 77.1,
+      "score_v1": 21.46,
+      "score_v2": 77.1,
       "score_breakdown": {
         "algorithm": "v3.0",
         "dimension_max": {
@@ -161,60 +160,62 @@
           "information": 16.0
         },
         "authority_score": 8.05,
-        "keyword_idf_score": 3.48,
-        "topic_score": 8.15,
-        "topic_burst_score": 4.66,
-        "topic_burst_count": 4,
-        "resonance_score": 8.76,
+        "keyword_idf_score": 7.0,
+        "topic_score": 7.0,
+        "topic_burst_score": 0.0,
+        "topic_burst_count": 1,
+        "resonance_score": 0.0,
         "info_score": 5.0,
-        "base": 29.95,
+        "base": 20.05,
         "base_max": 70.0,
-        "time_factor": 0.6981,
+        "time_factor": 0.9617,
         "density_factor": 1.0,
         "density_note": "",
         "repeat_penalty": 1.0,
-        "repeat_excused": true,
-        "event_size": 3,
-        "event_media_count": 2,
+        "repeat_excused": false,
+        "event_size": 1,
+        "event_media_count": 1,
         "event_cluster_source": "ai",
-        "origin_source": "中国日报网",
-        "raw": 20.91,
-        "display_score": 78.9,
+        "origin_source": "搜狐网",
+        "raw": 19.28,
+        "display_score": 77.1,
         "display_mode": "absolute"
       },
       "score_v1_breakdown": {
         "base": 5.0,
         "source_score": 3.6,
         "keyword_score": 2.0,
-        "time_score": 2.87,
-        "topic_bonus": 8.0,
-        "total": 21.47
+        "time_score": 8.86,
+        "topic_bonus": 2.0,
+        "total": 21.46
       },
-      "summary": "《柳叶刀》2026年度倒计时报告在京发布，重点阐释人群健康与气候变化的紧密联系与应对策略。",
-      "analysis": "该条目涉及【人群健康】话题，因来源较权威且多家媒体同题报道，热度上升。",
+      "summary": "贵州务川8座人工湿地正式投入使用，通过自然净化方式处理水体，有效提升当地水环境质量与生态保护水平。",
+      "analysis": "该条目涉及【人工湿地】话题，因来源较权威且发布时间较新，热度上升。",
       "topic_tags": [
-        "人群健康"
+        "人工湿地",
+        "水环境",
+        "生态保护"
       ],
-      "category": "环境健康",
+      "category": "生态环境",
       "matched_keywords": [
-        "气候变化"
+        "湿地"
       ],
       "keywords": [
-        "气候变化"
+        "湿地"
       ]
     },
     {
-      "title": "Far-right slows energy transition",
-      "title_en": "Far-right slows energy transition",
-      "title_zh": "极右翼势力阻碍能源转型",
-      "summary_en": "Nature Sustainability, Published online: 30 October 2026; doi:10.1038/s41893-026-01974-wPolitical identity is known to shape climate attitudes, but its effect on real-world adoption of clean technologies has been unclear. Now, data from Germany show that rising far-right support slows the uptake of rooftop solar and electric cars. However, these effects are not large enough to stall the transition.",
-      "summary_zh": "《自然·可持续性》（Nature Sustainability），在线发表于：2026年10月30日；doi:10.1038/s41893-026-01974-w。众所周知，政治认同会影响人们对气候问题的态度，但其对现实世界中清洁技术采用的影响尚不明确。 如今，来自德国的数据表明，极右翼支持率的上升会减缓屋顶太阳能和电动汽车的普及速度。不过，这些影响尚不足以阻碍能源转型进程。",
-      "link": "https://www.nature.com/articles/s41893-026-01974-w",
-      "source": "Nature Sustainability",
-      "published": "2026-10-30T00:00:00+00:00",
+      "title": "Apparent threshold and potential mechanisms of typhoon-induced N<sub>2</sub>O production in coastal waters revealed by laboratory incubations and field observations",
+      "title_en": "Apparent threshold and potential mechanisms of typhoon-induced N<sub>2</sub>O production in coastal waters revealed by laboratory incubations and field observations",
+      "title_zh": "通过实验室培养和实地观测揭示的台风诱导沿海水域N<sub>2</sub>O生成的显性阈值及潜在机制",
+      "summary_en": "",
+      "summary_zh": "",
+      "link": "https://www.sciencedirect.com/science/article/pii/S0043135426018956?dgcid=rss_sd_all",
+      "source": "Water Research",
+      "published": "2026-10-31T12:48:11.973696+00:00",
       "hotness": 75.2,
       "score": 75.2,
-      "score_v1": 21.84,
+      "score_v1": 12.35,
       "score_v2": 75.2,
       "score_breakdown": {
         "algorithm": "v3.0",
@@ -225,15 +226,15 @@
           "information": 16.0
         },
         "authority_score": 18.0,
-        "keyword_idf_score": 9.47,
-        "topic_score": 11.83,
-        "topic_burst_score": 2.36,
-        "topic_burst_count": 2,
+        "keyword_idf_score": 0.0,
+        "topic_score": 3.0,
+        "topic_burst_score": 0.0,
+        "topic_burst_count": 1,
         "resonance_score": 0.0,
-        "info_score": 3.0,
-        "base": 32.83,
+        "info_score": 9.0,
+        "base": 30.0,
         "base_max": 70.0,
-        "time_factor": 0.5383,
+        "time_factor": 0.5891,
         "density_factor": 1.0,
         "density_note": "",
         "repeat_penalty": 1.0,
@@ -241,7 +242,7 @@
         "event_size": 1,
         "event_media_count": 1,
         "event_cluster_source": "ai",
-        "origin_source": "Nature Sustainability",
+        "origin_source": "Water Research",
         "raw": 17.67,
         "display_score": 75.2,
         "display_mode": "absolute"
@@ -249,168 +250,34 @@
       "score_v1_breakdown": {
         "base": 5.0,
         "source_score": 6.0,
-        "keyword_score": 4.0,
-        "time_score": 0.84,
-        "topic_bonus": 6.0,
-        "total": 21.84
-      },
-      "summary": "《自然·可持续性》（Nature Sustainability），。众所周知，政治认同会影响人们对气候问题的态度，但其对现实世界中清洁技术采用的影响尚不明确。 如今，来自德国的数据表明，极右翼支持率的上升会减缓屋顶太阳能和电动汽车的普及速度。不过，这些影响尚不足以阻碍能源转型进程。",
-      "analysis": "该条目涉及【能源转型】话题，因来源权威性高，热度上升。",
-      "topic_tags": [
-        "能源转型",
-        "电动汽车"
-      ],
-      "category": "能源与碳中和",
-      "matched_keywords": [
-        "能源转型",
-        "可持续发展"
-      ],
-      "keywords": [
-        "能源转型",
-        "可持续发展"
-      ]
-    },
-    {
-      "title": "读图 | 秦皇岛开展洋河流域突发水污染环境事件应急演练 - 新浪财经",
-      "title_en": "",
-      "title_zh": "",
-      "summary_en": "",
-      "summary_zh": "",
-      "link": "https://news.google.com/rss/articles/CBMieEFVX3lxTFB3LUJiX3VRTVFLeVRYNWxGdWpDcmFLWk40eFpBOWZjZ2tkd0xFanZpR21ad0UyRkg4NmYwbWk0SVY4cl9zOVdReU9hWGJiZWt6cEZYdjAtVzhySXFJNVFHZndLM0hWVUpvdHg4THRWWm1tSEpDY19XVA?oc=5",
-      "source": "Google News 环境污染",
-      "published": "2026-11-01T10:53:05+00:00",
-      "hotness": 74.9,
-      "score": 74.9,
-      "score_v1": 26.36,
-      "score_v2": 74.9,
-      "score_breakdown": {
-        "algorithm": "v3.0",
-        "dimension_max": {
-          "authority": 18.0,
-          "topic": 18.0,
-          "resonance": 18.0,
-          "information": 16.0
-        },
-        "authority_score": 8.05,
-        "keyword_idf_score": 9.47,
-        "topic_score": 9.47,
-        "topic_burst_score": 0.0,
-        "topic_burst_count": 1,
-        "resonance_score": 0.0,
-        "info_score": 0.0,
-        "base": 17.52,
-        "base_max": 70.0,
-        "time_factor": 0.9922,
-        "density_factor": 1.0,
-        "density_note": "",
-        "repeat_penalty": 1.0,
-        "repeat_excused": false,
-        "event_size": 1,
-        "event_media_count": 1,
-        "event_cluster_source": "ai",
-        "origin_source": "新浪财经",
-        "raw": 17.39,
-        "display_score": 74.9,
-        "display_mode": "absolute"
-      },
-      "score_v1_breakdown": {
-        "base": 5.0,
-        "source_score": 3.6,
-        "keyword_score": 4.0,
-        "time_score": 9.76,
-        "topic_bonus": 4.0,
-        "total": 26.36
-      },
-      "summary": "秦皇岛针对洋河流域突发水污染，开展环境事件应急演练，提升突发事件应对能力与应急机制。",
-      "analysis": "该条目涉及【突发水污染】话题，因来源较权威且发布时间较新，热度上升。",
-      "topic_tags": [
-        "突发水污染",
-        "环境事件应急演练"
-      ],
-      "category": "污染治理",
-      "matched_keywords": [
-        "水污染",
-        "流域"
-      ],
-      "keywords": [
-        "水污染",
-        "流域"
-      ]
-    },
-    {
-      "title": "从监测PM2.5到测算降雨赔付，被误读的大学环境专业“有无限可能” - 上观新闻",
-      "title_en": "",
-      "title_zh": "",
-      "summary_en": "",
-      "summary_zh": "",
-      "link": "https://news.google.com/rss/articles/CBMiXEFVX3lxTE53Q3lWamhVRGIwbkhsTnNJMEZBMnpjVkJxRXVkRlZsbW1ud3puYU1xeXFGYndycTFUNHF3NUgxLS10dVZtY2lYT3BFcjRjVHVRbm5TYmtyT3FRVkRW?oc=5",
-      "source": "Google News 环境污染",
-      "published": "2026-10-31T22:00:00+00:00",
-      "hotness": 74.2,
-      "score": 74.2,
-      "score_v1": 14.31,
-      "score_v2": 74.2,
-      "score_breakdown": {
-        "algorithm": "v3.0",
-        "dimension_max": {
-          "authority": 18.0,
-          "topic": 18.0,
-          "resonance": 18.0,
-          "information": 16.0
-        },
-        "authority_score": 8.05,
-        "keyword_idf_score": 0.0,
-        "topic_score": 3.0,
-        "topic_burst_score": 0.0,
-        "topic_burst_count": 1,
-        "resonance_score": 0.0,
-        "info_score": 9.0,
-        "base": 20.05,
-        "base_max": 70.0,
-        "time_factor": 0.841,
-        "density_factor": 1.0,
-        "density_note": "",
-        "repeat_penalty": 1.0,
-        "repeat_excused": false,
-        "event_size": 1,
-        "event_media_count": 1,
-        "event_cluster_source": "ai",
-        "origin_source": "上观新闻",
-        "raw": 16.86,
-        "display_score": 74.2,
-        "display_mode": "absolute"
-      },
-      "score_v1_breakdown": {
-        "base": 5.0,
-        "source_score": 3.6,
         "keyword_score": 0.0,
-        "time_score": 5.71,
+        "time_score": 1.35,
         "topic_bonus": 0.0,
-        "total": 14.31
+        "total": 12.35
       },
-      "summary": "文章揭示大学环境专业从PM2.5监测到降雨赔付的多元应用，打破刻板印象展现其广阔职业前景。",
-      "analysis": "该条目涉及【PM2.5监测】话题，因来源较权威，热度上升。",
+      "summary": "通过实验室培养和实地观测揭示的沿海水域中A<sub>2</sub>O的生成过程",
+      "analysis": "该条目涉及【沿海水域】话题，因来源权威性高，热度上升。",
       "topic_tags": [
-        "PM2.5监测",
-        "大学环境专业"
+        "沿海水域",
+        "实验室培养"
       ],
-      "category": "污染治理",
+      "category": "水处理",
       "matched_keywords": [],
       "keywords": []
     },
     {
-      "title": "昆明生态环境治理以“惠企”为主线 推动环评审批与执法服务提质增效 - 凤凰网",
+      "title": "坚持精准治污、科学治污、 依法治污提升生态环境治理效能 - 天津日报",
       "title_en": "",
       "title_zh": "",
       "summary_en": "",
       "summary_zh": "",
-      "link": "https://news.google.com/rss/articles/CBMiTEFVX3lxTE5pUGg4OFRWdUdWZUNxYzRnbllXOWppUzJDcXhoXy1IRmIyZ0lCM3YxbW5sZkc2WVladHYzLW1wWUdtWWttWmN0Qk52ZWE?oc=5",
-      "source": "Google News 生态环境",
-      "published": "2026-10-31T09:18:03+00:00",
-      "hotness": 74.1,
-      "score": 74.1,
-      "score_v1": 27.96,
-      "score_v2": 74.1,
+      "link": "https://news.google.com/rss/articles/CBMiggFBVV95cUxNRlJBX0tYT1pkTGpKeXFIdVFHc0I0azEySlpXV2dtTHlWWGVsVkMwSF9wQXBiWnpqb3h6SXlmWjlJekVwMHlUSDBwb2dQWXd6a19tdmh4ckgzNFhUMl8zM3Y2T2NPaVhMNDQ1T3lvRlp1NFhwU2VtMWxidXZhbTZLZUdB?oc=5",
+      "source": "Google News 环境污染",
+      "published": "2026-11-01T21:11:55+00:00",
+      "hotness": 74.8,
+      "score": 74.8,
+      "score_v1": 25.82,
+      "score_v2": 74.8,
       "score_breakdown": {
         "algorithm": "v3.0",
         "dimension_max": {
@@ -420,15 +287,15 @@
           "information": 16.0
         },
         "authority_score": 8.05,
-        "keyword_idf_score": 11.29,
-        "topic_score": 15.08,
+        "keyword_idf_score": 9.33,
+        "topic_score": 13.12,
         "topic_burst_score": 3.79,
         "topic_burst_count": 3,
         "resonance_score": 0.0,
         "info_score": 0.0,
-        "base": 23.13,
+        "base": 21.17,
         "base_max": 70.0,
-        "time_factor": 0.7269,
+        "time_factor": 0.8195,
         "density_factor": 1.0,
         "density_note": "",
         "repeat_penalty": 1.0,
@@ -436,288 +303,32 @@
         "event_size": 1,
         "event_media_count": 1,
         "event_cluster_source": "ai",
-        "origin_source": "凤凰网",
-        "raw": 16.81,
-        "display_score": 74.1,
+        "origin_source": "天津日报",
+        "raw": 17.35,
+        "display_score": 74.8,
         "display_mode": "absolute"
       },
       "score_v1_breakdown": {
         "base": 5.0,
         "source_score": 3.6,
-        "keyword_score": 6.0,
-        "time_score": 3.36,
-        "topic_bonus": 10.0,
-        "total": 27.96
-      },
-      "summary": "聚焦惠企主线，推动环评审批与执法服务提质增效，助力生态环境治理优化。",
-      "analysis": "该条目涉及【生态环境治理】话题，因来源较权威且话题稀缺度高，热度上升。",
-      "topic_tags": [
-        "生态环境治理",
-        "环评审批",
-        "执法服务"
-      ],
-      "category": "生态环境",
-      "matched_keywords": [
-        "生态环境",
-        "环境治理",
-        "环评"
-      ],
-      "keywords": [
-        "生态环境",
-        "环境治理",
-        "环评"
-      ]
-    },
-    {
-      "title": "Human-Driven Warming May Have Halted the Onset of a New Ice Age",
-      "title_en": "Human-Driven Warming May Have Halted the Onset of a New Ice Age",
-      "title_zh": "人为导致的全球变暖可能阻止了新一轮冰河时代的来临",
-      "summary_en": "Researchers have found evidence that warming, driven by the burning of fossil fuels, reversed the advance of a new ice age.Read more on E360 →",
-      "summary_zh": "研究人员发现证据表明，由化石燃料燃烧导致的全球变暖扭转了新一轮冰河时代的来临。在 E360 上阅读更多内容 →",
-      "link": "https://e360.yale.edu/digest/ice-age-avoided",
-      "source": "Yale Environment 360",
-      "published": "2026-10-30T14:57:00+00:00",
-      "hotness": 74.0,
-      "score": 74.0,
-      "score_v1": 11.06,
-      "score_v2": 74.0,
-      "score_breakdown": {
-        "algorithm": "v3.0",
-        "dimension_max": {
-          "authority": 18.0,
-          "topic": 18.0,
-          "resonance": 18.0,
-          "information": 16.0
-        },
-        "authority_score": 12.73,
-        "keyword_idf_score": 0.0,
-        "topic_score": 3.0,
-        "topic_burst_score": 0.0,
-        "topic_burst_count": 1,
-        "resonance_score": 8.76,
-        "info_score": 3.0,
-        "base": 27.49,
-        "base_max": 70.0,
-        "time_factor": 0.6071,
-        "density_factor": 1.0,
-        "density_note": "",
-        "repeat_penalty": 1.0,
-        "repeat_excused": false,
-        "event_size": 2,
-        "event_media_count": 2,
-        "event_cluster_source": "ai",
-        "origin_source": "Yale Environment 360",
-        "raw": 16.69,
-        "display_score": 74.0,
-        "display_mode": "absolute"
-      },
-      "score_v1_breakdown": {
-        "base": 5.0,
-        "source_score": 4.5,
-        "keyword_score": 0.0,
-        "time_score": 1.56,
-        "topic_bonus": 0.0,
-        "total": 11.06
-      },
-      "summary": "研究人员发现证据表明，由化石燃料燃烧导致的全球变暖扭转了新一轮冰河时代的来临。在 E360 上阅读更多内容 →",
-      "analysis": "该条目涉及【化石燃料】话题，因来源权威性高且多家媒体同题报道，热度上升。",
-      "topic_tags": [
-        "化石燃料",
-        "温室效应"
-      ],
-      "category": "气候变化",
-      "matched_keywords": [],
-      "keywords": []
-    },
-    {
-      "title": "Feedbacks between natural climate solutions and plant invasions",
-      "title_en": "Feedbacks between natural climate solutions and plant invasions",
-      "title_zh": "自然气候解决方案与植物入侵之间的反馈作用",
-      "summary_en": "Biological invasions and carbon sequestration guide many modern-day land management decisions. However, intersections between invasions and natural climate solutions (NCS)—actions to maintain or increase the land carbon sink—have not received adequate attention in either the invasion or climate mitigation literature. We therefore review how plant invasions affect NCS and vice versa, focusing on reductions in emissions and carbon removals associated with avoided habitat conversion, restoration, forest and cropland management, agroforestry, and optimal grazing. We find that plant invasions can interfere with rapid NCS implementation and reduce the durability of carbon storage in many systems, although there are cases in which invasive plants increase carbon storage, creating biodiversity-climate mitigation trade-offs. At the same time, studies find that several NCS increase community resistance/resilience to invasions, and do so in forests, in particular, which can suppress invasive species spread in these systems. These dynamics suggest a positive feedback loop between NCS and invasions, in which NCS facilitate invasion control, and successful invasion control, in turn, eases further NCS implementation. This feedback could accelerate gains in land-based carbon storage and generate co-benefits for biodiversity, provided that NCS projects receive resources for sustained invasive species management. We highlight areas in need of further research, including how financial mechanisms for climate action could be used to overcome invasion-induced implementation barriers.",
-      "summary_zh": "生物入侵和碳封存是当今许多土地管理决策的重要依据。然而，入侵与自然气候解决方案（NCS）——即旨在维持或增加土地碳汇的举措——之间的交集，无论是在入侵研究文献还是气候减缓文献中，都尚未得到充分关注。 因此，我们回顾了植物入侵如何影响自然气候解决方案，反之亦然，重点探讨了通过避免栖息地转化、生态修复、森林和农田管理、农林复合经营以及优化放牧所带来的减排和碳移除效应。 我们发现，尽管在某些情况下入侵植物会增加碳储量，从而产生生物多样性与气候减缓之间的权衡，但植物入侵可能会干扰自然气候解决方案的快速实施，并降低许多系统中碳储存的持久性。 与此同时，研究发现，若干自然碳储量措施可增强群落对入侵的抵抗力/韧性，特别是在森林中，从而抑制入侵物种在这些系统中的扩散。 这些动态表明，NCS 与入侵物种之间存在正反馈循环：NCS 有助于控制入侵，而成功的入侵控制反过来又促进了 NCS 的进一步实施。只要 NCS 项目获得用于持续管理入侵物种的资源，这种反馈就能加速陆地碳储量的增长，并为生物多样性带来协同效益。 我们重点指出了需要进一步研究的领域，包括如何利用气候行动的金融机制来克服入侵物种引发的实施障碍。",
-      "link": "https://iopscience.iop.org/article/10.1088/1748-9326/aeb0b9",
-      "source": "Environmental Research Letters",
-      "published": "2026-10-30T00:00:00+00:00",
-      "hotness": 74.0,
-      "score": 74.0,
-      "score_v1": 19.84,
-      "score_v2": 74.0,
-      "score_breakdown": {
-        "algorithm": "v3.0",
-        "dimension_max": {
-          "authority": 18.0,
-          "topic": 18.0,
-          "resonance": 18.0,
-          "information": 16.0
-        },
-        "authority_score": 18.0,
-        "keyword_idf_score": 10.02,
-        "topic_score": 10.02,
-        "topic_burst_score": 0.0,
-        "topic_burst_count": 1,
-        "resonance_score": 0.0,
-        "info_score": 3.0,
-        "base": 31.02,
-        "base_max": 70.0,
-        "time_factor": 0.5383,
-        "density_factor": 1.0,
-        "density_note": "",
-        "repeat_penalty": 1.0,
-        "repeat_excused": false,
-        "event_size": 1,
-        "event_media_count": 1,
-        "event_cluster_source": "ai",
-        "origin_source": "Environmental Research Letters",
-        "raw": 16.7,
-        "display_score": 74.0,
-        "display_mode": "absolute"
-      },
-      "score_v1_breakdown": {
-        "base": 5.0,
-        "source_score": 6.0,
         "keyword_score": 4.0,
-        "time_score": 0.84,
-        "topic_bonus": 4.0,
-        "total": 19.84
+        "time_score": 5.22,
+        "topic_bonus": 8.0,
+        "total": 25.82
       },
-      "summary": "生物入侵和碳封存是当今许多土地管理决策的重要依据。然而，入侵与自然气候解决方案（NCS）——即旨在维持或增加土地碳汇的举措——之间的交集，无论是在入侵研究文献还是气候减缓文献中，都尚未得到充分关注。 因此，我们回顾了植物入侵如何影响自然气候解决方案，反之亦然，重点探讨了通过避免栖息地转化、生态修复、森林和农田管理、农林复合经营以及优化放牧所带来的减排和碳移除效应。 我们发现，尽管在某些情况下入侵植物会增加碳储量，从而产生生物多样性与气候减缓之间的权衡，但植物入侵可能会干扰自然气候解决方案的快速实施，并降低许多系统中碳储存的持久性。 与此同时，研究发现，若干自然碳储量措施可增强群落对入侵的抵抗力/韧性，特别是在森林中，从而抑制入侵物种在这些系统中的扩散。 这些动态表明，NCS 与入侵物种之间存在正反馈循环：NCS 有助于控制入侵，而成功的入侵控制反过来又促进了 NCS 的进一步实施。只要 NCS 项目获得用于持续管理入侵物种的资源，这种反馈就能加速陆地碳储量的增长，并为生物多样性带来协同效益。 我们重点指出了需要进一步研究的领域，包括如何利用气候行动的金融机制来克服入侵物种引发的实施障碍。",
-      "analysis": "该条目涉及【自然气候解决方案】话题，因来源权威性高，热度上升。",
-      "topic_tags": [
-        "自然气候解决方案"
-      ],
-      "category": "气候变化",
-      "matched_keywords": [
-        "生态修复",
-        "生物多样性"
-      ],
-      "keywords": [
-        "生态修复",
-        "生物多样性"
-      ]
-    },
-    {
-      "title": "Five reasons why the US midterms matter for the climate – and your energy bill",
-      "title_en": "Five reasons why the US midterms matter for the climate – and your energy bill",
-      "title_zh": "美国中期选举为何对气候——以及你的能源账单——至关重要：五大原因",
-      "summary_en": "Voters are feeling the pinch of Trump’s anti-climate agenda as energy costs rise, but a shake-up in Congress could shift thingsIf the polls can be believed, the US could see a blue wave in the midterms, giving Democrats a chance to take back the House and Senate, and gaining up to four governor’s seats.These wins could give Democrats new power to resist Donald Trump’s anti-climate agenda, and to push forward climate policies at the state level. But if Republicans maintain power, it could further embolden Trump’s “drill, baby, drill” agenda and leave intact his administration’s latitude to continue dismantling regulatory measures his critics say protect public health and the planet. Continue reading...",
-      "summary_zh": "随着能源成本上涨，选民正深切感受到特朗普反气候议程带来的压力，但国会格局的变动可能会扭转局面。如果民调结果可信，美国中期选举可能会出现“蓝色浪潮”，这将使民主党有机会夺回众议院和参议院的控制权，并赢得多达四个州长席位。这些胜利可能赋予民主党新的力量，以抵制唐纳德·特朗普的反气候议程，并在州一级推进气候政策。 但如果共和党继续掌权，可能会进一步助长特朗普“钻啊，宝贝，钻啊”议程的势头，并使其政府得以继续拆除那些据批评者所说旨在保护公众健康和地球的监管措施。继续阅读...",
-      "link": "https://www.theguardian.com/us-news/2026/oct/30/climate-crisis-midterms-affordability",
-      "source": "The Guardian Environment",
-      "published": "2026-10-30T11:30:52+00:00",
-      "hotness": 73.3,
-      "score": 73.3,
-      "score_v1": 10.86,
-      "score_v2": 73.3,
-      "score_breakdown": {
-        "algorithm": "v3.0",
-        "dimension_max": {
-          "authority": 18.0,
-          "topic": 18.0,
-          "resonance": 18.0,
-          "information": 16.0
-        },
-        "authority_score": 12.73,
-        "keyword_idf_score": 0.0,
-        "topic_score": 3.0,
-        "topic_burst_score": 0.0,
-        "topic_burst_count": 1,
-        "resonance_score": 8.76,
-        "info_score": 3.0,
-        "base": 27.49,
-        "base_max": 70.0,
-        "time_factor": 0.5894,
-        "density_factor": 1.0,
-        "density_note": "",
-        "repeat_penalty": 1.0,
-        "repeat_excused": true,
-        "event_size": 2,
-        "event_media_count": 2,
-        "event_cluster_source": "ai",
-        "origin_source": "and your energy bill",
-        "raw": 16.2,
-        "display_score": 73.3,
-        "display_mode": "absolute"
-      },
-      "score_v1_breakdown": {
-        "base": 5.0,
-        "source_score": 4.5,
-        "keyword_score": 0.0,
-        "time_score": 1.36,
-        "topic_bonus": 0.0,
-        "total": 10.86
-      },
-      "summary": "随着能源成本上涨，选民正深切感受到特朗普反气候议程带来的压力，但国会格局的变动可能会扭转局面。如果民调结果可信，美国中期选举可能会出现“蓝色浪潮”，这将使民主党有机会夺回众议院和参议院的控制权，并赢得多达四个州长席位。这些胜利可能赋予民主党新的力量，以抵制唐纳德·特朗普的反气候议程，并在州一级推进气候政策。 但如果共和党继续掌权，可能会进一步助长特朗普“钻啊，宝贝，钻啊”议程的势头，并使其政府得以继续拆除那些据批评者所说旨在保护公众健康和地球的监管措施。继续阅读...",
-      "analysis": "该条目涉及【气候政策】话题，因来源权威性高且多家媒体同题报道，热度上升。",
-      "topic_tags": [
-        "气候政策",
-        "能源账单"
-      ],
-      "category": "气候变化",
-      "matched_keywords": [],
-      "keywords": []
-    },
-    {
-      "title": "优化乡村生态环境 产业转型走出新路 - 中国日报网",
-      "title_en": "",
-      "title_zh": "",
-      "summary_en": "",
-      "summary_zh": "",
-      "link": "https://news.google.com/rss/articles/CBMifEFVX3lxTE1NSUpVZGphQzR0VkliVUtHS2JhbDd1WUdFRmNqQ1ZHTHZTcUJtRlgyTjVMMmJVem5HUXhvUlBaRk9mSEdtYzUwV1hLZGhfc1BvRS1sdVBIcFRKSjlFREctN2Z3UGVYSGNSNUUzN1RCRUI0QzY4ZHVkdWE1Nlc?oc=5",
-      "source": "Google News 生态环境",
-      "published": "2026-11-01T06:24:54+00:00",
-      "hotness": 72.5,
-      "score": 72.5,
-      "score_v1": 24.7,
-      "score_v2": 72.5,
-      "score_breakdown": {
-        "algorithm": "v3.0",
-        "dimension_max": {
-          "authority": 18.0,
-          "topic": 18.0,
-          "resonance": 18.0,
-          "information": 16.0
-        },
-        "authority_score": 8.05,
-        "keyword_idf_score": 4.86,
-        "topic_score": 8.66,
-        "topic_burst_score": 3.79,
-        "topic_burst_count": 3,
-        "resonance_score": 0.0,
-        "info_score": 0.0,
-        "base": 16.71,
-        "base_max": 70.0,
-        "time_factor": 0.9351,
-        "density_factor": 1.0,
-        "density_note": "",
-        "repeat_penalty": 1.0,
-        "repeat_excused": false,
-        "event_size": 1,
-        "event_media_count": 1,
-        "event_cluster_source": "ai",
-        "origin_source": "中国日报网",
-        "raw": 15.62,
-        "display_score": 72.5,
-        "display_mode": "absolute"
-      },
-      "score_v1_breakdown": {
-        "base": 5.0,
-        "source_score": 3.6,
-        "keyword_score": 2.0,
-        "time_score": 8.1,
-        "topic_bonus": 6.0,
-        "total": 24.7
-      },
-      "summary": "产业转型走出新路，优化乡村生态环境，推动农业农村可持续发展。",
-      "analysis": "该条目涉及【生态环境】话题，因来源较权威且发布时间较新，热度上升。",
+      "summary": "天津日报报道生态环境治理坚持精准、科学、依法原则，旨在通过精细化管理显著提升污染防治效率与生态环境质量。",
+      "analysis": "该条目涉及【生态环境】话题，因来源较权威且话题稀缺度高，热度上升。",
       "topic_tags": [
         "生态环境"
       ],
       "category": "生态环境",
       "matched_keywords": [
-        "生态环境"
+        "生态环境",
+        "环境治理"
       ],
       "keywords": [
-        "生态环境"
+        "生态环境",
+        "环境治理"
       ]
     },
     {
@@ -729,10 +340,10 @@
       "link": "https://www.bbc.co.uk/news/articles/c9rkypk1g7k0o?at_medium=RSS&at_campaign=rss",
       "source": "BBC 科学与环境",
       "published": "2026-10-31T13:41:07+00:00",
-      "hotness": 72.5,
-      "score": 72.5,
-      "score_v1": 13.54,
-      "score_v2": 72.5,
+      "hotness": 74.8,
+      "score": 74.8,
+      "score_v1": 10.9,
+      "score_v2": 74.8,
       "score_breakdown": {
         "algorithm": "v3.0",
         "dimension_max": {
@@ -746,237 +357,53 @@
         "topic_score": 3.0,
         "topic_burst_score": 0.0,
         "topic_burst_count": 1,
-        "resonance_score": 0.0,
+        "resonance_score": 8.76,
         "info_score": 4.75,
-        "base": 20.48,
+        "base": 29.24,
         "base_max": 70.0,
-        "time_factor": 0.7629,
+        "time_factor": 0.5935,
         "density_factor": 1.0,
         "density_note": "",
         "repeat_penalty": 1.0,
         "repeat_excused": false,
-        "event_size": 1,
-        "event_media_count": 1,
+        "event_size": 2,
+        "event_media_count": 2,
         "event_cluster_source": "ai",
         "origin_source": "BBC 科学与环境",
-        "raw": 15.62,
-        "display_score": 72.5,
+        "raw": 17.35,
+        "display_score": 74.8,
         "display_mode": "absolute"
       },
       "score_v1_breakdown": {
         "base": 5.0,
         "source_score": 4.5,
         "keyword_score": 0.0,
-        "time_score": 4.04,
+        "time_score": 1.4,
         "topic_bonus": 0.0,
-        "total": 13.54
+        "total": 10.9
       },
       "summary": "一场以万圣节为主题、反对化石燃料的抗议活动将目标锁定在爱丁堡的第一部长官官邸。",
-      "analysis": "该条目涉及【科研学术】话题，因来源权威性高，热度上升。",
+      "analysis": "该条目涉及【环境活动家】话题，因来源权威性高且多家媒体同题报道，热度上升。",
       "topic_tags": [
-        "科研学术"
+        "环境活动家"
       ],
       "category": "科研学术",
       "matched_keywords": [],
       "keywords": []
     },
     {
-      "title": "Oil tank vandalism results in waterfowl park 'nightmare'",
-      "title_en": "Oil tank vandalism results in waterfowl park 'nightmare'",
-      "title_zh": "油罐遭破坏致水禽公园陷入“噩梦”",
-      "summary_en": "The popular attraction in County Down has been forced to close while efforts continue to remove oil from the pond.",
-      "summary_zh": "唐郡这一热门景点被迫关闭，目前工作人员仍在努力清除池塘中的油污。",
-      "link": "https://www.bbc.co.uk/news/articles/c64g14ene2epo?at_medium=RSS&at_campaign=rss",
-      "source": "BBC 科学与环境",
-      "published": "2026-11-01T06:42:13+00:00",
-      "hotness": 72.3,
-      "score": 72.3,
-      "score_v1": 17.7,
-      "score_v2": 72.3,
-      "score_breakdown": {
-        "algorithm": "v3.0",
-        "dimension_max": {
-          "authority": 18.0,
-          "topic": 18.0,
-          "resonance": 18.0,
-          "information": 16.0
-        },
-        "authority_score": 12.73,
-        "keyword_idf_score": 0.0,
-        "topic_score": 3.0,
-        "topic_burst_score": 0.0,
-        "topic_burst_count": 1,
-        "resonance_score": 0.0,
-        "info_score": 0.75,
-        "base": 16.48,
-        "base_max": 70.0,
-        "time_factor": 0.9386,
-        "density_factor": 1.0,
-        "density_note": "",
-        "repeat_penalty": 1.0,
-        "repeat_excused": false,
-        "event_size": 1,
-        "event_media_count": 1,
-        "event_cluster_source": "ai",
-        "origin_source": "BBC 科学与环境",
-        "raw": 15.47,
-        "display_score": 72.3,
-        "display_mode": "absolute"
-      },
-      "score_v1_breakdown": {
-        "base": 5.0,
-        "source_score": 4.5,
-        "keyword_score": 0.0,
-        "time_score": 8.2,
-        "topic_bonus": 0.0,
-        "total": 17.7
-      },
-      "summary": "唐郡这一热门景点被迫关闭，目前工作人员仍在努力清除池塘中的油污。",
-      "analysis": "该条目涉及【能源与碳中和】话题，因来源权威性高且发布时间较新，热度上升。",
-      "topic_tags": [
-        "能源与碳中和"
-      ],
-      "category": "气候变化",
-      "matched_keywords": [],
-      "keywords": []
-    },
-    {
-      "title": "Scientists confirm global warming is accelerating faster than ever recorded",
-      "title_en": "Scientists confirm global warming is accelerating faster than ever recorded",
-      "title_zh": "科学家证实，全球变暖的速度正以有史以来最快的速度加快",
-      "summary_en": "Earth is warming faster than ever recorded, with scientists detecting a major acceleration in global temperatures since around 2015. A new study reveals that the warming rate has surged to approximately 0.35°C per decade, nearly double the average pace observed from 1970 to 2015. After removing natural climate fluctuations, researchers confirmed the acceleration with more than 98% statistical confidence.",
-      "summary_zh": "地球变暖的速度已达到有记录以来的最快水平，科学家们发现，自2015年左右以来，全球气温上升速度显著加快。 一项新研究显示，变暖速率已飙升至每十年约0.35°C，几乎是1970年至2015年期间观测到的平均速度的两倍。在剔除自然气候波动因素后，研究人员以超过98%的统计置信度证实了这一加速趋势。",
-      "link": "https://www.sciencedaily.com/releases/2026/10/261027231200.htm",
-      "source": "ScienceDaily 环境科学",
-      "published": "2026-10-30T03:50:51+00:00",
-      "hotness": 72.3,
-      "score": 72.3,
-      "score_v1": 20.49,
-      "score_v2": 72.3,
-      "score_breakdown": {
-        "algorithm": "v3.0",
-        "dimension_max": {
-          "authority": 18.0,
-          "topic": 18.0,
-          "resonance": 18.0,
-          "information": 16.0
-        },
-        "authority_score": 12.73,
-        "keyword_idf_score": 3.48,
-        "topic_score": 8.15,
-        "topic_burst_score": 4.66,
-        "topic_burst_count": 4,
-        "resonance_score": 0.0,
-        "info_score": 7.0,
-        "base": 27.87,
-        "base_max": 70.0,
-        "time_factor": 0.554,
-        "density_factor": 1.0,
-        "density_note": "",
-        "repeat_penalty": 1.0,
-        "repeat_excused": false,
-        "event_size": 2,
-        "event_media_count": 1,
-        "event_cluster_source": "ai",
-        "origin_source": "ScienceDaily 环境科学",
-        "raw": 15.44,
-        "display_score": 72.3,
-        "display_mode": "absolute"
-      },
-      "score_v1_breakdown": {
-        "base": 5.0,
-        "source_score": 4.5,
-        "keyword_score": 2.0,
-        "time_score": 0.99,
-        "topic_bonus": 8.0,
-        "total": 20.49
-      },
-      "summary": "地球变暖的速度已达到有记录以来的最快水平，科学家们发现，自2015年左右以来，全球气温上升速度显著加快。 一项新研究显示，变暖速率已飙升至每十年约0.35°C，几乎是1970年至2015年期间观测到的平均速度的两倍。在剔除自然气候波动因素后，研究人员以超过98%的统计置信度证实了这一加速趋势。",
-      "analysis": "该条目涉及【气候变化】话题，因来源权威性高，热度上升。",
-      "topic_tags": [
-        "气候变化"
-      ],
-      "category": "气候变化",
-      "matched_keywords": [
-        "气候变化"
-      ],
-      "keywords": [
-        "气候变化"
-      ]
-    },
-    {
-      "title": "National-scale PM2.5 health consequences of a proposed LNG power project in South Korea: looking beyond localized assessment boundaries",
-      "title_en": "National-scale PM2.5 health consequences of a proposed LNG power project in South Korea: looking beyond localized assessment boundaries",
-      "title_zh": "韩国某拟建液化天然气发电项目对全国范围PM2.5健康影响的研究：超越局部评估范围",
-      "summary_en": "Environmental impact assessments (EIAs) in South Korea rely heavily on localized dispersion models within restricted geographical boundaries (∼10 km), failing to capture regional secondary PM2.5 formation and broad population exposure. To address these limitations, this study pursues two distinct objectives: (1) evaluating systemic deficiencies in the current EIA framework, and (2) quantifying the nationwide health impacts and monetized mortality damages of a proposed 3 GW liquefied natural gas power cluster at the Yongin Semiconductor Industrial Complex. We employed Global InMAP—selected specifically for its ability to simulate long-range atmospheric transport and secondary PM2.5 chemistry across national scales where local models fail—under 35%, 55%, and 75% capacity factor (CF) scenarios. Health outcomes were modeled nationwide and monetized using domestic and international Values of a Statistical Life. Regarding health impact quantification, the proposed cluster is projected to cause 21.5–31.1 additional annual premature deaths nationwide, with secondary PM2.5 driving 63%–71% of this burden. Under the central 55% CF scenario, annual monetized mortality damages range from 34.4 billion KRW (∼USD 23 million; domestic benchmark) to 195.9–295.5 billion KRW (∼USD 143–201 million; international benchmarks). Regarding EIA framework evaluation, spatial disaggregation revealed critical regulatory blind spots: only 14%–16% of attributable premature deaths occur within the typical 10 km EIA assessment radius, while 67%–69% fall outside Yongin City and 46%–47% outside host Gyeonggi Province. Geographically bounded EIAs omit the vast majority of health externalities; regulatory frameworks must integrate regional secondary PM2.5 modeling and transparently monetize health damages in energy planning decisions.",
-      "summary_zh": "韩国的环境影响评估（EIA）主要依赖于限定地理范围（约10公里）内的局部扩散模型，未能全面反映区域性PM2.5的二次生成及广泛人群的暴露情况。 为解决这些局限性，本研究旨在实现两个明确目标：（1）评估当前EIA框架中的系统性缺陷；（2）量化拟建于龙仁半导体工业园区的3吉瓦液化天然气发电集群对全国范围内的健康影响及可量化的死亡损害。 我们采用了Global InMAP模型——该模型因其能够模拟跨国家尺度的长距离大气传输和二次PM2.5化学反应（而局部模型在此方面存在局限）而被专门选中——并在35%、55%和75%的容量因子（CF）情景下进行了模拟。 健康影响在全国范围内进行了建模，并采用国内和国际的“统计生命价值”标准进行了货币化评估。就健康影响量化而言，预计该拟建集群将在全国范围内每年导致21.5–31.1例额外过早死亡，其中二次PM2.5导致了63%–71%的死亡负担。 在55%容量因子的中心情景下，年度货币化死亡损害范围为344亿韩元（约合2300万美元；国内基准）至1959亿–2955亿韩元（约合1.43–2.01亿美元；国际基准）。 关于环境影响评估（EIA）框架的评估，空间分解揭示了关键的监管盲点：仅有14%–16%的可归因过早死亡发生在典型的10公里EIA评估半径范围内，而67%–69%发生在龙仁市以外，46%–47%发生在项目所在地京畿道以外。 受地理边界限制的环境影响评估忽略了绝大多数健康外部性；监管框架必须整合区域性PM2.5二次沉降模型，并在能源规划决策中以透明的方式对健康损害进行货币化评估。",
-      "link": "https://iopscience.iop.org/article/10.1088/1748-9326/aea62c",
-      "source": "Environmental Research Letters",
-      "published": "2026-10-29T00:00:00+00:00",
-      "hotness": 72.1,
-      "score": 72.1,
-      "score_v1": 11.31,
-      "score_v2": 72.1,
-      "score_breakdown": {
-        "algorithm": "v3.0",
-        "dimension_max": {
-          "authority": 18.0,
-          "topic": 18.0,
-          "resonance": 18.0,
-          "information": 16.0
-        },
-        "authority_score": 18.0,
-        "keyword_idf_score": 0.0,
-        "topic_score": 3.0,
-        "topic_burst_score": 0.0,
-        "topic_burst_count": 1,
-        "resonance_score": 0.0,
-        "info_score": 12.0,
-        "base": 33.0,
-        "base_max": 70.0,
-        "time_factor": 0.4642,
-        "density_factor": 1.0,
-        "density_note": "",
-        "repeat_penalty": 1.0,
-        "repeat_excused": false,
-        "event_size": 1,
-        "event_media_count": 1,
-        "event_cluster_source": "ai",
-        "origin_source": "Environmental Research Letters",
-        "raw": 15.32,
-        "display_score": 72.1,
-        "display_mode": "absolute"
-      },
-      "score_v1_breakdown": {
-        "base": 5.0,
-        "source_score": 6.0,
-        "keyword_score": 0.0,
-        "time_score": 0.31,
-        "topic_bonus": 0.0,
-        "total": 11.31
-      },
-      "summary": "韩国的环境影响评估（EIA）主要依赖于限定地理范围（约10公里）内的局部扩散模型，未能全面反映区域性PM2.5的二次生成及广泛人群的暴露情况。 为解决这些局限性，本研究旨在实现两个明确目标：（1）评估当前EIA框架中的系统性缺陷；（2）量化拟建于龙仁半导体工业园区的3吉瓦液化天然气发电集群对全国范围内的健康影响及可量化的死亡损害。 我们采用了Global InMAP模型——该模型因其能够模拟跨国家尺度的长距离大气传输和二次PM2.5化学反应（而局部模型在此方面存在局限）而被专门选中——并在35%、55%和75%的容量因子（CF）情景下进行了模拟。 健康影响在全国范围内进行了建模，并采用国内和国际的“统计生命价值”标准进行了货币化评估。就健康影响量化而言，预计该拟建集群将在全国范围内每年导致21.5–31.1例额外过早死亡，其中二次PM2.5导致了63%–71%的死亡负担。 在55%容量因子的中心情景下，年度货币化死亡损害范围为344亿韩元（约合2300万美元；国内基准）至1959亿–2955亿韩元（约合1.43–2.01亿美元；国际基准）。 关于环境影响评估（EIA）框架的评估，空间分解揭示了关键的监管盲点：仅有14%–16%的可归因过早死亡发生在典型的10公里EIA评估半径范围内，而67%–69%发生在龙仁市以外，46%–47%发生在项目所在地京畿道以外。 受地理边界限制的环境影响评估忽略了绝大多数健康外部性；监管框架必须整合区域性PM2.5二次沉降模型，并在能源规划决策中以透明的方式对健康损害进行货币化评估。",
-      "analysis": "该条目涉及【PM2.5】话题，因来源权威性高，热度上升。",
-      "topic_tags": [
-        "PM2.5"
-      ],
-      "category": "污染治理",
-      "matched_keywords": [],
-      "keywords": []
-    },
-    {
-      "title": "ROS-associated aerobic methane formation by <em>Shewanella oneidensis</em> coupled with algal organic matters as methyl donors: An overlooked methane emission pathway in eutrophic waters",
-      "title_en": "ROS-associated aerobic methane formation by <em>Shewanella oneidensis</em> coupled with algal organic matters as methyl donors: An overlooked methane emission pathway in eutrophic waters",
-      "title_zh": "<em>Shewanella oneidensis</em>利用藻类有机物作为甲基供体，通过活性氧（ROS）介导的需氧甲烷生成：富营养化水体中被忽视的甲烷排放途径",
-      "summary_en": "Shewanella oneidensis耦藻有机物产生甲烷，揭示富营养化水体被忽视的甲烷排放途径。",
+      "title": "Enhanced ozone oxidation pretreatment with micro-nano bubbles for mitigating membrane fouling during the reuse of aerobic granular sludge effluent",
+      "title_en": "Enhanced ozone oxidation pretreatment with micro-nano bubbles for mitigating membrane fouling during the reuse of aerobic granular sludge effluent",
+      "title_zh": "采用微纳米气泡增强臭氧氧化预处理，以减轻好氧颗粒污泥出水再利用过程中的膜污堵现象",
+      "summary_en": "",
       "summary_zh": "",
-      "link": "https://www.sciencedirect.com/science/article/pii/S0043135426019032?dgcid=rss_sd_all",
+      "link": "https://www.sciencedirect.com/science/article/pii/S0043135426019123?dgcid=rss_sd_all",
       "source": "Water Research",
-      "published": "2026-10-30T11:27:21.041383+00:00",
-      "hotness": 71.3,
-      "score": 71.3,
-      "score_v1": 12.35,
-      "score_v2": 71.3,
+      "published": "2026-10-31T12:48:11.973696+00:00",
+      "hotness": 73.9,
+      "score": 73.9,
+      "score_v1": 20.35,
+      "score_v2": 73.9,
       "score_breakdown": {
         "algorithm": "v3.0",
         "dimension_max": {
@@ -986,13 +413,13 @@
           "information": 16.0
         },
         "authority_score": 18.0,
-        "keyword_idf_score": 0.0,
-        "topic_score": 3.0,
+        "keyword_idf_score": 10.29,
+        "topic_score": 10.29,
         "topic_burst_score": 0.0,
         "topic_burst_count": 1,
         "resonance_score": 0.0,
-        "info_score": 4.0,
-        "base": 25.0,
+        "info_score": 0.0,
+        "base": 28.29,
         "base_max": 70.0,
         "time_factor": 0.5891,
         "density_factor": 1.0,
@@ -1003,40 +430,429 @@
         "event_media_count": 1,
         "event_cluster_source": "ai",
         "origin_source": "Water Research",
-        "raw": 14.73,
-        "display_score": 71.3,
+        "raw": 16.66,
+        "display_score": 73.9,
         "display_mode": "absolute"
       },
       "score_v1_breakdown": {
         "base": 5.0,
         "source_score": 6.0,
-        "keyword_score": 0.0,
+        "keyword_score": 4.0,
         "time_score": 1.35,
-        "topic_bonus": 0.0,
-        "total": 12.35
+        "topic_bonus": 4.0,
+        "total": 20.35
       },
-      "summary": "Shewanella oneidensis耦藻有机物产生甲烷，揭示富营养化水体被忽视的甲烷排放途径。",
-      "analysis": "该条目涉及【富营养化】话题，因来源权威性高，热度上升。",
+      "summary": "研究提出微纳气泡增强臭氧氧化预处理技术，有效缓解好氧颗粒污泥废水重复使用过程中的膜污染问题，提高水处理效率。",
+      "analysis": "该条目涉及【臭氧氧化】话题，因来源权威性高，热度上升。",
       "topic_tags": [
-        "富营养化"
+        "臭氧氧化",
+        "膜污染",
+        "好氧颗粒污泥"
       ],
       "category": "污染治理",
+      "matched_keywords": [
+        "臭氧",
+        "污泥"
+      ],
+      "keywords": [
+        "臭氧",
+        "污泥"
+      ]
+    },
+    {
+      "title": "A System Dynamics Model for Zero-emission Heavy Vehicle Transition in Australia",
+      "title_en": "A System Dynamics Model for Zero-emission Heavy Vehicle Transition in Australia",
+      "title_zh": "澳大利亚重型车辆向零排放转型的系统动力学模型",
+      "summary_en": "arXiv:2610.41042v1 An: new Abstract: What would it take to accelerate the adoption of zero-emission trucks? Even if battery electric trucks become cheaper to own over their lifetime than diesel trucks, that alone is adding ten points would require a road user charge of about 5 AUD per litre, fifteen times the 2025-26 rate. A 70 AUD per tonne carbon price and a purchase subsidy covering 60% of the price premium do little better. Per percentage change in cost, operating-cost su' confidence in the network, cut operating costs and recycle road-charge revenue into infrastructure.",
+      "summary_zh": "",
+      "link": "https://arxiv.org/abs/2610.41042",
+      "source": "arXiv Environmental Engineering",
+      "published": "2026-11-02T05:00:00+00:00",
+      "hotness": 73.4,
+      "score": 73.4,
+      "score_v1": 15.82,
+      "score_v2": 73.4,
+      "score_breakdown": {
+        "algorithm": "v3.0",
+        "dimension_max": {
+          "authority": 18.0,
+          "topic": 18.0,
+          "resonance": 18.0,
+          "information": 16.0
+        },
+        "authority_score": 8.05,
+        "keyword_idf_score": 0.0,
+        "topic_score": 3.0,
+        "topic_burst_score": 0.0,
+        "topic_burst_count": 1,
+        "resonance_score": 0.0,
+        "info_score": 7.0,
+        "base": 18.05,
+        "base_max": 70.0,
+        "time_factor": 0.9023,
+        "density_factor": 1.0,
+        "density_note": "",
+        "repeat_penalty": 1.0,
+        "repeat_excused": false,
+        "event_size": 1,
+        "event_media_count": 1,
+        "event_cluster_source": "ai",
+        "origin_source": "arXiv Environmental Engineering",
+        "raw": 16.29,
+        "display_score": 73.4,
+        "display_mode": "absolute"
+      },
+      "score_v1_breakdown": {
+        "base": 5.0,
+        "source_score": 3.6,
+        "keyword_score": 0.0,
+        "time_score": 7.22,
+        "topic_bonus": 0.0,
+        "total": 15.82
+      },
+      "summary": "arXiv:2610.41042v1 An: new Abstract: What would it take to accelerate the adoption of zero-emission trucks? Even if battery electric trucks become cheaper to own over their lifetime than diesel trucks, that alone is adding ten points would require a road user charge of about 5 AUD per litre, fifteen times the 2025-26 rate. A 70 AUD per tonne carbon price and a purchase subsidy covering 60% of the price premium do little better. Per percentage change in cost, operating-cost su' confidence in the network, cut operating costs and recycle road-charge revenue into infrastructure.",
+      "analysis": "该条目涉及【系统动力学模型】话题，因来源较权威且发布时间较新，热度上升。",
+      "topic_tags": [
+        "系统动力学模型",
+        "零排放重型车辆"
+      ],
+      "category": "科研学术",
       "matched_keywords": [],
       "keywords": []
     },
     {
-      "title": "网友0446079614 - 中国环境网 - 中国环境网",
+      "title": "巴中市生态环境局召开全面从严治党工作推进会议传达学习党的二十届五中全会精神_市州 - 四川法治报",
       "title_en": "",
       "title_zh": "",
       "summary_en": "",
       "summary_zh": "",
-      "link": "https://news.google.com/rss/articles/CBMiXEFVX3lxTFBJam5ON01kV2llNXdTdktvZGtxNmx3VTVYT0xHMFZ6UkEzdUpxXzIwNEtvSmEwejJFM191cV9XQ2dEOS1rSFNrOUF0UFBzajBBX0tuVC02alpfR0th?oc=5",
-      "source": "Google News 中国环境网",
-      "published": "2026-10-31T05:47:45+00:00",
-      "hotness": 71.0,
-      "score": 71.0,
-      "score_v1": 12.4,
-      "score_v2": 71.0,
+      "link": "https://news.google.com/rss/articles/CBMiXEFVX3lxTE9NbHRnN2N5UXRGa3dFaFVIeThQLVc1OTJHZGxheDVOcmRfMHl3ZWIzR0Y3bEJhZ0NVeUU5ejB5RjNIanVTdG41a2wyMHdENExPWkJqOHU4US03TzNV?oc=5",
+      "source": "Google News 生态环境",
+      "published": "2026-11-02T10:06:15+00:00",
+      "hotness": 73.2,
+      "score": 73.2,
+      "score_v1": 25.53,
+      "score_v2": 73.2,
+      "score_breakdown": {
+        "algorithm": "v3.0",
+        "dimension_max": {
+          "authority": 18.0,
+          "topic": 18.0,
+          "resonance": 18.0,
+          "information": 16.0
+        },
+        "authority_score": 8.05,
+        "keyword_idf_score": 4.84,
+        "topic_score": 8.63,
+        "topic_burst_score": 3.79,
+        "topic_burst_count": 3,
+        "resonance_score": 0.0,
+        "info_score": 9.0,
+        "base": 25.68,
+        "base_max": 70.0,
+        "time_factor": 0.9643,
+        "density_factor": 0.65,
+        "density_note": "地方政务通稿",
+        "repeat_penalty": 1.0,
+        "repeat_excused": false,
+        "event_size": 1,
+        "event_media_count": 1,
+        "event_cluster_source": "ai",
+        "origin_source": "四川法治报",
+        "raw": 16.1,
+        "display_score": 73.2,
+        "display_mode": "absolute"
+      },
+      "score_v1_breakdown": {
+        "base": 5.0,
+        "source_score": 3.6,
+        "keyword_score": 2.0,
+        "time_score": 8.93,
+        "topic_bonus": 6.0,
+        "total": 25.53
+      },
+      "summary": "巴中市生态环境局召开全面从严治党工作推进会议，传达学习党的二十届五中全会精神，部署近期生态环境保护重点任务。",
+      "analysis": "该条目涉及【巴中市生态环境局】话题，因来源较权威且发布时间较新，热度上升。",
+      "topic_tags": [
+        "巴中市生态环境局",
+        "生态环境保护重点任务"
+      ],
+      "category": "生态环境",
+      "matched_keywords": [
+        "生态环境"
+      ],
+      "keywords": [
+        "生态环境"
+      ]
+    },
+    {
+      "title": "市生态环境局党组书记唐家富作为地方代表在闭幕式上致辞2026-11-02 - 上海市人民政府",
+      "title_en": "",
+      "title_zh": "",
+      "summary_en": "",
+      "summary_zh": "",
+      "link": "https://news.google.com/rss/articles/CBMiigFBVV95cUxQc2ZUd3hjUTFKY0RPZ1MweWphdnVWRHl1TWRoSEI1RnRXYzBXdEhVME9rd0NFV0RHbzR4ZGM0WV9lcnlxVXBKc0tLdHdmM1V6V3cyVWJhcktsaWxRb0QxZzRseXRnbDdTYk5GUlZ5bGhUenE5bWU5QVMzSW9Uem1iaGpkVGNtVS1DTHc?oc=5",
+      "source": "Google News 生态环境",
+      "published": "2026-11-02T09:27:09+00:00",
+      "hotness": 73.0,
+      "score": 73.0,
+      "score_v1": 25.29,
+      "score_v2": 73.0,
+      "score_breakdown": {
+        "algorithm": "v3.0",
+        "dimension_max": {
+          "authority": 18.0,
+          "topic": 18.0,
+          "resonance": 18.0,
+          "information": 16.0
+        },
+        "authority_score": 8.05,
+        "keyword_idf_score": 4.84,
+        "topic_score": 8.63,
+        "topic_burst_score": 3.79,
+        "topic_burst_count": 3,
+        "resonance_score": 0.0,
+        "info_score": 9.0,
+        "base": 25.68,
+        "base_max": 70.0,
+        "time_factor": 0.956,
+        "density_factor": 0.65,
+        "density_note": "地方政务通稿",
+        "repeat_penalty": 1.0,
+        "repeat_excused": false,
+        "event_size": 1,
+        "event_media_count": 1,
+        "event_cluster_source": "ai",
+        "origin_source": "上海市人民政府",
+        "raw": 15.96,
+        "display_score": 73.0,
+        "display_mode": "absolute"
+      },
+      "score_v1_breakdown": {
+        "base": 5.0,
+        "source_score": 3.6,
+        "keyword_score": 2.0,
+        "time_score": 8.69,
+        "topic_bonus": 6.0,
+        "total": 25.29
+      },
+      "summary": "市生态环境局党组书记唐家富作为地方代表在COP17中国角闭幕式上致辞，重点阐述生物多样性保护与跨界共生理念。",
+      "analysis": "该条目涉及【生物多样性】话题，因来源较权威且发布时间较新，热度上升。",
+      "topic_tags": [
+        "生物多样性",
+        "联合国生物多样性公约"
+      ],
+      "category": "生态环境",
+      "matched_keywords": [
+        "生态环境"
+      ],
+      "keywords": [
+        "生态环境"
+      ]
+    },
+    {
+      "title": "Far-right slows energy transition",
+      "title_en": "Far-right slows energy transition",
+      "title_zh": "极右翼势力阻碍能源转型",
+      "summary_en": "Nature Sustainability, Published online: 30 October 2026; doi:10.1038/s41893-026-01974-wPolitical identity is known to shape climate attitudes, but its effect on real-world adoption of clean technologies has been unclear. Now, data from Germany show that rising far-right support slows the uptake of rooftop solar and electric cars. However, these effects are not large enough to stall the transition.",
+      "summary_zh": "《自然·可持续性》（Nature Sustainability），在线发表于：2026年10月30日；doi:10.1038/s41893-026-01974-w。众所周知，政治认同会影响人们对气候问题的态度，但其对现实世界中清洁技术采用的影响尚不明确。 如今，来自德国的数据表明，极右翼支持率的上升会减缓屋顶太阳能和电动汽车的普及速度。不过，这些影响尚不足以阻碍能源转型进程。",
+      "link": "https://www.nature.com/articles/s41893-026-01974-w",
+      "source": "Nature Sustainability",
+      "published": "2026-10-30T00:00:00+00:00",
+      "hotness": 71.8,
+      "score": 71.8,
+      "score_v1": 21.29,
+      "score_v2": 71.8,
+      "score_breakdown": {
+        "algorithm": "v3.0",
+        "dimension_max": {
+          "authority": 18.0,
+          "topic": 18.0,
+          "resonance": 18.0,
+          "information": 16.0
+        },
+        "authority_score": 18.0,
+        "keyword_idf_score": 9.39,
+        "topic_score": 11.75,
+        "topic_burst_score": 2.36,
+        "topic_burst_count": 2,
+        "resonance_score": 0.0,
+        "info_score": 3.0,
+        "base": 32.75,
+        "base_max": 70.0,
+        "time_factor": 0.4611,
+        "density_factor": 1.0,
+        "density_note": "",
+        "repeat_penalty": 1.0,
+        "repeat_excused": false,
+        "event_size": 1,
+        "event_media_count": 1,
+        "event_cluster_source": "ai",
+        "origin_source": "Nature Sustainability",
+        "raw": 15.1,
+        "display_score": 71.8,
+        "display_mode": "absolute"
+      },
+      "score_v1_breakdown": {
+        "base": 5.0,
+        "source_score": 6.0,
+        "keyword_score": 4.0,
+        "time_score": 0.29,
+        "topic_bonus": 6.0,
+        "total": 21.29
+      },
+      "summary": "《自然·可持续性》（Nature Sustainability），。众所周知，政治认同会影响人们对气候问题的态度，但其对现实世界中清洁技术采用的影响尚不明确。 如今，来自德国的数据表明，极右翼支持率的上升会减缓屋顶太阳能和电动汽车的普及速度。不过，这些影响尚不足以阻碍能源转型进程。",
+      "analysis": "该条目涉及【能源与碳中和】话题，因来源权威性高，热度上升。",
+      "topic_tags": [
+        "能源与碳中和"
+      ],
+      "category": "气候变化",
+      "matched_keywords": [
+        "能源转型",
+        "可持续发展"
+      ],
+      "keywords": [
+        "能源转型",
+        "可持续发展"
+      ]
+    },
+    {
+      "title": "Scientists confirm global warming is accelerating faster than ever recorded",
+      "title_en": "Scientists confirm global warming is accelerating faster than ever recorded",
+      "title_zh": "科学家证实，全球变暖的速度正以有史以来最快的速度加快",
+      "summary_en": "Earth is warming faster than ever recorded, with scientists detecting a major acceleration in global temperatures since around 2015. A new study reveals that the warming rate has surged to approximately 0.35°C per decade, nearly double the average pace observed from 1970 to 2015. After removing natural climate fluctuations, researchers confirmed the acceleration with more than 98% statistical confidence.",
+      "summary_zh": "地球变暖的速度已达到有记录以来的最快水平，科学家们发现，自2015年左右以来，全球气温上升速度显著加快。 一项新研究显示，变暖速率已飙升至每十年约0.35°C，几乎是1970年至2015年间观测到的平均速度的两倍。在剔除自然气候波动因素后，研究人员以超过98%的统计置信度证实了这一加速趋势。",
+      "link": "https://www.sciencedaily.com/releases/2026/10/261027231200.htm",
+      "source": "ScienceDaily 环境科学",
+      "published": "2026-10-30T03:50:51+00:00",
+      "hotness": 71.7,
+      "score": 71.7,
+      "score_v1": 13.84,
+      "score_v2": 71.7,
+      "score_breakdown": {
+        "algorithm": "v3.0",
+        "dimension_max": {
+          "authority": 18.0,
+          "topic": 18.0,
+          "resonance": 18.0,
+          "information": 16.0
+        },
+        "authority_score": 12.73,
+        "keyword_idf_score": 3.48,
+        "topic_score": 3.48,
+        "topic_burst_score": 0.0,
+        "topic_burst_count": 1,
+        "resonance_score": 8.76,
+        "info_score": 7.0,
+        "base": 31.97,
+        "base_max": 70.0,
+        "time_factor": 0.4703,
+        "density_factor": 1.0,
+        "density_note": "",
+        "repeat_penalty": 1.0,
+        "repeat_excused": true,
+        "event_size": 2,
+        "event_media_count": 2,
+        "event_cluster_source": "ai",
+        "origin_source": "ScienceDaily 环境科学",
+        "raw": 15.04,
+        "display_score": 71.7,
+        "display_mode": "absolute"
+      },
+      "score_v1_breakdown": {
+        "base": 5.0,
+        "source_score": 4.5,
+        "keyword_score": 2.0,
+        "time_score": 0.34,
+        "topic_bonus": 2.0,
+        "total": 13.84
+      },
+      "summary": "地球变暖的速度已达到有记录以来的最快水平，科学家们发现，自2015年左右以来，全球气温上升速度显著加快。 一项新研究显示，变暖速率已飙升至每十年约0.35°C，几乎是1970年至2015年间观测到的平均速度的两倍。在剔除自然气候波动因素后，研究人员以超过98%的统计置信度证实了这一加速趋势。",
+      "analysis": "该条目涉及【气候变化】话题，因来源权威性高且多家媒体同题报道，热度上升。",
+      "topic_tags": [
+        "气候变化"
+      ],
+      "category": "气候变化",
+      "matched_keywords": [
+        "气候变化"
+      ],
+      "keywords": [
+        "气候变化"
+      ]
+    },
+    {
+      "title": "WWF携手凤凰卫视主办2026“零碳使命”峰会，共探全球绿色转型新路径 - 中宏网",
+      "title_en": "",
+      "title_zh": "",
+      "summary_en": "",
+      "summary_zh": "",
+      "link": "https://news.google.com/rss/articles/CBMiYkFVX3lxTE12WVl3UHVuR2FtUEVzNnpBeTY1M0FQQ1FvdnZDNjB5aHJoNzFvaG9sUDBDdmFnYVRCRjdaOHlGLTFCcGg1SU5yWTJEWmQ4WTQwbmtiQTBURkxUUEZyT0JrSFdB?oc=5",
+      "source": "Google News 气候变化",
+      "published": "2026-11-02T04:16:30+00:00",
+      "hotness": 70.7,
+      "score": 70.7,
+      "score_v1": 15.61,
+      "score_v2": 70.7,
+      "score_breakdown": {
+        "algorithm": "v3.0",
+        "dimension_max": {
+          "authority": 18.0,
+          "topic": 18.0,
+          "resonance": 18.0,
+          "information": 16.0
+        },
+        "authority_score": 8.05,
+        "keyword_idf_score": 0.0,
+        "topic_score": 3.0,
+        "topic_burst_score": 0.0,
+        "topic_burst_count": 1,
+        "resonance_score": 0.0,
+        "info_score": 5.0,
+        "base": 16.05,
+        "base_max": 70.0,
+        "time_factor": 0.8941,
+        "density_factor": 1.0,
+        "density_note": "",
+        "repeat_penalty": 1.0,
+        "repeat_excused": false,
+        "event_size": 1,
+        "event_media_count": 1,
+        "event_cluster_source": "ai",
+        "origin_source": "中宏网",
+        "raw": 14.35,
+        "display_score": 70.7,
+        "display_mode": "absolute"
+      },
+      "score_v1_breakdown": {
+        "base": 5.0,
+        "source_score": 3.6,
+        "keyword_score": 0.0,
+        "time_score": 7.01,
+        "topic_bonus": 0.0,
+        "total": 15.61
+      },
+      "summary": "WWF携手凤凰卫视主办2026零碳使命峰会，汇聚全球力量共探绿色转型新路径，推动碳中和实践创新。",
+      "analysis": "该条目涉及【环境资讯】话题，因来源较权威且发布时间较新，热度上升。",
+      "topic_tags": [
+        "环境资讯"
+      ],
+      "category": "其他",
+      "matched_keywords": [],
+      "keywords": []
+    },
+    {
+      "title": "The asteroid killed the dinosaurs. Why did crocodiles survive?",
+      "title_en": "The asteroid killed the dinosaurs. Why did crocodiles survive?",
+      "title_zh": "小行星导致了恐龙的灭绝。鳄鱼为什么能幸存下来？",
+      "summary_en": "Scientists may have solved a 66-million-year-old mystery: how crocodiles survived the asteroid that wiped out the dinosaurs. A sweeping analysis of fossils and ancient climates suggests that their preference for warm environments placed them in tropical refuges that remained habitable even after the catastrophic impact.",
+      "summary_zh": "科学家们可能解开了6600万年前的一个谜团：鳄鱼是如何在小行星撞击导致恐龙灭绝后幸存下来的。对化石和古气候的全面分析表明，由于鳄鱼偏好温暖的环境，它们栖息在热带避难所中，这些地区即使在灾难性撞击发生后，仍然适宜生存。",
+      "link": "https://www.sciencedaily.com/releases/2026/10/261030002922.htm",
+      "source": "ScienceDaily 环境科学",
+      "published": "2026-10-30T11:34:16+00:00",
+      "hotness": 70.2,
+      "score": 70.2,
+      "score_v1": 9.97,
+      "score_v2": 70.2,
       "score_breakdown": {
         "algorithm": "v3.0",
         "dimension_max": {
@@ -1047,36 +863,36 @@
         },
         "authority_score": 12.73,
         "keyword_idf_score": 0.0,
-        "topic_score": 3.0,
+        "topic_score": 0.0,
         "topic_burst_score": 0.0,
         "topic_burst_count": 1,
-        "resonance_score": 0.0,
-        "info_score": 5.0,
-        "base": 20.73,
+        "resonance_score": 8.76,
+        "info_score": 7.0,
+        "base": 28.49,
         "base_max": 70.0,
-        "time_factor": 0.7003,
+        "time_factor": 0.4913,
         "density_factor": 1.0,
         "density_note": "",
         "repeat_penalty": 1.0,
-        "repeat_excused": false,
-        "event_size": 1,
-        "event_media_count": 1,
+        "repeat_excused": true,
+        "event_size": 2,
+        "event_media_count": 2,
         "event_cluster_source": "ai",
-        "origin_source": "中国环境网",
-        "raw": 14.52,
-        "display_score": 71.0,
+        "origin_source": "ScienceDaily 环境科学",
+        "raw": 14.0,
+        "display_score": 70.2,
         "display_mode": "absolute"
       },
       "score_v1_breakdown": {
         "base": 5.0,
         "source_score": 4.5,
         "keyword_score": 0.0,
-        "time_score": 2.9,
+        "time_score": 0.47,
         "topic_bonus": 0.0,
-        "total": 12.4
+        "total": 9.97
       },
-      "summary": "聚焦中国环境网平台，展现网友在环境议题上的声音表达与互动。",
-      "analysis": "该条目涉及【环境资讯】话题，因来源权威性高，热度上升。",
+      "summary": "科学家们可能解开了6600万年前的一个谜团：鳄鱼是如何在小行星撞击导致恐龙灭绝后幸存下来的。对化石和古气候的全面分析表明，由于鳄鱼偏好温暖的环境，它们栖息在热带避难所中，这些地区即使在灾难性撞击发生后，仍然适宜生存。",
+      "analysis": "该条目涉及【环境资讯】话题，因来源权威性高且多家媒体同题报道，热度上升。",
       "topic_tags": [
         "环境资讯"
       ],
@@ -1085,18 +901,18 @@
       "keywords": []
     },
     {
-      "title": "刘振民：以能源转型赋能亚太区域合作 推动产业升级 - 搜狐网",
+      "title": "工信部节能司带队开展新污染物治理联合调研 - 证券之星",
       "title_en": "",
       "title_zh": "",
       "summary_en": "",
       "summary_zh": "",
-      "link": "https://news.google.com/rss/articles/CBMijAFBVV95cUxQREpDVTNzNG4xbzhPdTdWUHM5Yzlxd3VWaWtzdXRWYWhPVnZCWE13Z2oxc2hZU0Vhbk5KSmV3RktGVjFEYk5HTmdVNUxSN3lRSHk3SWtLWUxES0RUeHBycHYyOEl4Qy1FalhYb2N4WnlZcmNpaHRQTVZwZEZXVjY3NkRHdk9mbjRXbDVneQ?oc=5",
-      "source": "Google News 气候变化",
-      "published": "2026-10-31T12:48:00+00:00",
-      "hotness": 69.3,
-      "score": 69.3,
-      "score_v1": 18.49,
-      "score_v2": 69.3,
+      "link": "https://news.google.com/rss/articles/CBMiYEFVX3lxTE5tb09LMjNrQlEtRmVZRDRzdTFySldaSDYxMzhPOFMyRTBVWlhVZGVtZnJ4MUxJU2tmb1RyN1M4SXhNR3hRT09FbjJvMjJtR3ZmRTBqYmQtcnRZSF9mUXJqUQ?oc=5",
+      "source": "Google News 环境污染",
+      "published": "2026-11-02T03:32:15+00:00",
+      "hotness": 70.1,
+      "score": 70.1,
+      "score_v1": 19.39,
+      "score_v2": 70.1,
       "score_breakdown": {
         "algorithm": "v3.0",
         "dimension_max": {
@@ -1106,15 +922,15 @@
           "information": 16.0
         },
         "authority_score": 8.05,
-        "keyword_idf_score": 7.36,
-        "topic_score": 9.72,
-        "topic_burst_score": 2.36,
-        "topic_burst_count": 2,
+        "keyword_idf_score": 7.68,
+        "topic_score": 7.68,
+        "topic_burst_score": 0.0,
+        "topic_burst_count": 1,
         "resonance_score": 0.0,
         "info_score": 0.0,
-        "base": 17.77,
+        "base": 15.73,
         "base_max": 70.0,
-        "time_factor": 0.7554,
+        "time_factor": 0.8858,
         "density_factor": 1.0,
         "density_note": "",
         "repeat_penalty": 1.0,
@@ -1122,45 +938,409 @@
         "event_size": 1,
         "event_media_count": 1,
         "event_cluster_source": "ai",
-        "origin_source": "搜狐网",
-        "raw": 13.42,
-        "display_score": 69.3,
+        "origin_source": "证券之星",
+        "raw": 13.93,
+        "display_score": 70.1,
         "display_mode": "absolute"
       },
       "score_v1_breakdown": {
         "base": 5.0,
         "source_score": 3.6,
         "keyword_score": 2.0,
-        "time_score": 3.89,
-        "topic_bonus": 4.0,
-        "total": 18.49
+        "time_score": 6.79,
+        "topic_bonus": 2.0,
+        "total": 19.39
       },
-      "summary": "赋能亚太区域合作，推动产业升级，助力能源转型与区域合作深入发展。",
-      "analysis": "该条目涉及【能源与碳中和】话题，因来源较权威，热度上升。",
+      "summary": "工信部节能司带队开展新污染物治理联合调研，重点摸排新兴污染物分布与治理技术，推动精准防控措施落地。",
+      "analysis": "该条目涉及【新污染物】话题，因来源较权威且发布时间较新，热度上升。",
       "topic_tags": [
-        "能源与碳中和"
+        "新污染物"
       ],
-      "category": "气候变化",
+      "category": "污染治理",
       "matched_keywords": [
-        "能源转型"
+        "新污染物"
       ],
       "keywords": [
-        "能源转型"
+        "新污染物"
       ]
     },
     {
-      "title": "Trends and drivers of recent oxygenation in the Indian sector of the Southern Ocean",
-      "title_en": "Trends and drivers of recent oxygenation in the Indian sector of the Southern Ocean",
-      "title_zh": "南大洋印度海区的近期富氧现象的趋势与驱动因素",
-      "summary_en": "Integrating in-situ observations from austral summers 2011 and 2025 with satellite and reanalysis data (1993–2025) reveals significant oxygenation across the Indian sector of the Southern Ocean (ISSO), with the strongest trends in the Polar (PZ) and Antarctic Zones (AZ). Observations along 57.5° E show elevated dissolved oxygen (DO), poleward retreat of the winter water (WW) layer, and partial shoaling of the oxygen minimum layer in 2025 relative to 2011. Combined effect of warming and salinification weakens stratification and promote circumpolar deep water (CDW) shoaling, driving enhanced ventilation and oxygenation. Declining a",
+      "title": "深圳市空气质量日报AQI（2026-11-01） - 深圳政府在线",
+      "title_en": "",
+      "title_zh": "",
+      "summary_en": "",
       "summary_zh": "",
-      "link": "https://iopscience.iop.org/article/10.1088/1748-9326/aeb70f",
-      "source": "Environmental Research Letters",
+      "link": "https://news.google.com/rss/articles/CBMihwFBVV95cUxPcUhGa1RWVzZVRi01YnpQd2gyZVZwdzhyNllDQ3NSbjZ4bDJuN1JnMlhmZW04UXFKN2lvU3h0cUFiakR5VTdGMlczTGM1YS1BRlY0OTQ4VmpOc3hVN3dYZkJqai1rZnpfcTRTQXZYLV83UTBnaHBqQVBMdEtaNUktcExQZWZWclE?oc=5",
+      "source": "Google News 生态环境",
+      "published": "2026-11-02T01:26:00+00:00",
+      "hotness": 70.0,
+      "score": 70.0,
+      "score_v1": 14.82,
+      "score_v2": 70.0,
+      "score_breakdown": {
+        "algorithm": "v3.0",
+        "dimension_max": {
+          "authority": 18.0,
+          "topic": 18.0,
+          "resonance": 18.0,
+          "information": 16.0
+        },
+        "authority_score": 8.05,
+        "keyword_idf_score": 0.0,
+        "topic_score": 3.0,
+        "topic_burst_score": 0.0,
+        "topic_burst_count": 1,
+        "resonance_score": 0.0,
+        "info_score": 5.0,
+        "base": 16.05,
+        "base_max": 70.0,
+        "time_factor": 0.8628,
+        "density_factor": 1.0,
+        "density_note": "",
+        "repeat_penalty": 1.0,
+        "repeat_excused": false,
+        "event_size": 1,
+        "event_media_count": 1,
+        "event_cluster_source": "ai",
+        "origin_source": "深圳政府在线",
+        "raw": 13.85,
+        "display_score": 70.0,
+        "display_mode": "absolute"
+      },
+      "score_v1_breakdown": {
+        "base": 5.0,
+        "source_score": 3.6,
+        "keyword_score": 0.0,
+        "time_score": 6.22,
+        "topic_bonus": 0.0,
+        "total": 14.82
+      },
+      "summary": "深圳市空气质量日报AQI数据显示2026-11-01当日空气质量良好，主要污染物浓度符合二级标准，城市环境持续向好。",
+      "analysis": "该条目涉及【污染治理】话题，因来源较权威且发布时间较新，热度上升。",
+      "topic_tags": [
+        "污染治理"
+      ],
+      "category": "污染治理",
+      "matched_keywords": [],
+      "keywords": []
+    },
+    {
+      "title": "书写绿水青山的“天府答卷”——四川以生态保护厚植高质量发展根基 - 新华网",
+      "title_en": "",
+      "title_zh": "",
+      "summary_en": "",
+      "summary_zh": "",
+      "link": "https://news.google.com/rss/articles/CBMif0FVX3lxTE1sN29yRF9xX0RQT0NqYWg0eG1aUXRnMzZScDdFUFJHWkJ6N0JzWHpOVXFFX29hQXZRaE9vUU81R3JrcW16U2w1Nm5VUXRHX2dncVdmVXhxeUdWNFpVUGZFRWJjcll0MzZBeTVueWxPa3NqWlYzWk03SWdJM0ZiWms?oc=5",
+      "source": "Google News 环境保护",
+      "published": "2026-11-02T02:30:01+00:00",
+      "hotness": 69.8,
+      "score": 69.8,
+      "score_v1": 19.11,
+      "score_v2": 69.8,
+      "score_breakdown": {
+        "algorithm": "v3.0",
+        "dimension_max": {
+          "authority": 18.0,
+          "topic": 18.0,
+          "resonance": 18.0,
+          "information": 16.0
+        },
+        "authority_score": 8.05,
+        "keyword_idf_score": 7.68,
+        "topic_score": 7.68,
+        "topic_burst_score": 0.0,
+        "topic_burst_count": 1,
+        "resonance_score": 0.0,
+        "info_score": 0.0,
+        "base": 15.73,
+        "base_max": 70.0,
+        "time_factor": 0.8743,
+        "density_factor": 1.0,
+        "density_note": "",
+        "repeat_penalty": 1.0,
+        "repeat_excused": false,
+        "event_size": 1,
+        "event_media_count": 1,
+        "event_cluster_source": "ai",
+        "origin_source": "新华网",
+        "raw": 13.75,
+        "display_score": 69.8,
+        "display_mode": "absolute"
+      },
+      "score_v1_breakdown": {
+        "base": 5.0,
+        "source_score": 3.6,
+        "keyword_score": 2.0,
+        "time_score": 6.51,
+        "topic_bonus": 2.0,
+        "total": 19.11
+      },
+      "summary": "四川省聚焦生态保护，将其作为高质量发展的根基，通过制度创新与实践探索，推动绿色转型与经济协同发展。",
+      "analysis": "该条目涉及【生态环境】话题，因来源较权威且发布时间较新，热度上升。",
+      "topic_tags": [
+        "生态环境"
+      ],
+      "category": "生态环境",
+      "matched_keywords": [
+        "生态保护"
+      ],
+      "keywords": [
+        "生态保护"
+      ]
+    },
+    {
+      "title": "数智赋能产业链，环保材料平台与纺织平台共筑产业新生态 - 中华网",
+      "title_en": "",
+      "title_zh": "",
+      "summary_en": "",
+      "summary_zh": "",
+      "link": "https://news.google.com/rss/articles/CBMiXkFVX3lxTE5qS2NPUlYwN3hfUmJfa3NCbGhiTWp4MmNWZzhzRUJHTmtXdFFuYUFIZEloaXZJUDdKNUdZdzdMSUEzXy1PVlE5dlNIY1VmMnhFYk5HUDBUam0wbDRlRGc?oc=5",
+      "source": "Google News 环保招聘",
+      "published": "2026-11-02T02:24:44+00:00",
+      "hotness": 68.0,
+      "score": 68.0,
+      "score_v1": 15.68,
+      "score_v2": 68.0,
+      "score_breakdown": {
+        "algorithm": "v3.0",
+        "dimension_max": {
+          "authority": 18.0,
+          "topic": 18.0,
+          "resonance": 18.0,
+          "information": 16.0
+        },
+        "authority_score": 11.38,
+        "keyword_idf_score": 0.0,
+        "topic_score": 3.0,
+        "topic_burst_score": 0.0,
+        "topic_burst_count": 1,
+        "resonance_score": 0.0,
+        "info_score": 0.0,
+        "base": 14.38,
+        "base_max": 70.0,
+        "time_factor": 0.8734,
+        "density_factor": 1.0,
+        "density_note": "",
+        "repeat_penalty": 1.0,
+        "repeat_excused": false,
+        "event_size": 1,
+        "event_media_count": 1,
+        "event_cluster_source": "ai",
+        "origin_source": "中华网",
+        "raw": 12.56,
+        "display_score": 68.0,
+        "display_mode": "absolute"
+      },
+      "score_v1_breakdown": {
+        "base": 5.0,
+        "source_score": 4.2,
+        "keyword_score": 0.0,
+        "time_score": 6.48,
+        "topic_bonus": 0.0,
+        "total": 15.68
+      },
+      "summary": "环保材料平台与纺织平台深度融合，利用数字技术重塑产业链生态，推动材料创新与绿色制造协同发展。",
+      "analysis": "该条目涉及【环境政策】话题，因来源较权威且发布时间较新，热度上升。",
+      "topic_tags": [
+        "环境政策"
+      ],
+      "category": "环境政策",
+      "matched_keywords": [],
+      "keywords": []
+    },
+    {
+      "title": "傅涛：新供水条例下AI + 供水进阶_视频 - 中国水网",
+      "title_en": "",
+      "title_zh": "",
+      "summary_en": "",
+      "summary_zh": "",
+      "link": "https://news.google.com/rss/articles/CBMiU0FVX3lxTE9GSndNQmR4M0lXb3l3THNZZHpORWZSYWE1NklSWmp0OWQ3YVNxZ05vNWs3R2h4VVB3c2NMdHNfcjhnTE5jeVZKZHlPcVY0XzdveGQ0?oc=5",
+      "source": "Google News 中国水网",
+      "published": "2026-11-02T10:04:21+00:00",
+      "hotness": 67.7,
+      "score": 67.7,
+      "score_v1": 17.82,
+      "score_v2": 67.7,
+      "score_breakdown": {
+        "algorithm": "v3.0",
+        "dimension_max": {
+          "authority": 18.0,
+          "topic": 18.0,
+          "resonance": 18.0,
+          "information": 16.0
+        },
+        "authority_score": 9.86,
+        "keyword_idf_score": 0.0,
+        "topic_score": 3.0,
+        "topic_burst_score": 0.0,
+        "topic_burst_count": 1,
+        "resonance_score": 0.0,
+        "info_score": 0.0,
+        "base": 12.86,
+        "base_max": 70.0,
+        "time_factor": 0.9639,
+        "density_factor": 1.0,
+        "density_note": "",
+        "repeat_penalty": 1.0,
+        "repeat_excused": false,
+        "event_size": 1,
+        "event_media_count": 1,
+        "event_cluster_source": "ai",
+        "origin_source": "中国水网",
+        "raw": 12.39,
+        "display_score": 67.7,
+        "display_mode": "absolute"
+      },
+      "score_v1_breakdown": {
+        "base": 5.0,
+        "source_score": 3.9,
+        "keyword_score": 0.0,
+        "time_score": 8.92,
+        "topic_bonus": 0.0,
+        "total": 17.82
+      },
+      "summary": "围绕新供水条例背景，探讨人工智能技术在供水行业的应用路径，推动供水管理智能化与服务质量提升。",
+      "analysis": "该条目涉及【环境政策】话题，因来源较权威且发布时间较新，热度上升。",
+      "topic_tags": [
+        "环境政策"
+      ],
+      "category": "环境政策",
+      "matched_keywords": [],
+      "keywords": []
+    },
+    {
+      "title": "Exploring freezing-assisted catalyst-free photochemical recovery of low-concentration uranium",
+      "title_en": "Exploring freezing-assisted catalyst-free photochemical recovery of low-concentration uranium",
+      "title_zh": "探索利用冷冻辅助的无催化剂光化学法回收低浓度铀",
+      "summary_en": "",
+      "summary_zh": "",
+      "link": "https://www.sciencedirect.com/science/article/pii/S0043135426019135?dgcid=rss_sd_all",
+      "source": "Water Research",
+      "published": "2026-10-31T12:48:11.973696+00:00",
+      "hotness": 67.7,
+      "score": 67.7,
+      "score_v1": 12.35,
+      "score_v2": 67.7,
+      "score_breakdown": {
+        "algorithm": "v3.0",
+        "dimension_max": {
+          "authority": 18.0,
+          "topic": 18.0,
+          "resonance": 18.0,
+          "information": 16.0
+        },
+        "authority_score": 18.0,
+        "keyword_idf_score": 0.0,
+        "topic_score": 3.0,
+        "topic_burst_score": 0.0,
+        "topic_burst_count": 1,
+        "resonance_score": 0.0,
+        "info_score": 0.0,
+        "base": 21.0,
+        "base_max": 70.0,
+        "time_factor": 0.5891,
+        "density_factor": 1.0,
+        "density_note": "",
+        "repeat_penalty": 1.0,
+        "repeat_excused": false,
+        "event_size": 1,
+        "event_media_count": 1,
+        "event_cluster_source": "ai",
+        "origin_source": "Water Research",
+        "raw": 12.37,
+        "display_score": 67.7,
+        "display_mode": "absolute"
+      },
+      "score_v1_breakdown": {
+        "base": 5.0,
+        "source_score": 6.0,
+        "keyword_score": 0.0,
+        "time_score": 1.35,
+        "topic_bonus": 0.0,
+        "total": 12.35
+      },
+      "summary": "研究基于冻结助催化的低浓度铀光化学无催化剂回收技术，实现资源高效分离与环境友好型净化。",
+      "analysis": "该条目涉及【环境资讯】话题，因来源权威性高，热度上升。",
+      "topic_tags": [
+        "环境资讯"
+      ],
+      "category": "科研学术",
+      "matched_keywords": [],
+      "keywords": []
+    },
+    {
+      "title": "Three estrogens drive the majority of estrogenic activity in global rivers",
+      "title_en": "Three estrogens drive the majority of estrogenic activity in global rivers",
+      "title_zh": "三种雌激素是全球河流中绝大多数雌激素活性的驱动因素",
+      "summary_en": "",
+      "summary_zh": "",
+      "link": "https://www.sciencedirect.com/science/article/pii/S0043135426018877?dgcid=rss_sd_all",
+      "source": "Water Research",
+      "published": "2026-10-31T12:48:11.973696+00:00",
+      "hotness": 67.7,
+      "score": 67.7,
+      "score_v1": 12.35,
+      "score_v2": 67.7,
+      "score_breakdown": {
+        "algorithm": "v3.0",
+        "dimension_max": {
+          "authority": 18.0,
+          "topic": 18.0,
+          "resonance": 18.0,
+          "information": 16.0
+        },
+        "authority_score": 18.0,
+        "keyword_idf_score": 0.0,
+        "topic_score": 3.0,
+        "topic_burst_score": 0.0,
+        "topic_burst_count": 1,
+        "resonance_score": 0.0,
+        "info_score": 0.0,
+        "base": 21.0,
+        "base_max": 70.0,
+        "time_factor": 0.5891,
+        "density_factor": 1.0,
+        "density_note": "",
+        "repeat_penalty": 1.0,
+        "repeat_excused": false,
+        "event_size": 1,
+        "event_media_count": 1,
+        "event_cluster_source": "ai",
+        "origin_source": "Water Research",
+        "raw": 12.37,
+        "display_score": 67.7,
+        "display_mode": "absolute"
+      },
+      "score_v1_breakdown": {
+        "base": 5.0,
+        "source_score": 6.0,
+        "keyword_score": 0.0,
+        "time_score": 1.35,
+        "topic_bonus": 0.0,
+        "total": 12.35
+      },
+      "summary": "全球河流中雌激素活性主要由三种雌激素驱动，研究揭示了水体雌激素污染的核心成分与来源特征。",
+      "analysis": "该条目涉及【环境资讯】话题，因来源权威性高，热度上升。",
+      "topic_tags": [
+        "环境资讯"
+      ],
+      "category": "其他",
+      "matched_keywords": [],
+      "keywords": []
+    },
+    {
+      "title": "Briefing Chat: <b>Dog years: could longevity science extend your pets' lives?</b>",
+      "title_en": "Briefing Chat: <b>Dog years: could longevity science extend your pets' lives?</b>",
+      "title_zh": "简报聊天：<b>狗年：长寿科学能否延长宠物的寿命？</b>",
+      "summary_en": "Nature, Published online: 30 October 2026; doi:10.1038/d41586-026-03553-7Nature staff discuss the emerging field of pet longevity — plus, a researcher decides not to care about their student reviews. Are they wrong?",
+      "summary_zh": "《自然》杂志，在线发表于：2026年10月30日；doi:10.1038/d41586-026-03553-7《自然》编辑部探讨了宠物长寿这一新兴领域——此外，一位研究人员决定不在意学生对他的评价。他的做法对吗？",
+      "link": "https://www.nature.com/articles/d41586-026-03553-7",
+      "source": "Nature",
       "published": "2026-10-30T00:00:00+00:00",
-      "hotness": 68.6,
-      "score": 68.6,
-      "score_v1": 11.84,
-      "score_v2": 68.6,
+      "hotness": 65.5,
+      "score": 65.5,
+      "score_v1": 11.29,
+      "score_v2": 65.5,
       "score_breakdown": {
         "algorithm": "v3.0",
         "dimension_max": {
@@ -1178,7 +1358,67 @@
         "info_score": 3.0,
         "base": 24.0,
         "base_max": 70.0,
-        "time_factor": 0.5383,
+        "time_factor": 0.4611,
+        "density_factor": 1.0,
+        "density_note": "",
+        "repeat_penalty": 1.0,
+        "repeat_excused": false,
+        "event_size": 1,
+        "event_media_count": 1,
+        "event_cluster_source": "ai",
+        "origin_source": "Nature",
+        "raw": 11.07,
+        "display_score": 65.5,
+        "display_mode": "absolute"
+      },
+      "score_v1_breakdown": {
+        "base": 5.0,
+        "source_score": 6.0,
+        "keyword_score": 0.0,
+        "time_score": 0.29,
+        "topic_bonus": 0.0,
+        "total": 11.29
+      },
+      "summary": "《自然》杂志，自然》编辑部探讨了宠物长寿这一新兴领域——此外，一位研究人员决定不在意学生对他的评价。他的做法对吗？",
+      "analysis": "该条目涉及【能源与碳中和】话题，因来源权威性高，热度上升。",
+      "topic_tags": [
+        "能源与碳中和"
+      ],
+      "category": "气候变化",
+      "matched_keywords": [],
+      "keywords": []
+    },
+    {
+      "title": "Trends and drivers of recent oxygenation in the Indian sector of the Southern Ocean",
+      "title_en": "Trends and drivers of recent oxygenation in the Indian sector of the Southern Ocean",
+      "title_zh": "南大洋印度海区的近期富氧现象的趋势与驱动因素",
+      "summary_en": "Integrating in-situ observations from austral summers 2011 and 2025 with satellite and reanalysis data (1993–2025) reveals significant oxygenation across the Indian sector of the Southern Ocean (ISSO), with the strongest trends in the Polar (PZ) and Antarctic Zones (AZ). Observations along 57.5° E show elevated dissolved oxygen (DO), poleward retreat of the winter water (WW) layer, and partial shoaling of the oxygen minimum layer in 2025 relative to 2011. Combined effect of warming and salinification weakens stratification and promote circumpolar deep water (CDW) shoaling, driving enhanced ventilation and oxygenation. Declining a",
+      "summary_zh": "",
+      "link": "https://iopscience.iop.org/article/10.1088/1748-9326/aeb70f",
+      "source": "Environmental Research Letters",
+      "published": "2026-10-30T00:00:00+00:00",
+      "hotness": 65.5,
+      "score": 65.5,
+      "score_v1": 11.29,
+      "score_v2": 65.5,
+      "score_breakdown": {
+        "algorithm": "v3.0",
+        "dimension_max": {
+          "authority": 18.0,
+          "topic": 18.0,
+          "resonance": 18.0,
+          "information": 16.0
+        },
+        "authority_score": 18.0,
+        "keyword_idf_score": 0.0,
+        "topic_score": 3.0,
+        "topic_burst_score": 0.0,
+        "topic_burst_count": 1,
+        "resonance_score": 0.0,
+        "info_score": 3.0,
+        "base": 24.0,
+        "base_max": 70.0,
+        "time_factor": 0.4611,
         "density_factor": 1.0,
         "density_note": "",
         "repeat_penalty": 1.0,
@@ -1187,17 +1427,17 @@
         "event_media_count": 1,
         "event_cluster_source": "ai",
         "origin_source": "Environmental Research Letters",
-        "raw": 12.92,
-        "display_score": 68.6,
+        "raw": 11.07,
+        "display_score": 65.5,
         "display_mode": "absolute"
       },
       "score_v1_breakdown": {
         "base": 5.0,
         "source_score": 6.0,
         "keyword_score": 0.0,
-        "time_score": 0.84,
+        "time_score": 0.29,
         "topic_bonus": 0.0,
-        "total": 11.84
+        "total": 11.29
       },
       "summary": "Integrating in-situ observations from austral summers 2011 and 2025 with satellite and reanalysis data (1993–2025) reveals significant oxygenation across the Indian sector of the Southern Ocean (ISSO), with the strongest trends in the Polar (PZ) and Antarctic Zones (AZ). Observations along 57.5° E show elevated dissolved oxygen (DO), poleward retreat of the winter water (WW) layer, and partial shoaling of the oxygen minimum layer in 2025 relative to 2011. Combined effect of warming and salinification weakens stratification and promote circumpolar deep water (CDW) shoaling, driving enhanced ventilation and oxygenation. Declining a",
       "analysis": "该条目涉及【生态环境】话题，因来源权威性高，热度上升。",
@@ -1209,18 +1449,18 @@
       "keywords": []
     },
     {
-      "title": "Coupled physicochemical and microbial recovery of aged premise plumbing following water-supply interruption",
-      "title_en": "Coupled physicochemical and microbial recovery of aged premise plumbing following water-supply interruption",
-      "title_zh": "供水中断后老旧建筑给水管道的物理化学与微生物联合修复",
+      "title": "热评｜村支书威胁环保举报者为哪般？ - 广州日报新花城",
+      "title_en": "",
+      "title_zh": "",
       "summary_en": "",
       "summary_zh": "",
-      "link": "https://www.sciencedirect.com/science/article/pii/S0043135426018981?dgcid=rss_sd_all",
-      "source": "Water Research",
-      "published": "2026-10-30T11:27:21.041383+00:00",
-      "hotness": 67.7,
-      "score": 67.7,
-      "score_v1": 12.35,
-      "score_v2": 67.7,
+      "link": "https://news.google.com/rss/articles/CBMiigFBVV95cUxNTHZnZXNOaElYUFBkZjI2S2pKdi1IeGlnODMwNGtHS2gwTVpCXzE5NmIxdU1TWVByYVplVnFheG9Valc4UHBHWkc4ekZGdkFCYklFMHFJV1lPZEhxN2c1V3FncWZ4d093Vm14OE1yMEZSc2JSbHhOQWZBM3RxMmRCOW5lRlh6V2MzTlE?oc=5",
+      "source": "Google News 环境污染",
+      "published": "2026-11-02T08:46:18+00:00",
+      "hotness": 64.5,
+      "score": 64.5,
+      "score_v1": 17.05,
+      "score_v2": 64.5,
       "score_breakdown": {
         "algorithm": "v3.0",
         "dimension_max": {
@@ -1229,16 +1469,16 @@
           "resonance": 18.0,
           "information": 16.0
         },
-        "authority_score": 18.0,
+        "authority_score": 8.05,
         "keyword_idf_score": 0.0,
         "topic_score": 3.0,
         "topic_burst_score": 0.0,
         "topic_burst_count": 1,
         "resonance_score": 0.0,
         "info_score": 0.0,
-        "base": 21.0,
+        "base": 11.05,
         "base_max": 70.0,
-        "time_factor": 0.5891,
+        "time_factor": 0.9475,
         "density_factor": 1.0,
         "density_note": "",
         "repeat_penalty": 1.0,
@@ -1246,145 +1486,25 @@
         "event_size": 1,
         "event_media_count": 1,
         "event_cluster_source": "ai",
-        "origin_source": "Water Research",
-        "raw": 12.37,
-        "display_score": 67.7,
+        "origin_source": "广州日报新花城",
+        "raw": 10.47,
+        "display_score": 64.5,
         "display_mode": "absolute"
       },
       "score_v1_breakdown": {
         "base": 5.0,
-        "source_score": 6.0,
+        "source_score": 3.6,
         "keyword_score": 0.0,
-        "time_score": 1.35,
+        "time_score": 8.45,
         "topic_bonus": 0.0,
-        "total": 12.35
+        "total": 17.05
       },
-      "summary": "研究揭示水供应中断后老化管道系统的物理化学和微生物恢复机制，分析了水质恢复过程中的关键因素与微生群落重塑规律。",
-      "analysis": "该条目涉及【水处理】话题，因来源权威性高，热度上升。",
+      "summary": "广州日报新花城报道，村支书涉嫌威胁环保举报者，引发社会热议。文章探讨了基层环保监督面临的威胁与挑战，呼吁加强村级生态文明建设与举报者保护机制。",
+      "analysis": "该条目涉及【环境政策】话题，因来源较权威且发布时间较新，热度上升。",
       "topic_tags": [
-        "水处理"
+        "环境政策"
       ],
-      "category": "水处理",
-      "matched_keywords": [],
-      "keywords": []
-    },
-    {
-      "title": "Elemental sulfur reinforces storage-driven denitrification through complementary electron supply and mitigates N₂O in carbon-limited wastewater",
-      "title_en": "Elemental sulfur reinforces storage-driven denitrification through complementary electron supply and mitigates N₂O in carbon-limited wastewater",
-      "title_zh": "元素硫通过补充电子供应，增强了以储存为驱动的脱氮作用，并减轻了碳限制条件下废水中的N₂O排放",
-      "summary_en": "",
-      "summary_zh": "",
-      "link": "https://www.sciencedirect.com/science/article/pii/S0043135426019044?dgcid=rss_sd_all",
-      "source": "Water Research",
-      "published": "2026-10-30T11:27:21.041383+00:00",
-      "hotness": 67.7,
-      "score": 67.7,
-      "score_v1": 12.35,
-      "score_v2": 67.7,
-      "score_breakdown": {
-        "algorithm": "v3.0",
-        "dimension_max": {
-          "authority": 18.0,
-          "topic": 18.0,
-          "resonance": 18.0,
-          "information": 16.0
-        },
-        "authority_score": 18.0,
-        "keyword_idf_score": 0.0,
-        "topic_score": 3.0,
-        "topic_burst_score": 0.0,
-        "topic_burst_count": 1,
-        "resonance_score": 0.0,
-        "info_score": 0.0,
-        "base": 21.0,
-        "base_max": 70.0,
-        "time_factor": 0.5891,
-        "density_factor": 1.0,
-        "density_note": "",
-        "repeat_penalty": 1.0,
-        "repeat_excused": false,
-        "event_size": 1,
-        "event_media_count": 1,
-        "event_cluster_source": "ai",
-        "origin_source": "Water Research",
-        "raw": 12.37,
-        "display_score": 67.7,
-        "display_mode": "absolute"
-      },
-      "score_v1_breakdown": {
-        "base": 5.0,
-        "source_score": 6.0,
-        "keyword_score": 0.0,
-        "time_score": 1.35,
-        "topic_bonus": 0.0,
-        "total": 12.35
-      },
-      "summary": "研究表明元硫通过互补电子供给强化碳限制下的储存驱动反硝化作用，有效抑制了废水处理过程中的一氧化二氮排放。",
-      "analysis": "该条目涉及【气候变化】话题，因来源权威性高，热度上升。",
-      "topic_tags": [
-        "气候变化"
-      ],
-      "category": "气候变化",
-      "matched_keywords": [],
-      "keywords": []
-    },
-    {
-      "title": "The asteroid killed the dinosaurs. Why did crocodiles survive?",
-      "title_en": "The asteroid killed the dinosaurs. Why did crocodiles survive?",
-      "title_zh": "小行星导致了恐龙的灭绝。鳄鱼为什么能幸存下来？",
-      "summary_en": "Scientists may have solved a 66-million-year-old mystery: how crocodiles survived the asteroid that wiped out the dinosaurs. A sweeping analysis of fossils and ancient climates suggests that their preference for warm environments placed them in tropical refuges that remained habitable even after the catastrophic impact.",
-      "summary_zh": "科学家们可能解开了6600万年前的一个谜团：鳄鱼是如何在小行星撞击导致恐龙灭绝后幸存下来的。对化石和古气候的全面分析表明，由于鳄鱼偏好温暖的环境，它们栖息在热带避难所中，这些地区即使在灾难性撞击发生后，仍然适宜生存。",
-      "link": "https://www.sciencedaily.com/releases/2026/10/261030002922.htm",
-      "source": "ScienceDaily 环境科学",
-      "published": "2026-10-30T11:34:16+00:00",
-      "hotness": 66.5,
-      "score": 66.5,
-      "score_v1": 10.86,
-      "score_v2": 66.5,
-      "score_breakdown": {
-        "algorithm": "v3.0",
-        "dimension_max": {
-          "authority": 18.0,
-          "topic": 18.0,
-          "resonance": 18.0,
-          "information": 16.0
-        },
-        "authority_score": 12.73,
-        "keyword_idf_score": 0.0,
-        "topic_score": 0.0,
-        "topic_burst_score": 0.0,
-        "topic_burst_count": 1,
-        "resonance_score": 0.0,
-        "info_score": 7.0,
-        "base": 19.73,
-        "base_max": 70.0,
-        "time_factor": 0.5897,
-        "density_factor": 1.0,
-        "density_note": "",
-        "repeat_penalty": 1.0,
-        "repeat_excused": false,
-        "event_size": 1,
-        "event_media_count": 1,
-        "event_cluster_source": "ai",
-        "origin_source": "ScienceDaily 环境科学",
-        "raw": 11.63,
-        "display_score": 66.5,
-        "display_mode": "absolute"
-      },
-      "score_v1_breakdown": {
-        "base": 5.0,
-        "source_score": 4.5,
-        "keyword_score": 0.0,
-        "time_score": 1.36,
-        "topic_bonus": 0.0,
-        "total": 10.86
-      },
-      "summary": "科学家们可能解开了6600万年前的一个谜团：鳄鱼是如何在小行星撞击导致恐龙灭绝后幸存下来的。对化石和古气候的全面分析表明，由于鳄鱼偏好温暖的环境，它们栖息在热带避难所中，这些地区即使在灾难性撞击发生后，仍然适宜生存。",
-      "analysis": "该条目涉及【环境资讯】话题，因来源权威性高，热度上升。",
-      "topic_tags": [
-        "环境资讯"
-      ],
-      "category": "其他",
+      "category": "环境政策",
       "matched_keywords": [],
       "keywords": []
     },
@@ -1393,14 +1513,14 @@
       "title_en": "128,000-year-old ice in Tibet could rewrite climate history",
       "title_zh": "西藏12.8万年前的冰层或将改写气候史",
       "summary_en": "Ancient ice discovered high in Tibet may be more than 128,000 years old, preserving an extraordinary record of Earth's climate that scientists previously thought had been lost. The discovery reveals a rare glimpse into the last ice age and could reshape our understanding of how glaciers survive dramatic changes in global climate.",
-      "summary_zh": "在西藏高海拔地区发现的远古冰层可能已有超过12.8万年的历史，其中保存着地球气候的非凡记录——科学家此前曾认为这些记录早已失传。这一发现让我们得以罕见地一窥上一次冰河时期的景象，并可能重塑我们对冰川如何在全球气候剧变中存续的理解。",
+      "summary_zh": "在西藏高海拔地区发现的远古冰层可能已有12.8万多年的历史，其中保存着地球气候的非凡记录，而科学家此前曾认为这些记录早已失传。这一发现让我们得以一窥上一次冰河时代的罕见景象，并可能重塑我们对冰川如何在全球气候剧变中存续的理解。",
       "link": "https://www.sciencedaily.com/releases/2026/10/261028232713.htm",
       "source": "ScienceDaily 环境科学",
       "published": "2026-10-29T08:10:47+00:00",
-      "hotness": 66.3,
-      "score": 66.3,
-      "score_v1": 9.93,
-      "score_v2": 66.3,
+      "hotness": 64.0,
+      "score": 64.0,
+      "score_v1": 9.65,
+      "score_v2": 64.0,
       "score_breakdown": {
         "algorithm": "v3.0",
         "dimension_max": {
@@ -1418,28 +1538,28 @@
         "info_score": 8.0,
         "base": 23.73,
         "base_max": 70.0,
-        "time_factor": 0.4854,
+        "time_factor": 0.4299,
         "density_factor": 1.0,
         "density_note": "",
         "repeat_penalty": 1.0,
-        "repeat_excused": true,
-        "event_size": 2,
+        "repeat_excused": false,
+        "event_size": 1,
         "event_media_count": 1,
         "event_cluster_source": "ai",
         "origin_source": "ScienceDaily 环境科学",
-        "raw": 11.52,
-        "display_score": 66.3,
+        "raw": 10.2,
+        "display_score": 64.0,
         "display_mode": "absolute"
       },
       "score_v1_breakdown": {
         "base": 5.0,
         "source_score": 4.5,
         "keyword_score": 0.0,
-        "time_score": 0.43,
+        "time_score": 0.15,
         "topic_bonus": 0.0,
-        "total": 9.93
+        "total": 9.65
       },
-      "summary": "在西藏高海拔地区发现的远古冰层可能已有超过12.8万年的历史，其中保存着地球气候的非凡记录——科学家此前曾认为这些记录早已失传。这一发现让我们得以罕见地一窥上一次冰河时期的景象，并可能重塑我们对冰川如何在全球气候剧变中存续的理解。",
+      "summary": "在西藏高海拔地区发现的远古冰层可能已有12.8万多年的历史，其中保存着地球气候的非凡记录，而科学家此前曾认为这些记录早已失传。这一发现让我们得以一窥上一次冰河时代的罕见景象，并可能重塑我们对冰川如何在全球气候剧变中存续的理解。",
       "analysis": "该条目涉及【气候变化】话题，因来源权威性高，热度上升。",
       "topic_tags": [
         "气候变化"
@@ -1449,18 +1569,18 @@
       "keywords": []
     },
     {
-      "title": "I built the UK government’s metascience unit — here’s what countries need to know",
-      "title_en": "I built the UK government’s metascience unit — here’s what countries need to know",
-      "title_zh": "我创建了英国政府的元科学部门——以下是各国需要了解的内容",
-      "summary_en": "Nature, Published online: 30 October 2026; doi:10.1038/d41586-026-03502-4To find evidence-backed ways to improve grant-funding processes, metascientists need freedom and money to experiment, as well as leaders who are willing to make change.",
-      "summary_zh": "《自然》杂志，在线发表于：2026年10月30日； doi:10.1038/d41586-026-03502-4为了寻找有证据支持的方法来改进科研资助流程，元科学家们需要自由和资金进行实验，同时也需要愿意推动变革的领导者。",
-      "link": "https://www.nature.com/articles/d41586-026-03502-4",
-      "source": "Nature",
-      "published": "2026-10-30T00:00:00+00:00",
-      "hotness": 65.9,
-      "score": 65.9,
-      "score_v1": 11.84,
-      "score_v2": 65.9,
+      "title": "全球气候变暖叠加超强厄尔尼诺，下一个汛期更危险？专访中国工程院院士张建云 - ThePaper.cn",
+      "title_en": "",
+      "title_zh": "",
+      "summary_en": "",
+      "summary_zh": "",
+      "link": "https://news.google.com/rss/articles/CBMiYEFVX3lxTE81dFZ3SGoxT0s4ZEdhNGNkaDJMU3VrR3VPdV9KcTFlREVJdUpJVWtNVWtSSUFDWDlUTjF6NnRGRy11bGtMcFZrOVJnYUZmLUFxZGFGZ0tVQldETlZrX19fYw?oc=5",
+      "source": "Google News 气候变化",
+      "published": "2026-11-02T05:02:36+00:00",
+      "hotness": 63.6,
+      "score": 63.6,
+      "score_v1": 15.83,
+      "score_v2": 63.6,
       "score_breakdown": {
         "algorithm": "v3.0",
         "dimension_max": {
@@ -1469,16 +1589,16 @@
           "resonance": 18.0,
           "information": 16.0
         },
-        "authority_score": 18.0,
+        "authority_score": 8.05,
         "keyword_idf_score": 0.0,
-        "topic_score": 0.0,
+        "topic_score": 3.0,
         "topic_burst_score": 0.0,
         "topic_burst_count": 1,
         "resonance_score": 0.0,
-        "info_score": 3.0,
-        "base": 21.0,
+        "info_score": 0.0,
+        "base": 11.05,
         "base_max": 70.0,
-        "time_factor": 0.5383,
+        "time_factor": 0.9028,
         "density_factor": 1.0,
         "density_note": "",
         "repeat_penalty": 1.0,
@@ -1486,25 +1606,25 @@
         "event_size": 1,
         "event_media_count": 1,
         "event_cluster_source": "ai",
-        "origin_source": "Nature",
-        "raw": 11.3,
-        "display_score": 65.9,
+        "origin_source": "ThePaper.cn",
+        "raw": 9.98,
+        "display_score": 63.6,
         "display_mode": "absolute"
       },
       "score_v1_breakdown": {
         "base": 5.0,
-        "source_score": 6.0,
+        "source_score": 3.6,
         "keyword_score": 0.0,
-        "time_score": 0.84,
+        "time_score": 7.23,
         "topic_bonus": 0.0,
-        "total": 11.84
+        "total": 15.83
       },
-      "summary": "《自然》杂志， 为了寻找有证据支持的方法来改进科研资助流程，元科学家们需要自由和资金进行实验，同时也需要愿意推动变革的领导者。",
-      "analysis": "该条目涉及【环境资讯】话题，因来源权威性高，热度上升。",
+      "summary": "中国工程院院士张建云接受ThePaper.cn专访，分析全球气候变暖与超强厄尔尼诺叠加效应。他警告下一个汛期将更加危险，阐述气候异常背后的科学原因及应对策略，引发对气候风险的高度关注。",
+      "analysis": "该条目涉及【气候变化】话题，因来源较权威且发布时间较新，热度上升。",
       "topic_tags": [
-        "环境资讯"
+        "气候变化"
       ],
-      "category": "其他",
+      "category": "气候变化",
       "matched_keywords": [],
       "keywords": []
     },
@@ -1517,10 +1637,10 @@
       "link": "https://iopscience.iop.org/article/10.1088/1748-9326/aeb70e",
       "source": "Environmental Research Letters",
       "published": "2026-10-30T00:00:00+00:00",
-      "hotness": 65.9,
-      "score": 65.9,
-      "score_v1": 11.84,
-      "score_v2": 65.9,
+      "hotness": 63.0,
+      "score": 63.0,
+      "score_v1": 11.29,
+      "score_v2": 63.0,
       "score_breakdown": {
         "algorithm": "v3.0",
         "dimension_max": {
@@ -1538,7 +1658,7 @@
         "info_score": 0.0,
         "base": 21.0,
         "base_max": 70.0,
-        "time_factor": 0.5383,
+        "time_factor": 0.4611,
         "density_factor": 1.0,
         "density_note": "",
         "repeat_penalty": 1.0,
@@ -1547,19 +1667,19 @@
         "event_media_count": 1,
         "event_cluster_source": "ai",
         "origin_source": "Environmental Research Letters",
-        "raw": 11.3,
-        "display_score": 65.9,
+        "raw": 9.68,
+        "display_score": 63.0,
         "display_mode": "absolute"
       },
       "score_v1_breakdown": {
         "base": 5.0,
         "source_score": 6.0,
         "keyword_score": 0.0,
-        "time_score": 0.84,
+        "time_score": 0.29,
         "topic_bonus": 0.0,
-        "total": 11.84
+        "total": 11.29
       },
-      "summary": "探讨北欧森林在碳汇功能与氮循环预算之间的平衡关系，分析森林管理对碳封存与氮损失的协同效应。",
+      "summary": "该研究聚焦北欧森林，探讨碳汇封存与氮循环预算的平衡关系。研究发现，合理管理氮肥输入可显著提升森林碳封存效率，为气候变化缓解提供科学依据，同时兼顾生态系统健康与生产力。",
       "analysis": "该条目涉及【气候变化】话题，因来源权威性高，热度上升。",
       "topic_tags": [
         "气候变化"
@@ -1573,14 +1693,14 @@
       "title_en": "Scientists discover a hidden oxygen reservoir deep inside Earth",
       "title_zh": "科学家在地球深处发现了一个隐藏的氧气储库",
       "summary_en": "Scientists have discovered that magma deep inside Earth can store surprising amounts of extra oxygen, potentially revealing a hidden contributor to our planet's oxygen-rich atmosphere. The findings suggest that ancient volcanic eruptions may have helped transform Earth's atmosphere billions of years ago, with implications for understanding life on other planets.",
-      "summary_zh": "科学家们发现，地球深处的岩浆中可以储存惊人的额外氧气，这可能揭示了地球富氧大气中一个隐藏的来源。这一发现表明，数十亿年前的古代火山喷发可能曾帮助重塑了地球的大气层，这对理解其他行星上的生命具有重要意义。",
+      "summary_zh": "科学家发现，地球深处的岩浆中可以储存惊人的额外氧气，这可能揭示了地球富氧大气中一个隐藏的来源。这一发现表明，数十亿年前的古代火山喷发可能曾帮助重塑了地球的大气层，这对理解其他行星上的生命具有重要意义。",
       "link": "https://www.sciencedaily.com/releases/2026/10/261027063702.htm",
       "source": "ScienceDaily 环境科学",
       "published": "2026-10-29T01:13:05+00:00",
-      "hotness": 64.7,
-      "score": 64.7,
-      "score_v1": 9.82,
-      "score_v2": 64.7,
+      "hotness": 62.7,
+      "score": 62.7,
+      "score_v1": 9.61,
+      "score_v2": 62.7,
       "score_breakdown": {
         "algorithm": "v3.0",
         "dimension_max": {
@@ -1598,7 +1718,7 @@
         "info_score": 7.0,
         "base": 22.73,
         "base_max": 70.0,
-        "time_factor": 0.4672,
+        "time_factor": 0.4191,
         "density_factor": 1.0,
         "density_note": "",
         "repeat_penalty": 1.0,
@@ -1607,19 +1727,19 @@
         "event_media_count": 1,
         "event_cluster_source": "ai",
         "origin_source": "ScienceDaily 环境科学",
-        "raw": 10.62,
-        "display_score": 64.7,
+        "raw": 9.53,
+        "display_score": 62.7,
         "display_mode": "absolute"
       },
       "score_v1_breakdown": {
         "base": 5.0,
         "source_score": 4.5,
         "keyword_score": 0.0,
-        "time_score": 0.32,
+        "time_score": 0.11,
         "topic_bonus": 0.0,
-        "total": 9.82
+        "total": 9.61
       },
-      "summary": "科学家们发现，地球深处的岩浆中可以储存惊人的额外氧气，这可能揭示了地球富氧大气中一个隐藏的来源。这一发现表明，数十亿年前的古代火山喷发可能曾帮助重塑了地球的大气层，这对理解其他行星上的生命具有重要意义。",
+      "summary": "科学家发现，地球深处的岩浆中可以储存惊人的额外氧气，这可能揭示了地球富氧大气中一个隐藏的来源。这一发现表明，数十亿年前的古代火山喷发可能曾帮助重塑了地球的大气层，这对理解其他行星上的生命具有重要意义。",
       "analysis": "该条目涉及【环境资讯】话题，因来源权威性高，热度上升。",
       "topic_tags": [
         "环境资讯"
@@ -1629,266 +1749,18 @@
       "keywords": []
     },
     {
-      "title": "河北以数智化改革提升生态环境执法服务质效 - 中国新闻网",
-      "title_en": "",
-      "title_zh": "",
-      "summary_en": "",
-      "summary_zh": "",
-      "link": "https://news.google.com/rss/articles/CBMiZ0FVX3lxTE9CWGhsMlZQZzJYOVJhT3hXS3c1aHFGX0JaWlJsSXMycGRLOWpySFEyOUtCNmswaUd0SlpBOWV2X3VyYUpXMVoyQ1BJTFBLQjJOejJqMlFNNUNzMHd2dTZhcW1GNjdjOGs?oc=5",
-      "source": "Google News 生态环境",
-      "published": "2026-10-30T16:10:50+00:00",
-      "hotness": 64.1,
-      "score": 64.1,
-      "score_v1": 18.25,
-      "score_v2": 64.1,
-      "score_breakdown": {
-        "algorithm": "v3.0",
-        "dimension_max": {
-          "authority": 18.0,
-          "topic": 18.0,
-          "resonance": 18.0,
-          "information": 16.0
-        },
-        "authority_score": 8.05,
-        "keyword_idf_score": 4.86,
-        "topic_score": 8.66,
-        "topic_burst_score": 3.79,
-        "topic_burst_count": 3,
-        "resonance_score": 0.0,
-        "info_score": 0.0,
-        "base": 16.71,
-        "base_max": 70.0,
-        "time_factor": 0.6138,
-        "density_factor": 1.0,
-        "density_note": "",
-        "repeat_penalty": 1.0,
-        "repeat_excused": false,
-        "event_size": 1,
-        "event_media_count": 1,
-        "event_cluster_source": "ai",
-        "origin_source": "中国新闻网",
-        "raw": 10.26,
-        "display_score": 64.1,
-        "display_mode": "absolute"
-      },
-      "score_v1_breakdown": {
-        "base": 5.0,
-        "source_score": 3.6,
-        "keyword_score": 2.0,
-        "time_score": 1.65,
-        "topic_bonus": 6.0,
-        "total": 18.25
-      },
-      "summary": "报道河北省通过数字化手段改革生态环境执法模式，提升执法效率与服务水平，强化环境监管能力。",
-      "analysis": "该条目涉及【生态环境】话题，因来源较权威，热度上升。",
-      "topic_tags": [
-        "生态环境"
-      ],
-      "category": "生态环境",
-      "matched_keywords": [
-        "生态环境"
-      ],
-      "keywords": [
-        "生态环境"
-      ]
-    },
-    {
-      "title": "江西：持续加强生态保护与修复监管 筑牢绿色生态屏障 - 央视网",
-      "title_en": "",
-      "title_zh": "",
-      "summary_en": "",
-      "summary_zh": "",
-      "link": "https://news.google.com/rss/articles/CBMiekFVX3lxTE1LT1pNWXVvTnlZcXZzcTlFWFp4NkhfMGtySlRpenBUbDE1bVRJak5CV09KdlZBeE9PamZjSG9OUnMwdHFiZmU2NVFXdl9MZ3hYbnVaU1RQamRsTlRqTk8tOFJvaFZDUi1TeGprUHhvbmRmcmwtZ2lQUmNR?oc=5",
-      "source": "Google News 生态环境",
-      "published": "2026-10-30T12:00:07+00:00",
-      "hotness": 62.5,
-      "score": 62.5,
-      "score_v1": 13.98,
-      "score_v2": 62.5,
-      "score_breakdown": {
-        "algorithm": "v3.0",
-        "dimension_max": {
-          "authority": 18.0,
-          "topic": 18.0,
-          "resonance": 18.0,
-          "information": 16.0
-        },
-        "authority_score": 8.05,
-        "keyword_idf_score": 7.83,
-        "topic_score": 7.83,
-        "topic_burst_score": 0.0,
-        "topic_burst_count": 1,
-        "resonance_score": 0.0,
-        "info_score": 0.0,
-        "base": 15.88,
-        "base_max": 70.0,
-        "time_factor": 0.5918,
-        "density_factor": 1.0,
-        "density_note": "",
-        "repeat_penalty": 1.0,
-        "repeat_excused": false,
-        "event_size": 1,
-        "event_media_count": 1,
-        "event_cluster_source": "ai",
-        "origin_source": "央视网",
-        "raw": 9.4,
-        "display_score": 62.5,
-        "display_mode": "absolute"
-      },
-      "score_v1_breakdown": {
-        "base": 5.0,
-        "source_score": 3.6,
-        "keyword_score": 2.0,
-        "time_score": 1.38,
-        "topic_bonus": 2.0,
-        "total": 13.98
-      },
-      "summary": "报道江西省持续加强生态保护与修复工作的监管力度，旨在筑牢绿色生态屏障，推进生态文明建设。",
-      "analysis": "该条目涉及【生态环境】话题，因来源较权威，热度上升。",
-      "topic_tags": [
-        "生态环境"
-      ],
-      "category": "生态环境",
-      "matched_keywords": [
-        "生态保护"
-      ],
-      "keywords": [
-        "生态保护"
-      ]
-    },
-    {
-      "title": "给洱海河流有机质做 “指纹鉴定”，追踪污染来路 - 科学网—新闻",
-      "title_en": "",
-      "title_zh": "",
-      "summary_en": "",
-      "summary_zh": "",
-      "link": "https://news.google.com/rss/articles/CBMiZkFVX3lxTE0wMmd1T0NzVmxxTndBY2ktUVJVZWpNQjl1WXNYMWRtbjRxcVRyRDdJUTBmamlWUTNmQTUtMGxLR3QtOGZUSWZKcWd5cHhnMjZxTjF0U2puYlp2VV9TN2s3NFZZTUEyQQ?oc=5",
-      "source": "Google News 环境污染",
-      "published": "2026-10-31T15:03:50+00:00",
-      "hotness": 60.9,
-      "score": 60.9,
-      "score_v1": 12.87,
-      "score_v2": 60.9,
-      "score_breakdown": {
-        "algorithm": "v3.0",
-        "dimension_max": {
-          "authority": 18.0,
-          "topic": 18.0,
-          "resonance": 18.0,
-          "information": 16.0
-        },
-        "authority_score": 8.05,
-        "keyword_idf_score": 0.0,
-        "topic_score": 3.0,
-        "topic_burst_score": 0.0,
-        "topic_burst_count": 1,
-        "resonance_score": 0.0,
-        "info_score": 0.0,
-        "base": 11.05,
-        "base_max": 70.0,
-        "time_factor": 0.7749,
-        "density_factor": 1.0,
-        "density_note": "",
-        "repeat_penalty": 1.0,
-        "repeat_excused": false,
-        "event_size": 1,
-        "event_media_count": 1,
-        "event_cluster_source": "ai",
-        "origin_source": "科学网—新闻",
-        "raw": 8.56,
-        "display_score": 60.9,
-        "display_mode": "absolute"
-      },
-      "score_v1_breakdown": {
-        "base": 5.0,
-        "source_score": 3.6,
-        "keyword_score": 0.0,
-        "time_score": 4.27,
-        "topic_bonus": 0.0,
-        "total": 12.87
-      },
-      "summary": "科研人员对洱海河流有机质进行指纹鉴定，旨在追踪污染来源与来路。",
-      "analysis": "该条目涉及【污染治理】话题，因来源较权威，热度上升。",
-      "topic_tags": [
-        "污染治理"
-      ],
-      "category": "污染治理",
-      "matched_keywords": [],
-      "keywords": []
-    },
-    {
-      "title": "马上评｜能查村支书威胁环保博主事，也定能彻查环境污染事 - ThePaper.cn",
-      "title_en": "",
-      "title_zh": "",
-      "summary_en": "",
-      "summary_zh": "",
-      "link": "https://news.google.com/rss/articles/CBMiYEFVX3lxTE42eE5YYzlob0M5d2RXb29iMHE0SVNWVVlSMjBmWTA5em1zbXowZENoSVNpT2tEODhjT080dHVfWDVPMUl3c2JuV3U4NHRfa2ItbFV2TmZPMlUtdHBERmZrOA?oc=5",
-      "source": "Google News 环境保护",
-      "published": "2026-10-31T10:13:24+00:00",
-      "hotness": 60.0,
-      "score": 60.0,
-      "score_v1": 12.09,
-      "score_v2": 60.0,
-      "score_breakdown": {
-        "algorithm": "v3.0",
-        "dimension_max": {
-          "authority": 18.0,
-          "topic": 18.0,
-          "resonance": 18.0,
-          "information": 16.0
-        },
-        "authority_score": 8.05,
-        "keyword_idf_score": 0.0,
-        "topic_score": 3.0,
-        "topic_burst_score": 0.0,
-        "topic_burst_count": 1,
-        "resonance_score": 0.0,
-        "info_score": 0.0,
-        "base": 11.05,
-        "base_max": 70.0,
-        "time_factor": 0.7342,
-        "density_factor": 1.0,
-        "density_note": "",
-        "repeat_penalty": 1.0,
-        "repeat_excused": false,
-        "event_size": 1,
-        "event_media_count": 1,
-        "event_cluster_source": "ai",
-        "origin_source": "ThePaper.cn",
-        "raw": 8.11,
-        "display_score": 60.0,
-        "display_mode": "absolute"
-      },
-      "score_v1_breakdown": {
-        "base": 5.0,
-        "source_score": 3.6,
-        "keyword_score": 0.0,
-        "time_score": 3.49,
-        "topic_bonus": 0.0,
-        "total": 12.09
-      },
-      "summary": "文章评论指出，若能查清村支书威胁环保博主的行为，同样有能力彻查环境污染事项。",
-      "analysis": "该条目涉及【环境政策】话题，因来源较权威，热度上升。",
-      "topic_tags": [
-        "环境政策"
-      ],
-      "category": "环境政策",
-      "matched_keywords": [],
-      "keywords": []
-    },
-    {
       "title": "Antarctica’s “Doomsday Glacier” could raise sea levels twice as much as predicted",
       "title_en": "Antarctica’s “Doomsday Glacier” could raise sea levels twice as much as predicted",
       "title_zh": "南极洲的“末日冰川”可能导致海平面上升幅度达到此前预测值的两倍",
       "summary_en": "Antarctica’s Thwaites Glacier may be melting twice as much as previously predicted, even without additional global warming. Scientists discovered that warm ocean water is penetrating miles beneath the ice, weakening its foundations and accelerating its retreat. A new model predicts that the glacier could add up to 30 millimeters to global sea levels by 2100, with a 60% chance of losing a crucial stabilizing ridge.",
-      "summary_zh": "南极洲的斯威茨冰川的融化速度可能达到此前预测的两倍，即使全球变暖不再加剧也是如此。科学家发现，温暖的海水正渗透到冰层下方数英里处，削弱了冰川的基础，并加速了其后退。 一项新模型预测，到2100年，该冰川可能导致全球海平面上升多达30毫米，且有60%的概率会失去一条至关重要的稳定山脊。",
+      "summary_zh": "南极洲的斯威茨冰川的融化速度可能达到此前预测值的两倍，即使全球变暖不再加剧也是如此。科学家发现，温暖的海水正渗透到冰层下方数英里深处，削弱了冰川的基础，并加速了其后退。 一项新模型预测，到2100年，该冰川可能导致全球海平面上升多达30毫米，且有60%的概率会失去一条至关重要的稳定山脊。",
       "link": "https://www.sciencedaily.com/releases/2026/10/261027063701.htm",
       "source": "ScienceDaily 环境科学",
       "published": "2026-10-28T09:22:09+00:00",
-      "hotness": 60.0,
-      "score": 60.0,
-      "score_v1": 9.67,
-      "score_v2": 60.0,
+      "hotness": 58.7,
+      "score": 58.7,
+      "score_v1": 9.56,
+      "score_v2": 58.7,
       "score_breakdown": {
         "algorithm": "v3.0",
         "dimension_max": {
@@ -1906,7 +1778,7 @@
         "info_score": 3.0,
         "base": 18.73,
         "base_max": 70.0,
-        "time_factor": 0.4342,
+        "time_factor": 0.3997,
         "density_factor": 1.0,
         "density_note": "",
         "repeat_penalty": 1.0,
@@ -1915,19 +1787,19 @@
         "event_media_count": 1,
         "event_cluster_source": "ai",
         "origin_source": "ScienceDaily 环境科学",
-        "raw": 8.13,
-        "display_score": 60.0,
+        "raw": 7.48,
+        "display_score": 58.7,
         "display_mode": "absolute"
       },
       "score_v1_breakdown": {
         "base": 5.0,
         "source_score": 4.5,
         "keyword_score": 0.0,
-        "time_score": 0.17,
+        "time_score": 0.06,
         "topic_bonus": 0.0,
-        "total": 9.67
+        "total": 9.56
       },
-      "summary": "南极洲的斯威茨冰川的融化速度可能达到此前预测的两倍，即使全球变暖不再加剧也是如此。科学家发现，温暖的海水正渗透到冰层下方数英里处，削弱了冰川的基础，并加速了其后退。 一项新模型预测，到2100年，该冰川可能导致全球海平面上升多达30毫米，且有60%的概率会失去一条至关重要的稳定山脊。",
+      "summary": "南极洲的斯威茨冰川的融化速度可能达到此前预测值的两倍，即使全球变暖不再加剧也是如此。科学家发现，温暖的海水正渗透到冰层下方数英里深处，削弱了冰川的基础，并加速了其后退。 一项新模型预测，到2100年，该冰川可能导致全球海平面上升多达30毫米，且有60%的概率会失去一条至关重要的稳定山脊。",
       "analysis": "该条目涉及【气候变化】话题，因来源权威性高，热度上升。",
       "topic_tags": [
         "气候变化"
@@ -1939,40 +1811,28 @@
   ],
   "keyword_analysis": [
     {
-      "keyword": "气候变化",
-      "count": 4,
-      "term": "气候变化",
-      "category": "气候变化"
-    },
-    {
       "keyword": "生态环境",
       "count": 3,
       "term": "生态环境",
       "category": "生态环境"
     },
     {
-      "keyword": "能源转型",
-      "count": 2,
-      "term": "能源转型",
-      "category": "能源与碳中和"
-    },
-    {
-      "keyword": "PM2.5",
-      "count": 2,
-      "term": "PM2.5",
-      "category": "污染治理"
-    },
-    {
       "keyword": "可持续发展",
-      "count": 1,
+      "count": 2,
       "term": "可持续发展",
       "category": "环境政策"
     },
     {
-      "keyword": "水污染",
+      "keyword": "环境保护",
       "count": 1,
-      "term": "水污染",
-      "category": "污染治理"
+      "term": "环境保护",
+      "category": "环境政策"
+    },
+    {
+      "keyword": "湿地",
+      "count": 1,
+      "term": "湿地",
+      "category": "生态环境"
     },
     {
       "keyword": "环境治理",
@@ -1981,22 +1841,34 @@
       "category": "环境政策"
     },
     {
-      "keyword": "环评",
+      "keyword": "臭氧",
       "count": 1,
-      "term": "环评",
-      "category": "环境政策"
+      "term": "臭氧",
+      "category": "污染治理"
     },
     {
-      "keyword": "生态修复",
+      "keyword": "污泥",
       "count": 1,
-      "term": "生态修复",
-      "category": "生态环境"
+      "term": "污泥",
+      "category": "其他"
     },
     {
-      "keyword": "生物多样性",
+      "keyword": "能源转型",
       "count": 1,
-      "term": "生物多样性",
-      "category": "生态环境"
+      "term": "能源转型",
+      "category": "能源与碳中和"
+    },
+    {
+      "keyword": "气候变化",
+      "count": 1,
+      "term": "气候变化",
+      "category": "气候变化"
+    },
+    {
+      "keyword": "新污染物",
+      "count": 1,
+      "term": "新污染物",
+      "category": "污染治理"
     },
     {
       "keyword": "生态保护",
@@ -2005,60 +1877,54 @@
       "category": "生态环境"
     },
     {
-      "keyword": "碳中和",
+      "keyword": "南极环境保护法",
       "count": 1,
-      "term": "碳中和",
-      "category": "气候变化"
-    },
-    {
-      "keyword": "环境健康",
-      "count": 1,
-      "term": "环境健康",
-      "category": "环境健康"
-    },
-    {
-      "keyword": "甲烷排放",
-      "count": 1,
-      "term": "甲烷排放",
+      "term": "南极环境保护法",
       "category": "其他"
+    },
+    {
+      "keyword": "人工湿地",
+      "count": 1,
+      "term": "人工湿地",
+      "category": "生态环境"
+    },
+    {
+      "keyword": "化石燃料",
+      "count": 1,
+      "term": "化石燃料",
+      "category": "其他"
+    },
+    {
+      "keyword": "臭氧氧化",
+      "count": 1,
+      "term": "臭氧氧化",
+      "category": "污染治理"
     }
   ],
   "keywords": [
     {
-      "keyword": "气候变化",
-      "count": 4,
-      "term": "气候变化",
-      "category": "气候变化"
-    },
-    {
       "keyword": "生态环境",
       "count": 3,
       "term": "生态环境",
       "category": "生态环境"
     },
     {
-      "keyword": "能源转型",
-      "count": 2,
-      "term": "能源转型",
-      "category": "能源与碳中和"
-    },
-    {
-      "keyword": "PM2.5",
-      "count": 2,
-      "term": "PM2.5",
-      "category": "污染治理"
-    },
-    {
       "keyword": "可持续发展",
-      "count": 1,
+      "count": 2,
       "term": "可持续发展",
       "category": "环境政策"
     },
     {
-      "keyword": "水污染",
+      "keyword": "环境保护",
       "count": 1,
-      "term": "水污染",
-      "category": "污染治理"
+      "term": "环境保护",
+      "category": "环境政策"
+    },
+    {
+      "keyword": "湿地",
+      "count": 1,
+      "term": "湿地",
+      "category": "生态环境"
     },
     {
       "keyword": "环境治理",
@@ -2067,22 +1933,34 @@
       "category": "环境政策"
     },
     {
-      "keyword": "环评",
+      "keyword": "臭氧",
       "count": 1,
-      "term": "环评",
-      "category": "环境政策"
+      "term": "臭氧",
+      "category": "污染治理"
     },
     {
-      "keyword": "生态修复",
+      "keyword": "污泥",
       "count": 1,
-      "term": "生态修复",
-      "category": "生态环境"
+      "term": "污泥",
+      "category": "其他"
     },
     {
-      "keyword": "生物多样性",
+      "keyword": "能源转型",
       "count": 1,
-      "term": "生物多样性",
-      "category": "生态环境"
+      "term": "能源转型",
+      "category": "能源与碳中和"
+    },
+    {
+      "keyword": "气候变化",
+      "count": 1,
+      "term": "气候变化",
+      "category": "气候变化"
+    },
+    {
+      "keyword": "新污染物",
+      "count": 1,
+      "term": "新污染物",
+      "category": "污染治理"
     },
     {
       "keyword": "生态保护",
@@ -2091,32 +1969,38 @@
       "category": "生态环境"
     },
     {
-      "keyword": "碳中和",
+      "keyword": "南极环境保护法",
       "count": 1,
-      "term": "碳中和",
-      "category": "气候变化"
-    },
-    {
-      "keyword": "环境健康",
-      "count": 1,
-      "term": "环境健康",
-      "category": "环境健康"
-    },
-    {
-      "keyword": "甲烷排放",
-      "count": 1,
-      "term": "甲烷排放",
+      "term": "南极环境保护法",
       "category": "其他"
+    },
+    {
+      "keyword": "人工湿地",
+      "count": 1,
+      "term": "人工湿地",
+      "category": "生态环境"
+    },
+    {
+      "keyword": "化石燃料",
+      "count": 1,
+      "term": "化石燃料",
+      "category": "其他"
+    },
+    {
+      "keyword": "臭氧氧化",
+      "count": 1,
+      "term": "臭氧氧化",
+      "category": "污染治理"
     }
   ],
-  "hot_summary": "今日热点围绕气候变化、生态环境、能源转型、PM2.5、可持续发展等话题，共聚合31条资讯。",
-  "summary": "今日热点围绕气候变化、生态环境、能源转型、PM2.5、可持续发展等话题，共聚合31条资讯。",
-  "weekly_summary": "近7天环境热点以气候变化、生态环境、环境政策、污染治理、科研学术为核心，总计286条信息。",
-  "weekly_insight": "近7天环境热点呈现“气候变化、生态环境、环境政策”三大类集中，其中气候变化条目最为集中，显著高于其他类别，整体热点呈现明显的政策导向与生态关注特征。",
+  "hot_summary": "今日热点围绕生态环境、可持续发展、环境保护、湿地、环境治理等话题，共聚合29条资讯。",
+  "summary": "今日热点围绕生态环境、可持续发展、环境保护、湿地、环境治理等话题，共聚合29条资讯。",
+  "weekly_summary": "近7天环境热点以气候变化、生态环境、环境政策、污染治理、科研学术为核心，总计281条目。",
+  "weekly_insight": "近7天环境热点呈现“气候变化、生态环境、环境政策”三大类集中，总计171条，占据近六成热度，显示公众关注度已从单一治理转向系统性思考。污染治理与科研学术虽占比不高，但作为基础支撑层持续活跃，水处理作为细分焦点虽数量较少，但关联度日益凸显。总体来看，热点趋势呈现从局部污染向气候生态全局转移，政策与治理的协同效应明显上升。",
   "weekly_keywords": [
     {
       "term": "生态环境部",
-      "count": 11
+      "count": 10
     },
     {
       "term": "能源转型",
@@ -2127,8 +2011,8 @@
       "count": 5
     },
     {
-      "term": "微塑料",
-      "count": 5
+      "term": "生物多样性",
+      "count": 4
     },
     {
       "term": "水污染",
@@ -2143,33 +2027,19 @@
       "count": 4
     },
     {
+      "term": "生态保护",
+      "count": 3
+    },
+    {
       "term": "人群健康",
       "count": 3
     },
     {
       "term": "电动汽车",
       "count": 3
-    },
-    {
-      "term": "流域",
-      "count": 3
     }
   ],
   "weekly_categories": [
-    {
-      "date": "2026-10-26",
-      "categories": {
-        "气候变化": 13,
-        "污染治理": 2,
-        "生态环境": 5,
-        "环境政策": 5,
-        "能源与碳中和": 1,
-        "水处理": 4,
-        "科研学术": 0,
-        "环境健康": 0,
-        "其他": 4
-      }
-    },
     {
       "date": "2026-10-27",
       "categories": {
@@ -2253,19 +2123,33 @@
         "环境健康": 2,
         "其他": 4
       }
+    },
+    {
+      "date": "2026-11-02",
+      "categories": {
+        "气候变化": 7,
+        "污染治理": 3,
+        "生态环境": 6,
+        "环境政策": 5,
+        "能源与碳中和": 0,
+        "水处理": 1,
+        "科研学术": 2,
+        "环境健康": 0,
+        "其他": 5
+      }
     }
   ],
   "today_categories": [
     {
       "category": "气候变化",
-      "count": 11
-    },
-    {
-      "category": "污染治理",
-      "count": 5
+      "count": 7
     },
     {
       "category": "生态环境",
+      "count": 6
+    },
+    {
+      "category": "环境政策",
       "count": 5
     },
     {
@@ -2273,33 +2157,20 @@
       "count": 4
     },
     {
-      "category": "环境健康",
-      "count": 2
-    },
-    {
-      "category": "能源与碳中和",
-      "count": 1
-    },
-    {
       "category": "科研学术",
-      "count": 1
+      "count": 3
+    },
+    {
+      "category": "污染治理",
+      "count": 3
     },
     {
       "category": "水处理",
-      "count": 1
-    },
-    {
-      "category": "环境政策",
       "count": 1
     }
   ],
   "timeline": {
     "气候变化": [
-      {
-        "date": "2026-10-03",
-        "count": 10,
-        "total_heat": 709.6
-      },
       {
         "date": "2026-10-04",
         "count": 6,
@@ -2444,14 +2315,14 @@
         "date": "2026-11-01",
         "count": 11,
         "total_heat": 778.8
+      },
+      {
+        "date": "2026-11-02",
+        "count": 7,
+        "total_heat": 458.3
       }
     ],
     "污染治理": [
-      {
-        "date": "2026-10-03",
-        "count": 3,
-        "total_heat": 221.6
-      },
       {
         "date": "2026-10-04",
         "count": 3,
@@ -2596,14 +2467,14 @@
         "date": "2026-11-01",
         "count": 5,
         "total_heat": 353.4
+      },
+      {
+        "date": "2026-11-02",
+        "count": 3,
+        "total_heat": 214.0
       }
     ],
     "生态环境": [
-      {
-        "date": "2026-10-03",
-        "count": 5,
-        "total_heat": 351.1
-      },
       {
         "date": "2026-10-04",
         "count": 6,
@@ -2748,14 +2619,14 @@
         "date": "2026-11-01",
         "count": 5,
         "total_heat": 341.8
+      },
+      {
+        "date": "2026-11-02",
+        "count": 6,
+        "total_heat": 433.4
       }
     ],
     "环境政策": [
-      {
-        "date": "2026-10-03",
-        "count": 3,
-        "total_heat": 233.6
-      },
       {
         "date": "2026-10-04",
         "count": 5,
@@ -2900,14 +2771,14 @@
         "date": "2026-11-01",
         "count": 1,
         "total_heat": 60.0
+      },
+      {
+        "date": "2026-11-02",
+        "count": 5,
+        "total_heat": 363.4
       }
     ],
     "能源与碳中和": [
-      {
-        "date": "2026-10-03",
-        "count": 1,
-        "total_heat": 73.2
-      },
       {
         "date": "2026-10-04",
         "count": 1,
@@ -3052,14 +2923,14 @@
         "date": "2026-11-01",
         "count": 1,
         "total_heat": 75.2
+      },
+      {
+        "date": "2026-11-02",
+        "count": 0,
+        "total_heat": 0.0
       }
     ],
     "水处理": [
-      {
-        "date": "2026-10-03",
-        "count": 0,
-        "total_heat": 0.0
-      },
       {
         "date": "2026-10-04",
         "count": 0,
@@ -3204,14 +3075,14 @@
         "date": "2026-11-01",
         "count": 1,
         "total_heat": 67.7
+      },
+      {
+        "date": "2026-11-02",
+        "count": 1,
+        "total_heat": 75.2
       }
     ],
     "科研学术": [
-      {
-        "date": "2026-10-03",
-        "count": 2,
-        "total_heat": 145.7
-      },
       {
         "date": "2026-10-04",
         "count": 2,
@@ -3356,14 +3227,14 @@
         "date": "2026-11-01",
         "count": 1,
         "total_heat": 72.5
+      },
+      {
+        "date": "2026-11-02",
+        "count": 2,
+        "total_heat": 148.2
       }
     ],
     "环境健康": [
-      {
-        "date": "2026-10-03",
-        "count": 0,
-        "total_heat": 0.0
-      },
       {
         "date": "2026-10-04",
         "count": 0,
@@ -3508,14 +3379,14 @@
         "date": "2026-11-01",
         "count": 2,
         "total_heat": 159.5
+      },
+      {
+        "date": "2026-11-02",
+        "count": 0,
+        "total_heat": 0.0
       }
     ],
     "其他": [
-      {
-        "date": "2026-10-03",
-        "count": 6,
-        "total_heat": 409.6
-      },
       {
         "date": "2026-10-04",
         "count": 5,
@@ -3660,6 +3531,11 @@
         "date": "2026-11-01",
         "count": 4,
         "total_heat": 268.1
+      },
+      {
+        "date": "2026-11-02",
+        "count": 5,
+        "total_heat": 339.0
       }
     ]
   }

@@ -1,0 +1,543 @@
+{
+  "report_date": "2026-11-05",
+  "site_name": "环境学子雷达",
+  "total_items": 33,
+  "snapshot_items": 10,
+  "category_stats": {
+    "气候变化": {
+      "count": 13,
+      "total_heat": 982.2
+    },
+    "环境政策": {
+      "count": 3,
+      "total_heat": 228.5
+    },
+    "污染治理": {
+      "count": 4,
+      "total_heat": 291.8
+    },
+    "生态环境": {
+      "count": 4,
+      "total_heat": 300.0
+    },
+    "水处理": {
+      "count": 3,
+      "total_heat": 213.7
+    },
+    "其他": {
+      "count": 5,
+      "total_heat": 321.1
+    },
+    "科研学术": {
+      "count": 1,
+      "total_heat": 71.3
+    }
+  },
+  "total_sources": 28,
+  "success_sources": 27,
+  "failed_sources": 0,
+  "week_total_items": 252,
+  "week_new_keywords": 77,
+  "policy_ratio": 9.5,
+  "items": [
+    {
+      "title": "COP31前瞻：今年联合国气候变化大会有哪些重要议题？ - UN News",
+      "title_en": "",
+      "title_zh": "",
+      "link": "https://news.google.com/rss/articles/CBMiV0FVX3lxTFBDdklDWnBSdkxYRGpGYzlmNUZTQ3ZCSE05MExjdlpBX3VGZXVxcnB1bXYtbURUYVM2OTFuV2ROX2x6SWRLMVliN3FaYlUyWWNOZ2N1TW1lZw?oc=5",
+      "source": "Google News 气候变化",
+      "published": "2026-11-04T20:20:44+00:00",
+      "hotness": 89.1,
+      "score_v1": 31.66,
+      "score_v2": 89.1,
+      "score_breakdown": {
+        "algorithm": "v3.0",
+        "dimension_max": {
+          "authority": 18.0,
+          "topic": 18.0,
+          "resonance": 18.0,
+          "information": 16.0
+        },
+        "authority_score": 8.05,
+        "keyword_idf_score": 3.48,
+        "topic_score": 9.3,
+        "topic_burst_score": 5.82,
+        "topic_burst_count": 8,
+        "resonance_score": 15.56,
+        "info_score": 9.0,
+        "base": 41.91,
+        "base_max": 70.0,
+        "time_factor": 0.8123,
+        "density_factor": 1.0,
+        "density_note": "",
+        "repeat_penalty": 1.0,
+        "repeat_excused": false,
+        "event_size": 4,
+        "event_media_count": 4,
+        "event_cluster_source": "ai",
+        "origin_source": "UN News",
+        "raw": 34.05,
+        "display_score": 89.1,
+        "display_mode": "absolute"
+      },
+      "summary": "联合国气候变化大会将聚焦关键议题，旨在推进全球气候治理进程。",
+      "analysis": "",
+      "topic_tags": [
+        "联合国",
+        "COP"
+      ],
+      "category": "气候变化",
+      "matched_keywords": [
+        "气候变化"
+      ]
+    },
+    {
+      "title": "Regional economic impacts and emission responses under solar radiation modification",
+      "title_en": "Regional economic impacts and emission responses under solar radiation modification",
+      "title_zh": "在太阳辐射调节条件下的区域经济影响及排放响应",
+      "link": "https://iopscience.iop.org/article/10.1088/1748-9326/aeb146",
+      "source": "Environmental Research Letters",
+      "published": "2026-11-05T00:00:00+00:00",
+      "hotness": 84.3,
+      "score_v1": 20.89,
+      "score_v2": 84.3,
+      "score_breakdown": {
+        "algorithm": "v3.0",
+        "dimension_max": {
+          "authority": 18.0,
+          "topic": 18.0,
+          "resonance": 18.0,
+          "information": 16.0
+        },
+        "authority_score": 18.0,
+        "keyword_idf_score": 6.63,
+        "topic_score": 6.63,
+        "topic_burst_score": 0.0,
+        "topic_burst_count": 1,
+        "resonance_score": 0.0,
+        "info_score": 7.0,
+        "base": 31.63,
+        "base_max": 70.0,
+        "time_factor": 0.8489,
+        "density_factor": 1.0,
+        "density_note": "",
+        "repeat_penalty": 1.0,
+        "repeat_excused": false,
+        "event_size": 1,
+        "event_media_count": 1,
+        "event_cluster_source": "ai",
+        "origin_source": "Environmental Research Letters",
+        "raw": 26.85,
+        "display_score": 84.3,
+        "display_mode": "absolute"
+      },
+      "summary": "太阳辐射管理（SRM）已被提议作为一种潜在手段，用于限制因人为温室气体排放导致的全球或区域气温上升。尽管以往研究已广泛探讨了气候系统对各种SRM策略的响应及其总体经济影响，但经济影响的空间分布却鲜少受到关注。 在本研究中，我们采用——一种与高分辨率综合评估模型耦合的地球系统模型——来评估在太阳辐射入射量减少1%的理想化SRM情景下，以人均国内生产总值（GDP）为衡量标准的经济影响。 研究结果表明，与未实施SRM的基准情景相比，大多数国家在SRM情景下将获得经济收益，仅有少数国家面临负面影响。低收入国家往往受益最大，其人均GDP的跨国差距较基准情景有所缩小。 然而，损害的减轻和人均国内生产总值差距的缩小伴随着“道德风险”效应，即太阳辐射管理会导致排放量增加，进而可能引发本研究未涵盖的额外负面影响。这些发现突显了经济效益、经济影响的分配以及排放量增加之间潜在的权衡关系，这对太阳辐射管理的治理具有重要意义。",
+      "analysis": "",
+      "topic_tags": [
+        "温室气体排放"
+      ],
+      "category": "气候变化",
+      "matched_keywords": [
+        "温室气体"
+      ]
+    },
+    {
+      "title": "Environmentalists Notch Wins on Key Ballot Measures",
+      "title_en": "Environmentalists Notch Wins on Key Ballot Measures",
+      "title_zh": "环保人士在关键公投议案中取得胜利",
+      "link": "https://e360.yale.edu/digest/midterm-elections-environmental-ballot-measures",
+      "source": "Yale Environment 360",
+      "published": "2026-11-04T14:31:00+00:00",
+      "hotness": 83.7,
+      "score_v1": 13.47,
+      "score_v2": 83.7,
+      "score_breakdown": {
+        "algorithm": "v3.0",
+        "dimension_max": {
+          "authority": 18.0,
+          "topic": 18.0,
+          "resonance": 18.0,
+          "information": 16.0
+        },
+        "authority_score": 12.73,
+        "keyword_idf_score": 0.0,
+        "topic_score": 3.0,
+        "topic_burst_score": 0.0,
+        "topic_burst_count": 1,
+        "resonance_score": 15.56,
+        "info_score": 3.0,
+        "base": 34.29,
+        "base_max": 70.0,
+        "time_factor": 0.7595,
+        "density_factor": 1.0,
+        "density_note": "",
+        "repeat_penalty": 1.0,
+        "repeat_excused": true,
+        "event_size": 4,
+        "event_media_count": 4,
+        "event_cluster_source": "ai",
+        "origin_source": "Yale Environment 360",
+        "raw": 26.04,
+        "display_score": 83.7,
+        "display_mode": "absolute"
+      },
+      "summary": "在美国中期选举中，民主党在全国范围内取得了压倒性胜利，环保主义者在多个州的关键公投议题上也取得了胜利。阅读更多内容请访问 E360 →",
+      "analysis": "",
+      "topic_tags": [
+        "环保票决案"
+      ],
+      "category": "环境政策",
+      "matched_keywords": []
+    },
+    {
+      "title": "Investigation into 'major fish kill' after pollution incident",
+      "title_en": "Investigation into 'major fish kill' after pollution incident",
+      "title_zh": "污染事件后，对“大规模鱼类死亡”展开调查",
+      "link": "https://www.bbc.co.uk/news/articles/cx1l36y2d941o?at_medium=RSS&at_campaign=rss",
+      "source": "BBC 科学与环境",
+      "published": "2026-11-05T12:26:00+00:00",
+      "hotness": 82.9,
+      "score_v1": 19.39,
+      "score_v2": 82.9,
+      "score_breakdown": {
+        "algorithm": "v3.0",
+        "dimension_max": {
+          "authority": 18.0,
+          "topic": 18.0,
+          "resonance": 18.0,
+          "information": 16.0
+        },
+        "authority_score": 12.73,
+        "keyword_idf_score": 0.0,
+        "topic_score": 3.0,
+        "topic_burst_score": 0.0,
+        "topic_burst_count": 1,
+        "resonance_score": 8.76,
+        "info_score": 0.75,
+        "base": 25.24,
+        "base_max": 70.0,
+        "time_factor": 0.9964,
+        "density_factor": 1.0,
+        "density_note": "",
+        "repeat_penalty": 1.0,
+        "repeat_excused": false,
+        "event_size": 2,
+        "event_media_count": 2,
+        "event_cluster_source": "ai",
+        "origin_source": "BBC 科学与环境",
+        "raw": 25.15,
+        "display_score": 82.9,
+        "display_mode": "absolute"
+      },
+      "summary": "调查人员正在查明县下河流域大规模鱼类死亡事件的污染源头与原因。",
+      "analysis": "",
+      "topic_tags": [
+        "污染事件"
+      ],
+      "category": "污染治理",
+      "matched_keywords": []
+    },
+    {
+      "title": "为美丽中国建设厚植生态根基 - 中国教育新闻网",
+      "title_en": "",
+      "title_zh": "",
+      "link": "https://news.google.com/rss/articles/CBMia0FVX3lxTE5Sblp6QS1kQVMxMnVjb3BEOGFMQVBKNDRjNWpXVmxHeDdqQ09aU0tnNTdudmJaN3JzcTdWQktPbTBZQTV3ZHd4SHFaYTRUZUp4b2NibG1Fc2RiaGNRMktsR041cWtfeERsOExN?oc=5",
+      "source": "Google News 环境保护",
+      "published": "2026-11-05T02:28:21+00:00",
+      "hotness": 81.3,
+      "score_v1": 15.13,
+      "score_v2": 81.3,
+      "score_breakdown": {
+        "algorithm": "v3.0",
+        "dimension_max": {
+          "authority": 18.0,
+          "topic": 18.0,
+          "resonance": 18.0,
+          "information": 16.0
+        },
+        "authority_score": 8.05,
+        "keyword_idf_score": 0.0,
+        "topic_score": 3.0,
+        "topic_burst_score": 0.0,
+        "topic_burst_count": 1,
+        "resonance_score": 15.56,
+        "info_score": 0.0,
+        "base": 26.61,
+        "base_max": 70.0,
+        "time_factor": 0.8753,
+        "density_factor": 1.0,
+        "density_note": "",
+        "repeat_penalty": 1.0,
+        "repeat_excused": true,
+        "event_size": 4,
+        "event_media_count": 4,
+        "event_cluster_source": "ai",
+        "origin_source": "中国教育新闻网",
+        "raw": 23.29,
+        "display_score": 81.3,
+        "display_mode": "absolute"
+      },
+      "summary": "文章阐述了生态文明建设的重要性，旨在为美丽中国战略奠定坚实基础。",
+      "analysis": "",
+      "topic_tags": [
+        "生态文明建设"
+      ],
+      "category": "生态环境",
+      "matched_keywords": []
+    },
+    {
+      "title": "Evaluating mangrove establishment trajectories and carbon recovery potential using a spatial age-based framework",
+      "title_en": "Evaluating mangrove establishment trajectories and carbon recovery potential using a spatial age-based framework",
+      "title_zh": "利用基于空间年龄的框架评估红树林的建立轨迹和碳恢复潜力",
+      "link": "https://iopscience.iop.org/article/10.1088/1748-9326/aeb621",
+      "source": "Environmental Research Letters",
+      "published": "2026-11-04T00:00:00+00:00",
+      "hotness": 80.7,
+      "score_v1": 35.17,
+      "score_v2": 80.7,
+      "score_breakdown": {
+        "algorithm": "v3.0",
+        "dimension_max": {
+          "authority": 18.0,
+          "topic": 18.0,
+          "resonance": 18.0,
+          "information": 16.0
+        },
+        "authority_score": 18.0,
+        "keyword_idf_score": 7.93,
+        "topic_score": 13.74,
+        "topic_burst_score": 5.82,
+        "topic_burst_count": 8,
+        "resonance_score": 0.0,
+        "info_score": 3.0,
+        "base": 34.74,
+        "base_max": 70.0,
+        "time_factor": 0.6526,
+        "density_factor": 1.0,
+        "density_note": "",
+        "repeat_penalty": 1.0,
+        "repeat_excused": false,
+        "event_size": 1,
+        "event_media_count": 1,
+        "event_cluster_source": "ai",
+        "origin_source": "Environmental Research Letters",
+        "raw": 22.67,
+        "display_score": 80.7,
+        "display_mode": "absolute"
+      },
+      "summary": "红树林恢复是应对气候变化和保护生物多样性的一项至关重要的基于自然的解决方案。然而，大规模红树林恢复的成功与否主要通过基于面积的指标来评估，而这些指标无法反映森林结构和功能恢复的复杂时间轨迹。 林分年龄直接决定了结构异质性和碳储量，因此是监测恢复轨迹和估算碳储量的关键指标。 我们开发了一个基于空间年龄的框架，用于绘制已成林的红树林分布图，并量化现有碳储量及剩余潜力。为此，我们结合了优化的LandTrendr变化检测算法与按年龄分层的逻辑回归增长模型，并利用Landsat时序数据进行分析。 我们生成了一幅分辨率为30米的年龄图，显示了2000年至2023年间中国热带海南岛上所有已成林的红树林分布情况。研究结果显示，截至2023年，已成林红树林面积达337公顷。 值得注意的是，所检测林分中超过50%（173公顷）的树龄≤7年，但其碳储量已达到成熟森林碳储量的43%；而树龄≥15年的林分仅占4%。 在持续保护下，预计这些森林将储存约33 668 Mg C（27 971–38 902 Mg C），其中最大的潜力集中在东寨岗地区。 相反，虽然老龄林面积有限（仅占已确定面积的 4%），但已确保了可观的恢复碳储量，因此亟需加以保护。这种对比凸显了根据恢复规模和林分发育阶段制定差异化管理策略的必要性。 最终，这一空间明确的框架为基于证据的管理提供了依据，以改善恢复效果，并为国家碳信用市场提供了可操作的基准。",
+      "analysis": "",
+      "topic_tags": [
+        "红树林"
+      ],
+      "category": "气候变化",
+      "matched_keywords": [
+        "气候变化",
+        "生物多样性"
+      ]
+    },
+    {
+      "title": "驻累西腓总领事石琦在巴西媒体发表署名文章《携手应对气候变化，共建绿色美好未来》 - 中华人民共和国外交部",
+      "title_en": "",
+      "title_zh": "",
+      "link": "https://news.google.com/rss/articles/CBMie0FVX3lxTFB6TGlHYU1uT2l1MU5ia3MxZUljV0Q4Y3R6aXg3T2FEcFh4Mm13RHJlcFNzMGFVVlI4b1E2LUpYMGV4NE9xQ01aVFIySXpOaHZPOW8wUUhiYkxnUDF4aTRRcG5sa2N4US13cjJYTGdrdzVfSS0yNlZRSDlqaw?oc=5",
+      "source": "Google News 气候变化",
+      "published": "2026-11-04T02:00:00+00:00",
+      "hotness": 79.9,
+      "score_v1": 28.96,
+      "score_v2": 79.9,
+      "score_breakdown": {
+        "algorithm": "v3.0",
+        "dimension_max": {
+          "authority": 18.0,
+          "topic": 18.0,
+          "resonance": 18.0,
+          "information": 16.0
+        },
+        "authority_score": 8.05,
+        "keyword_idf_score": 3.48,
+        "topic_score": 9.3,
+        "topic_burst_score": 5.82,
+        "topic_burst_count": 8,
+        "resonance_score": 15.56,
+        "info_score": 0.0,
+        "base": 32.91,
+        "base_max": 70.0,
+        "time_factor": 0.6655,
+        "density_factor": 1.0,
+        "density_note": "",
+        "repeat_penalty": 1.0,
+        "repeat_excused": true,
+        "event_size": 4,
+        "event_media_count": 4,
+        "event_cluster_source": "ai",
+        "origin_source": "中华人民共和国外交部",
+        "raw": 21.9,
+        "display_score": 79.9,
+        "display_mode": "absolute"
+      },
+      "summary": "总领事在巴西媒体发表署名文章，阐述中巴在气候变化领域的合作与共同愿景。",
+      "analysis": "",
+      "topic_tags": [
+        "气候变化合作",
+        "绿色未来"
+      ],
+      "category": "气候变化",
+      "matched_keywords": [
+        "气候变化"
+      ]
+    },
+    {
+      "title": "韩正将作为习近平主席特别代表赴土耳其出席《联合国气候变化框架公约》第三十一次缔约方大会领导人峰会并访问格鲁吉亚 - 人民日报",
+      "title_en": "",
+      "title_zh": "",
+      "link": "https://news.google.com/rss/articles/CBMif0FVX3lxTE9LdDZ6TEM5VUVHLThMc2hGM0RGUWhFOS1aSTB0cDJqVWhzNVk5M0RPTG5nekt2eWxSdExmVm1TX1hQOW5MaUNlZHlpVVU5THZoNjZScThUNWNLWU1KMmxOMHVkMEJTdHpBcnAybUNSamg2Yzd5Tk9YUEtqbF91MlU?oc=5",
+      "source": "Google News 气候变化",
+      "published": "2026-11-04T22:00:01+00:00",
+      "hotness": 79.7,
+      "score_v1": 32.02,
+      "score_v2": 79.7,
+      "score_breakdown": {
+        "algorithm": "v3.0",
+        "dimension_max": {
+          "authority": 18.0,
+          "topic": 18.0,
+          "resonance": 18.0,
+          "information": 16.0
+        },
+        "authority_score": 8.05,
+        "keyword_idf_score": 3.48,
+        "topic_score": 9.3,
+        "topic_burst_score": 5.82,
+        "topic_burst_count": 8,
+        "resonance_score": 8.76,
+        "info_score": 0.0,
+        "base": 26.11,
+        "base_max": 70.0,
+        "time_factor": 0.8286,
+        "density_factor": 1.0,
+        "density_note": "",
+        "repeat_penalty": 1.0,
+        "repeat_excused": true,
+        "event_size": 2,
+        "event_media_count": 2,
+        "event_cluster_source": "ai",
+        "origin_source": "人民日报",
+        "raw": 21.63,
+        "display_score": 79.7,
+        "display_mode": "absolute"
+      },
+      "summary": "韩正主席特别代表身份出席联合国气候变化大会领导人峰会，并对格鲁吉亚进行访问。",
+      "analysis": "",
+      "topic_tags": [
+        "联合国气候变化大会"
+      ],
+      "category": "气候变化",
+      "matched_keywords": [
+        "气候变化"
+      ]
+    },
+    {
+      "title": "生态环境部党组书记孙金龙到2026年基层监测骨干高级培训班调研座谈 - 中华人民共和国生态环境部",
+      "title_en": "",
+      "title_zh": "",
+      "link": "https://news.google.com/rss/articles/CBMidkFVX3lxTFBKdGJqS2dITEVxejZnSFB5cy1oZlpRTXNtNVpSX0Q2YlpmR1VXY0x0eWEyM0dscDdIeGFFS1JuMTJJOFBDNGU2NE5XT1Y2ZlAwbzhKeVdBcmlqeG45T0lONXNmTEJjVWoyQUxqdFJLWUJGbkZaalE?oc=5",
+      "source": "Google News 生态环境",
+      "published": "2026-11-05T01:52:39+00:00",
+      "hotness": 79.0,
+      "score_v1": 20.97,
+      "score_v2": 79.0,
+      "score_breakdown": {
+        "algorithm": "v3.0",
+        "dimension_max": {
+          "authority": 18.0,
+          "topic": 18.0,
+          "resonance": 18.0,
+          "information": 16.0
+        },
+        "authority_score": 8.05,
+        "keyword_idf_score": 4.77,
+        "topic_score": 7.13,
+        "topic_burst_score": 2.36,
+        "topic_burst_count": 2,
+        "resonance_score": 0.0,
+        "info_score": 9.0,
+        "base": 24.18,
+        "base_max": 70.0,
+        "time_factor": 0.8688,
+        "density_factor": 1.0,
+        "density_note": "",
+        "repeat_penalty": 1.0,
+        "repeat_excused": false,
+        "event_size": 1,
+        "event_media_count": 1,
+        "event_cluster_source": "ai",
+        "origin_source": "中华人民共和国生态环境部",
+        "raw": 21.01,
+        "display_score": 79.0,
+        "display_mode": "absolute"
+      },
+      "summary": "生态环境部党组书记孙金龙调研2026年基层监测骨干高级培训班，重点座谈基层监测工作，旨在强化基层监测能力建设。",
+      "analysis": "",
+      "topic_tags": [
+        "生态环境部",
+        "基层监测骨干"
+      ],
+      "category": "生态环境",
+      "matched_keywords": [
+        "生态环境"
+      ]
+    },
+    {
+      "title": "Prince William says UK faces terrifying risk of more wildfires due to climate change",
+      "title_en": "Prince William says UK faces terrifying risk of more wildfires due to climate change",
+      "title_zh": "威廉王子表示，由于气候变化，英国面临着更多森林大火这一令人恐惧的风险",
+      "link": "https://www.bbc.co.uk/news/articles/cr62yv02zwxwo?at_medium=RSS&at_campaign=rss",
+      "source": "BBC 科学与环境",
+      "published": "2026-11-04T06:11:43+00:00",
+      "hotness": 76.3,
+      "score_v1": 30.31,
+      "score_v2": 76.3,
+      "score_breakdown": {
+        "algorithm": "v3.0",
+        "dimension_max": {
+          "authority": 18.0,
+          "topic": 18.0,
+          "resonance": 18.0,
+          "information": 16.0
+        },
+        "authority_score": 12.73,
+        "keyword_idf_score": 3.48,
+        "topic_score": 9.3,
+        "topic_burst_score": 5.82,
+        "topic_burst_count": 8,
+        "resonance_score": 0.0,
+        "info_score": 4.75,
+        "base": 26.78,
+        "base_max": 70.0,
+        "time_factor": 0.6943,
+        "density_factor": 1.0,
+        "density_note": "",
+        "repeat_penalty": 1.0,
+        "repeat_excused": false,
+        "event_size": 1,
+        "event_media_count": 1,
+        "event_cluster_source": "ai",
+        "origin_source": "BBC 科学与环境",
+        "raw": 18.59,
+        "display_score": 76.3,
+        "display_mode": "absolute"
+      },
+      "summary": "这位王子表示，2026年是他第一次在夏天感到“对野火的规模感到担忧”。",
+      "analysis": "",
+      "topic_tags": [
+        "UK wildfires",
+        "climate change"
+      ],
+      "category": "气候变化",
+      "matched_keywords": [
+        "气候变化"
+      ]
+    }
+  ]
+}

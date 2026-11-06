@@ -1,0 +1,555 @@
+{
+  "report_date": "2026-11-06",
+  "site_name": "环境学子雷达",
+  "total_items": 36,
+  "snapshot_items": 10,
+  "category_stats": {
+    "环境政策": {
+      "count": 7,
+      "total_heat": 501.5
+    },
+    "生态环境": {
+      "count": 5,
+      "total_heat": 394.1
+    },
+    "气候变化": {
+      "count": 10,
+      "total_heat": 783.3
+    },
+    "水处理": {
+      "count": 2,
+      "total_heat": 153.7
+    },
+    "科研学术": {
+      "count": 3,
+      "total_heat": 243.1
+    },
+    "环境健康": {
+      "count": 1,
+      "total_heat": 81.8
+    },
+    "其他": {
+      "count": 3,
+      "total_heat": 204.6
+    },
+    "污染治理": {
+      "count": 5,
+      "total_heat": 345.8
+    }
+  },
+  "total_sources": 28,
+  "success_sources": 27,
+  "failed_sources": 0,
+  "week_total_items": 245,
+  "week_new_keywords": 86,
+  "policy_ratio": 10.6,
+  "items": [
+    {
+      "title": "规范南极旅游：南极活动与环境保护法2027年1月1日起施行 - 21财经",
+      "title_en": "",
+      "title_zh": "",
+      "link": "https://news.google.com/rss/articles/CBMijwFBVV95cUxPUDJoOTJuT2tuNkx0TEhFVDVlU2tneGdMVFBQeGpzQ05nVk5yek9jMHFYX21TU3laNnBtNTFuRl9CbFdxcENFZ0RpcEpLNzZsTTlvb0E2S3VhaXJCSFZhVzB4VG5adVFTcUZHWEdvb3ZpYzVKYnhMYUxpYWptbjRFcmZFejlpMHFnaUlvcHkzRQ?oc=5",
+      "source": "Google News 环境保护",
+      "published": "2026-11-06T07:31:00+00:00",
+      "hotness": 87.7,
+      "score_v1": 22.76,
+      "score_v2": 87.7,
+      "score_breakdown": {
+        "algorithm": "v3.0",
+        "dimension_max": {
+          "authority": 18.0,
+          "topic": 18.0,
+          "resonance": 18.0,
+          "information": 16.0
+        },
+        "authority_score": 8.05,
+        "keyword_idf_score": 5.09,
+        "topic_score": 7.45,
+        "topic_burst_score": 2.36,
+        "topic_burst_count": 2,
+        "resonance_score": 13.26,
+        "info_score": 5.0,
+        "base": 33.75,
+        "base_max": 70.0,
+        "time_factor": 0.9371,
+        "density_factor": 1.0,
+        "density_note": "",
+        "repeat_penalty": 1.0,
+        "repeat_excused": false,
+        "event_size": 3,
+        "event_media_count": 3,
+        "event_cluster_source": "ai",
+        "origin_source": "21财经",
+        "raw": 31.63,
+        "display_score": 87.7,
+        "display_mode": "absolute"
+      },
+      "summary": "南极旅游活动将于2027年1月1日起受新《环境保护法》规范，旨在提升环境保护标准。",
+      "analysis": "",
+      "topic_tags": [
+        "环境保护法"
+      ],
+      "category": "环境政策",
+      "matched_keywords": [
+        "环境保护"
+      ]
+    },
+    {
+      "title": "生态环境部部长黄润秋会见联合国开发计划署署长德克罗 - 中华人民共和国生态环境部",
+      "title_en": "",
+      "title_zh": "",
+      "link": "https://news.google.com/rss/articles/CBMidkFVX3lxTFA4YWtSVjJ5eXFkUjk5LXR4SUs3cnlYaHQzRVczWWsxWVhOd0htQm9xdU00NG5WQW1yeTdOYlNmTG15bTd2VEVFcDMweDZmUmYtTnpnT3FSMU9GM25nY1p3cTlzbjFaSkhEc2N0dFJQMUFfWjNpM1E?oc=5",
+      "source": "Google News 环境保护",
+      "published": "2026-11-06T02:12:41+00:00",
+      "hotness": 86.9,
+      "score_v1": 25.14,
+      "score_v2": 86.9,
+      "score_breakdown": {
+        "algorithm": "v3.0",
+        "dimension_max": {
+          "authority": 18.0,
+          "topic": 18.0,
+          "resonance": 18.0,
+          "information": 16.0
+        },
+        "authority_score": 8.05,
+        "keyword_idf_score": 4.75,
+        "topic_score": 9.41,
+        "topic_burst_score": 4.66,
+        "topic_burst_count": 4,
+        "resonance_score": 13.26,
+        "info_score": 4.0,
+        "base": 34.71,
+        "base_max": 70.0,
+        "time_factor": 0.8756,
+        "density_factor": 1.0,
+        "density_note": "",
+        "repeat_penalty": 1.0,
+        "repeat_excused": true,
+        "event_size": 3,
+        "event_media_count": 3,
+        "event_cluster_source": "ai",
+        "origin_source": "中华人民共和国生态环境部",
+        "raw": 30.4,
+        "display_score": 86.9,
+        "display_mode": "absolute"
+      },
+      "summary": "生态环境部部长黄润秋会见联合国开发计划署署长德克罗，双方就环境合作议题进行沟通交流。",
+      "analysis": "",
+      "topic_tags": [
+        "生态环境部"
+      ],
+      "category": "生态环境",
+      "matched_keywords": [
+        "生态环境"
+      ]
+    },
+    {
+      "title": "全球10月气温创同期新高 2027年或成有记录以来最热年份 - 财联社",
+      "title_en": "",
+      "title_zh": "",
+      "link": "https://news.google.com/rss/articles/CBMiSEFVX3lxTE9nLW1aQmZqOW9LT3NMTElFVllOXzk0bmVhcU9TSzR3RktvZllKQzVfLTQxZEtnaEMtSEZvaW1sWWNDdF95enkteA?oc=5",
+      "source": "Google News 气候变化",
+      "published": "2026-11-06T08:58:00+00:00",
+      "hotness": 85.2,
+      "score_v1": 17.27,
+      "score_v2": 85.2,
+      "score_breakdown": {
+        "algorithm": "v3.0",
+        "dimension_max": {
+          "authority": 18.0,
+          "topic": 18.0,
+          "resonance": 18.0,
+          "information": 16.0
+        },
+        "authority_score": 8.05,
+        "keyword_idf_score": 0.0,
+        "topic_score": 3.0,
+        "topic_burst_score": 0.0,
+        "topic_burst_count": 1,
+        "resonance_score": 13.26,
+        "info_score": 5.0,
+        "base": 29.31,
+        "base_max": 70.0,
+        "time_factor": 0.9551,
+        "density_factor": 1.0,
+        "density_note": "",
+        "repeat_penalty": 1.0,
+        "repeat_excused": false,
+        "event_size": 3,
+        "event_media_count": 3,
+        "event_cluster_source": "ai",
+        "origin_source": "财联社",
+        "raw": 27.99,
+        "display_score": 85.2,
+        "display_mode": "absolute"
+      },
+      "summary": "全球10月气温创同期新高，预计2027年或将成为有记录以来最热年份。",
+      "analysis": "",
+      "topic_tags": [
+        "全球气温"
+      ],
+      "category": "气候变化",
+      "matched_keywords": []
+    },
+    {
+      "title": "Manage derailment risks to avoid Hothouse Earth",
+      "title_en": "Manage derailment risks to avoid Hothouse Earth",
+      "title_zh": "管控脱轨风险，避免“温室地球”现象",
+      "link": "https://iopscience.iop.org/article/10.1088/1748-9326/aeb1de",
+      "source": "Environmental Research Letters",
+      "published": "2026-11-06T00:00:00+00:00",
+      "hotness": 85.0,
+      "score_v1": 20.96,
+      "score_v2": 85.0,
+      "score_breakdown": {
+        "algorithm": "v3.0",
+        "dimension_max": {
+          "authority": 18.0,
+          "topic": 18.0,
+          "resonance": 18.0,
+          "information": 16.0
+        },
+        "authority_score": 18.0,
+        "keyword_idf_score": 7.47,
+        "topic_score": 7.47,
+        "topic_burst_score": 0.0,
+        "topic_burst_count": 1,
+        "resonance_score": 0.0,
+        "info_score": 7.0,
+        "base": 32.47,
+        "base_max": 70.0,
+        "time_factor": 0.852,
+        "density_factor": 1.0,
+        "density_note": "",
+        "repeat_penalty": 1.0,
+        "repeat_excused": false,
+        "event_size": 1,
+        "event_media_count": 1,
+        "event_cluster_source": "ai",
+        "origin_source": "Environmental Research Letters",
+        "raw": 27.66,
+        "display_score": 85.0,
+        "display_mode": "absolute"
+      },
+      "summary": "在关于地球系统稳定性和气候超限的讨论中，“温室地球”轨迹的风险日益凸显。 现有的分析主要关注那些可能使变暖程度超出直接人为强迫影响的生物物理反馈。我们认为，该概念此前尚未纳入这样一个因素：即社会动荡如何降低了生物物理临界动态实现自我维持的有效阈值——这一过程独立于进一步的人为强迫，从而削弱了人类对地球的守护能力。 我们将“脱轨风险”定义为：地球系统破坏的加剧可能削弱维持减缓、适应和生态修复所需的社会、政治和经济条件。 当气候影响加剧一系列挑战时，此类风险便会出现，这些挑战包括债务危机、制度侵蚀、政治分裂、供应链不稳定以及公众对环境行动支持度的下降。这些相互强化的反馈机制可能会在生物物理临界阈值被跨越之前，就削弱人类的应对能力。 因此，我们通过将社会动态纳入地球系统稳定性格局，对“温室地球”框架进行了扩展。 我们提出了一个用于评估和管理脱轨风险的三阶段框架：对社会-生物物理反馈进行概念性映射；采取前瞻性的韧性建设干预措施；针对不稳定性加剧时期制定响应性治理策略。我们得出结论：在地球系统压力日益加剧的情况下，行星管理应优先考虑维持和扩大集体能动性。",
+      "analysis": "",
+      "topic_tags": [
+        "温室地球"
+      ],
+      "category": "气候变化",
+      "matched_keywords": [
+        "生态修复"
+      ]
+    },
+    {
+      "title": "【一马当先“十五五”开局看青海】青海亮出生态环境“十五五”新图景 部署7大重点任务 谋划26项重大工程 - 青海省人民政府",
+      "title_en": "",
+      "title_zh": "",
+      "link": "https://news.google.com/rss/articles/CBMickFVX3lxTFBnMkx2WDE5a0VDWUtwTnQ3NFhZUmFpYnktTEQ1VnM1VGxVRXE3bGwzWERzUl9uLWFVOXhVQWhKS2RsV1BkMEJHbHVaTUdmTDZFdlZsaEdYeEo2ZkhiUmg5eTJZNmxFTU9LOWd4VHdmak4tZw?oc=5",
+      "source": "Google News 生态环境",
+      "published": "2026-11-05T22:45:00+00:00",
+      "hotness": 83.8,
+      "score_v1": 24.26,
+      "score_v2": 83.8,
+      "score_breakdown": {
+        "algorithm": "v3.0",
+        "dimension_max": {
+          "authority": 18.0,
+          "topic": 18.0,
+          "resonance": 18.0,
+          "information": 16.0
+        },
+        "authority_score": 8.05,
+        "keyword_idf_score": 4.75,
+        "topic_score": 9.41,
+        "topic_burst_score": 4.66,
+        "topic_burst_count": 4,
+        "resonance_score": 8.76,
+        "info_score": 5.0,
+        "base": 31.22,
+        "base_max": 70.0,
+        "time_factor": 0.8391,
+        "density_factor": 1.0,
+        "density_note": "",
+        "repeat_penalty": 1.0,
+        "repeat_excused": false,
+        "event_size": 2,
+        "event_media_count": 2,
+        "event_cluster_source": "ai",
+        "origin_source": "青海省人民政府",
+        "raw": 26.19,
+        "display_score": 83.8,
+        "display_mode": "absolute"
+      },
+      "summary": "青海发布生态环境“十五五”新图景，部署7大重点任务并谋划26项重大工程。",
+      "analysis": "",
+      "topic_tags": [
+        "生态环境"
+      ],
+      "category": "生态环境",
+      "matched_keywords": [
+        "生态环境"
+      ]
+    },
+    {
+      "title": "从生态环境治理到生态价值转换 黄土高原小山村结缘碳汇交易 - 新华网",
+      "title_en": "",
+      "title_zh": "",
+      "link": "https://news.google.com/rss/articles/CBMiggFBVV95cUxONk1yVWk2Y1poQURDSUcwLTR4SFpBendRb19Uck1qWnJEaWlsSURiWlBQUU1wVFpOTzdCMzdrVGtUUFlGTHZxSDBkaXljaEFIMS04T1p3cmtjU2xzVWJSTHlsb29RV3JIdzg2VkZaTzNHMlFkNTRaNzQzQmlHZTNtYXRB?oc=5",
+      "source": "Google News 生态环境",
+      "published": "2026-11-05T23:45:23+00:00",
+      "hotness": 83.7,
+      "score_v1": 28.5,
+      "score_v2": 83.7,
+      "score_breakdown": {
+        "algorithm": "v3.0",
+        "dimension_max": {
+          "authority": 18.0,
+          "topic": 18.0,
+          "resonance": 18.0,
+          "information": 16.0
+        },
+        "authority_score": 8.05,
+        "keyword_idf_score": 9.26,
+        "topic_score": 13.92,
+        "topic_burst_score": 4.66,
+        "topic_burst_count": 4,
+        "resonance_score": 8.76,
+        "info_score": 0.0,
+        "base": 30.73,
+        "base_max": 70.0,
+        "time_factor": 0.8494,
+        "density_factor": 1.0,
+        "density_note": "",
+        "repeat_penalty": 1.0,
+        "repeat_excused": true,
+        "event_size": 2,
+        "event_media_count": 2,
+        "event_cluster_source": "ai",
+        "origin_source": "新华网",
+        "raw": 26.1,
+        "display_score": 83.7,
+        "display_mode": "absolute"
+      },
+      "summary": "黄土高原小山村从生态环境治理转向生态价值转换，成功结缘碳汇交易。",
+      "analysis": "",
+      "topic_tags": [
+        "碳汇交易",
+        "生态价值转换"
+      ],
+      "category": "气候变化",
+      "matched_keywords": [
+        "生态环境",
+        "环境治理"
+      ]
+    },
+    {
+      "title": "Characterizing drinking-water facility exposure to historical wildfires in Northern Colorado",
+      "title_en": "Characterizing drinking-water facility exposure to historical wildfires in Northern Colorado",
+      "title_zh": "科罗拉多州北部饮用水设施受历史野火影响情况的特征分析",
+      "link": "https://iopscience.iop.org/article/10.1088/1748-9326/aebb4c",
+      "source": "Environmental Research Letters",
+      "published": "2026-11-06T00:00:00+00:00",
+      "hotness": 83.7,
+      "score_v1": 24.96,
+      "score_v2": 83.7,
+      "score_breakdown": {
+        "algorithm": "v3.0",
+        "dimension_max": {
+          "authority": 18.0,
+          "topic": 18.0,
+          "resonance": 18.0,
+          "information": 16.0
+        },
+        "authority_score": 18.0,
+        "keyword_idf_score": 9.56,
+        "topic_score": 9.56,
+        "topic_burst_score": 0.0,
+        "topic_burst_count": 1,
+        "resonance_score": 0.0,
+        "info_score": 3.0,
+        "base": 30.56,
+        "base_max": 70.0,
+        "time_factor": 0.852,
+        "density_factor": 1.0,
+        "density_note": "",
+        "repeat_penalty": 1.0,
+        "repeat_excused": false,
+        "event_size": 1,
+        "event_media_count": 1,
+        "event_cluster_source": "ai",
+        "origin_source": "Environmental Research Letters",
+        "raw": 26.03,
+        "display_score": 83.7,
+        "display_mode": "absolute"
+      },
+      "summary": "野火对为下游社区提供饮用水的森林源头流域构成的威胁日益加剧，但目前的野火风险评估很少考虑流域间调水（IBTs）——这种调水方式可能会将水源影响范围扩展到自然流域边界之外，并改变火灾与饮用水取水口之间水文联系。 在此，我们开发了一种可重复的评估方法，用于量化饮用水取水口的历史野火风险，并以科罗拉多州北部作为案例研究进行了应用。 该分析综合了历史（1984–2024年）野火边界、过火强度、子流域边界、自然水文流路径、流域间调水连通性以及公共供水设施信息。 在 7,308 平方公里的研究区域内，共有 1,895 平方公里被烧毁（占地表面积的 26%），在所考察的 90 个流域中，有 54 个至少发生过一次火灾，且总烧毁面积中约 31% 被归类为高强度火灾。 在所研究的全部14起事件中，每起事件中，火灾平均影响了为344 854人提供服务的饮用水系统以及4处下游取水设施。 取水口层面的暴露风险不仅取决于火灾规模，还取决于火势严重程度和水文连通性。纳入IBTs后，就其对下游取水系统的野火暴露风险而言，源头区域内各个子流域的相对重要性发生了变化。 这些发现突显了在水源地野火暴露评估中同时考虑自然和人为水文连通性的重要性，并为“从森林到水龙头”（Forests to Faucets）等决策支持工具提供了依据，这些工具直接将森林扰动、供水基础设施和下游社区联系起来。",
+      "analysis": "",
+      "topic_tags": [
+        "饮用水取水口",
+        "历史风险评估",
+        "调水"
+      ],
+      "category": "水处理",
+      "matched_keywords": [
+        "饮用水",
+        "流域"
+      ]
+    },
+    {
+      "title": "第31届联合国气候变化大会——水和海洋韧性 - UNESCO",
+      "title_en": "",
+      "title_zh": "",
+      "link": "https://news.google.com/rss/articles/CBMiTEFVX3lxTE45ckF3WTM4VXpTT1gwRVBVZEhpYUJnZTZtRU94OFJFbF9fa3NHTUM2aVdWbTZWNlM3MkFvWTB2YTh0NGRLUlBjSGs1Mlg?oc=5",
+      "source": "Google News 气候变化",
+      "published": "2026-11-05T13:06:22+00:00",
+      "hotness": 83.5,
+      "score_v1": 22.39,
+      "score_v2": 83.5,
+      "score_breakdown": {
+        "algorithm": "v3.0",
+        "dimension_max": {
+          "authority": 18.0,
+          "topic": 18.0,
+          "resonance": 18.0,
+          "information": 16.0
+        },
+        "authority_score": 8.05,
+        "keyword_idf_score": 3.48,
+        "topic_score": 8.14,
+        "topic_burst_score": 4.66,
+        "topic_burst_count": 4,
+        "resonance_score": 13.26,
+        "info_score": 5.0,
+        "base": 34.45,
+        "base_max": 70.0,
+        "time_factor": 0.7501,
+        "density_factor": 1.0,
+        "density_note": "",
+        "repeat_penalty": 1.0,
+        "repeat_excused": true,
+        "event_size": 3,
+        "event_media_count": 3,
+        "event_cluster_source": "ai",
+        "origin_source": "UNESCO",
+        "raw": 25.84,
+        "display_score": 83.5,
+        "display_mode": "absolute"
+      },
+      "summary": "第31届联合国气候变化大会聚焦水和海洋韧性，旨在通过国际合作增强水资源管理和海洋生态系统应对气候变化的能力。",
+      "analysis": "",
+      "topic_tags": [
+        "第31届联合国气候变化大会",
+        "水和海洋韧性",
+        "水资源管理"
+      ],
+      "category": "气候变化",
+      "matched_keywords": [
+        "气候变化"
+      ]
+    },
+    {
+      "title": "Consistent drivers of lightning-ignited wildfires across global boreal forests",
+      "title_en": "Consistent drivers of lightning-ignited wildfires across global boreal forests",
+      "title_zh": "全球北方林区中由雷电引发的森林火灾的共同诱因",
+      "link": "https://iopscience.iop.org/article/10.1088/1748-9326/aeb70b",
+      "source": "Environmental Research Letters",
+      "published": "2026-11-06T00:00:00+00:00",
+      "hotness": 82.7,
+      "score_v1": 26.96,
+      "score_v2": 82.7,
+      "score_breakdown": {
+        "algorithm": "v3.0",
+        "dimension_max": {
+          "authority": 18.0,
+          "topic": 18.0,
+          "resonance": 18.0,
+          "information": 16.0
+        },
+        "authority_score": 18.0,
+        "keyword_idf_score": 3.48,
+        "topic_score": 8.14,
+        "topic_burst_score": 4.66,
+        "topic_burst_count": 4,
+        "resonance_score": 0.0,
+        "info_score": 3.0,
+        "base": 29.14,
+        "base_max": 70.0,
+        "time_factor": 0.852,
+        "density_factor": 1.0,
+        "density_note": "",
+        "repeat_penalty": 1.0,
+        "repeat_excused": false,
+        "event_size": 1,
+        "event_media_count": 1,
+        "event_cluster_source": "ai",
+        "origin_source": "Environmental Research Letters",
+        "raw": 24.83,
+        "display_score": 82.7,
+        "display_mode": "absolute"
+      },
+      "summary": "预计气候变化将改变全球寒带森林的火灾易发性及雷电活动。然而，雷电引发的森林火灾（LIW）的起火机制仍不清楚，这使得在全球寒带森林范围内进行预测变得颇具挑战性。 本文利用一套关于LIW的创新数据集，通过点火与未点火闪电对的准实验设计，探讨了天气对起火概率的短期时序影响。 具体而言，我们的数据集包含5251组雷电配对数据，并结合了温度、降水、相对湿度、雷电特征（多重性、极性、峰值电流和持续时间）以及净初级生产力等变量。我们通过三个独立模型——涵盖整个北方林区、疏林和密林——估算了这些预测变量对起火概率的影响。 我们发现起火概率与温度、相对湿度、总降水量及极性之间存在明显关联。温度每增加一个标准差（约3.3 °C），起火概率会增加44%–69%，而降水量和相对湿度的增加则会降低起火概率。 在雷电发生前3–8天，温度和降水量对起火概率的预测能力最强，且这种影响可持续至雷电发生后7–11天。正极性也与起火概率增加相关。 我们的研究结果表明，全球寒带地区雷电引发森林火灾的发生主要受短期火灾天气条件驱动，而非仅由雷电特性决定。预计气温的上升将推高寒带地区的起火概率，尽管这一影响可能会因总降水量的增加而部分抵消。",
+      "analysis": "",
+      "topic_tags": [
+        "雷电引发的森林火灾",
+        "寒带森林"
+      ],
+      "category": "生态环境",
+      "matched_keywords": [
+        "气候变化"
+      ]
+    },
+    {
+      "title": "Making ammonia at the water’s edge",
+      "title_en": "Making ammonia at the water’s edge",
+      "title_zh": "在水边生产氨",
+      "link": "https://www.nature.com/articles/s41893-026-01982-w",
+      "source": "Nature Sustainability",
+      "published": "2026-11-06T00:00:00+00:00",
+      "hotness": 82.3,
+      "score_v1": 22.96,
+      "score_v2": 82.3,
+      "score_breakdown": {
+        "algorithm": "v3.0",
+        "dimension_max": {
+          "authority": 18.0,
+          "topic": 18.0,
+          "resonance": 18.0,
+          "information": 16.0
+        },
+        "authority_score": 18.0,
+        "keyword_idf_score": 5.27,
+        "topic_score": 7.63,
+        "topic_burst_score": 2.36,
+        "topic_burst_count": 2,
+        "resonance_score": 0.0,
+        "info_score": 3.0,
+        "base": 28.63,
+        "base_max": 70.0,
+        "time_factor": 0.852,
+        "density_factor": 1.0,
+        "density_note": "",
+        "repeat_penalty": 1.0,
+        "repeat_excused": false,
+        "event_size": 1,
+        "event_media_count": 1,
+        "event_cluster_source": "ai",
+        "origin_source": "Nature Sustainability",
+        "raw": 24.39,
+        "display_score": 82.3,
+        "display_mode": "absolute"
+      },
+      "summary": "《自然·可持续性》（Nature Sustainability），。光催化固氮可在温和条件下利用氮气和水生成氨，但氮源输送缓慢及产物积聚限制了产出。 如今，一种漂浮式太阳能界面将氮还原与蒸发相结合，大大加快了氨的生成速度，并在冷凝液中富集了高纯度的产物。",
+      "analysis": "",
+      "topic_tags": [
+        "光催化固氮",
+        "水生成氨"
+      ],
+      "category": "科研学术",
+      "matched_keywords": [
+        "可持续发展"
+      ]
+    }
+  ]
+}

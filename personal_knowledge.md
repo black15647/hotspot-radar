@@ -9615,3 +9615,140 @@
 
 ---
 
+## 2026-11-06
+
+**今日高频关键词**：`#生态环境` `#气候变化` `#环境保护` `#可持续发展` `#生态修复`
+
+**今日 Top10 热点**
+
+### 1. 规范南极旅游：南极活动与环境保护法2027年1月1日起施行 - 21财经
+- **来源**：Google News 环境保护
+- **热度**：87.7
+- **链接**：https://news.google.com/rss/articles/CBMijwFBVV95cUxPUDJoOTJuT2tuNkx0TEhFVDVlU2tneGdMVFBQeGpzQ05nVk5yek9jMHFYX21TU3laNnBtNTFuRl9CbFdxcENFZ0RpcEpLNzZsTTlvb0E2S3VhaXJCSFZhVzB4VG5adVFTcUZHWEdvb3ZpYzVKYnhMYUxpYWptbjRFcmZFejlpMHFnaUlvcHkzRQ?oc=5
+- **摘要**：南极旅游活动将于2027年1月1日起受新《环境保护法》规范，旨在提升环境保护标准。
+- **分析**：该条目涉及【环境保护法】话题，因来源较权威且发布时间较新，热度上升。
+
+### 2. 生态环境部部长黄润秋会见联合国开发计划署署长德克罗 - 中华人民共和国生态环境部
+- **来源**：Google News 环境保护
+- **热度**：86.9
+- **链接**：https://news.google.com/rss/articles/CBMidkFVX3lxTFA4YWtSVjJ5eXFkUjk5LXR4SUs3cnlYaHQzRVczWWsxWVhOd0htQm9xdU00NG5WQW1yeTdOYlNmTG15bTd2VEVFcDMweDZmUmYtTnpnT3FSMU9GM25nY1p3cTlzbjFaSkhEc2N0dFJQMUFfWjNpM1E?oc=5
+- **摘要**：生态环境部部长黄润秋会见联合国开发计划署署长德克罗，双方就环境合作议题进行沟通交流。
+- **分析**：该条目涉及【生态环境部】话题，因来源较权威且发布时间较新，热度上升。
+
+### 3. 全球10月气温创同期新高 2027年或成有记录以来最热年份 - 财联社
+- **来源**：Google News 气候变化
+- **热度**：85.2
+- **链接**：https://news.google.com/rss/articles/CBMiSEFVX3lxTE9nLW1aQmZqOW9LT3NMTElFVllOXzk0bmVhcU9TSzR3RktvZllKQzVfLTQxZEtnaEMtSEZvaW1sWWNDdF95enkteA?oc=5
+- **摘要**：全球10月气温创同期新高，预计2027年或将成为有记录以来最热年份。
+- **分析**：该条目涉及【全球气温】话题，因来源较权威且发布时间较新，热度上升。
+
+### 4. Manage derailment risks to avoid Hothouse Earth
+- **来源**：Environmental Research Letters
+- **热度**：85.0
+- **链接**：https://iopscience.iop.org/article/10.1088/1748-9326/aeb1de
+- **摘要**：在关于地球系统稳定性和气候超限的讨论中，“温室地球”轨迹的风险日益凸显。 现有的分析主要关注那些可能使变暖程度超出直接人为强迫影响的生物物理反馈。我们认为，该概念此前尚未纳入这样一个因素：即社会动荡如何降低了生物物理临界动态实现自我维持的有效阈值——这一过程独立于进一步的人为强迫，从而削弱了人类对地球的守护能力。 我们将“脱轨风险”定义为：地球系统破坏的加剧可能削弱维持减缓、适应和生态修复所需的社会、政治和经济条件。 当气候影响加剧一系列挑战时，此类风险便会出现，这些挑战包括债务危机、制度侵蚀、政治分裂、供应链不稳定以及公众对环境行动支持度的下降。这些相互强化的反馈机制可能会在生物物理临界阈值被跨越之前，就削弱人类的应对能力。 因此，我们通过将社会动态纳入地球系统稳定性格局，对“温室地球”框架进行了扩展。 我们提出了一个用于评估和管理脱轨风险的三阶段框架：对社会-生物物理反馈进行概念性映射；采取前瞻性的韧性建设干预措施；针对不稳定性加剧时期制定响应性治理策略。我们得出结论：在地球系统压力日益加剧的情况下，行星管理应优先考虑维持和扩大集体能动性。
+- **分析**：该条目涉及【温室地球】话题，因来源权威性高且发布时间较新，热度上升。
+
+### 5. 【一马当先“十五五”开局看青海】青海亮出生态环境“十五五”新图景 部署7大重点任务 谋划26项重大工程 - 青海省人民政府
+- **来源**：Google News 生态环境
+- **热度**：83.8
+- **链接**：https://news.google.com/rss/articles/CBMickFVX3lxTFBnMkx2WDE5a0VDWUtwTnQ3NFhZUmFpYnktTEQ1VnM1VGxVRXE3bGwzWERzUl9uLWFVOXhVQWhKS2RsV1BkMEJHbHVaTUdmTDZFdlZsaEdYeEo2ZkhiUmg5eTJZNmxFTU9LOWd4VHdmak4tZw?oc=5
+- **摘要**：青海发布生态环境“十五五”新图景，部署7大重点任务并谋划26项重大工程。
+- **分析**：该条目涉及【生态环境】话题，因来源较权威且多家媒体同题报道，热度上升。
+
+### 6. 从生态环境治理到生态价值转换 黄土高原小山村结缘碳汇交易 - 新华网
+- **来源**：Google News 生态环境
+- **热度**：83.7
+- **链接**：https://news.google.com/rss/articles/CBMiggFBVV95cUxONk1yVWk2Y1poQURDSUcwLTR4SFpBendRb19Uck1qWnJEaWlsSURiWlBQUU1wVFpOTzdCMzdrVGtUUFlGTHZxSDBkaXljaEFIMS04T1p3cmtjU2xzVWJSTHlsb29RV3JIdzg2VkZaTzNHMlFkNTRaNzQzQmlHZTNtYXRB?oc=5
+- **摘要**：黄土高原小山村从生态环境治理转向生态价值转换，成功结缘碳汇交易。
+- **分析**：该条目涉及【碳汇交易】话题，因来源较权威且多家媒体同题报道，热度上升。
+
+### 7. Characterizing drinking-water facility exposure to historical wildfires in Northern Colorado
+- **来源**：Environmental Research Letters
+- **热度**：83.7
+- **链接**：https://iopscience.iop.org/article/10.1088/1748-9326/aebb4c
+- **摘要**：野火对为下游社区提供饮用水的森林源头流域构成的威胁日益加剧，但目前的野火风险评估很少考虑流域间调水（IBTs）——这种调水方式可能会将水源影响范围扩展到自然流域边界之外，并改变火灾与饮用水取水口之间水文联系。 在此，我们开发了一种可重复的评估方法，用于量化饮用水取水口的历史野火风险，并以科罗拉多州北部作为案例研究进行了应用。 该分析综合了历史（1984–2024年）野火边界、过火强度、子流域边界、自然水文流路径、流域间调水连通性以及公共供水设施信息。 在 7,308 平方公里的研究区域内，共有 1,895 平方公里被烧毁（占地表面积的 26%），在所考察的 90 个流域中，有 54 个至少发生过一次火灾，且总烧毁面积中约 31% 被归类为高强度火灾。 在所研究的全部14起事件中，每起事件中，火灾平均影响了为344 854人提供服务的饮用水系统以及4处下游取水设施。 取水口层面的暴露风险不仅取决于火灾规模，还取决于火势严重程度和水文连通性。纳入IBTs后，就其对下游取水系统的野火暴露风险而言，源头区域内各个子流域的相对重要性发生了变化。 这些发现突显了在水源地野火暴露评估中同时考虑自然和人为水文连通性的重要性，并为“从森林到水龙头”（Forests to Faucets）等决策支持工具提供了依据，这些工具直接将森林扰动、供水基础设施和下游社区联系起来。
+- **分析**：该条目涉及【饮用水取水口】话题，因来源权威性高且发布时间较新，热度上升。
+
+### 8. 第31届联合国气候变化大会——水和海洋韧性 - UNESCO
+- **来源**：Google News 气候变化
+- **热度**：83.5
+- **链接**：https://news.google.com/rss/articles/CBMiTEFVX3lxTE45ckF3WTM4VXpTT1gwRVBVZEhpYUJnZTZtRU94OFJFbF9fa3NHTUM2aVdWbTZWNlM3MkFvWTB2YTh0NGRLUlBjSGs1Mlg?oc=5
+- **摘要**：第31届联合国气候变化大会聚焦水和海洋韧性，旨在通过国际合作增强水资源管理和海洋生态系统应对气候变化的能力。
+- **分析**：该条目涉及【第31届联合国气候变化大会】话题，因来源较权威且多家媒体同题报道，热度上升。
+
+### 9. Consistent drivers of lightning-ignited wildfires across global boreal forests
+- **来源**：Environmental Research Letters
+- **热度**：82.7
+- **链接**：https://iopscience.iop.org/article/10.1088/1748-9326/aeb70b
+- **摘要**：预计气候变化将改变全球寒带森林的火灾易发性及雷电活动。然而，雷电引发的森林火灾（LIW）的起火机制仍不清楚，这使得在全球寒带森林范围内进行预测变得颇具挑战性。 本文利用一套关于LIW的创新数据集，通过点火与未点火闪电对的准实验设计，探讨了天气对起火概率的短期时序影响。 具体而言，我们的数据集包含5251组雷电配对数据，并结合了温度、降水、相对湿度、雷电特征（多重性、极性、峰值电流和持续时间）以及净初级生产力等变量。我们通过三个独立模型——涵盖整个北方林区、疏林和密林——估算了这些预测变量对起火概率的影响。 我们发现起火概率与温度、相对湿度、总降水量及极性之间存在明显关联。温度每增加一个标准差（约3.3 °C），起火概率会增加44%–69%，而降水量和相对湿度的增加则会降低起火概率。 在雷电发生前3–8天，温度和降水量对起火概率的预测能力最强，且这种影响可持续至雷电发生后7–11天。正极性也与起火概率增加相关。 我们的研究结果表明，全球寒带地区雷电引发森林火灾的发生主要受短期火灾天气条件驱动，而非仅由雷电特性决定。预计气温的上升将推高寒带地区的起火概率，尽管这一影响可能会因总降水量的增加而部分抵消。
+- **分析**：该条目涉及【雷电引发的森林火灾】话题，因来源权威性高且发布时间较新，热度上升。
+
+### 10. Making ammonia at the water’s edge
+- **来源**：Nature Sustainability
+- **热度**：82.3
+- **链接**：https://www.nature.com/articles/s41893-026-01982-w
+- **摘要**：《自然·可持续性》（Nature Sustainability），。光催化固氮可在温和条件下利用氮气和水生成氨，但氮源输送缓慢及产物积聚限制了产出。 如今，一种漂浮式太阳能界面将氮还原与蒸发相结合，大大加快了氨的生成速度，并在冷凝液中富集了高纯度的产物。
+- **分析**：该条目涉及【光催化固氮】话题，因来源权威性高且发布时间较新，热度上升。
+
+**今日自动提取候选新词**
+
+- **生态**（出现 3 次）
+  - 上下文：从生态环境治理到生态价值转换 黄土高原小山村结缘碳汇交易 - 新华网
+  - 上下文：朝阳区委常委会召开会议 传达学习习近平总书记重要讲话重要指示精神 研究生态环保工作 - 北京市人民政府门户网站
+  - 上下文：国家发展改革委、自然资源部、国家统计局印发《生态产品总值核算规范》 - 中国水网
+- **中国**（出现 3 次）
+  - 上下文：中国出台南极活动与环境保护法，有何意义？ - 凤凰网
+  - 上下文：省级认定！成都环境集团排水公司技术创新工作再上新台阶 - 中国水网
+  - 上下文：国家发展改革委、自然资源部、国家统计局印发《生态产品总值核算规范》 - 中国水网
+- **南极**（出现 2 次）
+  - 上下文：规范南极旅游：南极活动与环境保护法2027年1月1日起施行 - 21财经
+  - 上下文：中国出台南极活动与环境保护法，有何意义？ - 凤凰网
+- **财经**（出现 2 次）
+  - 上下文：规范南极旅游：南极活动与环境保护法2027年1月1日起施行 - 21财经
+  - 上下文：COP31倒计时！推动落实发达国家3000亿美元气候资金目标 - 21财经
+- **十五**（出现 2 次）
+  - 上下文：【一马当先“十五五”开局看青海】青海亮出生态环境“十五五”新图景 部署7大重点任务 谋划26项重大工程 - 青海省人民政府
+  - 上下文：精准对接，智控未来：宜兴福鼎以“AI+危废焚烧”回应“十五五”绿色命题 - 新华网客户端
+- **water**（出现 2 次）
+  - 上下文：Characterizing drinking-water facility exposure to historical wildfires in Northern Colorado
+  - 上下文：Making ammonia at the water’s edge
+- **wildfires**（出现 2 次）
+  - 上下文：Characterizing drinking-water facility exposure to historical wildfires in Northern Colorado
+  - 上下文：Consistent drivers of lightning-ignited wildfires across global boreal forests
+- **联合国气候变化大会**（出现 2 次）
+  - 上下文：第31届联合国气候变化大会——水和海洋韧性 - UNESCO
+  - 上下文：COP31前瞻：今年联合国气候变化大会有哪些重要议题？ - UN News
+- **ammonia**（出现 2 次）
+  - 上下文：Making ammonia at the water’s edge
+  - 上下文：Photocatalytic nitrogen reduction to high-concentration ammonia via interfacial evaporation
+- **interfacial**（出现 2 次）
+  - 上下文：Photocatalytic nitrogen reduction to high-concentration ammonia via interfacial evaporation
+  - 上下文：<em>Enterobacter kobei</em> enables straw-driven V(V) bioreduction in wastewater at elevated V(V) concentrations: interfacial detoxification and electron-transfer pathways
+- **COP31**（出现 2 次）
+  - 上下文：COP31前瞻：今年联合国气候变化大会有哪些重要议题？ - UN News
+  - 上下文：COP31倒计时！推动落实发达国家3000亿美元气候资金目标 - 21财经
+- **Carbon**（出现 2 次）
+  - 上下文：Carbon prices and cooking fires: how decarbonization pathway design shapes household energy burdens
+  - 上下文：Hydrogen Derivatives Enable Cost-Effective Carbon Neutrality in China
+- **北京市人民政府**（出现 2 次）
+  - 上下文：北京市经济和信息化局 北京市生态环境局关于公开发布2026年度北京市美丽工厂案例的通知 - 北京市人民政府门户网站
+  - 上下文：朝阳区委常委会召开会议 传达学习习近平总书记重要讲话重要指示精神 研究生态环保工作 - 北京市人民政府门户网站
+- **门户网站**（出现 2 次）
+  - 上下文：北京市经济和信息化局 北京市生态环境局关于公开发布2026年度北京市美丽工厂案例的通知 - 北京市人民政府门户网站
+  - 上下文：朝阳区委常委会召开会议 传达学习习近平总书记重要讲话重要指示精神 研究生态环保工作 - 北京市人民政府门户网站
+- **环保**（出现 2 次）
+  - 上下文：朝阳区委常委会召开会议 传达学习习近平总书记重要讲话重要指示精神 研究生态环保工作 - 北京市人民政府门户网站
+  - 上下文：“发言人来了”——“环保惠企”政策解读专场发布活动 - 华龙网
+- **pollution**（出现 2 次）
+  - 上下文：Delhi's toxic winter air is back - is the Indian capital prepared for pollution?
+  - 上下文：Investigation into 'major fish kill' after pollution incident
+- **水网**（出现 2 次）
+  - 上下文：省级认定！成都环境集团排水公司技术创新工作再上新台阶 - 中国水网
+  - 上下文：国家发展改革委、自然资源部、国家统计局印发《生态产品总值核算规范》 - 中国水网
+- **electron**（出现 2 次）
+  - 上下文：Distinct dissolved organic matter (DOM) transformation processes underlie contrasting regulation of DOM electron-donating capacity under Hg stress and flooding
+  - 上下文：<em>Enterobacter kobei</em> enables straw-driven V(V) bioreduction in wastewater at elevated V(V) concentrations: interfacial detoxification and electron-transfer pathways
+
+---
+

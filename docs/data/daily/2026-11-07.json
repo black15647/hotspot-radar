@@ -1,0 +1,559 @@
+{
+  "report_date": "2026-11-07",
+  "site_name": "环境学子雷达",
+  "total_items": 41,
+  "snapshot_items": 10,
+  "category_stats": {
+    "气候变化": {
+      "count": 13,
+      "total_heat": 962.5
+    },
+    "环境政策": {
+      "count": 7,
+      "total_heat": 524.9
+    },
+    "污染治理": {
+      "count": 3,
+      "total_heat": 232.5
+    },
+    "生态环境": {
+      "count": 9,
+      "total_heat": 695.8
+    },
+    "其他": {
+      "count": 4,
+      "total_heat": 297.6
+    },
+    "水处理": {
+      "count": 2,
+      "total_heat": 145.8
+    },
+    "科研学术": {
+      "count": 2,
+      "total_heat": 144.4
+    },
+    "环境健康": {
+      "count": 1,
+      "total_heat": 76.2
+    }
+  },
+  "total_sources": 28,
+  "success_sources": 26,
+  "failed_sources": 0,
+  "week_total_items": 248,
+  "week_new_keywords": 89,
+  "policy_ratio": 11.3,
+  "items": [
+    {
+      "title": "听鉴世界｜COP31开幕在即：气候资金与能源转型待破局 - 国际在线",
+      "title_en": "",
+      "title_zh": "",
+      "link": "https://news.google.com/rss/articles/CBMiekFVX3lxTE50MWhjMHBITFNrYlhuY0lOc0YxQzNPemJ0YzMxUHRqaVpxcGpzNGktd0pDd1hLMm1TYkRSdndxT1pWbGozdnZPcG5TclVFWWY2VnNxVGM5TTJoUVZBSmtVU01nR1lNbm92SVdrVldVRU9wSFNvRkNvRUlR?oc=5",
+      "source": "Google News 气候变化",
+      "published": "2026-11-07T05:50:43+00:00",
+      "hotness": 88.5,
+      "score_v1": 20.57,
+      "score_v2": 88.5,
+      "score_breakdown": {
+        "algorithm": "v3.0",
+        "dimension_max": {
+          "authority": 18.0,
+          "topic": 18.0,
+          "resonance": 18.0,
+          "information": 16.0
+        },
+        "authority_score": 8.05,
+        "keyword_idf_score": 6.88,
+        "topic_score": 6.88,
+        "topic_burst_score": 0.0,
+        "topic_burst_count": 1,
+        "resonance_score": 15.56,
+        "info_score": 5.0,
+        "base": 35.5,
+        "base_max": 70.0,
+        "time_factor": 0.9304,
+        "density_factor": 1.0,
+        "density_note": "",
+        "repeat_penalty": 1.0,
+        "repeat_excused": false,
+        "event_size": 4,
+        "event_media_count": 4,
+        "event_cluster_source": "ai",
+        "origin_source": "国际在线",
+        "raw": 33.03,
+        "display_score": 88.5,
+        "display_mode": "absolute"
+      },
+      "summary": "COP31气候大会即将开幕，聚焦气候资金筹措与能源转型两大核心议题，旨在破局全球气候合作难题。",
+      "analysis": "",
+      "topic_tags": [
+        "COP31",
+        "气候资金",
+        "能源转型"
+      ],
+      "category": "气候变化",
+      "matched_keywords": [
+        "能源转型"
+      ]
+    },
+    {
+      "title": "财新闻｜南极活动与环境保护法明年元旦起施行 - Caixin Global",
+      "title_en": "",
+      "title_zh": "",
+      "link": "https://news.google.com/rss/articles/CBMiXkFVX3lxTE1OaGdNejZDTG1zSF9aaXQwRnoxWTRMT2g2REhlOV9FaDlJV1pMbUtKQXB3SzUwYVVNb1QwSXdlbVc1YlMweEwxckpMTDZJaEo4OHh1UFpxUDFvNk1VSUE?oc=5",
+      "source": "Google News 环境保护",
+      "published": "2026-11-07T02:58:47+00:00",
+      "hotness": 86.0,
+      "score_v1": 23.68,
+      "score_v2": 86.0,
+      "score_breakdown": {
+        "algorithm": "v3.0",
+        "dimension_max": {
+          "authority": 18.0,
+          "topic": 18.0,
+          "resonance": 18.0,
+          "information": 16.0
+        },
+        "authority_score": 8.05,
+        "keyword_idf_score": 5.06,
+        "topic_score": 8.85,
+        "topic_burst_score": 3.79,
+        "topic_burst_count": 3,
+        "resonance_score": 15.56,
+        "info_score": 0.0,
+        "base": 32.46,
+        "base_max": 70.0,
+        "time_factor": 0.8968,
+        "density_factor": 1.0,
+        "density_note": "",
+        "repeat_penalty": 1.0,
+        "repeat_excused": true,
+        "event_size": 4,
+        "event_media_count": 4,
+        "event_cluster_source": "ai",
+        "origin_source": "Caixin Global",
+        "raw": 29.11,
+        "display_score": 86.0,
+        "display_mode": "absolute"
+      },
+      "summary": "南极环境保护法将于明年元旦正式施行，旨在规范南极活动，加强对南极生态环境的法律保护与管理。",
+      "analysis": "",
+      "topic_tags": [
+        "南极环境保护法"
+      ],
+      "category": "环境政策",
+      "matched_keywords": [
+        "环境保护"
+      ]
+    },
+    {
+      "title": "东莞实地督导推进秋冬季大气污染防治 - 新快网",
+      "title_en": "",
+      "title_zh": "",
+      "link": "https://news.google.com/rss/articles/CBMiVkFVX3lxTFBjQWJoUHhtVy1OMW14M25QZTZTYmVyS2lIZG0wOXp2OEF4dVJoY3hCQUVuTHNoTFduUkJNT19tZ05NODNVcWUxaEVyaWRLMnpoTFFVbjRR?oc=5",
+      "source": "Google News 环境污染",
+      "published": "2026-11-07T09:06:04+00:00",
+      "hotness": 83.8,
+      "score_v1": 25.73,
+      "score_v2": 83.8,
+      "score_breakdown": {
+        "algorithm": "v3.0",
+        "dimension_max": {
+          "authority": 18.0,
+          "topic": 18.0,
+          "resonance": 18.0,
+          "information": 16.0
+        },
+        "authority_score": 8.05,
+        "keyword_idf_score": 10.1,
+        "topic_score": 10.1,
+        "topic_burst_score": 0.0,
+        "topic_burst_count": 1,
+        "resonance_score": 8.76,
+        "info_score": 0.0,
+        "base": 26.91,
+        "base_max": 70.0,
+        "time_factor": 0.9712,
+        "density_factor": 1.0,
+        "density_note": "",
+        "repeat_penalty": 1.0,
+        "repeat_excused": false,
+        "event_size": 2,
+        "event_media_count": 2,
+        "event_cluster_source": "ai",
+        "origin_source": "新快网",
+        "raw": 26.13,
+        "display_score": 83.8,
+        "display_mode": "absolute"
+      },
+      "summary": "东莞市实地开展秋冬季大气污染防治督导，聚焦重点时段和区域，力促落实各项防治措施，改善空气质量。",
+      "analysis": "",
+      "topic_tags": [
+        "秋冬季大气污染防治"
+      ],
+      "category": "污染治理",
+      "matched_keywords": [
+        "大气污染",
+        "污染防治"
+      ]
+    },
+    {
+      "title": "生态环境部发布11月上半月全国空气质量预报会商结果：空气质量以优良为主，局地可能出现轻度污染 - ThePaper.cn",
+      "title_en": "",
+      "title_zh": "",
+      "link": "https://news.google.com/rss/articles/CBMiYEFVX3lxTFBZM1hVRDdmQ2JkTVhsNG42ajRBdi1peklYSzNtMGFsVFFOWEdMcnlHT251OFpJTTBCVkpBaUlhQVN1MnZQUlc3c0VsZHJyREQ3OXRyak5yb25ab29aeFFWaw?oc=5",
+      "source": "Google News 环境污染",
+      "published": "2026-11-07T06:40:59+00:00",
+      "hotness": 83.7,
+      "score_v1": 36.86,
+      "score_v2": 83.7,
+      "score_breakdown": {
+        "algorithm": "v3.0",
+        "dimension_max": {
+          "authority": 18.0,
+          "topic": 18.0,
+          "resonance": 18.0,
+          "information": 16.0
+        },
+        "authority_score": 8.05,
+        "keyword_idf_score": 4.73,
+        "topic_score": 10.62,
+        "topic_burst_score": 5.89,
+        "topic_burst_count": 9,
+        "resonance_score": 0.0,
+        "info_score": 9.0,
+        "base": 27.67,
+        "base_max": 70.0,
+        "time_factor": 0.9406,
+        "density_factor": 1.0,
+        "density_note": "",
+        "repeat_penalty": 1.0,
+        "repeat_excused": false,
+        "event_size": 1,
+        "event_media_count": 1,
+        "event_cluster_source": "ai",
+        "origin_source": "ThePaper.cn",
+        "raw": 26.02,
+        "display_score": 83.7,
+        "display_mode": "absolute"
+      },
+      "summary": "生态环境部发布11月上半月空气质量预报，全国整体以优良为主，但局地可能出现轻度污染，需关注区域差异。",
+      "analysis": "",
+      "topic_tags": [
+        "生态环境部",
+        "空气质量预报",
+        "轻度污染"
+      ],
+      "category": "生态环境",
+      "matched_keywords": [
+        "生态环境"
+      ]
+    },
+    {
+      "title": "生态环境部部长黄润秋会见联合国开发计划署署长德克罗 - 中华人民共和国生态环境部",
+      "title_en": "",
+      "title_zh": "",
+      "link": "https://news.google.com/rss/articles/CBMidkFVX3lxTFA4YWtSVjJ5eXFkUjk5LXR4SUs3cnlYaHQzRVczWWsxWVhOd0htQm9xdU00NG5WQW1yeTdOYlNmTG15bTd2VEVFcDMweDZmUmYtTnpnT3FSMU9GM25nY1p3cTlzbjFaSkhEc2N0dFJQMUFfWjNpM1E?oc=5",
+      "source": "Google News 环境保护",
+      "published": "2026-11-06T02:12:41+00:00",
+      "hotness": 83.5,
+      "score_v1": 31.12,
+      "score_v2": 83.5,
+      "score_breakdown": {
+        "algorithm": "v3.0",
+        "dimension_max": {
+          "authority": 18.0,
+          "topic": 18.0,
+          "resonance": 18.0,
+          "information": 16.0
+        },
+        "authority_score": 8.05,
+        "keyword_idf_score": 4.73,
+        "topic_score": 10.62,
+        "topic_burst_score": 5.89,
+        "topic_burst_count": 9,
+        "resonance_score": 15.56,
+        "info_score": 4.0,
+        "base": 38.23,
+        "base_max": 70.0,
+        "time_factor": 0.6764,
+        "density_factor": 1.0,
+        "density_note": "",
+        "repeat_penalty": 1.0,
+        "repeat_excused": true,
+        "event_size": 4,
+        "event_media_count": 4,
+        "event_cluster_source": "ai",
+        "origin_source": "中华人民共和国生态环境部",
+        "raw": 25.86,
+        "display_score": 83.5,
+        "display_mode": "absolute"
+      },
+      "summary": "生态环境部部长黄润秋会见联合国开发计划署署长德克罗，双方就环境合作、发展议题深入交换意见，增进双边务实合作。",
+      "analysis": "",
+      "topic_tags": [
+        "生态环境部"
+      ],
+      "category": "生态环境",
+      "matched_keywords": [
+        "生态环境"
+      ]
+    },
+    {
+      "title": "我国南极活动与环境保护法出台 对国际南极治理意义几何？ - 中国新闻网",
+      "title_en": "",
+      "title_zh": "",
+      "link": "https://news.google.com/rss/articles/CBMiaEFVX3lxTE4yaWFjUHBSb3hveVNEZWtVTF90XzlSdGhxQjY3eDJWOGhYUWFvekp6T0ZSNldOTFRoTjZ2bnRhOExfZkRjT3FrRU1UVHFuZkpfYnZKVW42RGJwSjNGT3R5UTczTDZGY2ZX?oc=5",
+      "source": "Google News 环境保护",
+      "published": "2026-11-06T15:44:56+00:00",
+      "hotness": 83.2,
+      "score_v1": 21.03,
+      "score_v2": 83.2,
+      "score_breakdown": {
+        "algorithm": "v3.0",
+        "dimension_max": {
+          "authority": 18.0,
+          "topic": 18.0,
+          "resonance": 18.0,
+          "information": 16.0
+        },
+        "authority_score": 8.05,
+        "keyword_idf_score": 5.06,
+        "topic_score": 8.85,
+        "topic_burst_score": 3.79,
+        "topic_burst_count": 3,
+        "resonance_score": 15.56,
+        "info_score": 0.0,
+        "base": 32.46,
+        "base_max": 70.0,
+        "time_factor": 0.7827,
+        "density_factor": 1.0,
+        "density_note": "",
+        "repeat_penalty": 1.0,
+        "repeat_excused": true,
+        "event_size": 4,
+        "event_media_count": 4,
+        "event_cluster_source": "ai",
+        "origin_source": "中国新闻网",
+        "raw": 25.41,
+        "display_score": 83.2,
+        "display_mode": "absolute"
+      },
+      "summary": "我国近期出台南极环境保护法，旨在加强对南极活动的监管，提升国际南极治理水平，体现国家在极地环境保护领域的责任与担当。",
+      "analysis": "",
+      "topic_tags": [
+        "南极环境保护法",
+        "国际南极治理"
+      ],
+      "category": "环境政策",
+      "matched_keywords": [
+        "环境保护"
+      ]
+    },
+    {
+      "title": "Scientists discover Europe's ancient forests were nothing like we imagined",
+      "title_en": "Scientists discover Europe's ancient forests were nothing like we imagined",
+      "title_zh": "科学家发现，欧洲的远古森林与我们想象的截然不同",
+      "link": "https://www.sciencedaily.com/releases/2026/11/261104012333.htm",
+      "source": "ScienceDaily 环境科学",
+      "published": "2026-11-07T09:44:48+00:00",
+      "hotness": 83.2,
+      "score_v1": 22.88,
+      "score_v2": 83.2,
+      "score_breakdown": {
+        "algorithm": "v3.0",
+        "dimension_max": {
+          "authority": 18.0,
+          "topic": 18.0,
+          "resonance": 18.0,
+          "information": 16.0
+        },
+        "authority_score": 12.73,
+        "keyword_idf_score": 6.23,
+        "topic_score": 6.23,
+        "topic_burst_score": 0.0,
+        "topic_burst_count": 1,
+        "resonance_score": 0.0,
+        "info_score": 7.0,
+        "base": 25.96,
+        "base_max": 70.0,
+        "time_factor": 0.9796,
+        "density_factor": 1.0,
+        "density_note": "",
+        "repeat_penalty": 1.0,
+        "repeat_excused": false,
+        "event_size": 1,
+        "event_media_count": 1,
+        "event_cluster_source": "ai",
+        "origin_source": "ScienceDaily 环境科学",
+        "raw": 25.42,
+        "display_score": 83.2,
+        "display_mode": "absolute"
+      },
+      "summary": "科学家们发现了证据，表明欧洲在超过2000万年的时间里，主要由开阔的林地、色彩斑斓的草甸和大型食草动物所占据，而非长期以来被认为是其自然状态的密林。这一令人惊讶的发现对现代造林策略提出了挑战，表明种植密林实际上可能会损害保护主义者希望保护的生物多样性。",
+      "analysis": "",
+      "topic_tags": [
+        "古森林",
+        "古生态学"
+      ],
+      "category": "生态环境",
+      "matched_keywords": [
+        "生物多样性"
+      ]
+    },
+    {
+      "title": "Human bodies produce 2 billion metric tons of CO2 a year just by staying alive",
+      "title_en": "Human bodies produce 2 billion metric tons of CO2 a year just by staying alive",
+      "title_zh": "仅靠维持生命，人体每年就会产生20亿公吨二氧化碳",
+      "link": "https://www.sciencedaily.com/releases/2026/11/261104012305.htm",
+      "source": "ScienceDaily 环境科学",
+      "published": "2026-11-07T10:00:03+00:00",
+      "hotness": 81.3,
+      "score_v1": 18.98,
+      "score_v2": 81.3,
+      "score_breakdown": {
+        "algorithm": "v3.0",
+        "dimension_max": {
+          "authority": 18.0,
+          "topic": 18.0,
+          "resonance": 18.0,
+          "information": 16.0
+        },
+        "authority_score": 12.73,
+        "keyword_idf_score": 0.0,
+        "topic_score": 3.0,
+        "topic_burst_score": 0.0,
+        "topic_burst_count": 1,
+        "resonance_score": 0.0,
+        "info_score": 8.0,
+        "base": 23.73,
+        "base_max": 70.0,
+        "time_factor": 0.9829,
+        "density_factor": 1.0,
+        "density_note": "",
+        "repeat_penalty": 1.0,
+        "repeat_excused": false,
+        "event_size": 1,
+        "event_media_count": 1,
+        "event_cluster_source": "ai",
+        "origin_source": "ScienceDaily 环境科学",
+        "raw": 23.32,
+        "display_score": 81.3,
+        "display_mode": "absolute"
+      },
+      "summary": "仅通过将食物转化为能量这一过程，人类每年就共产生超过20亿吨的二氧化碳，这一数字在过去三十年间增长了74%，主要归因于人口增长。然而，与化石燃料排放不同，我们呼出的二氧化碳是自然碳循环的一部分，科学家表示，更准确地测量这一数据有助于改进气候模型。",
+      "analysis": "",
+      "topic_tags": [
+        "人体CO2排放"
+      ],
+      "category": "其他",
+      "matched_keywords": []
+    },
+    {
+      "title": "中国海洋塑料污染治理的制度进路——以《生态环境法典》为中心的制度分析 - 生物通",
+      "title_en": "",
+      "title_zh": "",
+      "link": "https://news.google.com/rss/articles/CBMibkFVX3lxTFB3TnB1TWZVNHV6c1padGx2bkE3UWpnZ0hSSjRXZ0FTSmZyWGx6VzZsaHBJRTlaekZuY0VBYW1YRlYzV1Viem9kN2NSNnZWd0xFR1JlR1kxM2dfRW5zV3ljek1MRDBFU0U1MV90Z093?oc=5",
+      "source": "Google News 环境污染",
+      "published": "2026-11-07T02:55:53+00:00",
+      "hotness": 81.0,
+      "score_v1": 47.66,
+      "score_v2": 81.0,
+      "score_breakdown": {
+        "algorithm": "v3.0",
+        "dimension_max": {
+          "authority": 18.0,
+          "topic": 18.0,
+          "resonance": 18.0,
+          "information": 16.0
+        },
+        "authority_score": 8.05,
+        "keyword_idf_score": 11.66,
+        "topic_score": 17.55,
+        "topic_burst_score": 5.89,
+        "topic_burst_count": 9,
+        "resonance_score": 0.0,
+        "info_score": 0.0,
+        "base": 25.6,
+        "base_max": 70.0,
+        "time_factor": 0.8962,
+        "density_factor": 1.0,
+        "density_note": "",
+        "repeat_penalty": 1.0,
+        "repeat_excused": false,
+        "event_size": 1,
+        "event_media_count": 1,
+        "event_cluster_source": "ai",
+        "origin_source": "生物通",
+        "raw": 22.95,
+        "display_score": 81.0,
+        "display_mode": "absolute"
+      },
+      "summary": "文章以《生态环境法典》为核心，深入分析了中国海洋塑料污染治理的制度框架，探索了从源头控制到全链条治理的制度创新路径。",
+      "analysis": "",
+      "topic_tags": [
+        "海洋塑料污染",
+        "生态环境法典"
+      ],
+      "category": "污染治理",
+      "matched_keywords": [
+        "塑料污染",
+        "生态环境",
+        "污染治理",
+        "环境法典"
+      ]
+    },
+    {
+      "title": "青海省第二轮第一批生态环境保护例行督察全面启动-政务公开 - 青海省人民政府",
+      "title_en": "",
+      "title_zh": "",
+      "link": "https://news.google.com/rss/articles/CBMickFVX3lxTFA3bHdFbjk1TXpDcUVpaEI4S01Yb3ZPWTdoQ1BSc1dSWDcxQmtRRmNMUDZRZ1hSaXlkaFdoMkNaaG5GSlV0YmFEaWZSQllOdGZSVm9COGY1bHBMXzhJMTBjeWwzRk14TzZMblpOOTZ2MUptUQ?oc=5",
+      "source": "Google News 环境保护",
+      "published": "2026-11-07T00:35:00+00:00",
+      "hotness": 79.4,
+      "score_v1": 47.0,
+      "score_v2": 79.4,
+      "score_breakdown": {
+        "algorithm": "v3.0",
+        "dimension_max": {
+          "authority": 18.0,
+          "topic": 18.0,
+          "resonance": 18.0,
+          "information": 16.0
+        },
+        "authority_score": 8.05,
+        "keyword_idf_score": 10.17,
+        "topic_score": 16.06,
+        "topic_burst_score": 5.89,
+        "topic_burst_count": 9,
+        "resonance_score": 8.76,
+        "info_score": 5.0,
+        "base": 37.87,
+        "base_max": 70.0,
+        "time_factor": 0.8702,
+        "density_factor": 0.65,
+        "density_note": "地方政务通稿",
+        "repeat_penalty": 1.0,
+        "repeat_excused": false,
+        "event_size": 2,
+        "event_media_count": 2,
+        "event_cluster_source": "ai",
+        "origin_source": "青海省人民政府",
+        "raw": 21.42,
+        "display_score": 79.4,
+        "display_mode": "absolute"
+      },
+      "summary": "青海省启动第二轮第一批生态环境保护例行督察，重点检查督促各地落实环保责任，推动生态环境问题整改，确保督察工作取得实效。",
+      "analysis": "",
+      "topic_tags": [
+        "生态环境保护例行督察"
+      ],
+      "category": "环境政策",
+      "matched_keywords": [
+        "生态环境",
+        "环境保护",
+        "督察"
+      ]
+    }
+  ]
+}

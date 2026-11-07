@@ -1,139 +1,139 @@
 # 环境学子雷达 - 每日热点报告
 
-**日期**：2026-11-06
-**总条目数**：36
+**日期**：2026-11-07
+**总条目数**：41
 
-**近7天见解**：近7天环境热点呈现“气候变化最为集中，生态环境与污染治理并重，政策与科研相对分散”的特点。气候变化类条目显著上升，成为讨论焦点；生态环境与污染治理虽数量适中，但关联度高，共同构成核心关注区；政策与科研学术热度相对平稳，水处理作为细分领域占比较小，整体热点分布呈现出气候与治理并行、生态支撑的格局。
+**近7天见解**：近7天环境热点呈现“气候变化最为集中，生态环境与污染治理并驾齐驱，政策与水处理呈现明显上升态势，科研学术保持稳定”的特点。总体来看，热点分布呈现多元协同态势，核心关注度持续向生态治理与应对气候挑战方向聚焦。
 
 ---
 
 ## 今日热点 TOP 10
 
-### 1. [规范南极旅游：南极活动与环境保护法2027年1月1日起施行 - 21财经](https://news.google.com/rss/articles/CBMijwFBVV95cUxPUDJoOTJuT2tuNkx0TEhFVDVlU2tneGdMVFBQeGpzQ05nVk5yek9jMHFYX21TU3laNnBtNTFuRl9CbFdxcENFZ0RpcEpLNzZsTTlvb0E2S3VhaXJCSFZhVzB4VG5adVFTcUZHWEdvb3ZpYzVKYnhMYUxpYWptbjRFcmZFejlpMHFnaUlvcHkzRQ?oc=5)
+### 1. [听鉴世界｜COP31开幕在即：气候资金与能源转型待破局 - 国际在线](https://news.google.com/rss/articles/CBMiekFVX3lxTE50MWhjMHBITFNrYlhuY0lOc0YxQzNPemJ0YzMxUHRqaVpxcGpzNGktd0pDd1hLMm1TYkRSdndxT1pWbGozdnZPcG5TclVFWWY2VnNxVGM5TTJoUVZBSmtVU01nR1lNbm92SVdrVldVRU9wSFNvRkNvRUlR?oc=5)
 
-- **来源**：Google News 环境保护
-- **热度**：87.7
-- **发布时间**：2026-11-06T07:31:00+00:00
-- **关键词**：环境保护
+- **来源**：Google News 气候变化
+- **热度**：88.5
+- **发布时间**：2026-11-07T05:50:43+00:00
+- **关键词**：能源转型
 
-> 南极旅游活动将于2027年1月1日起受新《环境保护法》规范，旨在提升环境保护标准。
+> COP31气候大会即将开幕，聚焦气候资金筹措与能源转型两大核心议题，旨在破局全球气候合作难题。
 
-**分析**：该条目涉及【环境保护法】话题，因来源较权威且发布时间较新，热度上升。
+**分析**：该条目涉及【COP31】话题，因来源较权威且发布时间较新，热度上升。
 
 ---
 
-### 2. [生态环境部部长黄润秋会见联合国开发计划署署长德克罗 - 中华人民共和国生态环境部](https://news.google.com/rss/articles/CBMidkFVX3lxTFA4YWtSVjJ5eXFkUjk5LXR4SUs3cnlYaHQzRVczWWsxWVhOd0htQm9xdU00NG5WQW1yeTdOYlNmTG15bTd2VEVFcDMweDZmUmYtTnpnT3FSMU9GM25nY1p3cTlzbjFaSkhEc2N0dFJQMUFfWjNpM1E?oc=5)
+### 2. [财新闻｜南极活动与环境保护法明年元旦起施行 - Caixin Global](https://news.google.com/rss/articles/CBMiXkFVX3lxTE1OaGdNejZDTG1zSF9aaXQwRnoxWTRMT2g2REhlOV9FaDlJV1pMbUtKQXB3SzUwYVVNb1QwSXdlbVc1YlMweEwxckpMTDZJaEo4OHh1UFpxUDFvNk1VSUE?oc=5)
 
 - **来源**：Google News 环境保护
-- **热度**：86.9
-- **发布时间**：2026-11-06T02:12:41+00:00
+- **热度**：86.0
+- **发布时间**：2026-11-07T02:58:47+00:00
+- **关键词**：环境保护
+
+> 南极环境保护法将于明年元旦正式施行，旨在规范南极活动，加强对南极生态环境的法律保护与管理。
+
+**分析**：该条目涉及【南极环境保护法】话题，因来源较权威且发布时间较新，热度上升。
+
+---
+
+### 3. [东莞实地督导推进秋冬季大气污染防治 - 新快网](https://news.google.com/rss/articles/CBMiVkFVX3lxTFBjQWJoUHhtVy1OMW14M25QZTZTYmVyS2lIZG0wOXp2OEF4dVJoY3hCQUVuTHNoTFduUkJNT19tZ05NODNVcWUxaEVyaWRLMnpoTFFVbjRR?oc=5)
+
+- **来源**：Google News 环境污染
+- **热度**：83.8
+- **发布时间**：2026-11-07T09:06:04+00:00
+- **关键词**：大气污染, 污染防治
+
+> 东莞市实地开展秋冬季大气污染防治督导，聚焦重点时段和区域，力促落实各项防治措施，改善空气质量。
+
+**分析**：该条目涉及【秋冬季大气污染防治】话题，因来源较权威且发布时间较新，热度上升。
+
+---
+
+### 4. [生态环境部发布11月上半月全国空气质量预报会商结果：空气质量以优良为主，局地可能出现轻度污染 - ThePaper.cn](https://news.google.com/rss/articles/CBMiYEFVX3lxTFBZM1hVRDdmQ2JkTVhsNG42ajRBdi1peklYSzNtMGFsVFFOWEdMcnlHT251OFpJTTBCVkpBaUlhQVN1MnZQUlc3c0VsZHJyREQ3OXRyak5yb25ab29aeFFWaw?oc=5)
+
+- **来源**：Google News 环境污染
+- **热度**：83.7
+- **发布时间**：2026-11-07T06:40:59+00:00
 - **关键词**：生态环境
 
-> 生态环境部部长黄润秋会见联合国开发计划署署长德克罗，双方就环境合作议题进行沟通交流。
+> 生态环境部发布11月上半月空气质量预报，全国整体以优良为主，但局地可能出现轻度污染，需关注区域差异。
 
 **分析**：该条目涉及【生态环境部】话题，因来源较权威且发布时间较新，热度上升。
 
 ---
 
-### 3. [全球10月气温创同期新高 2027年或成有记录以来最热年份 - 财联社](https://news.google.com/rss/articles/CBMiSEFVX3lxTE9nLW1aQmZqOW9LT3NMTElFVllOXzk0bmVhcU9TSzR3RktvZllKQzVfLTQxZEtnaEMtSEZvaW1sWWNDdF95enkteA?oc=5)
+### 5. [生态环境部部长黄润秋会见联合国开发计划署署长德克罗 - 中华人民共和国生态环境部](https://news.google.com/rss/articles/CBMidkFVX3lxTFA4YWtSVjJ5eXFkUjk5LXR4SUs3cnlYaHQzRVczWWsxWVhOd0htQm9xdU00NG5WQW1yeTdOYlNmTG15bTd2VEVFcDMweDZmUmYtTnpnT3FSMU9GM25nY1p3cTlzbjFaSkhEc2N0dFJQMUFfWjNpM1E?oc=5)
 
-- **来源**：Google News 气候变化
-- **热度**：85.2
-- **发布时间**：2026-11-06T08:58:00+00:00
-
-> 全球10月气温创同期新高，预计2027年或将成为有记录以来最热年份。
-
-**分析**：该条目涉及【全球气温】话题，因来源较权威且发布时间较新，热度上升。
-
----
-
-### 4. [Manage derailment risks to avoid Hothouse Earth](https://iopscience.iop.org/article/10.1088/1748-9326/aeb1de)
-
-- **来源**：Environmental Research Letters
-- **热度**：85.0
-- **发布时间**：2026-11-06T00:00:00+00:00
-- **关键词**：生态修复
-
-> 在关于地球系统稳定性和气候超限的讨论中，“温室地球”轨迹的风险日益凸显。 现有的分析主要关注那些可能使变暖程度超出直接人为强迫影响的生物物理反馈。我们认为，该概念此前尚未纳入这样一个因素：即社会动荡如何降低了生物物理临界动态实现自我维持的有效阈值——这一过程独立于进一步的人为强迫，从而削弱了人类对地球的守护能力。 我们将“脱轨风险”定义为：地球系统破坏的加剧可能削弱维持减缓、适应和生态修复所需的社会、政治和经济条件。 当气候影响加剧一系列挑战时，此类风险便会出现，这些挑战包括债务危机、制度侵蚀、政治分裂、供应链不稳定以及公众对环境行动支持度的下降。这些相互强化的反馈机制可能会在生物物理临界阈值被跨越之前，就削弱人类的应对能力。 因此，我们通过将社会动态纳入地球系统稳定性格局，对“温室地球”框架进行了扩展。 我们提出了一个用于评估和管理脱轨风险的三阶段框架：对社会-生物物理反馈进行概念性映射；采取前瞻性的韧性建设干预措施；针对不稳定性加剧时期制定响应性治理策略。我们得出结论：在地球系统压力日益加剧的情况下，行星管理应优先考虑维持和扩大集体能动性。
-
-**分析**：该条目涉及【温室地球】话题，因来源权威性高且发布时间较新，热度上升。
-
----
-
-### 5. [【一马当先“十五五”开局看青海】青海亮出生态环境“十五五”新图景 部署7大重点任务 谋划26项重大工程 - 青海省人民政府](https://news.google.com/rss/articles/CBMickFVX3lxTFBnMkx2WDE5a0VDWUtwTnQ3NFhZUmFpYnktTEQ1VnM1VGxVRXE3bGwzWERzUl9uLWFVOXhVQWhKS2RsV1BkMEJHbHVaTUdmTDZFdlZsaEdYeEo2ZkhiUmg5eTJZNmxFTU9LOWd4VHdmak4tZw?oc=5)
-
-- **来源**：Google News 生态环境
-- **热度**：83.8
-- **发布时间**：2026-11-05T22:45:00+00:00
+- **来源**：Google News 环境保护
+- **热度**：83.5
+- **发布时间**：2026-11-06T02:12:41+00:00
 - **关键词**：生态环境
 
-> 青海发布生态环境“十五五”新图景，部署7大重点任务并谋划26项重大工程。
+> 生态环境部部长黄润秋会见联合国开发计划署署长德克罗，双方就环境合作、发展议题深入交换意见，增进双边务实合作。
 
-**分析**：该条目涉及【生态环境】话题，因来源较权威且多家媒体同题报道，热度上升。
-
----
-
-### 6. [从生态环境治理到生态价值转换 黄土高原小山村结缘碳汇交易 - 新华网](https://news.google.com/rss/articles/CBMiggFBVV95cUxONk1yVWk2Y1poQURDSUcwLTR4SFpBendRb19Uck1qWnJEaWlsSURiWlBQUU1wVFpOTzdCMzdrVGtUUFlGTHZxSDBkaXljaEFIMS04T1p3cmtjU2xzVWJSTHlsb29RV3JIdzg2VkZaTzNHMlFkNTRaNzQzQmlHZTNtYXRB?oc=5)
-
-- **来源**：Google News 生态环境
-- **热度**：83.7
-- **发布时间**：2026-11-05T23:45:23+00:00
-- **关键词**：生态环境, 环境治理
-
-> 黄土高原小山村从生态环境治理转向生态价值转换，成功结缘碳汇交易。
-
-**分析**：该条目涉及【碳汇交易】话题，因来源较权威且多家媒体同题报道，热度上升。
+**分析**：该条目涉及【生态环境部】话题，因来源较权威且多家媒体同题报道，热度上升。
 
 ---
 
-### 7. [Characterizing drinking-water facility exposure to historical wildfires in Northern Colorado](https://iopscience.iop.org/article/10.1088/1748-9326/aebb4c)
+### 6. [我国南极活动与环境保护法出台 对国际南极治理意义几何？ - 中国新闻网](https://news.google.com/rss/articles/CBMiaEFVX3lxTE4yaWFjUHBSb3hveVNEZWtVTF90XzlSdGhxQjY3eDJWOGhYUWFvekp6T0ZSNldOTFRoTjZ2bnRhOExfZkRjT3FrRU1UVHFuZkpfYnZKVW42RGJwSjNGT3R5UTczTDZGY2ZX?oc=5)
 
-- **来源**：Environmental Research Letters
-- **热度**：83.7
-- **发布时间**：2026-11-06T00:00:00+00:00
-- **关键词**：饮用水, 流域
+- **来源**：Google News 环境保护
+- **热度**：83.2
+- **发布时间**：2026-11-06T15:44:56+00:00
+- **关键词**：环境保护
 
-> 野火对为下游社区提供饮用水的森林源头流域构成的威胁日益加剧，但目前的野火风险评估很少考虑流域间调水（IBTs）——这种调水方式可能会将水源影响范围扩展到自然流域边界之外，并改变火灾与饮用水取水口之间水文联系。 在此，我们开发了一种可重复的评估方法，用于量化饮用水取水口的历史野火风险，并以科罗拉多州北部作为案例研究进行了应用。 该分析综合了历史（1984–2024年）野火边界、过火强度、子流域边界、自然水文流路径、流域间调水连通性以及公共供水设施信息。 在 7,308 平方公里的研究区域内，共有 1,895 平方公里被烧毁（占地表面积的 26%），在所考察的 90 个流域中，有 54 个至少发生过一次火灾，且总烧毁面积中约 31% 被归类为高强度火灾。 在所研究的全部14起事件中，每起事件中，火灾平均影响了为344 854人提供服务的饮用水系统以及4处下游取水设施。 取水口层面的暴露风险不仅取决于火灾规模，还取决于火势严重程度和水文连通性。纳入IBTs后，就其对下游取水系统的野火暴露风险而言，源头区域内各个子流域的相对重要性发生了变化。 这些发现突显了在水源地野火暴露评估中同时考虑自然和人为水文连通性的重要性，并为“从森林到水龙头”（Forests to Faucets）等决策支持工具提供了依据，这些工具直接将森林扰动、供水基础设施和下游社区联系起来。
+> 我国近期出台南极环境保护法，旨在加强对南极活动的监管，提升国际南极治理水平，体现国家在极地环境保护领域的责任与担当。
 
-**分析**：该条目涉及【饮用水取水口】话题，因来源权威性高且发布时间较新，热度上升。
-
----
-
-### 8. [第31届联合国气候变化大会——水和海洋韧性 - UNESCO](https://news.google.com/rss/articles/CBMiTEFVX3lxTE45ckF3WTM4VXpTT1gwRVBVZEhpYUJnZTZtRU94OFJFbF9fa3NHTUM2aVdWbTZWNlM3MkFvWTB2YTh0NGRLUlBjSGs1Mlg?oc=5)
-
-- **来源**：Google News 气候变化
-- **热度**：83.5
-- **发布时间**：2026-11-05T13:06:22+00:00
-- **关键词**：气候变化
-
-> 第31届联合国气候变化大会聚焦水和海洋韧性，旨在通过国际合作增强水资源管理和海洋生态系统应对气候变化的能力。
-
-**分析**：该条目涉及【第31届联合国气候变化大会】话题，因来源较权威且多家媒体同题报道，热度上升。
+**分析**：该条目涉及【南极环境保护法】话题，因来源较权威且多家媒体同题报道，热度上升。
 
 ---
 
-### 9. [Consistent drivers of lightning-ignited wildfires across global boreal forests](https://iopscience.iop.org/article/10.1088/1748-9326/aeb70b)
+### 7. [Scientists discover Europe's ancient forests were nothing like we imagined](https://www.sciencedaily.com/releases/2026/11/261104012333.htm)
 
-- **来源**：Environmental Research Letters
-- **热度**：82.7
-- **发布时间**：2026-11-06T00:00:00+00:00
-- **关键词**：气候变化
+- **来源**：ScienceDaily 环境科学
+- **热度**：83.2
+- **发布时间**：2026-11-07T09:44:48+00:00
+- **关键词**：生物多样性
 
-> 预计气候变化将改变全球寒带森林的火灾易发性及雷电活动。然而，雷电引发的森林火灾（LIW）的起火机制仍不清楚，这使得在全球寒带森林范围内进行预测变得颇具挑战性。 本文利用一套关于LIW的创新数据集，通过点火与未点火闪电对的准实验设计，探讨了天气对起火概率的短期时序影响。 具体而言，我们的数据集包含5251组雷电配对数据，并结合了温度、降水、相对湿度、雷电特征（多重性、极性、峰值电流和持续时间）以及净初级生产力等变量。我们通过三个独立模型——涵盖整个北方林区、疏林和密林——估算了这些预测变量对起火概率的影响。 我们发现起火概率与温度、相对湿度、总降水量及极性之间存在明显关联。温度每增加一个标准差（约3.3 °C），起火概率会增加44%–69%，而降水量和相对湿度的增加则会降低起火概率。 在雷电发生前3–8天，温度和降水量对起火概率的预测能力最强，且这种影响可持续至雷电发生后7–11天。正极性也与起火概率增加相关。 我们的研究结果表明，全球寒带地区雷电引发森林火灾的发生主要受短期火灾天气条件驱动，而非仅由雷电特性决定。预计气温的上升将推高寒带地区的起火概率，尽管这一影响可能会因总降水量的增加而部分抵消。
+> 科学家们发现了证据，表明欧洲在超过2000万年的时间里，主要由开阔的林地、色彩斑斓的草甸和大型食草动物所占据，而非长期以来被认为是其自然状态的密林。这一令人惊讶的发现对现代造林策略提出了挑战，表明种植密林实际上可能会损害保护主义者希望保护的生物多样性。
 
-**分析**：该条目涉及【雷电引发的森林火灾】话题，因来源权威性高且发布时间较新，热度上升。
+**分析**：该条目涉及【古森林】话题，因来源权威性高且发布时间较新，热度上升。
 
 ---
 
-### 10. [Making ammonia at the water’s edge](https://www.nature.com/articles/s41893-026-01982-w)
+### 8. [Human bodies produce 2 billion metric tons of CO2 a year just by staying alive](https://www.sciencedaily.com/releases/2026/11/261104012305.htm)
 
-- **来源**：Nature Sustainability
-- **热度**：82.3
-- **发布时间**：2026-11-06T00:00:00+00:00
-- **关键词**：可持续发展
+- **来源**：ScienceDaily 环境科学
+- **热度**：81.3
+- **发布时间**：2026-11-07T10:00:03+00:00
 
-> 《自然·可持续性》（Nature Sustainability），。光催化固氮可在温和条件下利用氮气和水生成氨，但氮源输送缓慢及产物积聚限制了产出。 如今，一种漂浮式太阳能界面将氮还原与蒸发相结合，大大加快了氨的生成速度，并在冷凝液中富集了高纯度的产物。
+> 仅通过将食物转化为能量这一过程，人类每年就共产生超过20亿吨的二氧化碳，这一数字在过去三十年间增长了74%，主要归因于人口增长。然而，与化石燃料排放不同，我们呼出的二氧化碳是自然碳循环的一部分，科学家表示，更准确地测量这一数据有助于改进气候模型。
 
-**分析**：该条目涉及【光催化固氮】话题，因来源权威性高且发布时间较新，热度上升。
+**分析**：该条目涉及【人体CO2排放】话题，因来源权威性高且发布时间较新，热度上升。
+
+---
+
+### 9. [中国海洋塑料污染治理的制度进路——以《生态环境法典》为中心的制度分析 - 生物通](https://news.google.com/rss/articles/CBMibkFVX3lxTFB3TnB1TWZVNHV6c1padGx2bkE3UWpnZ0hSSjRXZ0FTSmZyWGx6VzZsaHBJRTlaekZuY0VBYW1YRlYzV1Viem9kN2NSNnZWd0xFR1JlR1kxM2dfRW5zV3ljek1MRDBFU0U1MV90Z093?oc=5)
+
+- **来源**：Google News 环境污染
+- **热度**：81.0
+- **发布时间**：2026-11-07T02:55:53+00:00
+- **关键词**：塑料污染, 生态环境, 污染治理, 环境法典
+
+> 文章以《生态环境法典》为核心，深入分析了中国海洋塑料污染治理的制度框架，探索了从源头控制到全链条治理的制度创新路径。
+
+**分析**：该条目涉及【海洋塑料污染】话题，因来源较权威且发布时间较新，热度上升。
+
+---
+
+### 10. [青海省第二轮第一批生态环境保护例行督察全面启动-政务公开 - 青海省人民政府](https://news.google.com/rss/articles/CBMickFVX3lxTFA3bHdFbjk1TXpDcUVpaEI4S01Yb3ZPWTdoQ1BSc1dSWDcxQmtRRmNMUDZRZ1hSaXlkaFdoMkNaaG5GSlV0YmFEaWZSQllOdGZSVm9COGY1bHBMXzhJMTBjeWwzRk14TzZMblpOOTZ2MUptUQ?oc=5)
+
+- **来源**：Google News 环境保护
+- **热度**：79.4
+- **发布时间**：2026-11-07T00:35:00+00:00
+- **关键词**：生态环境, 环境保护, 督察
+
+> 青海省启动第二轮第一批生态环境保护例行督察，重点检查督促各地落实环保责任，推动生态环境问题整改，确保督察工作取得实效。
+
+**分析**：该条目涉及【生态环境保护例行督察】话题，因来源较权威且发布时间较新，热度上升。
 
 ---

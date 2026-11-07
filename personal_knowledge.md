@@ -9752,3 +9752,151 @@
 
 ---
 
+## 2026-11-07
+
+**今日高频关键词**：`#生态环境` `#气候变化` `#环境保护` `#可持续发展` `#南极环境保护法`
+
+**今日 Top10 热点**
+
+### 1. 听鉴世界｜COP31开幕在即：气候资金与能源转型待破局 - 国际在线
+- **来源**：Google News 气候变化
+- **热度**：88.5
+- **链接**：https://news.google.com/rss/articles/CBMiekFVX3lxTE50MWhjMHBITFNrYlhuY0lOc0YxQzNPemJ0YzMxUHRqaVpxcGpzNGktd0pDd1hLMm1TYkRSdndxT1pWbGozdnZPcG5TclVFWWY2VnNxVGM5TTJoUVZBSmtVU01nR1lNbm92SVdrVldVRU9wSFNvRkNvRUlR?oc=5
+- **摘要**：COP31气候大会即将开幕，聚焦气候资金筹措与能源转型两大核心议题，旨在破局全球气候合作难题。
+- **分析**：该条目涉及【COP31】话题，因来源较权威且发布时间较新，热度上升。
+
+### 2. 财新闻｜南极活动与环境保护法明年元旦起施行 - Caixin Global
+- **来源**：Google News 环境保护
+- **热度**：86.0
+- **链接**：https://news.google.com/rss/articles/CBMiXkFVX3lxTE1OaGdNejZDTG1zSF9aaXQwRnoxWTRMT2g2REhlOV9FaDlJV1pMbUtKQXB3SzUwYVVNb1QwSXdlbVc1YlMweEwxckpMTDZJaEo4OHh1UFpxUDFvNk1VSUE?oc=5
+- **摘要**：南极环境保护法将于明年元旦正式施行，旨在规范南极活动，加强对南极生态环境的法律保护与管理。
+- **分析**：该条目涉及【南极环境保护法】话题，因来源较权威且发布时间较新，热度上升。
+
+### 3. 东莞实地督导推进秋冬季大气污染防治 - 新快网
+- **来源**：Google News 环境污染
+- **热度**：83.8
+- **链接**：https://news.google.com/rss/articles/CBMiVkFVX3lxTFBjQWJoUHhtVy1OMW14M25QZTZTYmVyS2lIZG0wOXp2OEF4dVJoY3hCQUVuTHNoTFduUkJNT19tZ05NODNVcWUxaEVyaWRLMnpoTFFVbjRR?oc=5
+- **摘要**：东莞市实地开展秋冬季大气污染防治督导，聚焦重点时段和区域，力促落实各项防治措施，改善空气质量。
+- **分析**：该条目涉及【秋冬季大气污染防治】话题，因来源较权威且发布时间较新，热度上升。
+
+### 4. 生态环境部发布11月上半月全国空气质量预报会商结果：空气质量以优良为主，局地可能出现轻度污染 - ThePaper.cn
+- **来源**：Google News 环境污染
+- **热度**：83.7
+- **链接**：https://news.google.com/rss/articles/CBMiYEFVX3lxTFBZM1hVRDdmQ2JkTVhsNG42ajRBdi1peklYSzNtMGFsVFFOWEdMcnlHT251OFpJTTBCVkpBaUlhQVN1MnZQUlc3c0VsZHJyREQ3OXRyak5yb25ab29aeFFWaw?oc=5
+- **摘要**：生态环境部发布11月上半月空气质量预报，全国整体以优良为主，但局地可能出现轻度污染，需关注区域差异。
+- **分析**：该条目涉及【生态环境部】话题，因来源较权威且发布时间较新，热度上升。
+
+### 5. 生态环境部部长黄润秋会见联合国开发计划署署长德克罗 - 中华人民共和国生态环境部
+- **来源**：Google News 环境保护
+- **热度**：83.5
+- **链接**：https://news.google.com/rss/articles/CBMidkFVX3lxTFA4YWtSVjJ5eXFkUjk5LXR4SUs3cnlYaHQzRVczWWsxWVhOd0htQm9xdU00NG5WQW1yeTdOYlNmTG15bTd2VEVFcDMweDZmUmYtTnpnT3FSMU9GM25nY1p3cTlzbjFaSkhEc2N0dFJQMUFfWjNpM1E?oc=5
+- **摘要**：生态环境部部长黄润秋会见联合国开发计划署署长德克罗，双方就环境合作、发展议题深入交换意见，增进双边务实合作。
+- **分析**：该条目涉及【生态环境部】话题，因来源较权威且多家媒体同题报道，热度上升。
+
+### 6. 我国南极活动与环境保护法出台 对国际南极治理意义几何？ - 中国新闻网
+- **来源**：Google News 环境保护
+- **热度**：83.2
+- **链接**：https://news.google.com/rss/articles/CBMiaEFVX3lxTE4yaWFjUHBSb3hveVNEZWtVTF90XzlSdGhxQjY3eDJWOGhYUWFvekp6T0ZSNldOTFRoTjZ2bnRhOExfZkRjT3FrRU1UVHFuZkpfYnZKVW42RGJwSjNGT3R5UTczTDZGY2ZX?oc=5
+- **摘要**：我国近期出台南极环境保护法，旨在加强对南极活动的监管，提升国际南极治理水平，体现国家在极地环境保护领域的责任与担当。
+- **分析**：该条目涉及【南极环境保护法】话题，因来源较权威且多家媒体同题报道，热度上升。
+
+### 7. Scientists discover Europe's ancient forests were nothing like we imagined
+- **来源**：ScienceDaily 环境科学
+- **热度**：83.2
+- **链接**：https://www.sciencedaily.com/releases/2026/11/261104012333.htm
+- **摘要**：科学家们发现了证据，表明欧洲在超过2000万年的时间里，主要由开阔的林地、色彩斑斓的草甸和大型食草动物所占据，而非长期以来被认为是其自然状态的密林。这一令人惊讶的发现对现代造林策略提出了挑战，表明种植密林实际上可能会损害保护主义者希望保护的生物多样性。
+- **分析**：该条目涉及【古森林】话题，因来源权威性高且发布时间较新，热度上升。
+
+### 8. Human bodies produce 2 billion metric tons of CO2 a year just by staying alive
+- **来源**：ScienceDaily 环境科学
+- **热度**：81.3
+- **链接**：https://www.sciencedaily.com/releases/2026/11/261104012305.htm
+- **摘要**：仅通过将食物转化为能量这一过程，人类每年就共产生超过20亿吨的二氧化碳，这一数字在过去三十年间增长了74%，主要归因于人口增长。然而，与化石燃料排放不同，我们呼出的二氧化碳是自然碳循环的一部分，科学家表示，更准确地测量这一数据有助于改进气候模型。
+- **分析**：该条目涉及【人体CO2排放】话题，因来源权威性高且发布时间较新，热度上升。
+
+### 9. 中国海洋塑料污染治理的制度进路——以《生态环境法典》为中心的制度分析 - 生物通
+- **来源**：Google News 环境污染
+- **热度**：81.0
+- **链接**：https://news.google.com/rss/articles/CBMibkFVX3lxTFB3TnB1TWZVNHV6c1padGx2bkE3UWpnZ0hSSjRXZ0FTSmZyWGx6VzZsaHBJRTlaekZuY0VBYW1YRlYzV1Viem9kN2NSNnZWd0xFR1JlR1kxM2dfRW5zV3ljek1MRDBFU0U1MV90Z093?oc=5
+- **摘要**：文章以《生态环境法典》为核心，深入分析了中国海洋塑料污染治理的制度框架，探索了从源头控制到全链条治理的制度创新路径。
+- **分析**：该条目涉及【海洋塑料污染】话题，因来源较权威且发布时间较新，热度上升。
+
+### 10. 青海省第二轮第一批生态环境保护例行督察全面启动-政务公开 - 青海省人民政府
+- **来源**：Google News 环境保护
+- **热度**：79.4
+- **链接**：https://news.google.com/rss/articles/CBMickFVX3lxTFA3bHdFbjk1TXpDcUVpaEI4S01Yb3ZPWTdoQ1BSc1dSWDcxQmtRRmNMUDZRZ1hSaXlkaFdoMkNaaG5GSlV0YmFEaWZSQllOdGZSVm9COGY1bHBMXzhJMTBjeWwzRk14TzZMblpOOTZ2MUptUQ?oc=5
+- **摘要**：青海省启动第二轮第一批生态环境保护例行督察，重点检查督促各地落实环保责任，推动生态环境问题整改，确保督察工作取得实效。
+- **分析**：该条目涉及【生态环境保护例行督察】话题，因来源较权威且发布时间较新，热度上升。
+
+**今日自动提取候选新词**
+
+- **中国**（出现 4 次）
+  - 上下文：我国南极活动与环境保护法出台 对国际南极治理意义几何？ - 中国新闻网
+  - 上下文：中国海洋塑料污染治理的制度进路——以《生态环境法典》为中心的制度分析 - 生物通
+  - 上下文：网友0446079614 - 中国环境报 - 中国环境网
+- **气候**（出现 3 次）
+  - 上下文：听鉴世界｜COP31开幕在即：气候资金与能源转型待破局 - 国际在线
+  - 上下文：COP31倒计时！推动落实发达国家3000亿美元气候资金目标 - 21财经
+  - 上下文：难民署：近9000万被迫流离失所者面临严重气候风险 - UN News
+- **海洋**（出现 3 次）
+  - 上下文：中国海洋塑料污染治理的制度进路——以《生态环境法典》为中心的制度分析 - 生物通
+  - 上下文：“十五五”期间 浙江推动海洋生态环境持续改善提升 - 地方频道
+  - 上下文：第31届联合国气候变化大会——水和海洋韧性 - UNESCO
+- **wildfires**（出现 3 次）
+  - 上下文：Characterizing drinking-water facility exposure to historical wildfires in Northern Colorado
+  - 上下文：Consistent drivers of lightning-ignited wildfires across global boreal forests
+  - 上下文：How climate change worsens heatwaves, droughts, wildfires and floods
+- **COP31**（出现 2 次）
+  - 上下文：听鉴世界｜COP31开幕在即：气候资金与能源转型待破局 - 国际在线
+  - 上下文：COP31倒计时！推动落实发达国家3000亿美元气候资金目标 - 21财经
+- **资金**（出现 2 次）
+  - 上下文：听鉴世界｜COP31开幕在即：气候资金与能源转型待破局 - 国际在线
+  - 上下文：COP31倒计时！推动落实发达国家3000亿美元气候资金目标 - 21财经
+- **国际**（出现 2 次）
+  - 上下文：听鉴世界｜COP31开幕在即：气候资金与能源转型待破局 - 国际在线
+  - 上下文：我国南极活动与环境保护法出台 对国际南极治理意义几何？ - 中国新闻网
+- **南极**（出现 2 次）
+  - 上下文：财新闻｜南极活动与环境保护法明年元旦起施行 - Caixin Global
+  - 上下文：我国南极活动与环境保护法出台 对国际南极治理意义几何？ - 中国新闻网
+- **forests**（出现 2 次）
+  - 上下文：Scientists discover Europe's ancient forests were nothing like we imagined
+  - 上下文：Consistent drivers of lightning-ignited wildfires across global boreal forests
+- **metric**（出现 2 次）
+  - 上下文：Human bodies produce 2 billion metric tons of CO2 a year just by staying alive
+  - 上下文：A socio-economic resilience metric shifts disaster risk priorities
+- **生态**（出现 2 次）
+  - 上下文：青海省第二轮第一批生态环境保护例行督察全面启动-政务公开 - 青海省人民政府
+  - 上下文：从生态环境治理到生态价值转换 黄土高原小山村结缘碳汇交易 - 新华网
+- **water**（出现 2 次）
+  - 上下文：Characterizing drinking-water facility exposure to historical wildfires in Northern Colorado
+  - 上下文：Making ammonia at the water’s edge
+- **Making**（出现 2 次）
+  - 上下文：Making ammonia at the water’s edge
+  - 上下文：Making waves: balancing removal efficiency and concentrate management in the TFA treatment dilemma
+- **ammonia**（出现 2 次）
+  - 上下文：Making ammonia at the water’s edge
+  - 上下文：Photocatalytic nitrogen reduction to high-concentration ammonia via interfacial evaporation
+- **interfacial**（出现 2 次）
+  - 上下文：Photocatalytic nitrogen reduction to high-concentration ammonia via interfacial evaporation
+  - 上下文：<em>Enterobacter kobei</em> enables straw-driven V(V) bioreduction in wastewater at elevated V(V) concentrations: interfacial detoxification and electron-transfer pathways
+- **matter**（出现 2 次）
+  - 上下文：What is the Paris Agreement and why does 1.5C matter?
+  - 上下文：Distinct dissolved organic matter (DOM) transformation processes underlie contrasting regulation of DOM electron-donating capacity under Hg stress and flooding
+- **climate**（出现 2 次）
+  - 上下文：How climate change worsens heatwaves, droughts, wildfires and floods
+  - 上下文：A really simple guide to climate change
+- **change**（出现 2 次）
+  - 上下文：How climate change worsens heatwaves, droughts, wildfires and floods
+  - 上下文：A really simple guide to climate change
+- **推动**（出现 2 次）
+  - 上下文：“十五五”期间 浙江推动海洋生态环境持续改善提升 - 地方频道
+  - 上下文：COP31倒计时！推动落实发达国家3000亿美元气候资金目标 - 21财经
+- **microbial**（出现 2 次）
+  - 上下文：Sulfide-dependent mercury speciation, bioavailability, and microbial methylation revealed by whole-cell biosensor, SEC-ICP-MS, and thermodynamic modelling
+  - 上下文：Detection of nodularin in a benthic <em>Planktothrix</em> strain isolated from a tychoplanktonic microbial mat
+- **electron**（出现 2 次）
+  - 上下文：Distinct dissolved organic matter (DOM) transformation processes underlie contrasting regulation of DOM electron-donating capacity under Hg stress and flooding
+  - 上下文：<em>Enterobacter kobei</em> enables straw-driven V(V) bioreduction in wastewater at elevated V(V) concentrations: interfacial detoxification and electron-transfer pathways
+
+---
+

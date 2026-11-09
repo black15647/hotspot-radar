@@ -1,60 +1,128 @@
 [
   {
     "term": "中国",
-    "count": 7,
+    "count": 6,
     "contexts": [
-      "中国气候变化事务特使刘振民:重视全球海洋生态系统与气候变化的相互影响 - 中国南海研究院",
-      "网友0446079614 - 中国环境报社 - 中国环境网",
-      "数字化转型对污染排放强度的影响：来自中国A股上市公司的经验证据 - 生物通"
+      "“中国气候外交新篇章将深远影响全球气候行动” - 中华网",
+      "广东2035年河湖生态环境将实现根本性好转 - 中国新闻网",
+      "16.11亿出售两家公司100%股权！联泰环保披露出售草案 - 中国水网"
     ]
   },
   {
-    "term": "全球",
+    "term": "climate",
     "count": 3,
     "contexts": [
-      "中国气候变化事务特使刘振民:重视全球海洋生态系统与气候变化的相互影响 - 中国南海研究院",
-      "聚焦“落实” COP31承载全球气候治理期待 - 搜狐网",
-      "全球10月气温创同期新高 2027年或成有记录以来最热年份 - 财联社"
+      "Scientists predict 2026 hottest year on record as climate talks begin",
+      "COP31 kicks off as planet faces imminent overshoot of 1.5 °C climate target",
+      "The super El Niño is more than a climate shock – it’s a health one, too"
     ]
   },
   {
-    "term": "报社",
+    "term": "COP31",
     "count": 3,
     "contexts": [
-      "网友0446079614 - 中国环境报社 - 中国环境网",
-      "中国环境报社 - 中国环境网"
+      "COP31｜清华气候院&世界大学气候变化联盟，安塔利亚议程发布！ - 搜狐网",
+      "COP31 kicks off as planet faces imminent overshoot of 1.5 °C climate target",
+      "特稿丨聚焦“落实” COP31承载全球气候治理期待 - 新华网"
     ]
   },
   {
-    "term": "metric",
-    "count": 2,
+    "term": "气候",
+    "count": 3,
     "contexts": [
-      "Human bodies produce 2 billion metric tons of CO2 a year just by staying alive",
-      "A socio-economic resilience metric shifts disaster risk priorities"
+      "COP31｜清华气候院&世界大学气候变化联盟，安塔利亚议程发布！ - 搜狐网",
+      "“中国气候外交新篇章将深远影响全球气候行动” - 中华网",
+      "特稿丨聚焦“落实” COP31承载全球气候治理期待 - 新华网"
     ]
   },
   {
-    "term": "water",
-    "count": 2,
+    "term": "青海",
+    "count": 3,
     "contexts": [
-      "Characterizing drinking-water facility exposure to historical wildfires in Northern Colorado",
-      "Making ammonia at the water’s edge"
+      "青海发布生态环境保护\"十五五\"规划 - 青海新闻网",
+      "青海发布生态环境保护“十五五”规划相关情况-政务公开 - 青海省人民政府",
+      "青海持续推进蓝天保卫战 巩固\"青海蓝\"全国领先优势 - 青海新闻网"
     ]
   },
   {
-    "term": "wildfires",
+    "term": "新闻网",
+    "count": 3,
+    "contexts": [
+      "青海发布生态环境保护\"十五五\"规划 - 青海新闻网",
+      "广东2035年河湖生态环境将实现根本性好转 - 中国新闻网",
+      "青海持续推进蓝天保卫战 巩固\"青海蓝\"全国领先优势 - 青海新闻网"
+    ]
+  },
+  {
+    "term": "Scientists",
     "count": 2,
     "contexts": [
-      "Characterizing drinking-water facility exposure to historical wildfires in Northern Colorado",
-      "How climate change worsens heatwaves, droughts, wildfires and floods"
+      "Scientists predict 2026 hottest year on record as climate talks begin",
+      "Scientists discover Europe's ancient forests were nothing like we imagined"
+    ]
+  },
+  {
+    "term": "year",
+    "count": 2,
+    "contexts": [
+      "Scientists predict 2026 hottest year on record as climate talks begin",
+      "Human bodies produce 2 billion metric tons of CO2 a year just by staying alive"
+    ]
+  },
+  {
+    "term": "安塔利亚",
+    "count": 2,
+    "contexts": [
+      "COP31｜清华气候院&世界大学气候变化联盟，安塔利亚议程发布！ - 搜狐网",
+      "联合国气候变化安塔利亚大会今天开幕，澎湃新闻记者已抵达前方 - ThePaper.cn"
+    ]
+  },
+  {
+    "term": "ThePaper",
+    "count": 2,
+    "contexts": [
+      "联合国气候变化安塔利亚大会今天开幕，澎湃新闻记者已抵达前方 - ThePaper.cn",
+      "河北石家庄等地发布重污染天气红色预警，9日12时启动Ⅰ级应急响应 - ThePaper.cn"
     ]
   },
   {
     "term": "生态",
     "count": 2,
     "contexts": [
-      "青海省第二轮第一批生态环境保护例行督察全面启动-政务公开 - 青海省人民政府",
-      "秦安县生态环境保护重点工作和督察反馈问题整改推进会召开(图) - 天水在线"
+      "青海发布生态环境保护\"十五五\"规划 - 青海新闻网",
+      "青海发布生态环境保护“十五五”规划相关情况-政务公开 - 青海省人民政府"
+    ]
+  },
+  {
+    "term": "十五",
+    "count": 2,
+    "contexts": [
+      "青海发布生态环境保护\"十五五\"规划 - 青海新闻网",
+      "青海发布生态环境保护“十五五”规划相关情况-政务公开 - 青海省人民政府"
+    ]
+  },
+  {
+    "term": "全球",
+    "count": 2,
+    "contexts": [
+      "“中国气候外交新篇章将深远影响全球气候行动” - 中华网",
+      "特稿丨聚焦“落实” COP31承载全球气候治理期待 - 新华网"
+    ]
+  },
+  {
+    "term": "水网",
+    "count": 2,
+    "contexts": [
+      "16.11亿出售两家公司100%股权！联泰环保披露出售草案 - 中国水网",
+      "李红泉任首创集团总经理 - 中国水网"
+    ]
+  },
+  {
+    "term": "carbon",
+    "count": 2,
+    "contexts": [
+      "Impact of organic carbon on biogas valorization consortium: shift of intracellular storage and microbial succession",
+      "A high-rate anaerobic/oxic membrane bioreactor for phosphorus removal and carbon capture from municipal wastewater: Operational limits and energy-recovery potential via sidestream anaerobic digestion"
     ]
   },
   {
@@ -66,27 +134,11 @@
     ]
   },
   {
-    "term": "climate",
+    "term": "high",
     "count": 2,
     "contexts": [
-      "How climate change worsens heatwaves, droughts, wildfires and floods",
-      "A really simple guide to climate change"
-    ]
-  },
-  {
-    "term": "change",
-    "count": 2,
-    "contexts": [
-      "How climate change worsens heatwaves, droughts, wildfires and floods",
-      "A really simple guide to climate change"
-    ]
-  },
-  {
-    "term": "影响",
-    "count": 2,
-    "contexts": [
-      "数字化转型对污染排放强度的影响：来自中国A股上市公司的经验证据 - 生物通",
-      "土壤中溶解性有机质及其对污染物吸附和解吸行为的影响 - 中国水网"
+      "Photocatalytic nitrogen reduction to high-concentration ammonia via interfacial evaporation",
+      "A high-rate anaerobic/oxic membrane bioreactor for phosphorus removal and carbon capture from municipal wastewater: Operational limits and energy-recovery potential via sidestream anaerobic digestion"
     ]
   }
 ]

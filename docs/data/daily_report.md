@@ -1,135 +1,136 @@
 # 环境学子雷达 - 每日热点报告
 
-**日期**：2026-11-08
-**总条目数**：28
+**日期**：2026-11-09
+**总条目数**：31
 
-**近7天见解**：近7天环境热点呈现“气候变化最为集中、生态环境与污染治理并驾齐驱、政策与科研保持活跃”的特点。气候变化类信息占据显著优势，生态环境与污染治理热度持续上升，政策与科研学术作为基础支撑稳步运行，整体热点分布呈现出结构均衡且关注度聚焦的态势。
+**近7天见解**：近7天环境热点呈现“气候变化、生态环境、污染治理”三大类集中，合计148条，占总量近六成，显示公众关注度高度聚焦于生态安全与治理成效。水处理与环境政策热度回升，科研学术保持稳定，整体趋势呈现生态治理与政策导向并进的特点。
 
 ---
 
 ## 今日热点 TOP 10
 
-### 1. [生态环境部发布11月上半月全国空气质量预报会商结果：空气质量以优良为主，局地可能出现轻度污染 - ThePaper.cn](https://news.google.com/rss/articles/CBMiYEFVX3lxTFBZM1hVRDdmQ2JkTVhsNG42ajRBdi1peklYSzNtMGFsVFFOWEdMcnlHT251OFpJTTBCVkpBaUlhQVN1MnZQUlc3c0VsZHJyREQ3OXRyak5yb25ab29aeFFWaw?oc=5)
+### 1. [Scientists predict 2026 hottest year on record as climate talks begin](https://www.bbc.co.uk/news/articles/c6pvgg7mdvdvo?at_medium=RSS&at_campaign=rss)
 
-- **来源**：Google News 环境污染
-- **热度**：82.2
-- **发布时间**：2026-11-07T06:40:59+00:00
-- **关键词**：生态环境
+- **来源**：BBC 科学与环境
+- **热度**：91.5
+- **发布时间**：2026-11-09T07:30:12+00:00
+- **关键词**：气候变化
 
-> 生态环境部发布11月上半月全国空气质量预报会商结果，空气质量以优良为主，局地可能出现轻度污染。
+> 随着第31届联合国气候变化大会（COP31）的开幕，科学家们预测今年可能会成为有记录以来最热的一年。
 
-**分析**：该条目涉及【生态环境部】话题，因来源较权威且多家媒体同题报道，热度上升。
-
----
-
-### 2. [Scientists discover Europe's ancient forests were nothing like we imagined](https://www.sciencedaily.com/releases/2026/11/261104012333.htm)
-
-- **来源**：ScienceDaily 环境科学
-- **热度**：76.7
-- **发布时间**：2026-11-07T09:44:48+00:00
-- **关键词**：生物多样性
-
-> 科学家们发现了证据，表明欧洲在超过2000万年的时间里，主要由开阔的林地、色彩斑斓的草甸和大型食草动物所占据，而非长期以来被认为是其自然状态的密林。这一令人惊讶的发现对现代造林策略提出了挑战，表明种植密林实际上可能会损害保护主义者希望保护的生物多样性。
-
-**分析**：该条目涉及【古森林】话题，因来源权威性高，热度上升。
+**分析**：该条目涉及【气候谈判】话题，因来源权威性高且发布时间较新，热度上升。
 
 ---
 
-### 3. [Manage derailment risks to avoid Hothouse Earth](https://iopscience.iop.org/article/10.1088/1748-9326/aeb1de)
-
-- **来源**：Environmental Research Letters
-- **热度**：74.8
-- **发布时间**：2026-11-06T00:00:00+00:00
-- **关键词**：生态修复
-
-> 在关于地球系统稳定性和气候超限的讨论中，“温室地球”轨迹的风险日益凸显。 现有的分析主要关注那些可能使变暖程度超出直接人为强迫影响的生物物理反馈。我们认为，该概念此前尚未纳入这样一个因素：即社会动荡如何降低了生物物理临界动态实现自我维持的有效阈值——这一过程独立于进一步的人为强迫，从而削弱了人类对地球的守护能力。 我们将“脱轨风险”定义为：地球系统破坏的加剧可能削弱维持减缓、适应和生态修复所需的社会、政治和经济条件。 当气候影响加剧一系列挑战时，此类风险便会出现，这些挑战包括债务危机、制度侵蚀、政治分裂、供应链不稳定以及公众对环境行动支持度的下降。这些相互强化的反馈机制可能会在生物物理临界阈值被跨越之前，就削弱人类的应对能力。 因此，我们通过将社会动态纳入地球系统稳定性格局，对“温室地球”框架进行了扩展。 我们提出了一个用于评估和管理脱轨风险的三阶段框架：对社会-生物物理反馈进行概念性映射；采取前瞻性的韧性建设干预措施；针对不稳定性加剧时期制定响应性治理策略。我们得出结论：在地球系统压力日益加剧的情况下，行星管理应优先考虑维持和扩大集体能动性。
-
-**分析**：该条目涉及【温室地球】话题，因来源权威性高，热度上升。
-
----
-
-### 4. [Human bodies produce 2 billion metric tons of CO2 a year just by staying alive](https://www.sciencedaily.com/releases/2026/11/261104012305.htm)
-
-- **来源**：ScienceDaily 环境科学
-- **热度**：74.8
-- **发布时间**：2026-11-07T10:00:03+00:00
-
-> 仅通过将食物转化为能量这一过程，人类每年就共产生超过20亿吨的二氧化碳，这一数字在过去三十年间增长了74%，主要归因于人口增长。然而，与化石燃料排放不同，我们呼出的二氧化碳是自然碳循环的一部分，科学家表示，更准确地测量这一数据有助于改进气候模型。
-
-**分析**：该条目涉及【人体CO2排放】话题，因来源权威性高，热度上升。
-
----
-
-### 5. [中国气候变化事务特使刘振民:重视全球海洋生态系统与气候变化的相互影响 - 中国南海研究院](https://news.google.com/rss/articles/CBMiYEFVX3lxTE1fbnRxcmNESWhNV2hUTC13X2tXTm1qSFVBcHNXbVF6S0gwQlFjWEZITGFpbDhGZmwyWGZTSjBHRlFxaU5sNFpnYklUYUZodEVkSUdhUm1QVTE1T0xJTWRQdA?oc=5)
+### 2. [COP31｜清华气候院&世界大学气候变化联盟，安塔利亚议程发布！ - 搜狐网](https://news.google.com/rss/articles/CBMijAFBVV95cUxOOHkxZHRrRDFxbWt2eTlhYnBTamc3UHZoNW1iVjBTSjM5NDVMX3c4NUE1clU4b3dLSXJmYnVfUUYwSlhZRmJTU21rME9ORy01REJSSEJZNTB2dlBRREZ0dmhoWnpsT1lKZ1cwdE40dUR6SVFGZXpWUU16WkZVZVF3QTJMeEZTX3Y3R3pteg?oc=5)
 
 - **来源**：Google News 气候变化
-- **热度**：74.4
-- **发布时间**：2026-11-06T14:29:22+00:00
-- **关键词**：气候变化, 生态系统
+- **热度**：88.3
+- **发布时间**：2026-11-08T18:46:48+00:00
+- **关键词**：气候变化
 
-> 刘振民强调重视全球海洋生态系统与气候变化的相互影响，探讨两者关联对气候治理的重要性。
+> 清华大学气候院与世界大学气候变化联盟发布安塔利亚议程，聚焦全球气候治理合作与大学生力量。
 
-**分析**：该条目涉及【海洋生态系统】话题，因来源较权威且话题稀缺度高，热度上升。
-
----
-
-### 6. [Characterizing drinking-water facility exposure to historical wildfires in Northern Colorado](https://iopscience.iop.org/article/10.1088/1748-9326/aebb4c)
-
-- **来源**：Environmental Research Letters
-- **热度**：73.5
-- **发布时间**：2026-11-06T00:00:00+00:00
-- **关键词**：饮用水, 流域
-
-> 野火对为下游社区提供饮用水的森林源头流域构成的威胁日益加剧，但目前的野火风险评估很少考虑流域间调水（IBTs）——这种调水方式可能会将水源影响范围扩展到自然流域边界之外，并改变火灾与饮用水取水口之间水文联系。 在此，我们开发了一种可重复的评估方法，用于量化饮用水取水口的历史野火风险，并以科罗拉多州北部作为案例研究进行了应用。 该分析综合了历史（1984–2024年）野火边界、过火强度、子流域边界、自然水文流路径、流域间调水连通性以及公共供水设施信息。 在 7,308 平方公里的研究区域内，共有 1,895 平方公里被烧毁（占地表面积的 26%），在所考察的 90 个流域中，有 54 个至少发生过一次火灾，且总烧毁面积中约 31% 被归类为高强度火灾。 在所研究的全部14起事件中，每起事件中，火灾平均影响了为344 854人提供服务的饮用水系统以及4处下游取水设施。 取水口层面的暴露风险不仅取决于火灾规模，还取决于火势严重程度和水文连通性。纳入IBTs后，就其对下游取水系统的野火暴露风险而言，源头区域内各个子流域的相对重要性发生了变化。 这些发现突显了在水源地野火暴露评估中同时考虑自然和人为水文连通性的重要性，并为“从森林到水龙头”（Forests to Faucets）等决策支持工具提供了依据，这些工具直接将森林扰动、供水基础设施和下游社区联系起来。
-
-**分析**：该条目涉及【饮用水取水口】话题，因来源权威性高，热度上升。
+**分析**：该条目涉及【清华大学气候院】话题，因来源较权威且多家媒体同题报道，热度上升。
 
 ---
 
-### 7. [网友0446079614 - 中国环境报社 - 中国环境网](https://news.google.com/rss/articles/CBMiXEFVX3lxTE1zSjduLUNycnNpNFo3TkZqekJ5T0dyQVd6cTg2ZVhydy1ZVGlQR1d0LUVGOWJBMEhjalZPYi1HbzlSbXpMd0I1emN5bjBTSUJ5a0R2U2xFWFRzbkJy?oc=5)
-
-- **来源**：Google News 中国环境网
-- **热度**：72.9
-- **发布时间**：2026-11-07T14:22:32+00:00
-
-**分析**：该条目涉及【中国环境报社】话题，因来源权威性高，热度上升。
-
----
-
-### 8. [聚焦“落实” COP31承载全球气候治理期待 - 搜狐网](https://news.google.com/rss/articles/CBMiiAFBVV95cUxQS1lqOHFGOE10bDVraGx5Qm9VMkVQVGJoZTNZTThKRVJVLXotOUJUMWR1M0dwMzdEWE5Ua0JSa3gtMlBSU05YZE1USnNXdDFjdnZhOFFpcXluQzc1aXZCcFdoREIzbUlIUXg3TlctR3k4VXhWVDlhQVk4XzhGYlJSN0NneU9EVENi?oc=5)
+### 3. [联合国气候变化安塔利亚大会今天开幕，澎湃新闻记者已抵达前方 - ThePaper.cn](https://news.google.com/rss/articles/CBMiYEFVX3lxTE1iWk1JbjdFUXlSSUZIZVBPV3k0TS1zTktJdVBaLW1Fd2FGN1JtSk5KV2p0TDhIMk9veG9zS3RhVWo2NzdRNlhsZGpwZkhFdFgxRVhWaGRPM1V5cDVIXzBnNg?oc=5)
 
 - **来源**：Google News 气候变化
-- **热度**：72.5
-- **发布时间**：2026-11-08T09:28:00+00:00
+- **热度**：87.5
+- **发布时间**：2026-11-09T11:00:41+00:00
+- **关键词**：气候变化
 
-> 聚焦落实COP31，大会将于11月9日至20日在土耳其安塔利亚举行，旨在承载全球气候治理期待。
+> 联合国气候变化安塔利亚大会开幕，媒体记者已抵达现场，聚焦全球气候政策与各方代表参与情况。
 
-**分析**：该条目涉及【COP31】话题，因来源较权威且发布时间较新，热度上升。
+**分析**：该条目涉及【联合国气候变化安塔利亚大会】话题，因来源较权威且发布时间较新，热度上升。
 
 ---
 
-### 9. [青海省第二轮第一批生态环境保护例行督察全面启动-政务公开 - 青海省人民政府](https://news.google.com/rss/articles/CBMickFVX3lxTFA3bHdFbjk1TXpDcUVpaEI4S01Yb3ZPWTdoQ1BSc1dSWDcxQmtRRmNMUDZRZ1hSaXlkaFdoMkNaaG5GSlV0YmFEaWZSQllOdGZSVm9COGY1bHBMXzhJMTBjeWwzRk14TzZMblpOOTZ2MUptUQ?oc=5)
+### 4. [青海发布生态环境保护"十五五"规划 - 青海新闻网](https://news.google.com/rss/articles/CBMidEFVX3lxTE5jQ1pBVEM5Y280S0MzUDNqckIwSmNRVHVmbGw4X0N0bXd2cVBCX0E5XzU0ZmxxVWdNTUE2dFVfNFdEcWhyZi1xenN4dXdXamJXa2ozZFhoSHVaQ0V6X0JJYVgxa2xxNHNvemZYNnBYdzlZeW9k?oc=5)
 
 - **来源**：Google News 环境保护
-- **热度**：72.3
-- **发布时间**：2026-11-07T00:35:00+00:00
-- **关键词**：生态环境, 环境保护, 督察
+- **热度**：86.2
+- **发布时间**：2026-11-09T01:22:53+00:00
+- **关键词**：生态环境, 环境保护
 
-> 青海省第二轮第一批生态环境保护例行督察全面启动，旨在加强生态环境保护监管力度。
+> 青海省发布生态环境保护十五五规划，聚焦生态文明建设、污染防治与可持续发展的新目标。
 
-**分析**：该条目涉及【生态环境保护例行督察】话题，因来源较权威且多家媒体同题报道，热度上升。
+**分析**：该条目涉及【生态环境保护】话题，因来源较权威且发布时间较新，热度上升。
 
 ---
 
-### 10. [Making ammonia at the water’s edge](https://www.nature.com/articles/s41893-026-01982-w)
+### 5. [COP31 kicks off as planet faces imminent overshoot of 1.5 °C climate target](https://www.nature.com/articles/d41586-026-03631-w)
 
-- **来源**：Nature Sustainability
-- **热度**：72.2
-- **发布时间**：2026-11-06T00:00:00+00:00
-- **关键词**：可持续发展
+- **来源**：Nature
+- **热度**：86.1
+- **发布时间**：2026-11-09T00:00:00+00:00
+- **关键词**：气候变化
 
-> 《自然·可持续性》（Nature Sustainability），。光催化固氮可在温和条件下利用氮气和水生成氨，但氮源输送缓慢及产物积聚限制了产出。 如今，一种漂浮式太阳能界面将氮还原与蒸发相结合，极大地加速了氨的生成，并在冷凝液中富集了高纯度的产物。
+> 《自然》杂志， 科学家表示，如果世界要将气温降回更安全的范围，各国政府必须致力于二氧化碳移除工作。
 
-**分析**：该条目涉及【光催化固氮】话题，因来源权威性高，热度上升。
+**分析**：该条目涉及【1.5°C气候目标】话题，因来源权威性高，热度上升。
+
+---
+
+### 6. [The super El Niño is more than a climate shock – it’s a health one, too](https://www.nature.com/articles/d41586-026-03628-5)
+
+- **来源**：Nature
+- **热度**：84.9
+- **发布时间**：2026-11-09T00:00:00+00:00
+
+> 《自然》杂志， 粮食短缺和疾病暴发在所难免，必须统筹应对。
+
+**分析**：该条目涉及【健康影响】话题，因来源权威性高且多家媒体同题报道，热度上升。
+
+---
+
+### 7. [Victoria mode drives the strengthening of tropical Atlantic SST influence on El Niño–Southern Oscillation since the mid-20th century](https://iopscience.iop.org/article/10.1088/1748-9326/aeba9f)
+
+- **来源**：Environmental Research Letters
+- **热度**：83.1
+- **发布时间**：2026-11-09T00:00:00+00:00
+
+> 春季北太平洋热带区（TNA）海表温度（SST）异常是次年冬季厄尔尼诺-南方涛动（ENSO）发展的一个重要先兆。自20世纪中叶以来，TNA海表温度对ENSO的影响显著增强，但其背后的机制尚不明确。 通过大型集合模拟、AGCM实验以及PCMCI算法，我们证明北太平洋维多利亚模态（VM）是近期TNA海表温对ENSO影响增强的关键调节因子。 自20世纪中叶以来，北太平洋气候状态已向负VM相位转变，这加强了东北信风，并增强了亚热带东北太平洋地区的风-蒸发-海表温度（WES）反馈。 这一背景变化放大了亚热带太平洋海表温度对热带大西洋-北太平洋（TNA）诱导的大气异常的响应，促使这些异常通过风-蒸发-海表温度（WES）反馈向热带太平洋延伸，并最终通过热带大气-海洋相互作用调节ENSO的发展。我们的研究结果表明，北太平洋气候系统的十年尺度变率对热带大西洋-ENSO遥相关具有显著的调节作用。
+
+**分析**：该条目涉及【厄尔尼诺-南方涛动】话题，因来源权威性高，热度上升。
+
+---
+
+### 8. [Scale-aware emergent constraints on Tibetan Plateau warming: contrasting global and regional predictors](https://iopscience.iop.org/article/10.1088/1748-9326/aeb9fd)
+
+- **来源**：Environmental Research Letters
+- **热度**：81.3
+- **发布时间**：2026-11-09T00:00:00+00:00
+- **关键词**：温室气体
+
+> 为了利用不同模型间可观测的历史预测变量与预测变化之间的关系，从而降低区域气候预测中的不确定性，新兴约束法正被越来越广泛地应用。然而，历史时间窗口和预测变量尺度的选择会显著影响约束法的性能。 我们以地形复杂的青藏高原（TP）作为试验平台，对比了两种广泛用于约束未来青藏高原变暖的预测因子：大尺度的全球平均地表气温（GSAT）和区域性的青藏高原地表气温（TPSAT）。 我们表明，基于GSAT的约束对外部强迫的时序演变较为敏感，且在始于1980年左右的窗口内约束效果最强，这与温室气体和气溶胶在历史上的不同影响一致。 相比之下，基于 TPSAT 的约束通常随着时间窗口的延长而增强，这表明更长的观测记录有助于抑制内部变异性，并更好地揭示区域受迫信号。 在局部尺度上，GSAT 在低海拔地区表现更好，而 TPSAT 在高海拔和地形复杂的地区更有效，在这些地区，与区域过程相关的信号（包括与冰冻圈相关的反馈）可能更为重要。 受这一空间对比的启发，我们开发了一个“尺度感知”约束框架，该框架在每个网格点上选择当地最优的预测因子，并相对于两种单预测因子方法，在青藏高原的大部分地区降低了投影不确定性。 这些发现突显了尺度感知观测约束的重要性，并可能为其他高海拔和地形复杂地区的约束投影提供参考。
+
+**分析**：该条目涉及【变暖】话题，因来源权威性高，热度上升。
+
+---
+
+### 9. [“中国气候外交新篇章将深远影响全球气候行动” - 中华网](https://news.google.com/rss/articles/CBMiakFVX3lxTE5lNXJSSFZtTnh1RGxvb0NNeTZHSV85azZPVWpjb3VpYklkdnhtYmRReXRENFRsTXFmaGFLRjZrMnA2cHRyWWlnYjlvd0dzRWRmOVdKVVlONThqenRZUG04VHRGSURzTzh0N0E?oc=5)
+
+- **来源**：Google News 气候变化
+- **热度**：80.7
+- **发布时间**：2026-11-09T00:44:46+00:00
+
+> 中国气候外交新篇章发布，将在全球气候行动中产生深远影响，聚焦国际合作与气治理新路径。
+
+**分析**：该条目涉及【气候外交】话题，因来源较权威且发布时间较新，热度上升。
+
+---
+
+### 10. [特稿丨聚焦“落实” COP31承载全球气候治理期待 - 新华网](https://news.google.com/rss/articles/CBMif0FVX3lxTE1pUVdYejZfNmtlSk9VUmQ2NnFtZGsweFFSR0FiWXlpSlBURklHY3BpY2E5OWlEdVliZkd0VEdKOG5zQTE4OEMzVTdybU5vVUMxLVh2Q1E2OFpra1V4djV3MGJ3RDF4NDhfU3NfY2lqQ0RvVmFtNmVQTGRaUXpyc0k?oc=5)
+
+- **来源**：Google News 气候变化
+- **热度**：80.2
+- **发布时间**：2026-11-08T07:41:01+00:00
+
+> 聚焦COP31落实情况，文章分析其承载的全球气候治理期待与实际行动的契合度与挑战。
+
+**分析**：该条目涉及【全球气候治理】话题，因来源较权威且多家媒体同题报道，热度上升。
 
 ---

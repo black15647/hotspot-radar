@@ -10153,3 +10153,172 @@
 
 ---
 
+## 2026-11-10
+
+**今日高频关键词**：`#气候变化` `#可持续发展` `#生态环境` `#环境保护` `#COP31`
+
+**今日 Top10 热点**
+
+### 1. COP31开幕：地球即将突破1.5℃气候目标 - 科学网—新闻
+- **来源**：Google News 气候变化
+- **热度**：87.7
+- **链接**：https://news.google.com/rss/articles/CBMiZkFVX3lxTE5hbHpCOFc4OTVvNTJwNWdLTzRlZUNQQWpLa1NPX2JlTUJ2MHJvODk4TWg2SHgyckhPazBGSkt6Q1VRVE5ld0s2WkQ5Nk5MbmhEVFFhb2RKejFrZjZXdXdWNnNENVJ2Zw?oc=5
+- **摘要**：COP31会议开幕，专家警告地球或突破1.5℃气候升温目标，全球气候治理面临严峻挑战。
+- **分析**：该条目涉及【COP31】话题，因来源较权威且发布时间较新，热度上升。
+
+### 2. As U.N. Climate Negotiations Begin, Report Warns That Warming Is Gaining Pace
+- **来源**：Yale Environment 360
+- **热度**：87.5
+- **链接**：https://e360.yale.edu/digest/wmo-climate-report-2026
+- **摘要**：联合国气象机构报告称，随着第31届联合国气候变化大会（COP31）在土耳其拉开帷幕，地球系统中的热量正以加速的态势积累，2026年有望成为有记录以来最热的四年之一。在E360上阅读更多内容 →
+- **分析**：该条目涉及【COP31】话题，因来源权威性高且发布时间较新，热度上升。
+
+### 3. Widespread North American pollution and health impacts from early twentieth century copper production
+- **来源**：Nature Sustainability
+- **热度**：86.3
+- **链接**：https://www.nature.com/articles/s41893-026-01975-9
+- **摘要**：《自然·可持续性》（Nature Sustainability）， 通过技术干预，可以大幅减少采矿和工业排放。 蒙大拿州阿纳康达市铜矿生产的历史案例表明，当监管不力导致此类干预措施被推迟时，可能会造成广泛的健康负担。
+- **分析**：该条目涉及【健康影响】话题，因来源权威性高，热度上升。
+
+### 4. Agricultural data source choice as a dominant control on nitrogen surplus uncertainty
+- **来源**：Nature Sustainability
+- **热度**：86.3
+- **链接**：https://www.nature.com/articles/s41893-026-01992-8
+- **摘要**：《自然·可持续性》（Nature Sustainability）， 农业地区氮过剩带来的环境影响，使得理解过量氮的性质及其驱动因素至关重要。 Bhaduri及其同事指出，必须考虑数据来源的不确定性，以避免管理和减缓决策出现偏差。
+- **分析**：该条目涉及【数据来源】话题，因来源权威性高，热度上升。
+
+### 5. 啃下固废非法倾倒整治“硬骨头” - 瞭望周刊
+- **来源**：Google News 环境污染
+- **热度**：84.4
+- **链接**：https://news.google.com/rss/articles/CBMifEFVX3lxTFBzUmhZM3c4QVJPcjMySWZ0OTZCRUJ6dVBEUlFXTXdfcVBoMlBHMFlkMk1CU2t3WDViLXZTak9DWmkzaW9aZGFVdnNXZ3VlUnN1N3RqTFV0QmVFY243N3dlZHNiZ25qb3VrcHcwcG9SbkpWXzZNd2JJUDQzZUc?oc=5
+- **摘要**：瞭望周刊报道，固废非法倾倒治理被视为“硬骨头”，文章深入分析了当前治理难点与破局路径。
+- **分析**：该条目涉及【固废非法倾倒】话题，因来源较权威且发布时间较新，热度上升。
+
+### 6. 【闳议】院士专家解码新污染物精准治理如何破局 - 中国网
+- **来源**：Google News 环境污染
+- **热度**：83.7
+- **链接**：https://news.google.com/rss/articles/CBMia0FVX3lxTE9PVmQ0WDl1aXo1UjlMekJhZGRvQy1XTjl6cGZpaHNIWDZnajZYQTVzXzJNWms4ZVo4WVIzcEJidWw4RE40N1BtalA4eTBaNjVDVFlSMzVickstb1dteFd0NWRlM0dXdU1QN0RN?oc=5
+- **摘要**：中国网平台汇集院士专家观点，聚焦新污染物精准治理技术突破，探讨行业破局之道与治理模式创新。
+- **分析**：该条目涉及【新污染物】话题，因来源较权威且发布时间较新，热度上升。
+
+### 7. Democrats to attend Cop31 climate talks boosted by midterms and eager to make up for Trump-era setbacks
+- **来源**：The Guardian Environment
+- **热度**：83.7
+- **链接**：https://www.theguardian.com/environment/2026/nov/09/cop31-climate-democrats-midterms
+- **摘要**：美国政府将不会派官方代表出席联合国年度气候峰会——今年在土耳其安塔利亚举行的第31届联合国气候变化大会（COP31）。美国将缺席周一开幕的关键联合国气候谈判，这进一步表明唐纳德·特朗普对气候危机的轻蔑态度。 但在美国中期选举中，民主党取得的压倒性胜利，为那些正试图摆脱特朗普时代气候政策阻挠的国家注入了一剂及时的乐观剂。这是美国政府连续第二年未派官方代表出席年度气候峰会——今年被称为COP31，在土耳其安塔利亚举行。 尽管世界上几乎所有其他国家都派代表团参加此次会议，但特朗普却将气候危机讥讽为“骗局”和“胡说八道”，并导致美国退出了整个国际气候框架。继续阅读……
+- **分析**：该条目涉及【气候谈判】话题，因来源权威性高且多家媒体同题报道，热度上升。
+
+### 8. The swan sanctuary wetland fighting climate change
+- **来源**：BBC 科学与环境
+- **热度**：82.3
+- **链接**：https://www.bbc.co.uk/news/articles/c60rleej7dqgo?at_medium=RSS&at_campaign=rss
+- **摘要**：一项旨在恢复这种能够对抗气候变化的“湿漉漉的秘密武器”的全球行动。
+- **分析**：该条目涉及【湿地】话题，因来源权威性高且发布时间较新，热度上升。
+
+### 9. 化学与环境学院组织学生赴四川亿欣新材料有限公司开展专业课程实习 - 西南民族大学
+- **来源**：Google News 环境校招实习
+- **热度**：82.2
+- **链接**：https://news.google.com/rss/articles/CBMiWEFVX3lxTFBsUzNBdS1lYWpSVi1NN2tiUXpjNHlZUW4wZ3plY3dhWjRMakg0TmQxSFgwYXZ2ci15ZDhXVXc5bGpCem1KUm1oX1JGYTA2dWhRN2NrZUMwMUQ?oc=5
+- **摘要**：西南民族大学化学与环境学院组织学生实习，深入四川亿欣新材料有限公司开展专业课程实习，促进产学研对接与人才培养。
+- **分析**：该条目涉及【化学与环境学院】话题，因来源较权威且发布时间较新，热度上升。
+
+### 10. Movement characteristics of persistent extreme precipitation events over China during the warm season using high spatiotemporal resolution data
+- **来源**：Environmental Research Letters
+- **热度**：81.7
+- **链接**：https://iopscience.iop.org/article/10.1088/1748-9326/aebbd1
+- **摘要**：移动性持续极端降水事件（PEPE）会在其路径沿线引发严重灾害。然而，一个PEPE通常由多个降水单元组成，这些单元的发展和移动方式各不相同，导致传统的单中心追踪方法无法捕捉其各自的特征。 本文采用多雨团追踪方法，利用1998–2024年间半小时时间分辨率和0.1°空间分辨率的高分辨率降水数据，对中国暖季（5月至9月）期间PEPE的移动特征进行了分析。 根据移动距离和方向，将 PEPE 分为长距离向东移动型、短距离向东移动型、向东北移动型和向西移动型，它们分别在中国东南、青藏高原（TP）、中国东北和中国南部最为常见。 从时间上看，这四类事件的发生频率从 5 月到 8 月逐渐达到高峰，而移动距离较长的 PEPE 往往发生在清晨。 就大尺度环流模式而言，西太平洋副热带高压（WPSH）向西南方向延伸有利于长距离向东移动的PEPE；短距离向东移动的PEPE与青藏高原（TP）周边地势高度异常的子午向双极结构有关； 向东北移动的类型可能受高纬度波列环流模式的影响；当西太平洋副热带高压向西北延伸时，向西移动的PEPE发生频率更高。这些发现为PEPE的移动提供了全面的气候学分析，并突出了不同的环流控制机制，这可能有助于预测移动性极端降水。
+- **分析**：该条目涉及【极端降水】话题，因来源权威性高，热度上升。
+
+**今日自动提取候选新词**
+
+- **中国**（出现 7 次）
+  - 上下文：【闳议】院士专家解码新污染物精准治理如何破局 - 中国网
+  - 上下文：“寻美中国”生态文化旅游精品线路亮相COP31，首批线路2027年世界环境日发布 - 新京报
+  - 上下文：16.11亿出售两家公司100%股权！联泰环保披露出售草案 - 中国水网
+- **气候**（出现 4 次）
+  - 上下文：COP31开幕：地球即将突破1.5℃气候目标 - 科学网—新闻
+  - 上下文：联合国气候大会开幕日为何设“健康日”？听听参会专家怎么说 - ThePaper.cn
+  - 上下文：未来几个月全球气温将异常偏高 厄尔尼诺加剧气候危机 - 中华网
+- **water**（出现 4 次）
+  - 上下文：Ground-based GNSS transmissometry reveals contrasting leaf and stem water dynamics in a central Amazon rainforest
+  - 上下文：A hybrid nature-based ecological restoration system stabilizes water quality and food-web recovery in a continuous nutrient-loaded pond
+  - 上下文：Sales of tinned food and bottled water  jump after 'Be Ready' campaign launch
+- **开幕**（出现 3 次）
+  - 上下文：COP31开幕：地球即将突破1.5℃气候目标 - 科学网—新闻
+  - 上下文：联合国气候大会开幕日为何设“健康日”？听听参会专家怎么说 - ThePaper.cn
+  - 上下文：联合国气候变化安塔利亚大会开幕 - 新华网
+- **专家**（出现 3 次）
+  - 上下文：【闳议】院士专家解码新污染物精准治理如何破局 - 中国网
+  - 上下文：联合国气候大会开幕日为何设“健康日”？听听参会专家怎么说 - ThePaper.cn
+  - 上下文：专家解读京津冀将现中至重度污染：不利气象条件所致 - 京报网
+- **high**（出现 3 次）
+  - 上下文：Movement characteristics of persistent extreme precipitation events over China during the warm season using high spatiotemporal resolution data
+  - 上下文：Photocatalytic nitrogen reduction to high-concentration ammonia via interfacial evaporation
+  - 上下文：A high-rate anaerobic/oxic membrane bioreactor for phosphorus removal and carbon capture from municipal wastewater: Operational limits and energy-recovery potential via sidestream anaerobic digestion
+- **全球**（出现 3 次）
+  - 上下文：未来几个月全球气温将异常偏高 厄尔尼诺加剧气候危机 - 中华网
+  - 上下文：中国以务实行动推动全球气候治理 - 中国网
+  - 上下文：协同合作共护共兴全球海洋 - 中国经济网
+- **COP31**（出现 2 次）
+  - 上下文：COP31开幕：地球即将突破1.5℃气候目标 - 科学网—新闻
+  - 上下文：“寻美中国”生态文化旅游精品线路亮相COP31，首批线路2027年世界环境日发布 - 新京报
+- **Climate**（出现 2 次）
+  - 上下文：As U.N. Climate Negotiations Begin, Report Warns That Warming Is Gaining Pace
+  - 上下文：Adaptation Fund and Green Climate Fund Join Forces to Scale Up Proven Adaptation Projects
+- **early**（出现 2 次）
+  - 上下文：Widespread North American pollution and health impacts from early twentieth century copper production
+  - 上下文：High-resolution soil moisture forecasts for drought early warning in Germany
+- **data**（出现 2 次）
+  - 上下文：Agricultural data source choice as a dominant control on nitrogen surplus uncertainty
+  - 上下文：Movement characteristics of persistent extreme precipitation events over China during the warm season using high spatiotemporal resolution data
+- **nitrogen**（出现 2 次）
+  - 上下文：Agricultural data source choice as a dominant control on nitrogen surplus uncertainty
+  - 上下文：Photocatalytic nitrogen reduction to high-concentration ammonia via interfacial evaporation
+- **resolution**（出现 2 次）
+  - 上下文：Movement characteristics of persistent extreme precipitation events over China during the warm season using high spatiotemporal resolution data
+  - 上下文：High-resolution soil moisture forecasts for drought early warning in Germany
+- **联合国**（出现 2 次）
+  - 上下文：联合国气候大会开幕日为何设“健康日”？听听参会专家怎么说 - ThePaper.cn
+  - 上下文：联合国气候变化安塔利亚大会开幕 - 新华网
+- **大会**（出现 2 次）
+  - 上下文：联合国气候大会开幕日为何设“健康日”？听听参会专家怎么说 - ThePaper.cn
+  - 上下文：联合国气候变化安塔利亚大会开幕 - 新华网
+- **生态**（出现 2 次）
+  - 上下文：【省生态环境厅】第二轮第一批省生态环境保护例行督察全部实现督察进驻-政务公开 - 青海省人民政府
+  - 上下文：“寻美中国”生态文化旅游精品线路亮相COP31，首批线路2027年世界环境日发布 - 新京报
+- **based**（出现 2 次）
+  - 上下文：Ground-based GNSS transmissometry reveals contrasting leaf and stem water dynamics in a central Amazon rainforest
+  - 上下文：A hybrid nature-based ecological restoration system stabilizes water quality and food-web recovery in a continuous nutrient-loaded pond
+- **contrasting**（出现 2 次）
+  - 上下文：Ground-based GNSS transmissometry reveals contrasting leaf and stem water dynamics in a central Amazon rainforest
+  - 上下文：Scale-aware emergent constraints on Tibetan Plateau warming: contrasting global and regional predictors
+- **Scale**（出现 2 次）
+  - 上下文：Scale-aware emergent constraints on Tibetan Plateau warming: contrasting global and regional predictors
+  - 上下文：Adaptation Fund and Green Climate Fund Join Forces to Scale Up Proven Adaptation Projects
+- **system**（出现 2 次）
+  - 上下文：A hybrid nature-based ecological restoration system stabilizes water quality and food-web recovery in a continuous nutrient-loaded pond
+  - 上下文：The overlooked hydroxylation of NOM contributes to the additional generation of ·OH in H<sub>2</sub>O<sub>2</sub>/Fe(III)/NOM system
+- **food**（出现 2 次）
+  - 上下文：A hybrid nature-based ecological restoration system stabilizes water quality and food-web recovery in a continuous nutrient-loaded pond
+  - 上下文：Sales of tinned food and bottled water  jump after 'Be Ready' campaign launch
+- **recovery**（出现 2 次）
+  - 上下文：A hybrid nature-based ecological restoration system stabilizes water quality and food-web recovery in a continuous nutrient-loaded pond
+  - 上下文：A high-rate anaerobic/oxic membrane bioreactor for phosphorus removal and carbon capture from municipal wastewater: Operational limits and energy-recovery potential via sidestream anaerobic digestion
+- **水网**（出现 2 次）
+  - 上下文：16.11亿出售两家公司100%股权！联泰环保披露出售草案 - 中国水网
+  - 上下文：4亿！江苏高邮东北片区域供水特许经营项目招标 - 中国水网
+- **energy**（出现 2 次）
+  - 上下文：The superpower battle over energy – and what it means for your bills
+  - 上下文：A high-rate anaerobic/oxic membrane bioreactor for phosphorus removal and carbon capture from municipal wastewater: Operational limits and energy-recovery potential via sidestream anaerobic digestion
+- **海洋**（出现 2 次）
+  - 上下文：海洋生态环境术语中译外检索平台正式上线 - 中国外文出版发行事业局
+  - 上下文：协同合作共护共兴全球海洋 - 中国经济网
+- **ammonia**（出现 2 次）
+  - 上下文：Making ammonia at the water’s edge
+  - 上下文：Photocatalytic nitrogen reduction to high-concentration ammonia via interfacial evaporation
+- **Science**（出现 2 次）
+  - 上下文：In Other Journals | Science
+  - 上下文：In the image of their tools | Science
+
+---
+

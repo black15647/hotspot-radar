@@ -1,0 +1,555 @@
+{
+  "report_date": "2026-11-10",
+  "site_name": "环境学子雷达",
+  "total_items": 45,
+  "snapshot_items": 10,
+  "category_stats": {
+    "气候变化": {
+      "count": 15,
+      "total_heat": 1118.9
+    },
+    "环境健康": {
+      "count": 1,
+      "total_heat": 86.3
+    },
+    "科研学术": {
+      "count": 4,
+      "total_heat": 298.3
+    },
+    "污染治理": {
+      "count": 5,
+      "total_heat": 383.9
+    },
+    "生态环境": {
+      "count": 8,
+      "total_heat": 584.5
+    },
+    "水处理": {
+      "count": 4,
+      "total_heat": 289.5
+    },
+    "其他": {
+      "count": 4,
+      "total_heat": 280.7
+    },
+    "能源与碳中和": {
+      "count": 1,
+      "total_heat": 76.3
+    },
+    "环境政策": {
+      "count": 3,
+      "total_heat": 210.1
+    }
+  },
+  "total_sources": 28,
+  "success_sources": 27,
+  "failed_sources": 0,
+  "week_total_items": 259,
+  "week_new_keywords": 72,
+  "policy_ratio": 10.8,
+  "items": [
+    {
+      "title": "COP31开幕：地球即将突破1.5℃气候目标 - 科学网—新闻",
+      "title_en": "",
+      "title_zh": "",
+      "link": "https://news.google.com/rss/articles/CBMiZkFVX3lxTE5hbHpCOFc4OTVvNTJwNWdLTzRlZUNQQWpLa1NPX2JlTUJ2MHJvODk4TWg2SHgyckhPazBGSkt6Q1VRVE5ld0s2WkQ5Nk5MbmhEVFFhb2RKejFrZjZXdXdWNnNENVJ2Zw?oc=5",
+      "source": "Google News 气候变化",
+      "published": "2026-11-10T09:17:37+00:00",
+      "hotness": 87.7,
+      "score_v1": 17.2,
+      "score_v2": 87.7,
+      "score_breakdown": {
+        "algorithm": "v3.0",
+        "dimension_max": {
+          "authority": 18.0,
+          "topic": 18.0,
+          "resonance": 18.0,
+          "information": 16.0
+        },
+        "authority_score": 8.05,
+        "keyword_idf_score": 0.0,
+        "topic_score": 3.0,
+        "topic_burst_score": 0.0,
+        "topic_burst_count": 1,
+        "resonance_score": 13.26,
+        "info_score": 9.0,
+        "base": 33.31,
+        "base_max": 70.0,
+        "time_factor": 0.9527,
+        "density_factor": 1.0,
+        "density_note": "",
+        "repeat_penalty": 1.0,
+        "repeat_excused": false,
+        "event_size": 3,
+        "event_media_count": 3,
+        "event_cluster_source": "ai",
+        "origin_source": "科学网—新闻",
+        "raw": 31.73,
+        "display_score": 87.7,
+        "display_mode": "absolute"
+      },
+      "summary": "COP31会议开幕，专家警告地球或突破1.5℃气候升温目标，全球气候治理面临严峻挑战。",
+      "analysis": "",
+      "topic_tags": [
+        "COP31",
+        "气候目标"
+      ],
+      "category": "气候变化",
+      "matched_keywords": []
+    },
+    {
+      "title": "As U.N. Climate Negotiations Begin, Report Warns That Warming Is Gaining Pace",
+      "title_en": "As U.N. Climate Negotiations Begin, Report Warns That Warming Is Gaining Pace",
+      "title_zh": "联合国气候谈判拉开帷幕之际，一份报告警告称全球变暖正在加速",
+      "link": "https://e360.yale.edu/digest/wmo-climate-report-2026",
+      "source": "Yale Environment 360",
+      "published": "2026-11-10T09:54:00+00:00",
+      "hotness": 87.5,
+      "score_v1": 28.32,
+      "score_v2": 87.5,
+      "score_breakdown": {
+        "algorithm": "v3.0",
+        "dimension_max": {
+          "authority": 18.0,
+          "topic": 18.0,
+          "resonance": 18.0,
+          "information": 16.0
+        },
+        "authority_score": 12.73,
+        "keyword_idf_score": 3.47,
+        "topic_score": 8.14,
+        "topic_burst_score": 4.66,
+        "topic_burst_count": 4,
+        "resonance_score": 8.76,
+        "info_score": 3.0,
+        "base": 32.62,
+        "base_max": 70.0,
+        "time_factor": 0.9604,
+        "density_factor": 1.0,
+        "density_note": "",
+        "repeat_penalty": 1.0,
+        "repeat_excused": false,
+        "event_size": 3,
+        "event_media_count": 2,
+        "event_cluster_source": "ai",
+        "origin_source": "Yale Environment 360",
+        "raw": 31.33,
+        "display_score": 87.5,
+        "display_mode": "absolute"
+      },
+      "summary": "联合国气象机构报告称，随着第31届联合国气候变化大会（COP31）在土耳其拉开帷幕，地球系统中的热量正以加速的态势积累，2026年有望成为有记录以来最热的四年之一。在E360上阅读更多内容 →",
+      "analysis": "",
+      "topic_tags": [
+        "COP31"
+      ],
+      "category": "气候变化",
+      "matched_keywords": [
+        "气候变化"
+      ]
+    },
+    {
+      "title": "Widespread North American pollution and health impacts from early twentieth century copper production",
+      "title_en": "Widespread North American pollution and health impacts from early twentieth century copper production",
+      "title_zh": "20世纪初铜生产导致的北美地区大范围污染及其对健康的影响",
+      "link": "https://www.nature.com/articles/s41893-026-01975-9",
+      "source": "Nature Sustainability",
+      "published": "2026-11-10T00:00:00+00:00",
+      "hotness": 86.3,
+      "score_v1": 26.84,
+      "score_v2": 86.3,
+      "score_breakdown": {
+        "algorithm": "v3.0",
+        "dimension_max": {
+          "authority": 18.0,
+          "topic": 18.0,
+          "resonance": 18.0,
+          "information": 16.0
+        },
+        "authority_score": 18.0,
+        "keyword_idf_score": 5.15,
+        "topic_score": 9.81,
+        "topic_burst_score": 4.66,
+        "topic_burst_count": 4,
+        "resonance_score": 0.0,
+        "info_score": 7.0,
+        "base": 34.81,
+        "base_max": 70.0,
+        "time_factor": 0.8466,
+        "density_factor": 1.0,
+        "density_note": "",
+        "repeat_penalty": 1.0,
+        "repeat_excused": false,
+        "event_size": 1,
+        "event_media_count": 1,
+        "event_cluster_source": "ai",
+        "origin_source": "Nature Sustainability",
+        "raw": 29.47,
+        "display_score": 86.3,
+        "display_mode": "absolute"
+      },
+      "summary": "《自然·可持续性》（Nature Sustainability）， 通过技术干预，可以大幅减少采矿和工业排放。 蒙大拿州阿纳康达市铜矿生产的历史案例表明，当监管不力导致此类干预措施被推迟时，可能会造成广泛的健康负担。",
+      "analysis": "",
+      "topic_tags": [
+        "健康影响",
+        "监管不力"
+      ],
+      "category": "环境健康",
+      "matched_keywords": [
+        "可持续发展"
+      ]
+    },
+    {
+      "title": "Agricultural data source choice as a dominant control on nitrogen surplus uncertainty",
+      "title_en": "Agricultural data source choice as a dominant control on nitrogen surplus uncertainty",
+      "title_zh": "农业数据来源的选择是影响氮过剩不确定性的主要控制因素",
+      "link": "https://www.nature.com/articles/s41893-026-01992-8",
+      "source": "Nature Sustainability",
+      "published": "2026-11-10T00:00:00+00:00",
+      "hotness": 86.3,
+      "score_v1": 26.84,
+      "score_v2": 86.3,
+      "score_breakdown": {
+        "algorithm": "v3.0",
+        "dimension_max": {
+          "authority": 18.0,
+          "topic": 18.0,
+          "resonance": 18.0,
+          "information": 16.0
+        },
+        "authority_score": 18.0,
+        "keyword_idf_score": 5.15,
+        "topic_score": 9.81,
+        "topic_burst_score": 4.66,
+        "topic_burst_count": 4,
+        "resonance_score": 0.0,
+        "info_score": 7.0,
+        "base": 34.81,
+        "base_max": 70.0,
+        "time_factor": 0.8466,
+        "density_factor": 1.0,
+        "density_note": "",
+        "repeat_penalty": 1.0,
+        "repeat_excused": false,
+        "event_size": 1,
+        "event_media_count": 1,
+        "event_cluster_source": "ai",
+        "origin_source": "Nature Sustainability",
+        "raw": 29.47,
+        "display_score": 86.3,
+        "display_mode": "absolute"
+      },
+      "summary": "《自然·可持续性》（Nature Sustainability）， 农业地区氮过剩带来的环境影响，使得理解过量氮的性质及其驱动因素至关重要。 Bhaduri及其同事指出，必须考虑数据来源的不确定性，以避免管理和减缓决策出现偏差。",
+      "analysis": "",
+      "topic_tags": [
+        "数据来源"
+      ],
+      "category": "科研学术",
+      "matched_keywords": [
+        "可持续发展"
+      ]
+    },
+    {
+      "title": "啃下固废非法倾倒整治“硬骨头” - 瞭望周刊",
+      "title_en": "",
+      "title_zh": "",
+      "link": "https://news.google.com/rss/articles/CBMifEFVX3lxTFBzUmhZM3c4QVJPcjMySWZ0OTZCRUJ6dVBEUlFXTXdfcVBoMlBHMFlkMk1CU2t3WDViLXZTak9DWmkzaW9aZGFVdnNXZ3VlUnN1N3RqTFV0QmVFY243N3dlZHNiZ25qb3VrcHcwcG9SbkpWXzZNd2JJUDQzZUc?oc=5",
+      "source": "Google News 环境污染",
+      "published": "2026-11-10T06:02:13+00:00",
+      "hotness": 84.4,
+      "score_v1": 20.11,
+      "score_v2": 84.4,
+      "score_breakdown": {
+        "algorithm": "v3.0",
+        "dimension_max": {
+          "authority": 18.0,
+          "topic": 18.0,
+          "resonance": 18.0,
+          "information": 16.0
+        },
+        "authority_score": 8.05,
+        "keyword_idf_score": 8.17,
+        "topic_score": 8.17,
+        "topic_burst_score": 0.0,
+        "topic_burst_count": 1,
+        "resonance_score": 13.26,
+        "info_score": 0.0,
+        "base": 29.47,
+        "base_max": 70.0,
+        "time_factor": 0.9132,
+        "density_factor": 1.0,
+        "density_note": "",
+        "repeat_penalty": 1.0,
+        "repeat_excused": false,
+        "event_size": 3,
+        "event_media_count": 3,
+        "event_cluster_source": "ai",
+        "origin_source": "瞭望周刊",
+        "raw": 26.91,
+        "display_score": 84.4,
+        "display_mode": "absolute"
+      },
+      "summary": "瞭望周刊报道，固废非法倾倒治理被视为“硬骨头”，文章深入分析了当前治理难点与破局路径。",
+      "analysis": "",
+      "topic_tags": [
+        "固废非法倾倒",
+        "环境执法"
+      ],
+      "category": "污染治理",
+      "matched_keywords": [
+        "固废"
+      ]
+    },
+    {
+      "title": "【闳议】院士专家解码新污染物精准治理如何破局 - 中国网",
+      "title_en": "",
+      "title_zh": "",
+      "link": "https://news.google.com/rss/articles/CBMia0FVX3lxTE9PVmQ0WDl1aXo1UjlMekJhZGRvQy1XTjl6cGZpaHNIWDZnajZYQTVzXzJNWms4ZVo4WVIzcEJidWw4RE40N1BtalA4eTBaNjVDVFlSMzVickstb1dteFd0NWRlM0dXdU1QN0RN?oc=5",
+      "source": "Google News 环境污染",
+      "published": "2026-11-10T05:56:00+00:00",
+      "hotness": 83.7,
+      "score_v1": 20.07,
+      "score_v2": 83.7,
+      "score_breakdown": {
+        "algorithm": "v3.0",
+        "dimension_max": {
+          "authority": 18.0,
+          "topic": 18.0,
+          "resonance": 18.0,
+          "information": 16.0
+        },
+        "authority_score": 8.05,
+        "keyword_idf_score": 7.29,
+        "topic_score": 7.29,
+        "topic_burst_score": 0.0,
+        "topic_burst_count": 1,
+        "resonance_score": 13.26,
+        "info_score": 0.0,
+        "base": 28.59,
+        "base_max": 70.0,
+        "time_factor": 0.912,
+        "density_factor": 1.0,
+        "density_note": "",
+        "repeat_penalty": 1.0,
+        "repeat_excused": true,
+        "event_size": 3,
+        "event_media_count": 3,
+        "event_cluster_source": "ai",
+        "origin_source": "中国网",
+        "raw": 26.08,
+        "display_score": 83.7,
+        "display_mode": "absolute"
+      },
+      "summary": "中国网平台汇集院士专家观点，聚焦新污染物精准治理技术突破，探讨行业破局之道与治理模式创新。",
+      "analysis": "",
+      "topic_tags": [
+        "新污染物",
+        "精准治理"
+      ],
+      "category": "污染治理",
+      "matched_keywords": [
+        "新污染物"
+      ]
+    },
+    {
+      "title": "Democrats to attend Cop31 climate talks boosted by midterms and eager to make up for Trump-era setbacks",
+      "title_en": "Democrats to attend Cop31 climate talks boosted by midterms and eager to make up for Trump-era setbacks",
+      "title_zh": "在期中选举的提振下，将出席第31届联合国气候变化大会（COP31）的民主党人正迫切希望弥补特朗普执政时期的挫折",
+      "link": "https://www.theguardian.com/environment/2026/nov/09/cop31-climate-democrats-midterms",
+      "source": "The Guardian Environment",
+      "published": "2026-11-09T06:00:01+00:00",
+      "hotness": 83.7,
+      "score_v1": 22.26,
+      "score_v2": 83.7,
+      "score_breakdown": {
+        "algorithm": "v3.0",
+        "dimension_max": {
+          "authority": 18.0,
+          "topic": 18.0,
+          "resonance": 18.0,
+          "information": 16.0
+        },
+        "authority_score": 12.73,
+        "keyword_idf_score": 3.47,
+        "topic_score": 8.14,
+        "topic_burst_score": 4.66,
+        "topic_burst_count": 4,
+        "resonance_score": 8.76,
+        "info_score": 8.0,
+        "base": 37.62,
+        "base_max": 70.0,
+        "time_factor": 0.6913,
+        "density_factor": 1.0,
+        "density_note": "",
+        "repeat_penalty": 1.0,
+        "repeat_excused": true,
+        "event_size": 3,
+        "event_media_count": 2,
+        "event_cluster_source": "ai",
+        "origin_source": "The Guardian Environment",
+        "raw": 26.01,
+        "display_score": 83.7,
+        "display_mode": "absolute"
+      },
+      "summary": "美国政府将不会派官方代表出席联合国年度气候峰会——今年在土耳其安塔利亚举行的第31届联合国气候变化大会（COP31）。美国将缺席周一开幕的关键联合国气候谈判，这进一步表明唐纳德·特朗普对气候危机的轻蔑态度。 但在美国中期选举中，民主党取得的压倒性胜利，为那些正试图摆脱特朗普时代气候政策阻挠的国家注入了一剂及时的乐观剂。这是美国政府连续第二年未派官方代表出席年度气候峰会——今年被称为COP31，在土耳其安塔利亚举行。 尽管世界上几乎所有其他国家都派代表团参加此次会议，但特朗普却将气候危机讥讽为“骗局”和“胡说八道”，并导致美国退出了整个国际气候框架。继续阅读……",
+      "analysis": "",
+      "topic_tags": [
+        "气候谈判"
+      ],
+      "category": "气候变化",
+      "matched_keywords": [
+        "气候变化"
+      ]
+    },
+    {
+      "title": "The swan sanctuary wetland fighting climate change",
+      "title_en": "The swan sanctuary wetland fighting climate change",
+      "title_zh": "天鹅保护区湿地助力应对气候变化",
+      "link": "https://www.bbc.co.uk/news/articles/c60rleej7dqgo?at_medium=RSS&at_campaign=rss",
+      "source": "BBC 科学与环境",
+      "published": "2026-11-10T06:30:29+00:00",
+      "hotness": 82.3,
+      "score_v1": 31.16,
+      "score_v2": 82.3,
+      "score_breakdown": {
+        "algorithm": "v3.0",
+        "dimension_max": {
+          "authority": 18.0,
+          "topic": 18.0,
+          "resonance": 18.0,
+          "information": 16.0
+        },
+        "authority_score": 12.73,
+        "keyword_idf_score": 8.41,
+        "topic_score": 13.07,
+        "topic_burst_score": 4.66,
+        "topic_burst_count": 4,
+        "resonance_score": 0.0,
+        "info_score": 0.75,
+        "base": 26.55,
+        "base_max": 70.0,
+        "time_factor": 0.9187,
+        "density_factor": 1.0,
+        "density_note": "",
+        "repeat_penalty": 1.0,
+        "repeat_excused": false,
+        "event_size": 1,
+        "event_media_count": 1,
+        "event_cluster_source": "ai",
+        "origin_source": "BBC 科学与环境",
+        "raw": 24.39,
+        "display_score": 82.3,
+        "display_mode": "absolute"
+      },
+      "summary": "一项旨在恢复这种能够对抗气候变化的“湿漉漉的秘密武器”的全球行动。",
+      "analysis": "",
+      "topic_tags": [
+        "湿地",
+        "天鹅保护区"
+      ],
+      "category": "生态环境",
+      "matched_keywords": [
+        "气候变化",
+        "湿地"
+      ]
+    },
+    {
+      "title": "化学与环境学院组织学生赴四川亿欣新材料有限公司开展专业课程实习 - 西南民族大学",
+      "title_en": "",
+      "title_zh": "",
+      "link": "https://news.google.com/rss/articles/CBMiWEFVX3lxTFBsUzNBdS1lYWpSVi1NN2tiUXpjNHlZUW4wZ3plY3dhWjRMakg0TmQxSFgwYXZ2ci15ZDhXVXc5bGpCem1KUm1oX1JGYTA2dWhRN2NrZUMwMUQ?oc=5",
+      "source": "Google News 环境校招实习",
+      "published": "2026-11-10T09:42:04+00:00",
+      "hotness": 82.2,
+      "score_v1": 21.95,
+      "score_v2": 82.2,
+      "score_breakdown": {
+        "algorithm": "v3.0",
+        "dimension_max": {
+          "authority": 18.0,
+          "topic": 18.0,
+          "resonance": 18.0,
+          "information": 16.0
+        },
+        "authority_score": 11.38,
+        "keyword_idf_score": 10.0,
+        "topic_score": 10.0,
+        "topic_burst_score": 0.0,
+        "topic_burst_count": 1,
+        "resonance_score": 0.0,
+        "info_score": 4.0,
+        "base": 25.38,
+        "base_max": 70.0,
+        "time_factor": 0.9579,
+        "density_factor": 1.0,
+        "density_note": "",
+        "repeat_penalty": 1.0,
+        "repeat_excused": false,
+        "event_size": 1,
+        "event_media_count": 1,
+        "event_cluster_source": "ai",
+        "origin_source": "西南民族大学",
+        "raw": 24.31,
+        "display_score": 82.2,
+        "display_mode": "absolute"
+      },
+      "summary": "西南民族大学化学与环境学院组织学生实习，深入四川亿欣新材料有限公司开展专业课程实习，促进产学研对接与人才培养。",
+      "analysis": "",
+      "topic_tags": [
+        "化学与环境学院"
+      ],
+      "category": "科研学术",
+      "matched_keywords": [
+        "实习"
+      ]
+    },
+    {
+      "title": "Movement characteristics of persistent extreme precipitation events over China during the warm season using high spatiotemporal resolution data",
+      "title_en": "Movement characteristics of persistent extreme precipitation events over China during the warm season using high spatiotemporal resolution data",
+      "title_zh": "利用高时空分辨率数据研究中国暖季持续性极端降水事件的移动特征",
+      "link": "https://iopscience.iop.org/article/10.1088/1748-9326/aebbd1",
+      "source": "Environmental Research Letters",
+      "published": "2026-11-10T00:00:00+00:00",
+      "hotness": 81.7,
+      "score_v1": 16.84,
+      "score_v2": 81.7,
+      "score_breakdown": {
+        "algorithm": "v3.0",
+        "dimension_max": {
+          "authority": 18.0,
+          "topic": 18.0,
+          "resonance": 18.0,
+          "information": 16.0
+        },
+        "authority_score": 18.0,
+        "keyword_idf_score": 0.0,
+        "topic_score": 3.0,
+        "topic_burst_score": 0.0,
+        "topic_burst_count": 1,
+        "resonance_score": 0.0,
+        "info_score": 7.0,
+        "base": 28.0,
+        "base_max": 70.0,
+        "time_factor": 0.8466,
+        "density_factor": 1.0,
+        "density_note": "",
+        "repeat_penalty": 1.0,
+        "repeat_excused": false,
+        "event_size": 1,
+        "event_media_count": 1,
+        "event_cluster_source": "ai",
+        "origin_source": "Environmental Research Letters",
+        "raw": 23.71,
+        "display_score": 81.7,
+        "display_mode": "absolute"
+      },
+      "summary": "移动性持续极端降水事件（PEPE）会在其路径沿线引发严重灾害。然而，一个PEPE通常由多个降水单元组成，这些单元的发展和移动方式各不相同，导致传统的单中心追踪方法无法捕捉其各自的特征。 本文采用多雨团追踪方法，利用1998–2024年间半小时时间分辨率和0.1°空间分辨率的高分辨率降水数据，对中国暖季（5月至9月）期间PEPE的移动特征进行了分析。 根据移动距离和方向，将 PEPE 分为长距离向东移动型、短距离向东移动型、向东北移动型和向西移动型，它们分别在中国东南、青藏高原（TP）、中国东北和中国南部最为常见。 从时间上看，这四类事件的发生频率从 5 月到 8 月逐渐达到高峰，而移动距离较长的 PEPE 往往发生在清晨。 就大尺度环流模式而言，西太平洋副热带高压（WPSH）向西南方向延伸有利于长距离向东移动的PEPE；短距离向东移动的PEPE与青藏高原（TP）周边地势高度异常的子午向双极结构有关； 向东北移动的类型可能受高纬度波列环流模式的影响；当西太平洋副热带高压向西北延伸时，向西移动的PEPE发生频率更高。这些发现为PEPE的移动提供了全面的气候学分析，并突出了不同的环流控制机制，这可能有助于预测移动性极端降水。",
+      "analysis": "",
+      "topic_tags": [
+        "极端降水",
+        "高分辨率数据"
+      ],
+      "category": "水处理",
+      "matched_keywords": []
+    }
+  ]
+}

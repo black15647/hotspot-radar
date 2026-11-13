@@ -1,139 +1,139 @@
 # 环境学子雷达 - 每日热点报告
 
-**日期**：2026-11-12
-**总条目数**：42
+**日期**：2026-11-13
+**总条目数**：49
 
-**近7天见解**：近7天环境热点呈现“气候变化、生态环境、环境政策”为核心的三足鼎立态势，科研学术与水处理等专业领域虽占比不大，但作为基石支撑作用明显。总体来看，生态环境与污染治理热度显著上升，反映公众对即时生态安全与治理成效的关注度提升，气候变化话题虽稳居首位，但已呈现由热转冷的趋势，整体热点分布呈现由广及深、由表及里的演变特征。
+**近7天见解**：近7天环境热点呈现出“气候变化、生态环境、污染治理”三大类集中，其中气候变化条目最为集中，显著高于其他板块。生态环境与污染治理虽具规模，但整体分布相对分散，环境政策与水处理等细分领域热度有所回落，整体呈现出气候议题主导、综合治理同步推进的特征。
 
 ---
 
 ## 今日热点 TOP 10
 
-### 1. [9支队伍同台大比拼 这场竞赛让生态环境法典从“读条文”到“懂运用” - Sohu](https://news.google.com/rss/articles/CBMijAFBVV95cUxPblprbUxTMlFzcWctUXdzcWM2aVhRc182ZVc2TWxwaDRYX25aV1Fhd2l6eWxnYzBDSVNJTlZ1emJpRjRqTUpWSmRmdk5URVhzQlhJRnZKZnVGYVNfLXljcU5TdGp2X1ZoOHpBSzd6X1UzTVh6MjB3cTNtZEplelJKVU5jdEFDMWVVM05LQw?oc=5)
+### 1. [广东省流域和海域生态环境保护 “十五五”规划 - https://www.gdshe.org/](https://news.google.com/rss/articles/CBMiUkFVX3lxTE85WDNaWkdjdUpCNzI0RjdyU09PYVM2S3I4ZGFJYWhnVG5tcE9BMm5OdDNxN2JSQWlGNkFqVjdxVnlOdFY4VEowR3p2eTFDclRkaXc?oc=5)
 
-- **来源**：Google News 环境竞赛
-- **热度**：91.8
-- **发布时间**：2026-11-12T10:14:30+00:00
-- **关键词**：生态环境, 环境法典, 竞赛
+- **来源**：Google News 环境保护
+- **热度**：90.3
+- **发布时间**：2026-11-13T02:20:12+00:00
+- **关键词**：流域, 生态环境, 环境保护
 
-> 11月12日，重庆市生态环境系统《中华人民共和国生态环境法典》知识竞赛决赛在市生态环境局举行。9支晋级队伍经过必答题、抢答题、风险闯关等环节比拼，涪陵区代表队凭借扎实功底和稳定发挥获得一等奖。
+> 广东省生态环境厅印发《广东省流域和海域生态环境保护“十五五”规划》，聚焦流域海域生态环境保护规划。
 
-**分析**：该条目涉及【生态环境法典】话题，因来源较权威且发布时间较新，热度上升。
+**分析**：该条目涉及【广东省流域和海域生态环境保护】话题，因来源较权威且发布时间较新，热度上升。
 
 ---
 
-### 2. [Is Indigenous knowledge meaningfully represented in the IPCC AR6? A bibliometric meta-analysis](https://iopscience.iop.org/article/10.1088/1748-9326/aebe4c)
+### 2. [江西生态环境系统13个集体和15名个人获省委、省政府表彰 - 凤凰网](https://news.google.com/rss/articles/CBMiSkFVX3lxTE1KN0Rkd00xeDNHU0ZHeWctZi1LaHNNTTVOZVFVWktJMDdUZ0syYlJSclp6bVpxMEoxV21xNmN0WW5YS2dWNG9jb2pR?oc=5)
+
+- **来源**：Google News 环境保护
+- **热度**：87.3
+- **发布时间**：2026-11-13T00:12:24+00:00
+- **关键词**：生态环境
+
+> 江西省生态环境系统13个集体和15名个人获省委、省政府表彰，表彰其在生态环境保护工作中的突出贡献。
+
+**分析**：该条目涉及【江西生态环境系统】话题，因来源较权威且发布时间较新，热度上升。
+
+---
+
+### 3. [北京市发展和改革委员会 北京市生态环境局关于发布2026年第二批13家通过清洁生产审核评估单位的通知 - 北京市人民政府门户网站](https://news.google.com/rss/articles/CBMigwFBVV95cUxOMXNMWVUtYlJnR05VcFE5S3ZhZGtNS0liaVBFVVFrZ0lQcldUcVZKUWF0Z0MybDhSQnltUEEtRmRueTVrUWxPejdEcGJCbk15ZnJLTDVBaGVONlUyb3dFOWwwLTBNLWkzX1ZmOUFDOWRWdWtCS19jSUNYMk5JWE5iT1pyOA?oc=5)
+
+- **来源**：Google News 生态环境
+- **热度**：86.6
+- **发布时间**：2026-11-13T09:29:06+00:00
+- **关键词**：生态环境
+
+> 北京市发布2026年第二批13家通过清洁生产审核评估的单位名单，推动企业实施清洁生产和节能降耗。
+
+**分析**：该条目涉及【北京市】话题，因来源较权威且发布时间较新，热度上升。
+
+---
+
+### 4. [Additionality of climate benefits from emission reduction and carbon dioxide removal](https://iopscience.iop.org/article/10.1088/1748-9326/aebb4e)
 
 - **来源**：Environmental Research Letters
-- **热度**：91.8
-- **发布时间**：2026-11-12T00:00:00+00:00
-- **关键词**：气候变化, 生态系统
+- **热度**：86.0
+- **发布时间**：2026-11-13T00:00:00+00:00
+- **关键词**：气候变化
 
-> 在最近的全球气候与环境报告中，土著知识（IK）已被公认为理解社会-生态系统及多尺度气候-社会关系的关键。然而，土著知识和土著人民（IP）仍大多被排除在《联合国气候变化框架公约》（UNFCCC）和政府间气候变化专门委员会（IPCC）报告等重要且有影响力的进程之外。 在IPCC当前的（AR7）评估周期中，了解上一周期（AR6）是否实质性地纳入了IK和IP的内容至关重要。 本文对《第六次评估报告》（AR6）中引用的文献（n = 46 145 篇）进行了多层次的文献计量学分析，据此筛选出摘要中提及IK的文献（n = 482 篇）。 此外，通过探索这一类传统知识引文集群，我们探讨了围绕学科偏见、地域偏见和学术期刊偏见等长期存在的问题。最后，我们利用两个衡量公平知识生产的指标对传统知识引文进行了分类。这突显了引导被引论文研究过程的不同类型关系（从掠夺性到共创性）。 我们的研究结果表明，尽管存在倡导、承诺和保证，但传统知识在IPCC《第六次评估报告》中仍被基本排除在外（仅占所引学术文献的1.04%）。我们还指出，在被纳入的传统知识中，生物物理科学、精英期刊以及来自全球北方的作者占据主导地位。 最后，我们为《第六次评估报告》（AR7）指出了若干关键干预点，包括章节作者的战略选择、重点关注第一工作组（气候科学），以及在章节层面纳入知识正义审计。
+> 二氧化碳捕集与封存（CDR）已被认定为工业脱碳在减缓气候变化方面不可或缺的补充措施。 海洋二氧化碳移除（mCDR）方法，例如海洋碱度增强（OAE）和直接海洋捕获（DOC），因其既能抵消海洋酸化，又能同时减少大气中二氧化碳的潜力而备受关注。 然而，大多数基于模型的 mCDR 效用评估要么假设大气 CO₂ 背景值固定，要么采用理想化的未来 CO₂ 轨迹，从而排除了重要碳循环反馈的影响——这些反馈会在海洋、大气和生物圈之间重新分配碳。 在此，我们利用地球系统模型探讨三个核心问题：碳捕获与封存（CDR）的净二氧化碳效应是否取决于背景排放水平；同时部署的CDR技术能否产生累加的二氧化碳减排效果；以及CDR的辐射强迫（气候）效益与减排措施之间是否存在协同效应。 我们评估了直接空气捕获、海洋吸收增强（OAE）和直接碳捕获（DOC）的各种组合方案，量化了它们在不同排放情景下的单独及综合二氧化碳减排效果。研究发现，无论背景排放情景、CDR类型或规模如何，减排与CDR的辐射强迫效应在时间上基本呈累加关系。 此外，任何特定数量和类型的短期碳捕获与移除部署，都会随时间推移带来可预测、成比例且持久的 атмосферный CO₂ 减排（ΔlnCO₂），从而便于对不同碳捕获与移除策略进行比较。 最后，我们表明，在低背景二氧化碳浓度下，碳捕获与封存（CDR）的效能略有提高，这印证了脱碳与CDR在碳管理组合中的互补价值。这些发现为设计综合碳管理策略提供了坚实的物理依据，并支持将深度减排与CDR作为协同的气候调控手段加以推进。
 
-**分析**：该条目涉及【气候变化报告】话题，因来源权威性高且话题稀缺度高，热度上升。
+**分析**：该条目涉及【海洋二氧化碳移除】话题，因来源权威性高且发布时间较新，热度上升。
 
 ---
 
-### 3. [Trump the ‘biggest loser’ for scrapping climate action, John Kerry says at Cop31](https://www.theguardian.com/environment/2026/nov/12/trump-loser-john-kerry-cop31)
+### 5. [Trump the ‘biggest loser’ for scrapping climate action, John Kerry says at Cop31](https://www.theguardian.com/environment/2026/nov/12/trump-loser-john-kerry-cop31)
 
 - **来源**：The Guardian Environment
-- **热度**：90.6
+- **热度**：85.2
 - **发布时间**：2026-11-12T11:00:48+00:00
 - **关键词**：气候变化, 温室气体, 清洁能源, 竞赛
 
 > 克里谴责总统将清洁能源主导权拱手让给中国，并表示气候危机仍是选民关注的核心议题。美国前国务卿约翰·克里表示，唐纳德·特朗普因放弃应对气候危机的行动并将清洁能源竞赛的领先地位让给中国，是“我们很久以来见过的最大输家”。克里在土耳其举行的第31届联合国气候变化大会（COP31）上发表演讲，批评特朗普让美国退出了国际气候进程，并取消了旨在减少导致全球变暖的温室气体排放的措施。与世界上几乎所有其他国家不同，特朗普政府没有派出代表团前往度假胜地安塔利亚参加于周一开幕的年度联合国气候谈判。 继续阅读...
 
-**分析**：该条目涉及【气候行动】话题，因来源权威性高且发布时间较新，热度上升。
+**分析**：该条目涉及【气候行动】话题，因来源权威性高且话题稀缺度高，热度上升。
 
 ---
 
-### 4. [陕西各地扎实推进秋冬季大气污染治理 - 潮新闻客户端](https://news.google.com/rss/articles/CBMic0FVX3lxTE5MN2hVc0V1aEdoVGZ1SmVmOENMOUh4ckZpZVNjQW9JYVUyVTNMNmlPNmZfMDByNWl0eTFqZ0JnR25WdVRaNnYxbkxjSEVEWHljd3BaU0tYeGxxVXpOZjFrNnQ1NTNrZ1cyd09lVWVqT1NHaUU?oc=5)
+### 6. [连续3年登上联合国气候变化大会舞台，台铃总裁姚立：全球南方绿色低碳转型核心是让发展机会扎根当地 - Jiemian.com](https://news.google.com/rss/articles/CBMiWEFVX3lxTE16ejI1SW5WM3pTSDBvMC12QlZmbDQzN1ZUWXVQUnV6TElWMzY3VXFFTW02S0wycXlsREVfRmxXUTJTU1pSR3dLY3k4bDFmdk94dDVYTGZ1Ujk?oc=5)
 
-- **来源**：Google News 环境污染
-- **热度**：85.1
-- **发布时间**：2026-11-12T08:22:20+00:00
-- **关键词**：大气污染, 污染治理
+- **来源**：Google News 气候变化
+- **热度**：84.1
+- **发布时间**：2026-11-13T10:28:28+00:00
+- **关键词**：气候变化, 绿色低碳
 
-> 11月11日，据生态环境部门消息：供暖季临近，陕西各地扎实推进秋冬季大气污染治理，持续改善秋冬季空气质量。
+> 台铃总裁姚立连续三年出席联合国气候变化大会，强调全球南方绿色低碳转型的核心在于让发展机会扎根当地。
 
-**分析**：该条目涉及【大气污染治理】话题，因来源较权威且发布时间较新，热度上升。
-
----
-
-### 5. [Power Shift: State Election Wins Open Path for Climate Progress](https://e360.yale.edu/features/2026-midterm-elections-states-environment)
-
-- **来源**：Yale Environment 360
-- **热度**：84.8
-- **发布时间**：2026-11-12T11:27:00+00:00
-- **关键词**：清洁能源
-
-> 在美国中期选举中，民主党赢得了全国各地州长职位和州议会的控制权。在公众对数据中心和电费上涨普遍表示不满之际，新当选的领导人将肩负起遏制污染者、约束公用事业公司以及推动清洁能源发展的重任。在 E360 上阅读更多内容 →
-
-**分析**：该条目涉及【气候进展】话题，因来源权威性高且发布时间较新，热度上升。
+**分析**：该条目涉及【联合国气候变化大会】话题，因来源较权威且发布时间较新，热度上升。
 
 ---
 
-### 6. [核科学技术助力保护环境的七种方式 - International Atomic Energy Agency](https://news.google.com/rss/articles/CBMiowFBVV95cUxNYmFkR2hCSFNQNWNOUjc5RmZjYk9vQmVuVmJ2dU5CdlFYdDY3VTd0Mm9TRjFJTGFhVkppUTdCWm4ycWsxVERWM05tMlUyaGMtMnlvZWNoRHZBTm5qbndlSUkyZHM5cDM1RVhQOFJEbFV6WjFJTGEzU0tHd0dySXVKZlA3WTZQY3FMdTl1YlhhOTBudnQyczE4MkdPb2tFYW1zUXV3?oc=5)
+### 7. [全球温室气体浓度创新高 北极海冰快速萎缩  - 美国之音](https://news.google.com/rss/articles/CBMid0FVX3lxTFBfci1FNldLcFBvbHdveGVtOXgyYTE5UDBkcmRVazhmcnBRSDFlMjB4QzZDanp3MUFUN190QThOYk9UTzlMdXo1TS1nTXF3YmRlRDc1TDBlOVA3MUFhcVNDbEp3NnQwVFJURmM0ejZhWmJiUW5aVmJZ0gF6QVVfeXFMTnhiTll2aGlIU19nd2pCZG1FMTQyNGF6b3RQYmhEM3VKbXFoWHNyT3M5QUxUOWE3NFo5enNLZTlrbllGUjh1UTA4QTNtMEozSHhNaXlzdmE0WlJfaFRWQ3I2Vy0xTDlpcFVfM0NZSVJqSUhUWFZSV293ZkE?oc=5)
 
-- **来源**：Google News 环境保护
-- **热度**：84.2
-- **发布时间**：2026-11-12T10:13:32+00:00
+- **来源**：Google News 气候变化
+- **热度**：84.0
+- **发布时间**：2026-11-13T04:00:00+00:00
+- **关键词**：温室气体
 
-> 国际原子能机构发布文章，介绍核科学技术在污染治理、废物管理及生态保护等方面的七种具体应用方式，助力环境保护工作。
+> 全球温室气体浓度达历史新高，北极海冰面积快速萎缩，气候变化加速趋势明显。
 
-**分析**：该条目涉及【核科学技术】话题，因来源较权威且发布时间较新，热度上升。
-
----
-
-### 7. [北京市生态环境保护科学研究院赴马坊镇调研 - 首都文明网](https://news.google.com/rss/articles/CBMiW0FVX3lxTFB5VEF6YVR4MDMzNEpLTmhHcGpONGJZbWpRUkRjdDBPRmFBSm1ZXzRRcWNxQWliZUlDWXpVYVR0alU1Z1d3UzRLSW5yNGl5dHJFX3phOEVVc1ZuSjg?oc=5)
-
-- **来源**：Google News 环境保护
-- **热度**：84.2
-- **发布时间**：2026-11-12T05:41:45+00:00
-- **关键词**：生态环境, 环境保护
-
-> 11月10日，北京市生态环境保护科学研究院赴马坊镇调研，旨在提升大气污染防治水平，持续改善马坊镇人居环境质量。
-
-**分析**：该条目涉及【北京市生态环境保护科学研究院】话题，因来源较权威且发布时间较新，热度上升。
+**分析**：该条目涉及【全球温室气体浓度】话题，因来源较权威且发布时间较新，热度上升。
 
 ---
 
-### 8. [Towards practical photosynthetic biohybrid systems](https://www.nature.com/articles/s41893-026-01984-8)
+### 8. [A super El Niño brings life and death to the California coast: ‘Like nothing we’ve ever seen’](https://www.theguardian.com/environment/2026/nov/13/super-el-nino-california-monterey-bay)
 
-- **来源**：Nature Sustainability
-- **热度**：83.0
-- **发布时间**：2026-11-12T00:00:00+00:00
-- **关键词**：可持续发展
+- **来源**：The Guardian Environment
+- **热度**：81.8
+- **发布时间**：2026-11-13T12:00:19+00:00
+- **关键词**：生物多样性
 
-> 《自然·可持续性》（Nature Sustainability）， 光合作用生物混合系统能够将阳光转化为化学品和燃料。 本篇“展望”探讨了如何更好地设计光合作用生物混合系统，以实现切实可行的、可持续的太阳能驱动生物制造。
+> 水温节节攀升，涨潮正吞噬着海岸线，而维系海洋生物多样性的食物网中至关重要的环节正在消失。上周一个风景如画的秋日午后，加利福尼亚州蒙特雷湾的海滩上，生与死交织。一群岸鸟随着汹涌的海浪，以整齐划一的舞步时而冲向海浪，时而退回岸边。 不远处，退去的潮水留下了毫无生气的羽毛和骨骼堆，它们缠绕在闪闪发光的巨藻堆中。沙滩上散落着肿胀的海狮尸体，它们露出牙齿，面露静默的狞笑；与此同时，野餐者和遛狗的人正享受着这温暖无云的好天气。继续阅读……
 
-**分析**：该条目涉及【环境政策】话题，因来源权威性高，热度上升。
-
----
-
-### 9. [Burnham says climate consensus 'gone' but pledges 'new era of leadership'](https://www.bbc.co.uk/news/articles/cmg46y7wev42o?at_medium=RSS&at_campaign=rss)
-
-- **来源**：BBC 科学与环境
-- **热度**：82.2
-- **发布时间**：2026-11-12T11:03:53+00:00
-- **关键词**：气候变化
-
-> 首相安迪·伯纳姆正在土耳其安塔利亚举行的第31届联合国气候变化大会（COP31）上向代表们发表讲话。
-
-**分析**：该条目涉及【climate consensus】话题，因来源权威性高且发布时间较新，热度上升。
+**分析**：该条目涉及【生态环境】话题，因来源权威性高且发布时间较新，热度上升。
 
 ---
 
-### 10. [学法践诺护绿水青山 重庆市生态环境系统生态环境法典知识竞赛决赛举行 - 华龙网](https://news.google.com/rss/articles/CBMia0FVX3lxTE1sSEpzQTRzYWRMcGxXWFB0S0xiNFJHc1lUdWNyaXdjWGZXcUVvckNmX1pLV0lQcWlPbmJOWEVHMkdWTXREOTdGZW1qcnNXbDVvSFE2cUFvR0dScmhmRlAyaU82XzhDZkZ0OFcw?oc=5)
+### 9. [Spatially compounding climate extremes and environmental risk: cross-regional synchrony, spatial buffering loss, and systemic consequences](https://iopscience.iop.org/article/10.1088/1748-9326/aebe4a)
 
-- **来源**：Google News 生态环境
-- **热度**：81.2
-- **发布时间**：2026-11-12T09:39:11+00:00
-- **关键词**：生态环境, 环境法典, 竞赛
+- **来源**：Environmental Research Letters
+- **热度**：81.8
+- **发布时间**：2026-11-13T00:00:00+00:00
 
-> 11月12日，重庆市生态环境系统《中华人民共和国生态环境法典》知识竞赛决赛在市生态环境局举行。决赛紧扣法典内容，通过必答题、抢答题等环节考查参赛选手法典运用能力，助力法典从‘读条文’转变为‘懂运用’。
+> 人们越来越认识到，空间上叠加的气候极端事件是气候相关风险的来源之一，其风险重要性取决于同步性如何影响相互关联的系统。 当跨区域同步性削弱了原本可通过替代、储备能力、互助或恢复支持来相互缓冲的地区之间的支撑作用时，就会发生关键性转变——我们将这种状况称为“空间缓冲损失”（BL）。 本专题综述综合了实证和方法论证据，以考察同步性是如何产生的、何时会导致功能丧失，以及评估这一转变需要什么条件。粮食生产、水资源分配和消防合作为考察替代、储备和援助功能提供了互补的背景，而本综述则将联合暴露与受助方可获得的支持区分开来。 大气环流、持续性天气模式、陆地-大气反馈以及水文连通性均可促成同步性；功能性证据则决定了这种同步性是否会削弱补偿性支持并产生系统性后果。 因此，可信的评估必须将事件拓扑结构和联合尾部行为与功能性暴露、明确的补偿关系以及对原本仍可获得的支持的反事实估计联系起来。 通过将事件组织与受助方支持联系起来，该综合研究为评估互联系统中的空间BL提供了功能性基础。这一视角将证据与关于供应方多元化、储备运作及互助的决策联系起来。
 
-**分析**：该条目涉及【重庆市生态环境系统】话题，因来源较权威且发布时间较新，热度上升。
+**分析**：该条目涉及【气候极端事件】话题，因来源权威性高且发布时间较新，热度上升。
+
+---
+
+### 10. [资环学院开展2026级气象专业硕士研究生实习实践交流 - 中国农业大学新闻网](https://news.google.com/rss/articles/CBMic0FVX3lxTFBhenBxVkctMnNCY28xb3FLMHFZTk80UzlaX1NUZ0pvUmhsSUlfbEo0VzB5UFJZZVczNWpVZUNJMmFiVFBrUV8taTkzbTAtcVUtRExCaGhlRzY4bGNpcmpST0VFQndtMDZCMDhabHRtWE56WE0?oc=5)
+
+- **来源**：Google News 环境校招实习
+- **热度**：81.6
+- **发布时间**：2026-11-12T06:28:31+00:00
+- **关键词**：实习
+
+> 资环学院组织召开2026级气象专业硕士研究生实习交流会，帮助学生了解行业实习安排并明确实践学习目标，推进专业硕士实践教学工作。
+
+**分析**：该条目涉及【科研学术】话题，因来源较权威，热度上升。
 
 ---

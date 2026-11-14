@@ -1,139 +1,139 @@
 # 环境学子雷达 - 每日热点报告
 
-**日期**：2026-11-13
-**总条目数**：49
+**日期**：2026-11-14
+**总条目数**：38
 
-**近7天见解**：近7天环境热点呈现出“气候变化、生态环境、污染治理”三大类集中，其中气候变化条目最为集中，显著高于其他板块。生态环境与污染治理虽具规模，但整体分布相对分散，环境政策与水处理等细分领域热度有所回落，整体呈现出气候议题主导、综合治理同步推进的特征。
+**近7天见解**：近7天环境热点呈现“气候变化、生态环境、污染治理”三大类集中，总计179条，占全量近七成，显示公众关注度高度聚焦于生态安全与治理成效。水处理与环境政策等细分领域虽有所关注，但整体热点呈现明显的上升态势与集中分布特征。
 
 ---
 
 ## 今日热点 TOP 10
 
-### 1. [广东省流域和海域生态环境保护 “十五五”规划 - https://www.gdshe.org/](https://news.google.com/rss/articles/CBMiUkFVX3lxTE85WDNaWkdjdUpCNzI0RjdyU09PYVM2S3I4ZGFJYWhnVG5tcE9BMm5OdDNxN2JSQWlGNkFqVjdxVnlOdFY4VEowR3p2eTFDclRkaXc?oc=5)
+### 1. [生态环境部部长黄润秋出席COP31“中国角”系列边会活动并会见外方高级代表 - 中华人民共和国生态环境部](https://news.google.com/rss/articles/CBMidkFVX3lxTE5uMVNTMFhBUnVDVXhhRGtJU0pad2ZhcTFwWnNfOWthVEZreVRJWENZQ3pRcWIzV05waXFpQW1yRXVCenVjQjdmd2pURkIwc1ZZeUZ1eHZOTHpqbjVOc1dzLWdPTGwyQUpHckFXQVRPYll6UEt4anc?oc=5)
+
+- **来源**：Google News 生态环境
+- **热度**：90.9
+- **发布时间**：2026-11-14T02:37:47+00:00
+- **关键词**：生态环境
+
+> 生态环境部部长黄润秋出席COP31“中国角”系列边会活动并会见外方高级代表。
+
+**分析**：该条目涉及【COP】话题，因来源较权威且发布时间较新，热度上升。
+
+---
+
+### 2. [应对气候变化“全民行动”，四川在COP31中国角分享三个案例 - ThePaper.cn](https://news.google.com/rss/articles/CBMiYEFVX3lxTE9tQXRtTnRTbnQxMGZfTzhNaTNhTlIxOVpoNFdqRmdIaF9sQmVwc2JiV0FYZmM0S1lEeEdHOWZwV3RGVXBDRXRhT0Q0SWgyQ1hGZmJQTTRYWHZ3X2hLOWlBYQ?oc=5)
+
+- **来源**：Google News 气候变化
+- **热度**：90.7
+- **发布时间**：2026-11-14T10:48:56+00:00
+- **关键词**：气候变化
+
+> 四川在COP31中国角分享应对气候变化全民行动三个案例，展示地方气候治理经验。
+
+**分析**：该条目涉及【COP】话题，因来源较权威且发布时间较新，热度上升。
+
+---
+
+### 3. [California governor Gavin Newsom endorses global fossil fuel phaseout](https://www.theguardian.com/environment/2026/nov/13/california-gavin-newsom-endorses-fossil-fuel-phaseout)
+
+- **来源**：The Guardian Environment
+- **热度**：86.8
+- **发布时间**：2026-11-13T16:31:28+00:00
+- **关键词**：气候变化, 能源转型
+
+> 纽森是出席第31届联合国气候变化大会（COP31）的最知名美国政界人士，而特朗普政府仍在继续抵制这一会议。作为全球第四大经济体的领导人，加利福尼亚州州长加文·纽森明确支持在全球范围内逐步淘汰导致气候崩溃的化石燃料。纽森向《卫报》表示，加利福尼亚州“百分之百”支持所谓的“圣玛尔塔联盟”所做的努力。该联盟由50多个国家组成，其中包括许多全球最大经济体，旨在推动能源转型，从石油、天然气和煤炭转向太阳能、风能、电池及其他非碳能源。继续阅读……
+
+**分析**：该条目涉及【化石燃料】话题，因来源权威性高且多家媒体同题报道，热度上升。
+
+---
+
+### 4. [Countries Growing More Ambitious on Climate, Despite U.S. Retreat](https://e360.yale.edu/digest/global-climate-policy)
+
+- **来源**：Yale Environment 360
+- **热度**：83.3
+- **发布时间**：2026-11-13T13:43:00+00:00
+- **关键词**：清洁能源
+
+> 特朗普政府已着手推翻美国的气候政策，大幅削减对清洁能源的补贴，放宽污染限制，并动摇气候监管的法律基础。但专家指出，尽管美国在气候政策上倒退，亚洲、非洲和拉丁美洲却在取得进展。在 E360 上阅读更多内容 →
+
+**分析**：该条目涉及【美国气候政策】话题，因来源权威性高且多家媒体同题报道，热度上升。
+
+---
+
+### 5. [广东省流域和海域生态环境保护 “十五五”规划 - https://www.gdshe.org/](https://news.google.com/rss/articles/CBMiUkFVX3lxTE85WDNaWkdjdUpCNzI0RjdyU09PYVM2S3I4ZGFJYWhnVG5tcE9BMm5OdDNxN2JSQWlGNkFqVjdxVnlOdFY4VEowR3p2eTFDclRkaXc?oc=5)
 
 - **来源**：Google News 环境保护
-- **热度**：90.3
+- **热度**：82.6
 - **发布时间**：2026-11-13T02:20:12+00:00
 - **关键词**：流域, 生态环境, 环境保护
 
-> 广东省生态环境厅印发《广东省流域和海域生态环境保护“十五五”规划》，聚焦流域海域生态环境保护规划。
+> 广东省生态环境厅发布《广东省流域和海域生态环境保护十五五规划》，划定未来五年保护方向。
 
-**分析**：该条目涉及【广东省流域和海域生态环境保护】话题，因来源较权威且发布时间较新，热度上升。
-
----
-
-### 2. [江西生态环境系统13个集体和15名个人获省委、省政府表彰 - 凤凰网](https://news.google.com/rss/articles/CBMiSkFVX3lxTE1KN0Rkd00xeDNHU0ZHeWctZi1LaHNNTTVOZVFVWktJMDdUZ0syYlJSclp6bVpxMEoxV21xNmN0WW5YS2dWNG9jb2pR?oc=5)
-
-- **来源**：Google News 环境保护
-- **热度**：87.3
-- **发布时间**：2026-11-13T00:12:24+00:00
-- **关键词**：生态环境
-
-> 江西省生态环境系统13个集体和15名个人获省委、省政府表彰，表彰其在生态环境保护工作中的突出贡献。
-
-**分析**：该条目涉及【江西生态环境系统】话题，因来源较权威且发布时间较新，热度上升。
+**分析**：该条目涉及【广东省流域和海域生态环境保护】话题，因来源较权威且多家媒体同题报道，热度上升。
 
 ---
 
-### 3. [北京市发展和改革委员会 北京市生态环境局关于发布2026年第二批13家通过清洁生产审核评估单位的通知 - 北京市人民政府门户网站](https://news.google.com/rss/articles/CBMigwFBVV95cUxOMXNMWVUtYlJnR05VcFE5S3ZhZGtNS0liaVBFVVFrZ0lQcldUcVZKUWF0Z0MybDhSQnltUEEtRmRueTVrUWxPejdEcGJCbk15ZnJLTDVBaGVONlUyb3dFOWwwLTBNLWkzX1ZmOUFDOWRWdWtCS19jSUNYMk5JWE5iT1pyOA?oc=5)
+### 6. [北京市发展和改革委员会 北京市生态环境局关于发布2026年第二批13家通过清洁生产审核评估单位的通知 - 北京市人民政府门户网站](https://news.google.com/rss/articles/CBMigwFBVV95cUxOMXNMWVUtYlJnR05VcFE5S3ZhZGtNS0liaVBFVVFrZ0lQcldUcVZKUWF0Z0MybDhSQnltUEEtRmRueTVrUWxPejdEcGJCbk15ZnJLTDVBaGVONlUyb3dFOWwwLTBNLWkzX1ZmOUFDOWRWdWtCS19jSUNYMk5JWE5iT1pyOA?oc=5)
 
 - **来源**：Google News 生态环境
-- **热度**：86.6
-- **发布时间**：2026-11-13T09:29:06+00:00
+- **热度**：82.3
+- **发布时间**：2026-11-13T17:20:05+00:00
 - **关键词**：生态环境
 
-> 北京市发布2026年第二批13家通过清洁生产审核评估的单位名单，推动企业实施清洁生产和节能降耗。
+> 北京市发布2026年第二批13家通过清洁生产审核评估单位名单，推动企业绿色转型升级。
 
-**分析**：该条目涉及【北京市】话题，因来源较权威且发布时间较新，热度上升。
+**分析**：该条目涉及【生态环境局】话题，因来源较权威，热度上升。
 
 ---
 
-### 4. [Additionality of climate benefits from emission reduction and carbon dioxide removal](https://iopscience.iop.org/article/10.1088/1748-9326/aebb4e)
+### 7. [研究：2026年夏季欧洲逾3.2万例高温超额死亡可归因于人为气候变化 - 虎嗅](https://news.google.com/rss/articles/CBMiVEFVX3lxTE1RbWZEdmgyV2g5OHJsMkROTjQzRXoxeEwxV1YwZFczbWotZ1pzeEF0VmdOZXZQamxQb0tYSVV2ODFqU05Oa2h6X1JUSm1oR3BsOWdYOA?oc=5)
 
-- **来源**：Environmental Research Letters
-- **热度**：86.0
-- **发布时间**：2026-11-13T00:00:00+00:00
+- **来源**：Google News 气候变化
+- **热度**：81.9
+- **发布时间**：2026-11-14T04:54:12+00:00
 - **关键词**：气候变化
 
-> 二氧化碳捕集与封存（CDR）已被认定为工业脱碳在减缓气候变化方面不可或缺的补充措施。 海洋二氧化碳移除（mCDR）方法，例如海洋碱度增强（OAE）和直接海洋捕获（DOC），因其既能抵消海洋酸化，又能同时减少大气中二氧化碳的潜力而备受关注。 然而，大多数基于模型的 mCDR 效用评估要么假设大气 CO₂ 背景值固定，要么采用理想化的未来 CO₂ 轨迹，从而排除了重要碳循环反馈的影响——这些反馈会在海洋、大气和生物圈之间重新分配碳。 在此，我们利用地球系统模型探讨三个核心问题：碳捕获与封存（CDR）的净二氧化碳效应是否取决于背景排放水平；同时部署的CDR技术能否产生累加的二氧化碳减排效果；以及CDR的辐射强迫（气候）效益与减排措施之间是否存在协同效应。 我们评估了直接空气捕获、海洋吸收增强（OAE）和直接碳捕获（DOC）的各种组合方案，量化了它们在不同排放情景下的单独及综合二氧化碳减排效果。研究发现，无论背景排放情景、CDR类型或规模如何，减排与CDR的辐射强迫效应在时间上基本呈累加关系。 此外，任何特定数量和类型的短期碳捕获与移除部署，都会随时间推移带来可预测、成比例且持久的 атмосферный CO₂ 减排（ΔlnCO₂），从而便于对不同碳捕获与移除策略进行比较。 最后，我们表明，在低背景二氧化碳浓度下，碳捕获与封存（CDR）的效能略有提高，这印证了脱碳与CDR在碳管理组合中的互补价值。这些发现为设计综合碳管理策略提供了坚实的物理依据，并支持将深度减排与CDR作为协同的气候调控手段加以推进。
+> 研究显示2026年夏季欧洲逾3.2万例高温超额死亡可归因于人为气候变化，气候健康风险加剧。
 
-**分析**：该条目涉及【海洋二氧化碳移除】话题，因来源权威性高且发布时间较新，热度上升。
+**分析**：该条目涉及【人为气候变化】话题，因来源较权威且发布时间较新，热度上升。
 
 ---
 
-### 5. [Trump the ‘biggest loser’ for scrapping climate action, John Kerry says at Cop31](https://www.theguardian.com/environment/2026/nov/12/trump-loser-john-kerry-cop31)
+### 8. [全球脱碳如何提速？国际环保组织负责人看到了“中国机遇”｜新闻会客厅 - 中国新闻网](https://news.google.com/rss/articles/CBMiaEFVX3lxTE5nZnhwTndDaW81LTBoLWJTeldpVkZVY2VGOGg0SW5MQ1drNy1xQTYwYU5lMEI4by1XMGpOeHdGdk9uMXo3SmVQZTloTmZhVXJDR25IREwwLTU1a1dEY1ZMWk1SMkFKMnBt?oc=5)
+
+- **来源**：Google News 环境保护
+- **热度**：81.0
+- **发布时间**：2026-11-14T00:31:34+00:00
+
+> 国际环保组织负责人在新闻会客厅访谈中表示，看到了中国在全球脱碳进程中的机遇，探讨如何提速全球脱碳步伐。
+
+**分析**：该条目涉及【国际环保组织】话题，因来源较权威且发布时间较新，热度上升。
+
+---
+
+### 9. [A super El Niño brings startling changes for marine life on California coast: ‘like nothing we’ve ever seen’](https://www.theguardian.com/environment/2026/nov/13/super-el-nino-california-monterey-bay)
 
 - **来源**：The Guardian Environment
-- **热度**：85.2
-- **发布时间**：2026-11-12T11:00:48+00:00
-- **关键词**：气候变化, 温室气体, 清洁能源, 竞赛
-
-> 克里谴责总统将清洁能源主导权拱手让给中国，并表示气候危机仍是选民关注的核心议题。美国前国务卿约翰·克里表示，唐纳德·特朗普因放弃应对气候危机的行动并将清洁能源竞赛的领先地位让给中国，是“我们很久以来见过的最大输家”。克里在土耳其举行的第31届联合国气候变化大会（COP31）上发表演讲，批评特朗普让美国退出了国际气候进程，并取消了旨在减少导致全球变暖的温室气体排放的措施。与世界上几乎所有其他国家不同，特朗普政府没有派出代表团前往度假胜地安塔利亚参加于周一开幕的年度联合国气候谈判。 继续阅读...
-
-**分析**：该条目涉及【气候行动】话题，因来源权威性高且话题稀缺度高，热度上升。
-
----
-
-### 6. [连续3年登上联合国气候变化大会舞台，台铃总裁姚立：全球南方绿色低碳转型核心是让发展机会扎根当地 - Jiemian.com](https://news.google.com/rss/articles/CBMiWEFVX3lxTE16ejI1SW5WM3pTSDBvMC12QlZmbDQzN1ZUWXVQUnV6TElWMzY3VXFFTW02S0wycXlsREVfRmxXUTJTU1pSR3dLY3k4bDFmdk94dDVYTGZ1Ujk?oc=5)
-
-- **来源**：Google News 气候变化
-- **热度**：84.1
-- **发布时间**：2026-11-13T10:28:28+00:00
-- **关键词**：气候变化, 绿色低碳
-
-> 台铃总裁姚立连续三年出席联合国气候变化大会，强调全球南方绿色低碳转型的核心在于让发展机会扎根当地。
-
-**分析**：该条目涉及【联合国气候变化大会】话题，因来源较权威且发布时间较新，热度上升。
-
----
-
-### 7. [全球温室气体浓度创新高 北极海冰快速萎缩  - 美国之音](https://news.google.com/rss/articles/CBMid0FVX3lxTFBfci1FNldLcFBvbHdveGVtOXgyYTE5UDBkcmRVazhmcnBRSDFlMjB4QzZDanp3MUFUN190QThOYk9UTzlMdXo1TS1nTXF3YmRlRDc1TDBlOVA3MUFhcVNDbEp3NnQwVFJURmM0ejZhWmJiUW5aVmJZ0gF6QVVfeXFMTnhiTll2aGlIU19nd2pCZG1FMTQyNGF6b3RQYmhEM3VKbXFoWHNyT3M5QUxUOWE3NFo5enNLZTlrbllGUjh1UTA4QTNtMEozSHhNaXlzdmE0WlJfaFRWQ3I2Vy0xTDlpcFVfM0NZSVJqSUhUWFZSV293ZkE?oc=5)
-
-- **来源**：Google News 气候变化
-- **热度**：84.0
-- **发布时间**：2026-11-13T04:00:00+00:00
-- **关键词**：温室气体
-
-> 全球温室气体浓度达历史新高，北极海冰面积快速萎缩，气候变化加速趋势明显。
-
-**分析**：该条目涉及【全球温室气体浓度】话题，因来源较权威且发布时间较新，热度上升。
-
----
-
-### 8. [A super El Niño brings life and death to the California coast: ‘Like nothing we’ve ever seen’](https://www.theguardian.com/environment/2026/nov/13/super-el-nino-california-monterey-bay)
-
-- **来源**：The Guardian Environment
-- **热度**：81.8
+- **热度**：80.7
 - **发布时间**：2026-11-13T12:00:19+00:00
 - **关键词**：生物多样性
 
-> 水温节节攀升，涨潮正吞噬着海岸线，而维系海洋生物多样性的食物网中至关重要的环节正在消失。上周一个风景如画的秋日午后，加利福尼亚州蒙特雷湾的海滩上，生与死交织。一群岸鸟随着汹涌的海浪，以整齐划一的舞步时而冲向海浪，时而退回岸边。 不远处，退去的潮水留下了毫无生气的羽毛和骨骼堆，它们缠绕在闪闪发光的巨藻堆中。沙滩上散落着肿胀的海狮尸体，它们露出牙齿，面露静默的狞笑；与此同时，野餐者和遛狗的人正享受着这温暖无云的好天气。继续阅读……
+> 水温节节攀升，涨潮正吞噬着海岸线，而维系海洋生物多样性的食物网中至关重要的环节正在消失。上周一个风景如画的秋日午后，加利福尼亚州蒙特雷湾的海滩上，生与死交织。一群岸鸟随着汹涌的海浪，以一种整齐划一的舞姿时而冲上前，时而退后。 不远处，退去的潮水留下了毫无生气的羽毛和骨骼堆，它们缠绕在闪闪发光的巨藻堆中。海狮的尸体肿胀，牙齿露在外面，面带静默的狞笑，零星散落在沙滩上；与此同时，野餐者和遛狗的人正享受着这温暖无云的好天气。继续阅读……
 
-**分析**：该条目涉及【生态环境】话题，因来源权威性高且发布时间较新，热度上升。
+**分析**：该条目涉及【海洋生物】话题，因来源权威性高且多家媒体同题报道，热度上升。
 
 ---
 
-### 9. [Spatially compounding climate extremes and environmental risk: cross-regional synchrony, spatial buffering loss, and systemic consequences](https://iopscience.iop.org/article/10.1088/1748-9326/aebe4a)
+### 10. [Additionality of climate benefits from emission reduction and carbon dioxide removal](https://iopscience.iop.org/article/10.1088/1748-9326/aebb4e)
 
 - **来源**：Environmental Research Letters
-- **热度**：81.8
+- **热度**：80.5
 - **发布时间**：2026-11-13T00:00:00+00:00
+- **关键词**：气候变化
 
-> 人们越来越认识到，空间上叠加的气候极端事件是气候相关风险的来源之一，其风险重要性取决于同步性如何影响相互关联的系统。 当跨区域同步性削弱了原本可通过替代、储备能力、互助或恢复支持来相互缓冲的地区之间的支撑作用时，就会发生关键性转变——我们将这种状况称为“空间缓冲损失”（BL）。 本专题综述综合了实证和方法论证据，以考察同步性是如何产生的、何时会导致功能丧失，以及评估这一转变需要什么条件。粮食生产、水资源分配和消防合作为考察替代、储备和援助功能提供了互补的背景，而本综述则将联合暴露与受助方可获得的支持区分开来。 大气环流、持续性天气模式、陆地-大气反馈以及水文连通性均可促成同步性；功能性证据则决定了这种同步性是否会削弱补偿性支持并产生系统性后果。 因此，可信的评估必须将事件拓扑结构和联合尾部行为与功能性暴露、明确的补偿关系以及对原本仍可获得的支持的反事实估计联系起来。 通过将事件组织与受助方支持联系起来，该综合研究为评估互联系统中的空间BL提供了功能性基础。这一视角将证据与关于供应方多元化、储备运作及互助的决策联系起来。
+> 二氧化碳去除（CDR）已被认定为工业脱碳在减缓气候变化方面不可或缺的补充措施。 海洋二氧化碳移除（mCDR）方法，例如海洋碱度增强（OAE）和直接海洋捕获（DOC），因其既能抵消海洋酸化，又能同时减少大气中二氧化碳的潜力而备受关注。 然而，大多数基于模型的 mCDR 效用评估要么假设大气 CO₂ 背景值固定，要么采用理想化的未来 CO₂ 轨迹，从而排除了重要碳循环反馈的影响——这些反馈会在海洋、大气和生物圈之间重新分配碳。 在此，我们利用地球系统模型探讨三个核心问题：碳捕获与封存（CDR）的净二氧化碳效应是否取决于背景排放水平；同时部署的CDR技术能否产生累加的二氧化碳减排效果；以及CDR的辐射强迫（气候）效益与减排之间是否存在协同作用。 我们评估了直接空气捕获、海洋吸收增强（OAE）和直接碳捕获（DOC）的各种组合方案，量化了它们在不同排放情景下的单独及综合二氧化碳减排效果。研究发现，无论背景排放情景、CDR类型或规模如何，减排与CDR的辐射强迫效应在时间上基本呈累加关系。 此外，任何特定数量和类型的短期碳捕获与移除部署，都会随时间推移带来可预测、成比例且持久的 атмосферный CO₂ 减排（ΔlnCO₂），从而便于对不同碳捕获与移除策略进行比较。 最后，我们表明，在低背景二氧化碳浓度下，碳捕获与封存（CDR）的效能略高，这印证了脱碳与CDR在碳管理组合中的互补价值。这些发现为设计综合碳管理策略提供了坚实的物理依据，并支持将深度减排与CDR作为协同气候杠杆加以推进。
 
-**分析**：该条目涉及【气候极端事件】话题，因来源权威性高且发布时间较新，热度上升。
-
----
-
-### 10. [资环学院开展2026级气象专业硕士研究生实习实践交流 - 中国农业大学新闻网](https://news.google.com/rss/articles/CBMic0FVX3lxTFBhenBxVkctMnNCY28xb3FLMHFZTk80UzlaX1NUZ0pvUmhsSUlfbEo0VzB5UFJZZVczNWpVZUNJMmFiVFBrUV8taTkzbTAtcVUtRExCaGhlRzY4bGNpcmpST0VFQndtMDZCMDhabHRtWE56WE0?oc=5)
-
-- **来源**：Google News 环境校招实习
-- **热度**：81.6
-- **发布时间**：2026-11-12T06:28:31+00:00
-- **关键词**：实习
-
-> 资环学院组织召开2026级气象专业硕士研究生实习交流会，帮助学生了解行业实习安排并明确实践学习目标，推进专业硕士实践教学工作。
-
-**分析**：该条目涉及【科研学术】话题，因来源较权威，热度上升。
+**分析**：该条目涉及【海洋碱度增强】话题，因来源权威性高，热度上升。
 
 ---

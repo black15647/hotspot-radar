@@ -1,0 +1,552 @@
+{
+  "report_date": "2026-11-14",
+  "site_name": "环境学子雷达",
+  "total_items": 38,
+  "snapshot_items": 10,
+  "category_stats": {
+    "生态环境": {
+      "count": 8,
+      "total_heat": 633.0
+    },
+    "气候变化": {
+      "count": 12,
+      "total_heat": 911.1
+    },
+    "环境政策": {
+      "count": 4,
+      "total_heat": 288.0
+    },
+    "污染治理": {
+      "count": 8,
+      "total_heat": 576.1
+    },
+    "其他": {
+      "count": 3,
+      "total_heat": 204.6
+    },
+    "水处理": {
+      "count": 2,
+      "total_heat": 139.5
+    },
+    "能源与碳中和": {
+      "count": 1,
+      "total_heat": 69.5
+    }
+  },
+  "total_sources": 28,
+  "success_sources": 25,
+  "failed_sources": 0,
+  "week_total_items": 269,
+  "week_new_keywords": 67,
+  "policy_ratio": 8.6,
+  "items": [
+    {
+      "title": "生态环境部部长黄润秋出席COP31“中国角”系列边会活动并会见外方高级代表 - 中华人民共和国生态环境部",
+      "title_en": "",
+      "title_zh": "",
+      "link": "https://news.google.com/rss/articles/CBMidkFVX3lxTE5uMVNTMFhBUnVDVXhhRGtJU0pad2ZhcTFwWnNfOWthVEZreVRJWENZQ3pRcWIzV05waXFpQW1yRXVCenVjQjdmd2pURkIwc1ZZeUZ1eHZOTHpqbjVOc1dzLWdPTGwyQUpHckFXQVRPYll6UEt4anc?oc=5",
+      "source": "Google News 生态环境",
+      "published": "2026-11-14T02:37:47+00:00",
+      "hotness": 90.9,
+      "score_v1": 27.45,
+      "score_v2": 90.9,
+      "score_breakdown": {
+        "algorithm": "v3.0",
+        "dimension_max": {
+          "authority": 18.0,
+          "topic": 18.0,
+          "resonance": 18.0,
+          "information": 16.0
+        },
+        "authority_score": 8.05,
+        "keyword_idf_score": 4.6,
+        "topic_score": 9.78,
+        "topic_burst_score": 5.19,
+        "topic_burst_count": 5,
+        "resonance_score": 15.56,
+        "info_score": 9.0,
+        "base": 42.4,
+        "base_max": 70.0,
+        "time_factor": 0.888,
+        "density_factor": 1.0,
+        "density_note": "",
+        "repeat_penalty": 1.0,
+        "repeat_excused": false,
+        "event_size": 4,
+        "event_media_count": 4,
+        "event_cluster_source": "ai",
+        "origin_source": "中华人民共和国生态环境部",
+        "raw": 37.65,
+        "display_score": 90.9,
+        "display_mode": "absolute"
+      },
+      "summary": "生态环境部部长黄润秋出席COP31“中国角”系列边会活动并会见外方高级代表。",
+      "analysis": "",
+      "topic_tags": [
+        "COP",
+        "生态环境部"
+      ],
+      "category": "气候变化",
+      "matched_keywords": [
+        "生态环境"
+      ]
+    },
+    {
+      "title": "应对气候变化“全民行动”，四川在COP31中国角分享三个案例 - ThePaper.cn",
+      "title_en": "",
+      "title_zh": "",
+      "link": "https://news.google.com/rss/articles/CBMiYEFVX3lxTE9tQXRtTnRTbnQxMGZfTzhNaTNhTlIxOVpoNFdqRmdIaF9sQmVwc2JiV0FYZmM0S1lEeEdHOWZwV3RGVXBDRXRhT0Q0SWgyQ1hGZmJQTTRYWHZ3X2hLOWlBYQ?oc=5",
+      "source": "Google News 气候变化",
+      "published": "2026-11-14T10:48:56+00:00",
+      "hotness": 90.7,
+      "score_v1": 34.23,
+      "score_v2": 90.7,
+      "score_breakdown": {
+        "algorithm": "v3.0",
+        "dimension_max": {
+          "authority": 18.0,
+          "topic": 18.0,
+          "resonance": 18.0,
+          "information": 16.0
+        },
+        "authority_score": 8.05,
+        "keyword_idf_score": 3.47,
+        "topic_score": 9.17,
+        "topic_burst_score": 5.7,
+        "topic_burst_count": 7,
+        "resonance_score": 15.56,
+        "info_score": 5.0,
+        "base": 37.79,
+        "base_max": 70.0,
+        "time_factor": 0.988,
+        "density_factor": 1.0,
+        "density_note": "",
+        "repeat_penalty": 1.0,
+        "repeat_excused": true,
+        "event_size": 4,
+        "event_media_count": 4,
+        "event_cluster_source": "ai",
+        "origin_source": "ThePaper.cn",
+        "raw": 37.33,
+        "display_score": 90.7,
+        "display_mode": "absolute"
+      },
+      "summary": "四川在COP31中国角分享应对气候变化全民行动三个案例，展示地方气候治理经验。",
+      "analysis": "",
+      "topic_tags": [
+        "COP"
+      ],
+      "category": "气候变化",
+      "matched_keywords": [
+        "气候变化"
+      ]
+    },
+    {
+      "title": "California governor Gavin Newsom endorses global fossil fuel phaseout",
+      "title_en": "California governor Gavin Newsom endorses global fossil fuel phaseout",
+      "title_zh": "加利福尼亚州州长加文·纽森支持在全球范围内逐步淘汰化石燃料",
+      "link": "https://www.theguardian.com/environment/2026/nov/13/california-gavin-newsom-endorses-fossil-fuel-phaseout",
+      "source": "The Guardian Environment",
+      "published": "2026-11-13T16:31:28+00:00",
+      "hotness": 86.8,
+      "score_v1": 34.0,
+      "score_v2": 86.8,
+      "score_breakdown": {
+        "algorithm": "v3.0",
+        "dimension_max": {
+          "authority": 18.0,
+          "topic": 18.0,
+          "resonance": 18.0,
+          "information": 16.0
+        },
+        "authority_score": 12.73,
+        "keyword_idf_score": 8.4,
+        "topic_score": 14.1,
+        "topic_burst_score": 5.7,
+        "topic_burst_count": 7,
+        "resonance_score": 8.76,
+        "info_score": 3.0,
+        "base": 38.59,
+        "base_max": 70.0,
+        "time_factor": 0.7858,
+        "density_factor": 1.0,
+        "density_note": "",
+        "repeat_penalty": 1.0,
+        "repeat_excused": false,
+        "event_size": 3,
+        "event_media_count": 2,
+        "event_cluster_source": "ai",
+        "origin_source": "The Guardian Environment",
+        "raw": 30.32,
+        "display_score": 86.8,
+        "display_mode": "absolute"
+      },
+      "summary": "纽森是出席第31届联合国气候变化大会（COP31）的最知名美国政界人士，而特朗普政府仍在继续抵制这一会议。作为全球第四大经济体的领导人，加利福尼亚州州长加文·纽森明确支持在全球范围内逐步淘汰导致气候崩溃的化石燃料。纽森向《卫报》表示，加利福尼亚州“百分之百”支持所谓的“圣玛尔塔联盟”所做的努力。该联盟由50多个国家组成，其中包括许多全球最大经济体，旨在推动能源转型，从石油、天然气和煤炭转向太阳能、风能、电池及其他非碳能源。继续阅读……",
+      "analysis": "",
+      "topic_tags": [
+        "化石燃料"
+      ],
+      "category": "气候变化",
+      "matched_keywords": [
+        "气候变化",
+        "能源转型"
+      ]
+    },
+    {
+      "title": "Countries Growing More Ambitious on Climate, Despite U.S. Retreat",
+      "title_en": "Countries Growing More Ambitious on Climate, Despite U.S. Retreat",
+      "title_zh": "尽管美国退缩，各国在气候问题上的目标却日益雄心勃勃",
+      "link": "https://e360.yale.edu/digest/global-climate-policy",
+      "source": "Yale Environment 360",
+      "published": "2026-11-13T13:43:00+00:00",
+      "hotness": 83.3,
+      "score_v1": 17.5,
+      "score_v2": 83.3,
+      "score_breakdown": {
+        "algorithm": "v3.0",
+        "dimension_max": {
+          "authority": 18.0,
+          "topic": 18.0,
+          "resonance": 18.0,
+          "information": 16.0
+        },
+        "authority_score": 12.73,
+        "keyword_idf_score": 9.16,
+        "topic_score": 9.16,
+        "topic_burst_score": 0.0,
+        "topic_burst_count": 1,
+        "resonance_score": 8.76,
+        "info_score": 3.0,
+        "base": 33.64,
+        "base_max": 70.0,
+        "time_factor": 0.7611,
+        "density_factor": 1.0,
+        "density_note": "",
+        "repeat_penalty": 1.0,
+        "repeat_excused": true,
+        "event_size": 3,
+        "event_media_count": 2,
+        "event_cluster_source": "ai",
+        "origin_source": "Yale Environment 360",
+        "raw": 25.61,
+        "display_score": 83.3,
+        "display_mode": "absolute"
+      },
+      "summary": "特朗普政府已着手推翻美国的气候政策，大幅削减对清洁能源的补贴，放宽污染限制，并动摇气候监管的法律基础。但专家指出，尽管美国在气候政策上倒退，亚洲、非洲和拉丁美洲却在取得进展。在 E360 上阅读更多内容 →",
+      "analysis": "",
+      "topic_tags": [
+        "美国气候政策",
+        "清洁能源补贴",
+        "污染限制"
+      ],
+      "category": "气候变化",
+      "matched_keywords": [
+        "清洁能源"
+      ]
+    },
+    {
+      "title": "广东省流域和海域生态环境保护 “十五五”规划 - https://www.gdshe.org/",
+      "title_en": "",
+      "title_zh": "",
+      "link": "https://news.google.com/rss/articles/CBMiUkFVX3lxTE85WDNaWkdjdUpCNzI0RjdyU09PYVM2S3I4ZGFJYWhnVG5tcE9BMm5OdDNxN2JSQWlGNkFqVjdxVnlOdFY4VEowR3p2eTFDclRkaXc?oc=5",
+      "source": "Google News 环境保护",
+      "published": "2026-11-13T02:20:12+00:00",
+      "hotness": 82.6,
+      "score_v1": 35.09,
+      "score_v2": 82.6,
+      "score_breakdown": {
+        "algorithm": "v3.0",
+        "dimension_max": {
+          "authority": 18.0,
+          "topic": 18.0,
+          "resonance": 18.0,
+          "information": 16.0
+        },
+        "authority_score": 8.05,
+        "keyword_idf_score": 9.74,
+        "topic_score": 14.92,
+        "topic_burst_score": 5.19,
+        "topic_burst_count": 5,
+        "resonance_score": 8.76,
+        "info_score": 5.0,
+        "base": 36.73,
+        "base_max": 70.0,
+        "time_factor": 0.6743,
+        "density_factor": 1.0,
+        "density_note": "",
+        "repeat_penalty": 1.0,
+        "repeat_excused": false,
+        "event_size": 2,
+        "event_media_count": 2,
+        "event_cluster_source": "ai",
+        "origin_source": "https://www.gdshe.org/",
+        "raw": 24.77,
+        "display_score": 82.6,
+        "display_mode": "absolute"
+      },
+      "summary": "广东省生态环境厅发布《广东省流域和海域生态环境保护十五五规划》，划定未来五年保护方向。",
+      "analysis": "",
+      "topic_tags": [
+        "广东省流域和海域生态环境保护",
+        "十五五规划",
+        "生态环境厅"
+      ],
+      "category": "生态环境",
+      "matched_keywords": [
+        "流域",
+        "生态环境",
+        "环境保护"
+      ]
+    },
+    {
+      "title": "北京市发展和改革委员会 北京市生态环境局关于发布2026年第二批13家通过清洁生产审核评估单位的通知 - 北京市人民政府门户网站",
+      "title_en": "",
+      "title_zh": "",
+      "link": "https://news.google.com/rss/articles/CBMigwFBVV95cUxOMXNMWVUtYlJnR05VcFE5S3ZhZGtNS0liaVBFVVFrZ0lQcldUcVZKUWF0Z0MybDhSQnltUEEtRmRueTVrUWxPejdEcGJCbk15ZnJLTDVBaGVONlUyb3dFOWwwLTBNLWkzX1ZmOUFDOWRWdWtCS19jSUNYMk5JWE5iT1pyOA?oc=5",
+      "source": "Google News 生态环境",
+      "published": "2026-11-13T17:20:05+00:00",
+      "hotness": 82.3,
+      "score_v1": 25.25,
+      "score_v2": 82.3,
+      "score_breakdown": {
+        "algorithm": "v3.0",
+        "dimension_max": {
+          "authority": 18.0,
+          "topic": 18.0,
+          "resonance": 18.0,
+          "information": 16.0
+        },
+        "authority_score": 8.05,
+        "keyword_idf_score": 4.6,
+        "topic_score": 9.78,
+        "topic_burst_score": 5.19,
+        "topic_burst_count": 5,
+        "resonance_score": 0.0,
+        "info_score": 13.0,
+        "base": 30.83,
+        "base_max": 70.0,
+        "time_factor": 0.7933,
+        "density_factor": 1.0,
+        "density_note": "",
+        "repeat_penalty": 1.0,
+        "repeat_excused": false,
+        "event_size": 1,
+        "event_media_count": 1,
+        "event_cluster_source": "ai",
+        "origin_source": "北京市人民政府门户网站",
+        "raw": 24.46,
+        "display_score": 82.3,
+        "display_mode": "absolute"
+      },
+      "summary": "北京市发布2026年第二批13家通过清洁生产审核评估单位名单，推动企业绿色转型升级。",
+      "analysis": "",
+      "topic_tags": [
+        "生态环境局"
+      ],
+      "category": "生态环境",
+      "matched_keywords": [
+        "生态环境"
+      ]
+    },
+    {
+      "title": "研究：2026年夏季欧洲逾3.2万例高温超额死亡可归因于人为气候变化 - 虎嗅",
+      "title_en": "",
+      "title_zh": "",
+      "link": "https://news.google.com/rss/articles/CBMiVEFVX3lxTE1RbWZEdmgyV2g5OHJsMkROTjQzRXoxeEwxV1YwZFczbWotZ1pzeEF0VmdOZXZQamxQb0tYSVV2ODFqU05Oa2h6X1JUSm1oR3BsOWdYOA?oc=5",
+      "source": "Google News 气候变化",
+      "published": "2026-11-14T04:54:12+00:00",
+      "hotness": 81.9,
+      "score_v1": 32.13,
+      "score_v2": 81.9,
+      "score_breakdown": {
+        "algorithm": "v3.0",
+        "dimension_max": {
+          "authority": 18.0,
+          "topic": 18.0,
+          "resonance": 18.0,
+          "information": 16.0
+        },
+        "authority_score": 8.05,
+        "keyword_idf_score": 3.47,
+        "topic_score": 9.17,
+        "topic_burst_score": 5.7,
+        "topic_burst_count": 7,
+        "resonance_score": 0.0,
+        "info_score": 9.0,
+        "base": 26.22,
+        "base_max": 70.0,
+        "time_factor": 0.9141,
+        "density_factor": 1.0,
+        "density_note": "",
+        "repeat_penalty": 1.0,
+        "repeat_excused": false,
+        "event_size": 1,
+        "event_media_count": 1,
+        "event_cluster_source": "ai",
+        "origin_source": "虎嗅",
+        "raw": 23.97,
+        "display_score": 81.9,
+        "display_mode": "absolute"
+      },
+      "summary": "研究显示2026年夏季欧洲逾3.2万例高温超额死亡可归因于人为气候变化，气候健康风险加剧。",
+      "analysis": "",
+      "topic_tags": [
+        "人为气候变化"
+      ],
+      "category": "气候变化",
+      "matched_keywords": [
+        "气候变化"
+      ]
+    },
+    {
+      "title": "全球脱碳如何提速？国际环保组织负责人看到了“中国机遇”｜新闻会客厅 - 中国新闻网",
+      "title_en": "",
+      "title_zh": "",
+      "link": "https://news.google.com/rss/articles/CBMiaEFVX3lxTE5nZnhwTndDaW81LTBoLWJTeldpVkZVY2VGOGg0SW5MQ1drNy1xQTYwYU5lMEI4by1XMGpOeHdGdk9uMXo3SmVQZTloTmZhVXJDR25IREwwLTU1a1dEY1ZMWk1SMkFKMnBt?oc=5",
+      "source": "Google News 环境保护",
+      "published": "2026-11-14T00:31:34+00:00",
+      "hotness": 81.0,
+      "score_v1": 14.88,
+      "score_v2": 81.0,
+      "score_breakdown": {
+        "algorithm": "v3.0",
+        "dimension_max": {
+          "authority": 18.0,
+          "topic": 18.0,
+          "resonance": 18.0,
+          "information": 16.0
+        },
+        "authority_score": 8.05,
+        "keyword_idf_score": 0.0,
+        "topic_score": 3.0,
+        "topic_burst_score": 0.0,
+        "topic_burst_count": 1,
+        "resonance_score": 15.56,
+        "info_score": 0.0,
+        "base": 26.61,
+        "base_max": 70.0,
+        "time_factor": 0.8649,
+        "density_factor": 1.0,
+        "density_note": "",
+        "repeat_penalty": 1.0,
+        "repeat_excused": true,
+        "event_size": 4,
+        "event_media_count": 4,
+        "event_cluster_source": "ai",
+        "origin_source": "中国新闻网",
+        "raw": 23.02,
+        "display_score": 81.0,
+        "display_mode": "absolute"
+      },
+      "summary": "国际环保组织负责人在新闻会客厅访谈中表示，看到了中国在全球脱碳进程中的机遇，探讨如何提速全球脱碳步伐。",
+      "analysis": "",
+      "topic_tags": [
+        "国际环保组织"
+      ],
+      "category": "环境政策",
+      "matched_keywords": []
+    },
+    {
+      "title": "A super El Niño brings startling changes for marine life on California coast: ‘like nothing we’ve ever seen’",
+      "title_en": "A super El Niño brings startling changes for marine life on California coast: ‘like nothing we’ve ever seen’",
+      "title_zh": "一场“超级厄尔尼诺”给加利福尼亚海岸的海洋生物带来了惊人的变化：“这是我们前所未见的”",
+      "link": "https://www.theguardian.com/environment/2026/nov/13/super-el-nino-california-monterey-bay",
+      "source": "The Guardian Environment",
+      "published": "2026-11-13T12:00:19+00:00",
+      "hotness": 80.7,
+      "score_v1": 17.22,
+      "score_v2": 80.7,
+      "score_breakdown": {
+        "algorithm": "v3.0",
+        "dimension_max": {
+          "authority": 18.0,
+          "topic": 18.0,
+          "resonance": 18.0,
+          "information": 16.0
+        },
+        "authority_score": 12.73,
+        "keyword_idf_score": 5.88,
+        "topic_score": 5.88,
+        "topic_burst_score": 0.0,
+        "topic_burst_count": 1,
+        "resonance_score": 8.76,
+        "info_score": 3.0,
+        "base": 30.36,
+        "base_max": 70.0,
+        "time_factor": 0.7467,
+        "density_factor": 1.0,
+        "density_note": "",
+        "repeat_penalty": 1.0,
+        "repeat_excused": true,
+        "event_size": 3,
+        "event_media_count": 2,
+        "event_cluster_source": "ai",
+        "origin_source": "The Guardian Environment",
+        "raw": 22.67,
+        "display_score": 80.7,
+        "display_mode": "absolute"
+      },
+      "summary": "水温节节攀升，涨潮正吞噬着海岸线，而维系海洋生物多样性的食物网中至关重要的环节正在消失。上周一个风景如画的秋日午后，加利福尼亚州蒙特雷湾的海滩上，生与死交织。一群岸鸟随着汹涌的海浪，以一种整齐划一的舞姿时而冲上前，时而退后。 不远处，退去的潮水留下了毫无生气的羽毛和骨骼堆，它们缠绕在闪闪发光的巨藻堆中。海狮的尸体肿胀，牙齿露在外面，面带静默的狞笑，零星散落在沙滩上；与此同时，野餐者和遛狗的人正享受着这温暖无云的好天气。继续阅读……",
+      "analysis": "",
+      "topic_tags": [
+        "海洋生物",
+        "超级厄尔尼诺"
+      ],
+      "category": "生态环境",
+      "matched_keywords": [
+        "生物多样性"
+      ]
+    },
+    {
+      "title": "Additionality of climate benefits from emission reduction and carbon dioxide removal",
+      "title_en": "Additionality of climate benefits from emission reduction and carbon dioxide removal",
+      "title_zh": "减排与二氧化碳移除所产生的气候效益的增量性",
+      "link": "https://iopscience.iop.org/article/10.1088/1748-9326/aebb4e",
+      "source": "Environmental Research Letters",
+      "published": "2026-11-13T00:00:00+00:00",
+      "hotness": 80.5,
+      "score_v1": 29.26,
+      "score_v2": 80.5,
+      "score_breakdown": {
+        "algorithm": "v3.0",
+        "dimension_max": {
+          "authority": 18.0,
+          "topic": 18.0,
+          "resonance": 18.0,
+          "information": 16.0
+        },
+        "authority_score": 18.0,
+        "keyword_idf_score": 3.47,
+        "topic_score": 9.17,
+        "topic_burst_score": 5.7,
+        "topic_burst_count": 7,
+        "resonance_score": 0.0,
+        "info_score": 7.0,
+        "base": 34.17,
+        "base_max": 70.0,
+        "time_factor": 0.6589,
+        "density_factor": 1.0,
+        "density_note": "",
+        "repeat_penalty": 1.0,
+        "repeat_excused": false,
+        "event_size": 1,
+        "event_media_count": 1,
+        "event_cluster_source": "ai",
+        "origin_source": "Environmental Research Letters",
+        "raw": 22.52,
+        "display_score": 80.5,
+        "display_mode": "absolute"
+      },
+      "summary": "二氧化碳去除（CDR）已被认定为工业脱碳在减缓气候变化方面不可或缺的补充措施。 海洋二氧化碳移除（mCDR）方法，例如海洋碱度增强（OAE）和直接海洋捕获（DOC），因其既能抵消海洋酸化，又能同时减少大气中二氧化碳的潜力而备受关注。 然而，大多数基于模型的 mCDR 效用评估要么假设大气 CO₂ 背景值固定，要么采用理想化的未来 CO₂ 轨迹，从而排除了重要碳循环反馈的影响——这些反馈会在海洋、大气和生物圈之间重新分配碳。 在此，我们利用地球系统模型探讨三个核心问题：碳捕获与封存（CDR）的净二氧化碳效应是否取决于背景排放水平；同时部署的CDR技术能否产生累加的二氧化碳减排效果；以及CDR的辐射强迫（气候）效益与减排之间是否存在协同作用。 我们评估了直接空气捕获、海洋吸收增强（OAE）和直接碳捕获（DOC）的各种组合方案，量化了它们在不同排放情景下的单独及综合二氧化碳减排效果。研究发现，无论背景排放情景、CDR类型或规模如何，减排与CDR的辐射强迫效应在时间上基本呈累加关系。 此外，任何特定数量和类型的短期碳捕获与移除部署，都会随时间推移带来可预测、成比例且持久的 атмосферный CO₂ 减排（ΔlnCO₂），从而便于对不同碳捕获与移除策略进行比较。 最后，我们表明，在低背景二氧化碳浓度下，碳捕获与封存（CDR）的效能略高，这印证了脱碳与CDR在碳管理组合中的互补价值。这些发现为设计综合碳管理策略提供了坚实的物理依据，并支持将深度减排与CDR作为协同气候杠杆加以推进。",
+      "analysis": "",
+      "topic_tags": [
+        "海洋碱度增强",
+        "直接海洋捕获"
+      ],
+      "category": "生态环境",
+      "matched_keywords": [
+        "气候变化"
+      ]
+    }
+  ]
+}

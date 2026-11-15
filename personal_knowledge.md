@@ -10896,3 +10896,161 @@
 
 ---
 
+## 2026-11-15
+
+**今日高频关键词**：`#生态环境` `#气候变化` `#可持续发展` `#水污染` `#环境保护`
+
+**今日 Top10 热点**
+
+### 1. “推动全球应对气候变化与绿色发展合作”主题边会在COP31中国角举办 - Sohu
+- **来源**：Google News 气候变化
+- **热度**：88.7
+- **链接**：https://news.google.com/rss/articles/CBMijwFBVV95cUxOdDBGVy1DdjZEc1g4Q3BDVFdBOFZ3Y1NUcVIxVHJMdUMwemd3TWpnQnhSYldpeENiTXNlejlVdTBsVml5UFJfV1N5YUlyeC01UUFmQnM1Q054NGpDSVVyRnJGellEcURPZXNST0VnV2plVnF3QktRUmlNaU9zTnJMZ3JnOGU4QzFHSURrSlZEUQ?oc=5
+- **摘要**：“推动全球应对气候变化与绿色发展合作”主题边会在COP31中国角举办 SohuCOP31｜刘振民：以务实行动推动包容性绿色转型 新浪新闻_手机新浪网杨斌：气候素养应成为所有公民的“通识必修课” 风闻
+- **分析**：该条目涉及【COP31】话题，因来源较权威且发布时间较新，热度上升。
+
+### 2. 刘虎主持召开生态环境保护工作推进会议 - Sohu
+- **来源**：Google News 环境保护
+- **热度**：86.3
+- **链接**：https://news.google.com/rss/articles/CBMijAFBVV95cUxQYU4yN3EydnVta0JKNWU4VUxTakdkNUhjRGsySjFXTGUtVk1DVDM1Q1NHYzdfWFliNGphUU5leldFU0Roa2laQVloem1VcXFMNG1zY1p5aXlNek1veWJ5Sl9Uek1hWHhDdFczaXRjWTRiTW5YaU92Z0Nnc2dIcUJsRGF6SGFrNmh5cTR0bA?oc=5
+- **摘要**：乌达区委书记刘虎主持召开生态环境保护工作推进会议，强调提高政治站位，切实应对生态环境保护工作面临的严峻性和紧迫性，坚持问题、目标、结果导向。
+- **分析**：该条目涉及【生态环境保护工作推进会议】话题，因来源较权威且发布时间较新，热度上升。
+
+### 3. 专访COP31中国代表团团长李高：全球气候承诺走向“落实”的难点和堵点在哪里？ - ThePaper.cn
+- **来源**：Google News 气候变化
+- **热度**：85.6
+- **链接**：https://news.google.com/rss/articles/CBMiYEFVX3lxTE4zUjBLNlRJNlloeWF6SVFZekRpaDJCYXoxMkFUS1dadGN1eDB6UDRCRnZSYXR0ck5fcHQwWE5hRzZQamNGYUhnZkpxYW9kampSQUJRLUdoaVQxLUNBcDl2Yg?oc=5
+- **摘要**：访谈COP31中国代表团团长李高，探讨全球气候承诺走向落实的难点与堵点，分析国际气候合作面临的挑战与路径。
+- **分析**：该条目涉及【COP31】话题，因来源较权威且发布时间较新，热度上升。
+
+### 4. 北京市发展和改革委员会 北京市生态环境局关于发布2026年第二批13家通过清洁生产审核评估单位的通知 - 北京市人民政府门户网站
+- **来源**：Google News 生态环境
+- **热度**：82.4
+- **链接**：https://news.google.com/rss/articles/CBMigwFBVV95cUxOMXNMWVUtYlJnR05VcFE5S3ZhZGtNS0liaVBFVVFrZ0lQcldUcVZKUWF0Z0MybDhSQnltUEEtRmRueTVrUWxPejdEcGJCbk15ZnJLTDVBaGVONlUyb3dFOWwwLTBNLWkzX1ZmOUFDOWRWdWtCS19jSUNYMk5JWE5iT1pyOA?oc=5
+- **摘要**：北京市发改委和生态环境局发布2026年第二批次清洁生产审核评估结果，认定13家单位通过评估，推动企业清洁生产水平提升。
+- **分析**：该条目涉及【生态环境局】话题，因来源较权威且多家媒体同题报道，热度上升。
+
+### 5. 11月15日12时起，全市解除重污染天气Ⅱ级应急响应 - 手机新浪网
+- **来源**：Google News 环境污染
+- **热度**：80.5
+- **链接**：https://news.google.com/rss/articles/CBMickFVX3lxTE4xSkFUYnVRVzVTUHFpcDhrNVZDSFlycnhucVVNc2x4eVgzMHJvQkw0M1YyOENqZkhoUEQyVHVRc2hMWklpazNTMUdBZDB1b1EybVBGMmpfNlY0N1lPSFo1SHNsZkYtckpsZk1hcjNPc2c1dw?oc=5
+- **摘要**：北京市自11月15日12时起全面解除重污染天气Ⅱ级应急响应，空气质量改善，市民可正常开展户外活动。
+- **分析**：该条目涉及【重污染天气】话题，因来源较权威且发布时间较新，热度上升。
+
+### 6. 第四届永定河绿色发展论坛在门头沟区举办 发布多项重要成果 - 北京新闻
+- **来源**：Google News 环境保护
+- **热度**：79.4
+- **链接**：https://news.google.com/rss/articles/CBMiakFVX3lxTE9seE04WlV0RXpSVDh6VU9jMkMxeEhJd05YYkVES2wyZWNkZnlocGZycDFSSnAzSi1fOFhYTU9mX3RudmRyLW93MjljdHoxSmpVMWJkZDMxSlpWNnEzdFZWUGp2TjNiczA5dnc?oc=5
+- **摘要**：第四届永定河绿色发展论坛在北京门头沟区举办，发布多项重要成果，聚焦永定河生态保护与高质量发展的新路径与新成效。
+- **分析**：该条目涉及【永定河绿色发展论坛】话题，因来源较权威且多家媒体同题报道，热度上升。
+
+### 7. 青海省第二轮第一批生态环境保护例行督察集中通报典型案例 - 青海新闻网
+- **来源**：Google News 环境保护
+- **热度**：79.0
+- **链接**：https://news.google.com/rss/articles/CBMidEFVX3lxTE8ycWI2UjdBdWRscFJDeGQ3ZkpiZ0dVUzQ2Umswb1ZGV0ZmbFlhWktqWnZEOEMta0xBY3NxQVMyT1psQkZTcThHdEhNMWlRUjV4T2hkZmtVX1N5MVN2NmY1cEVVSEt0b0ZfY2hrNnlxZGE5NEwz?oc=5
+- **摘要**：青海省第二轮第一批生态环境保护例行督察集中通报典型案例，聚焦督察重点问题进行典型案例通报。
+- **分析**：该条目涉及【生态环境保护例行督察】话题，因来源较权威且发布时间较新，热度上升。
+
+### 8. A process-based SWAT-LSTM hybrid framework for efficient water quality index modeling in urban river catchment
+- **来源**：Water Research
+- **热度**：78.7
+- **链接**：https://www.sciencedirect.com/science/article/pii/S0043135426019676?dgcid=rss_sd_all
+- **摘要**：基于过程的SWAT-LSTM混合框架高效模拟城市河流流域水质指数，提升水质预测精度与效率。
+- **分析**：该条目涉及【水质指数】话题，因来源权威性高且话题稀缺度高，热度上升。
+
+### 9. Decoding water pollution sources of the Yellow River Basin using semi-volatile organic pollutants: From potential threats to chemical fingerprints
+- **来源**：Water Research
+- **热度**：76.0
+- **链接**：https://www.sciencedirect.com/science/article/pii/S0043135426019445?dgcid=rss_sd_all
+- **摘要**：利用半挥发性有机污染物解码黄河流域水污染来源，从潜在威胁转化为化学指纹追踪污染。
+- **分析**：该条目涉及【半挥发性有机污染物】话题，因来源权威性高且话题稀缺度高，热度上升。
+
+### 10. 生态环境部部长黄润秋出席COP31“中国角”系列边会活动并会见外方高级代表 - 中华人民共和国生态环境部
+- **来源**：Google News 生态环境
+- **热度**：75.9
+- **链接**：https://news.google.com/rss/articles/CBMidkFVX3lxTE5uMVNTMFhBUnVDVXhhRGtJU0pad2ZhcTFwWnNfOWthVEZreVRJWENZQ3pRcWIzV05waXFpQW1yRXVCenVjQjdmd2pURkIwc1ZZeUZ1eHZOTHpqbjVOc1dzLWdPTGwyQUpHckFXQVRPYll6UEt4anc?oc=5
+- **摘要**：生态环境部部长黄润秋出席COP31中国角系列边会活动并会见外方高级代表，推动国际环境合作。
+- **分析**：该条目涉及【COP31】话题，因来源较权威，热度上升。
+
+**今日自动提取候选新词**
+
+- **中国**（出现 6 次）
+  - 上下文：“推动全球应对气候变化与绿色发展合作”主题边会在COP31中国角举办 - Sohu
+  - 上下文：专访COP31中国代表团团长李高：全球气候承诺走向“落实”的难点和堵点在哪里？ - ThePaper.cn
+  - 上下文：生态环境部部长黄润秋出席COP31“中国角”系列边会活动并会见外方高级代表 - 中华人民共和国生态环境部
+- **Sohu**（出现 4 次）
+  - 上下文：“推动全球应对气候变化与绿色发展合作”主题边会在COP31中国角举办 - Sohu
+  - 上下文：刘虎主持召开生态环境保护工作推进会议 - Sohu
+  - 上下文：网民反映“周宅村河道水体被排放污水污染”，海南儋州生态环境局通报 - Sohu
+- **climate**（出现 4 次）
+  - 上下文：Additionality of climate benefits from emission reduction and carbon dioxide removal
+  - 上下文：Is the climate totally cooked? What the data say
+  - 上下文：Spatially compounding climate extremes and environmental risk: cross-regional synchrony, spatial buffering loss, and systemic consequences
+- **COP31**（出现 3 次）
+  - 上下文：“推动全球应对气候变化与绿色发展合作”主题边会在COP31中国角举办 - Sohu
+  - 上下文：专访COP31中国代表团团长李高：全球气候承诺走向“落实”的难点和堵点在哪里？ - ThePaper.cn
+  - 上下文：生态环境部部长黄润秋出席COP31“中国角”系列边会活动并会见外方高级代表 - 中华人民共和国生态环境部
+- **water**（出现 3 次）
+  - 上下文：A process-based SWAT-LSTM hybrid framework for efficient water quality index modeling in urban river catchment
+  - 上下文：Decoding water pollution sources of the Yellow River Basin using semi-volatile organic pollutants: From potential threats to chemical fingerprints
+  - 上下文：Evolving energy-water infrastructure strengthens drought resilience in the U.S. Northeast and Midwest
+- **全球**（出现 2 次）
+  - 上下文：“推动全球应对气候变化与绿色发展合作”主题边会在COP31中国角举办 - Sohu
+  - 上下文：专访COP31中国代表团团长李高：全球气候承诺走向“落实”的难点和堵点在哪里？ - ThePaper.cn
+- **绿色**（出现 2 次）
+  - 上下文：“推动全球应对气候变化与绿色发展合作”主题边会在COP31中国角举办 - Sohu
+  - 上下文：第四届永定河绿色发展论坛在门头沟区举办 发布多项重要成果 - 北京新闻
+- **边会**（出现 2 次）
+  - 上下文：“推动全球应对气候变化与绿色发展合作”主题边会在COP31中国角举办 - Sohu
+  - 上下文：生态环境部部长黄润秋出席COP31“中国角”系列边会活动并会见外方高级代表 - 中华人民共和国生态环境部
+- **举办**（出现 2 次）
+  - 上下文：“推动全球应对气候变化与绿色发展合作”主题边会在COP31中国角举办 - Sohu
+  - 上下文：第四届永定河绿色发展论坛在门头沟区举办 发布多项重要成果 - 北京新闻
+- **生态**（出现 2 次）
+  - 上下文：刘虎主持召开生态环境保护工作推进会议 - Sohu
+  - 上下文：青海省第二轮第一批生态环境保护例行督察集中通报典型案例 - 青海新闻网
+- **气候**（出现 2 次）
+  - 上下文：专访COP31中国代表团团长李高：全球气候承诺走向“落实”的难点和堵点在哪里？ - ThePaper.cn
+  - 上下文：中国决定不争取主办2028年的联合国气候峰会 - RFI
+- **ThePaper**（出现 2 次）
+  - 上下文：专访COP31中国代表团团长李高：全球气候承诺走向“落实”的难点和堵点在哪里？ - ThePaper.cn
+  - 上下文：为精准管控污染物排放及优化地方排放标准，两部门印发意见 - ThePaper.cn
+- **北京**（出现 2 次）
+  - 上下文：第四届永定河绿色发展论坛在门头沟区举办 发布多项重要成果 - 北京新闻
+  - 上下文：明天，北京空气质量恢复优良！此次污染感觉没预测那么重，是谁“立功”了？ - 凤凰网
+- **通报**（出现 2 次）
+  - 上下文：青海省第二轮第一批生态环境保护例行督察集中通报典型案例 - 青海新闻网
+  - 上下文：网民反映“周宅村河道水体被排放污水污染”，海南儋州生态环境局通报 - Sohu
+- **efficient**（出现 2 次）
+  - 上下文：A process-based SWAT-LSTM hybrid framework for efficient water quality index modeling in urban river catchment
+  - 上下文：Identification and genomic characterization of the nitrifiers in a full-scale municipal wastewater treatment plant with efficient, year-round nitrogen removal
+- **pollution**（出现 2 次）
+  - 上下文：Decoding water pollution sources of the Yellow River Basin using semi-volatile organic pollutants: From potential threats to chemical fingerprints
+  - 上下文：Widespread North American pollution and health impacts from early twentieth century copper production
+- **removal**（出现 2 次）
+  - 上下文：Additionality of climate benefits from emission reduction and carbon dioxide removal
+  - 上下文：Identification and genomic characterization of the nitrifiers in a full-scale municipal wastewater treatment plant with efficient, year-round nitrogen removal
+- **海南**（出现 2 次）
+  - 上下文：海南儋州一处排洪沟里的水呈现奶白色，生态环境局回应 - 新京报
+  - 上下文：网民反映“周宅村河道水体被排放污水污染”，海南儋州生态环境局通报 - Sohu
+- **儋州**（出现 2 次）
+  - 上下文：海南儋州一处排洪沟里的水呈现奶白色，生态环境局回应 - 新京报
+  - 上下文：网民反映“周宅村河道水体被排放污水污染”，海南儋州生态环境局通报 - Sohu
+- **排放**（出现 2 次）
+  - 上下文：网民反映“周宅村河道水体被排放污水污染”，海南儋州生态环境局通报 - Sohu
+  - 上下文：为精准管控污染物排放及优化地方排放标准，两部门印发意见 - ThePaper.cn
+- **data**（出现 2 次）
+  - 上下文：Is the climate totally cooked? What the data say
+  - 上下文：Agricultural data source choice as a dominant control on nitrogen surplus uncertainty
+- **environmental**（出现 2 次）
+  - 上下文：Spatially compounding climate extremes and environmental risk: cross-regional synchrony, spatial buffering loss, and systemic consequences
+  - 上下文：Robust hydrogel ion channels for osmotic energy harvesting and environmental sensing
+- **nitrogen**（出现 2 次）
+  - 上下文：Identification and genomic characterization of the nitrifiers in a full-scale municipal wastewater treatment plant with efficient, year-round nitrogen removal
+  - 上下文：Agricultural data source choice as a dominant control on nitrogen surplus uncertainty
+- **energy**（出现 2 次）
+  - 上下文：Evolving energy-water infrastructure strengthens drought resilience in the U.S. Northeast and Midwest
+  - 上下文：Robust hydrogel ion channels for osmotic energy harvesting and environmental sensing
+
+---
+

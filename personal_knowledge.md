@@ -11054,3 +11054,157 @@
 
 ---
 
+## 2026-11-16
+
+**今日高频关键词**：`#气候变化` `#生态环境` `#环境保护` `#督察` `#生态环境保护`
+
+**今日 Top10 热点**
+
+### 1. 视频 | 第三轮第七批中央生态环境保护督察全面完成督察进驻阶段工作 - jingjiribao.cn
+- **来源**：Google News 环境保护
+- **热度**：92.3
+- **链接**：https://news.google.com/rss/articles/CBMiY0FVX3lxTE0zdXRnZFFWdW9mZnp6ZmpMQy0tTTdZUlJsTDhKcXNoYXJFeGVVX2lFLVpId0lsVzdVOUI4OWF3eGFnd2Npemd1S0lnUDl0OERoVXF6bkJ3SFl1ZTFoWW5ZQzBlUQ?oc=5
+- **摘要**：第三轮第七批中央生态环境保护督察完成督察进驻阶段工作，全面结束督察任务。
+- **分析**：该条目涉及【中央生态环境保护督察】话题，因来源较权威且发布时间较新，热度上升。
+
+### 2. 友山科技亮相联合国气候变化大会（COP31），发布碳中和规划，探索绿色材料与产业低碳转型新路径 - 中国日报网
+- **来源**：Google News 气候变化
+- **热度**：91.5
+- **链接**：https://news.google.com/rss/articles/CBMifEFVX3lxTE1Xb1lfLXlQRE1rMmkxS05rTmJuVnp5ZFVzLU5CZ21HbU05cXFTUnZiSFJFb1NEUGxQSzlyZkhsTFc0TDIxTzRLOXBDVkJ4OWVPZElhcE4wVmpvU184THZaQTFrQmpSRkNwVkFrcF93bVI5cEVKUEtUNzlwenI?oc=5
+- **摘要**：友山科技在COP31大会发布碳中和规划，探索绿色材料产业低碳转型新路径。
+- **分析**：该条目涉及【COP31】话题，因来源较权威且发布时间较新，热度上升。
+
+### 3. 气候变化下的基加利十年之约，冰轮环境代表中国方案亮相MOP38 - 凤凰网
+- **来源**：Google News 气候变化
+- **热度**：90.1
+- **链接**：https://news.google.com/rss/articles/CBMiT0FVX3lxTE03bmFzSnNJaXJGVjdpMkNzMTJwNDFwUnJnOFhSckR0X2JycnZlN1Iwa3JGcmc5TFlFZmMyZlZpTkZkZmZwWHpKekxIUjl6MW8?oc=5
+- **摘要**：冰轮环境代表中国方案亮相MOP38，展示气候变化下的基加利框架十年合作成果。
+- **分析**：该条目涉及【冰轮环境】话题，因来源较权威且发布时间较新，热度上升。
+
+### 4. Vertical characteristics of HCHO and NO2 in suburban Shanghai: understanding of ozone formation sensitivity via secondary HCHO
+- **来源**：Environmental Research Letters
+- **热度**：86.6
+- **链接**：https://iopscience.iop.org/article/10.1088/1748-9326/ad2d3c
+- **摘要**：鉴于中国臭氧（O₃）污染呈上升趋势，二氧化氮（）和甲醛（HCHO）的垂直分布及其在臭氧形成中的作用，对于制定臭氧控制策略至关重要。 2020年6月至2021年5月期间，利用多轴差分光学吸收光谱仪，对上海郊区气溶胶、HCHO和 就甲醛而言，地面平均垂直混合比（VMR）在夏季最高（0.775 ），其次是秋季（0.719 ）、春季（0.718 ）和冬季（0.672 ）。 二氧化氮（）垂直混合比的季节变化趋势与甲醛（HCHO）相反，地面水平峰值出现在冬季（2.212 ），其次是秋季（1.881 ）、 春季（1.415 ）和夏季（1.124 ）。 在垂直方向上，气溶胶呈高斯分布，0.2–0.5 km高度区间内浓度较高。，而甲醛的积分成分则主要集中在2.0 km以下，特别是在夏季。 不同季节中，，而HCHO的垂直分布则出现在0.2–1.0公里范围内。 与无雾天相比，雾天期间气溶胶和 ，而由于晴天光化学活性较高，无雾天期间 HCHO 的浓度则较高。 基于甲醛与二氧化氮的比值（RFN），本研究试图量化不同季节臭氧敏感性的垂直特征。 结果表明，无论在较低高度（通常为 0.0–0.6 公里）还是较高高度（1.8–3.0 公里），O3 敏感性均受 VOC 限制，而在中等高度（0.7–1.7 公里），特别是在白天，发现了一些过渡性限制情况。 结果表明，二次甲醛是控制上海地区O3敏感性的关键因素，在所有季节中，伴随二次甲醛出现时，VOC限制型状况的比例均有所增强。
+- **分析**：该条目涉及【甲醛】话题，因来源权威性高，热度上升。
+
+### 5. 专访丨中国绿色转型为全球气候行动贡献重要力量——访《联合国气候变化框架公约》秘书处执行秘书西蒙·斯蒂尔 - 新华网
+- **来源**：Google News 气候变化
+- **热度**：86.1
+- **链接**：https://news.google.com/rss/articles/CBMif0FVX3lxTFAxQXo4WnVYSnJtTWw1Y2dYaFdZbnNMbGV6U2tycWxoeFlQYkFNYk1icVdmQzNFVDh3azBZNzRCeVFBaEJDalVNUkczZWdPNENwM056ZUlQbWFzTkNkaHpENkVrcm1BMmlMY0NHbmNzcnJRckJXdktGNGF5Y28zRnc?oc=5
+- **摘要**：西蒙·斯蒂尔访谈：中国绿色转型为全球气候行动贡献重要力量，展现大国担当。
+- **分析**：该条目涉及【中国绿色转型】话题，因来源较权威且发布时间较新，热度上升。
+
+### 6. 对外友协：城市是气候适应的主战场，民间合作是气候治理的软联通 - ThePaper.cn
+- **来源**：Google News 气候变化
+- **热度**：84.1
+- **链接**：https://news.google.com/rss/articles/CBMiYEFVX3lxTE5TQWw2cHpJWlNqQVJmOGRCM3NUMVgxaGc1eUh1emZXOG9neUVZTlJrd005RElkQzBRUFVhM2paRFMxaTJ5cmJsdE56dnBEQV92bDJPX1EtSlR4QXJJajN1Vg?oc=5
+- **摘要**：城市是气候适应主战场，民间合作成为气候治理软联通，推动全球城市可持续发展。
+- **分析**：该条目涉及【城市可持续发展】话题，因来源较权威且发布时间较新，热度上升。
+
+### 7. Flying blind: inside the decline of the EPA’s chemical-detection plane
+- **来源**：The Guardian Environment
+- **热度**：83.9
+- **链接**：https://www.theguardian.com/environment/2026/nov/16/epa-chemical-detection-plane
+- **摘要**：美国环保署的“Aspect”侦察机曾是灾害期间追踪有毒化学物质的关键力量——为何如今却经常停飞？去年11月，俄克拉荷马州韦瑟福德市一家酒店外发生氨气泄漏事故，造成74人受伤，但联邦政府的这架化学探测机却未出动。 今年3月，得克萨斯州阿瑟港瓦莱罗炼油厂发生火灾时，该飞机同样处于停飞状态；8月，俄亥俄州托莱多市一家回收厂发生爆炸，造成两名工人死亡，该飞机也未出动。“十年前，它本会出动参与所有这些事件的，”曾负责该项目长达18年的美国环保署前官员马克·托马斯说道。 继续阅读...
+- **分析**：该条目涉及【化学检测飞机】话题，因来源权威性高且发布时间较新，热度上升。
+
+### 8. Is the sixth great extinction imminent? Scientists must draw on natural history for clues
+- **来源**：Nature
+- **热度**：83.7
+- **链接**：https://www.nature.com/articles/d41586-026-03712-w
+- **摘要**：《自然》杂志， 不同研究学科之间缺乏交叉交流，阻碍了学者们全面考察人类如何改变了地球生物多样性的能力。
+- **分析**：该条目涉及【生物多样性】话题，因来源权威性高，热度上升。
+
+### 9. 第三轮第七批中央生态环境保护督察全面完成督察进驻阶段工作 - 中国新闻网
+- **来源**：Google News 环境保护
+- **热度**：81.4
+- **链接**：https://news.google.com/rss/articles/CBMiaEFVX3lxTE5XTDM1RlZaSTR2S3lNSTl0RkxnTmtqY21vTTZrNTBVWjdkTDJVTUM5bnRMZW4xWnlMNWsyT2t6a3JTbTB0YWw5dDRzczZKTVhneUstQlBqVllpSS11eDNXbVl1T05sV2JB?oc=5
+- **摘要**：第三轮第七批中央生态环境保护督察全面完成督察进驻阶段工作，标志着督察任务进入新阶段，进一步强化生态环境保护监督力度。
+- **分析**：该条目涉及【中央生态环境保护督察】话题，因来源较权威且发布时间较新，热度上升。
+
+### 10. 第三轮第七批中央生态环境保护督察全面完成督察进驻阶段工作 - 新京报
+- **来源**：Google News 环境污染
+- **热度**：81.2
+- **链接**：https://news.google.com/rss/articles/CBMiZEFVX3lxTE5qUWkwRXNPMVd3OFV2aG0wSkdrd25tcGFobGxPcVRkMWJ3d1RuYjBRczRHSDNhVkVtSmxaZUJRNEFPel91R01jRmlRNGZ1NXlwdG9EN2xYcXItRGRZai03U013NHg?oc=5
+- **分析**：该条目涉及【中央生态环境保护督察】话题，因来源较权威且发布时间较新，热度上升。
+
+**今日自动提取候选新词**
+
+- **中国**（出现 6 次）
+  - 上下文：气候变化下的基加利十年之约，冰轮环境代表中国方案亮相MOP38 - 凤凰网
+  - 上下文：专访丨中国绿色转型为全球气候行动贡献重要力量——访《联合国气候变化框架公约》秘书处执行秘书西蒙·斯蒂尔 - 新华网
+  - 上下文：第三轮第七批中央生态环境保护督察全面完成督察进驻阶段工作 - 中国新闻网
+- **第三轮**（出现 3 次）
+  - 上下文：视频 | 第三轮第七批中央生态环境保护督察全面完成督察进驻阶段工作 - jingjiribao.cn
+  - 上下文：第三轮第七批中央生态环境保护督察全面完成督察进驻阶段工作 - 中国新闻网
+  - 上下文：第三轮第七批中央生态环境保护督察全面完成督察进驻阶段工作 - 新京报
+- **第七批**（出现 3 次）
+  - 上下文：视频 | 第三轮第七批中央生态环境保护督察全面完成督察进驻阶段工作 - jingjiribao.cn
+  - 上下文：第三轮第七批中央生态环境保护督察全面完成督察进驻阶段工作 - 中国新闻网
+  - 上下文：第三轮第七批中央生态环境保护督察全面完成督察进驻阶段工作 - 新京报
+- **全面完成**（出现 3 次）
+  - 上下文：视频 | 第三轮第七批中央生态环境保护督察全面完成督察进驻阶段工作 - jingjiribao.cn
+  - 上下文：第三轮第七批中央生态环境保护督察全面完成督察进驻阶段工作 - 中国新闻网
+  - 上下文：第三轮第七批中央生态环境保护督察全面完成督察进驻阶段工作 - 新京报
+- **进驻**（出现 3 次）
+  - 上下文：视频 | 第三轮第七批中央生态环境保护督察全面完成督察进驻阶段工作 - jingjiribao.cn
+  - 上下文：第三轮第七批中央生态环境保护督察全面完成督察进驻阶段工作 - 中国新闻网
+  - 上下文：第三轮第七批中央生态环境保护督察全面完成督察进驻阶段工作 - 新京报
+- **climate**（出现 3 次）
+  - 上下文：Additionality of climate benefits from emission reduction and carbon dioxide removal
+  - 上下文：Cost-effective climate change mitigation through land sector contributions
+  - 上下文：Spatially compounding climate extremes and environmental risk: cross-regional synchrony, spatial buffering loss, and systemic consequences
+- **亮相**（出现 2 次）
+  - 上下文：友山科技亮相联合国气候变化大会（COP31），发布碳中和规划，探索绿色材料与产业低碳转型新路径 - 中国日报网
+  - 上下文：气候变化下的基加利十年之约，冰轮环境代表中国方案亮相MOP38 - 凤凰网
+- **联合国气候变化大会**（出现 2 次）
+  - 上下文：友山科技亮相联合国气候变化大会（COP31），发布碳中和规划，探索绿色材料与产业低碳转型新路径 - 中国日报网
+  - 上下文：在联合国气候变化大会，江西为什么讲一座窑？ - 凤凰网
+- **绿色**（出现 2 次）
+  - 上下文：友山科技亮相联合国气候变化大会（COP31），发布碳中和规划，探索绿色材料与产业低碳转型新路径 - 中国日报网
+  - 上下文：专访丨中国绿色转型为全球气候行动贡献重要力量——访《联合国气候变化框架公约》秘书处执行秘书西蒙·斯蒂尔 - 新华网
+- **转型**（出现 2 次）
+  - 上下文：友山科技亮相联合国气候变化大会（COP31），发布碳中和规划，探索绿色材料与产业低碳转型新路径 - 中国日报网
+  - 上下文：专访丨中国绿色转型为全球气候行动贡献重要力量——访《联合国气候变化框架公约》秘书处执行秘书西蒙·斯蒂尔 - 新华网
+- **ozone**（出现 2 次）
+  - 上下文：Vertical characteristics of HCHO and NO2 in suburban Shanghai: understanding of ozone formation sensitivity via secondary HCHO
+  - 上下文：NASA reveals Earth's ozone hole has grown to a size not seen in a decade
+- **secondary**（出现 2 次）
+  - 上下文：Vertical characteristics of HCHO and NO2 in suburban Shanghai: understanding of ozone formation sensitivity via secondary HCHO
+  - 上下文：Environmental fate and trophic transfer of co-exposed PMMA nanoplastics and atrazine in aquatic systems: secondary effects across the water-plant-insect food chain
+- **气候**（出现 2 次）
+  - 上下文：专访丨中国绿色转型为全球气候行动贡献重要力量——访《联合国气候变化框架公约》秘书处执行秘书西蒙·斯蒂尔 - 新华网
+  - 上下文：对外友协：城市是气候适应的主战场，民间合作是气候治理的软联通 - ThePaper.cn
+- **新闻网**（出现 2 次）
+  - 上下文：第三轮第七批中央生态环境保护督察全面完成督察进驻阶段工作 - 中国新闻网
+  - 上下文：锚定美丽晋中建设 山西晋中“十五五”协同推进降碳、减污、扩绿、增长 - 中国新闻网
+- **北京市人民政府**（出现 2 次）
+  - 上下文：北京市生态环境部门“预约式”合规指导事项清单和办事流程 - 北京市人民政府门户网站
+  - 上下文：北京五类环保设施大盘点 欢迎参观！ - 北京市人民政府门户网站
+- **门户网站**（出现 2 次）
+  - 上下文：北京市生态环境部门“预约式”合规指导事项清单和办事流程 - 北京市人民政府门户网站
+  - 上下文：北京五类环保设施大盘点 欢迎参观！ - 北京市人民政府门户网站
+- **carbon**（出现 2 次）
+  - 上下文：Nitrogen availability modulates soil microbial carbon fixation in wetland through community and metabolic remodelling
+  - 上下文：Additionality of climate benefits from emission reduction and carbon dioxide removal
+- **网友**（出现 2 次）
+  - 上下文：网友0446079614 - 中国环境网 - 中国环境网
+- **systems**（出现 2 次）
+  - 上下文：Environmental fate and trophic transfer of co-exposed PMMA nanoplastics and atrazine in aquatic systems: secondary effects across the water-plant-insect food chain
+  - 上下文：Towards practical photosynthetic biohybrid systems
+- **environmental**（出现 2 次）
+  - 上下文：Spatially compounding climate extremes and environmental risk: cross-regional synchrony, spatial buffering loss, and systemic consequences
+  - 上下文：Robust hydrogel ion channels for osmotic energy harvesting and environmental sensing
+- **通报**（出现 2 次）
+  - 上下文：青海省第二轮第一批生态环境保护例行督察集中通报典型案例-政务公开 - 青海省人民政府
+  - 上下文：鹰潭通报三起畜禽养殖企业违法排污典型案例 - 凤凰网
+- **典型**（出现 2 次）
+  - 上下文：青海省第二轮第一批生态环境保护例行督察集中通报典型案例-政务公开 - 青海省人民政府
+  - 上下文：鹰潭通报三起畜禽养殖企业违法排污典型案例 - 凤凰网
+- **案例**（出现 2 次）
+  - 上下文：青海省第二轮第一批生态环境保护例行督察集中通报典型案例-政务公开 - 青海省人民政府
+  - 上下文：鹰潭通报三起畜禽养殖企业违法排污典型案例 - 凤凰网
+
+---
+

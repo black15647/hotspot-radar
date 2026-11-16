@@ -1,137 +1,136 @@
 # 环境学子雷达 - 每日热点报告
 
-**日期**：2026-11-15
+**日期**：2026-11-16
 **总条目数**：36
 
-**近7天见解**：近7天环境热点呈现“气候变化、生态环境、污染治理”三大类集中，总计185条，占近七成，显示公众关注度向核心生态议题聚焦。水处理与环境政策等细分领域热度相对平稳，科研学术热度保持活跃，整体趋势体现出生态治理与应对气候挑战的双重主线。
+**近7天见解**：近7天环境热点呈现“气候变化、生态环境、污染治理”三大类集中，总计184条，占近七成，显著上升；其次为环境政策与水处理，显示治理与供给并重的态势。科研学术热度相对平稳，整体格局聚焦于生态治理与应对挑战。
 
 ---
 
 ## 今日热点 TOP 10
 
-### 1. [“推动全球应对气候变化与绿色发展合作”主题边会在COP31中国角举办 - Sohu](https://news.google.com/rss/articles/CBMijwFBVV95cUxOdDBGVy1DdjZEc1g4Q3BDVFdBOFZ3Y1NUcVIxVHJMdUMwemd3TWpnQnhSYldpeENiTXNlejlVdTBsVml5UFJfV1N5YUlyeC01UUFmQnM1Q054NGpDSVVyRnJGellEcURPZXNST0VnV2plVnF3QktRUmlNaU9zTnJMZ3JnOGU4QzFHSURrSlZEUQ?oc=5)
-
-- **来源**：Google News 气候变化
-- **热度**：88.7
-- **发布时间**：2026-11-15T03:17:00+00:00
-- **关键词**：气候变化
-
-> “推动全球应对气候变化与绿色发展合作”主题边会在COP31中国角举办 SohuCOP31｜刘振民：以务实行动推动包容性绿色转型 新浪新闻_手机新浪网杨斌：气候素养应成为所有公民的“通识必修课” 风闻
-
-**分析**：该条目涉及【COP31】话题，因来源较权威且发布时间较新，热度上升。
-
----
-
-### 2. [刘虎主持召开生态环境保护工作推进会议 - Sohu](https://news.google.com/rss/articles/CBMijAFBVV95cUxQYU4yN3EydnVta0JKNWU4VUxTakdkNUhjRGsySjFXTGUtVk1DVDM1Q1NHYzdfWFliNGphUU5leldFU0Roa2laQVloem1VcXFMNG1zY1p5aXlNek1veWJ5Sl9Uek1hWHhDdFczaXRjWTRiTW5YaU92Z0Nnc2dIcUJsRGF6SGFrNmh5cTR0bA?oc=5)
+### 1. [视频 | 第三轮第七批中央生态环境保护督察全面完成督察进驻阶段工作 - jingjiribao.cn](https://news.google.com/rss/articles/CBMiY0FVX3lxTE0zdXRnZFFWdW9mZnp6ZmpMQy0tTTdZUlJsTDhKcXNoYXJFeGVVX2lFLVpId0lsVzdVOUI4OWF3eGFnd2Npemd1S0lnUDl0OERoVXF6bkJ3SFl1ZTFoWW5ZQzBlUQ?oc=5)
 
 - **来源**：Google News 环境保护
-- **热度**：86.3
-- **发布时间**：2026-11-15T11:23:22+00:00
-- **关键词**：生态环境, 环境保护
-
-> 乌达区委书记刘虎主持召开生态环境保护工作推进会议，强调提高政治站位，切实应对生态环境保护工作面临的严峻性和紧迫性，坚持问题、目标、结果导向。
-
-**分析**：该条目涉及【生态环境保护工作推进会议】话题，因来源较权威且发布时间较新，热度上升。
-
----
-
-### 3. [专访COP31中国代表团团长李高：全球气候承诺走向“落实”的难点和堵点在哪里？ - ThePaper.cn](https://news.google.com/rss/articles/CBMiYEFVX3lxTE4zUjBLNlRJNlloeWF6SVFZekRpaDJCYXoxMkFUS1dadGN1eDB6UDRCRnZSYXR0ck5fcHQwWE5hRzZQamNGYUhnZkpxYW9kampSQUJRLUdoaVQxLUNBcDl2Yg?oc=5)
-
-- **来源**：Google News 气候变化
-- **热度**：85.6
-- **发布时间**：2026-11-15T10:11:02+00:00
-
-> 访谈COP31中国代表团团长李高，探讨全球气候承诺走向落实的难点与堵点，分析国际气候合作面临的挑战与路径。
-
-**分析**：该条目涉及【COP31】话题，因来源较权威且发布时间较新，热度上升。
-
----
-
-### 4. [北京市发展和改革委员会 北京市生态环境局关于发布2026年第二批13家通过清洁生产审核评估单位的通知 - 北京市人民政府门户网站](https://news.google.com/rss/articles/CBMigwFBVV95cUxOMXNMWVUtYlJnR05VcFE5S3ZhZGtNS0liaVBFVVFrZ0lQcldUcVZKUWF0Z0MybDhSQnltUEEtRmRueTVrUWxPejdEcGJCbk15ZnJLTDVBaGVONlUyb3dFOWwwLTBNLWkzX1ZmOUFDOWRWdWtCS19jSUNYMk5JWE5iT1pyOA?oc=5)
-
-- **来源**：Google News 生态环境
-- **热度**：82.4
-- **发布时间**：2026-11-13T17:20:05+00:00
-- **关键词**：生态环境
-
-> 北京市发改委和生态环境局发布2026年第二批次清洁生产审核评估结果，认定13家单位通过评估，推动企业清洁生产水平提升。
-
-**分析**：该条目涉及【生态环境局】话题，因来源较权威且多家媒体同题报道，热度上升。
-
----
-
-### 5. [11月15日12时起，全市解除重污染天气Ⅱ级应急响应 - 手机新浪网](https://news.google.com/rss/articles/CBMickFVX3lxTE4xSkFUYnVRVzVTUHFpcDhrNVZDSFlycnhucVVNc2x4eVgzMHJvQkw0M1YyOENqZkhoUEQyVHVRc2hMWklpazNTMUdBZDB1b1EybVBGMmpfNlY0N1lPSFo1SHNsZkYtckpsZk1hcjNPc2c1dw?oc=5)
-
-- **来源**：Google News 环境污染
-- **热度**：80.5
-- **发布时间**：2026-11-15T04:36:36+00:00
-
-> 北京市自11月15日12时起全面解除重污染天气Ⅱ级应急响应，空气质量改善，市民可正常开展户外活动。
-
-**分析**：该条目涉及【重污染天气】话题，因来源较权威且发布时间较新，热度上升。
-
----
-
-### 6. [第四届永定河绿色发展论坛在门头沟区举办 发布多项重要成果 - 北京新闻](https://news.google.com/rss/articles/CBMiakFVX3lxTE9seE04WlV0RXpSVDh6VU9jMkMxeEhJd05YYkVES2wyZWNkZnlocGZycDFSSnAzSi1fOFhYTU9mX3RudmRyLW93MjljdHoxSmpVMWJkZDMxSlpWNnEzdFZWUGp2TjNiczA5dnc?oc=5)
-
-- **来源**：Google News 环境保护
-- **热度**：79.4
-- **发布时间**：2026-11-14T13:39:00+00:00
-
-> 第四届永定河绿色发展论坛在北京门头沟区举办，发布多项重要成果，聚焦永定河生态保护与高质量发展的新路径与新成效。
-
-**分析**：该条目涉及【永定河绿色发展论坛】话题，因来源较权威且多家媒体同题报道，热度上升。
-
----
-
-### 7. [青海省第二轮第一批生态环境保护例行督察集中通报典型案例 - 青海新闻网](https://news.google.com/rss/articles/CBMidEFVX3lxTE8ycWI2UjdBdWRscFJDeGQ3ZkpiZ0dVUzQ2Umswb1ZGV0ZmbFlhWktqWnZEOEMta0xBY3NxQVMyT1psQkZTcThHdEhNMWlRUjV4T2hkZmtVX1N5MVN2NmY1cEVVSEt0b0ZfY2hrNnlxZGE5NEwz?oc=5)
-
-- **来源**：Google News 环境保护
-- **热度**：79.0
-- **发布时间**：2026-11-15T01:06:38+00:00
+- **热度**：92.3
+- **发布时间**：2026-11-16T12:19:47+00:00
 - **关键词**：生态环境, 环境保护, 督察
 
-> 青海省第二轮第一批生态环境保护例行督察集中通报典型案例，聚焦督察重点问题进行典型案例通报。
+> 第三轮第七批中央生态环境保护督察完成督察进驻阶段工作，全面结束督察任务。
 
-**分析**：该条目涉及【生态环境保护例行督察】话题，因来源较权威且发布时间较新，热度上升。
-
----
-
-### 8. [A process-based SWAT-LSTM hybrid framework for efficient water quality index modeling in urban river catchment](https://www.sciencedirect.com/science/article/pii/S0043135426019676?dgcid=rss_sd_all)
-
-- **来源**：Water Research
-- **热度**：78.7
-- **发布时间**：2026-11-13T12:11:02.062203+00:00
-- **关键词**：水污染, 流域
-
-> 基于过程的SWAT-LSTM混合框架高效模拟城市河流流域水质指数，提升水质预测精度与效率。
-
-**分析**：该条目涉及【水质指数】话题，因来源权威性高且话题稀缺度高，热度上升。
+**分析**：该条目涉及【中央生态环境保护督察】话题，因来源较权威且发布时间较新，热度上升。
 
 ---
 
-### 9. [Decoding water pollution sources of the Yellow River Basin using semi-volatile organic pollutants: From potential threats to chemical fingerprints](https://www.sciencedirect.com/science/article/pii/S0043135426019445?dgcid=rss_sd_all)
+### 2. [友山科技亮相联合国气候变化大会（COP31），发布碳中和规划，探索绿色材料与产业低碳转型新路径 - 中国日报网](https://news.google.com/rss/articles/CBMifEFVX3lxTE1Xb1lfLXlQRE1rMmkxS05rTmJuVnp5ZFVzLU5CZ21HbU05cXFTUnZiSFJFb1NEUGxQSzlyZkhsTFc0TDIxTzRLOXBDVkJ4OWVPZElhcE4wVmpvU184THZaQTFrQmpSRkNwVkFrcF93bVI5cEVKUEtUNzlwenI?oc=5)
 
-- **来源**：Water Research
-- **热度**：76.0
-- **发布时间**：2026-11-13T12:11:02.062203+00:00
-- **关键词**：水污染, 流域
+- **来源**：Google News 气候变化
+- **热度**：91.5
+- **发布时间**：2026-11-16T06:06:36+00:00
+- **关键词**：气候变化, 碳中和
 
-> 利用半挥发性有机污染物解码黄河流域水污染来源，从潜在威胁转化为化学指纹追踪污染。
+> 友山科技在COP31大会发布碳中和规划，探索绿色材料产业低碳转型新路径。
 
-**分析**：该条目涉及【半挥发性有机污染物】话题，因来源权威性高且话题稀缺度高，热度上升。
+**分析**：该条目涉及【COP31】话题，因来源较权威且发布时间较新，热度上升。
 
 ---
 
-### 10. [生态环境部部长黄润秋出席COP31“中国角”系列边会活动并会见外方高级代表 - 中华人民共和国生态环境部](https://news.google.com/rss/articles/CBMidkFVX3lxTE5uMVNTMFhBUnVDVXhhRGtJU0pad2ZhcTFwWnNfOWthVEZreVRJWENZQ3pRcWIzV05waXFpQW1yRXVCenVjQjdmd2pURkIwc1ZZeUZ1eHZOTHpqbjVOc1dzLWdPTGwyQUpHckFXQVRPYll6UEt4anc?oc=5)
+### 3. [气候变化下的基加利十年之约，冰轮环境代表中国方案亮相MOP38 - 凤凰网](https://news.google.com/rss/articles/CBMiT0FVX3lxTE03bmFzSnNJaXJGVjdpMkNzMTJwNDFwUnJnOFhSckR0X2JycnZlN1Iwa3JGcmc5TFlFZmMyZlZpTkZkZmZwWHpKekxIUjl6MW8?oc=5)
 
-- **来源**：Google News 生态环境
-- **热度**：75.9
-- **发布时间**：2026-11-14T02:37:47+00:00
-- **关键词**：生态环境
+- **来源**：Google News 气候变化
+- **热度**：90.1
+- **发布时间**：2026-11-16T09:48:36+00:00
+- **关键词**：气候变化
 
-> 生态环境部部长黄润秋出席COP31中国角系列边会活动并会见外方高级代表，推动国际环境合作。
+> 冰轮环境代表中国方案亮相MOP38，展示气候变化下的基加利框架十年合作成果。
 
-**分析**：该条目涉及【COP31】话题，因来源较权威，热度上升。
+**分析**：该条目涉及【冰轮环境】话题，因来源较权威且发布时间较新，热度上升。
+
+---
+
+### 4. [Vertical characteristics of HCHO and NO2 in suburban Shanghai: understanding of ozone formation sensitivity via secondary HCHO](https://iopscience.iop.org/article/10.1088/1748-9326/ad2d3c)
+
+- **来源**：Environmental Research Letters
+- **热度**：86.6
+- **发布时间**：2026-11-16T00:00:00+00:00
+- **关键词**：臭氧
+
+> 鉴于中国臭氧（O₃）污染呈上升趋势，二氧化氮（）和甲醛（HCHO）的垂直分布及其在臭氧形成中的作用，对于制定臭氧控制策略至关重要。 2020年6月至2021年5月期间，利用多轴差分光学吸收光谱仪，对上海郊区气溶胶、HCHO和 就甲醛而言，地面平均垂直混合比（VMR）在夏季最高（0.775 ），其次是秋季（0.719 ）、春季（0.718 ）和冬季（0.672 ）。 二氧化氮（）垂直混合比的季节变化趋势与甲醛（HCHO）相反，地面水平峰值出现在冬季（2.212 ），其次是秋季（1.881 ）、 春季（1.415 ）和夏季（1.124 ）。 在垂直方向上，气溶胶呈高斯分布，0.2–0.5 km高度区间内浓度较高。，而甲醛的积分成分则主要集中在2.0 km以下，特别是在夏季。 不同季节中，，而HCHO的垂直分布则出现在0.2–1.0公里范围内。 与无雾天相比，雾天期间气溶胶和 ，而由于晴天光化学活性较高，无雾天期间 HCHO 的浓度则较高。 基于甲醛与二氧化氮的比值（RFN），本研究试图量化不同季节臭氧敏感性的垂直特征。 结果表明，无论在较低高度（通常为 0.0–0.6 公里）还是较高高度（1.8–3.0 公里），O3 敏感性均受 VOC 限制，而在中等高度（0.7–1.7 公里），特别是在白天，发现了一些过渡性限制情况。 结果表明，二次甲醛是控制上海地区O3敏感性的关键因素，在所有季节中，伴随二次甲醛出现时，VOC限制型状况的比例均有所增强。
+
+**分析**：该条目涉及【甲醛】话题，因来源权威性高，热度上升。
+
+---
+
+### 5. [专访丨中国绿色转型为全球气候行动贡献重要力量——访《联合国气候变化框架公约》秘书处执行秘书西蒙·斯蒂尔 - 新华网](https://news.google.com/rss/articles/CBMif0FVX3lxTFAxQXo4WnVYSnJtTWw1Y2dYaFdZbnNMbGV6U2tycWxoeFlQYkFNYk1icVdmQzNFVDh3azBZNzRCeVFBaEJDalVNUkczZWdPNENwM056ZUlQbWFzTkNkaHpENkVrcm1BMmlMY0NHbmNzcnJRckJXdktGNGF5Y28zRnc?oc=5)
+
+- **来源**：Google News 气候变化
+- **热度**：86.1
+- **发布时间**：2026-11-16T04:48:12+00:00
+- **关键词**：气候变化
+
+> 西蒙·斯蒂尔访谈：中国绿色转型为全球气候行动贡献重要力量，展现大国担当。
+
+**分析**：该条目涉及【中国绿色转型】话题，因来源较权威且发布时间较新，热度上升。
+
+---
+
+### 6. [对外友协：城市是气候适应的主战场，民间合作是气候治理的软联通 - ThePaper.cn](https://news.google.com/rss/articles/CBMiYEFVX3lxTE5TQWw2cHpJWlNqQVJmOGRCM3NUMVgxaGc1eUh1emZXOG9neUVZTlJrd005RElkQzBRUFVhM2paRFMxaTJ5cmJsdE56dnBEQV92bDJPX1EtSlR4QXJJajN1Vg?oc=5)
+
+- **来源**：Google News 气候变化
+- **热度**：84.1
+- **发布时间**：2026-11-16T12:46:17+00:00
+
+> 城市是气候适应主战场，民间合作成为气候治理软联通，推动全球城市可持续发展。
+
+**分析**：该条目涉及【城市可持续发展】话题，因来源较权威且发布时间较新，热度上升。
+
+---
+
+### 7. [Flying blind: inside the decline of the EPA’s chemical-detection plane](https://www.theguardian.com/environment/2026/nov/16/epa-chemical-detection-plane)
+
+- **来源**：The Guardian Environment
+- **热度**：83.9
+- **发布时间**：2026-11-16T12:00:58+00:00
+
+> 美国环保署的“Aspect”侦察机曾是灾害期间追踪有毒化学物质的关键力量——为何如今却经常停飞？去年11月，俄克拉荷马州韦瑟福德市一家酒店外发生氨气泄漏事故，造成74人受伤，但联邦政府的这架化学探测机却未出动。 今年3月，得克萨斯州阿瑟港瓦莱罗炼油厂发生火灾时，该飞机同样处于停飞状态；8月，俄亥俄州托莱多市一家回收厂发生爆炸，造成两名工人死亡，该飞机也未出动。“十年前，它本会出动参与所有这些事件的，”曾负责该项目长达18年的美国环保署前官员马克·托马斯说道。 继续阅读...
+
+**分析**：该条目涉及【化学检测飞机】话题，因来源权威性高且发布时间较新，热度上升。
+
+---
+
+### 8. [Is the sixth great extinction imminent? Scientists must draw on natural history for clues](https://www.nature.com/articles/d41586-026-03712-w)
+
+- **来源**：Nature
+- **热度**：83.7
+- **发布时间**：2026-11-16T00:00:00+00:00
+- **关键词**：生物多样性
+
+> 《自然》杂志， 不同研究学科之间缺乏交叉交流，阻碍了学者们全面考察人类如何改变了地球生物多样性的能力。
+
+**分析**：该条目涉及【生物多样性】话题，因来源权威性高，热度上升。
+
+---
+
+### 9. [第三轮第七批中央生态环境保护督察全面完成督察进驻阶段工作 - 中国新闻网](https://news.google.com/rss/articles/CBMiaEFVX3lxTE5XTDM1RlZaSTR2S3lNSTl0RkxnTmtqY21vTTZrNTBVWjdkTDJVTUM5bnRMZW4xWnlMNWsyT2t6a3JTbTB0YWw5dDRzczZKTVhneUstQlBqVllpSS11eDNXbVl1T05sV2JB?oc=5)
+
+- **来源**：Google News 环境保护
+- **热度**：81.4
+- **发布时间**：2026-11-16T08:34:11+00:00
+- **关键词**：生态环境, 环境保护, 督察
+
+> 第三轮第七批中央生态环境保护督察全面完成督察进驻阶段工作，标志着督察任务进入新阶段，进一步强化生态环境保护监督力度。
+
+**分析**：该条目涉及【中央生态环境保护督察】话题，因来源较权威且发布时间较新，热度上升。
+
+---
+
+### 10. [第三轮第七批中央生态环境保护督察全面完成督察进驻阶段工作 - 新京报](https://news.google.com/rss/articles/CBMiZEFVX3lxTE5qUWkwRXNPMVd3OFV2aG0wSkdrd25tcGFobGxPcVRkMWJ3d1RuYjBRczRHSDNhVkVtSmxaZUJRNEFPel91R01jRmlRNGZ1NXlwdG9EN2xYcXItRGRZai03U013NHg?oc=5)
+
+- **来源**：Google News 环境污染
+- **热度**：81.2
+- **发布时间**：2026-11-16T08:02:00+00:00
+- **关键词**：生态环境, 环境保护, 督察
+
+**分析**：该条目涉及【中央生态环境保护督察】话题，因来源较权威且发布时间较新，热度上升。
 
 ---

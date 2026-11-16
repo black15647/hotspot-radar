@@ -1,0 +1,556 @@
+{
+  "report_date": "2026-11-16",
+  "site_name": "环境学子雷达",
+  "total_items": 36,
+  "snapshot_items": 10,
+  "category_stats": {
+    "环境政策": {
+      "count": 5,
+      "total_heat": 385.7
+    },
+    "气候变化": {
+      "count": 12,
+      "total_heat": 904.0
+    },
+    "污染治理": {
+      "count": 4,
+      "total_heat": 288.5
+    },
+    "科研学术": {
+      "count": 3,
+      "total_heat": 233.4
+    },
+    "生态环境": {
+      "count": 4,
+      "total_heat": 304.9
+    },
+    "其他": {
+      "count": 7,
+      "total_heat": 469.6
+    },
+    "能源与碳中和": {
+      "count": 1,
+      "total_heat": 66.9
+    }
+  },
+  "total_sources": 28,
+  "success_sources": 27,
+  "failed_sources": 0,
+  "week_total_items": 282,
+  "week_new_keywords": 70,
+  "policy_ratio": 10.3,
+  "items": [
+    {
+      "title": "视频 | 第三轮第七批中央生态环境保护督察全面完成督察进驻阶段工作 - jingjiribao.cn",
+      "title_en": "",
+      "title_zh": "",
+      "link": "https://news.google.com/rss/articles/CBMiY0FVX3lxTE0zdXRnZFFWdW9mZnp6ZmpMQy0tTTdZUlJsTDhKcXNoYXJFeGVVX2lFLVpId0lsVzdVOUI4OWF3eGFnd2Npemd1S0lnUDl0OERoVXF6bkJ3SFl1ZTFoWW5ZQzBlUQ?oc=5",
+      "source": "Google News 环境保护",
+      "published": "2026-11-16T12:19:47+00:00",
+      "hotness": 92.3,
+      "score_v1": 50.29,
+      "score_v2": 92.3,
+      "score_breakdown": {
+        "algorithm": "v3.0",
+        "dimension_max": {
+          "authority": 18.0,
+          "topic": 18.0,
+          "resonance": 18.0,
+          "information": 16.0
+        },
+        "authority_score": 8.05,
+        "keyword_idf_score": 9.94,
+        "topic_score": 15.13,
+        "topic_burst_score": 5.19,
+        "topic_burst_count": 5,
+        "resonance_score": 13.26,
+        "info_score": 5.0,
+        "base": 41.44,
+        "base_max": 70.0,
+        "time_factor": 0.9899,
+        "density_factor": 1.0,
+        "density_note": "",
+        "repeat_penalty": 1.0,
+        "repeat_excused": false,
+        "event_size": 3,
+        "event_media_count": 3,
+        "event_cluster_source": "ai",
+        "origin_source": "jingjiribao.cn",
+        "raw": 41.02,
+        "display_score": 92.3,
+        "display_mode": "absolute"
+      },
+      "summary": "第三轮第七批中央生态环境保护督察完成督察进驻阶段工作，全面结束督察任务。",
+      "analysis": "",
+      "topic_tags": [
+        "中央生态环境保护督察",
+        "督察进驻阶段工作"
+      ],
+      "category": "环境政策",
+      "matched_keywords": [
+        "生态环境",
+        "环境保护",
+        "督察"
+      ]
+    },
+    {
+      "title": "友山科技亮相联合国气候变化大会（COP31），发布碳中和规划，探索绿色材料与产业低碳转型新路径 - 中国日报网",
+      "title_en": "",
+      "title_zh": "",
+      "link": "https://news.google.com/rss/articles/CBMifEFVX3lxTE1Xb1lfLXlQRE1rMmkxS05rTmJuVnp5ZFVzLU5CZ21HbU05cXFTUnZiSFJFb1NEUGxQSzlyZkhsTFc0TDIxTzRLOXBDVkJ4OWVPZElhcE4wVmpvU184THZaQTFrQmpSRkNwVkFrcF93bVI5cEVKUEtUNzlwenI?oc=5",
+      "source": "Google News 气候变化",
+      "published": "2026-11-16T06:06:36+00:00",
+      "hotness": 91.5,
+      "score_v1": 34.08,
+      "score_v2": 91.5,
+      "score_breakdown": {
+        "algorithm": "v3.0",
+        "dimension_max": {
+          "authority": 18.0,
+          "topic": 18.0,
+          "resonance": 18.0,
+          "information": 16.0
+        },
+        "authority_score": 8.05,
+        "keyword_idf_score": 8.82,
+        "topic_score": 14.32,
+        "topic_burst_score": 5.51,
+        "topic_burst_count": 6,
+        "resonance_score": 15.56,
+        "info_score": 5.0,
+        "base": 42.94,
+        "base_max": 70.0,
+        "time_factor": 0.9122,
+        "density_factor": 1.0,
+        "density_note": "",
+        "repeat_penalty": 1.0,
+        "repeat_excused": false,
+        "event_size": 5,
+        "event_media_count": 4,
+        "event_cluster_source": "ai",
+        "origin_source": "中国日报网",
+        "raw": 39.17,
+        "display_score": 91.5,
+        "display_mode": "absolute"
+      },
+      "summary": "友山科技在COP31大会发布碳中和规划，探索绿色材料产业低碳转型新路径。",
+      "analysis": "",
+      "topic_tags": [
+        "COP31",
+        "碳中和规划",
+        "绿色材料"
+      ],
+      "category": "气候变化",
+      "matched_keywords": [
+        "气候变化",
+        "碳中和"
+      ]
+    },
+    {
+      "title": "气候变化下的基加利十年之约，冰轮环境代表中国方案亮相MOP38 - 凤凰网",
+      "title_en": "",
+      "title_zh": "",
+      "link": "https://news.google.com/rss/articles/CBMiT0FVX3lxTE03bmFzSnNJaXJGVjdpMkNzMTJwNDFwUnJnOFhSckR0X2JycnZlN1Iwa3JGcmc5TFlFZmMyZlZpTkZkZmZwWHpKekxIUjl6MW8?oc=5",
+      "source": "Google News 气候变化",
+      "published": "2026-11-16T09:48:36+00:00",
+      "hotness": 90.1,
+      "score_v1": 31.33,
+      "score_v2": 90.1,
+      "score_breakdown": {
+        "algorithm": "v3.0",
+        "dimension_max": {
+          "authority": 18.0,
+          "topic": 18.0,
+          "resonance": 18.0,
+          "information": 16.0
+        },
+        "authority_score": 8.05,
+        "keyword_idf_score": 3.47,
+        "topic_score": 8.98,
+        "topic_burst_score": 5.51,
+        "topic_burst_count": 6,
+        "resonance_score": 15.56,
+        "info_score": 5.0,
+        "base": 37.59,
+        "base_max": 70.0,
+        "time_factor": 0.9572,
+        "density_factor": 1.0,
+        "density_note": "",
+        "repeat_penalty": 1.0,
+        "repeat_excused": true,
+        "event_size": 5,
+        "event_media_count": 4,
+        "event_cluster_source": "ai",
+        "origin_source": "凤凰网",
+        "raw": 35.98,
+        "display_score": 90.1,
+        "display_mode": "absolute"
+      },
+      "summary": "冰轮环境代表中国方案亮相MOP38，展示气候变化下的基加利框架十年合作成果。",
+      "analysis": "",
+      "topic_tags": [
+        "冰轮环境"
+      ],
+      "category": "气候变化",
+      "matched_keywords": [
+        "气候变化"
+      ]
+    },
+    {
+      "title": "Vertical characteristics of HCHO and NO2 in suburban Shanghai: understanding of ozone formation sensitivity via secondary HCHO",
+      "title_en": "Vertical characteristics of HCHO and NO2 in suburban Shanghai: understanding of ozone formation sensitivity via secondary HCHO",
+      "title_zh": "上海郊区甲醛（HCHO）和二氧化氮（NO₂）的垂直特征：通过二次甲醛（HCHO）理解臭氧形成的敏感性",
+      "link": "https://iopscience.iop.org/article/10.1088/1748-9326/ad2d3c",
+      "source": "Environmental Research Letters",
+      "published": "2026-11-16T00:00:00+00:00",
+      "hotness": 86.6,
+      "score_v1": 22.8,
+      "score_v2": 86.6,
+      "score_breakdown": {
+        "algorithm": "v3.0",
+        "dimension_max": {
+          "authority": 18.0,
+          "topic": 18.0,
+          "resonance": 18.0,
+          "information": 16.0
+        },
+        "authority_score": 18.0,
+        "keyword_idf_score": 7.18,
+        "topic_score": 9.54,
+        "topic_burst_score": 2.36,
+        "topic_burst_count": 2,
+        "resonance_score": 0.0,
+        "info_score": 8.0,
+        "base": 35.54,
+        "base_max": 70.0,
+        "time_factor": 0.845,
+        "density_factor": 1.0,
+        "density_note": "",
+        "repeat_penalty": 1.0,
+        "repeat_excused": false,
+        "event_size": 1,
+        "event_media_count": 1,
+        "event_cluster_source": "ai",
+        "origin_source": "Environmental Research Letters",
+        "raw": 30.03,
+        "display_score": 86.6,
+        "display_mode": "absolute"
+      },
+      "summary": "鉴于中国臭氧（O₃）污染呈上升趋势，二氧化氮（）和甲醛（HCHO）的垂直分布及其在臭氧形成中的作用，对于制定臭氧控制策略至关重要。 2020年6月至2021年5月期间，利用多轴差分光学吸收光谱仪，对上海郊区气溶胶、HCHO和 就甲醛而言，地面平均垂直混合比（VMR）在夏季最高（0.775 ），其次是秋季（0.719 ）、春季（0.718 ）和冬季（0.672 ）。 二氧化氮（）垂直混合比的季节变化趋势与甲醛（HCHO）相反，地面水平峰值出现在冬季（2.212 ），其次是秋季（1.881 ）、 春季（1.415 ）和夏季（1.124 ）。 在垂直方向上，气溶胶呈高斯分布，0.2–0.5 km高度区间内浓度较高。，而甲醛的积分成分则主要集中在2.0 km以下，特别是在夏季。 不同季节中，，而HCHO的垂直分布则出现在0.2–1.0公里范围内。 与无雾天相比，雾天期间气溶胶和 ，而由于晴天光化学活性较高，无雾天期间 HCHO 的浓度则较高。 基于甲醛与二氧化氮的比值（RFN），本研究试图量化不同季节臭氧敏感性的垂直特征。 结果表明，无论在较低高度（通常为 0.0–0.6 公里）还是较高高度（1.8–3.0 公里），O3 敏感性均受 VOC 限制，而在中等高度（0.7–1.7 公里），特别是在白天，发现了一些过渡性限制情况。 结果表明，二次甲醛是控制上海地区O3敏感性的关键因素，在所有季节中，伴随二次甲醛出现时，VOC限制型状况的比例均有所增强。",
+      "analysis": "",
+      "topic_tags": [
+        "甲醛",
+        "二氧化氮",
+        "臭氧形成"
+      ],
+      "category": "污染治理",
+      "matched_keywords": [
+        "臭氧"
+      ]
+    },
+    {
+      "title": "专访丨中国绿色转型为全球气候行动贡献重要力量——访《联合国气候变化框架公约》秘书处执行秘书西蒙·斯蒂尔 - 新华网",
+      "title_en": "",
+      "title_zh": "",
+      "link": "https://news.google.com/rss/articles/CBMif0FVX3lxTFAxQXo4WnVYSnJtTWw1Y2dYaFdZbnNMbGV6U2tycWxoeFlQYkFNYk1icVdmQzNFVDh3azBZNzRCeVFBaEJDalVNUkczZWdPNENwM056ZUlQbWFzTkNkaHpENkVrcm1BMmlMY0NHbmNzcnJRckJXdktGNGF5Y28zRnc?oc=5",
+      "source": "Google News 气候变化",
+      "published": "2026-11-16T04:48:12+00:00",
+      "hotness": 86.1,
+      "score_v1": 29.68,
+      "score_v2": 86.1,
+      "score_breakdown": {
+        "algorithm": "v3.0",
+        "dimension_max": {
+          "authority": 18.0,
+          "topic": 18.0,
+          "resonance": 18.0,
+          "information": 16.0
+        },
+        "authority_score": 8.05,
+        "keyword_idf_score": 3.47,
+        "topic_score": 8.98,
+        "topic_burst_score": 5.51,
+        "topic_burst_count": 6,
+        "resonance_score": 15.56,
+        "info_score": 0.0,
+        "base": 32.59,
+        "base_max": 70.0,
+        "time_factor": 0.8971,
+        "density_factor": 1.0,
+        "density_note": "",
+        "repeat_penalty": 1.0,
+        "repeat_excused": true,
+        "event_size": 5,
+        "event_media_count": 4,
+        "event_cluster_source": "ai",
+        "origin_source": "新华网",
+        "raw": 29.24,
+        "display_score": 86.1,
+        "display_mode": "absolute"
+      },
+      "summary": "西蒙·斯蒂尔访谈：中国绿色转型为全球气候行动贡献重要力量，展现大国担当。",
+      "analysis": "",
+      "topic_tags": [
+        "中国绿色转型",
+        "全球气候行动"
+      ],
+      "category": "气候变化",
+      "matched_keywords": [
+        "气候变化"
+      ]
+    },
+    {
+      "title": "对外友协：城市是气候适应的主战场，民间合作是气候治理的软联通 - ThePaper.cn",
+      "title_en": "",
+      "title_zh": "",
+      "link": "https://news.google.com/rss/articles/CBMiYEFVX3lxTE5TQWw2cHpJWlNqQVJmOGRCM3NUMVgxaGc1eUh1emZXOG9neUVZTlJrd005RElkQzBRUFVhM2paRFMxaTJ5cmJsdE56dnBEQV92bDJPX1EtSlR4QXJJajN1Vg?oc=5",
+      "source": "Google News 气候变化",
+      "published": "2026-11-16T12:46:17+00:00",
+      "hotness": 84.1,
+      "score_v1": 18.47,
+      "score_v2": 84.1,
+      "score_breakdown": {
+        "algorithm": "v3.0",
+        "dimension_max": {
+          "authority": 18.0,
+          "topic": 18.0,
+          "resonance": 18.0,
+          "information": 16.0
+        },
+        "authority_score": 8.05,
+        "keyword_idf_score": 0.0,
+        "topic_score": 3.0,
+        "topic_burst_score": 0.0,
+        "topic_burst_count": 1,
+        "resonance_score": 15.56,
+        "info_score": 0.0,
+        "base": 26.61,
+        "base_max": 70.0,
+        "time_factor": 0.9958,
+        "density_factor": 1.0,
+        "density_note": "",
+        "repeat_penalty": 1.0,
+        "repeat_excused": true,
+        "event_size": 5,
+        "event_media_count": 4,
+        "event_cluster_source": "ai",
+        "origin_source": "ThePaper.cn",
+        "raw": 26.5,
+        "display_score": 84.1,
+        "display_mode": "absolute"
+      },
+      "summary": "城市是气候适应主战场，民间合作成为气候治理软联通，推动全球城市可持续发展。",
+      "analysis": "",
+      "topic_tags": [
+        "城市可持续发展",
+        "气候适应"
+      ],
+      "category": "气候变化",
+      "matched_keywords": []
+    },
+    {
+      "title": "Flying blind: inside the decline of the EPA’s chemical-detection plane",
+      "title_en": "Flying blind: inside the decline of the EPA’s chemical-detection plane",
+      "title_zh": "“盲飞”：美国环保署化学探测飞机衰落的内幕",
+      "link": "https://www.theguardian.com/environment/2026/nov/16/epa-chemical-detection-plane",
+      "source": "The Guardian Environment",
+      "published": "2026-11-16T12:00:58+00:00",
+      "hotness": 83.9,
+      "score_v1": 19.07,
+      "score_v2": 83.9,
+      "score_breakdown": {
+        "algorithm": "v3.0",
+        "dimension_max": {
+          "authority": 18.0,
+          "topic": 18.0,
+          "resonance": 18.0,
+          "information": 16.0
+        },
+        "authority_score": 12.73,
+        "keyword_idf_score": 0.0,
+        "topic_score": 3.0,
+        "topic_burst_score": 0.0,
+        "topic_burst_count": 1,
+        "resonance_score": 0.0,
+        "info_score": 11.0,
+        "base": 26.73,
+        "base_max": 70.0,
+        "time_factor": 0.9858,
+        "density_factor": 1.0,
+        "density_note": "",
+        "repeat_penalty": 1.0,
+        "repeat_excused": false,
+        "event_size": 1,
+        "event_media_count": 1,
+        "event_cluster_source": "ai",
+        "origin_source": "The Guardian Environment",
+        "raw": 26.35,
+        "display_score": 83.9,
+        "display_mode": "absolute"
+      },
+      "summary": "美国环保署的“Aspect”侦察机曾是灾害期间追踪有毒化学物质的关键力量——为何如今却经常停飞？去年11月，俄克拉荷马州韦瑟福德市一家酒店外发生氨气泄漏事故，造成74人受伤，但联邦政府的这架化学探测机却未出动。 今年3月，得克萨斯州阿瑟港瓦莱罗炼油厂发生火灾时，该飞机同样处于停飞状态；8月，俄亥俄州托莱多市一家回收厂发生爆炸，造成两名工人死亡，该飞机也未出动。“十年前，它本会出动参与所有这些事件的，”曾负责该项目长达18年的美国环保署前官员马克·托马斯说道。 继续阅读...",
+      "analysis": "",
+      "topic_tags": [
+        "化学检测飞机"
+      ],
+      "category": "科研学术",
+      "matched_keywords": []
+    },
+    {
+      "title": "Is the sixth great extinction imminent? Scientists must draw on natural history for clues",
+      "title_en": "Is the sixth great extinction imminent? Scientists must draw on natural history for clues",
+      "title_zh": "第六次大灭绝是否迫在眉睫？科学家必须从自然史中寻找线索",
+      "link": "https://www.nature.com/articles/d41586-026-03712-w",
+      "source": "Nature",
+      "published": "2026-11-16T00:00:00+00:00",
+      "hotness": 83.7,
+      "score_v1": 20.8,
+      "score_v2": 83.7,
+      "score_breakdown": {
+        "algorithm": "v3.0",
+        "dimension_max": {
+          "authority": 18.0,
+          "topic": 18.0,
+          "resonance": 18.0,
+          "information": 16.0
+        },
+        "authority_score": 18.0,
+        "keyword_idf_score": 5.86,
+        "topic_score": 5.86,
+        "topic_burst_score": 0.0,
+        "topic_burst_count": 1,
+        "resonance_score": 0.0,
+        "info_score": 7.0,
+        "base": 30.86,
+        "base_max": 70.0,
+        "time_factor": 0.845,
+        "density_factor": 1.0,
+        "density_note": "",
+        "repeat_penalty": 1.0,
+        "repeat_excused": false,
+        "event_size": 1,
+        "event_media_count": 1,
+        "event_cluster_source": "ai",
+        "origin_source": "Nature",
+        "raw": 26.07,
+        "display_score": 83.7,
+        "display_mode": "absolute"
+      },
+      "summary": "《自然》杂志， 不同研究学科之间缺乏交叉交流，阻碍了学者们全面考察人类如何改变了地球生物多样性的能力。",
+      "analysis": "",
+      "topic_tags": [
+        "生物多样性"
+      ],
+      "category": "生态环境",
+      "matched_keywords": [
+        "生物多样性"
+      ]
+    },
+    {
+      "title": "第三轮第七批中央生态环境保护督察全面完成督察进驻阶段工作 - 中国新闻网",
+      "title_en": "",
+      "title_zh": "",
+      "link": "https://news.google.com/rss/articles/CBMiaEFVX3lxTE5XTDM1RlZaSTR2S3lNSTl0RkxnTmtqY21vTTZrNTBVWjdkTDJVTUM5bnRMZW4xWnlMNWsyT2t6a3JTbTB0YWw5dDRzczZKTVhneUstQlBqVllpSS11eDNXbVl1T05sV2JB?oc=5",
+      "source": "Google News 环境保护",
+      "published": "2026-11-16T08:34:11+00:00",
+      "hotness": 81.4,
+      "score_v1": 48.89,
+      "score_v2": 81.4,
+      "score_breakdown": {
+        "algorithm": "v3.0",
+        "dimension_max": {
+          "authority": 18.0,
+          "topic": 18.0,
+          "resonance": 18.0,
+          "information": 16.0
+        },
+        "authority_score": 8.05,
+        "keyword_idf_score": 9.94,
+        "topic_score": 15.13,
+        "topic_burst_score": 5.19,
+        "topic_burst_count": 5,
+        "resonance_score": 13.26,
+        "info_score": 5.0,
+        "base": 41.44,
+        "base_max": 70.0,
+        "time_factor": 0.9417,
+        "density_factor": 1.0,
+        "density_note": "",
+        "repeat_penalty": 0.6,
+        "repeat_excused": false,
+        "event_size": 3,
+        "event_media_count": 3,
+        "event_cluster_source": "ai",
+        "origin_source": "中国新闻网",
+        "raw": 23.41,
+        "display_score": 81.4,
+        "display_mode": "absolute"
+      },
+      "summary": "第三轮第七批中央生态环境保护督察全面完成督察进驻阶段工作，标志着督察任务进入新阶段，进一步强化生态环境保护监督力度。",
+      "analysis": "",
+      "topic_tags": [
+        "中央生态环境保护督察",
+        "督察进驻"
+      ],
+      "category": "环境政策",
+      "matched_keywords": [
+        "生态环境",
+        "环境保护",
+        "督察"
+      ]
+    },
+    {
+      "title": "第三轮第七批中央生态环境保护督察全面完成督察进驻阶段工作 - 新京报",
+      "title_en": "",
+      "title_zh": "",
+      "link": "https://news.google.com/rss/articles/CBMiZEFVX3lxTE5qUWkwRXNPMVd3OFV2aG0wSkdrd25tcGFobGxPcVRkMWJ3d1RuYjBRczRHSDNhVkVtSmxaZUJRNEFPel91R01jRmlRNGZ1NXlwdG9EN2xYcXItRGRZai03U013NHg?oc=5",
+      "source": "Google News 环境污染",
+      "published": "2026-11-16T08:02:00+00:00",
+      "hotness": 81.2,
+      "score_v1": 48.7,
+      "score_v2": 81.2,
+      "score_breakdown": {
+        "algorithm": "v3.0",
+        "dimension_max": {
+          "authority": 18.0,
+          "topic": 18.0,
+          "resonance": 18.0,
+          "information": 16.0
+        },
+        "authority_score": 8.05,
+        "keyword_idf_score": 9.94,
+        "topic_score": 15.13,
+        "topic_burst_score": 5.19,
+        "topic_burst_count": 5,
+        "resonance_score": 13.26,
+        "info_score": 5.0,
+        "base": 41.44,
+        "base_max": 70.0,
+        "time_factor": 0.9351,
+        "density_factor": 1.0,
+        "density_note": "",
+        "repeat_penalty": 0.6,
+        "repeat_excused": false,
+        "event_size": 3,
+        "event_media_count": 3,
+        "event_cluster_source": "ai",
+        "origin_source": "新京报",
+        "raw": 23.25,
+        "display_score": 81.2,
+        "display_mode": "absolute"
+      },
+      "summary": "",
+      "analysis": "",
+      "topic_tags": [
+        "中央生态环境保护督察",
+        "督察进驻"
+      ],
+      "category": "环境政策",
+      "matched_keywords": [
+        "生态环境",
+        "环境保护",
+        "督察"
+      ]
+    }
+  ]
+}

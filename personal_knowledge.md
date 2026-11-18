@@ -11347,3 +11347,171 @@
 
 ---
 
+## 2026-11-18
+
+**今日高频关键词**：`#生态环境` `#气候变化` `#可持续发展` `#环境违法` `#温室气体`
+
+**今日 Top10 热点**
+
+### 1. 生态环境部：到2030年基本建成生态环境智慧执法体系 - 中国新闻网
+- **来源**：Google News 生态环境
+- **热度**：91.9
+- **链接**：https://news.google.com/rss/articles/CBMidkFVX3lxTE1aWFExRF9LMExDYXRmUTIxYWFvY3Nhc2xMdl9ELTVZNUpBNUpmT1d1SFNlRkRYdnQ3Z2Eyb1AwX1NhX0FYSGdMenQ2NnVSRWRvTG1OU2trN1dnWW1yVlIxRk1fSjRtQWViMVltSlk4cHNfRTlOSlE?oc=5
+- **摘要**：生态环境部发布规划，到2030年基本建成生态环境智慧执法体系，提升执法效能与监管水平。
+- **分析**：该条目涉及【生态环境部】话题，因来源较权威且发布时间较新，热度上升。
+
+### 2. 东江环保控股子公司环境违法被罚14万元 - Sohu
+- **来源**：Google News 环境保护
+- **热度**：88.7
+- **链接**：https://news.google.com/rss/articles/CBMiiAFBVV95cUxNdF9zenVMQmVabDRWUE4wZmxIdDFKc3JXRzVVQmZ4NkZvZG9xQUJmbF9Pd1hzcDQ4MjUwVjZ6TnBXV0NvVHhkbXJybG1tcWpyYkRHZERFWlpSdWNqX3MtenAya2x1TEE4amRLMUlidmQ1cFFFMDB6X1RUY1lfeUxTSFNHeWJEUGhM?oc=5
+- **摘要**：东江环保控股子公司因环境违法行为被处以14万元罚款，监管部门依法查处涉环违规。
+- **分析**：该条目涉及【东江环保】话题，因来源较权威且发布时间较新，热度上升。
+
+### 3. 新洋丰控股子公司环境违法被罚13.43万元 - https://www.mrjjxw.com/
+- **来源**：Google News 环境保护
+- **热度**：88.6
+- **链接**：https://news.google.com/rss/articles/CBMiZkFVX3lxTE15djFZMndTYmFwT2ZKZUpYZGJsM3lhN1R5NVctdFpEN1czUWJDRlhkek0zRUgyRjhxZEpHcjM1ZTh5M1VzZ1EwODNRS1FjckVVdUdIOGRQMUVhakF3Z1l0YzdaODdmQQ?oc=5
+- **摘要**：新洋丰控股子公司因环境违法被处以13.43万元罚款，监管部门依法查处涉环违规案件。
+- **分析**：该条目涉及【环境违法】话题，因来源较权威且发布时间较新，热度上升。
+
+### 4. 生态环境部部长黄润秋出席COP31甲烷与其他非二氧化碳温室气体峰会等活动并会见外方高级代表 - 中华人民共和国生态环境部
+- **来源**：Google News 生态环境
+- **热度**：88.4
+- **链接**：https://news.google.com/rss/articles/CBMidkFVX3lxTFB0Q3RXV1hFLUNYLWxWalJBWDFNeTdBSEFwOENLMWRiVUVCRktXd0NrYmVLSGQwTHJ4WFNtNzdrTHROd0JCRDhyV0N2SHlqNzFPRWp1U2VpZ20xVjRrSkVUV01YellMUkh6UFNTNnhKWlp5MDNKR3c?oc=5
+- **摘要**：生态环境部部长黄润秋出席COP31峰会并会见外方高级代表，重点讨论甲烷与非二氧化碳温室气体减排合作。
+- **分析**：该条目涉及【非二氧化碳温室气体】话题，因来源较权威且多家媒体同题报道，热度上升。
+
+### 5. 生态环境部：2012年到2025年累计引导处理“四机一脑”超过10亿台（套） - Sohu
+- **来源**：Google News 环境污染
+- **热度**：87.9
+- **链接**：https://news.google.com/rss/articles/CBMijAFBVV95cUxQVUw0VWRPdEZLeWJvNnkweTRqMmszeWJQXzNtMjNxbFMtUHdsM1VEcnhTY0RQanB4bXhRS1Rla2tZSGUweUNhZTZ5Nzd2Q3E3RXhtMk52TGJiOWFCMGlwZTlMZGZGZDYtYTJPb0lFc0txS2RvS1V4Tng5eDA4bFpfSW1GSlZTNW50MF9fTw?oc=5
+- **摘要**：生态环境部发布数据，2012年至2025年累计引导处理“四机一脑”超过10亿台（套），推进再生资源回收体系建设。
+- **分析**：该条目涉及【生态环境部】话题，因来源较权威且多家媒体同题报道，热度上升。
+
+### 6. 2027年起VOCs废气环保税试点开征：兰宝环保详解“一厂一策” - 中华网
+- **来源**：Google News 环境保护
+- **热度**：87.8
+- **链接**：https://news.google.com/rss/articles/CBMiXkFVX3lxTE9tZkt6LW0tYmYzMGkxVVZIVWdCTHRfTEpmLXBhWkctZjkySDVMRVlyaHZvMmNzMmpsWVZ5b01JbnZPdlBQcU1nUC1qWFJIZ0hMLVY3V0Ixb281NnRDRkE?oc=5
+- **摘要**：2027年起VOCs废气环保税试点开征，兰宝环保详解“一厂一策”，引导企业精准治理挥发性有机物污染。
+- **分析**：该条目涉及【VOCs废气环保税】话题，因来源较权威且发布时间较新，热度上升。
+
+### 7. 秦岭好物亮相联合国气候变化大会：向世界展示秦岭生态发展样本 - 新浪财经
+- **来源**：Google News 气候变化
+- **热度**：87.6
+- **链接**：https://news.google.com/rss/articles/CBMieEFVX3lxTE9pekNWYTRRUF9UVlpYbWVnNXJGYlF0Y0VYMnh6eEJiNTdoR05JS1NoV0Jkb2psTlJhbHkzQVdwNVRJX3lxV3NuZXFBVFNHVTZ3S001OWpZZGRtcXNvU2JQcmFGZUVUUzc0elpQTlZtS2cxWHBBVTV6cA?oc=5
+- **摘要**：秦岭好物亮相联合国气候变化大会，展示秦岭生态发展样本，彰显生态文明建设成果与国际合作新路径。
+- **分析**：该条目涉及【秦岭生态产品价值实现创新实践】话题，因来源较权威且发布时间较新，热度上升。
+
+### 8. 2026年气候变化与可持续发展工程国际会议在广州举办- 中国日报网 - China Daily
+- **来源**：Google News 气候变化
+- **热度**：87.5
+- **链接**：https://news.google.com/rss/articles/CBMifEFVX3lxTFA3UERVb3BCNTdYV04tUm1uWlF6Z1Y4eFU0aHhkTXlFZkMwM3pSX1VfbFRKbzF6QnFkd2VvaURtdDNiR1FLRUQ0a09TR3JfUUF1bXVWb09wd2taOXM4UEw1dzRqdXEtTTk2eXR2cHJ5Z2tUeGE3c1Q4OUZPeG4?oc=5
+- **摘要**：2026年气候变化与可持续发展工程国际会议在广州举办，汇聚全球智慧探讨气候行动与绿色发展新路径。
+- **分析**：该条目涉及【可持续】话题，因来源较权威且多家媒体同题报道，热度上升。
+
+### 9. 邵阳县人民法院对非法捕捞行为治“罪+治理”，有效修复生态环境 - 湖南长安网
+- **来源**：Google News 生态环境
+- **热度**：87.5
+- **链接**：https://news.google.com/rss/articles/CBMiZkFVX3lxTE42QnNsNjltRDJSMEE3UlpLUUxqSjNZU29pdDNSRFFiSG90SVVsaG04TmlTV3ZINWl6aVU3aDI5Z1NFTl9GaXRoS3ZTTWQ3dDdCT0NZc3lRb1J0XzZxc1hJWmJEVEs4QQ?oc=5
+- **摘要**：邵阳县人民法院依法审理非法捕捞案件，创新‘罪+治理’模式，有效修复生态环境，实现司法与生态双重效益。
+- **分析**：该条目涉及【治罪+治理】话题，因来源较权威且发布时间较新，热度上升。
+
+### 10. U.S. Fossil Fuel Emissions to Drop This Year, Despite Surging Power Demand
+- **来源**：Yale Environment 360
+- **热度**：87.5
+- **链接**：https://e360.yale.edu/digest/u-s-power-emissions-2026
+- **摘要**：得益于燃煤发电量的减少和汽油需求的下降，美国今年的化石燃料排放量预计将有所下降。尽管电力需求不断增长，且特朗普政府正大力推动煤炭产业发展，但排放量仍将出现下降。在 E360 上阅读更多内容 →
+- **分析**：该条目涉及【化石燃料排放】话题，因来源权威性高且发布时间较新，热度上升。
+
+**今日自动提取候选新词**
+
+- **Sohu**（出现 6 次）
+  - 上下文：东江环保控股子公司环境违法被罚14万元 - Sohu
+  - 上下文：生态环境部：2012年到2025年累计引导处理“四机一脑”超过10亿台（套） - Sohu
+  - 上下文：公开曝光！生态环境局明察暗访发现一批突出生态环境问题 - Sohu
+- **中国**（出现 5 次）
+  - 上下文：生态环境部：到2030年基本建成生态环境智慧执法体系 - 中国新闻网
+  - 上下文：广西将修订条例 完善漓江流域生态环境保护法治保障 - 中国新闻网
+  - 上下文：独家专访中国气候变化事务特使刘振民：落实《巴黎协定》的行动已在路上，不能半路掉头 - ThePaper.cn
+- **water**（出现 5 次）
+  - 上下文：Monitoring water attacks
+  - 上下文：Resilience as a governing principle in water governance
+  - 上下文：Confronting water bankruptcy
+- **carbon**（出现 3 次）
+  - 上下文：A bottom-up social cost of carbon for Latin America: municipality-level heat-mortality damage functions from 30 million daily death records
+  - 上下文：Nitrogen availability modulates soil microbial carbon fixation in wetland through community and metabolic remodelling
+  - 上下文：This remarkable new material could solve a major carbon capture problem
+- **基本**（出现 2 次）
+  - 上下文：生态环境部：到2030年基本建成生态环境智慧执法体系 - 中国新闻网
+  - 上下文：生态环境部：基本遏制了大规模非法拆解处理废电器的现象 - Sohu
+- **新闻网**（出现 2 次）
+  - 上下文：生态环境部：到2030年基本建成生态环境智慧执法体系 - 中国新闻网
+  - 上下文：广西将修订条例 完善漓江流域生态环境保护法治保障 - 中国新闻网
+- **环保**（出现 2 次）
+  - 上下文：东江环保控股子公司环境违法被罚14万元 - Sohu
+  - 上下文：2027年起VOCs废气环保税试点开征：兰宝环保详解“一厂一策” - 中华网
+- **子公司**（出现 2 次）
+  - 上下文：东江环保控股子公司环境违法被罚14万元 - Sohu
+  - 上下文：新洋丰控股子公司环境违法被罚13.43万元 - https://www.mrjjxw.com/
+- **违法**（出现 2 次）
+  - 上下文：东江环保控股子公司环境违法被罚14万元 - Sohu
+  - 上下文：新洋丰控股子公司环境违法被罚13.43万元 - https://www.mrjjxw.com/
+- **万元**（出现 2 次）
+  - 上下文：东江环保控股子公司环境违法被罚14万元 - Sohu
+  - 上下文：新洋丰控股子公司环境违法被罚13.43万元 - https://www.mrjjxw.com/
+- **COP31**（出现 2 次）
+  - 上下文：生态环境部部长黄润秋出席COP31甲烷与其他非二氧化碳温室气体峰会等活动并会见外方高级代表 - 中华人民共和国生态环境部
+  - 上下文：[Climate Home News] Mikko Ollikainen Discusses Adaptation Finance, Scaling Up and COP31
+- **亮相**（出现 2 次）
+  - 上下文：秦岭好物亮相联合国气候变化大会：向世界展示秦岭生态发展样本 - 新浪财经
+  - 上下文：闲鱼亮相联合国气候变化大会：AI加速闲置流转，低碳融入日常 - Sohu
+- **联合国气候变化大会**（出现 2 次）
+  - 上下文：秦岭好物亮相联合国气候变化大会：向世界展示秦岭生态发展样本 - 新浪财经
+  - 上下文：闲鱼亮相联合国气候变化大会：AI加速闲置流转，低碳融入日常 - Sohu
+- **生态**（出现 2 次）
+  - 上下文：秦岭好物亮相联合国气候变化大会：向世界展示秦岭生态发展样本 - 新浪财经
+  - 上下文：广西将修订条例 完善漓江流域生态环境保护法治保障 - 中国新闻网
+- **China**（出现 2 次）
+  - 上下文：2026年气候变化与可持续发展工程国际会议在广州举办- 中国日报网 - China Daily
+  - 上下文：身边的净土保卫战｜5200亩土壤被污染，“伤痕”怎么修复？ - China Daily
+- **Daily**（出现 2 次）
+  - 上下文：2026年气候变化与可持续发展工程国际会议在广州举办- 中国日报网 - China Daily
+  - 上下文：身边的净土保卫战｜5200亩土壤被污染，“伤痕”怎么修复？ - China Daily
+- **非法**（出现 2 次）
+  - 上下文：邵阳县人民法院对非法捕捞行为治“罪+治理”，有效修复生态环境 - 湖南长安网
+  - 上下文：生态环境部：基本遏制了大规模非法拆解处理废电器的现象 - Sohu
+- **修复**（出现 2 次）
+  - 上下文：邵阳县人民法院对非法捕捞行为治“罪+治理”，有效修复生态环境 - 湖南长安网
+  - 上下文：身边的净土保卫战｜5200亩土壤被污染，“伤痕”怎么修复？ - China Daily
+- **Fossil**（出现 2 次）
+  - 上下文：U.S. Fossil Fuel Emissions to Drop This Year, Despite Surging Power Demand
+  - 上下文：Fossil-fuel industry accused of violating Colorado law over not disclosing drilling chemicals
+- **电器**（出现 2 次）
+  - 上下文：生态环境部：将进一步加强废电器处理的监督管理 - Sohu
+  - 上下文：生态环境部：基本遏制了大规模非法拆解处理废电器的现象 - Sohu
+- **waste**（出现 2 次）
+  - 上下文：These US coal plants on the Ohio River shut down years ago. Now, residents say their waste is destroying lives
+  - 上下文：Scientists discover a surprisingly simple way to turn coffee waste into fuel
+- **fuel**（出现 2 次）
+  - 上下文：Fossil-fuel industry accused of violating Colorado law over not disclosing drilling chemicals
+  - 上下文：Scientists discover a surprisingly simple way to turn coffee waste into fuel
+- **industry**（出现 2 次）
+  - 上下文：Fossil-fuel industry accused of violating Colorado law over not disclosing drilling chemicals
+  - 上下文：Accounting for the mining industry’s global water footprint
+- **网友**（出现 2 次）
+  - 上下文：网友0446079614 - 中国环境网 - 中国环境网
+- **Scientists**（出现 2 次）
+  - 上下文：Hidden ecosystem: Scientists discover 245 animals living inside a single deep-sea rock
+  - 上下文：Scientists discover a surprisingly simple way to turn coffee waste into fuel
+- **discover**（出现 2 次）
+  - 上下文：Hidden ecosystem: Scientists discover 245 animals living inside a single deep-sea rock
+  - 上下文：Scientists discover a surprisingly simple way to turn coffee waste into fuel
+- **secondary**（出现 2 次）
+  - 上下文：Vertical characteristics of HCHO and NO2 in suburban Shanghai: understanding of ozone formation sensitivity via secondary HCHO
+  - 上下文：Environmental fate and trophic transfer of co-exposed PMMA nanoplastics and atrazine in aquatic systems: secondary effects across the water-plant-insect food chain
+- **Adaptation**（出现 2 次）
+  - 上下文：[Climate Home News] Mikko Ollikainen Discusses Adaptation Finance, Scaling Up and COP31
+  - 上下文：Adaptation Fund Mobilizes $50 Million
+
+---
+

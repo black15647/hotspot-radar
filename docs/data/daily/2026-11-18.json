@@ -1,0 +1,554 @@
+{
+  "report_date": "2026-11-18",
+  "site_name": "环境学子雷达",
+  "total_items": 49,
+  "snapshot_items": 10,
+  "category_stats": {
+    "生态环境": {
+      "count": 10,
+      "total_heat": 826.6
+    },
+    "环境政策": {
+      "count": 8,
+      "total_heat": 657.4
+    },
+    "其他": {
+      "count": 5,
+      "total_heat": 379.1
+    },
+    "气候变化": {
+      "count": 12,
+      "total_heat": 947.4
+    },
+    "能源与碳中和": {
+      "count": 1,
+      "total_heat": 87.5
+    },
+    "污染治理": {
+      "count": 6,
+      "total_heat": 453.5
+    },
+    "水处理": {
+      "count": 2,
+      "total_heat": 155.7
+    },
+    "环境健康": {
+      "count": 2,
+      "total_heat": 155.6
+    },
+    "科研学术": {
+      "count": 3,
+      "total_heat": 227.2
+    }
+  },
+  "total_sources": 28,
+  "success_sources": 27,
+  "failed_sources": 0,
+  "week_total_items": 292,
+  "week_new_keywords": 70,
+  "policy_ratio": 11.3,
+  "items": [
+    {
+      "title": "生态环境部：到2030年基本建成生态环境智慧执法体系 - 中国新闻网",
+      "title_en": "",
+      "title_zh": "",
+      "link": "https://news.google.com/rss/articles/CBMidkFVX3lxTE1aWFExRF9LMExDYXRmUTIxYWFvY3Nhc2xMdl9ELTVZNUpBNUpmT1d1SFNlRkRYdnQ3Z2Eyb1AwX1NhX0FYSGdMenQ2NnVSRWRvTG1OU2trN1dnWW1yVlIxRk1fSjRtQWViMVltSlk4cHNfRTlOSlE?oc=5",
+      "source": "Google News 生态环境",
+      "published": "2026-11-18T03:39:00+00:00",
+      "hotness": 91.9,
+      "score_v1": 33.27,
+      "score_v2": 91.9,
+      "score_breakdown": {
+        "algorithm": "v3.0",
+        "dimension_max": {
+          "authority": 18.0,
+          "topic": 18.0,
+          "resonance": 18.0,
+          "information": 16.0
+        },
+        "authority_score": 8.05,
+        "keyword_idf_score": 4.53,
+        "topic_score": 10.35,
+        "topic_burst_score": 5.82,
+        "topic_burst_count": 8,
+        "resonance_score": 17.96,
+        "info_score": 9.0,
+        "base": 45.36,
+        "base_max": 70.0,
+        "time_factor": 0.8809,
+        "density_factor": 1.0,
+        "density_note": "",
+        "repeat_penalty": 1.0,
+        "repeat_excused": false,
+        "event_size": 17,
+        "event_media_count": 10,
+        "event_cluster_source": "ai",
+        "origin_source": "中国新闻网",
+        "raw": 39.95,
+        "display_score": 91.9,
+        "display_mode": "absolute"
+      },
+      "summary": "生态环境部发布规划，到2030年基本建成生态环境智慧执法体系，提升执法效能与监管水平。",
+      "analysis": "",
+      "topic_tags": [
+        "生态环境部",
+        "智慧执法体系"
+      ],
+      "category": "生态环境",
+      "matched_keywords": [
+        "生态环境"
+      ]
+    },
+    {
+      "title": "东江环保控股子公司环境违法被罚14万元 - Sohu",
+      "title_en": "",
+      "title_zh": "",
+      "link": "https://news.google.com/rss/articles/CBMiiAFBVV95cUxNdF9zenVMQmVabDRWUE4wZmxIdDFKc3JXRzVVQmZ4NkZvZG9xQUJmbF9Pd1hzcDQ4MjUwVjZ6TnBXV0NvVHhkbXJybG1tcWpyYkRHZERFWlpSdWNqX3MtenAya2x1TEE4amRLMUlidmQ1cFFFMDB6X1RUY1lfeUxTSFNHeWJEUGhM?oc=5",
+      "source": "Google News 环境保护",
+      "published": "2026-11-18T03:14:50+00:00",
+      "hotness": 88.7,
+      "score_v1": 15.16,
+      "score_v2": 88.7,
+      "score_breakdown": {
+        "algorithm": "v3.0",
+        "dimension_max": {
+          "authority": 18.0,
+          "topic": 18.0,
+          "resonance": 18.0,
+          "information": 16.0
+        },
+        "authority_score": 8.05,
+        "keyword_idf_score": 0.0,
+        "topic_score": 3.0,
+        "topic_burst_score": 0.0,
+        "topic_burst_count": 1,
+        "resonance_score": 17.96,
+        "info_score": 9.0,
+        "base": 38.01,
+        "base_max": 70.0,
+        "time_factor": 0.8765,
+        "density_factor": 1.0,
+        "density_note": "",
+        "repeat_penalty": 1.0,
+        "repeat_excused": true,
+        "event_size": 17,
+        "event_media_count": 10,
+        "event_cluster_source": "ai",
+        "origin_source": "Sohu",
+        "raw": 33.31,
+        "display_score": 88.7,
+        "display_mode": "absolute"
+      },
+      "summary": "东江环保控股子公司因环境违法行为被处以14万元罚款，监管部门依法查处涉环违规。",
+      "analysis": "",
+      "topic_tags": [
+        "东江环保",
+        "深圳市宝安东江环保技术有限公司",
+        "固体废物污染环境防治法"
+      ],
+      "category": "环境政策",
+      "matched_keywords": []
+    },
+    {
+      "title": "新洋丰控股子公司环境违法被罚13.43万元 - https://www.mrjjxw.com/",
+      "title_en": "",
+      "title_zh": "",
+      "link": "https://news.google.com/rss/articles/CBMiZkFVX3lxTE15djFZMndTYmFwT2ZKZUpYZGJsM3lhN1R5NVctdFpEN1czUWJDRlhkek0zRUgyRjhxZEpHcjM1ZTh5M1VzZ1EwODNRS1FjckVVdUdIOGRQMUVhakF3Z1l0YzdaODdmQQ?oc=5",
+      "source": "Google News 环境保护",
+      "published": "2026-11-18T03:08:31+00:00",
+      "hotness": 88.6,
+      "score_v1": 15.13,
+      "score_v2": 88.6,
+      "score_breakdown": {
+        "algorithm": "v3.0",
+        "dimension_max": {
+          "authority": 18.0,
+          "topic": 18.0,
+          "resonance": 18.0,
+          "information": 16.0
+        },
+        "authority_score": 8.05,
+        "keyword_idf_score": 0.0,
+        "topic_score": 3.0,
+        "topic_burst_score": 0.0,
+        "topic_burst_count": 1,
+        "resonance_score": 17.96,
+        "info_score": 9.0,
+        "base": 38.01,
+        "base_max": 70.0,
+        "time_factor": 0.8753,
+        "density_factor": 1.0,
+        "density_note": "",
+        "repeat_penalty": 1.0,
+        "repeat_excused": true,
+        "event_size": 17,
+        "event_media_count": 10,
+        "event_cluster_source": "ai",
+        "origin_source": "https://www.mrjjxw.com/",
+        "raw": 33.27,
+        "display_score": 88.6,
+        "display_mode": "absolute"
+      },
+      "summary": "新洋丰控股子公司因环境违法被处以13.43万元罚款，监管部门依法查处涉环违规案件。",
+      "analysis": "",
+      "topic_tags": [
+        "环境违法"
+      ],
+      "category": "其他",
+      "matched_keywords": []
+    },
+    {
+      "title": "生态环境部部长黄润秋出席COP31甲烷与其他非二氧化碳温室气体峰会等活动并会见外方高级代表 - 中华人民共和国生态环境部",
+      "title_en": "",
+      "title_zh": "",
+      "link": "https://news.google.com/rss/articles/CBMidkFVX3lxTFB0Q3RXV1hFLUNYLWxWalJBWDFNeTdBSEFwOENLMWRiVUVCRktXd0NrYmVLSGQwTHJ4WFNtNzdrTHROd0JCRDhyV0N2SHlqNzFPRWp1U2VpZ20xVjRrSkVUV01YellMUkh6UFNTNnhKWlp5MDNKR3c?oc=5",
+      "source": "Google News 生态环境",
+      "published": "2026-11-17T02:53:07+00:00",
+      "hotness": 88.4,
+      "score_v1": 34.98,
+      "score_v2": 88.4,
+      "score_breakdown": {
+        "algorithm": "v3.0",
+        "dimension_max": {
+          "authority": 18.0,
+          "topic": 18.0,
+          "resonance": 18.0,
+          "information": 16.0
+        },
+        "authority_score": 8.05,
+        "keyword_idf_score": 8.57,
+        "topic_score": 14.38,
+        "topic_burst_score": 5.82,
+        "topic_burst_count": 8,
+        "resonance_score": 17.96,
+        "info_score": 9.0,
+        "base": 49.39,
+        "base_max": 70.0,
+        "time_factor": 0.6669,
+        "density_factor": 1.0,
+        "density_note": "",
+        "repeat_penalty": 1.0,
+        "repeat_excused": true,
+        "event_size": 17,
+        "event_media_count": 10,
+        "event_cluster_source": "ai",
+        "origin_source": "中华人民共和国生态环境部",
+        "raw": 32.94,
+        "display_score": 88.4,
+        "display_mode": "absolute"
+      },
+      "summary": "生态环境部部长黄润秋出席COP31峰会并会见外方高级代表，重点讨论甲烷与非二氧化碳温室气体减排合作。",
+      "analysis": "",
+      "topic_tags": [
+        "非二氧化碳温室气体"
+      ],
+      "category": "气候变化",
+      "matched_keywords": [
+        "温室气体",
+        "生态环境"
+      ]
+    },
+    {
+      "title": "生态环境部：2012年到2025年累计引导处理“四机一脑”超过10亿台（套） - Sohu",
+      "title_en": "",
+      "title_zh": "",
+      "link": "https://news.google.com/rss/articles/CBMijAFBVV95cUxQVUw0VWRPdEZLeWJvNnkweTRqMmszeWJQXzNtMjNxbFMtUHdsM1VEcnhTY0RQanB4bXhRS1Rla2tZSGUweUNhZTZ5Nzd2Q3E3RXhtMk52TGJiOWFCMGlwZTlMZGZGZDYtYTJPb0lFc0txS2RvS1V4Tng5eDA4bFpfSW1GSlZTNW50MF9fTw?oc=5",
+      "source": "Google News 环境污染",
+      "published": "2026-11-17T08:38:31+00:00",
+      "hotness": 87.9,
+      "score_v1": 29.62,
+      "score_v2": 87.9,
+      "score_breakdown": {
+        "algorithm": "v3.0",
+        "dimension_max": {
+          "authority": 18.0,
+          "topic": 18.0,
+          "resonance": 18.0,
+          "information": 16.0
+        },
+        "authority_score": 8.05,
+        "keyword_idf_score": 4.53,
+        "topic_score": 10.35,
+        "topic_burst_score": 5.82,
+        "topic_burst_count": 8,
+        "resonance_score": 17.96,
+        "info_score": 9.0,
+        "base": 45.36,
+        "base_max": 70.0,
+        "time_factor": 0.7073,
+        "density_factor": 1.0,
+        "density_note": "",
+        "repeat_penalty": 1.0,
+        "repeat_excused": true,
+        "event_size": 17,
+        "event_media_count": 10,
+        "event_cluster_source": "ai",
+        "origin_source": "Sohu",
+        "raw": 32.08,
+        "display_score": 87.9,
+        "display_mode": "absolute"
+      },
+      "summary": "生态环境部发布数据，2012年至2025年累计引导处理“四机一脑”超过10亿台（套），推进再生资源回收体系建设。",
+      "analysis": "",
+      "topic_tags": [
+        "生态环境部",
+        "再生资源回收"
+      ],
+      "category": "生态环境",
+      "matched_keywords": [
+        "生态环境"
+      ]
+    },
+    {
+      "title": "2027年起VOCs废气环保税试点开征：兰宝环保详解“一厂一策” - 中华网",
+      "title_en": "",
+      "title_zh": "",
+      "link": "https://news.google.com/rss/articles/CBMiXkFVX3lxTE9tZkt6LW0tYmYzMGkxVVZIVWdCTHRfTEpmLXBhWkctZjkySDVMRVlyaHZvMmNzMmpsWVZ5b01JbnZPdlBQcU1nUC1qWFJIZ0hMLVY3V0Ixb281NnRDRkE?oc=5",
+      "source": "Google News 环境保护",
+      "published": "2026-11-18T08:33:42+00:00",
+      "hotness": 87.8,
+      "score_v1": 16.79,
+      "score_v2": 87.8,
+      "score_breakdown": {
+        "algorithm": "v3.0",
+        "dimension_max": {
+          "authority": 18.0,
+          "topic": 18.0,
+          "resonance": 18.0,
+          "information": 16.0
+        },
+        "authority_score": 8.05,
+        "keyword_idf_score": 0.0,
+        "topic_score": 3.0,
+        "topic_burst_score": 0.0,
+        "topic_burst_count": 1,
+        "resonance_score": 17.96,
+        "info_score": 5.0,
+        "base": 34.01,
+        "base_max": 70.0,
+        "time_factor": 0.9381,
+        "density_factor": 1.0,
+        "density_note": "",
+        "repeat_penalty": 1.0,
+        "repeat_excused": true,
+        "event_size": 17,
+        "event_media_count": 10,
+        "event_cluster_source": "ai",
+        "origin_source": "中华网",
+        "raw": 31.9,
+        "display_score": 87.8,
+        "display_mode": "absolute"
+      },
+      "summary": "2027年起VOCs废气环保税试点开征，兰宝环保详解“一厂一策”，引导企业精准治理挥发性有机物污染。",
+      "analysis": "",
+      "topic_tags": [
+        "VOCs废气环保税",
+        "兰宝环保"
+      ],
+      "category": "环境政策",
+      "matched_keywords": []
+    },
+    {
+      "title": "秦岭好物亮相联合国气候变化大会：向世界展示秦岭生态发展样本 - 新浪财经",
+      "title_en": "",
+      "title_zh": "",
+      "link": "https://news.google.com/rss/articles/CBMieEFVX3lxTE9pekNWYTRRUF9UVlpYbWVnNXJGYlF0Y0VYMnh6eEJiNTdoR05JS1NoV0Jkb2psTlJhbHkzQVdwNVRJX3lxV3NuZXFBVFNHVTZ3S001OWpZZGRtcXNvU2JQcmFGZUVUUzc0elpQTlZtS2cxWHBBVTV6cA?oc=5",
+      "source": "Google News 气候变化",
+      "published": "2026-11-18T06:07:22+00:00",
+      "hotness": 87.6,
+      "score_v1": 28.0,
+      "score_v2": 87.6,
+      "score_breakdown": {
+        "algorithm": "v3.0",
+        "dimension_max": {
+          "authority": 18.0,
+          "topic": 18.0,
+          "resonance": 18.0,
+          "information": 16.0
+        },
+        "authority_score": 8.05,
+        "keyword_idf_score": 3.47,
+        "topic_score": 8.66,
+        "topic_burst_score": 5.19,
+        "topic_burst_count": 5,
+        "resonance_score": 17.96,
+        "info_score": 0.0,
+        "base": 34.66,
+        "base_max": 70.0,
+        "time_factor": 0.909,
+        "density_factor": 1.0,
+        "density_note": "",
+        "repeat_penalty": 1.0,
+        "repeat_excused": true,
+        "event_size": 17,
+        "event_media_count": 10,
+        "event_cluster_source": "ai",
+        "origin_source": "新浪财经",
+        "raw": 31.51,
+        "display_score": 87.6,
+        "display_mode": "absolute"
+      },
+      "summary": "秦岭好物亮相联合国气候变化大会，展示秦岭生态发展样本，彰显生态文明建设成果与国际合作新路径。",
+      "analysis": "",
+      "topic_tags": [
+        "秦岭生态产品价值实现创新实践",
+        "气候适应型试点城市"
+      ],
+      "category": "生态环境",
+      "matched_keywords": [
+        "气候变化"
+      ]
+    },
+    {
+      "title": "2026年气候变化与可持续发展工程国际会议在广州举办- 中国日报网 - China Daily",
+      "title_en": "",
+      "title_zh": "",
+      "link": "https://news.google.com/rss/articles/CBMifEFVX3lxTFA3UERVb3BCNTdYV04tUm1uWlF6Z1Y4eFU0aHhkTXlFZkMwM3pSX1VfbFRKbzF6QnFkd2VvaURtdDNiR1FLRUQ0a09TR3JfUUF1bXVWb09wd2taOXM4UEw1dzRqdXEtTTk2eXR2cHJ5Z2tUeGE3c1Q4OUZPeG4?oc=5",
+      "source": "Google News 气候变化",
+      "published": "2026-11-17T11:06:54+00:00",
+      "hotness": 87.5,
+      "score_v1": 35.95,
+      "score_v2": 87.5,
+      "score_breakdown": {
+        "algorithm": "v3.0",
+        "dimension_max": {
+          "authority": 18.0,
+          "topic": 18.0,
+          "resonance": 18.0,
+          "information": 16.0
+        },
+        "authority_score": 8.05,
+        "keyword_idf_score": 6.99,
+        "topic_score": 12.17,
+        "topic_burst_score": 5.19,
+        "topic_burst_count": 5,
+        "resonance_score": 17.96,
+        "info_score": 5.0,
+        "base": 43.18,
+        "base_max": 70.0,
+        "time_factor": 0.7262,
+        "density_factor": 1.0,
+        "density_note": "",
+        "repeat_penalty": 1.0,
+        "repeat_excused": true,
+        "event_size": 17,
+        "event_media_count": 10,
+        "event_cluster_source": "ai",
+        "origin_source": "China Daily",
+        "raw": 31.36,
+        "display_score": 87.5,
+        "display_mode": "absolute"
+      },
+      "summary": "2026年气候变化与可持续发展工程国际会议在广州举办，汇聚全球智慧探讨气候行动与绿色发展新路径。",
+      "analysis": "",
+      "topic_tags": [
+        "可持续"
+      ],
+      "category": "气候变化",
+      "matched_keywords": [
+        "气候变化",
+        "可持续发展"
+      ]
+    },
+    {
+      "title": "邵阳县人民法院对非法捕捞行为治“罪+治理”，有效修复生态环境 - 湖南长安网",
+      "title_en": "",
+      "title_zh": "",
+      "link": "https://news.google.com/rss/articles/CBMiZkFVX3lxTE42QnNsNjltRDJSMEE3UlpLUUxqSjNZU29pdDNSRFFiSG90SVVsaG04TmlTV3ZINWl6aVU3aDI5Z1NFTl9GaXRoS3ZTTWQ3dDdCT0NZc3lRb1J0XzZxc1hJWmJEVEs4QQ?oc=5",
+      "source": "Google News 生态环境",
+      "published": "2026-11-18T02:07:35+00:00",
+      "hotness": 87.5,
+      "score_v1": 32.86,
+      "score_v2": 87.5,
+      "score_breakdown": {
+        "algorithm": "v3.0",
+        "dimension_max": {
+          "authority": 18.0,
+          "topic": 18.0,
+          "resonance": 18.0,
+          "information": 16.0
+        },
+        "authority_score": 8.05,
+        "keyword_idf_score": 4.53,
+        "topic_score": 10.35,
+        "topic_burst_score": 5.82,
+        "topic_burst_count": 8,
+        "resonance_score": 17.96,
+        "info_score": 0.0,
+        "base": 36.36,
+        "base_max": 70.0,
+        "time_factor": 0.8643,
+        "density_factor": 1.0,
+        "density_note": "",
+        "repeat_penalty": 1.0,
+        "repeat_excused": true,
+        "event_size": 17,
+        "event_media_count": 10,
+        "event_cluster_source": "ai",
+        "origin_source": "湖南长安网",
+        "raw": 31.42,
+        "display_score": 87.5,
+        "display_mode": "absolute"
+      },
+      "summary": "邵阳县人民法院依法审理非法捕捞案件，创新‘罪+治理’模式，有效修复生态环境，实现司法与生态双重效益。",
+      "analysis": "",
+      "topic_tags": [
+        "治罪+治理",
+        "生态环境修复"
+      ],
+      "category": "环境政策",
+      "matched_keywords": [
+        "生态环境"
+      ]
+    },
+    {
+      "title": "U.S. Fossil Fuel Emissions to Drop This Year, Despite Surging Power Demand",
+      "title_en": "U.S. Fossil Fuel Emissions to Drop This Year, Despite Surging Power Demand",
+      "title_zh": "尽管电力需求激增，美国化石燃料排放量今年仍将下降",
+      "link": "https://e360.yale.edu/digest/u-s-power-emissions-2026",
+      "source": "Yale Environment 360",
+      "published": "2026-11-18T13:08:00+00:00",
+      "hotness": 87.5,
+      "score_v1": 19.4,
+      "score_v2": 87.5,
+      "score_breakdown": {
+        "algorithm": "v3.0",
+        "dimension_max": {
+          "authority": 18.0,
+          "topic": 18.0,
+          "resonance": 18.0,
+          "information": 16.0
+        },
+        "authority_score": 12.73,
+        "keyword_idf_score": 0.0,
+        "topic_score": 3.0,
+        "topic_burst_score": 0.0,
+        "topic_burst_count": 1,
+        "resonance_score": 8.76,
+        "info_score": 7.0,
+        "base": 31.49,
+        "base_max": 70.0,
+        "time_factor": 0.9969,
+        "density_factor": 1.0,
+        "density_note": "",
+        "repeat_penalty": 1.0,
+        "repeat_excused": false,
+        "event_size": 4,
+        "event_media_count": 2,
+        "event_cluster_source": "ai",
+        "origin_source": "Yale Environment 360",
+        "raw": 31.39,
+        "display_score": 87.5,
+        "display_mode": "absolute"
+      },
+      "summary": "得益于燃煤发电量的减少和汽油需求的下降，美国今年的化石燃料排放量预计将有所下降。尽管电力需求不断增长，且特朗普政府正大力推动煤炭产业发展，但排放量仍将出现下降。在 E360 上阅读更多内容 →",
+      "analysis": "",
+      "topic_tags": [
+        "化石燃料排放",
+        "煤炭发电"
+      ],
+      "category": "能源与碳中和",
+      "matched_keywords": []
+    }
+  ]
+}

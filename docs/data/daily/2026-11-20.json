@@ -1,0 +1,553 @@
+{
+  "report_date": "2026-11-20",
+  "site_name": "环境学子雷达",
+  "total_items": 39,
+  "snapshot_items": 10,
+  "category_stats": {
+    "生态环境": {
+      "count": 9,
+      "total_heat": 746.7
+    },
+    "科研学术": {
+      "count": 2,
+      "total_heat": 179.7
+    },
+    "气候变化": {
+      "count": 11,
+      "total_heat": 852.9
+    },
+    "其他": {
+      "count": 3,
+      "total_heat": 234.0
+    },
+    "能源与碳中和": {
+      "count": 2,
+      "total_heat": 164.6
+    },
+    "污染治理": {
+      "count": 7,
+      "total_heat": 552.9
+    },
+    "环境政策": {
+      "count": 3,
+      "total_heat": 223.9
+    },
+    "水处理": {
+      "count": 2,
+      "total_heat": 154.0
+    }
+  },
+  "total_sources": 28,
+  "success_sources": 27,
+  "failed_sources": 0,
+  "week_total_items": 276,
+  "week_new_keywords": 69,
+  "policy_ratio": 12.0,
+  "items": [
+    {
+      "title": "Biodiversity credits hold promise, yet credit-generating protocols require safeguards to realize potential",
+      "title_en": "Biodiversity credits hold promise, yet credit-generating protocols require safeguards to realize potential",
+      "title_zh": "生物多样性信用机制前景广阔，但要充分发挥其潜力，信用生成方案仍需建立相应的保障措施",
+      "link": "https://iopscience.iop.org/article/10.1088/1748-9326/aebbdc",
+      "source": "Environmental Research Letters",
+      "published": "2026-11-20T00:00:00+00:00",
+      "hotness": 92.1,
+      "score_v1": 24.7,
+      "score_v2": 92.1,
+      "score_breakdown": {
+        "algorithm": "v3.0",
+        "dimension_max": {
+          "authority": 18.0,
+          "topic": 18.0,
+          "resonance": 18.0,
+          "information": 16.0
+        },
+        "authority_score": 18.0,
+        "keyword_idf_score": 10.57,
+        "topic_score": 10.57,
+        "topic_burst_score": 0.0,
+        "topic_burst_count": 1,
+        "resonance_score": 16.75,
+        "info_score": 3.0,
+        "base": 48.32,
+        "base_max": 70.0,
+        "time_factor": 0.8406,
+        "density_factor": 1.0,
+        "density_note": "",
+        "repeat_penalty": 1.0,
+        "repeat_excused": false,
+        "event_size": 17,
+        "event_media_count": 5,
+        "event_cluster_source": "ai",
+        "origin_source": "Environmental Research Letters",
+        "raw": 40.62,
+        "display_score": 92.1,
+        "display_mode": "absolute"
+      },
+      "summary": "鉴于当前生物多样性资金缺口，调动私人资本对于实现全球生物多样性保护目标至关重要，特别是在能力有限且公共财政紧张的中低收入国家。新兴的自愿性生物多样性市场（VBM）有望为生物多样性保护撬动私人资本，但信用生成协议必须足够健全，以防止“洗绿”行为并最大限度地提高成效。 本研究是首项超越对自愿生物多样性市场（VBM）的理论批判和一般性市场评估的研究，我们从13家相对成熟的生物多样性信用组织的工作规程中，提取了项目结构和信用额度发放的详细信息。 基于这些数据，我们评估了这些协议与保护和恢复生物学原则以及自愿碳市场（VCM）经验教训的一致性。我们发现，必须采取行动改进生物多样性影响的量化工作，特别是将斑块大小和连通性纳入信用核算，并在生态相关的时限内评估项目。 此外，必须将自愿碳市场（VCM）中关于额外性、泄漏、风险和核查的保障措施更牢固地融入生物多样性碳信用市场（VBM），并加强与当地社区的深度互动及投资，以确保实现持久的、对生物多样性有利的成果。",
+      "analysis": "",
+      "topic_tags": [
+        "生物多样性市场"
+      ],
+      "category": "生态环境",
+      "matched_keywords": [
+        "碳市场",
+        "生物多样性"
+      ]
+    },
+    {
+      "title": "Plant-derived photocatalytic carbon dots for crop disease management",
+      "title_en": "Plant-derived photocatalytic carbon dots for crop disease management",
+      "title_zh": "用于作物病害防治的植物源光催化碳点",
+      "link": "https://www.nature.com/articles/s41893-026-01978-6",
+      "source": "Nature Sustainability",
+      "published": "2026-11-20T00:00:00+00:00",
+      "hotness": 91.0,
+      "score_v1": 22.7,
+      "score_v2": 91.0,
+      "score_breakdown": {
+        "algorithm": "v3.0",
+        "dimension_max": {
+          "authority": 18.0,
+          "topic": 18.0,
+          "resonance": 18.0,
+          "information": 16.0
+        },
+        "authority_score": 18.0,
+        "keyword_idf_score": 4.91,
+        "topic_score": 7.27,
+        "topic_burst_score": 2.36,
+        "topic_burst_count": 2,
+        "resonance_score": 16.75,
+        "info_score": 3.0,
+        "base": 45.02,
+        "base_max": 70.0,
+        "time_factor": 0.8406,
+        "density_factor": 1.0,
+        "density_note": "",
+        "repeat_penalty": 1.0,
+        "repeat_excused": true,
+        "event_size": 17,
+        "event_media_count": 5,
+        "event_cluster_source": "ai",
+        "origin_source": "Nature Sustainability",
+        "raw": 37.84,
+        "display_score": 91.0,
+        "display_mode": "absolute"
+      },
+      "summary": "《自然·可持续性》（Nature Sustainability）， 作物中的真菌病原体可能造成巨大的经济损失，并对粮食安全构成严重威胁。 为防治小麦镰刀菌穗枯病——一种对小麦作物危害极大的病害——研究人员开发了一种利用植物来源光催化碳点的高效抗真菌策略。",
+      "analysis": "",
+      "topic_tags": [
+        "植物来源光催化碳点"
+      ],
+      "category": "科研学术",
+      "matched_keywords": [
+        "可持续发展"
+      ]
+    },
+    {
+      "title": "Effects of high elevation wildfires on peak snow water equivalent in California’s Sierra Nevada headwater regions",
+      "title_en": "Effects of high elevation wildfires on peak snow water equivalent in California’s Sierra Nevada headwater regions",
+      "title_zh": "高海拔森林火灾对加利福尼亚州内华达山脉源头地区峰值积雪水当量的影响",
+      "link": "https://iopscience.iop.org/article/10.1088/1748-9326/aec1f2",
+      "source": "Environmental Research Letters",
+      "published": "2026-11-20T00:00:00+00:00",
+      "hotness": 90.3,
+      "score_v1": 20.7,
+      "score_v2": 90.3,
+      "score_breakdown": {
+        "algorithm": "v3.0",
+        "dimension_max": {
+          "authority": 18.0,
+          "topic": 18.0,
+          "resonance": 18.0,
+          "information": 16.0
+        },
+        "authority_score": 18.0,
+        "keyword_idf_score": 5.7,
+        "topic_score": 5.7,
+        "topic_burst_score": 0.0,
+        "topic_burst_count": 1,
+        "resonance_score": 16.75,
+        "info_score": 3.0,
+        "base": 43.45,
+        "base_max": 70.0,
+        "time_factor": 0.8406,
+        "density_factor": 1.0,
+        "density_note": "",
+        "repeat_penalty": 1.0,
+        "repeat_excused": true,
+        "event_size": 17,
+        "event_media_count": 5,
+        "event_cluster_source": "ai",
+        "origin_source": "Environmental Research Letters",
+        "raw": 36.53,
+        "display_score": 90.3,
+        "display_mode": "absolute"
+      },
+      "summary": "加利福尼亚州内华达山脉地区（SNR）高海拔野火的增多，引发了人们对积雪可能受到影响的担忧——积雪是该州供水的主要来源。 在地形复杂、气候和生态梯度较大的山区，由于实地观测和过程模型的局限性，量化火灾引起的积雪储量变化仍具挑战性。 本研究利用高分辨率机载雪观测站激光雷达测绘数据（2023–2024年），评估了2020–2021年野火对内华达山脉地区六个流域峰值积雪水当量（SWE）的影响。 我们汇集了超过32000组环境条件相似的“烧毁区-未烧毁区”50米像素配对数据，并评估了峰值雪水当量变化（ΔpeakSWE：烧毁区—未烧毁区）如何随火灾严重程度、火灾前森林结构、气象变量以及雪线以上地形的变化而变化。 在配对数据中，火灾后峰值SWE的差异在幅度和方向上均存在变化，这取决于年度天气状况（例如多雨年与常年）以及当地的环境条件。 2023年，在中等海拔地区，冠层损失率≥75%的密林中出现了最大的正向“烧过区—未烧过区”差异，该区域烧过区的峰值雪水当量平均高出13.0厘米（相对于匹配未烧过区平均值105.1厘米高出12%）； 而在2024年，这一差异则显著缩小。经过空间交叉验证的极端梯度提升（XGBoost）机器学习模型表明，地形提供了最强的预测信息，其次是植被结构。 夏普利加性解释（SHapley Additive exPlanations）和浅层决策树进一步表明，与匹配的未烧毁区域相比，热暴露较低、局部地形位置较低且海拔处于中等的地点，其烧毁区域的峰值雪水当量通常较高；而火灾前树冠较高以及暴露、高能的地形则与较低的峰值雪水当量相关。 这些结果表明，野火对峰值土壤水当量（SWE）的影响在很大程度上取决于具体情境。",
+      "analysis": "",
+      "topic_tags": [
+        "气候变化"
+      ],
+      "category": "气候变化",
+      "matched_keywords": [
+        "流域"
+      ]
+    },
+    {
+      "title": "Increasing favorability for intense tropical cyclone activity in the northern South China Sea",
+      "title_en": "Increasing favorability for intense tropical cyclone activity in the northern South China Sea",
+      "title_zh": "南海北部出现强热带气旋活动的可能性正在增加",
+      "link": "https://iopscience.iop.org/article/10.1088/1748-9326/aebe4d",
+      "source": "Environmental Research Letters",
+      "published": "2026-11-20T00:00:00+00:00",
+      "hotness": 89.2,
+      "score_v1": 16.7,
+      "score_v2": 89.2,
+      "score_breakdown": {
+        "algorithm": "v3.0",
+        "dimension_max": {
+          "authority": 18.0,
+          "topic": 18.0,
+          "resonance": 18.0,
+          "information": 16.0
+        },
+        "authority_score": 18.0,
+        "keyword_idf_score": 0.0,
+        "topic_score": 3.0,
+        "topic_burst_score": 0.0,
+        "topic_burst_count": 1,
+        "resonance_score": 16.75,
+        "info_score": 3.0,
+        "base": 40.75,
+        "base_max": 70.0,
+        "time_factor": 0.8406,
+        "density_factor": 1.0,
+        "density_note": "",
+        "repeat_penalty": 1.0,
+        "repeat_excused": true,
+        "event_size": 17,
+        "event_media_count": 5,
+        "event_cluster_source": "ai",
+        "origin_source": "Environmental Research Letters",
+        "raw": 34.26,
+        "display_score": 89.2,
+        "display_mode": "absolute"
+      },
+      "summary": "南海是全球热带气旋活动最为频繁的边缘海之一，也是中国南部、菲律宾和越南沿海地区热带气旋灾害的关键区域。然而，该地区强热带气旋形成与发展的长期变化驱动因素尚不明确。 本文表明，达到3至5级强度的热带气旋数量显著增加，且其中更多出现在南海北部。 这一变化主要与通过吕宋海峡进入南海的西北太平洋热带气旋所占比例日益增大有关，与穿越菲律宾群岛的热带气旋相比，这些气旋受陆地影响导致的强度减弱较弱，从而能够保持更强的强度以供后续发展。 进入南海后，海洋冷却作用减弱以及海洋和大气条件增强，使得南海北部更有利于强台风的发展。这些结果凸显了区域海洋-陆地-大气相互作用在重塑台风达到高强度区域方面的作用。",
+      "analysis": "",
+      "topic_tags": [
+        "环境资讯"
+      ],
+      "category": "其他",
+      "matched_keywords": []
+    },
+    {
+      "title": "Interdecadal Pacific variability modulates recent drying and near-term changes in early-spring precipitation over subtropical East Asia",
+      "title_en": "Interdecadal Pacific variability modulates recent drying and near-term changes in early-spring precipitation over subtropical East Asia",
+      "title_zh": "太平洋的十年际变率对亚热带东亚近期干旱以及早春降水的近期变化具有调节作用",
+      "link": "https://iopscience.iop.org/article/10.1088/1748-9326/aec1f0",
+      "source": "Environmental Research Letters",
+      "published": "2026-11-20T00:00:00+00:00",
+      "hotness": 89.2,
+      "score_v1": 16.7,
+      "score_v2": 89.2,
+      "score_breakdown": {
+        "algorithm": "v3.0",
+        "dimension_max": {
+          "authority": 18.0,
+          "topic": 18.0,
+          "resonance": 18.0,
+          "information": 16.0
+        },
+        "authority_score": 18.0,
+        "keyword_idf_score": 0.0,
+        "topic_score": 3.0,
+        "topic_burst_score": 0.0,
+        "topic_burst_count": 1,
+        "resonance_score": 16.75,
+        "info_score": 3.0,
+        "base": 40.75,
+        "base_max": 70.0,
+        "time_factor": 0.8406,
+        "density_factor": 1.0,
+        "density_note": "",
+        "repeat_penalty": 1.0,
+        "repeat_excused": true,
+        "event_size": 17,
+        "event_media_count": 5,
+        "event_cluster_source": "ai",
+        "origin_source": "Environmental Research Letters",
+        "raw": 34.26,
+        "display_score": 89.2,
+        "display_mode": "absolute"
+      },
+      "summary": "亚热带东亚（SEA）作为全球人口最稠密的地区之一及重要的农业区，自20世纪80年代以来一直面临着显著的早春干旱现象，这对水资源和农业构成了日益加剧的风险。 然而，外部强迫和内部变率对干旱化趋势的相对贡献，以及相关的动力学和热力学过程，目前尚不明确。基于环流类比的动力学分析表明，大气环流变化可解释观测到的干旱化趋势的约108%，而这些变化主要由内部变率驱动。 这些环流变化与太平洋十年际变率（IPV）从正相位向负相位的转变密切相关，这种转变会通过削弱西北太平洋反气旋并在东南亚（SEA）引发异常下沉气流来抑制降水。 IPV 还调节着短期降水预测。基于能够真实反映历史 IPV 的集合成员推导出的 IPV 预测，我们发现近期未来可能出现向更湿润条件逆转的趋势。",
+      "analysis": "",
+      "topic_tags": [
+        "早春干旱",
+        "大气环流变化"
+      ],
+      "category": "气候变化",
+      "matched_keywords": []
+    },
+    {
+      "title": "Spatially distributed air quality and health impacts of data center electricity demand in the United States",
+      "title_en": "Spatially distributed air quality and health impacts of data center electricity demand in the United States",
+      "title_zh": "美国数据中心电力需求对空气质量及健康影响的空间分布",
+      "link": "https://iopscience.iop.org/article/10.1088/1748-9326/aebbd4",
+      "source": "Environmental Research Letters",
+      "published": "2026-11-19T00:00:00+00:00",
+      "hotness": 88.7,
+      "score_v1": 21.1,
+      "score_v2": 88.7,
+      "score_breakdown": {
+        "algorithm": "v3.0",
+        "dimension_max": {
+          "authority": 18.0,
+          "topic": 18.0,
+          "resonance": 18.0,
+          "information": 16.0
+        },
+        "authority_score": 18.0,
+        "keyword_idf_score": 9.84,
+        "topic_score": 9.84,
+        "topic_burst_score": 0.0,
+        "topic_burst_count": 1,
+        "resonance_score": 16.75,
+        "info_score": 7.0,
+        "base": 51.59,
+        "base_max": 70.0,
+        "time_factor": 0.6476,
+        "density_factor": 1.0,
+        "density_note": "",
+        "repeat_penalty": 1.0,
+        "repeat_excused": true,
+        "event_size": 17,
+        "event_media_count": 5,
+        "event_cluster_source": "ai",
+        "origin_source": "Environmental Research Letters",
+        "raw": 33.41,
+        "display_score": 88.7,
+        "display_mode": "absolute"
+      },
+      "summary": "人工智能的迅猛发展正推动美国数据中心的电力需求大幅增长，但由此产生的空气质量和公共健康影响的分布情况仍缺乏充分量化。 为了追踪2023年由电网供电的数据中心电力需求所导致的环境空气污染及其相关的过早死亡影响，我们将“美国发电优化模型”与“GEOS-Chem化学传输模型”相结合。 我们对比了包含和不包含数据中心用电需求情况下的每小时、机组级电力调度情况，以量化电力行业排放、环境中的PM和臭氧浓度以及相关过早死亡人数的变化。 研究结果表明，多个地区因数据中心需求产生的发电量主要由化石燃料机组提供，导致年平均PM浓度增加0.02–0.08 g m（局部峰值浓度高达0.2 g m），且各地区臭氧响应存在差异，其特征为冬季浓度下降、夏季浓度升高。 这些影响在美国中西部最为显著，该地区燃煤机组的边际排放量以及富含氨的大气条件加剧了二次颗粒物的形成。我们估算，该电网供电需求每年导致513例（95%置信区间： 469–557）例，此外，在美利坚合众国本土48州，每日最高8小时平均臭氧浓度（MDA8-）每年还导致额外137（95%置信区间：90–183）例过早死亡。 州级分析揭示了一种系统性的地理错配：承载最大数据中心负荷的州并不一定面临最高的归因死亡率，而一些数据中心需求较小的州却承受着沉重的负担。 这种不匹配源于互联电力区域间的调度、各区域在发电和排放方面的差异，以及大气化学和传输过程，这些因素共同导致需求发生地与暴露及死亡发生地分离。这些发现……",
+      "analysis": "",
+      "topic_tags": [
+        "数据中心",
+        "空气质量",
+        "健康影响"
+      ],
+      "category": "科研学术",
+      "matched_keywords": [
+        "大气污染",
+        "臭氧"
+      ]
+    },
+    {
+      "title": "中华人民共和国和澳大利亚联邦关于气候变化与清洁能源转型的联合声明 - 新京报",
+      "title_en": "",
+      "title_zh": "",
+      "link": "https://news.google.com/rss/articles/CBMiZEFVX3lxTE1vY1FMWVNYM1BsUFlGWXNBYnNKWjVNWmZIeTF1anpGbWlNQVBwZFRNUHZ5RnVhYkNzUEdsRlR4cUZLOVVsaFVGUFV3cmMzR09IcGY3Njc4bmZNWWxhd21kQXBTNWY?oc=5",
+      "source": "Google News 气候变化",
+      "published": "2026-11-20T11:47:00+00:00",
+      "hotness": 88.2,
+      "score_v1": 39.91,
+      "score_v2": 88.2,
+      "score_breakdown": {
+        "algorithm": "v3.0",
+        "dimension_max": {
+          "authority": 18.0,
+          "topic": 18.0,
+          "resonance": 18.0,
+          "information": 16.0
+        },
+        "authority_score": 8.05,
+        "keyword_idf_score": 11.02,
+        "topic_score": 16.52,
+        "topic_burst_score": 5.51,
+        "topic_burst_count": 6,
+        "resonance_score": 8.76,
+        "info_score": 0.0,
+        "base": 33.33,
+        "base_max": 70.0,
+        "time_factor": 0.9771,
+        "density_factor": 1.0,
+        "density_note": "",
+        "repeat_penalty": 1.0,
+        "repeat_excused": false,
+        "event_size": 2,
+        "event_media_count": 2,
+        "event_cluster_source": "ai",
+        "origin_source": "新京报",
+        "raw": 32.57,
+        "display_score": 88.2,
+        "display_mode": "absolute"
+      },
+      "summary": "澳大利亚与中国联合发布声明，聚焦气候变化应对与清洁能源转型合作，旨在推动两国绿色发展进程。",
+      "analysis": "",
+      "topic_tags": [
+        "清洁能源转型"
+      ],
+      "category": "能源与碳中和",
+      "matched_keywords": [
+        "气候变化",
+        "能源转型",
+        "清洁能源"
+      ]
+    },
+    {
+      "title": "Chemists are uncovering a hidden world of pollution",
+      "title_en": "Chemists are uncovering a hidden world of pollution",
+      "title_zh": "化学家们正在揭开一个隐藏的污染世界",
+      "link": "https://www.science.org/content/article/chemists-are-uncovering-hidden-world-pollution",
+      "source": "Science",
+      "published": "2026-11-19T19:00:00+00:00",
+      "hotness": 86.9,
+      "score_v1": 15.63,
+      "score_v2": 86.9,
+      "score_breakdown": {
+        "algorithm": "v3.0",
+        "dimension_max": {
+          "authority": 18.0,
+          "topic": 18.0,
+          "resonance": 18.0,
+          "information": 16.0
+        },
+        "authority_score": 18.0,
+        "keyword_idf_score": 0.0,
+        "topic_score": 3.0,
+        "topic_burst_score": 0.0,
+        "topic_burst_count": 1,
+        "resonance_score": 16.75,
+        "info_score": 0.75,
+        "base": 38.5,
+        "base_max": 70.0,
+        "time_factor": 0.7921,
+        "density_factor": 1.0,
+        "density_note": "",
+        "repeat_penalty": 1.0,
+        "repeat_excused": true,
+        "event_size": 17,
+        "event_media_count": 5,
+        "event_cluster_source": "ai",
+        "origin_source": "Science",
+        "raw": 30.5,
+        "display_score": 86.9,
+        "display_mode": "absolute"
+      },
+      "summary": "新的分析工具正在揭示数千种传统检测方法无法检测出的化学物质",
+      "analysis": "",
+      "topic_tags": [
+        "污染治理"
+      ],
+      "category": "污染治理",
+      "matched_keywords": []
+    },
+    {
+      "title": "Ecosystem modeling links water quality, carrying capacity, nutrient removal, and economic returns in integrated shrimp pond aquaculture",
+      "title_en": "Ecosystem modeling links water quality, carrying capacity, nutrient removal, and economic returns in integrated shrimp pond aquaculture",
+      "title_zh": "生态系统建模将水质、承载力、营养盐去除以及综合虾塘养殖的经济收益联系起来",
+      "link": "https://www.sciencedirect.com/science/article/pii/S0043135426019652?dgcid=rss_sd_all",
+      "source": "Water Research",
+      "published": "2026-11-18T13:29:21.383255+00:00",
+      "hotness": 86.4,
+      "score_v1": 22.35,
+      "score_v2": 86.4,
+      "score_breakdown": {
+        "algorithm": "v3.0",
+        "dimension_max": {
+          "authority": 18.0,
+          "topic": 18.0,
+          "resonance": 18.0,
+          "information": 16.0
+        },
+        "authority_score": 18.0,
+        "keyword_idf_score": 9.2,
+        "topic_score": 11.57,
+        "topic_burst_score": 2.36,
+        "topic_burst_count": 2,
+        "resonance_score": 16.75,
+        "info_score": 4.0,
+        "base": 50.31,
+        "base_max": 70.0,
+        "time_factor": 0.5891,
+        "density_factor": 1.0,
+        "density_note": "",
+        "repeat_penalty": 1.0,
+        "repeat_excused": true,
+        "event_size": 17,
+        "event_media_count": 5,
+        "event_cluster_source": "ai",
+        "origin_source": "Water Research",
+        "raw": 29.64,
+        "display_score": 86.4,
+        "display_mode": "absolute"
+      },
+      "summary": "研究通过生态模型将水质、承载力、营养去除与经济收益在虾塘综合养殖中关联，探索可持续水产养殖新模式。",
+      "analysis": "",
+      "topic_tags": [
+        "生态模型",
+        "水质"
+      ],
+      "category": "生态环境",
+      "matched_keywords": [
+        "水污染",
+        "生态系统"
+      ]
+    },
+    {
+      "title": "光大环境多项实践入选生态环境部宣传教育中心2026年度成果集并亮相COP31 - 新华网",
+      "title_en": "",
+      "title_zh": "",
+      "link": "https://news.google.com/rss/articles/CBMigAFBVV95cUxQN0RHOE9uQURYenZsSG11cWMtZmw4RGczZkZsQ2N1N1IydmtfckNBZmN2Mm95ZmwySnp2a2NpLUt1SkwwZDVndFlBaFF1V205NGV0NlAxalRQczBDdlhqS1FnRUJTRExkSjMyaGs5UmowTmozTVhZWlAyeUdrZmxqaA?oc=5",
+      "source": "Google News 生态环境",
+      "published": "2026-11-20T09:37:51+00:00",
+      "hotness": 86.1,
+      "score_v1": 29.11,
+      "score_v2": 86.1,
+      "score_breakdown": {
+        "algorithm": "v3.0",
+        "dimension_max": {
+          "authority": 18.0,
+          "topic": 18.0,
+          "resonance": 18.0,
+          "information": 16.0
+        },
+        "authority_score": 8.05,
+        "keyword_idf_score": 4.5,
+        "topic_score": 9.69,
+        "topic_burst_score": 5.19,
+        "topic_burst_count": 5,
+        "resonance_score": 0.0,
+        "info_score": 13.0,
+        "base": 30.74,
+        "base_max": 70.0,
+        "time_factor": 0.9496,
+        "density_factor": 1.0,
+        "density_note": "",
+        "repeat_penalty": 1.0,
+        "repeat_excused": false,
+        "event_size": 1,
+        "event_media_count": 1,
+        "event_cluster_source": "ai",
+        "origin_source": "新华网",
+        "raw": 29.19,
+        "display_score": 86.1,
+        "display_mode": "absolute"
+      },
+      "summary": "光大环境多项生态实践获生态环境部认可并作为2026年度成果集亮相COP31国际气候大会，展示行业绿色转型成果。",
+      "analysis": "",
+      "topic_tags": [
+        "光大环境",
+        "COP31",
+        "生态环境部宣传教育中心"
+      ],
+      "category": "生态环境",
+      "matched_keywords": [
+        "生态环境"
+      ]
+    }
+  ]
+}

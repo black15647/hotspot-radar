@@ -1,137 +1,137 @@
 # 环境学子雷达 - 每日热点报告
 
-**日期**：2026-11-20
-**总条目数**：39
+**日期**：2026-11-21
+**总条目数**：44
 
-**近7天见解**：近7天环境热点呈现“气候变化、生态环境、污染治理”三大类集中，合计175条，占总量六成以上，显示公众关注度高度聚焦于生态安全与治理成效。水处理与科研学术热度相对平稳，而环境政策热度有所回升，反映监管与制度建设的持续关注。总体来看，热点趋势呈现“高关注、强治理、多维并进”的特点。
+**近7天见解**：近7天环境热点呈现“气候变化、生态环境、污染治理”三大类集中，总计174条，占全量近六成。科研学术与水处理等细分领域虽有所关注，但整体热点呈现明显的上升态势与集中分布特征。
 
 ---
 
 ## 今日热点 TOP 10
 
-### 1. [Biodiversity credits hold promise, yet credit-generating protocols require safeguards to realize potential](https://iopscience.iop.org/article/10.1088/1748-9326/aebbdc)
+### 1. [12家上市公司暴露环境风险，节能环境控股公司超标排放大气污染物被罚49.2万元| A股绿色报告 - 每日经济新闻](https://news.google.com/rss/articles/CBMiZkFVX3lxTE1pNWcyUnVmX1RHQWZRMmM1R2k4dmNUcy16QTQ0VTdNYmxha3dOTXRBVkRUU09mNFg2bkJwdUs4U211RFMzUUZFdk9wbVhTdWxKWjNWOUxUWE56NlVfS0lpOU95Q0xhQQ?oc=5)
 
-- **来源**：Environmental Research Letters
-- **热度**：92.1
-- **发布时间**：2026-11-20T00:00:00+00:00
-- **关键词**：碳市场, 生物多样性
+- **来源**：Google News 环境保护
+- **热度**：92.7
+- **发布时间**：2026-11-21T10:25:00+00:00
+- **关键词**：大气污染
 
-> 鉴于当前生物多样性资金缺口，调动私人资本对于实现全球生物多样性保护目标至关重要，特别是在能力有限且公共财政紧张的中低收入国家。新兴的自愿性生物多样性市场（VBM）有望为生物多样性保护撬动私人资本，但信用生成协议必须足够健全，以防止“洗绿”行为并最大限度地提高成效。 本研究是首项超越对自愿生物多样性市场（VBM）的理论批判和一般性市场评估的研究，我们从13家相对成熟的生物多样性信用组织的工作规程中，提取了项目结构和信用额度发放的详细信息。 基于这些数据，我们评估了这些协议与保护和恢复生物学原则以及自愿碳市场（VCM）经验教训的一致性。我们发现，必须采取行动改进生物多样性影响的量化工作，特别是将斑块大小和连通性纳入信用核算，并在生态相关的时限内评估项目。 此外，必须将自愿碳市场（VCM）中关于额外性、泄漏、风险和核查的保障措施更牢固地融入生物多样性碳信用市场（VBM），并加强与当地社区的深度互动及投资，以确保实现持久的、对生物多样性有利的成果。
+> 12家上市公司暴露环境风险，节能环境控股公司超标排放大气污染物被罚49.2万元。
 
-**分析**：该条目涉及【生物多样性市场】话题，因来源权威性高且多家媒体同题报道，热度上升。
-
----
-
-### 2. [Plant-derived photocatalytic carbon dots for crop disease management](https://www.nature.com/articles/s41893-026-01978-6)
-
-- **来源**：Nature Sustainability
-- **热度**：91.0
-- **发布时间**：2026-11-20T00:00:00+00:00
-- **关键词**：可持续发展
-
-> 《自然·可持续性》（Nature Sustainability）， 作物中的真菌病原体可能造成巨大的经济损失，并对粮食安全构成严重威胁。 为防治小麦镰刀菌穗枯病——一种对小麦作物危害极大的病害——研究人员开发了一种利用植物来源光催化碳点的高效抗真菌策略。
-
-**分析**：该条目涉及【植物来源光催化碳点】话题，因来源权威性高且多家媒体同题报道，热度上升。
+**分析**：该条目涉及【环境风险】话题，因来源较权威且发布时间较新，热度上升。
 
 ---
 
-### 3. [Effects of high elevation wildfires on peak snow water equivalent in California’s Sierra Nevada headwater regions](https://iopscience.iop.org/article/10.1088/1748-9326/aec1f2)
-
-- **来源**：Environmental Research Letters
-- **热度**：90.3
-- **发布时间**：2026-11-20T00:00:00+00:00
-- **关键词**：流域
-
-> 加利福尼亚州内华达山脉地区（SNR）高海拔野火的增多，引发了人们对积雪可能受到影响的担忧——积雪是该州供水的主要来源。 在地形复杂、气候和生态梯度较大的山区，由于实地观测和过程模型的局限性，量化火灾引起的积雪储量变化仍具挑战性。 本研究利用高分辨率机载雪观测站激光雷达测绘数据（2023–2024年），评估了2020–2021年野火对内华达山脉地区六个流域峰值积雪水当量（SWE）的影响。 我们汇集了超过32000组环境条件相似的“烧毁区-未烧毁区”50米像素配对数据，并评估了峰值雪水当量变化（ΔpeakSWE：烧毁区—未烧毁区）如何随火灾严重程度、火灾前森林结构、气象变量以及雪线以上地形的变化而变化。 在配对数据中，火灾后峰值SWE的差异在幅度和方向上均存在变化，这取决于年度天气状况（例如多雨年与常年）以及当地的环境条件。 2023年，在中等海拔地区，冠层损失率≥75%的密林中出现了最大的正向“烧过区—未烧过区”差异，该区域烧过区的峰值雪水当量平均高出13.0厘米（相对于匹配未烧过区平均值105.1厘米高出12%）； 而在2024年，这一差异则显著缩小。经过空间交叉验证的极端梯度提升（XGBoost）机器学习模型表明，地形提供了最强的预测信息，其次是植被结构。 夏普利加性解释（SHapley Additive exPlanations）和浅层决策树进一步表明，与匹配的未烧毁区域相比，热暴露较低、局部地形位置较低且海拔处于中等的地点，其烧毁区域的峰值雪水当量通常较高；而火灾前树冠较高以及暴露、高能的地形则与较低的峰值雪水当量相关。 这些结果表明，野火对峰值土壤水当量（SWE）的影响在很大程度上取决于具体情境。
-
-**分析**：该条目涉及【气候变化】话题，因来源权威性高且多家媒体同题报道，热度上升。
-
----
-
-### 4. [Increasing favorability for intense tropical cyclone activity in the northern South China Sea](https://iopscience.iop.org/article/10.1088/1748-9326/aebe4d)
-
-- **来源**：Environmental Research Letters
-- **热度**：89.2
-- **发布时间**：2026-11-20T00:00:00+00:00
-
-> 南海是全球热带气旋活动最为频繁的边缘海之一，也是中国南部、菲律宾和越南沿海地区热带气旋灾害的关键区域。然而，该地区强热带气旋形成与发展的长期变化驱动因素尚不明确。 本文表明，达到3至5级强度的热带气旋数量显著增加，且其中更多出现在南海北部。 这一变化主要与通过吕宋海峡进入南海的西北太平洋热带气旋所占比例日益增大有关，与穿越菲律宾群岛的热带气旋相比，这些气旋受陆地影响导致的强度减弱较弱，从而能够保持更强的强度以供后续发展。 进入南海后，海洋冷却作用减弱以及海洋和大气条件增强，使得南海北部更有利于强台风的发展。这些结果凸显了区域海洋-陆地-大气相互作用在重塑台风达到高强度区域方面的作用。
-
-**分析**：该条目涉及【环境资讯】话题，因来源权威性高且多家媒体同题报道，热度上升。
-
----
-
-### 5. [Interdecadal Pacific variability modulates recent drying and near-term changes in early-spring precipitation over subtropical East Asia](https://iopscience.iop.org/article/10.1088/1748-9326/aec1f0)
-
-- **来源**：Environmental Research Letters
-- **热度**：89.2
-- **发布时间**：2026-11-20T00:00:00+00:00
-
-> 亚热带东亚（SEA）作为全球人口最稠密的地区之一及重要的农业区，自20世纪80年代以来一直面临着显著的早春干旱现象，这对水资源和农业构成了日益加剧的风险。 然而，外部强迫和内部变率对干旱化趋势的相对贡献，以及相关的动力学和热力学过程，目前尚不明确。基于环流类比的动力学分析表明，大气环流变化可解释观测到的干旱化趋势的约108%，而这些变化主要由内部变率驱动。 这些环流变化与太平洋十年际变率（IPV）从正相位向负相位的转变密切相关，这种转变会通过削弱西北太平洋反气旋并在东南亚（SEA）引发异常下沉气流来抑制降水。 IPV 还调节着短期降水预测。基于能够真实反映历史 IPV 的集合成员推导出的 IPV 预测，我们发现近期未来可能出现向更湿润条件逆转的趋势。
-
-**分析**：该条目涉及【早春干旱】话题，因来源权威性高且多家媒体同题报道，热度上升。
-
----
-
-### 6. [Spatially distributed air quality and health impacts of data center electricity demand in the United States](https://iopscience.iop.org/article/10.1088/1748-9326/aebbd4)
-
-- **来源**：Environmental Research Letters
-- **热度**：88.7
-- **发布时间**：2026-11-19T00:00:00+00:00
-- **关键词**：大气污染, 臭氧
-
-> 人工智能的迅猛发展正推动美国数据中心的电力需求大幅增长，但由此产生的空气质量和公共健康影响的分布情况仍缺乏充分量化。 为了追踪2023年由电网供电的数据中心电力需求所导致的环境空气污染及其相关的过早死亡影响，我们将“美国发电优化模型”与“GEOS-Chem化学传输模型”相结合。 我们对比了包含和不包含数据中心用电需求情况下的每小时、机组级电力调度情况，以量化电力行业排放、环境中的PM和臭氧浓度以及相关过早死亡人数的变化。 研究结果表明，多个地区因数据中心需求产生的发电量主要由化石燃料机组提供，导致年平均PM浓度增加0.02–0.08 g m（局部峰值浓度高达0.2 g m），且各地区臭氧响应存在差异，其特征为冬季浓度下降、夏季浓度升高。 这些影响在美国中西部最为显著，该地区燃煤机组的边际排放量以及富含氨的大气条件加剧了二次颗粒物的形成。我们估算，该电网供电需求每年导致513例（95%置信区间： 469–557）例，此外，在美利坚合众国本土48州，每日最高8小时平均臭氧浓度（MDA8-）每年还导致额外137（95%置信区间：90–183）例过早死亡。 州级分析揭示了一种系统性的地理错配：承载最大数据中心负荷的州并不一定面临最高的归因死亡率，而一些数据中心需求较小的州却承受着沉重的负担。 这种不匹配源于互联电力区域间的调度、各区域在发电和排放方面的差异，以及大气化学和传输过程，这些因素共同导致需求发生地与暴露及死亡发生地分离。这些发现……
-
-**分析**：该条目涉及【数据中心】话题，因来源权威性高且多家媒体同题报道，热度上升。
-
----
-
-### 7. [中华人民共和国和澳大利亚联邦关于气候变化与清洁能源转型的联合声明 - 新京报](https://news.google.com/rss/articles/CBMiZEFVX3lxTE1vY1FMWVNYM1BsUFlGWXNBYnNKWjVNWmZIeTF1anpGbWlNQVBwZFRNUHZ5RnVhYkNzUEdsRlR4cUZLOVVsaFVGUFV3cmMzR09IcGY3Njc4bmZNWWxhd21kQXBTNWY?oc=5)
+### 2. [“临汾方案”，亮相第31届联合国气候变化大会- 中国日报网 - China Daily](https://news.google.com/rss/articles/CBMifEFVX3lxTE9vLXZXZW0wVEtUTTVXSnFEM2djenRWRUVKYk5zOWltbVhLcVB4eTFSYjJGR3QyU3lVMFdpSlVVYTM3bjlJTzFDLWRra0NuM2lJdUVBcEZHRG1LV1M2eUJwUVdvVXdWaFlJVXJFaExiQnpzSlNhUVVyQmp4MDI?oc=5)
 
 - **来源**：Google News 气候变化
-- **热度**：88.2
-- **发布时间**：2026-11-20T11:47:00+00:00
-- **关键词**：气候变化, 能源转型, 清洁能源
+- **热度**：89.7
+- **发布时间**：2026-11-21T04:29:43+00:00
+- **关键词**：气候变化
 
-> 澳大利亚与中国联合发布声明，聚焦气候变化应对与清洁能源转型合作，旨在推动两国绿色发展进程。
+> “临汾方案”亮相第31届联合国气候变化大会，展示气候治理经验。
 
-**分析**：该条目涉及【清洁能源转型】话题，因来源较权威且发布时间较新，热度上升。
-
----
-
-### 8. [Chemists are uncovering a hidden world of pollution](https://www.science.org/content/article/chemists-are-uncovering-hidden-world-pollution)
-
-- **来源**：Science
-- **热度**：86.9
-- **发布时间**：2026-11-19T19:00:00+00:00
-
-> 新的分析工具正在揭示数千种传统检测方法无法检测出的化学物质
-
-**分析**：该条目涉及【污染治理】话题，因来源权威性高且多家媒体同题报道，热度上升。
+**分析**：该条目涉及【联合国气候变化大会】话题，因来源较权威且发布时间较新，热度上升。
 
 ---
 
-### 9. [Ecosystem modeling links water quality, carrying capacity, nutrient removal, and economic returns in integrated shrimp pond aquaculture](https://www.sciencedirect.com/science/article/pii/S0043135426019652?dgcid=rss_sd_all)
+### 3. [因各方未能就部分核心议题达成一致，联合国气候变化安塔利亚大会（COP31）进入加时阶段 - ThePaper.cn](https://news.google.com/rss/articles/CBMiYEFVX3lxTE5nbWVuRG5vNnU0dGN2TERvakhXZXJYNGJTaG9hcWdFMmx2eFZxX2dmbWpHck92ODNMYUZWVFBCZ3FBVUtqTzJpZzhfSEl6SXZyZ2t0WkNGbGsxNDVXX2c2Sw?oc=5)
 
-- **来源**：Water Research
+- **来源**：Google News 气候变化
+- **热度**：89.4
+- **发布时间**：2026-11-21T03:12:11+00:00
+- **关键词**：气候变化
+
+> 因各方未能就部分核心议题达成一致，联合国气候变化安塔利亚大会（COP31）进入加时阶段。
+
+**分析**：该条目涉及【联合国气候变化安塔利亚大会】话题，因来源较权威且发布时间较新，热度上升。
+
+---
+
+### 4. [Fight over fossil fuels leaves COP31 climate talks in deadlock](https://www.bbc.co.uk/news/articles/c6ly5w40eg07o?at_medium=RSS&at_campaign=rss)
+
+- **来源**：BBC 科学与环境
+- **热度**：88.7
+- **发布时间**：2026-11-21T09:52:11+00:00
+
+> 来自近200个国家的代表在争取达成一项新的全球气候协议方面陷入僵局。
+
+**分析**：该条目涉及【COP31】话题，因来源权威性高且发布时间较新，热度上升。
+
+---
+
+### 5. [联合国气候变化大会为何总“拖堂” - Sohu](https://news.google.com/rss/articles/CBMijAFBVV95cUxPaFplcGd3RWI4MjZKdnVHRV9BNVdUcXJZUldlSGItXzZjUjVDTE4yWXJ4TkNkTmVUVU94RTAtY05lcGgtbkVITWFzLWJfNnVwbmRPandSc1p4UGh6d1AxNTI1MXVWU2dPRlF6UGxVUVQ3WmRBbHFYbFBoTFBEaVZuVDdaakxGazE3b0dMRA?oc=5)
+
+- **来源**：Google News 气候变化
+- **热度**：88.1
+- **发布时间**：2026-11-21T08:15:48+00:00
+- **关键词**：气候变化
+
+> 联合国气候变化大会常态化“拖堂”，因各方未能就核心议题达成一致延期闭幕。
+
+**分析**：该条目涉及【联合国气候变化大会】话题，因来源较权威且发布时间较新，热度上升。
+
+---
+
+### 6. [联合国气候变化安塔利亚大会进入加时阶段 - 手机新浪网](https://news.google.com/rss/articles/CBMiS0FVX3lxTE51RkVaOFlLeVNUb29ydjZMaWdkX2prYzgwUDFNM3dkMUYyLTBKZGtWMFozNFQ2ZXpNaEQxWlZjR21vT05NNjkydjdUVQ?oc=5)
+
+- **来源**：Google News 气候变化
 - **热度**：86.4
-- **发布时间**：2026-11-18T13:29:21.383255+00:00
-- **关键词**：水污染, 生态系统
+- **发布时间**：2026-11-21T01:37:45+00:00
+- **关键词**：气候变化
 
-> 研究通过生态模型将水质、承载力、营养去除与经济收益在虾塘综合养殖中关联，探索可持续水产养殖新模式。
+> 联合国气候变化安塔利亚大会进入加时阶段，因各方未能就核心议题达成一致延期闭幕。
 
-**分析**：该条目涉及【生态模型】话题，因来源权威性高且多家媒体同题报道，热度上升。
+**分析**：该条目涉及【联合国气候变化框架公约】话题，因来源较权威且发布时间较新，热度上升。
 
 ---
 
-### 10. [光大环境多项实践入选生态环境部宣传教育中心2026年度成果集并亮相COP31 - 新华网](https://news.google.com/rss/articles/CBMigAFBVV95cUxQN0RHOE9uQURYenZsSG11cWMtZmw4RGczZkZsQ2N1N1IydmtfckNBZmN2Mm95ZmwySnp2a2NpLUt1SkwwZDVndFlBaFF1V205NGV0NlAxalRQczBDdlhqS1FnRUJTRExkSjMyaGs5UmowTmozTVhZWlAyeUdrZmxqaA?oc=5)
+### 7. [五载深耕薪火相传 一江碧水永续东流——第五届长江大保护司法论坛在武汉开幕 - 极目新闻](https://news.google.com/rss/articles/CBMiW0FVX3lxTE1SemZ1SG1OWVE0czBNZGtmR2R1SzFwalkzaTczdFVLVXNmd1dsalN5RFh3ZjczcWhzLWlFaE1aT3poRFhuTVl5aUwwcVctemt4ZFN4RHRJT0MwVzQ?oc=5)
+
+- **来源**：Google News 环境保护
+- **热度**：84.6
+- **发布时间**：2026-11-21T09:40:53+00:00
+
+> 第五届长江大保护司法论坛在武汉开幕，聚焦推动长江经济带高质量发展与生态文明建设，探讨生态保护与司法履职新路径。
+
+**分析**：该条目涉及【水处理】话题，因来源较权威且发布时间较新，热度上升。
+
+---
+
+### 8. [生态环境部召开部常务会议 - 21财经](https://news.google.com/rss/articles/CBMijwFBVV95cUxNRkM4VU5zYks2TG5yWkxwd0RpQmlNZnYtT2VoeU1FVVBXdXZORmc4WEt3bGNCUDh6R3VxNzU0VlpjTDUzeDF0YVQwV3FZZ25UOWNXZlo1MGxNbXJwMWtJUFJNcEZsOU9XcVhINFlLTVA3RjFIOXZHXzJZNHh6c2dWczk0SUZUM0dZSHZ3cnBaMA?oc=5)
 
 - **来源**：Google News 生态环境
-- **热度**：86.1
-- **发布时间**：2026-11-20T09:37:51+00:00
+- **热度**：84.4
+- **发布时间**：2026-11-20T16:00:16+00:00
 - **关键词**：生态环境
 
-> 光大环境多项生态实践获生态环境部认可并作为2026年度成果集亮相COP31国际气候大会，展示行业绿色转型成果。
+> 生态环境部部长黄润秋主持召开部常务会议，审议生态环境保护重大事项，部署化学品环境风险管理及法典落地相关工作。
 
-**分析**：该条目涉及【光大环境】话题，因来源较权威且发布时间较新，热度上升。
+**分析**：该条目涉及【生态环境部】话题，因来源较权威且多家媒体同题报道，热度上升。
+
+---
+
+### 9. [聚焦生态环境法典下的化学品风险评估新战略，化学品环境风险管理研讨会举办 - Sohu](https://news.google.com/rss/articles/CBMijAFBVV95cUxPTG84M2Y0SjQxbTR4bHFXby1zc2s2TmJLS0lRZWNkZWFXUEpnQ0tSVGxveG4yaWp0d2w3cTh0RnNTejdmWF91SUVic25XUlMxcGg4TkdIU1JRdV80MVd3Mkh4a3A5ZjBNV3g0bzBHRWRfVU5VU2c2RV9MZkNvOHhmMENWMDhqbEUzMEtHVQ?oc=5)
+
+- **来源**：Google News 生态环境
+- **热度**：83.0
+- **发布时间**：2026-11-21T12:07:50+00:00
+- **关键词**：生态环境, 环境法典
+
+> 研讨会聚焦生态环境法典框架下化学品风险评估战略转型，深入探讨法规落地技术难点、管理创新与产业协同，推动绿色化学与可持续发展。
+
+**分析**：该条目涉及【化学品环境风险管理】话题，因来源较权威且发布时间较新，热度上升。
+
+---
+
+### 10. [These US fishers see offshore wind as a ‘godsend’. Trump wants to shut it down](https://www.theguardian.com/environment/2026/nov/20/offshore-wind-farms-trump-fishers)
+
+- **来源**：The Guardian Environment
+- **热度**：82.0
+- **发布时间**：2026-11-20T14:00:31+00:00
+
+> 尽管总统频频抨击，Sea Services公司仍在为新英格兰地区的渔民提供海上风电建设方面的培训，并为他们开辟了第二收入来源。9月的一个雨天早晨，一艘锈迹斑斑、长86英尺（26米）的扇贝捕捞船“帕梅拉·安号”停靠在马萨诸塞州新贝德福德港。 船员们在海上度过了过去12天，记录海洋哺乳动物的出没情况，监控船只以确保它们不进入施工区，并照看“革命风电”（Re）项目的工人——这是一个位于罗德岛以南、拥有65台风机的海上风电项目。““万一有人掉下去，我们能及时赶到施以援手，”船长凯文·索萨说道。他的小腿上纹着一只斗牛犬，以纪念他在海军服役的岁月。继续阅读……
+
+**分析**：该条目涉及【离岸风电】话题，因来源权威性高且多家媒体同题报道，热度上升。
 
 ---

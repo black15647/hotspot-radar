@@ -1,0 +1,555 @@
+{
+  "report_date": "2026-11-21",
+  "site_name": "环境学子雷达",
+  "total_items": 44,
+  "snapshot_items": 10,
+  "category_stats": {
+    "环境健康": {
+      "count": 2,
+      "total_heat": 175.7
+    },
+    "气候变化": {
+      "count": 12,
+      "total_heat": 923.5
+    },
+    "水处理": {
+      "count": 2,
+      "total_heat": 148.2
+    },
+    "生态环境": {
+      "count": 9,
+      "total_heat": 654.4
+    },
+    "能源与碳中和": {
+      "count": 1,
+      "total_heat": 82.0
+    },
+    "环境政策": {
+      "count": 3,
+      "total_heat": 220.2
+    },
+    "科研学术": {
+      "count": 1,
+      "total_heat": 77.8
+    },
+    "污染治理": {
+      "count": 6,
+      "total_heat": 428.7
+    },
+    "其他": {
+      "count": 8,
+      "total_heat": 533.0
+    }
+  },
+  "total_sources": 28,
+  "success_sources": 26,
+  "failed_sources": 0,
+  "week_total_items": 282,
+  "week_new_keywords": 65,
+  "policy_ratio": 11.3,
+  "items": [
+    {
+      "title": "12家上市公司暴露环境风险，节能环境控股公司超标排放大气污染物被罚49.2万元| A股绿色报告 - 每日经济新闻",
+      "title_en": "",
+      "title_zh": "",
+      "link": "https://news.google.com/rss/articles/CBMiZkFVX3lxTE1pNWcyUnVmX1RHQWZRMmM1R2k4dmNUcy16QTQ0VTdNYmxha3dOTXRBVkRUU09mNFg2bkJwdUs4U211RFMzUUZFdk9wbVhTdWxKWjNWOUxUWE56NlVfS0lpOU95Q0xhQQ?oc=5",
+      "source": "Google News 环境保护",
+      "published": "2026-11-21T10:25:00+00:00",
+      "hotness": 92.7,
+      "score_v1": 23.6,
+      "score_v2": 92.7,
+      "score_breakdown": {
+        "algorithm": "v3.0",
+        "dimension_max": {
+          "authority": 18.0,
+          "topic": 18.0,
+          "resonance": 18.0,
+          "information": 16.0
+        },
+        "authority_score": 8.05,
+        "keyword_idf_score": 6.79,
+        "topic_score": 9.15,
+        "topic_burst_score": 2.36,
+        "topic_burst_count": 2,
+        "resonance_score": 17.36,
+        "info_score": 9.0,
+        "base": 43.56,
+        "base_max": 70.0,
+        "time_factor": 0.9666,
+        "density_factor": 1.0,
+        "density_note": "",
+        "repeat_penalty": 1.0,
+        "repeat_excused": false,
+        "event_size": 6,
+        "event_media_count": 6,
+        "event_cluster_source": "ai",
+        "origin_source": "每日经济新闻",
+        "raw": 42.11,
+        "display_score": 92.7,
+        "display_mode": "absolute"
+      },
+      "summary": "12家上市公司暴露环境风险，节能环境控股公司超标排放大气污染物被罚49.2万元。",
+      "analysis": "",
+      "topic_tags": [
+        "环境风险",
+        "节能环境",
+        "超标排放"
+      ],
+      "category": "环境健康",
+      "matched_keywords": [
+        "大气污染"
+      ]
+    },
+    {
+      "title": "“临汾方案”，亮相第31届联合国气候变化大会- 中国日报网 - China Daily",
+      "title_en": "",
+      "title_zh": "",
+      "link": "https://news.google.com/rss/articles/CBMifEFVX3lxTE9vLXZXZW0wVEtUTTVXSnFEM2djenRWRUVKYk5zOWltbVhLcVB4eTFSYjJGR3QyU3lVMFdpSlVVYTM3bjlJTzFDLWRra0NuM2lJdUVBcEZHRG1LV1M2eUJwUVdvVXdWaFlJVXJFaExiQnpzSlNhUVVyQmp4MDI?oc=5",
+      "source": "Google News 气候变化",
+      "published": "2026-11-21T04:29:43+00:00",
+      "hotness": 89.7,
+      "score_v1": 29.63,
+      "score_v2": 89.7,
+      "score_breakdown": {
+        "algorithm": "v3.0",
+        "dimension_max": {
+          "authority": 18.0,
+          "topic": 18.0,
+          "resonance": 18.0,
+          "information": 16.0
+        },
+        "authority_score": 8.05,
+        "keyword_idf_score": 3.47,
+        "topic_score": 8.97,
+        "topic_burst_score": 5.51,
+        "topic_burst_count": 6,
+        "resonance_score": 17.36,
+        "info_score": 5.0,
+        "base": 39.38,
+        "base_max": 70.0,
+        "time_factor": 0.895,
+        "density_factor": 1.0,
+        "density_note": "",
+        "repeat_penalty": 1.0,
+        "repeat_excused": true,
+        "event_size": 6,
+        "event_media_count": 6,
+        "event_cluster_source": "ai",
+        "origin_source": "China Daily",
+        "raw": 35.25,
+        "display_score": 89.7,
+        "display_mode": "absolute"
+      },
+      "summary": "“临汾方案”亮相第31届联合国气候变化大会，展示气候治理经验。",
+      "analysis": "",
+      "topic_tags": [
+        "联合国气候变化大会"
+      ],
+      "category": "气候变化",
+      "matched_keywords": [
+        "气候变化"
+      ]
+    },
+    {
+      "title": "因各方未能就部分核心议题达成一致，联合国气候变化安塔利亚大会（COP31）进入加时阶段 - ThePaper.cn",
+      "title_en": "",
+      "title_zh": "",
+      "link": "https://news.google.com/rss/articles/CBMiYEFVX3lxTE5nbWVuRG5vNnU0dGN2TERvakhXZXJYNGJTaG9hcWdFMmx2eFZxX2dmbWpHck92ODNMYUZWVFBCZ3FBVUtqTzJpZzhfSEl6SXZyZ2t0WkNGbGsxNDVXX2c2Sw?oc=5",
+      "source": "Google News 气候变化",
+      "published": "2026-11-21T03:12:11+00:00",
+      "hotness": 89.4,
+      "score_v1": 29.26,
+      "score_v2": 89.4,
+      "score_breakdown": {
+        "algorithm": "v3.0",
+        "dimension_max": {
+          "authority": 18.0,
+          "topic": 18.0,
+          "resonance": 18.0,
+          "information": 16.0
+        },
+        "authority_score": 8.05,
+        "keyword_idf_score": 3.47,
+        "topic_score": 8.97,
+        "topic_burst_score": 5.51,
+        "topic_burst_count": 6,
+        "resonance_score": 17.36,
+        "info_score": 5.0,
+        "base": 39.38,
+        "base_max": 70.0,
+        "time_factor": 0.8806,
+        "density_factor": 1.0,
+        "density_note": "",
+        "repeat_penalty": 1.0,
+        "repeat_excused": true,
+        "event_size": 6,
+        "event_media_count": 6,
+        "event_cluster_source": "ai",
+        "origin_source": "ThePaper.cn",
+        "raw": 34.68,
+        "display_score": 89.4,
+        "display_mode": "absolute"
+      },
+      "summary": "因各方未能就部分核心议题达成一致，联合国气候变化安塔利亚大会（COP31）进入加时阶段。",
+      "analysis": "",
+      "topic_tags": [
+        "联合国气候变化安塔利亚大会",
+        "COP31"
+      ],
+      "category": "气候变化",
+      "matched_keywords": [
+        "气候变化"
+      ]
+    },
+    {
+      "title": "Fight over fossil fuels leaves COP31 climate talks in deadlock",
+      "title_en": "Fight over fossil fuels leaves COP31 climate talks in deadlock",
+      "title_zh": "围绕化石燃料的争执导致COP31气候谈判陷入僵局",
+      "link": "https://www.bbc.co.uk/news/articles/c6ly5w40eg07o?at_medium=RSS&at_campaign=rss",
+      "source": "BBC 科学与环境",
+      "published": "2026-11-21T09:52:11+00:00",
+      "hotness": 88.7,
+      "score_v1": 18.3,
+      "score_v2": 88.7,
+      "score_breakdown": {
+        "algorithm": "v3.0",
+        "dimension_max": {
+          "authority": 18.0,
+          "topic": 18.0,
+          "resonance": 18.0,
+          "information": 16.0
+        },
+        "authority_score": 12.73,
+        "keyword_idf_score": 0.0,
+        "topic_score": 3.0,
+        "topic_burst_score": 0.0,
+        "topic_burst_count": 1,
+        "resonance_score": 13.26,
+        "info_score": 5.75,
+        "base": 34.73,
+        "base_max": 70.0,
+        "time_factor": 0.9596,
+        "density_factor": 1.0,
+        "density_note": "",
+        "repeat_penalty": 1.0,
+        "repeat_excused": false,
+        "event_size": 3,
+        "event_media_count": 3,
+        "event_cluster_source": "ai",
+        "origin_source": "BBC 科学与环境",
+        "raw": 33.33,
+        "display_score": 88.7,
+        "display_mode": "absolute"
+      },
+      "summary": "来自近200个国家的代表在争取达成一项新的全球气候协议方面陷入僵局。",
+      "analysis": "",
+      "topic_tags": [
+        "COP31",
+        "化石燃料"
+      ],
+      "category": "气候变化",
+      "matched_keywords": []
+    },
+    {
+      "title": "联合国气候变化大会为何总“拖堂” - Sohu",
+      "title_en": "",
+      "title_zh": "",
+      "link": "https://news.google.com/rss/articles/CBMijAFBVV95cUxPaFplcGd3RWI4MjZKdnVHRV9BNVdUcXJZUldlSGItXzZjUjVDTE4yWXJ4TkNkTmVUVU94RTAtY05lcGgtbkVITWFzLWJfNnVwbmRPandSc1p4UGh6d1AxNTI1MXVWU2dPRlF6UGxVUVQ3WmRBbHFYbFBoTFBEaVZuVDdaakxGazE3b0dMRA?oc=5",
+      "source": "Google News 气候变化",
+      "published": "2026-11-21T08:15:48+00:00",
+      "hotness": 88.1,
+      "score_v1": 30.83,
+      "score_v2": 88.1,
+      "score_breakdown": {
+        "algorithm": "v3.0",
+        "dimension_max": {
+          "authority": 18.0,
+          "topic": 18.0,
+          "resonance": 18.0,
+          "information": 16.0
+        },
+        "authority_score": 8.05,
+        "keyword_idf_score": 3.47,
+        "topic_score": 8.97,
+        "topic_burst_score": 5.51,
+        "topic_burst_count": 6,
+        "resonance_score": 17.36,
+        "info_score": 0.0,
+        "base": 34.38,
+        "base_max": 70.0,
+        "time_factor": 0.9396,
+        "density_factor": 1.0,
+        "density_note": "",
+        "repeat_penalty": 1.0,
+        "repeat_excused": true,
+        "event_size": 6,
+        "event_media_count": 6,
+        "event_cluster_source": "ai",
+        "origin_source": "Sohu",
+        "raw": 32.3,
+        "display_score": 88.1,
+        "display_mode": "absolute"
+      },
+      "summary": "联合国气候变化大会常态化“拖堂”，因各方未能就核心议题达成一致延期闭幕。",
+      "analysis": "",
+      "topic_tags": [
+        "联合国气候变化大会",
+        "COP31"
+      ],
+      "category": "气候变化",
+      "matched_keywords": [
+        "气候变化"
+      ]
+    },
+    {
+      "title": "联合国气候变化安塔利亚大会进入加时阶段 - 手机新浪网",
+      "title_en": "",
+      "title_zh": "",
+      "link": "https://news.google.com/rss/articles/CBMiS0FVX3lxTE51RkVaOFlLeVNUb29ydjZMaWdkX2prYzgwUDFNM3dkMUYyLTBKZGtWMFozNFQ2ZXpNaEQxWlZjR21vT05NNjkydjdUVQ?oc=5",
+      "source": "Google News 气候变化",
+      "published": "2026-11-21T01:37:45+00:00",
+      "hotness": 86.4,
+      "score_v1": 28.84,
+      "score_v2": 86.4,
+      "score_breakdown": {
+        "algorithm": "v3.0",
+        "dimension_max": {
+          "authority": 18.0,
+          "topic": 18.0,
+          "resonance": 18.0,
+          "information": 16.0
+        },
+        "authority_score": 8.05,
+        "keyword_idf_score": 3.47,
+        "topic_score": 8.97,
+        "topic_burst_score": 5.51,
+        "topic_burst_count": 6,
+        "resonance_score": 17.36,
+        "info_score": 0.0,
+        "base": 34.38,
+        "base_max": 70.0,
+        "time_factor": 0.8635,
+        "density_factor": 1.0,
+        "density_note": "",
+        "repeat_penalty": 1.0,
+        "repeat_excused": true,
+        "event_size": 6,
+        "event_media_count": 6,
+        "event_cluster_source": "ai",
+        "origin_source": "手机新浪网",
+        "raw": 29.69,
+        "display_score": 86.4,
+        "display_mode": "absolute"
+      },
+      "summary": "联合国气候变化安塔利亚大会进入加时阶段，因各方未能就核心议题达成一致延期闭幕。",
+      "analysis": "",
+      "topic_tags": [
+        "联合国气候变化框架公约",
+        "COP31"
+      ],
+      "category": "气候变化",
+      "matched_keywords": [
+        "气候变化"
+      ]
+    },
+    {
+      "title": "五载深耕薪火相传 一江碧水永续东流——第五届长江大保护司法论坛在武汉开幕 - 极目新闻",
+      "title_en": "",
+      "title_zh": "",
+      "link": "https://news.google.com/rss/articles/CBMiW0FVX3lxTE1SemZ1SG1OWVE0czBNZGtmR2R1SzFwalkzaTczdFVLVXNmd1dsalN5RFh3ZjczcWhzLWlFaE1aT3poRFhuTVl5aUwwcVctemt4ZFN4RHRJT0MwVzQ?oc=5",
+      "source": "Google News 环境保护",
+      "published": "2026-11-21T09:40:53+00:00",
+      "hotness": 84.6,
+      "score_v1": 17.33,
+      "score_v2": 84.6,
+      "score_breakdown": {
+        "algorithm": "v3.0",
+        "dimension_max": {
+          "authority": 18.0,
+          "topic": 18.0,
+          "resonance": 18.0,
+          "information": 16.0
+        },
+        "authority_score": 8.05,
+        "keyword_idf_score": 0.0,
+        "topic_score": 3.0,
+        "topic_burst_score": 0.0,
+        "topic_burst_count": 1,
+        "resonance_score": 17.36,
+        "info_score": 0.0,
+        "base": 28.41,
+        "base_max": 70.0,
+        "time_factor": 0.9572,
+        "density_factor": 1.0,
+        "density_note": "",
+        "repeat_penalty": 1.0,
+        "repeat_excused": true,
+        "event_size": 6,
+        "event_media_count": 6,
+        "event_cluster_source": "ai",
+        "origin_source": "极目新闻",
+        "raw": 27.19,
+        "display_score": 84.6,
+        "display_mode": "absolute"
+      },
+      "summary": "第五届长江大保护司法论坛在武汉开幕，聚焦推动长江经济带高质量发展与生态文明建设，探讨生态保护与司法履职新路径。",
+      "analysis": "",
+      "topic_tags": [
+        "水处理"
+      ],
+      "category": "水处理",
+      "matched_keywords": []
+    },
+    {
+      "title": "生态环境部召开部常务会议 - 21财经",
+      "title_en": "",
+      "title_zh": "",
+      "link": "https://news.google.com/rss/articles/CBMijwFBVV95cUxNRkM4VU5zYks2TG5yWkxwd0RpQmlNZnYtT2VoeU1FVVBXdXZORmc4WEt3bGNCUDh6R3VxNzU0VlpjTDUzeDF0YVQwV3FZZ25UOWNXZlo1MGxNbXJwMWtJUFJNcEZsOU9XcVhINFlLTVA3RjFIOXZHXzJZNHh6c2dWczk0SUZUM0dZSHZ3cnBaMA?oc=5",
+      "source": "Google News 生态环境",
+      "published": "2026-11-20T16:00:16+00:00",
+      "hotness": 84.4,
+      "score_v1": 22.78,
+      "score_v2": 84.4,
+      "score_breakdown": {
+        "algorithm": "v3.0",
+        "dimension_max": {
+          "authority": 18.0,
+          "topic": 18.0,
+          "resonance": 18.0,
+          "information": 16.0
+        },
+        "authority_score": 8.05,
+        "keyword_idf_score": 4.49,
+        "topic_score": 9.15,
+        "topic_burst_score": 4.66,
+        "topic_burst_count": 4,
+        "resonance_score": 8.76,
+        "info_score": 9.0,
+        "base": 34.96,
+        "base_max": 70.0,
+        "time_factor": 0.7702,
+        "density_factor": 1.0,
+        "density_note": "",
+        "repeat_penalty": 1.0,
+        "repeat_excused": false,
+        "event_size": 2,
+        "event_media_count": 2,
+        "event_cluster_source": "ai",
+        "origin_source": "21财经",
+        "raw": 26.92,
+        "display_score": 84.4,
+        "display_mode": "absolute"
+      },
+      "summary": "生态环境部部长黄润秋主持召开部常务会议，审议生态环境保护重大事项，部署化学品环境风险管理及法典落地相关工作。",
+      "analysis": "",
+      "topic_tags": [
+        "生态环境部"
+      ],
+      "category": "生态环境",
+      "matched_keywords": [
+        "生态环境"
+      ]
+    },
+    {
+      "title": "聚焦生态环境法典下的化学品风险评估新战略，化学品环境风险管理研讨会举办 - Sohu",
+      "title_en": "",
+      "title_zh": "",
+      "link": "https://news.google.com/rss/articles/CBMijAFBVV95cUxPTG84M2Y0SjQxbTR4bHFXby1zc2s2TmJLS0lRZWNkZWFXUEpnQ0tSVGxveG4yaWp0d2w3cTh0RnNTejdmWF91SUVic25XUlMxcGg4TkdIU1JRdV80MVd3Mkh4a3A5ZjBNV3g0bzBHRWRfVU5VU2c2RV9MZkNvOHhmMENWMDhqbEUzMEtHVQ?oc=5",
+      "source": "Google News 生态环境",
+      "published": "2026-11-21T12:07:50+00:00",
+      "hotness": 83.0,
+      "score_v1": 32.26,
+      "score_v2": 83.0,
+      "score_breakdown": {
+        "algorithm": "v3.0",
+        "dimension_max": {
+          "authority": 18.0,
+          "topic": 18.0,
+          "resonance": 18.0,
+          "information": 16.0
+        },
+        "authority_score": 8.05,
+        "keyword_idf_score": 8.74,
+        "topic_score": 13.4,
+        "topic_burst_score": 4.66,
+        "topic_burst_count": 4,
+        "resonance_score": 0.0,
+        "info_score": 4.0,
+        "base": 25.45,
+        "base_max": 70.0,
+        "time_factor": 0.989,
+        "density_factor": 1.0,
+        "density_note": "",
+        "repeat_penalty": 1.0,
+        "repeat_excused": false,
+        "event_size": 1,
+        "event_media_count": 1,
+        "event_cluster_source": "ai",
+        "origin_source": "Sohu",
+        "raw": 25.17,
+        "display_score": 83.0,
+        "display_mode": "absolute"
+      },
+      "summary": "研讨会聚焦生态环境法典框架下化学品风险评估战略转型，深入探讨法规落地技术难点、管理创新与产业协同，推动绿色化学与可持续发展。",
+      "analysis": "",
+      "topic_tags": [
+        "化学品环境风险管理",
+        "生态环境法典",
+        "风险评估新战略"
+      ],
+      "category": "环境健康",
+      "matched_keywords": [
+        "生态环境",
+        "环境法典"
+      ]
+    },
+    {
+      "title": "These US fishers see offshore wind as a ‘godsend’. Trump wants to shut it down",
+      "title_en": "These US fishers see offshore wind as a ‘godsend’. Trump wants to shut it down",
+      "title_zh": "这些美国渔民将海上风电视为“天赐良机”。特朗普却想叫停这一项目",
+      "link": "https://www.theguardian.com/environment/2026/nov/20/offshore-wind-farms-trump-fishers",
+      "source": "The Guardian Environment",
+      "published": "2026-11-20T14:00:31+00:00",
+      "hotness": 82.0,
+      "score_v1": 13.34,
+      "score_v2": 82.0,
+      "score_breakdown": {
+        "algorithm": "v3.0",
+        "dimension_max": {
+          "authority": 18.0,
+          "topic": 18.0,
+          "resonance": 18.0,
+          "information": 16.0
+        },
+        "authority_score": 12.73,
+        "keyword_idf_score": 0.0,
+        "topic_score": 3.0,
+        "topic_burst_score": 0.0,
+        "topic_burst_count": 1,
+        "resonance_score": 13.26,
+        "info_score": 3.0,
+        "base": 31.98,
+        "base_max": 70.0,
+        "time_factor": 0.753,
+        "density_factor": 1.0,
+        "density_note": "",
+        "repeat_penalty": 1.0,
+        "repeat_excused": true,
+        "event_size": 3,
+        "event_media_count": 3,
+        "event_cluster_source": "ai",
+        "origin_source": "The Guardian Environment",
+        "raw": 24.08,
+        "display_score": 82.0,
+        "display_mode": "absolute"
+      },
+      "summary": "尽管总统频频抨击，Sea Services公司仍在为新英格兰地区的渔民提供海上风电建设方面的培训，并为他们开辟了第二收入来源。9月的一个雨天早晨，一艘锈迹斑斑、长86英尺（26米）的扇贝捕捞船“帕梅拉·安号”停靠在马萨诸塞州新贝德福德港。 船员们在海上度过了过去12天，记录海洋哺乳动物的出没情况，监控船只以确保它们不进入施工区，并照看“革命风电”（Re）项目的工人——这是一个位于罗德岛以南、拥有65台风机的海上风电项目。““万一有人掉下去，我们能及时赶到施以援手，”船长凯文·索萨说道。他的小腿上纹着一只斗牛犬，以纪念他在海军服役的岁月。继续阅读……",
+      "analysis": "",
+      "topic_tags": [
+        "离岸风电"
+      ],
+      "category": "能源与碳中和",
+      "matched_keywords": []
+    }
+  ]
+}

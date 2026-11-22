@@ -1,28 +1,28 @@
 {
-  "report_date": "2026-11-21",
-  "date": "2026-11-21",
+  "report_date": "2026-11-22",
+  "date": "2026-11-22",
   "site_name": "环境学子雷达",
-  "total_items": 44,
+  "total_items": 34,
   "total_sources": 28,
   "success_sources": 26,
   "failed_sources": 0,
-  "week_total_items": 282,
-  "week_new_keywords": 65,
-  "policy_ratio": 11.3,
+  "week_total_items": 280,
+  "week_new_keywords": 64,
+  "policy_ratio": 10.7,
   "items": [
     {
-      "title": "12家上市公司暴露环境风险，节能环境控股公司超标排放大气污染物被罚49.2万元| A股绿色报告 - 每日经济新闻",
+      "title": "五年覆盖全国近30城，百事集团净滩环保行动步履不停 - 中国新闻网",
       "title_en": "",
       "title_zh": "",
       "summary_en": "",
       "summary_zh": "",
-      "link": "https://news.google.com/rss/articles/CBMiZkFVX3lxTE1pNWcyUnVmX1RHQWZRMmM1R2k4dmNUcy16QTQ0VTdNYmxha3dOTXRBVkRUU09mNFg2bkJwdUs4U211RFMzUUZFdk9wbVhTdWxKWjNWOUxUWE56NlVfS0lpOU95Q0xhQQ?oc=5",
+      "link": "https://news.google.com/rss/articles/CBMiaEFVX3lxTE9BWDI3UlNtOFFYTVpQcm1nbk4wazBoM3VwZkw0bE9ZRWpLWmszSWJNNno2TjhCeHB2T0M4U25DdG5oNHNYcjJFNUFJU25TWkppLUZhU1RNM3hRcFVOQ2dnejlmcDRSMjZ1?oc=5",
       "source": "Google News 环境保护",
-      "published": "2026-11-21T10:25:00+00:00",
-      "hotness": 92.7,
-      "score": 92.7,
-      "score_v1": 23.6,
-      "score_v2": 92.7,
+      "published": "2026-11-22T07:04:52+00:00",
+      "hotness": 84.2,
+      "score": 84.2,
+      "score_v1": 16.47,
+      "score_v2": 84.2,
       "score_breakdown": {
         "algorithm": "v3.0",
         "dimension_max": {
@@ -32,63 +32,122 @@
           "information": 16.0
         },
         "authority_score": 8.05,
-        "keyword_idf_score": 6.79,
-        "topic_score": 9.15,
-        "topic_burst_score": 2.36,
-        "topic_burst_count": 2,
-        "resonance_score": 17.36,
+        "keyword_idf_score": 0.0,
+        "topic_score": 3.0,
+        "topic_burst_score": 0.0,
+        "topic_burst_count": 1,
+        "resonance_score": 8.76,
         "info_score": 9.0,
-        "base": 43.56,
+        "base": 28.81,
         "base_max": 70.0,
-        "time_factor": 0.9666,
+        "time_factor": 0.9268,
         "density_factor": 1.0,
         "density_note": "",
         "repeat_penalty": 1.0,
         "repeat_excused": false,
-        "event_size": 6,
-        "event_media_count": 6,
+        "event_size": 2,
+        "event_media_count": 2,
         "event_cluster_source": "ai",
-        "origin_source": "每日经济新闻",
-        "raw": 42.11,
-        "display_score": 92.7,
+        "origin_source": "中国新闻网",
+        "raw": 26.7,
+        "display_score": 84.2,
         "display_mode": "absolute"
       },
       "score_v1_breakdown": {
         "base": 5.0,
         "source_score": 3.6,
-        "keyword_score": 2.0,
-        "time_score": 9.0,
-        "topic_bonus": 4.0,
-        "total": 23.6
+        "keyword_score": 0.0,
+        "time_score": 7.87,
+        "topic_bonus": 0.0,
+        "total": 16.47
       },
-      "summary": "12家上市公司暴露环境风险，节能环境控股公司超标排放大气污染物被罚49.2万元。",
-      "analysis": "该条目涉及【环境风险】话题，因来源较权威且发布时间较新，热度上升。",
+      "summary": "百事集团持续开展净滩环保行动，五年时间已覆盖全国近30个城市，致力于推动生态文明建设与企业社会责任履行。",
+      "analysis": "该条目涉及【净滩环保行动】话题，因来源较权威且发布时间较新，热度上升。",
       "topic_tags": [
-        "环境风险",
-        "节能环境",
-        "超标排放"
+        "净滩环保行动"
       ],
-      "category": "环境健康",
+      "category": "环境政策",
+      "matched_keywords": [],
+      "keywords": []
+    },
+    {
+      "title": "Will COP31 end with a new global climate deal?",
+      "title_en": "Will COP31 end with a new global climate deal?",
+      "title_zh": "第31届缔约方会议（COP31）最终能否达成一项新的全球气候协议？",
+      "summary_en": "BBC Climate editor Justin Rowlatt reports from the COP 31 UN climate summit in Antalya, Turkey.",
+      "summary_zh": "BBC气候事务编辑贾斯汀·罗拉特从土耳其安塔利亚举行的第31届联合国气候变化大会（COP 31）发回报道。",
+      "link": "https://www.bbc.co.uk/news/videos/cqn0dwrewrwxo?at_medium=RSS&at_campaign=rss",
+      "source": "BBC 科学与环境",
+      "published": "2026-11-21T22:44:52+00:00",
+      "hotness": 82.4,
+      "score": 82.4,
+      "score_v1": 27.06,
+      "score_v2": 82.4,
+      "score_breakdown": {
+        "algorithm": "v3.0",
+        "dimension_max": {
+          "authority": 18.0,
+          "topic": 18.0,
+          "resonance": 18.0,
+          "information": 16.0
+        },
+        "authority_score": 12.73,
+        "keyword_idf_score": 3.47,
+        "topic_score": 8.65,
+        "topic_burst_score": 5.19,
+        "topic_burst_count": 5,
+        "resonance_score": 0.0,
+        "info_score": 8.0,
+        "base": 29.38,
+        "base_max": 70.0,
+        "time_factor": 0.8349,
+        "density_factor": 1.0,
+        "density_note": "",
+        "repeat_penalty": 1.0,
+        "repeat_excused": false,
+        "event_size": 3,
+        "event_media_count": 1,
+        "event_cluster_source": "ai",
+        "origin_source": "BBC 科学与环境",
+        "raw": 24.53,
+        "display_score": 82.4,
+        "display_mode": "absolute"
+      },
+      "score_v1_breakdown": {
+        "base": 5.0,
+        "source_score": 4.5,
+        "keyword_score": 2.0,
+        "time_score": 5.56,
+        "topic_bonus": 10.0,
+        "total": 27.06
+      },
+      "summary": "BBC气候事务编辑贾斯汀·罗拉特从土耳其安塔利亚举行的第31届联合国气候变化大会（COP 31）发回报道。",
+      "analysis": "该条目涉及【COP31】话题，因来源权威性高，热度上升。",
+      "topic_tags": [
+        "COP31",
+        "全球气候协议"
+      ],
+      "category": "气候变化",
       "matched_keywords": [
-        "大气污染"
+        "气候变化"
       ],
       "keywords": [
-        "大气污染"
+        "气候变化"
       ]
     },
     {
-      "title": "“临汾方案”，亮相第31届联合国气候变化大会- 中国日报网 - China Daily",
+      "title": "世界儿童日与COP31聚焦气候变化下儿童风险及中国儿童友好气候行动 - 虎嗅网",
       "title_en": "",
       "title_zh": "",
       "summary_en": "",
       "summary_zh": "",
-      "link": "https://news.google.com/rss/articles/CBMifEFVX3lxTE9vLXZXZW0wVEtUTTVXSnFEM2djenRWRUVKYk5zOWltbVhLcVB4eTFSYjJGR3QyU3lVMFdpSlVVYTM3bjlJTzFDLWRra0NuM2lJdUVBcEZHRG1LV1M2eUJwUVdvVXdWaFlJVXJFaExiQnpzSlNhUVVyQmp4MDI?oc=5",
+      "link": "https://news.google.com/rss/articles/CBMiVEFVX3lxTE44dVprY0lFcTRhRDk2ZG51VFlIYUFEWTk3SzNjYWY3cDlIak5mSHRaWFQ5bnptb1lVQmdXZldfVGVHXzZmSDFuV1RtNGoteUQ0UmNmVA?oc=5",
       "source": "Google News 气候变化",
-      "published": "2026-11-21T04:29:43+00:00",
-      "hotness": 89.7,
-      "score": 89.7,
-      "score_v1": 29.63,
-      "score_v2": 89.7,
+      "published": "2026-11-21T09:45:35+00:00",
+      "hotness": 80.0,
+      "score": 80.0,
+      "score_v1": 23.84,
+      "score_v2": 80.0,
       "score_breakdown": {
         "algorithm": "v3.0",
         "dimension_max": {
@@ -99,36 +158,232 @@
         },
         "authority_score": 8.05,
         "keyword_idf_score": 3.47,
-        "topic_score": 8.97,
-        "topic_burst_score": 5.51,
-        "topic_burst_count": 6,
-        "resonance_score": 17.36,
+        "topic_score": 8.65,
+        "topic_burst_score": 5.19,
+        "topic_burst_count": 5,
+        "resonance_score": 8.76,
         "info_score": 5.0,
-        "base": 39.38,
+        "base": 30.46,
         "base_max": 70.0,
-        "time_factor": 0.895,
+        "time_factor": 0.7199,
         "density_factor": 1.0,
         "density_note": "",
         "repeat_penalty": 1.0,
-        "repeat_excused": true,
-        "event_size": 6,
-        "event_media_count": 6,
+        "repeat_excused": false,
+        "event_size": 2,
+        "event_media_count": 2,
         "event_cluster_source": "ai",
-        "origin_source": "China Daily",
-        "raw": 35.25,
-        "display_score": 89.7,
+        "origin_source": "虎嗅网",
+        "raw": 21.93,
+        "display_score": 80.0,
         "display_mode": "absolute"
       },
       "score_v1_breakdown": {
         "base": 5.0,
         "source_score": 3.6,
         "keyword_score": 2.0,
-        "time_score": 7.03,
-        "topic_bonus": 12.0,
-        "total": 29.63
+        "time_score": 3.24,
+        "topic_bonus": 10.0,
+        "total": 23.84
       },
-      "summary": "“临汾方案”亮相第31届联合国气候变化大会，展示气候治理经验。",
-      "analysis": "该条目涉及【联合国气候变化大会】话题，因来源较权威且发布时间较新，热度上升。",
+      "summary": "聚焦气候变化背景下儿童风险，报道世界儿童日与COP31会议相关内容，展现中国在儿童友好气候行动方面的探索与实践。",
+      "analysis": "该条目涉及【COP31】话题，因来源较权威且多家媒体同题报道，热度上升。",
+      "topic_tags": [
+        "COP31",
+        "儿童风险",
+        "中国儿童友好气候行动"
+      ],
+      "category": "环境健康",
+      "matched_keywords": [
+        "气候变化"
+      ],
+      "keywords": [
+        "气候变化"
+      ]
+    },
+    {
+      "title": "[视频]联合国气候变化大会进入加时阶段 - 央视网",
+      "title_en": "",
+      "title_zh": "",
+      "summary_en": "",
+      "summary_zh": "",
+      "link": "https://news.google.com/rss/articles/CBMidkFVX3lxTE04SHRRWUp0UlFaaXdMaVE1Y3d5NnRpbDdSQ1hTTHFwRm9GWTFHODBtMmJCaDlmb0RNek5kVmExaUM4TGhoR2lPdTgyZlk1YklKWnkteEN1R3ItUjJuc25KT3Z3eWU4cmlkNVJsakRpdWdPZThiQ1E?oc=5",
+      "source": "Google News 气候变化",
+      "published": "2026-11-21T14:30:00+00:00",
+      "hotness": 77.2,
+      "score": 77.2,
+      "score_v1": 24.55,
+      "score_v2": 77.2,
+      "score_breakdown": {
+        "algorithm": "v3.0",
+        "dimension_max": {
+          "authority": 18.0,
+          "topic": 18.0,
+          "resonance": 18.0,
+          "information": 16.0
+        },
+        "authority_score": 8.05,
+        "keyword_idf_score": 3.47,
+        "topic_score": 8.65,
+        "topic_burst_score": 5.19,
+        "topic_burst_count": 5,
+        "resonance_score": 8.76,
+        "info_score": 0.0,
+        "base": 25.46,
+        "base_max": 70.0,
+        "time_factor": 0.7583,
+        "density_factor": 1.0,
+        "density_note": "",
+        "repeat_penalty": 1.0,
+        "repeat_excused": true,
+        "event_size": 2,
+        "event_media_count": 2,
+        "event_cluster_source": "ai",
+        "origin_source": "央视网",
+        "raw": 19.31,
+        "display_score": 77.2,
+        "display_mode": "absolute"
+      },
+      "score_v1_breakdown": {
+        "base": 5.0,
+        "source_score": 3.6,
+        "keyword_score": 2.0,
+        "time_score": 3.95,
+        "topic_bonus": 10.0,
+        "total": 24.55
+      },
+      "summary": "[视频]联合国气候变化大会进入加时阶段",
+      "analysis": "该条目涉及【联合国】话题，因来源较权威且多家媒体同题报道，热度上升。",
+      "topic_tags": [
+        "联合国"
+      ],
+      "category": "气候变化",
+      "matched_keywords": [
+        "气候变化"
+      ],
+      "keywords": [
+        "气候变化"
+      ]
+    },
+    {
+      "title": "In-situ conversion of pollutants into catalysts: revealing high-valent bimetallic synergy for self-catalytic decomplexation of heavy-metal complexes",
+      "title_en": "In-situ conversion of pollutants into catalysts: revealing high-valent bimetallic synergy for self-catalytic decomplexation of heavy-metal complexes",
+      "title_zh": "污染物原位转化为催化剂：揭示高价双金属协同作用在重金属络合物的自催化解络过程中的作用",
+      "summary_en": "",
+      "summary_zh": "",
+      "link": "https://www.sciencedirect.com/science/article/pii/S0043135426020191?dgcid=rss_sd_all",
+      "source": "Water Research",
+      "published": "2026-11-20T12:48:33.451260+00:00",
+      "hotness": 75.9,
+      "score": 75.9,
+      "score_v1": 16.35,
+      "score_v2": 75.9,
+      "score_breakdown": {
+        "algorithm": "v3.0",
+        "dimension_max": {
+          "authority": 18.0,
+          "topic": 18.0,
+          "resonance": 18.0,
+          "information": 16.0
+        },
+        "authority_score": 18.0,
+        "keyword_idf_score": 8.97,
+        "topic_score": 8.97,
+        "topic_burst_score": 0.0,
+        "topic_burst_count": 1,
+        "resonance_score": 0.0,
+        "info_score": 4.0,
+        "base": 30.97,
+        "base_max": 70.0,
+        "time_factor": 0.5891,
+        "density_factor": 1.0,
+        "density_note": "",
+        "repeat_penalty": 1.0,
+        "repeat_excused": false,
+        "event_size": 1,
+        "event_media_count": 1,
+        "event_cluster_source": "ai",
+        "origin_source": "Water Research",
+        "raw": 18.24,
+        "display_score": 75.9,
+        "display_mode": "absolute"
+      },
+      "score_v1_breakdown": {
+        "base": 5.0,
+        "source_score": 6.0,
+        "keyword_score": 2.0,
+        "time_score": 1.35,
+        "topic_bonus": 2.0,
+        "total": 16.35
+      },
+      "summary": "研究揭示污染物原位转化为催化剂的高价双金属协同效应，为重金属络合物的自催化解离提供新的科学路径与技术思路。",
+      "analysis": "该条目涉及【重金属络合物】话题，因来源权威性高，热度上升。",
+      "topic_tags": [
+        "重金属络合物",
+        "污染物原位转化",
+        "催化剂"
+      ],
+      "category": "污染治理",
+      "matched_keywords": [
+        "重金属"
+      ],
+      "keywords": [
+        "重金属"
+      ]
+    },
+    {
+      "title": "赛力斯绿碳实践亮相联合国气候变化大会 案例入选美丽中国年鉴 - 新浪财经",
+      "title_en": "",
+      "title_zh": "",
+      "summary_en": "",
+      "summary_zh": "",
+      "link": "https://news.google.com/rss/articles/CBMieEFVX3lxTE9qUmhQUV8ySXJ3SV9OSTl3U2pXX3FKYWtHTXgxQ2RYYng4QXpaeENjVEFrOVNtWWVfdGl5cDc1SVpycGNYSUJzRUNtTWZCSVYxdDhob0VZQ0h1SVZzV0dZN1lrZ1VMbnhQbXQyWVlER2hYOFNBaklGaw?oc=5",
+      "source": "Google News 气候变化",
+      "published": "2026-11-21T08:46:41+00:00",
+      "hotness": 75.8,
+      "score": 75.8,
+      "score_v1": 23.71,
+      "score_v2": 75.8,
+      "score_breakdown": {
+        "algorithm": "v3.0",
+        "dimension_max": {
+          "authority": 18.0,
+          "topic": 18.0,
+          "resonance": 18.0,
+          "information": 16.0
+        },
+        "authority_score": 8.05,
+        "keyword_idf_score": 3.47,
+        "topic_score": 8.65,
+        "topic_burst_score": 5.19,
+        "topic_burst_count": 5,
+        "resonance_score": 8.76,
+        "info_score": 0.0,
+        "base": 25.46,
+        "base_max": 70.0,
+        "time_factor": 0.7124,
+        "density_factor": 1.0,
+        "density_note": "",
+        "repeat_penalty": 1.0,
+        "repeat_excused": false,
+        "event_size": 2,
+        "event_media_count": 2,
+        "event_cluster_source": "ai",
+        "origin_source": "新浪财经",
+        "raw": 18.14,
+        "display_score": 75.8,
+        "display_mode": "absolute"
+      },
+      "score_v1_breakdown": {
+        "base": 5.0,
+        "source_score": 3.6,
+        "keyword_score": 2.0,
+        "time_score": 3.11,
+        "topic_bonus": 10.0,
+        "total": 23.71
+      },
+      "summary": "赛力斯集团在联合国气候变化大会展示绿色碳峰实践，其创新案例成功入选《美丽中国年鉴》，彰显企业在碳减排与可持续发展方面的成效。",
+      "analysis": "该条目涉及【联合国气候变化大会】话题，因来源较权威且多家媒体同题报道，热度上升。",
       "topic_tags": [
         "联合国气候变化大会"
       ],
@@ -141,274 +396,18 @@
       ]
     },
     {
-      "title": "因各方未能就部分核心议题达成一致，联合国气候变化安塔利亚大会（COP31）进入加时阶段 - ThePaper.cn",
+      "title": "以协同治理筑牢生态屏障 重庆深入推进长江保护 - 七一网",
       "title_en": "",
       "title_zh": "",
       "summary_en": "",
       "summary_zh": "",
-      "link": "https://news.google.com/rss/articles/CBMiYEFVX3lxTE5nbWVuRG5vNnU0dGN2TERvakhXZXJYNGJTaG9hcWdFMmx2eFZxX2dmbWpHck92ODNMYUZWVFBCZ3FBVUtqTzJpZzhfSEl6SXZyZ2t0WkNGbGsxNDVXX2c2Sw?oc=5",
-      "source": "Google News 气候变化",
-      "published": "2026-11-21T03:12:11+00:00",
-      "hotness": 89.4,
-      "score": 89.4,
-      "score_v1": 29.26,
-      "score_v2": 89.4,
-      "score_breakdown": {
-        "algorithm": "v3.0",
-        "dimension_max": {
-          "authority": 18.0,
-          "topic": 18.0,
-          "resonance": 18.0,
-          "information": 16.0
-        },
-        "authority_score": 8.05,
-        "keyword_idf_score": 3.47,
-        "topic_score": 8.97,
-        "topic_burst_score": 5.51,
-        "topic_burst_count": 6,
-        "resonance_score": 17.36,
-        "info_score": 5.0,
-        "base": 39.38,
-        "base_max": 70.0,
-        "time_factor": 0.8806,
-        "density_factor": 1.0,
-        "density_note": "",
-        "repeat_penalty": 1.0,
-        "repeat_excused": true,
-        "event_size": 6,
-        "event_media_count": 6,
-        "event_cluster_source": "ai",
-        "origin_source": "ThePaper.cn",
-        "raw": 34.68,
-        "display_score": 89.4,
-        "display_mode": "absolute"
-      },
-      "score_v1_breakdown": {
-        "base": 5.0,
-        "source_score": 3.6,
-        "keyword_score": 2.0,
-        "time_score": 6.66,
-        "topic_bonus": 12.0,
-        "total": 29.26
-      },
-      "summary": "因各方未能就部分核心议题达成一致，联合国气候变化安塔利亚大会（COP31）进入加时阶段。",
-      "analysis": "该条目涉及【联合国气候变化安塔利亚大会】话题，因来源较权威且发布时间较新，热度上升。",
-      "topic_tags": [
-        "联合国气候变化安塔利亚大会",
-        "COP31"
-      ],
-      "category": "气候变化",
-      "matched_keywords": [
-        "气候变化"
-      ],
-      "keywords": [
-        "气候变化"
-      ]
-    },
-    {
-      "title": "Fight over fossil fuels leaves COP31 climate talks in deadlock",
-      "title_en": "Fight over fossil fuels leaves COP31 climate talks in deadlock",
-      "title_zh": "围绕化石燃料的争执导致COP31气候谈判陷入僵局",
-      "summary_en": "Countries from nearly 200 countries are in a deadlock to try and get a new global climate agreement.",
-      "summary_zh": "来自近200个国家的代表在争取达成一项新的全球气候协议方面陷入僵局。",
-      "link": "https://www.bbc.co.uk/news/articles/c6ly5w40eg07o?at_medium=RSS&at_campaign=rss",
-      "source": "BBC 科学与环境",
-      "published": "2026-11-21T09:52:11+00:00",
-      "hotness": 88.7,
-      "score": 88.7,
-      "score_v1": 18.3,
-      "score_v2": 88.7,
-      "score_breakdown": {
-        "algorithm": "v3.0",
-        "dimension_max": {
-          "authority": 18.0,
-          "topic": 18.0,
-          "resonance": 18.0,
-          "information": 16.0
-        },
-        "authority_score": 12.73,
-        "keyword_idf_score": 0.0,
-        "topic_score": 3.0,
-        "topic_burst_score": 0.0,
-        "topic_burst_count": 1,
-        "resonance_score": 13.26,
-        "info_score": 5.75,
-        "base": 34.73,
-        "base_max": 70.0,
-        "time_factor": 0.9596,
-        "density_factor": 1.0,
-        "density_note": "",
-        "repeat_penalty": 1.0,
-        "repeat_excused": false,
-        "event_size": 3,
-        "event_media_count": 3,
-        "event_cluster_source": "ai",
-        "origin_source": "BBC 科学与环境",
-        "raw": 33.33,
-        "display_score": 88.7,
-        "display_mode": "absolute"
-      },
-      "score_v1_breakdown": {
-        "base": 5.0,
-        "source_score": 4.5,
-        "keyword_score": 0.0,
-        "time_score": 8.8,
-        "topic_bonus": 0.0,
-        "total": 18.3
-      },
-      "summary": "来自近200个国家的代表在争取达成一项新的全球气候协议方面陷入僵局。",
-      "analysis": "该条目涉及【COP31】话题，因来源权威性高且发布时间较新，热度上升。",
-      "topic_tags": [
-        "COP31",
-        "化石燃料"
-      ],
-      "category": "气候变化",
-      "matched_keywords": [],
-      "keywords": []
-    },
-    {
-      "title": "联合国气候变化大会为何总“拖堂” - Sohu",
-      "title_en": "",
-      "title_zh": "",
-      "summary_en": "",
-      "summary_zh": "",
-      "link": "https://news.google.com/rss/articles/CBMijAFBVV95cUxPaFplcGd3RWI4MjZKdnVHRV9BNVdUcXJZUldlSGItXzZjUjVDTE4yWXJ4TkNkTmVUVU94RTAtY05lcGgtbkVITWFzLWJfNnVwbmRPandSc1p4UGh6d1AxNTI1MXVWU2dPRlF6UGxVUVQ3WmRBbHFYbFBoTFBEaVZuVDdaakxGazE3b0dMRA?oc=5",
-      "source": "Google News 气候变化",
-      "published": "2026-11-21T08:15:48+00:00",
-      "hotness": 88.1,
-      "score": 88.1,
-      "score_v1": 30.83,
-      "score_v2": 88.1,
-      "score_breakdown": {
-        "algorithm": "v3.0",
-        "dimension_max": {
-          "authority": 18.0,
-          "topic": 18.0,
-          "resonance": 18.0,
-          "information": 16.0
-        },
-        "authority_score": 8.05,
-        "keyword_idf_score": 3.47,
-        "topic_score": 8.97,
-        "topic_burst_score": 5.51,
-        "topic_burst_count": 6,
-        "resonance_score": 17.36,
-        "info_score": 0.0,
-        "base": 34.38,
-        "base_max": 70.0,
-        "time_factor": 0.9396,
-        "density_factor": 1.0,
-        "density_note": "",
-        "repeat_penalty": 1.0,
-        "repeat_excused": true,
-        "event_size": 6,
-        "event_media_count": 6,
-        "event_cluster_source": "ai",
-        "origin_source": "Sohu",
-        "raw": 32.3,
-        "display_score": 88.1,
-        "display_mode": "absolute"
-      },
-      "score_v1_breakdown": {
-        "base": 5.0,
-        "source_score": 3.6,
-        "keyword_score": 2.0,
-        "time_score": 8.23,
-        "topic_bonus": 12.0,
-        "total": 30.83
-      },
-      "summary": "联合国气候变化大会常态化“拖堂”，因各方未能就核心议题达成一致延期闭幕。",
-      "analysis": "该条目涉及【联合国气候变化大会】话题，因来源较权威且发布时间较新，热度上升。",
-      "topic_tags": [
-        "联合国气候变化大会",
-        "COP31"
-      ],
-      "category": "气候变化",
-      "matched_keywords": [
-        "气候变化"
-      ],
-      "keywords": [
-        "气候变化"
-      ]
-    },
-    {
-      "title": "联合国气候变化安塔利亚大会进入加时阶段 - 手机新浪网",
-      "title_en": "",
-      "title_zh": "",
-      "summary_en": "",
-      "summary_zh": "",
-      "link": "https://news.google.com/rss/articles/CBMiS0FVX3lxTE51RkVaOFlLeVNUb29ydjZMaWdkX2prYzgwUDFNM3dkMUYyLTBKZGtWMFozNFQ2ZXpNaEQxWlZjR21vT05NNjkydjdUVQ?oc=5",
-      "source": "Google News 气候变化",
-      "published": "2026-11-21T01:37:45+00:00",
-      "hotness": 86.4,
-      "score": 86.4,
-      "score_v1": 28.84,
-      "score_v2": 86.4,
-      "score_breakdown": {
-        "algorithm": "v3.0",
-        "dimension_max": {
-          "authority": 18.0,
-          "topic": 18.0,
-          "resonance": 18.0,
-          "information": 16.0
-        },
-        "authority_score": 8.05,
-        "keyword_idf_score": 3.47,
-        "topic_score": 8.97,
-        "topic_burst_score": 5.51,
-        "topic_burst_count": 6,
-        "resonance_score": 17.36,
-        "info_score": 0.0,
-        "base": 34.38,
-        "base_max": 70.0,
-        "time_factor": 0.8635,
-        "density_factor": 1.0,
-        "density_note": "",
-        "repeat_penalty": 1.0,
-        "repeat_excused": true,
-        "event_size": 6,
-        "event_media_count": 6,
-        "event_cluster_source": "ai",
-        "origin_source": "手机新浪网",
-        "raw": 29.69,
-        "display_score": 86.4,
-        "display_mode": "absolute"
-      },
-      "score_v1_breakdown": {
-        "base": 5.0,
-        "source_score": 3.6,
-        "keyword_score": 2.0,
-        "time_score": 6.24,
-        "topic_bonus": 12.0,
-        "total": 28.84
-      },
-      "summary": "联合国气候变化安塔利亚大会进入加时阶段，因各方未能就核心议题达成一致延期闭幕。",
-      "analysis": "该条目涉及【联合国气候变化框架公约】话题，因来源较权威且发布时间较新，热度上升。",
-      "topic_tags": [
-        "联合国气候变化框架公约",
-        "COP31"
-      ],
-      "category": "气候变化",
-      "matched_keywords": [
-        "气候变化"
-      ],
-      "keywords": [
-        "气候变化"
-      ]
-    },
-    {
-      "title": "五载深耕薪火相传 一江碧水永续东流——第五届长江大保护司法论坛在武汉开幕 - 极目新闻",
-      "title_en": "",
-      "title_zh": "",
-      "summary_en": "",
-      "summary_zh": "",
-      "link": "https://news.google.com/rss/articles/CBMiW0FVX3lxTE1SemZ1SG1OWVE0czBNZGtmR2R1SzFwalkzaTczdFVLVXNmd1dsalN5RFh3ZjczcWhzLWlFaE1aT3poRFhuTVl5aUwwcVctemt4ZFN4RHRJT0MwVzQ?oc=5",
+      "link": "https://news.google.com/rss/articles/CBMimAFBVV95cUxQS3lzZzU4eFQ4ZmI2cm90SjJaUGx0ZzhyZlB2LWtIcVZpelViVjNWYmdDS2xNaXdKZTJuNFd1b3FVdmNhQjdlM2dwaGhvLTZNdnhiZUZVSWl0NGFnZGJEaFVBNXZGRjJUQ0lDcDFBWEwya2FybElIb0FPTDNIYU5scHBKQXdtZGJaR1NQc1N4eDZZZUs3ZFRtcg?oc=5",
       "source": "Google News 环境保护",
-      "published": "2026-11-21T09:40:53+00:00",
-      "hotness": 84.6,
-      "score": 84.6,
-      "score_v1": 17.33,
-      "score_v2": 84.6,
+      "published": "2026-11-22T00:32:17+00:00",
+      "hotness": 74.2,
+      "score": 74.2,
+      "score_v1": 14.6,
+      "score_v2": 74.2,
       "score_breakdown": {
         "algorithm": "v3.0",
         "dimension_max": {
@@ -422,353 +421,37 @@
         "topic_score": 3.0,
         "topic_burst_score": 0.0,
         "topic_burst_count": 1,
-        "resonance_score": 17.36,
+        "resonance_score": 8.76,
         "info_score": 0.0,
-        "base": 28.41,
+        "base": 19.81,
         "base_max": 70.0,
-        "time_factor": 0.9572,
+        "time_factor": 0.8533,
         "density_factor": 1.0,
         "density_note": "",
         "repeat_penalty": 1.0,
         "repeat_excused": true,
-        "event_size": 6,
-        "event_media_count": 6,
-        "event_cluster_source": "ai",
-        "origin_source": "极目新闻",
-        "raw": 27.19,
-        "display_score": 84.6,
-        "display_mode": "absolute"
-      },
-      "score_v1_breakdown": {
-        "base": 5.0,
-        "source_score": 3.6,
-        "keyword_score": 0.0,
-        "time_score": 8.73,
-        "topic_bonus": 0.0,
-        "total": 17.33
-      },
-      "summary": "第五届长江大保护司法论坛在武汉开幕，聚焦推动长江经济带高质量发展与生态文明建设，探讨生态保护与司法履职新路径。",
-      "analysis": "该条目涉及【水处理】话题，因来源较权威且发布时间较新，热度上升。",
-      "topic_tags": [
-        "水处理"
-      ],
-      "category": "水处理",
-      "matched_keywords": [],
-      "keywords": []
-    },
-    {
-      "title": "生态环境部召开部常务会议 - 21财经",
-      "title_en": "",
-      "title_zh": "",
-      "summary_en": "",
-      "summary_zh": "",
-      "link": "https://news.google.com/rss/articles/CBMijwFBVV95cUxNRkM4VU5zYks2TG5yWkxwd0RpQmlNZnYtT2VoeU1FVVBXdXZORmc4WEt3bGNCUDh6R3VxNzU0VlpjTDUzeDF0YVQwV3FZZ25UOWNXZlo1MGxNbXJwMWtJUFJNcEZsOU9XcVhINFlLTVA3RjFIOXZHXzJZNHh6c2dWczk0SUZUM0dZSHZ3cnBaMA?oc=5",
-      "source": "Google News 生态环境",
-      "published": "2026-11-20T16:00:16+00:00",
-      "hotness": 84.4,
-      "score": 84.4,
-      "score_v1": 22.78,
-      "score_v2": 84.4,
-      "score_breakdown": {
-        "algorithm": "v3.0",
-        "dimension_max": {
-          "authority": 18.0,
-          "topic": 18.0,
-          "resonance": 18.0,
-          "information": 16.0
-        },
-        "authority_score": 8.05,
-        "keyword_idf_score": 4.49,
-        "topic_score": 9.15,
-        "topic_burst_score": 4.66,
-        "topic_burst_count": 4,
-        "resonance_score": 8.76,
-        "info_score": 9.0,
-        "base": 34.96,
-        "base_max": 70.0,
-        "time_factor": 0.7702,
-        "density_factor": 1.0,
-        "density_note": "",
-        "repeat_penalty": 1.0,
-        "repeat_excused": false,
         "event_size": 2,
         "event_media_count": 2,
         "event_cluster_source": "ai",
-        "origin_source": "21财经",
-        "raw": 26.92,
-        "display_score": 84.4,
+        "origin_source": "七一网",
+        "raw": 16.9,
+        "display_score": 74.2,
         "display_mode": "absolute"
       },
       "score_v1_breakdown": {
         "base": 5.0,
         "source_score": 3.6,
-        "keyword_score": 2.0,
-        "time_score": 4.18,
-        "topic_bonus": 8.0,
-        "total": 22.78
+        "keyword_score": 0.0,
+        "time_score": 6.0,
+        "topic_bonus": 0.0,
+        "total": 14.6
       },
-      "summary": "生态环境部部长黄润秋主持召开部常务会议，审议生态环境保护重大事项，部署化学品环境风险管理及法典落地相关工作。",
-      "analysis": "该条目涉及【生态环境部】话题，因来源较权威且多家媒体同题报道，热度上升。",
+      "summary": "重庆市深入推进长江保护，通过协同治理筑牢生态屏障，持续提升水环境质量与生态安全水平。",
+      "analysis": "该条目涉及【生态环境】话题，因来源较权威且发布时间较新，热度上升。",
       "topic_tags": [
-        "生态环境部"
+        "生态环境"
       ],
       "category": "生态环境",
-      "matched_keywords": [
-        "生态环境"
-      ],
-      "keywords": [
-        "生态环境"
-      ]
-    },
-    {
-      "title": "聚焦生态环境法典下的化学品风险评估新战略，化学品环境风险管理研讨会举办 - Sohu",
-      "title_en": "",
-      "title_zh": "",
-      "summary_en": "",
-      "summary_zh": "",
-      "link": "https://news.google.com/rss/articles/CBMijAFBVV95cUxPTG84M2Y0SjQxbTR4bHFXby1zc2s2TmJLS0lRZWNkZWFXUEpnQ0tSVGxveG4yaWp0d2w3cTh0RnNTejdmWF91SUVic25XUlMxcGg4TkdIU1JRdV80MVd3Mkh4a3A5ZjBNV3g0bzBHRWRfVU5VU2c2RV9MZkNvOHhmMENWMDhqbEUzMEtHVQ?oc=5",
-      "source": "Google News 生态环境",
-      "published": "2026-11-21T12:07:50+00:00",
-      "hotness": 83.0,
-      "score": 83.0,
-      "score_v1": 32.26,
-      "score_v2": 83.0,
-      "score_breakdown": {
-        "algorithm": "v3.0",
-        "dimension_max": {
-          "authority": 18.0,
-          "topic": 18.0,
-          "resonance": 18.0,
-          "information": 16.0
-        },
-        "authority_score": 8.05,
-        "keyword_idf_score": 8.74,
-        "topic_score": 13.4,
-        "topic_burst_score": 4.66,
-        "topic_burst_count": 4,
-        "resonance_score": 0.0,
-        "info_score": 4.0,
-        "base": 25.45,
-        "base_max": 70.0,
-        "time_factor": 0.989,
-        "density_factor": 1.0,
-        "density_note": "",
-        "repeat_penalty": 1.0,
-        "repeat_excused": false,
-        "event_size": 1,
-        "event_media_count": 1,
-        "event_cluster_source": "ai",
-        "origin_source": "Sohu",
-        "raw": 25.17,
-        "display_score": 83.0,
-        "display_mode": "absolute"
-      },
-      "score_v1_breakdown": {
-        "base": 5.0,
-        "source_score": 3.6,
-        "keyword_score": 4.0,
-        "time_score": 9.66,
-        "topic_bonus": 10.0,
-        "total": 32.26
-      },
-      "summary": "研讨会聚焦生态环境法典框架下化学品风险评估战略转型，深入探讨法规落地技术难点、管理创新与产业协同，推动绿色化学与可持续发展。",
-      "analysis": "该条目涉及【化学品环境风险管理】话题，因来源较权威且发布时间较新，热度上升。",
-      "topic_tags": [
-        "化学品环境风险管理",
-        "生态环境法典",
-        "风险评估新战略"
-      ],
-      "category": "环境健康",
-      "matched_keywords": [
-        "生态环境",
-        "环境法典"
-      ],
-      "keywords": [
-        "生态环境",
-        "环境法典"
-      ]
-    },
-    {
-      "title": "These US fishers see offshore wind as a ‘godsend’. Trump wants to shut it down",
-      "title_en": "These US fishers see offshore wind as a ‘godsend’. Trump wants to shut it down",
-      "title_zh": "这些美国渔民将海上风电视为“天赐良机”。特朗普却想叫停这一项目",
-      "summary_en": "Despite the president’s attacks, Sea Services is training New England fishers in offshore wind construction and providing them with a second income streamOn a rainy September morning, the Pamela Ann, a rusty, 86ft (26-metre) scallop boat, docked in New Bedford, Massachusetts. Its crew had spent the past 12 days at sea, recording mammal sightings, monitoring vessels to ensure they didn’t enter construction zones, and keeping watch over workers at Revolution Wind, a 65-turbine offshore wind project just south of Rhode Island.“God forbid, if anybody was to fall, we could be there to help them out,” said Capt Kevin Souza, who has a bulldog tattoo on his shin to mark his time in the navy. Continue reading...",
-      "summary_zh": "尽管总统频频抨击，Sea Services公司仍在为新英格兰地区的渔民提供海上风电建设方面的培训，并为他们开辟了第二收入来源。9月的一个雨天早晨，一艘锈迹斑斑、长86英尺（26米）的扇贝捕捞船“帕梅拉·安号”停靠在马萨诸塞州新贝德福德港。 船员们在海上度过了过去12天，记录海洋哺乳动物的出没情况，监控船只以确保它们不进入施工区，并照看“革命风电”（Revolution Wind）项目的工人——这是一个位于罗德岛以南、拥有65台风机的海上风电项目。““万一有人掉下去，我们能及时赶到施以援手，”船长凯文·索萨说道。他的小腿上纹着一只斗牛犬，以纪念他在海军服役的岁月。继续阅读……",
-      "link": "https://www.theguardian.com/environment/2026/nov/20/offshore-wind-farms-trump-fishers",
-      "source": "The Guardian Environment",
-      "published": "2026-11-20T14:00:31+00:00",
-      "hotness": 82.0,
-      "score": 82.0,
-      "score_v1": 13.34,
-      "score_v2": 82.0,
-      "score_breakdown": {
-        "algorithm": "v3.0",
-        "dimension_max": {
-          "authority": 18.0,
-          "topic": 18.0,
-          "resonance": 18.0,
-          "information": 16.0
-        },
-        "authority_score": 12.73,
-        "keyword_idf_score": 0.0,
-        "topic_score": 3.0,
-        "topic_burst_score": 0.0,
-        "topic_burst_count": 1,
-        "resonance_score": 13.26,
-        "info_score": 3.0,
-        "base": 31.98,
-        "base_max": 70.0,
-        "time_factor": 0.753,
-        "density_factor": 1.0,
-        "density_note": "",
-        "repeat_penalty": 1.0,
-        "repeat_excused": true,
-        "event_size": 3,
-        "event_media_count": 3,
-        "event_cluster_source": "ai",
-        "origin_source": "The Guardian Environment",
-        "raw": 24.08,
-        "display_score": 82.0,
-        "display_mode": "absolute"
-      },
-      "score_v1_breakdown": {
-        "base": 5.0,
-        "source_score": 4.5,
-        "keyword_score": 0.0,
-        "time_score": 3.84,
-        "topic_bonus": 0.0,
-        "total": 13.34
-      },
-      "summary": "尽管总统频频抨击，Sea Services公司仍在为新英格兰地区的渔民提供海上风电建设方面的培训，并为他们开辟了第二收入来源。9月的一个雨天早晨，一艘锈迹斑斑、长86英尺（26米）的扇贝捕捞船“帕梅拉·安号”停靠在马萨诸塞州新贝德福德港。 船员们在海上度过了过去12天，记录海洋哺乳动物的出没情况，监控船只以确保它们不进入施工区，并照看“革命风电”（Re）项目的工人——这是一个位于罗德岛以南、拥有65台风机的海上风电项目。““万一有人掉下去，我们能及时赶到施以援手，”船长凯文·索萨说道。他的小腿上纹着一只斗牛犬，以纪念他在海军服役的岁月。继续阅读……",
-      "analysis": "该条目涉及【离岸风电】话题，因来源权威性高且多家媒体同题报道，热度上升。",
-      "topic_tags": [
-        "离岸风电"
-      ],
-      "category": "能源与碳中和",
-      "matched_keywords": [],
-      "keywords": []
-    },
-    {
-      "title": "O6-type layered oxides for sustainable high-energy battery cathodes",
-      "title_en": "O6-type layered oxides for sustainable high-energy battery cathodes",
-      "title_zh": "用于可持续高能量密度电池正极的O6型层状氧化物",
-      "summary_en": "Nature Sustainability, Published online: 20 November 2026; doi:10.1038/s41893-026-01987-5Cobalt-free cathodes are vital for green energy but suffer from structural instability.",
-      "summary_zh": "《自然·可持续性》（Nature Sustainability），在线发表于：2026年11月20日；doi:10.1038/s41893-026-01987-5 无钴正极对绿色能源至关重要，但存在结构不稳定的问题。",
-      "link": "https://www.nature.com/articles/s41893-026-01987-5",
-      "source": "Nature Sustainability",
-      "published": "2026-11-20T00:00:00+00:00",
-      "hotness": 81.1,
-      "score": 81.1,
-      "score_v1": 23.14,
-      "score_v2": 81.1,
-      "score_breakdown": {
-        "algorithm": "v3.0",
-        "dimension_max": {
-          "authority": 18.0,
-          "topic": 18.0,
-          "resonance": 18.0,
-          "information": 16.0
-        },
-        "authority_score": 18.0,
-        "keyword_idf_score": 4.88,
-        "topic_score": 9.55,
-        "topic_burst_score": 4.66,
-        "topic_burst_count": 4,
-        "resonance_score": 0.0,
-        "info_score": 8.0,
-        "base": 35.55,
-        "base_max": 70.0,
-        "time_factor": 0.651,
-        "density_factor": 1.0,
-        "density_note": "",
-        "repeat_penalty": 1.0,
-        "repeat_excused": false,
-        "event_size": 1,
-        "event_media_count": 1,
-        "event_cluster_source": "ai",
-        "origin_source": "Nature Sustainability",
-        "raw": 23.14,
-        "display_score": 81.1,
-        "display_mode": "absolute"
-      },
-      "score_v1_breakdown": {
-        "base": 5.0,
-        "source_score": 6.0,
-        "keyword_score": 2.0,
-        "time_score": 2.14,
-        "topic_bonus": 8.0,
-        "total": 23.14
-      },
-      "summary": "《自然·可持续性》（Nature Sustainability）， 无钴正极对绿色能源至关重要，但存在结构不稳定的问题。",
-      "analysis": "该条目涉及【可持续】话题，因来源权威性高，热度上升。",
-      "topic_tags": [
-        "可持续"
-      ],
-      "category": "环境政策",
-      "matched_keywords": [
-        "可持续发展"
-      ],
-      "keywords": [
-        "可持续发展"
-      ]
-    },
-    {
-      "title": "Russia, India, and Saudi Arabia Are Stalling a Key U.N. Climate Report",
-      "title_en": "Russia, India, and Saudi Arabia Are Stalling a Key U.N. Climate Report",
-      "title_zh": "俄罗斯、印度和沙特阿拉伯正在拖延一份关键的联合国气候报告",
-      "summary_en": "Experts are warning that political attacks on a critical scientific report could undermine the basis for future U.N. climate negotiations.Read more on E360 →",
-      "summary_zh": "专家警告称，针对一份关键科学报告的政治攻击可能会动摇未来联合国气候谈判的基础。在 E360 上阅读更多内容 →",
-      "link": "https://e360.yale.edu/digest/ipcc-report-stalled",
-      "source": "Yale Environment 360",
-      "published": "2026-11-20T09:19:00+00:00",
-      "hotness": 80.9,
-      "score": 80.9,
-      "score_v1": 12.66,
-      "score_v2": 80.9,
-      "score_breakdown": {
-        "algorithm": "v3.0",
-        "dimension_max": {
-          "authority": 18.0,
-          "topic": 18.0,
-          "resonance": 18.0,
-          "information": 16.0
-        },
-        "authority_score": 12.73,
-        "keyword_idf_score": 0.0,
-        "topic_score": 3.0,
-        "topic_burst_score": 0.0,
-        "topic_burst_count": 1,
-        "resonance_score": 13.26,
-        "info_score": 3.0,
-        "base": 31.98,
-        "base_max": 70.0,
-        "time_factor": 0.7155,
-        "density_factor": 1.0,
-        "density_note": "",
-        "repeat_penalty": 1.0,
-        "repeat_excused": true,
-        "event_size": 3,
-        "event_media_count": 3,
-        "event_cluster_source": "ai",
-        "origin_source": "Yale Environment 360",
-        "raw": 22.88,
-        "display_score": 80.9,
-        "display_mode": "absolute"
-      },
-      "score_v1_breakdown": {
-        "base": 5.0,
-        "source_score": 4.5,
-        "keyword_score": 0.0,
-        "time_score": 3.16,
-        "topic_bonus": 0.0,
-        "total": 12.66
-      },
-      "summary": "专家警告称，针对一份关键科学报告的政治攻击可能会动摇未来联合国气候谈判的基础。在 E360 上阅读更多内容 →",
-      "analysis": "该条目涉及【联合国】话题，因来源权威性高且多家媒体同题报道，热度上升。",
-      "topic_tags": [
-        "联合国"
-      ],
-      "category": "气候变化",
       "matched_keywords": [],
       "keywords": []
     },
@@ -777,14 +460,14 @@
       "title_en": "Biodiversity credits hold promise, yet credit-generating protocols require safeguards to realize potential",
       "title_zh": "生物多样性信用机制前景广阔，但要充分发挥其潜力，信用生成方案仍需建立相应的保障措施",
       "summary_en": "Given the existing gap in biodiversity funding, mobilizing private finance will be essential to achieving global biodiversity conservation goals, especially across lower- and middle-income countries with limited capacity and public finance. The emerging voluntary biodiversity market (VBM) holds promise to leverage private finance for biodiversity, but credit-generating protocols must be robust to prevent greenwashing and maximize effectiveness. In this study, the first to move beyond theoretical critiques and general market assessments of the VBM, we extracted details of program structure and crediting issuance from protocols for 13 relatively well-established biodiversity-crediting organizations. With these data, we evaluated protocols’ alignment with both conservation and restoration biology principles and lessons learned from the voluntary carbon market (VCM). We find that action must be taken to improve quantification of biodiversity impacts, especially incorporating patch size and connectivity in crediting and assessing projects on ecologically relevant timelines. Further, safeguards for additionality, leakage, risk, and verification from the VCM must be more robustly integrated in the VBM, and deep engagement and investment in local communities must be improved to ensure durable biodiversity-positive outcomes.",
-      "summary_zh": "鉴于当前生物多样性资金缺口，调动私人资本对于实现全球生物多样性保护目标至关重要，特别是在能力有限且公共财政紧张的中低收入国家。新兴的自愿性生物多样性市场（VBM）有望为生物多样性保护撬动私人资本，但信用生成协议必须足够健全，以防止“洗绿”行为并最大限度地提高成效。 本研究是首项超越对自愿生物多样性市场（VBM）的理论批判和一般性市场评估的研究，我们从13家相对成熟的生物多样性信用组织的工作规程中，提取了项目结构和信用额度发放的详细信息。 基于这些数据，我们评估了这些协议与保护和恢复生物学原则以及自愿碳市场（VCM）经验教训的一致性。我们发现，必须采取行动改进生物多样性影响的量化工作，特别是将斑块大小和连通性纳入信用核算，并在生态相关的时限内评估项目。 此外，必须将自愿碳市场（VCM）中关于额外性、泄漏、风险和核查的保障措施更牢固地融入生物多样性碳信用市场（VBM），并加强与当地社区的深度互动及投资，以确保实现持久的、对生物多样性有利的成果。",
+      "summary_zh": "鉴于当前生物多样性资金缺口，调动私人资本对于实现全球生物多样性保护目标至关重要，特别是在能力有限且公共财政资源匮乏的中低收入国家。新兴的自愿性生物多样性市场（VBM）有望为生物多样性保护撬动私人资本，但信用生成协议必须足够健全，以防止“洗绿”行为并最大限度地提高成效。 本研究是首项超越对自愿生物多样性市场（VBM）的理论批判和一般性市场评估的研究，我们从13家相对成熟的生物多样性信用组织的工作方案中，提取了项目结构和信用额度发放的详细信息。 基于这些数据，我们评估了这些协议与保护和恢复生物学原则以及自愿碳市场（VCM）经验教训的一致性。我们发现，必须采取行动改进生物多样性影响的量化工作，特别是将斑块大小和连通性纳入信用核算，并在生态相关的时限内评估项目。 此外，必须将自愿碳市场（VCM）中关于额外性、泄漏、风险和核查的保障措施更牢固地融入生物多样性碳信用市场（VBM），并加强与当地社区的深度互动及投资，以确保实现持久的、对生物多样性有利的成果。",
       "link": "https://iopscience.iop.org/article/10.1088/1748-9326/aebbdc",
       "source": "Environmental Research Letters",
       "published": "2026-11-20T00:00:00+00:00",
-      "hotness": 78.4,
-      "score": 78.4,
-      "score_v1": 21.14,
-      "score_v2": 78.4,
+      "hotness": 73.9,
+      "score": 73.9,
+      "score_v1": 19.79,
+      "score_v2": 73.9,
       "score_breakdown": {
         "algorithm": "v3.0",
         "dimension_max": {
@@ -794,15 +477,15 @@
           "information": 16.0
         },
         "authority_score": 18.0,
-        "keyword_idf_score": 10.42,
-        "topic_score": 10.42,
+        "keyword_idf_score": 10.3,
+        "topic_score": 10.3,
         "topic_burst_score": 0.0,
         "topic_burst_count": 1,
         "resonance_score": 0.0,
         "info_score": 3.0,
-        "base": 31.42,
+        "base": 31.3,
         "base_max": 70.0,
-        "time_factor": 0.651,
+        "time_factor": 0.5331,
         "density_factor": 1.0,
         "density_note": "",
         "repeat_penalty": 1.0,
@@ -811,22 +494,22 @@
         "event_media_count": 1,
         "event_cluster_source": "ai",
         "origin_source": "Environmental Research Letters",
-        "raw": 20.46,
-        "display_score": 78.4,
+        "raw": 16.68,
+        "display_score": 73.9,
         "display_mode": "absolute"
       },
       "score_v1_breakdown": {
         "base": 5.0,
         "source_score": 6.0,
         "keyword_score": 4.0,
-        "time_score": 2.14,
+        "time_score": 0.79,
         "topic_bonus": 4.0,
-        "total": 21.14
+        "total": 19.79
       },
-      "summary": "鉴于当前生物多样性资金缺口，调动私人资本对于实现全球生物多样性保护目标至关重要，特别是在能力有限且公共财政紧张的中低收入国家。新兴的自愿性生物多样性市场（VBM）有望为生物多样性保护撬动私人资本，但信用生成协议必须足够健全，以防止“洗绿”行为并最大限度地提高成效。 本研究是首项超越对自愿生物多样性市场（VBM）的理论批判和一般性市场评估的研究，我们从13家相对成熟的生物多样性信用组织的工作规程中，提取了项目结构和信用额度发放的详细信息。 基于这些数据，我们评估了这些协议与保护和恢复生物学原则以及自愿碳市场（VCM）经验教训的一致性。我们发现，必须采取行动改进生物多样性影响的量化工作，特别是将斑块大小和连通性纳入信用核算，并在生态相关的时限内评估项目。 此外，必须将自愿碳市场（VCM）中关于额外性、泄漏、风险和核查的保障措施更牢固地融入生物多样性碳信用市场（VBM），并加强与当地社区的深度互动及投资，以确保实现持久的、对生物多样性有利的成果。",
-      "analysis": "该条目涉及【生物多样性】话题，因来源权威性高，热度上升。",
+      "summary": "鉴于当前生物多样性资金缺口，调动私人资本对于实现全球生物多样性保护目标至关重要，特别是在能力有限且公共财政资源匮乏的中低收入国家。新兴的自愿性生物多样性市场（VBM）有望为生物多样性保护撬动私人资本，但信用生成协议必须足够健全，以防止“洗绿”行为并最大限度地提高成效。 本研究是首项超越对自愿生物多样性市场（VBM）的理论批判和一般性市场评估的研究，我们从13家相对成熟的生物多样性信用组织的工作方案中，提取了项目结构和信用额度发放的详细信息。 基于这些数据，我们评估了这些协议与保护和恢复生物学原则以及自愿碳市场（VCM）经验教训的一致性。我们发现，必须采取行动改进生物多样性影响的量化工作，特别是将斑块大小和连通性纳入信用核算，并在生态相关的时限内评估项目。 此外，必须将自愿碳市场（VCM）中关于额外性、泄漏、风险和核查的保障措施更牢固地融入生物多样性碳信用市场（VBM），并加强与当地社区的深度互动及投资，以确保实现持久的、对生物多样性有利的成果。",
+      "analysis": "该条目涉及【生物多样性市场】话题，因来源权威性高，热度上升。",
       "topic_tags": [
-        "生物多样性"
+        "生物多样性市场"
       ],
       "category": "生态环境",
       "matched_keywords": [
@@ -836,6 +519,198 @@
       "keywords": [
         "碳市场",
         "生物多样性"
+      ]
+    },
+    {
+      "title": "Spatially distributed air quality and health impacts of data center electricity demand in the United States",
+      "title_en": "Spatially distributed air quality and health impacts of data center electricity demand in the United States",
+      "title_zh": "美国数据中心电力需求对空气质量及健康影响的空间分布",
+      "summary_en": "The rapid expansion of artificial intelligence is driving substantial growth in electricity demand from data centers in the US, yet how the resulting air quality and public health impacts are distributed remain poorly quantified. To trace the ambient air pollution and associated premature mortality impacts of grid-supplied data center electricity demand in 2023, we couple the United States Electricity Generation Optimization model with the GEOS-Chem chemical transport model. We compare hourly, unit-level electricity dispatch with and without data center demand to quantify changes in power-sector emissions, ambient PM and ozone, and associated premature mortality. Our results show that electricity generation attributable to data center demand is largely supplied by fossil fuel units across multiple regions, resulting in additional annual mean PM concentrations of 0.02–0.08 g m (local peak concentrations up to 0.2 g m ), and regionally varying ozone responses characterized by wintertime depletion and summertime enhancement. These impacts are most pronounced in the Midwest United States, where marginal emissions from coal-fired units and ammonia-rich atmospheric conditions enhance secondary particulate formation. We estimate that this grid-supplied demand is responsible for 513 (95% CI: 469–557) annual premature mortalities from PM and an additional 137 (95% CI: 90–183) annually from maximum daily 8 h average ozone (MDA8- ) in the contiguous US. State-level analysis reveals a systematic geographic mismatch: states hosting the largest data center loads do not necessarily experience the highest attributable mortality rates, while some states with little data center demand bear substantial burdens. This mismatch arises because of dispatch across interconnected electricity regions, regional differences in generation and emissions, and atmospheric chemistry and transport, which together separate the locations of demand from those of exposure and mortality. These findings highlight the importance of considering both air quality impacts and their spatial distribution in data center and macro-energy system planning.",
+      "summary_zh": "人工智能的迅猛发展正推动美国数据中心的电力需求大幅增长，但由此产生的空气质量和公共健康影响的分布情况仍缺乏充分量化。 为了追踪2023年电网供电的数据中心用电需求对环境空气污染及相关过早死亡的影响，我们将“美国发电优化模型”与“GEOS-Chem化学传输模型”相结合。 我们对比了包含和不包含数据中心用电需求情况下的每小时、机组级电力调度情况，以量化电力行业排放、环境中的PM和臭氧浓度变化，以及相关的过早死亡人数。 研究结果表明，多个地区因数据中心需求产生的发电量主要由化石燃料机组提供，导致年平均PM浓度增加0.02–0.08 g m（局部峰值浓度高达0.2 g m），且各地区臭氧响应存在差异，其特征为冬季浓度下降、夏季浓度升高。 这些影响在美国中西部最为显著，该地区燃煤机组的边际排放量以及富含氨的大气条件加剧了二次颗粒物的形成。我们估算，该电网供电需求每年导致513例（95%置信区间： 469–557）例，此外，在美利坚合众国本土48州，每日最高8小时平均臭氧浓度（MDA8-）每年还导致额外137（95%置信区间：90–183）例过早死亡。 州级分析揭示了一种系统性的地理错配：承载最大数据中心负荷的州并不一定面临最高的归因死亡率，而一些数据中心需求较小的州却承受着沉重的负担。 这种不匹配源于互联电力区域间的调度、各区域在发电和排放方面的差异，以及大气化学和传输过程，这些因素共同导致了需求发生地与暴露及死亡发生地之间的分离。这些发现……",
+      "link": "https://iopscience.iop.org/article/10.1088/1748-9326/aebbd4",
+      "source": "Environmental Research Letters",
+      "published": "2026-11-19T00:00:00+00:00",
+      "hotness": 73.1,
+      "score": 73.1,
+      "score_v1": 19.29,
+      "score_v2": 73.1,
+      "score_breakdown": {
+        "algorithm": "v3.0",
+        "dimension_max": {
+          "authority": 18.0,
+          "topic": 18.0,
+          "resonance": 18.0,
+          "information": 16.0
+        },
+        "authority_score": 18.0,
+        "keyword_idf_score": 9.72,
+        "topic_score": 9.72,
+        "topic_burst_score": 0.0,
+        "topic_burst_count": 1,
+        "resonance_score": 0.0,
+        "info_score": 7.0,
+        "base": 34.72,
+        "base_max": 70.0,
+        "time_factor": 0.461,
+        "density_factor": 1.0,
+        "density_note": "",
+        "repeat_penalty": 1.0,
+        "repeat_excused": false,
+        "event_size": 1,
+        "event_media_count": 1,
+        "event_cluster_source": "ai",
+        "origin_source": "Environmental Research Letters",
+        "raw": 16.01,
+        "display_score": 73.1,
+        "display_mode": "absolute"
+      },
+      "score_v1_breakdown": {
+        "base": 5.0,
+        "source_score": 6.0,
+        "keyword_score": 4.0,
+        "time_score": 0.29,
+        "topic_bonus": 4.0,
+        "total": 19.29
+      },
+      "summary": "人工智能的迅猛发展正推动美国数据中心的电力需求大幅增长，但由此产生的空气质量和公共健康影响的分布情况仍缺乏充分量化。 为了追踪2023年电网供电的数据中心用电需求对环境空气污染及相关过早死亡的影响，我们将“美国发电优化模型”与“GEOS-Chem化学传输模型”相结合。 我们对比了包含和不包含数据中心用电需求情况下的每小时、机组级电力调度情况，以量化电力行业排放、环境中的PM和臭氧浓度变化，以及相关的过早死亡人数。 研究结果表明，多个地区因数据中心需求产生的发电量主要由化石燃料机组提供，导致年平均PM浓度增加0.02–0.08 g m（局部峰值浓度高达0.2 g m），且各地区臭氧响应存在差异，其特征为冬季浓度下降、夏季浓度升高。 这些影响在美国中西部最为显著，该地区燃煤机组的边际排放量以及富含氨的大气条件加剧了二次颗粒物的形成。我们估算，该电网供电需求每年导致513例（95%置信区间： 469–557）例，此外，在美利坚合众国本土48州，每日最高8小时平均臭氧浓度（MDA8-）每年还导致额外137（95%置信区间：90–183）例过早死亡。 州级分析揭示了一种系统性的地理错配：承载最大数据中心负荷的州并不一定面临最高的归因死亡率，而一些数据中心需求较小的州却承受着沉重的负担。 这种不匹配源于互联电力区域间的调度、各区域在发电和排放方面的差异，以及大气化学和传输过程，这些因素共同导致了需求发生地与暴露及死亡发生地之间的分离。这些发现……",
+      "analysis": "该条目涉及【数据中心】话题，因来源权威性高，热度上升。",
+      "topic_tags": [
+        "数据中心",
+        "空气质量",
+        "健康影响"
+      ],
+      "category": "科研学术",
+      "matched_keywords": [
+        "大气污染",
+        "臭氧"
+      ],
+      "keywords": [
+        "大气污染",
+        "臭氧"
+      ]
+    },
+    {
+      "title": "O6-type layered oxides for sustainable high-energy battery cathodes",
+      "title_en": "O6-type layered oxides for sustainable high-energy battery cathodes",
+      "title_zh": "用于可持续高能量密度电池正极的O6型层状氧化物",
+      "summary_en": "Nature Sustainability, Published online: 20 November 2026; doi:10.1038/s41893-026-01987-5Cobalt-free cathodes are vital for green energy but suffer from structural instability.",
+      "summary_zh": "《自然·可持续性》，在线发表于：2026年11月20日；doi:10.1038/s41893-026-01987-5 无钴正极对绿色能源至关重要，但存在结构不稳定的问题。",
+      "link": "https://www.nature.com/articles/s41893-026-01987-5",
+      "source": "Nature Sustainability",
+      "published": "2026-11-20T00:00:00+00:00",
+      "hotness": 72.3,
+      "score": 72.3,
+      "score_v1": 11.79,
+      "score_v2": 72.3,
+      "score_breakdown": {
+        "algorithm": "v3.0",
+        "dimension_max": {
+          "authority": 18.0,
+          "topic": 18.0,
+          "resonance": 18.0,
+          "information": 16.0
+        },
+        "authority_score": 18.0,
+        "keyword_idf_score": 0.0,
+        "topic_score": 3.0,
+        "topic_burst_score": 0.0,
+        "topic_burst_count": 1,
+        "resonance_score": 0.0,
+        "info_score": 8.0,
+        "base": 29.0,
+        "base_max": 70.0,
+        "time_factor": 0.5331,
+        "density_factor": 1.0,
+        "density_note": "",
+        "repeat_penalty": 1.0,
+        "repeat_excused": false,
+        "event_size": 1,
+        "event_media_count": 1,
+        "event_cluster_source": "ai",
+        "origin_source": "Nature Sustainability",
+        "raw": 15.46,
+        "display_score": 72.3,
+        "display_mode": "absolute"
+      },
+      "score_v1_breakdown": {
+        "base": 5.0,
+        "source_score": 6.0,
+        "keyword_score": 0.0,
+        "time_score": 0.79,
+        "topic_bonus": 0.0,
+        "total": 11.79
+      },
+      "summary": "《自然·可持续性》， 无钴正极对绿色能源至关重要，但存在结构不稳定的问题。",
+      "analysis": "该条目涉及【可持续】话题，因来源权威性高，热度上升。",
+      "topic_tags": [
+        "可持续"
+      ],
+      "category": "能源与碳中和",
+      "matched_keywords": [],
+      "keywords": []
+    },
+    {
+      "title": "Environmentally relevant antibiotics reduce algal production of the climate-active gas dimethyl sulfide in aquatic ecosystems",
+      "title_en": "Environmentally relevant antibiotics reduce algal production of the climate-active gas dimethyl sulfide in aquatic ecosystems",
+      "title_zh": "对环境具有重要影响的抗生素可减少水生生态系统中藻类产生的气候活性气体二甲基硫醚",
+      "summary_en": "",
+      "summary_zh": "",
+      "link": "https://www.sciencedirect.com/science/article/pii/S0043135426020208?dgcid=rss_sd_all",
+      "source": "Water Research",
+      "published": "2026-11-20T12:48:33.451260+00:00",
+      "hotness": 72.0,
+      "score": 72.0,
+      "score_v1": 18.35,
+      "score_v2": 72.0,
+      "score_breakdown": {
+        "algorithm": "v3.0",
+        "dimension_max": {
+          "authority": 18.0,
+          "topic": 18.0,
+          "resonance": 18.0,
+          "information": 16.0
+        },
+        "authority_score": 18.0,
+        "keyword_idf_score": 5.52,
+        "topic_score": 7.88,
+        "topic_burst_score": 2.36,
+        "topic_burst_count": 2,
+        "resonance_score": 0.0,
+        "info_score": 0.0,
+        "base": 25.88,
+        "base_max": 70.0,
+        "time_factor": 0.5891,
+        "density_factor": 1.0,
+        "density_note": "",
+        "repeat_penalty": 1.0,
+        "repeat_excused": false,
+        "event_size": 1,
+        "event_media_count": 1,
+        "event_cluster_source": "ai",
+        "origin_source": "Water Research",
+        "raw": 15.24,
+        "display_score": 72.0,
+        "display_mode": "absolute"
+      },
+      "score_v1_breakdown": {
+        "base": 5.0,
+        "source_score": 6.0,
+        "keyword_score": 2.0,
+        "time_score": 1.35,
+        "topic_bonus": 4.0,
+        "total": 18.35
+      },
+      "summary": "环境相关抗生素降低水生生态系统中藻类产生的气候活性气体二甲基硫化物排放，影响气候调节过程。",
+      "analysis": "该条目涉及【生态系统】话题，因来源权威性高，热度上升。",
+      "topic_tags": [
+        "生态系统"
+      ],
+      "category": "生态环境",
+      "matched_keywords": [
+        "生态系统"
+      ],
+      "keywords": [
+        "生态系统"
       ]
     },
     {
@@ -847,10 +722,10 @@
       "link": "https://www.nature.com/articles/s41893-026-01978-6",
       "source": "Nature Sustainability",
       "published": "2026-11-20T00:00:00+00:00",
-      "hotness": 77.8,
-      "score": 77.8,
-      "score_v1": 23.14,
-      "score_v2": 77.8,
+      "hotness": 71.7,
+      "score": 71.7,
+      "score_v1": 17.79,
+      "score_v2": 71.7,
       "score_breakdown": {
         "algorithm": "v3.0",
         "dimension_max": {
@@ -860,15 +735,15 @@
           "information": 16.0
         },
         "authority_score": 18.0,
-        "keyword_idf_score": 4.88,
-        "topic_score": 9.55,
-        "topic_burst_score": 4.66,
-        "topic_burst_count": 4,
+        "keyword_idf_score": 4.86,
+        "topic_score": 7.23,
+        "topic_burst_score": 2.36,
+        "topic_burst_count": 2,
         "resonance_score": 0.0,
         "info_score": 3.0,
-        "base": 30.55,
+        "base": 28.23,
         "base_max": 70.0,
-        "time_factor": 0.651,
+        "time_factor": 0.5331,
         "density_factor": 1.0,
         "density_note": "",
         "repeat_penalty": 1.0,
@@ -877,17 +752,17 @@
         "event_media_count": 1,
         "event_cluster_source": "ai",
         "origin_source": "Nature Sustainability",
-        "raw": 19.89,
-        "display_score": 77.8,
+        "raw": 15.05,
+        "display_score": 71.7,
         "display_mode": "absolute"
       },
       "score_v1_breakdown": {
         "base": 5.0,
         "source_score": 6.0,
         "keyword_score": 2.0,
-        "time_score": 2.14,
-        "topic_bonus": 8.0,
-        "total": 23.14
+        "time_score": 0.79,
+        "topic_bonus": 4.0,
+        "total": 17.79
       },
       "summary": "《自然·可持续性》（Nature Sustainability）， 作物中的真菌病原体可能造成巨大的经济损失，并对粮食安全构成严重威胁。 为防治小麦镰刀菌穗枯病——一种对小麦作物危害极大的病害——研究人员开发了一种利用植物来源光催化碳点的高效抗真菌策略。",
       "analysis": "该条目涉及【光催化】话题，因来源权威性高，热度上升。",
@@ -903,344 +778,18 @@
       ]
     },
     {
-      "title": "Spatially distributed air quality and health impacts of data center electricity demand in the United States",
-      "title_en": "Spatially distributed air quality and health impacts of data center electricity demand in the United States",
-      "title_zh": "美国数据中心电力需求对空气质量及健康影响的空间分布",
-      "summary_en": "The rapid expansion of artificial intelligence is driving substantial growth in electricity demand from data centers in the US, yet how the resulting air quality and public health impacts are distributed remain poorly quantified. To trace the ambient air pollution and associated premature mortality impacts of grid-supplied data center electricity demand in 2023, we couple the United States Electricity Generation Optimization model with the GEOS-Chem chemical transport model. We compare hourly, unit-level electricity dispatch with and without data center demand to quantify changes in power-sector emissions, ambient PM and ozone, and associated premature mortality. Our results show that electricity generation attributable to data center demand is largely supplied by fossil fuel units across multiple regions, resulting in additional annual mean PM concentrations of 0.02–0.08 g m (local peak concentrations up to 0.2 g m ), and regionally varying ozone responses characterized by wintertime depletion and summertime enhancement. These impacts are most pronounced in the Midwest United States, where marginal emissions from coal-fired units and ammonia-rich atmospheric conditions enhance secondary particulate formation. We estimate that this grid-supplied demand is responsible for 513 (95% CI: 469–557) annual premature mortalities from PM and an additional 137 (95% CI: 90–183) annually from maximum daily 8 h average ozone (MDA8- ) in the contiguous US. State-level analysis reveals a systematic geographic mismatch: states hosting the largest data center loads do not necessarily experience the highest attributable mortality rates, while some states with little data center demand bear substantial burdens. This mismatch arises because of dispatch across interconnected electricity regions, regional differences in generation and emissions, and atmospheric chemistry and transport, which together separate the locations of demand from those of exposure and mortality. These findings highlight the importance of considering both air quality impacts and their spatial distribution in data center and macro-energy system planning.",
-      "summary_zh": "人工智能的迅猛发展正推动美国数据中心的电力需求大幅增长，但由此产生的空气质量和公共健康影响的分布情况仍缺乏充分量化。 为了追踪2023年由电网供电的数据中心电力需求所导致的环境空气污染及其相关的过早死亡影响，我们将“美国发电优化模型”与“GEOS-Chem化学传输模型”相结合。 我们对比了包含和不包含数据中心用电需求的每小时、机组级电力调度情况，以量化电力行业排放、环境中的PM和臭氧浓度，以及相关过早死亡人数的变化。 研究结果表明，多个地区因数据中心需求产生的发电量主要由化石燃料机组提供，导致年平均PM浓度增加0.02–0.08 g m（局部峰值浓度高达0.2 g m），且各地区臭氧响应存在差异，其特征为冬季浓度下降、夏季浓度上升。 这些影响在美国中西部最为显著，该地区燃煤机组的边际排放量以及富含氨的大气条件加剧了二次颗粒物的形成。我们估算，该电网供电需求每年导致513例（95%置信区间： 469–557）例，此外，在美利坚合众国本土48州，每日最高8小时平均臭氧浓度（MDA8-）每年还导致额外137（95%置信区间：90–183）例过早死亡。 州级分析揭示了一种系统性的地理错配：承载最大数据中心负荷的州并不一定面临最高的归因死亡率，而一些数据中心需求较小的州却承受着沉重的负担。 这种不匹配源于互联电力区域间的调度、各区域在发电和排放方面的差异，以及大气化学和传输过程，这些因素共同导致需求发生地与暴露及死亡发生地分离。这些发现……",
-      "link": "https://iopscience.iop.org/article/10.1088/1748-9326/aebbd4",
-      "source": "Environmental Research Letters",
-      "published": "2026-11-19T00:00:00+00:00",
-      "hotness": 77.7,
-      "score": 77.7,
-      "score_v1": 21.79,
-      "score_v2": 77.7,
-      "score_breakdown": {
-        "algorithm": "v3.0",
-        "dimension_max": {
-          "authority": 18.0,
-          "topic": 18.0,
-          "resonance": 18.0,
-          "information": 16.0
-        },
-        "authority_score": 18.0,
-        "keyword_idf_score": 9.78,
-        "topic_score": 12.14,
-        "topic_burst_score": 2.36,
-        "topic_burst_count": 2,
-        "resonance_score": 0.0,
-        "info_score": 7.0,
-        "base": 37.14,
-        "base_max": 70.0,
-        "time_factor": 0.5326,
-        "density_factor": 1.0,
-        "density_note": "",
-        "repeat_penalty": 1.0,
-        "repeat_excused": false,
-        "event_size": 1,
-        "event_media_count": 1,
-        "event_cluster_source": "ai",
-        "origin_source": "Environmental Research Letters",
-        "raw": 19.78,
-        "display_score": 77.7,
-        "display_mode": "absolute"
-      },
-      "score_v1_breakdown": {
-        "base": 5.0,
-        "source_score": 6.0,
-        "keyword_score": 4.0,
-        "time_score": 0.79,
-        "topic_bonus": 6.0,
-        "total": 21.79
-      },
-      "summary": "人工智能的迅猛发展正推动美国数据中心的电力需求大幅增长，但由此产生的空气质量和公共健康影响的分布情况仍缺乏充分量化。 为了追踪2023年由电网供电的数据中心电力需求所导致的环境空气污染及其相关的过早死亡影响，我们将“美国发电优化模型”与“GEOS-Chem化学传输模型”相结合。 我们对比了包含和不包含数据中心用电需求的每小时、机组级电力调度情况，以量化电力行业排放、环境中的PM和臭氧浓度，以及相关过早死亡人数的变化。 研究结果表明，多个地区因数据中心需求产生的发电量主要由化石燃料机组提供，导致年平均PM浓度增加0.02–0.08 g m（局部峰值浓度高达0.2 g m），且各地区臭氧响应存在差异，其特征为冬季浓度下降、夏季浓度上升。 这些影响在美国中西部最为显著，该地区燃煤机组的边际排放量以及富含氨的大气条件加剧了二次颗粒物的形成。我们估算，该电网供电需求每年导致513例（95%置信区间： 469–557）例，此外，在美利坚合众国本土48州，每日最高8小时平均臭氧浓度（MDA8-）每年还导致额外137（95%置信区间：90–183）例过早死亡。 州级分析揭示了一种系统性的地理错配：承载最大数据中心负荷的州并不一定面临最高的归因死亡率，而一些数据中心需求较小的州却承受着沉重的负担。 这种不匹配源于互联电力区域间的调度、各区域在发电和排放方面的差异，以及大气化学和传输过程，这些因素共同导致需求发生地与暴露及死亡发生地分离。这些发现……",
-      "analysis": "该条目涉及【污染治理】话题，因来源权威性高且话题稀缺度高，热度上升。",
-      "topic_tags": [
-        "污染治理"
-      ],
-      "category": "污染治理",
-      "matched_keywords": [
-        "大气污染",
-        "臭氧"
-      ],
-      "keywords": [
-        "大气污染",
-        "臭氧"
-      ]
-    },
-    {
-      "title": "Ecosystem modeling links water quality, carrying capacity, nutrient removal, and economic returns in integrated shrimp pond aquaculture",
-      "title_en": "Ecosystem modeling links water quality, carrying capacity, nutrient removal, and economic returns in integrated shrimp pond aquaculture",
-      "title_zh": "生态系统建模将水质、承载力、营养盐去除以及综合虾塘养殖的经济收益联系起来",
+      "title": "Concentration-Dependent chlorine tolerance despite equivalent CT exposures in multidrug-resistant <em>Stenotrophomonas maltophilia</em> isolate: Associated with putative ribosomal remodeling",
+      "title_en": "Concentration-Dependent chlorine tolerance despite equivalent CT exposures in multidrug-resistant <em>Stenotrophomonas maltophilia</em> isolate: Associated with putative ribosomal remodeling",
+      "title_zh": "尽管氯化物浓度（CT）暴露水平相当，一株多重耐药<em>Stenotrophomonas maltophilia</em>分离株仍表现出浓度依赖性氯耐受性：这与假定的核糖体重塑有关",
       "summary_en": "",
       "summary_zh": "",
-      "link": "https://www.sciencedirect.com/science/article/pii/S0043135426019652?dgcid=rss_sd_all",
+      "link": "https://www.sciencedirect.com/science/article/pii/S0043135426020348?dgcid=rss_sd_all",
       "source": "Water Research",
-      "published": "2026-11-19T12:56:10.505157+00:00",
-      "hotness": 77.6,
-      "score": 77.6,
-      "score_v1": 22.35,
-      "score_v2": 77.6,
-      "score_breakdown": {
-        "algorithm": "v3.0",
-        "dimension_max": {
-          "authority": 18.0,
-          "topic": 18.0,
-          "resonance": 18.0,
-          "information": 16.0
-        },
-        "authority_score": 18.0,
-        "keyword_idf_score": 9.15,
-        "topic_score": 11.52,
-        "topic_burst_score": 2.36,
-        "topic_burst_count": 2,
-        "resonance_score": 0.0,
-        "info_score": 4.0,
-        "base": 33.52,
-        "base_max": 70.0,
-        "time_factor": 0.5891,
-        "density_factor": 1.0,
-        "density_note": "",
-        "repeat_penalty": 1.0,
-        "repeat_excused": false,
-        "event_size": 1,
-        "event_media_count": 1,
-        "event_cluster_source": "ai",
-        "origin_source": "Water Research",
-        "raw": 19.74,
-        "display_score": 77.6,
-        "display_mode": "absolute"
-      },
-      "score_v1_breakdown": {
-        "base": 5.0,
-        "source_score": 6.0,
-        "keyword_score": 4.0,
-        "time_score": 1.35,
-        "topic_bonus": 6.0,
-        "total": 22.35
-      },
-      "summary": "基于生态模型研究集成虾塘养殖，阐释水质、承载力、营养去除与经济收益之间的耦合关系，为可持续水产养殖提供科学决策依据。",
-      "analysis": "该条目涉及【生态系统】话题，因来源权威性高，热度上升。",
-      "topic_tags": [
-        "生态系统"
-      ],
-      "category": "生态环境",
-      "matched_keywords": [
-        "水污染",
-        "生态系统"
-      ],
-      "keywords": [
-        "水污染",
-        "生态系统"
-      ]
-    },
-    {
-      "title": "Distinct DNA viral ecological responses associated with polystyrene and polyvinyl chloride microplastics in anaerobic digestion of waste activated sludge",
-      "title_en": "Distinct DNA viral ecological responses associated with polystyrene and polyvinyl chloride microplastics in anaerobic digestion of waste activated sludge",
-      "title_zh": "在废活性污泥厌氧消化过程中，与聚苯乙烯和聚氯乙烯微塑料相关的DNA病毒生态响应存在显著差异",
-      "summary_en": "",
-      "summary_zh": "",
-      "link": "https://www.sciencedirect.com/science/article/pii/S0043135426020154?dgcid=rss_sd_all",
-      "source": "Water Research",
-      "published": "2026-11-19T12:56:10.505157+00:00",
-      "hotness": 75.1,
-      "score": 75.1,
-      "score_v1": 22.35,
-      "score_v2": 75.1,
-      "score_breakdown": {
-        "algorithm": "v3.0",
-        "dimension_max": {
-          "authority": 18.0,
-          "topic": 18.0,
-          "resonance": 18.0,
-          "information": 16.0
-        },
-        "authority_score": 18.0,
-        "keyword_idf_score": 9.48,
-        "topic_score": 11.84,
-        "topic_burst_score": 2.36,
-        "topic_burst_count": 2,
-        "resonance_score": 0.0,
-        "info_score": 0.0,
-        "base": 29.84,
-        "base_max": 70.0,
-        "time_factor": 0.5891,
-        "density_factor": 1.0,
-        "density_note": "",
-        "repeat_penalty": 1.0,
-        "repeat_excused": false,
-        "event_size": 1,
-        "event_media_count": 1,
-        "event_cluster_source": "ai",
-        "origin_source": "Water Research",
-        "raw": 17.58,
-        "display_score": 75.1,
-        "display_mode": "absolute"
-      },
-      "score_v1_breakdown": {
-        "base": 5.0,
-        "source_score": 6.0,
-        "keyword_score": 4.0,
-        "time_score": 1.35,
-        "topic_bonus": 6.0,
-        "total": 22.35
-      },
-      "summary": "研究揭示聚苯乙烯和聚氯乙烯微塑料在废动物污泥厌氧消化过程中的DNA病毒生态响应特征，阐明微塑料对厌氧消化生态系统的影响机制。",
-      "analysis": "该条目涉及【微塑料】话题，因来源权威性高，热度上升。",
-      "topic_tags": [
-        "微塑料"
-      ],
-      "category": "污染治理",
-      "matched_keywords": [
-        "污泥",
-        "微塑料"
-      ],
-      "keywords": [
-        "污泥",
-        "微塑料"
-      ]
-    },
-    {
-      "title": "Effects of high elevation wildfires on peak snow water equivalent in California’s Sierra Nevada headwater regions",
-      "title_en": "Effects of high elevation wildfires on peak snow water equivalent in California’s Sierra Nevada headwater regions",
-      "title_zh": "高海拔森林火灾对加利福尼亚州内华达山脉源头地区峰值积雪水当量的影响",
-      "summary_en": "Increases in high‐elevation wildfires in California’s Sierra Nevada region (SNR) have raised concerns about potential impacts on snowpack, a major source for the state’s water supply. Quantifying fire-induced changes in snow storage remains challenging in mountainous regions with complex topography and large climatic and ecological gradients, due to limited field observations and process models. This study leveraged high-resolution airborne snow observatory lidar surveys (2023–2024) to assess the impacts of 2020–2021 wildfires on peak snow water equivalent (SWE) across six SNR watersheds. We assembled >32000 matched burned-unburned 50 m pixel pairs with similar pre-fire environmental conditions and assessed how changes in peak SWE (ΔpeakSWE: burned—unburned) varied with burn severity, pre-fire forest structure, meteorological variables, and terrain above the snowline. Across matched pairs, post-fire peak SWE differences varied in both magnitude and direction, depending on yearly weather (e.g. wet vs. normal year) and local environmental setting. The largest positive burned–unburned difference occurred in dense forests with ⩾75% canopy loss at intermediate elevations in 2023, where burned areas had 13.0 cm higher peak SWE on average (12% relative to the matched unburned mean of 105.1 cm); this difference was substantially smaller in 2024. The spatially cross-validated extreme gradient boosting (XGBoost) machine learning model showed terrain provided the strongest predictive information, followed by vegetation structure. SHapley Additive exPlanations and a shallow decision tree further showed that sites with lower heat exposure, locally lower terrain positions, and intermediate elevations generally were associated with higher peak SWE in burned areas compared to matched unburned areas, whereas taller pre-fire canopies and exposed, high-energy terrain were associated with lower peak SWE. These results demonstrate wildfire effects on peak SWE are strongly context dependent and provide an assessment framework for anticipating where high elevation wildfires may increase or reduce mountain snow storage.",
-      "summary_zh": "加利福尼亚州内华达山脉地区（SNR）高海拔野火的增多，引发了人们对积雪可能受到影响的担忧——积雪是该州供水的主要来源。 在地形复杂、气候和生态梯度较大的山区，由于实地观测和过程模型的局限性，量化火灾引发的积雪储量变化仍具挑战性。 本研究利用高分辨率机载雪观测站激光雷达测绘数据（2023–2024年），评估了2020–2021年野火对内华达山脉地区六个流域峰值积雪水当量（SWE）的影响。 我们汇集了超过32000组环境条件相似的“烧毁区-未烧毁区”50米像素配对数据，并评估了峰值雪水当量变化（ΔpeakSWE：烧毁区—未烧毁区）如何随火灾严重程度、火灾前森林结构、气象变量以及雪线以上地形的变化而变化。 在配对数据中，火灾后峰值SWE的差异在幅度和方向上均存在变化，这取决于年度天气状况（例如多雨年与常年）以及当地的环境条件。 2023年，在中等海拔地区，树冠损失率≥75%的密林中出现了最大的正向“烧过—未烧过”差异，该处烧过区域的峰值雪水当量平均高出13.0厘米（相对于匹配未烧过区域105.1厘米的平均值高出12%）； 而在2024年，这一差异则显著缩小。经过空间交叉验证的极端梯度提升（XGBoost）机器学习模型表明，地形提供了最强的预测信息，其次是植被结构。 夏普利加性解释（SHapley Additive exPlanations）和浅层决策树进一步表明，与匹配的未烧区域相比，热暴露较低、局部地形位置较低且海拔处于中等的地点，其烧毁区域的峰值雪水当量通常较高；而火灾前树冠较高以及暴露、高能的地形则与较低的峰值雪水当量相关。 这些结果表明，野火对峰值土壤水当量（SWE）的影响在很大程度上取决于具体情境。",
-      "link": "https://iopscience.iop.org/article/10.1088/1748-9326/aec1f2",
-      "source": "Environmental Research Letters",
-      "published": "2026-11-20T00:00:00+00:00",
-      "hotness": 74.8,
-      "score": 74.8,
-      "score_v1": 17.14,
-      "score_v2": 74.8,
-      "score_breakdown": {
-        "algorithm": "v3.0",
-        "dimension_max": {
-          "authority": 18.0,
-          "topic": 18.0,
-          "resonance": 18.0,
-          "information": 16.0
-        },
-        "authority_score": 18.0,
-        "keyword_idf_score": 5.66,
-        "topic_score": 5.66,
-        "topic_burst_score": 0.0,
-        "topic_burst_count": 1,
-        "resonance_score": 0.0,
-        "info_score": 3.0,
-        "base": 26.66,
-        "base_max": 70.0,
-        "time_factor": 0.651,
-        "density_factor": 1.0,
-        "density_note": "",
-        "repeat_penalty": 1.0,
-        "repeat_excused": false,
-        "event_size": 1,
-        "event_media_count": 1,
-        "event_cluster_source": "ai",
-        "origin_source": "Environmental Research Letters",
-        "raw": 17.36,
-        "display_score": 74.8,
-        "display_mode": "absolute"
-      },
-      "score_v1_breakdown": {
-        "base": 5.0,
-        "source_score": 6.0,
-        "keyword_score": 2.0,
-        "time_score": 2.14,
-        "topic_bonus": 2.0,
-        "total": 17.14
-      },
-      "summary": "加利福尼亚州内华达山脉地区（SNR）高海拔野火的增多，引发了人们对积雪可能受到影响的担忧——积雪是该州供水的主要来源。 在地形复杂、气候和生态梯度较大的山区，由于实地观测和过程模型的局限性，量化火灾引发的积雪储量变化仍具挑战性。 本研究利用高分辨率机载雪观测站激光雷达测绘数据（2023–2024年），评估了2020–2021年野火对内华达山脉地区六个流域峰值积雪水当量（SWE）的影响。 我们汇集了超过32000组环境条件相似的“烧毁区-未烧毁区”50米像素配对数据，并评估了峰值雪水当量变化（ΔpeakSWE：烧毁区—未烧毁区）如何随火灾严重程度、火灾前森林结构、气象变量以及雪线以上地形的变化而变化。 在配对数据中，火灾后峰值SWE的差异在幅度和方向上均存在变化，这取决于年度天气状况（例如多雨年与常年）以及当地的环境条件。 2023年，在中等海拔地区，树冠损失率≥75%的密林中出现了最大的正向“烧过—未烧过”差异，该处烧过区域的峰值雪水当量平均高出13.0厘米（相对于匹配未烧过区域105.1厘米的平均值高出12%）； 而在2024年，这一差异则显著缩小。经过空间交叉验证的极端梯度提升（XGBoost）机器学习模型表明，地形提供了最强的预测信息，其次是植被结构。 夏普利加性解释（SHapley Additive exPlanations）和浅层决策树进一步表明，与匹配的未烧区域相比，热暴露较低、局部地形位置较低且海拔处于中等的地点，其烧毁区域的峰值雪水当量通常较高；而火灾前树冠较高以及暴露、高能的地形则与较低的峰值雪水当量相关。 这些结果表明，野火对峰值土壤水当量（SWE）的影响在很大程度上取决于具体情境。",
-      "analysis": "该条目涉及【气候变化】话题，因来源权威性高，热度上升。",
-      "topic_tags": [
-        "气候变化"
-      ],
-      "category": "气候变化",
-      "matched_keywords": [
-        "流域"
-      ],
-      "keywords": [
-        "流域"
-      ]
-    },
-    {
-      "title": "More climate money for Africa? Europe says use what's already pledged",
-      "title_en": "More climate money for Africa? Europe says use what's already pledged",
-      "title_zh": "向非洲提供更多气候资金？欧洲表示应先用好已承诺的资金",
-      "summary_en": "African countries at the UN climate summit in Turkey are demanding more funding from developed nations to help them cope with climate change.",
-      "summary_zh": "在土耳其举行的联合国气候峰会上，非洲各国要求发达国家提供更多资金，以帮助它们应对气候变化。",
-      "link": "https://www.bbc.co.uk/news/articles/c6074k5jjrzko?at_medium=RSS&at_campaign=rss",
-      "source": "BBC 科学与环境",
-      "published": "2026-11-20T05:03:43+00:00",
-      "hotness": 74.2,
-      "score": 74.2,
-      "score_v1": 26.15,
-      "score_v2": 74.2,
-      "score_breakdown": {
-        "algorithm": "v3.0",
-        "dimension_max": {
-          "authority": 18.0,
-          "topic": 18.0,
-          "resonance": 18.0,
-          "information": 16.0
-        },
-        "authority_score": 12.73,
-        "keyword_idf_score": 3.47,
-        "topic_score": 8.97,
-        "topic_burst_score": 5.51,
-        "topic_burst_count": 6,
-        "resonance_score": 0.0,
-        "info_score": 3.0,
-        "base": 24.7,
-        "base_max": 70.0,
-        "time_factor": 0.6845,
-        "density_factor": 1.0,
-        "density_note": "",
-        "repeat_penalty": 1.0,
-        "repeat_excused": false,
-        "event_size": 1,
-        "event_media_count": 1,
-        "event_cluster_source": "ai",
-        "origin_source": "BBC 科学与环境",
-        "raw": 16.91,
-        "display_score": 74.2,
-        "display_mode": "absolute"
-      },
-      "score_v1_breakdown": {
-        "base": 5.0,
-        "source_score": 4.5,
-        "keyword_score": 2.0,
-        "time_score": 2.65,
-        "topic_bonus": 12.0,
-        "total": 26.15
-      },
-      "summary": "在土耳其举行的联合国气候峰会上，非洲各国要求发达国家提供更多资金，以帮助它们应对气候变化。",
-      "analysis": "该条目涉及【气候变化】话题，因来源权威性高，热度上升。",
-      "topic_tags": [
-        "气候变化"
-      ],
-      "category": "气候变化",
-      "matched_keywords": [
-        "气候变化"
-      ],
-      "keywords": [
-        "气候变化"
-      ]
-    },
-    {
-      "title": "Fraud helps little fire ants to survive and conquer",
-      "title_en": "Fraud helps little fire ants to survive and conquer",
-      "title_zh": "欺骗行为帮助小火蚁生存并征服环境",
-      "summary_en": "Nature, Published online: 20 November 2026; doi:10.1038/d41586-026-03776-8Invasive ants in China overcome larger rivals with a crafty stratagem and vigorous attack.",
-      "summary_zh": "《自然》杂志，在线发表于：2026年11月20日；doi:10.1038/d41586-026-03776-8 中国的入侵蚂蚁凭借狡黠的策略和猛烈的攻击，战胜了体型更大的对手。",
-      "link": "https://www.nature.com/articles/d41586-026-03776-8",
-      "source": "Nature",
-      "published": "2026-11-20T00:00:00+00:00",
-      "hotness": 73.4,
-      "score": 73.4,
-      "score_v1": 13.14,
-      "score_v2": 73.4,
+      "published": "2026-11-20T12:48:33.451260+00:00",
+      "hotness": 71.3,
+      "score": 71.3,
+      "score_v1": 12.35,
+      "score_v2": 71.3,
       "score_breakdown": {
         "algorithm": "v3.0",
         "dimension_max": {
@@ -1251,14 +800,14 @@
         },
         "authority_score": 18.0,
         "keyword_idf_score": 0.0,
-        "topic_score": 0.0,
+        "topic_score": 3.0,
         "topic_burst_score": 0.0,
         "topic_burst_count": 1,
         "resonance_score": 0.0,
-        "info_score": 7.0,
+        "info_score": 4.0,
         "base": 25.0,
         "base_max": 70.0,
-        "time_factor": 0.651,
+        "time_factor": 0.5891,
         "density_factor": 1.0,
         "density_note": "",
         "repeat_penalty": 1.0,
@@ -1266,27 +815,339 @@
         "event_size": 1,
         "event_media_count": 1,
         "event_cluster_source": "ai",
-        "origin_source": "Nature",
-        "raw": 16.28,
-        "display_score": 73.4,
+        "origin_source": "Water Research",
+        "raw": 14.73,
+        "display_score": 71.3,
         "display_mode": "absolute"
       },
       "score_v1_breakdown": {
         "base": 5.0,
         "source_score": 6.0,
         "keyword_score": 0.0,
-        "time_score": 2.14,
+        "time_score": 1.35,
         "topic_bonus": 0.0,
-        "total": 13.14
+        "total": 12.35
       },
-      "summary": "《自然》杂志， 中国的入侵蚂蚁凭借狡黠的策略和猛烈的攻击，战胜了体型更大的对手。",
-      "analysis": "该条目涉及【环境资讯】话题，因来源权威性高，热度上升。",
+      "summary": "尽管多重耐药<em>Ste</em>分离株的CT暴露量相当，但仍表现出浓度依赖性的氯耐受性：这与假定…",
+      "analysis": "该条目涉及【科研学术】话题，因来源权威性高，热度上升。",
       "topic_tags": [
-        "环境资讯"
+        "科研学术"
       ],
-      "category": "其他",
+      "category": "科研学术",
       "matched_keywords": [],
       "keywords": []
+    },
+    {
+      "title": "Acceleration of nitrogen removal from oligotrophic reservoir water: Mechanisms underlying the aerobic denitrification driven by photogenerated electrons",
+      "title_en": "Acceleration of nitrogen removal from oligotrophic reservoir water: Mechanisms underlying the aerobic denitrification driven by photogenerated electrons",
+      "title_zh": "加速贫营养水库水中的脱氮过程：光生电子驱动的需氧脱氮机制",
+      "summary_en": "",
+      "summary_zh": "",
+      "link": "https://www.sciencedirect.com/science/article/pii/S004313542602049X?dgcid=rss_sd_all",
+      "source": "Water Research",
+      "published": "2026-11-20T12:48:33.451260+00:00",
+      "hotness": 71.3,
+      "score": 71.3,
+      "score_v1": 12.35,
+      "score_v2": 71.3,
+      "score_breakdown": {
+        "algorithm": "v3.0",
+        "dimension_max": {
+          "authority": 18.0,
+          "topic": 18.0,
+          "resonance": 18.0,
+          "information": 16.0
+        },
+        "authority_score": 18.0,
+        "keyword_idf_score": 0.0,
+        "topic_score": 3.0,
+        "topic_burst_score": 0.0,
+        "topic_burst_count": 1,
+        "resonance_score": 0.0,
+        "info_score": 4.0,
+        "base": 25.0,
+        "base_max": 70.0,
+        "time_factor": 0.5891,
+        "density_factor": 1.0,
+        "density_note": "",
+        "repeat_penalty": 1.0,
+        "repeat_excused": false,
+        "event_size": 1,
+        "event_media_count": 1,
+        "event_cluster_source": "ai",
+        "origin_source": "Water Research",
+        "raw": 14.73,
+        "display_score": 71.3,
+        "display_mode": "absolute"
+      },
+      "score_v1_breakdown": {
+        "base": 5.0,
+        "source_score": 6.0,
+        "keyword_score": 0.0,
+        "time_score": 1.35,
+        "topic_bonus": 0.0,
+        "total": 12.35
+      },
+      "summary": "光生电子驱动的好氧反硝化过程加速了贫营养水体氮去除，为水体净化提供新机制。",
+      "analysis": "该条目涉及【水处理】话题，因来源权威性高，热度上升。",
+      "topic_tags": [
+        "水处理"
+      ],
+      "category": "水处理",
+      "matched_keywords": [],
+      "keywords": []
+    },
+    {
+      "title": "Effects of high elevation wildfires on peak snow water equivalent in California’s Sierra Nevada headwater regions",
+      "title_en": "Effects of high elevation wildfires on peak snow water equivalent in California’s Sierra Nevada headwater regions",
+      "title_zh": "高海拔森林火灾对加利福尼亚州内华达山脉源头地区峰值积雪水当量的影响",
+      "summary_en": "Increases in high‐elevation wildfires in California’s Sierra Nevada region (SNR) have raised concerns about potential impacts on snowpack, a major source for the state’s water supply. Quantifying fire-induced changes in snow storage remains challenging in mountainous regions with complex topography and large climatic and ecological gradients, due to limited field observations and process models. This study leveraged high-resolution airborne snow observatory lidar surveys (2023–2024) to assess the impacts of 2020–2021 wildfires on peak snow water equivalent (SWE) across six SNR watersheds. We assembled >32000 matched burned-unburned 50 m pixel pairs with similar pre-fire environmental conditions and assessed how changes in peak SWE (ΔpeakSWE: burned—unburned) varied with burn severity, pre-fire forest structure, meteorological variables, and terrain above the snowline. Across matched pairs, post-fire peak SWE differences varied in both magnitude and direction, depending on yearly weather (e.g. wet vs. normal year) and local environmental setting. The largest positive burned–unburned difference occurred in dense forests with ⩾75% canopy loss at intermediate elevations in 2023, where burned areas had 13.0 cm higher peak SWE on average (12% relative to the matched unburned mean of 105.1 cm); this difference was substantially smaller in 2024. The spatially cross-validated extreme gradient boosting (XGBoost) machine learning model showed terrain provided the strongest predictive information, followed by vegetation structure. SHapley Additive exPlanations and a shallow decision tree further showed that sites with lower heat exposure, locally lower terrain positions, and intermediate elevations generally were associated with higher peak SWE in burned areas compared to matched unburned areas, whereas taller pre-fire canopies and exposed, high-energy terrain were associated with lower peak SWE. These results demonstrate wildfire effects on peak SWE are strongly context dependent and provide an assessment framework for anticipating where high elevation wildfires may increase or reduce mountain snow storage.",
+      "summary_zh": "加利福尼亚州内华达山脉地区（SNR）高海拔野火的增多，引发了人们对积雪可能受到影响的担忧——积雪是该州供水的主要来源。 在地形复杂、气候和生态梯度较大的山区，由于实地观测和过程模型的局限性，量化火灾引起的积雪储量变化仍具挑战性。 本研究利用高分辨率机载雪观测站激光雷达测绘数据（2023–2024年），评估了2020–2021年野火对内华达山脉地区六个流域峰值积雪水当量（SWE）的影响。 我们汇集了超过32000组环境条件相似的“过火区—未过火区”50米像素配对数据，并评估了峰值雪水当量变化（ΔpeakSWE：过火区—未过火区）如何随过火强度、火灾前森林结构、气象变量以及雪线以上地形的变化而变化。 在配对数据中，火灾后峰值SWE的差异在幅度和方向上均存在变化，这取决于当年的天气状况（例如多雨年与常年）以及当地的环境条件。 2023年，在中等海拔地区，冠层损失率≥75%的密林中出现了最大的正向“烧过—未烧过”差异，该区域烧过地的峰值雪水当量平均高出13.0厘米（相对于匹配未烧过地的平均值105.1厘米，增幅为12%）； 而在2024年，这一差异则显著缩小。经过空间交叉验证的极端梯度提升（XGBoost）机器学习模型表明，地形提供了最强的预测信息，其次是植被结构。 夏普利加性解释（SHapley Additive exPlanations）和浅层决策树进一步表明，与匹配的未烧区域相比，热暴露较低、局部地形位置较低且海拔处于中等的地点，其烧毁区域的峰值雪水当量通常较高；而火灾前树冠较高以及暴露、高能的地形则与较低的峰值雪水当量相关。 这些结果表明，野火对峰值土壤水当量（SWE）的影响在很大程度上取决于具体情境。",
+      "link": "https://iopscience.iop.org/article/10.1088/1748-9326/aec1f2",
+      "source": "Environmental Research Letters",
+      "published": "2026-11-20T00:00:00+00:00",
+      "hotness": 70.5,
+      "score": 70.5,
+      "score_v1": 15.79,
+      "score_v2": 70.5,
+      "score_breakdown": {
+        "algorithm": "v3.0",
+        "dimension_max": {
+          "authority": 18.0,
+          "topic": 18.0,
+          "resonance": 18.0,
+          "information": 16.0
+        },
+        "authority_score": 18.0,
+        "keyword_idf_score": 5.63,
+        "topic_score": 5.63,
+        "topic_burst_score": 0.0,
+        "topic_burst_count": 1,
+        "resonance_score": 0.0,
+        "info_score": 3.0,
+        "base": 26.63,
+        "base_max": 70.0,
+        "time_factor": 0.5331,
+        "density_factor": 1.0,
+        "density_note": "",
+        "repeat_penalty": 1.0,
+        "repeat_excused": false,
+        "event_size": 1,
+        "event_media_count": 1,
+        "event_cluster_source": "ai",
+        "origin_source": "Environmental Research Letters",
+        "raw": 14.2,
+        "display_score": 70.5,
+        "display_mode": "absolute"
+      },
+      "score_v1_breakdown": {
+        "base": 5.0,
+        "source_score": 6.0,
+        "keyword_score": 2.0,
+        "time_score": 0.79,
+        "topic_bonus": 2.0,
+        "total": 15.79
+      },
+      "summary": "加利福尼亚州内华达山脉地区（SNR）高海拔野火的增多，引发了人们对积雪可能受到影响的担忧——积雪是该州供水的主要来源。 在地形复杂、气候和生态梯度较大的山区，由于实地观测和过程模型的局限性，量化火灾引起的积雪储量变化仍具挑战性。 本研究利用高分辨率机载雪观测站激光雷达测绘数据（2023–2024年），评估了2020–2021年野火对内华达山脉地区六个流域峰值积雪水当量（SWE）的影响。 我们汇集了超过32000组环境条件相似的“过火区—未过火区”50米像素配对数据，并评估了峰值雪水当量变化（ΔpeakSWE：过火区—未过火区）如何随过火强度、火灾前森林结构、气象变量以及雪线以上地形的变化而变化。 在配对数据中，火灾后峰值SWE的差异在幅度和方向上均存在变化，这取决于当年的天气状况（例如多雨年与常年）以及当地的环境条件。 2023年，在中等海拔地区，冠层损失率≥75%的密林中出现了最大的正向“烧过—未烧过”差异，该区域烧过地的峰值雪水当量平均高出13.0厘米（相对于匹配未烧过地的平均值105.1厘米，增幅为12%）； 而在2024年，这一差异则显著缩小。经过空间交叉验证的极端梯度提升（XGBoost）机器学习模型表明，地形提供了最强的预测信息，其次是植被结构。 夏普利加性解释（SHapley Additive exPlanations）和浅层决策树进一步表明，与匹配的未烧区域相比，热暴露较低、局部地形位置较低且海拔处于中等的地点，其烧毁区域的峰值雪水当量通常较高；而火灾前树冠较高以及暴露、高能的地形则与较低的峰值雪水当量相关。 这些结果表明，野火对峰值土壤水当量（SWE）的影响在很大程度上取决于具体情境。",
+      "analysis": "该条目涉及【气候变化】话题，因来源权威性高，热度上升。",
+      "topic_tags": [
+        "气候变化"
+      ],
+      "category": "气候变化",
+      "matched_keywords": [
+        "流域"
+      ],
+      "keywords": [
+        "流域"
+      ]
+    },
+    {
+      "title": "江苏以高品质生态环境支撑高质量发展 - 新华网江苏频道",
+      "title_en": "",
+      "title_zh": "",
+      "summary_en": "",
+      "summary_zh": "",
+      "link": "https://news.google.com/rss/articles/CBMiggFBVV95cUxPdTVNLV9Ob19lbWExLXpwQjBubFlKU2hJQ21rTTdoMWlvR2tNa1FMRG55aUNxUW9sRWxDNHM2ZVNtUGtCemJCc1dZOWZncVctVWVRV3lGODBSRm1hS2o3RFJZMmFjRUpVdEo2TW1aQXl4YUdRblRPRG5aSnN5NW9RdmZn?oc=5",
+      "source": "Google News 环境保护",
+      "published": "2026-11-22T01:05:13+00:00",
+      "hotness": 70.2,
+      "score": 70.2,
+      "score_v1": 22.73,
+      "score_v2": 70.2,
+      "score_breakdown": {
+        "algorithm": "v3.0",
+        "dimension_max": {
+          "authority": 18.0,
+          "topic": 18.0,
+          "resonance": 18.0,
+          "information": 16.0
+        },
+        "authority_score": 8.05,
+        "keyword_idf_score": 4.47,
+        "topic_score": 8.27,
+        "topic_burst_score": 3.79,
+        "topic_burst_count": 3,
+        "resonance_score": 0.0,
+        "info_score": 0.0,
+        "base": 16.32,
+        "base_max": 70.0,
+        "time_factor": 0.8591,
+        "density_factor": 1.0,
+        "density_note": "",
+        "repeat_penalty": 1.0,
+        "repeat_excused": false,
+        "event_size": 1,
+        "event_media_count": 1,
+        "event_cluster_source": "ai",
+        "origin_source": "新华网江苏频道",
+        "raw": 14.02,
+        "display_score": 70.2,
+        "display_mode": "absolute"
+      },
+      "score_v1_breakdown": {
+        "base": 5.0,
+        "source_score": 3.6,
+        "keyword_score": 2.0,
+        "time_score": 6.13,
+        "topic_bonus": 6.0,
+        "total": 22.73
+      },
+      "summary": "江苏省以高品质生态环境支撑高质量发展，五年来公众对生态环境满意度保持在90%以上。",
+      "analysis": "该条目涉及【生态环境】话题，因来源较权威且发布时间较新，热度上升。",
+      "topic_tags": [
+        "生态环境"
+      ],
+      "category": "生态环境",
+      "matched_keywords": [
+        "生态环境"
+      ],
+      "keywords": [
+        "生态环境"
+      ]
+    },
+    {
+      "title": "贵州苗侗智慧为全球气候治理贡献中国方案 - 新华网",
+      "title_en": "",
+      "title_zh": "",
+      "summary_en": "",
+      "summary_zh": "",
+      "link": "https://news.google.com/rss/articles/CBMif0FVX3lxTE9WcXZKeFphbEx5Sm9JTkNwUElBQmMwMW8xVlhVTVNORnMtLVRqN1hjN2xOdzZfNExscHhkUFFmb0RhejFpOVBTbGxuNmRHb3hEQVVvOVhYZlktLW5mM2xSang3MUszTl9kMzRLUEJKcjRONE5ORmVyWFoxNUJMX28?oc=5",
+      "source": "Google News 气候变化",
+      "published": "2026-11-21T08:03:20+00:00",
+      "hotness": 70.2,
+      "score": 70.2,
+      "score_v1": 11.62,
+      "score_v2": 70.2,
+      "score_breakdown": {
+        "algorithm": "v3.0",
+        "dimension_max": {
+          "authority": 18.0,
+          "topic": 18.0,
+          "resonance": 18.0,
+          "information": 16.0
+        },
+        "authority_score": 8.05,
+        "keyword_idf_score": 0.0,
+        "topic_score": 3.0,
+        "topic_burst_score": 0.0,
+        "topic_burst_count": 1,
+        "resonance_score": 8.76,
+        "info_score": 0.0,
+        "base": 19.81,
+        "base_max": 70.0,
+        "time_factor": 0.707,
+        "density_factor": 1.0,
+        "density_note": "",
+        "repeat_penalty": 1.0,
+        "repeat_excused": true,
+        "event_size": 2,
+        "event_media_count": 2,
+        "event_cluster_source": "ai",
+        "origin_source": "新华网",
+        "raw": 14.0,
+        "display_score": 70.2,
+        "display_mode": "absolute"
+      },
+      "score_v1_breakdown": {
+        "base": 5.0,
+        "source_score": 3.6,
+        "keyword_score": 0.0,
+        "time_score": 3.02,
+        "topic_bonus": 0.0,
+        "total": 11.62
+      },
+      "summary": "贵州苗侗地区传统智慧在全球气候治理中展现独特价值，为构建人与自然和谐共生提供中国方案。",
+      "analysis": "该条目涉及【气候变化】话题，因来源较权威且多家媒体同题报道，热度上升。",
+      "topic_tags": [
+        "气候变化"
+      ],
+      "category": "气候变化",
+      "matched_keywords": [],
+      "keywords": []
+    },
+    {
+      "title": "生态环境部召开部常务会议 - 中华人民共和国生态环境部",
+      "title_en": "",
+      "title_zh": "",
+      "summary_en": "",
+      "summary_zh": "",
+      "link": "https://news.google.com/rss/articles/CBMidkFVX3lxTFB2eXJKSUFIcDVVVjc3bzlhLXUtbktla2Uyd0dpQlZlRlhKR2NmVFZHWFFScG9jRHNFNXFOTWpHb2NUcDBLNTltcDNsZWdDTjZOeUlFWTMtZW05X3VmVjZUVGRlZ2U4ZjZYQTBQM0NGWXFxRVFRTXc?oc=5",
+      "source": "Google News 环境污染",
+      "published": "2026-11-21T05:20:16+00:00",
+      "hotness": 70.2,
+      "score": 70.2,
+      "score_v1": 19.29,
+      "score_v2": 70.2,
+      "score_breakdown": {
+        "algorithm": "v3.0",
+        "dimension_max": {
+          "authority": 18.0,
+          "topic": 18.0,
+          "resonance": 18.0,
+          "information": 16.0
+        },
+        "authority_score": 8.05,
+        "keyword_idf_score": 4.47,
+        "topic_score": 8.27,
+        "topic_burst_score": 3.79,
+        "topic_burst_count": 3,
+        "resonance_score": 0.0,
+        "info_score": 4.0,
+        "base": 20.32,
+        "base_max": 70.0,
+        "time_factor": 0.6874,
+        "density_factor": 1.0,
+        "density_note": "",
+        "repeat_penalty": 1.0,
+        "repeat_excused": false,
+        "event_size": 2,
+        "event_media_count": 1,
+        "event_cluster_source": "ai",
+        "origin_source": "中华人民共和国生态环境部",
+        "raw": 13.97,
+        "display_score": 70.2,
+        "display_mode": "absolute"
+      },
+      "score_v1_breakdown": {
+        "base": 5.0,
+        "source_score": 3.6,
+        "keyword_score": 2.0,
+        "time_score": 2.69,
+        "topic_bonus": 6.0,
+        "total": 19.29
+      },
+      "summary": "生态环境部召开部常务会议，研究部署近期环境保护重点工作，强化生态文明建设统筹协调。",
+      "analysis": "该条目涉及【生态环境部】话题，因来源较权威，热度上升。",
+      "topic_tags": [
+        "生态环境部"
+      ],
+      "category": "生态环境",
+      "matched_keywords": [
+        "生态环境"
+      ],
+      "keywords": [
+        "生态环境"
+      ]
     },
     {
       "title": "Killing more sea lions won’t help endangered salmon recover, model suggests",
@@ -1297,10 +1158,10 @@
       "link": "https://www.science.org/content/article/killing-more-sea-lions-won-t-help-endangered-salmon-recover-model-suggests",
       "source": "Science",
       "published": "2026-11-19T19:00:00+00:00",
-      "hotness": 73.0,
-      "score": 73.0,
-      "score_v1": 12.74,
-      "score_v2": 73.0,
+      "hotness": 69.1,
+      "score": 69.1,
+      "score_v1": 11.64,
+      "score_v2": 69.1,
       "score_breakdown": {
         "algorithm": "v3.0",
         "dimension_max": {
@@ -1318,7 +1179,7 @@
         "info_score": 4.75,
         "base": 25.75,
         "base_max": 70.0,
-        "time_factor": 0.6213,
+        "time_factor": 0.515,
         "density_factor": 1.0,
         "density_note": "",
         "repeat_penalty": 1.0,
@@ -1327,17 +1188,17 @@
         "event_media_count": 1,
         "event_cluster_source": "ai",
         "origin_source": "Science",
-        "raw": 16.0,
-        "display_score": 73.0,
+        "raw": 13.26,
+        "display_score": 69.1,
         "display_mode": "absolute"
       },
       "score_v1_breakdown": {
         "base": 5.0,
         "source_score": 6.0,
         "keyword_score": 0.0,
-        "time_score": 1.74,
+        "time_score": 0.64,
         "topic_bonus": 0.0,
-        "total": 12.74
+        "total": 11.64
       },
       "summary": "这一出人意料的结果与先前的研究形成鲜明对比，并使关于扑杀的政策辩论变得更加复杂",
       "analysis": "该条目涉及【生态环境】话题，因来源权威性高，热度上升。",
@@ -1349,18 +1210,18 @@
       "keywords": []
     },
     {
-      "title": "Increasing favorability for intense tropical cyclone activity in the northern South China Sea",
-      "title_en": "Increasing favorability for intense tropical cyclone activity in the northern South China Sea",
-      "title_zh": "南海北部出现强热带气旋活动的可能性正在增加",
-      "summary_en": "The South China Sea (SCS) is one of the most active marginal seas for tropical cyclones (TCs) worldwide and a key region for TC hazards along the coasts of southern China, Philippines and Vietnam. However, the drivers of long-term changes in intense TC development in this region remain unclear. Here, we show that the number of TCs reaching Category 3–5 intensity has increased significantly, with more occurring in the northern SCS. This change is primarily linked to an increasing contribution of western North Pacific TCs entering through the Luzon Strait, which experience weaker land-induced weakening than those crossing the Philippine archipelago and retain greater intensity for subsequent development. After entering the SCS, reduced ocean cooling and enhanced oceanic and atmospheric conditions have increased the environmental favorability for intense TC development in the northern SCS. These results highlight the role of regional ocean-land-atmosphere interactions in reshaping where TCs reach high intensities.",
-      "summary_zh": "南海是全球热带气旋活动最为频繁的边缘海之一，也是中国南部、菲律宾和越南沿海地区热带气旋灾害的关键区域。然而，该地区强热带气旋形成与发展的长期变化驱动因素仍不明确。 本文表明，达到3至5级强度的热带气旋数量显著增加，且其中更多出现在南海北部。 这一变化主要与通过吕宋海峡进入南海的西北太平洋热带气旋所占比例日益增大有关，与穿越菲律宾群岛的热带气旋相比，这些气旋受陆地影响导致的强度减弱程度较弱，从而能够保持更强的强度以供后续发展。 进入南海后，海洋冷却作用减弱以及海洋和大气条件增强，使得南海北部更有利于强台风的发展。这些结果凸显了区域海洋-陆地-大气相互作用在重塑台风达到高强度区域方面的作用。",
-      "link": "https://iopscience.iop.org/article/10.1088/1748-9326/aebe4d",
-      "source": "Environmental Research Letters",
-      "published": "2026-11-20T00:00:00+00:00",
-      "hotness": 72.5,
-      "score": 72.5,
-      "score_v1": 13.14,
-      "score_v2": 72.5,
+      "title": "New draft deal aims to avert collapse of talks at COP31 climate summit",
+      "title_en": "New draft deal aims to avert collapse of talks at COP31 climate summit",
+      "title_zh": "新协议草案旨在避免COP31气候峰会谈判破裂",
+      "summary_en": "The UN COP31 meeting in Turkey enters a second day of overtime as countries struggle to reach an agreement.",
+      "summary_zh": "在土耳其举行的联合国第31届缔约方会议（COP31）进入加时会议的第二天，各国仍在努力达成协议。",
+      "link": "https://www.bbc.co.uk/news/articles/cq7827z2841zo?at_medium=RSS&at_campaign=rss",
+      "source": "BBC 科学与环境",
+      "published": "2026-11-22T06:54:06+00:00",
+      "hotness": 68.9,
+      "score": 68.9,
+      "score_v1": 17.32,
+      "score_v2": 68.9,
       "score_breakdown": {
         "algorithm": "v3.0",
         "dimension_max": {
@@ -1369,434 +1230,58 @@
           "resonance": 18.0,
           "information": 16.0
         },
-        "authority_score": 18.0,
+        "authority_score": 12.73,
         "keyword_idf_score": 0.0,
         "topic_score": 3.0,
         "topic_burst_score": 0.0,
         "topic_burst_count": 1,
         "resonance_score": 0.0,
-        "info_score": 3.0,
-        "base": 24.0,
+        "info_score": 8.0,
+        "base": 23.73,
         "base_max": 70.0,
-        "time_factor": 0.651,
+        "time_factor": 0.9246,
         "density_factor": 1.0,
         "density_note": "",
-        "repeat_penalty": 1.0,
+        "repeat_penalty": 0.6,
         "repeat_excused": false,
-        "event_size": 1,
+        "event_size": 3,
         "event_media_count": 1,
         "event_cluster_source": "ai",
-        "origin_source": "Environmental Research Letters",
-        "raw": 15.62,
-        "display_score": 72.5,
+        "origin_source": "BBC 科学与环境",
+        "raw": 13.16,
+        "display_score": 68.9,
         "display_mode": "absolute"
       },
       "score_v1_breakdown": {
         "base": 5.0,
-        "source_score": 6.0,
+        "source_score": 4.5,
         "keyword_score": 0.0,
-        "time_score": 2.14,
+        "time_score": 7.82,
         "topic_bonus": 0.0,
-        "total": 13.14
+        "total": 17.32
       },
-      "summary": "南海是全球热带气旋活动最为频繁的边缘海之一，也是中国南部、菲律宾和越南沿海地区热带气旋灾害的关键区域。然而，该地区强热带气旋形成与发展的长期变化驱动因素仍不明确。 本文表明，达到3至5级强度的热带气旋数量显著增加，且其中更多出现在南海北部。 这一变化主要与通过吕宋海峡进入南海的西北太平洋热带气旋所占比例日益增大有关，与穿越菲律宾群岛的热带气旋相比，这些气旋受陆地影响导致的强度减弱程度较弱，从而能够保持更强的强度以供后续发展。 进入南海后，海洋冷却作用减弱以及海洋和大气条件增强，使得南海北部更有利于强台风的发展。这些结果凸显了区域海洋-陆地-大气相互作用在重塑台风达到高强度区域方面的作用。",
-      "analysis": "该条目涉及【环境资讯】话题，因来源权威性高，热度上升。",
+      "summary": "在土耳其举行的联合国第31届缔约方会议（COP31）进入加时会议的第二天，各国仍在努力达成协议。",
+      "analysis": "该条目涉及【COP】话题，因来源权威性高且发布时间较新，热度上升。",
       "topic_tags": [
-        "环境资讯"
-      ],
-      "category": "其他",
-      "matched_keywords": [],
-      "keywords": []
-    },
-    {
-      "title": "Interdecadal Pacific variability modulates recent drying and near-term changes in early-spring precipitation over subtropical East Asia",
-      "title_en": "Interdecadal Pacific variability modulates recent drying and near-term changes in early-spring precipitation over subtropical East Asia",
-      "title_zh": "太平洋的十年际变率对亚热带东亚近期干旱以及早春降水的近期变化产生调控作用",
-      "summary_en": "Subtropical East Asia (SEA), among the world’s most densely populated regions and a major agricultural region, has experienced pronounced early-spring drying since the 1980s, posing growing risks to water resources and agriculture. However, the relative contributions of external forcing and internal variability to the drying trend, as well as the associated dynamic and thermodynamic processes, remain unclear. The circulation analogues-based dynamic adjustment reveals that atmospheric circulation changes explain approximately 108% of the observed drying trend, which were largely driven by internal variability. These circulation changes are closely linked to a positive-to-negative phase transition of the interdecadal Pacific variability (IPV), which can suppress precipitation by weakening the Northwest Pacific anticyclone and inducing anomalous subsidence over SEA. The IPV also modulates near-term precipitation projections. Based on the projected IPV inferred from ensemble members that realistically capture the historical IPV, we identify a likely reversal toward wetter conditions in the near future.",
-      "summary_zh": "亚热带东亚（SEA）作为全球人口最稠密的地区之一及重要的农业区，自20世纪80年代以来一直面临着显著的早春干旱现象，这对水资源和农业构成了日益加剧的风险。 然而，外部强迫和内部变率对干旱化趋势的相对贡献，以及相关的动力学和热力学过程，目前尚不明确。基于环流类比的动力学分析表明，大气环流变化可解释观测到的干旱化趋势的约108%，而这些变化主要由内部变率驱动。 这些环流变化与太平洋十年际变率（IPV）从正相位向负相位的转变密切相关，这种转变会通过削弱西北太平洋反气旋并在东南亚（SEA）引发异常下沉气流来抑制降水。 IPV 还调节着短期降水预测。基于能够真实反映历史 IPV 的集合成员推导出的 IPV 预测，我们发现近期未来可能出现向更湿润条件逆转的趋势。",
-      "link": "https://iopscience.iop.org/article/10.1088/1748-9326/aec1f0",
-      "source": "Environmental Research Letters",
-      "published": "2026-11-20T00:00:00+00:00",
-      "hotness": 72.5,
-      "score": 72.5,
-      "score_v1": 13.14,
-      "score_v2": 72.5,
-      "score_breakdown": {
-        "algorithm": "v3.0",
-        "dimension_max": {
-          "authority": 18.0,
-          "topic": 18.0,
-          "resonance": 18.0,
-          "information": 16.0
-        },
-        "authority_score": 18.0,
-        "keyword_idf_score": 0.0,
-        "topic_score": 3.0,
-        "topic_burst_score": 0.0,
-        "topic_burst_count": 1,
-        "resonance_score": 0.0,
-        "info_score": 3.0,
-        "base": 24.0,
-        "base_max": 70.0,
-        "time_factor": 0.651,
-        "density_factor": 1.0,
-        "density_note": "",
-        "repeat_penalty": 1.0,
-        "repeat_excused": false,
-        "event_size": 1,
-        "event_media_count": 1,
-        "event_cluster_source": "ai",
-        "origin_source": "Environmental Research Letters",
-        "raw": 15.62,
-        "display_score": 72.5,
-        "display_mode": "absolute"
-      },
-      "score_v1_breakdown": {
-        "base": 5.0,
-        "source_score": 6.0,
-        "keyword_score": 0.0,
-        "time_score": 2.14,
-        "topic_bonus": 0.0,
-        "total": 13.14
-      },
-      "summary": "亚热带东亚（SEA）作为全球人口最稠密的地区之一及重要的农业区，自20世纪80年代以来一直面临着显著的早春干旱现象，这对水资源和农业构成了日益加剧的风险。 然而，外部强迫和内部变率对干旱化趋势的相对贡献，以及相关的动力学和热力学过程，目前尚不明确。基于环流类比的动力学分析表明，大气环流变化可解释观测到的干旱化趋势的约108%，而这些变化主要由内部变率驱动。 这些环流变化与太平洋十年际变率（IPV）从正相位向负相位的转变密切相关，这种转变会通过削弱西北太平洋反气旋并在东南亚（SEA）引发异常下沉气流来抑制降水。 IPV 还调节着短期降水预测。基于能够真实反映历史 IPV 的集合成员推导出的 IPV 预测，我们发现近期未来可能出现向更湿润条件逆转的趋势。",
-      "analysis": "该条目涉及【环境资讯】话题，因来源权威性高，热度上升。",
-      "topic_tags": [
-        "环境资讯"
+        "COP"
       ],
       "category": "气候变化",
       "matched_keywords": [],
       "keywords": []
     },
     {
-      "title": "Polymer-specific eco-coronas redirect microplastic effects in a freshwater macrophyte",
-      "title_en": "Polymer-specific eco-coronas redirect microplastic effects in a freshwater macrophyte",
-      "title_zh": "针对特定聚合物的生态电晕效应改变了微塑料对淡水大型水生植物的影响",
-      "summary_en": "",
-      "summary_zh": "",
-      "link": "https://www.sciencedirect.com/science/article/pii/S0043135426019950?dgcid=rss_sd_all",
-      "source": "Water Research",
-      "published": "2026-11-19T12:56:10.505157+00:00",
-      "hotness": 72.1,
-      "score": 72.1,
-      "score_v1": 18.35,
-      "score_v2": 72.1,
-      "score_breakdown": {
-        "algorithm": "v3.0",
-        "dimension_max": {
-          "authority": 18.0,
-          "topic": 18.0,
-          "resonance": 18.0,
-          "information": 16.0
-        },
-        "authority_score": 18.0,
-        "keyword_idf_score": 5.61,
-        "topic_score": 7.97,
-        "topic_burst_score": 2.36,
-        "topic_burst_count": 2,
-        "resonance_score": 0.0,
-        "info_score": 0.0,
-        "base": 25.97,
-        "base_max": 70.0,
-        "time_factor": 0.5891,
-        "density_factor": 1.0,
-        "density_note": "",
-        "repeat_penalty": 1.0,
-        "repeat_excused": false,
-        "event_size": 1,
-        "event_media_count": 1,
-        "event_cluster_source": "ai",
-        "origin_source": "Water Research",
-        "raw": 15.3,
-        "display_score": 72.1,
-        "display_mode": "absolute"
-      },
-      "score_v1_breakdown": {
-        "base": 5.0,
-        "source_score": 6.0,
-        "keyword_score": 2.0,
-        "time_score": 1.35,
-        "topic_bonus": 4.0,
-        "total": 18.35
-      },
-      "summary": "基于标题关键信息：聚合物特异性生态冠层改变淡水大型水生植物微塑料效应",
-      "analysis": "该条目涉及【微塑料】话题，因来源权威性高，热度上升。",
-      "topic_tags": [
-        "微塑料"
-      ],
-      "category": "污染治理",
-      "matched_keywords": [
-        "微塑料"
-      ],
-      "keywords": [
-        "微塑料"
-      ]
-    },
-    {
-      "title": "预防森林火灾保护生态环境 - 抚州新闻网",
+      "title": "中欧钩虾属宿主棘头虫感染流行率及其环境关联因素研究 - 生物通",
       "title_en": "",
       "title_zh": "",
       "summary_en": "",
       "summary_zh": "",
-      "link": "https://news.google.com/rss/articles/CBMiWkFVX3lxTE9nYWV2V0Z6UUwtbkJKbHJuWHJEQXlhbnU4Ny1iMkJpMW1rb2dNYnFrWUNqRUNjcExSWXVYRXFzU0N1UFl0WUpWT3BpeWllXzU1SWc2dFYzUW9iQQ?oc=5",
-      "source": "Google News 生态环境",
-      "published": "2026-11-21T01:58:11+00:00",
-      "hotness": 71.5,
-      "score": 71.5,
-      "score_v1": 24.93,
-      "score_v2": 71.5,
-      "score_breakdown": {
-        "algorithm": "v3.0",
-        "dimension_max": {
-          "authority": 18.0,
-          "topic": 18.0,
-          "resonance": 18.0,
-          "information": 16.0
-        },
-        "authority_score": 8.05,
-        "keyword_idf_score": 4.49,
-        "topic_score": 9.15,
-        "topic_burst_score": 4.66,
-        "topic_burst_count": 4,
-        "resonance_score": 0.0,
-        "info_score": 0.0,
-        "base": 17.2,
-        "base_max": 70.0,
-        "time_factor": 0.8671,
-        "density_factor": 1.0,
-        "density_note": "",
-        "repeat_penalty": 1.0,
-        "repeat_excused": false,
-        "event_size": 1,
-        "event_media_count": 1,
-        "event_cluster_source": "ai",
-        "origin_source": "抚州新闻网",
-        "raw": 14.91,
-        "display_score": 71.5,
-        "display_mode": "absolute"
-      },
-      "score_v1_breakdown": {
-        "base": 5.0,
-        "source_score": 3.6,
-        "keyword_score": 2.0,
-        "time_score": 6.33,
-        "topic_bonus": 8.0,
-        "total": 24.93
-      },
-      "summary": "生态环境部举办学习贯彻党的二十届五中全会精神读书班，聚焦生态环境保护与森林火灾防治工作部署",
-      "analysis": "该条目涉及【生态环境】话题，因来源较权威且发布时间较新，热度上升。",
-      "topic_tags": [
-        "生态环境"
-      ],
-      "category": "生态环境",
-      "matched_keywords": [
-        "生态环境"
-      ],
-      "keywords": [
-        "生态环境"
-      ]
-    },
-    {
-      "title": "Monitoring water attacks",
-      "title_en": "Monitoring water attacks",
-      "title_zh": "监测水攻",
-      "summary_en": "Nature Sustainability, Published online: 17 November 2026; doi:10.1038/s41893-026-01952-2Attacks on critical water infrastructure have become normalized in modern military conflict. To counter this, argues Hussam Hussein, water scientists must build and maintain real-time monitoring and documentation infrastructure in active conflict zones.",
-      "summary_zh": "《自然·可持续性》（Nature Sustainability），在线发表于：2026年11月17日；doi:10.1038/s41893-026-01952-2 在现代军事冲突中，针对关键水利基础设施的袭击已变得司空见惯。 胡萨姆·侯赛因认为，为应对这一问题，水资源科学家必须在活跃的冲突地区建立并维护实时监测和记录基础设施。",
-      "link": "https://www.nature.com/articles/s41893-026-01952-2",
-      "source": "Nature Sustainability",
-      "published": "2026-11-17T00:00:00+00:00",
-      "hotness": 70.8,
-      "score": 70.8,
-      "score_v1": 21.11,
-      "score_v2": 70.8,
-      "score_breakdown": {
-        "algorithm": "v3.0",
-        "dimension_max": {
-          "authority": 18.0,
-          "topic": 18.0,
-          "resonance": 18.0,
-          "information": 16.0
-        },
-        "authority_score": 18.0,
-        "keyword_idf_score": 4.88,
-        "topic_score": 9.55,
-        "topic_burst_score": 4.66,
-        "topic_burst_count": 4,
-        "resonance_score": 0.0,
-        "info_score": 7.0,
-        "base": 34.55,
-        "base_max": 70.0,
-        "time_factor": 0.4172,
-        "density_factor": 1.0,
-        "density_note": "",
-        "repeat_penalty": 1.0,
-        "repeat_excused": false,
-        "event_size": 1,
-        "event_media_count": 1,
-        "event_cluster_source": "ai",
-        "origin_source": "Nature Sustainability",
-        "raw": 14.41,
-        "display_score": 70.8,
-        "display_mode": "absolute"
-      },
-      "score_v1_breakdown": {
-        "base": 5.0,
-        "source_score": 6.0,
-        "keyword_score": 2.0,
-        "time_score": 0.11,
-        "topic_bonus": 8.0,
-        "total": 21.11
-      },
-      "summary": "《自然·可持续性》（Nature Sustainability）， 在现代军事冲突中，针对关键水利基础设施的袭击已变得司空见惯。 胡萨姆·侯赛因认为，为应对这一问题，水资源科学家必须在活跃的冲突地区建立并维护实时监测和记录基础设施。",
-      "analysis": "该条目涉及【环境政策】话题，因来源权威性高，热度上升。",
-      "topic_tags": [
-        "环境政策"
-      ],
-      "category": "环境政策",
-      "matched_keywords": [
-        "可持续发展"
-      ],
-      "keywords": [
-        "可持续发展"
-      ]
-    },
-    {
-      "title": "生态环境部党组举办学习贯彻党的二十届五中全会精神读书班 - 中华人民共和国生态环境部",
-      "title_en": "",
-      "title_zh": "",
-      "summary_en": "",
-      "summary_zh": "",
-      "link": "https://news.google.com/rss/articles/CBMidkFVX3lxTE1uRDhGZVpPaDFnSmdESzR5bkNsMWROR1NkbEw4d2xzT3NXbEIyUTctTmxKQTdlVHprRTFKYWtndktWVmUyaWpxZjlPMGktZkU0aTZOS09kdlI2M0t5U1ZSRnVyOHlMdG1ycjlOZDRJX01KV2xNYVE?oc=5",
-      "source": "Google News 生态环境",
-      "published": "2026-11-20T03:14:56+00:00",
-      "hotness": 70.4,
-      "score": 70.4,
-      "score_v1": 21.06,
-      "score_v2": 70.4,
-      "score_breakdown": {
-        "algorithm": "v3.0",
-        "dimension_max": {
-          "authority": 18.0,
-          "topic": 18.0,
-          "resonance": 18.0,
-          "information": 16.0
-        },
-        "authority_score": 8.05,
-        "keyword_idf_score": 4.49,
-        "topic_score": 9.15,
-        "topic_burst_score": 4.66,
-        "topic_burst_count": 4,
-        "resonance_score": 8.76,
-        "info_score": 9.0,
-        "base": 34.96,
-        "base_max": 70.0,
-        "time_factor": 0.6721,
-        "density_factor": 1.0,
-        "density_note": "",
-        "repeat_penalty": 0.6,
-        "repeat_excused": false,
-        "event_size": 2,
-        "event_media_count": 2,
-        "event_cluster_source": "ai",
-        "origin_source": "中华人民共和国生态环境部",
-        "raw": 14.1,
-        "display_score": 70.4,
-        "display_mode": "absolute"
-      },
-      "score_v1_breakdown": {
-        "base": 5.0,
-        "source_score": 3.6,
-        "keyword_score": 2.0,
-        "time_score": 2.46,
-        "topic_bonus": 8.0,
-        "total": 21.06
-      },
-      "summary": "生态环境部党组召开学习贯彻党的二十届五中全会精神读书班，深入学习全会精神并部署环保工作",
-      "analysis": "该条目涉及【生态环境部】话题，因来源较权威且多家媒体同题报道，热度上升。",
-      "topic_tags": [
-        "生态环境部"
-      ],
-      "category": "生态环境",
-      "matched_keywords": [
-        "生态环境"
-      ],
-      "keywords": [
-        "生态环境"
-      ]
-    },
-    {
-      "title": "Chemists are uncovering a hidden world of pollution",
-      "title_en": "Chemists are uncovering a hidden world of pollution",
-      "title_zh": "化学家们正在揭开一个隐藏的污染世界",
-      "summary_en": "New analytical tools are revealing thousands of chemicals that conventional tests miss",
-      "summary_zh": "新的分析工具正在揭示数千种传统检测方法无法检测到的化学物质",
-      "link": "https://www.science.org/content/article/chemists-are-uncovering-hidden-world-pollution",
-      "source": "Science",
-      "published": "2026-11-19T19:00:00+00:00",
-      "hotness": 69.5,
-      "score": 69.5,
-      "score_v1": 12.74,
-      "score_v2": 69.5,
-      "score_breakdown": {
-        "algorithm": "v3.0",
-        "dimension_max": {
-          "authority": 18.0,
-          "topic": 18.0,
-          "resonance": 18.0,
-          "information": 16.0
-        },
-        "authority_score": 18.0,
-        "keyword_idf_score": 0.0,
-        "topic_score": 3.0,
-        "topic_burst_score": 0.0,
-        "topic_burst_count": 1,
-        "resonance_score": 0.0,
-        "info_score": 0.75,
-        "base": 21.75,
-        "base_max": 70.0,
-        "time_factor": 0.6213,
-        "density_factor": 1.0,
-        "density_note": "",
-        "repeat_penalty": 1.0,
-        "repeat_excused": false,
-        "event_size": 1,
-        "event_media_count": 1,
-        "event_cluster_source": "ai",
-        "origin_source": "Science",
-        "raw": 13.51,
-        "display_score": 69.5,
-        "display_mode": "absolute"
-      },
-      "score_v1_breakdown": {
-        "base": 5.0,
-        "source_score": 6.0,
-        "keyword_score": 0.0,
-        "time_score": 1.74,
-        "topic_bonus": 0.0,
-        "total": 12.74
-      },
-      "summary": "新的分析工具正在揭示数千种传统检测方法无法检测到的化学物质",
-      "analysis": "该条目涉及【污染治理】话题，因来源权威性高，热度上升。",
-      "topic_tags": [
-        "污染治理"
-      ],
-      "category": "污染治理",
-      "matched_keywords": [],
-      "keywords": []
-    },
-    {
-      "title": "甘蓝茎皮绿色合成可见光响应Cr/BFO纳米颗粒及其在有机污染物降解与产氢中的双功能催化机制 - 生物通",
-      "title_en": "",
-      "title_zh": "",
-      "summary_en": "",
-      "summary_zh": "",
-      "link": "https://news.google.com/rss/articles/CBMibkFVX3lxTE8tSG01RjB6SlJvMldFOUFvcjRZTFNfV0hZX25zVFZXeEI1dGdHYXM3SllNUm9GZHpIQ1pQYmhPbEJTeGlRMnk2dUdGeVdPMHF1Ymh0VVZWT3RyaXhaSkNuYWoyM0N6ZDdkTG9oZHdB?oc=5",
+      "link": "https://news.google.com/rss/articles/CBMibkFVX3lxTE9OY3ljZFRCTjdoVXhySVFDemZFU0dBWWx5ZVdUaUhKM2F4eFJwOEhTSlVqVU9rdVFWOFRWYkF0NnNmVmRTNWtBekY3Rm5WbW9UZTJ0MlplaFNDOER2dmNrSmpxcVNmMlFYa2RZY1ZB?oc=5",
       "source": "Google News 环境污染",
-      "published": "2026-11-21T04:06:33+00:00",
-      "hotness": 69.3,
-      "score": 69.3,
-      "score_v1": 15.52,
-      "score_v2": 69.3,
+      "published": "2026-11-21T23:56:23+00:00",
+      "hotness": 68.3,
+      "score": 68.3,
+      "score_v1": 14.45,
+      "score_v2": 68.3,
       "score_breakdown": {
         "algorithm": "v3.0",
         "dimension_max": {
@@ -1814,7 +1299,7 @@
         "info_score": 4.0,
         "base": 15.05,
         "base_max": 70.0,
-        "time_factor": 0.8907,
+        "time_factor": 0.8471,
         "density_factor": 1.0,
         "density_note": "",
         "repeat_penalty": 1.0,
@@ -1823,24 +1308,24 @@
         "event_media_count": 1,
         "event_cluster_source": "ai",
         "origin_source": "生物通",
-        "raw": 13.4,
-        "display_score": 69.3,
+        "raw": 12.75,
+        "display_score": 68.3,
         "display_mode": "absolute"
       },
       "score_v1_breakdown": {
         "base": 5.0,
         "source_score": 3.6,
         "keyword_score": 0.0,
-        "time_score": 6.92,
+        "time_score": 5.85,
         "topic_bonus": 0.0,
-        "total": 15.52
+        "total": 14.45
       },
-      "summary": "研究甘蓝茎皮绿色合成的可见光响应Cr/BFO纳米颗粒，阐明其在有机污染物降解与产氢双功能催化机制",
-      "analysis": "该条目涉及【污染治理】话题，因来源较权威且发布时间较新，热度上升。",
+      "summary": "",
+      "analysis": "该条目涉及【科研学术】话题，因来源较权威，热度上升。",
       "topic_tags": [
-        "污染治理"
+        "科研学术"
       ],
-      "category": "污染治理",
+      "category": "科研学术",
       "matched_keywords": [],
       "keywords": []
     },
@@ -1853,10 +1338,10 @@
       "link": "https://www.sciencedaily.com/releases/2026/11/261114202133.htm",
       "source": "ScienceDaily 环境科学",
       "published": "2026-11-16T11:40:14+00:00",
-      "hotness": 68.9,
-      "score": 68.9,
-      "score_v1": 15.56,
-      "score_v2": 68.9,
+      "hotness": 67.8,
+      "score": 67.8,
+      "score_v1": 15.52,
+      "score_v2": 67.8,
       "score_breakdown": {
         "algorithm": "v3.0",
         "dimension_max": {
@@ -1866,15 +1351,15 @@
           "information": 16.0
         },
         "authority_score": 12.73,
-        "keyword_idf_score": 5.55,
-        "topic_score": 7.91,
+        "keyword_idf_score": 5.52,
+        "topic_score": 7.88,
         "topic_burst_score": 2.36,
         "topic_burst_count": 2,
         "resonance_score": 0.0,
         "info_score": 12.0,
-        "base": 32.64,
+        "base": 32.61,
         "base_max": 70.0,
-        "time_factor": 0.402,
+        "time_factor": 0.3816,
         "density_factor": 1.0,
         "density_note": "",
         "repeat_penalty": 1.0,
@@ -1883,17 +1368,17 @@
         "event_media_count": 1,
         "event_cluster_source": "ai",
         "origin_source": "ScienceDaily 环境科学",
-        "raw": 13.12,
-        "display_score": 68.9,
+        "raw": 12.44,
+        "display_score": 67.8,
         "display_mode": "absolute"
       },
       "score_v1_breakdown": {
         "base": 5.0,
         "source_score": 4.5,
         "keyword_score": 2.0,
-        "time_score": 0.06,
+        "time_score": 0.02,
         "topic_bonus": 4.0,
-        "total": 15.56
+        "total": 15.52
       },
       "summary": "在太平洋深处，科学家们在富含金属的岩石内部发现了微小的隐蔽生态系统，这些岩石的形成历经数百万年。 研究人员对244个结核进行了考察，发现其裂缝和空隙中栖息着4,100余种动物，其中包括与周围海底泥层中截然不同的独特生物群落。如今，这些非凡的微型栖息地可能正面临着深海采矿活动对贵金属开采的威胁。",
       "analysis": "该条目涉及【生态系统】话题，因来源权威性高，热度上升。",
@@ -1909,78 +1394,14 @@
       ]
     },
     {
-      "title": "Resilience as a governing principle in water governance",
-      "title_en": "Resilience as a governing principle in water governance",
-      "title_zh": "韧性作为水治理的基本原则",
-      "summary_en": "Nature Sustainability, Published online: 17 November 2026; doi:10.1038/s41893-026-01972-yWater governance often treats resilience as an end state, achieved mainly through technocratic decision-making and standard engineering tools. Drawing on five international cases, we argue that resilience should instead guide governance design and operation through adaptability, coordination, learning and accountability.",
-      "summary_zh": "《自然·可持续性》（Nature Sustainability），在线发表于：2026年11月17日；doi:10.1038/s41893-026-01972-y 水治理往往将韧性视为一种最终状态，主要通过技术官僚式的决策和标准工程工具来实现。 基于五个国际案例，我们认为，韧性应通过适应性、协调性、学习能力和问责机制，来指导治理的设计与运作。",
-      "link": "https://www.nature.com/articles/s41893-026-01972-y",
-      "source": "Nature Sustainability",
-      "published": "2026-11-17T00:00:00+00:00",
-      "hotness": 68.3,
-      "score": 68.3,
-      "score_v1": 21.11,
-      "score_v2": 68.3,
-      "score_breakdown": {
-        "algorithm": "v3.0",
-        "dimension_max": {
-          "authority": 18.0,
-          "topic": 18.0,
-          "resonance": 18.0,
-          "information": 16.0
-        },
-        "authority_score": 18.0,
-        "keyword_idf_score": 4.88,
-        "topic_score": 9.55,
-        "topic_burst_score": 4.66,
-        "topic_burst_count": 4,
-        "resonance_score": 0.0,
-        "info_score": 3.0,
-        "base": 30.55,
-        "base_max": 70.0,
-        "time_factor": 0.4172,
-        "density_factor": 1.0,
-        "density_note": "",
-        "repeat_penalty": 1.0,
-        "repeat_excused": false,
-        "event_size": 1,
-        "event_media_count": 1,
-        "event_cluster_source": "ai",
-        "origin_source": "Nature Sustainability",
-        "raw": 12.74,
-        "display_score": 68.3,
-        "display_mode": "absolute"
-      },
-      "score_v1_breakdown": {
-        "base": 5.0,
-        "source_score": 6.0,
-        "keyword_score": 2.0,
-        "time_score": 0.11,
-        "topic_bonus": 8.0,
-        "total": 21.11
-      },
-      "summary": "《自然·可持续性》（Nature Sustainability）， 水治理往往将韧性视为一种最终状态，主要通过技术官僚式的决策和标准工程工具来实现。 基于五个国际案例，我们认为，韧性应通过适应性、协调性、学习能力和问责机制，来指导治理的设计与运作。",
-      "analysis": "该条目涉及【环境政策】话题，因来源权威性高，热度上升。",
-      "topic_tags": [
-        "环境政策"
-      ],
-      "category": "环境政策",
-      "matched_keywords": [
-        "可持续发展"
-      ],
-      "keywords": [
-        "可持续发展"
-      ]
-    },
-    {
-      "title": "Advancing structural interpretability in multispecies aquatic toxicity prediction through feature-wise conditioning in multimodal graph neural networks",
-      "title_en": "Advancing structural interpretability in multispecies aquatic toxicity prediction through feature-wise conditioning in multimodal graph neural networks",
-      "title_zh": "通过多模态图神经网络中的特征级条件化，提升多物种水生毒性预测的结构可解释性",
+      "title": "Reactive nitrogen intermediate regulation couples sulfur-driven denitrification with antibiotic transformation",
+      "title_en": "Reactive nitrogen intermediate regulation couples sulfur-driven denitrification with antibiotic transformation",
+      "title_zh": "活性氮中间体的调控将硫驱动的脱氮作用与抗生素转化联系起来",
       "summary_en": "",
       "summary_zh": "",
-      "link": "https://www.sciencedirect.com/science/article/pii/S0043135426019949?dgcid=rss_sd_all",
+      "link": "https://www.sciencedirect.com/science/article/pii/S0043135426020476?dgcid=rss_sd_all",
       "source": "Water Research",
-      "published": "2026-11-19T12:56:10.505157+00:00",
+      "published": "2026-11-20T12:48:33.451260+00:00",
       "hotness": 67.7,
       "score": 67.7,
       "score_v1": 12.35,
@@ -2023,8 +1444,68 @@
         "topic_bonus": 0.0,
         "total": 12.35
       },
-      "summary": "基于标题关键信息：通过多模态图神经网络逐特征条件化，推进多物种水生毒性预测的结构可解释性",
-      "analysis": "该条目涉及【生态环境】话题，因来源权威性高，热度上升。",
+      "summary": "研究揭示氮中间体调控硫驱动反硝化与抗生物质转化的耦合机制，深入阐释微生物生态过程。",
+      "analysis": "该条目涉及【环境政策】话题，因来源权威性高，热度上升。",
+      "topic_tags": [
+        "环境政策"
+      ],
+      "category": "环境政策",
+      "matched_keywords": [],
+      "keywords": []
+    },
+    {
+      "title": "中国人民大学发起成立中国生态文明自主知识体系联盟 - 人大新闻网",
+      "title_en": "",
+      "title_zh": "",
+      "summary_en": "",
+      "summary_zh": "",
+      "link": "https://news.google.com/rss/articles/CBMiXEFVX3lxTE1Wc2g1alJDV0RjTmJtY2FqNklBWWI2RTFXVjBXd0FDNnoxU3AtOFlNMk15NC1JczFTRXVZeHlBblE0X1JNS3lXcGlLYy1nV3dVVDBPNEtRdUZjWHBE?oc=5",
+      "source": "Google News 生态环境",
+      "published": "2026-11-21T12:58:12+00:00",
+      "hotness": 65.8,
+      "score": 65.8,
+      "score_v1": 12.3,
+      "score_v2": 65.8,
+      "score_breakdown": {
+        "algorithm": "v3.0",
+        "dimension_max": {
+          "authority": 18.0,
+          "topic": 18.0,
+          "resonance": 18.0,
+          "information": 16.0
+        },
+        "authority_score": 8.05,
+        "keyword_idf_score": 0.0,
+        "topic_score": 3.0,
+        "topic_burst_score": 0.0,
+        "topic_burst_count": 1,
+        "resonance_score": 0.0,
+        "info_score": 4.0,
+        "base": 15.05,
+        "base_max": 70.0,
+        "time_factor": 0.7455,
+        "density_factor": 1.0,
+        "density_note": "",
+        "repeat_penalty": 1.0,
+        "repeat_excused": false,
+        "event_size": 1,
+        "event_media_count": 1,
+        "event_cluster_source": "ai",
+        "origin_source": "人大新闻网",
+        "raw": 11.22,
+        "display_score": 65.8,
+        "display_mode": "absolute"
+      },
+      "score_v1_breakdown": {
+        "base": 5.0,
+        "source_score": 3.6,
+        "keyword_score": 0.0,
+        "time_score": 3.7,
+        "topic_bonus": 0.0,
+        "total": 12.3
+      },
+      "summary": "中国人民大学发起成立生态文明自主知识体系联盟，旨在构建自主知识框架，推动生态文明理论创新与实践。",
+      "analysis": "该条目涉及【生态环境】话题，因来源较权威，热度上升。",
       "topic_tags": [
         "生态环境"
       ],
@@ -2033,18 +1514,142 @@
       "keywords": []
     },
     {
-      "title": "More than a billion years of Earth's history vanished. Scientists may finally know why",
-      "title_en": "More than a billion years of Earth's history vanished. Scientists may finally know why",
-      "title_zh": "地球历史上超过10亿年的历史消失了。科学家们或许终于弄清了原因",
-      "summary_en": "Scientists may have finally explained why up to more than a billion years of Earth's geological history are missing from rocks around the world. New research suggests that powerful currents deep inside the planet slowly raised and lowered entire continents, allowing erosion to erase vast stretches of geological history before they were buried and preserved.",
-      "summary_zh": "科学家们或许终于解释了为什么世界各地的岩石中缺失了长达10亿多年的地球地质历史。最新研究表明，地球深处的强劲洋流缓慢地抬升和下沉了整个大陆，导致在这些地质层被埋藏并保存下来之前，侵蚀作用就已抹去了 vast stretches of geological history。",
-      "link": "https://www.sciencedaily.com/releases/2026/11/261116023403.htm",
-      "source": "ScienceDaily 环境科学",
-      "published": "2026-11-18T08:27:56+00:00",
-      "hotness": 66.9,
-      "score": 66.9,
-      "score_v1": 9.91,
-      "score_v2": 66.9,
+      "title": "Chemists are uncovering a hidden world of pollution",
+      "title_en": "Chemists are uncovering a hidden world of pollution",
+      "title_zh": "化学家们正在揭开一个隐藏的污染世界",
+      "summary_en": "New analytical tools are revealing thousands of chemicals that conventional tests miss",
+      "summary_zh": "新的分析工具正在揭示数千种传统检测方法无法检测出的化学物质",
+      "link": "https://www.science.org/content/article/chemists-are-uncovering-hidden-world-pollution",
+      "source": "Science",
+      "published": "2026-11-19T19:00:00+00:00",
+      "hotness": 65.7,
+      "score": 65.7,
+      "score_v1": 11.64,
+      "score_v2": 65.7,
+      "score_breakdown": {
+        "algorithm": "v3.0",
+        "dimension_max": {
+          "authority": 18.0,
+          "topic": 18.0,
+          "resonance": 18.0,
+          "information": 16.0
+        },
+        "authority_score": 18.0,
+        "keyword_idf_score": 0.0,
+        "topic_score": 3.0,
+        "topic_burst_score": 0.0,
+        "topic_burst_count": 1,
+        "resonance_score": 0.0,
+        "info_score": 0.75,
+        "base": 21.75,
+        "base_max": 70.0,
+        "time_factor": 0.515,
+        "density_factor": 1.0,
+        "density_note": "",
+        "repeat_penalty": 1.0,
+        "repeat_excused": false,
+        "event_size": 1,
+        "event_media_count": 1,
+        "event_cluster_source": "ai",
+        "origin_source": "Science",
+        "raw": 11.2,
+        "display_score": 65.7,
+        "display_mode": "absolute"
+      },
+      "score_v1_breakdown": {
+        "base": 5.0,
+        "source_score": 6.0,
+        "keyword_score": 0.0,
+        "time_score": 0.64,
+        "topic_bonus": 0.0,
+        "total": 11.64
+      },
+      "summary": "新的分析工具正在揭示数千种传统检测方法无法检测出的化学物质",
+      "analysis": "该条目涉及【污染治理】话题，因来源权威性高，热度上升。",
+      "topic_tags": [
+        "污染治理"
+      ],
+      "category": "污染治理",
+      "matched_keywords": [],
+      "keywords": []
+    },
+    {
+      "title": "Resilience as a governing principle in water governance",
+      "title_en": "Resilience as a governing principle in water governance",
+      "title_zh": "韧性作为水治理的基本原则",
+      "summary_en": "Nature Sustainability, Published online: 17 November 2026; doi:10.1038/s41893-026-01972-yWater governance often treats resilience as an end state, achieved mainly through technocratic decision-making and standard engineering tools. Drawing on five international cases, we argue that resilience should instead guide governance design and operation through adaptability, coordination, learning and accountability.",
+      "summary_zh": "《自然·可持续性》（Nature Sustainability），在线发表于：2026年11月17日；doi:10.1038/s41893-026-01972-y 水治理往往将韧性视为一种最终状态，主要通过技术官僚式的决策和标准工程工具来实现。 基于五个国际案例，我们认为，韧性应通过适应性、协调性、学习能力和问责制来指导治理的设计与运作。",
+      "link": "https://www.nature.com/articles/s41893-026-01972-y",
+      "source": "Nature Sustainability",
+      "published": "2026-11-17T00:00:00+00:00",
+      "hotness": 65.4,
+      "score": 65.4,
+      "score_v1": 17.04,
+      "score_v2": 65.4,
+      "score_breakdown": {
+        "algorithm": "v3.0",
+        "dimension_max": {
+          "authority": 18.0,
+          "topic": 18.0,
+          "resonance": 18.0,
+          "information": 16.0
+        },
+        "authority_score": 18.0,
+        "keyword_idf_score": 4.86,
+        "topic_score": 7.23,
+        "topic_burst_score": 2.36,
+        "topic_burst_count": 2,
+        "resonance_score": 0.0,
+        "info_score": 3.0,
+        "base": 28.23,
+        "base_max": 70.0,
+        "time_factor": 0.3909,
+        "density_factor": 1.0,
+        "density_note": "",
+        "repeat_penalty": 1.0,
+        "repeat_excused": false,
+        "event_size": 1,
+        "event_media_count": 1,
+        "event_cluster_source": "ai",
+        "origin_source": "Nature Sustainability",
+        "raw": 11.03,
+        "display_score": 65.4,
+        "display_mode": "absolute"
+      },
+      "score_v1_breakdown": {
+        "base": 5.0,
+        "source_score": 6.0,
+        "keyword_score": 2.0,
+        "time_score": 0.04,
+        "topic_bonus": 4.0,
+        "total": 17.04
+      },
+      "summary": "《自然·可持续性》（Nature Sustainability）， 水治理往往将韧性视为一种最终状态，主要通过技术官僚式的决策和标准工程工具来实现。 基于五个国际案例，我们认为，韧性应通过适应性、协调性、学习能力和问责制来指导治理的设计与运作。",
+      "analysis": "该条目涉及【环境政策】话题，因来源权威性高，热度上升。",
+      "topic_tags": [
+        "环境政策"
+      ],
+      "category": "环境政策",
+      "matched_keywords": [
+        "可持续发展"
+      ],
+      "keywords": [
+        "可持续发展"
+      ]
+    },
+    {
+      "title": "Fight over fossil fuels leaves COP31 climate talks in deadlock",
+      "title_en": "Fight over fossil fuels leaves COP31 climate talks in deadlock",
+      "title_zh": "围绕化石燃料的争执导致COP31气候谈判陷入僵局",
+      "summary_en": "Countries from nearly 200 countries are in a deadlock to try and get a new global climate agreement.",
+      "summary_zh": "来自近200个国家的代表在争取达成一项新的全球气候协议方面陷入僵局。",
+      "link": "https://www.bbc.co.uk/news/articles/c6ly5w40eg07o?at_medium=RSS&at_campaign=rss",
+      "source": "BBC 科学与环境",
+      "published": "2026-11-21T22:19:43+00:00",
+      "hotness": 64.9,
+      "score": 64.9,
+      "score_v1": 14.97,
+      "score_v2": 64.9,
       "score_breakdown": {
         "algorithm": "v3.0",
         "dimension_max": {
@@ -2055,40 +1660,40 @@
         },
         "authority_score": 12.73,
         "keyword_idf_score": 0.0,
-        "topic_score": 0.0,
+        "topic_score": 3.0,
         "topic_burst_score": 0.0,
         "topic_burst_count": 1,
         "resonance_score": 0.0,
-        "info_score": 12.0,
-        "base": 24.73,
+        "info_score": 5.75,
+        "base": 21.48,
         "base_max": 70.0,
-        "time_factor": 0.4821,
+        "time_factor": 0.8306,
         "density_factor": 1.0,
         "density_note": "",
-        "repeat_penalty": 1.0,
+        "repeat_penalty": 0.6,
         "repeat_excused": false,
-        "event_size": 1,
+        "event_size": 3,
         "event_media_count": 1,
         "event_cluster_source": "ai",
-        "origin_source": "ScienceDaily 环境科学",
-        "raw": 11.92,
-        "display_score": 66.9,
+        "origin_source": "BBC 科学与环境",
+        "raw": 10.7,
+        "display_score": 64.9,
         "display_mode": "absolute"
       },
       "score_v1_breakdown": {
         "base": 5.0,
         "source_score": 4.5,
         "keyword_score": 0.0,
-        "time_score": 0.41,
+        "time_score": 5.47,
         "topic_bonus": 0.0,
-        "total": 9.91
+        "total": 14.97
       },
-      "summary": "科学家们或许终于解释了为什么世界各地的岩石中缺失了长达10亿多年的地球地质历史。最新研究表明，地球深处的强劲洋流缓慢地抬升和下沉了整个大陆，导致在这些地质层被埋藏并保存下来之前，侵蚀作用就已抹去了 vast stretches of geological history。",
-      "analysis": "该条目涉及【环境资讯】话题，因来源权威性高，热度上升。",
+      "summary": "来自近200个国家的代表在争取达成一项新的全球气候协议方面陷入僵局。",
+      "analysis": "该条目涉及【COP】话题，因来源权威性高，热度上升。",
       "topic_tags": [
-        "环境资讯"
+        "COP"
       ],
-      "category": "其他",
+      "category": "气候变化",
       "matched_keywords": [],
       "keywords": []
     },
@@ -2101,10 +1706,10 @@
       "link": "https://www.adaptation-fund.org/climate-change-tv-mikko-ollikainen-discusses-adaptation-finance-scaling-up-and-cop31/",
       "source": "Adaptation Fund",
       "published": "2026-11-17T22:32:57+00:00",
-      "hotness": 66.2,
-      "score": 66.2,
-      "score_v1": 22.87,
-      "score_v2": 66.2,
+      "hotness": 64.1,
+      "score": 64.1,
+      "score_v1": 20.7,
+      "score_v2": 64.1,
       "score_breakdown": {
         "algorithm": "v3.0",
         "dimension_max": {
@@ -2115,14 +1720,14 @@
         },
         "authority_score": 8.05,
         "keyword_idf_score": 3.47,
-        "topic_score": 8.97,
-        "topic_burst_score": 5.51,
-        "topic_burst_count": 6,
+        "topic_score": 8.65,
+        "topic_burst_score": 5.19,
+        "topic_burst_count": 5,
         "resonance_score": 0.0,
         "info_score": 8.0,
-        "base": 25.02,
+        "base": 24.7,
         "base_max": 70.0,
-        "time_factor": 0.4574,
+        "time_factor": 0.4153,
         "density_factor": 1.0,
         "density_note": "",
         "repeat_penalty": 1.0,
@@ -2131,17 +1736,17 @@
         "event_media_count": 1,
         "event_cluster_source": "ai",
         "origin_source": "Adaptation Fund",
-        "raw": 11.45,
-        "display_score": 66.2,
+        "raw": 10.26,
+        "display_score": 64.1,
         "display_mode": "absolute"
       },
       "score_v1_breakdown": {
         "base": 5.0,
         "source_score": 3.6,
         "keyword_score": 2.0,
-        "time_score": 0.27,
-        "topic_bonus": 12.0,
-        "total": 22.87
+        "time_score": 0.1,
+        "topic_bonus": 10.0,
+        "total": 20.7
       },
       "summary": "适应基金负责人米科·奥利卡伊宁（Mikko Ollikainen）接受《气候变化电视》采访，谈及适应融资、扩大成功项目的规模、COP31的优先事项，以及该基金向专门服务《巴黎协定》的转型。 文章《[气候变化电视台] 米科·奥利卡伊宁探讨适应融资、项目规模化及COP31》首发于适应基金官网。",
       "analysis": "该条目涉及【COP】话题，因来源较权威，热度上升。",
@@ -2157,198 +1762,18 @@
       ]
     },
     {
-      "title": "Mysterious Mercury is about to get a visitor - after spacecraft's eight-year epic voyage",
-      "title_en": "Mysterious Mercury is about to get a visitor - after spacecraft's eight-year epic voyage",
-      "title_zh": "神秘的水星即将迎来一位访客——在航天器历经八年史诗般的航行之后",
-      "summary_en": "The mission is set to give us our best ever view of Mercury - the closest planet to the Sun.",
-      "summary_zh": "此次任务旨在让我们获得有史以来最清晰的水星观测图像——水星是距离太阳最近的行星。",
-      "link": "https://www.bbc.co.uk/news/articles/c39w9l4v1p9ro?at_medium=RSS&at_campaign=rss",
-      "source": "BBC 科学与环境",
-      "published": "2026-11-20T05:59:56+00:00",
-      "hotness": 65.2,
-      "score": 65.2,
-      "score_v1": 12.25,
-      "score_v2": 65.2,
-      "score_breakdown": {
-        "algorithm": "v3.0",
-        "dimension_max": {
-          "authority": 18.0,
-          "topic": 18.0,
-          "resonance": 18.0,
-          "information": 16.0
-        },
-        "authority_score": 12.73,
-        "keyword_idf_score": 0.0,
-        "topic_score": 0.0,
-        "topic_burst_score": 0.0,
-        "topic_burst_count": 1,
-        "resonance_score": 0.0,
-        "info_score": 3.0,
-        "base": 15.73,
-        "base_max": 70.0,
-        "time_factor": 0.6911,
-        "density_factor": 1.0,
-        "density_note": "",
-        "repeat_penalty": 1.0,
-        "repeat_excused": false,
-        "event_size": 1,
-        "event_media_count": 1,
-        "event_cluster_source": "ai",
-        "origin_source": "BBC 科学与环境",
-        "raw": 10.87,
-        "display_score": 65.2,
-        "display_mode": "absolute"
-      },
-      "score_v1_breakdown": {
-        "base": 5.0,
-        "source_score": 4.5,
-        "keyword_score": 0.0,
-        "time_score": 2.75,
-        "topic_bonus": 0.0,
-        "total": 12.25
-      },
-      "summary": "此次任务旨在让我们获得有史以来最清晰的水星观测图像——水星是距离太阳最近的行星。",
-      "analysis": "该条目涉及【环境资讯】话题，因来源权威性高，热度上升。",
-      "topic_tags": [
-        "环境资讯"
-      ],
-      "category": "水处理",
-      "matched_keywords": [],
-      "keywords": []
-    },
-    {
-      "title": "北京明日空气质量为良 - 京报网",
-      "title_en": "",
-      "title_zh": "",
-      "summary_en": "",
-      "summary_zh": "",
-      "link": "https://news.google.com/rss/articles/CBMiXkFVX3lxTE4zRTYwbzZwdHE0a0RBMzA0MzRMTVFDbEVUSXA0dnAtdlhMQl9jUnROUHR1S1dTb2FYbXdLWEdsNDZtd1lONlZUN0hHWE5RM1ZOMXdjYS1HRVcwRDd4Smc?oc=5",
-      "source": "Google News 环境污染",
-      "published": "2026-11-21T11:01:55+00:00",
-      "hotness": 65.0,
-      "score": 65.0,
-      "score_v1": 17.83,
-      "score_v2": 65.0,
-      "score_breakdown": {
-        "algorithm": "v3.0",
-        "dimension_max": {
-          "authority": 18.0,
-          "topic": 18.0,
-          "resonance": 18.0,
-          "information": 16.0
-        },
-        "authority_score": 8.05,
-        "keyword_idf_score": 0.0,
-        "topic_score": 3.0,
-        "topic_burst_score": 0.0,
-        "topic_burst_count": 1,
-        "resonance_score": 0.0,
-        "info_score": 0.0,
-        "base": 11.05,
-        "base_max": 70.0,
-        "time_factor": 0.9746,
-        "density_factor": 1.0,
-        "density_note": "",
-        "repeat_penalty": 1.0,
-        "repeat_excused": false,
-        "event_size": 1,
-        "event_media_count": 1,
-        "event_cluster_source": "ai",
-        "origin_source": "京报网",
-        "raw": 10.77,
-        "display_score": 65.0,
-        "display_mode": "absolute"
-      },
-      "score_v1_breakdown": {
-        "base": 5.0,
-        "source_score": 3.6,
-        "keyword_score": 0.0,
-        "time_score": 9.23,
-        "topic_bonus": 0.0,
-        "total": 17.83
-      },
-      "summary": "21日夜间高压后部作用，偏南风扩散条件一般，空气质量指数30-50，1级优。22日白天预计首要污染物为PM2.5，指数50-70，2级良。",
-      "analysis": "该条目涉及【污染治理】话题，因来源较权威且发布时间较新，热度上升。",
-      "topic_tags": [
-        "污染治理"
-      ],
-      "category": "污染治理",
-      "matched_keywords": [],
-      "keywords": []
-    },
-    {
-      "title": "贵州苗侗智慧为全球气候治理贡献中国方案 - 新华网",
-      "title_en": "",
-      "title_zh": "",
-      "summary_en": "",
-      "summary_zh": "",
-      "link": "https://news.google.com/rss/articles/CBMif0FVX3lxTE9WcXZKeFphbEx5Sm9JTkNwUElBQmMwMW8xVlhVTVNORnMtLVRqN1hjN2xOdzZfNExscHhkUFFmb0RhejFpOVBTbGxuNmRHb3hEQVVvOVhYZlktLW5mM2xSang3MUszTl9kMzRLUEJKcjRONE5ORmVyWFoxNUJMX28?oc=5",
-      "source": "Google News 气候变化",
-      "published": "2026-11-21T08:03:20+00:00",
-      "hotness": 64.2,
-      "score": 64.2,
-      "score_v1": 16.76,
-      "score_v2": 64.2,
-      "score_breakdown": {
-        "algorithm": "v3.0",
-        "dimension_max": {
-          "authority": 18.0,
-          "topic": 18.0,
-          "resonance": 18.0,
-          "information": 16.0
-        },
-        "authority_score": 8.05,
-        "keyword_idf_score": 0.0,
-        "topic_score": 3.0,
-        "topic_burst_score": 0.0,
-        "topic_burst_count": 1,
-        "resonance_score": 0.0,
-        "info_score": 0.0,
-        "base": 11.05,
-        "base_max": 70.0,
-        "time_factor": 0.937,
-        "density_factor": 1.0,
-        "density_note": "",
-        "repeat_penalty": 1.0,
-        "repeat_excused": false,
-        "event_size": 1,
-        "event_media_count": 1,
-        "event_cluster_source": "ai",
-        "origin_source": "新华网",
-        "raw": 10.35,
-        "display_score": 64.2,
-        "display_mode": "absolute"
-      },
-      "score_v1_breakdown": {
-        "base": 5.0,
-        "source_score": 3.6,
-        "keyword_score": 0.0,
-        "time_score": 8.16,
-        "topic_bonus": 0.0,
-        "total": 16.76
-      },
-      "summary": "贵州苗侗智慧在全球气候治理中贡献中国方案，展现地方生态智慧在国际合作中的重要价值。",
-      "analysis": "该条目涉及【气候变化】话题，因来源较权威且发布时间较新，热度上升。",
-      "topic_tags": [
-        "气候变化"
-      ],
-      "category": "气候变化",
-      "matched_keywords": [],
-      "keywords": []
-    },
-    {
       "title": "Accounting for the mining industry’s global water footprint",
       "title_en": "Accounting for the mining industry’s global water footprint",
       "title_zh": "计算采矿业的全球水足迹",
       "summary_en": "Nature Sustainability, Published online: 17 November 2026; doi:10.1038/s41893-026-01945-1Millions of people share rivers, aquifers and coastlines with mining operations, but years of regulation and voluntary schemes have left these communities with limited knowledge of what water is withdrawn, discharged or contaminated. De-risking the sector requires mandatory transparency, which should be made a condition of the capital now flowing into critical mineral supply chains.",
-      "summary_zh": "《自然·可持续性》，在线发表于：2026年11月17日； doi:10.1038/s41893-026-01945-1数百万民众与采矿作业共享河流、含水层和海岸线，但多年的监管和自愿性计划却导致这些社区对取水量、排放量及水体污染情况知之甚少。 要降低该行业的风险，必须实行强制性透明度要求，并应将其作为当前流入关键矿产供应链的资本的准入条件。",
+      "summary_zh": "《自然·可持续性》，在线发表于：2026年11月17日； doi:10.1038/s41893-026-01945-1数百万民众与采矿作业共享河流、含水层和海岸线，但多年的监管和自愿性计划使得这些社区对水的取用、排放或污染情况知之甚少。 要降低该行业的风险，必须实行强制性透明度要求，并应将其作为当前流入关键矿产供应链的资本的准入条件。",
       "link": "https://www.nature.com/articles/s41893-026-01945-1",
       "source": "Nature Sustainability",
       "published": "2026-11-17T00:00:00+00:00",
-      "hotness": 63.6,
-      "score": 63.6,
-      "score_v1": 11.11,
-      "score_v2": 63.6,
+      "hotness": 62.5,
+      "score": 62.5,
+      "score_v1": 11.04,
+      "score_v2": 62.5,
       "score_breakdown": {
         "algorithm": "v3.0",
         "dimension_max": {
@@ -2366,7 +1791,7 @@
         "info_score": 3.0,
         "base": 24.0,
         "base_max": 70.0,
-        "time_factor": 0.4172,
+        "time_factor": 0.3909,
         "density_factor": 1.0,
         "density_note": "",
         "repeat_penalty": 1.0,
@@ -2375,19 +1800,19 @@
         "event_media_count": 1,
         "event_cluster_source": "ai",
         "origin_source": "Nature Sustainability",
-        "raw": 10.01,
-        "display_score": 63.6,
+        "raw": 9.38,
+        "display_score": 62.5,
         "display_mode": "absolute"
       },
       "score_v1_breakdown": {
         "base": 5.0,
         "source_score": 6.0,
         "keyword_score": 0.0,
-        "time_score": 0.11,
+        "time_score": 0.04,
         "topic_bonus": 0.0,
-        "total": 11.11
+        "total": 11.04
       },
-      "summary": "《自然·可持续性》， 数百万民众与采矿作业共享河流、含水层和海岸线，但多年的监管和自愿性计划却导致这些社区对取水量、排放量及水体污染情况知之甚少。 要降低该行业的风险，必须实行强制性透明度要求，并应将其作为当前流入关键矿产供应链的资本的准入条件。",
+      "summary": "《自然·可持续性》， 数百万民众与采矿作业共享河流、含水层和海岸线，但多年的监管和自愿性计划使得这些社区对水的取用、排放或污染情况知之甚少。 要降低该行业的风险，必须实行强制性透明度要求，并应将其作为当前流入关键矿产供应链的资本的准入条件。",
       "analysis": "该条目涉及【水处理】话题，因来源权威性高，热度上升。",
       "topic_tags": [
         "水处理"
@@ -2397,78 +1822,18 @@
       "keywords": []
     },
     {
-      "title": "What are heat pumps and how much do they cost?",
-      "title_en": "What are heat pumps and how much do they cost?",
-      "title_zh": "什么是热泵？价格是多少？",
-      "summary_en": "The government wants more homes to have heat pumps to cut fossil fuel use and drive down energy bills.",
-      "summary_zh": "政府希望更多家庭安装热泵，以减少化石燃料的使用并降低能源费用。",
-      "link": "https://www.bbc.co.uk/news/articles/c8xgdv9e007o?at_medium=RSS&at_campaign=rss",
-      "source": "BBC 科学与环境",
-      "published": "2026-11-20T10:24:52+00:00",
-      "hotness": 63.2,
-      "score": 63.2,
-      "score_v1": 12.81,
-      "score_v2": 63.2,
-      "score_breakdown": {
-        "algorithm": "v3.0",
-        "dimension_max": {
-          "authority": 18.0,
-          "topic": 18.0,
-          "resonance": 18.0,
-          "information": 16.0
-        },
-        "authority_score": 12.73,
-        "keyword_idf_score": 0.0,
-        "topic_score": 0.0,
-        "topic_burst_score": 0.0,
-        "topic_burst_count": 1,
-        "resonance_score": 0.0,
-        "info_score": 0.75,
-        "base": 13.48,
-        "base_max": 70.0,
-        "time_factor": 0.724,
-        "density_factor": 1.0,
-        "density_note": "",
-        "repeat_penalty": 1.0,
-        "repeat_excused": false,
-        "event_size": 1,
-        "event_media_count": 1,
-        "event_cluster_source": "ai",
-        "origin_source": "BBC 科学与环境",
-        "raw": 9.76,
-        "display_score": 63.2,
-        "display_mode": "absolute"
-      },
-      "score_v1_breakdown": {
-        "base": 5.0,
-        "source_score": 4.5,
-        "keyword_score": 0.0,
-        "time_score": 3.31,
-        "topic_bonus": 0.0,
-        "total": 12.81
-      },
-      "summary": "政府希望更多家庭安装热泵，以减少化石燃料的使用并降低能源费用。",
-      "analysis": "该条目涉及【环境资讯】话题，因来源权威性高，热度上升。",
-      "topic_tags": [
-        "环境资讯"
-      ],
-      "category": "其他",
-      "matched_keywords": [],
-      "keywords": []
-    },
-    {
-      "title": "以法治厚植生态优势 绘就八桂山海共生画卷 - 央广网",
+      "title": "美国退出气候外交留下空缺，中国却无意填补，因为担心承担领导角色的后果 - DW.com",
       "title_en": "",
       "title_zh": "",
       "summary_en": "",
       "summary_zh": "",
-      "link": "https://news.google.com/rss/articles/CBMic0FVX3lxTE1RbWZOWkQyaXZHdzBGVVcxQ0g1aGRVSVZSbGNIY0s0SWFkT2tuVzVDZ3dvZkdZSVdXU21hNkpVaXZVSUxPUnh5WTlWWFJ2U1BMbmhZWUpUZmJuYTFHbUVSSFlsUmpRaWxUem5LbEtmUXA4VjA?oc=5",
-      "source": "Google News 环境保护",
-      "published": "2026-11-21T00:15:44+00:00",
-      "hotness": 62.5,
-      "score": 62.5,
-      "score_v1": 14.49,
-      "score_v2": 62.5,
+      "link": "https://news.google.com/rss/articles/CBMilAJBVV95cUxPWkVvakpNdDNTMXRwT0FsV0ZWOWotOWZZZk83RnkycTV1ZXNiaWV4X2NMelRkb1ZDRk1BZ09DLUtMUEIzUFV0VXFONWdNeWdIYkhJRkFvTnFEd3RMSE9pYjNSNFlyZWwxYS1ZQ3l4VTM5WldTcEdtUWVUaVk2ZWVVX29mRldnOG12NU5KMGlkSjVOQlE2SHMwanlTSlo0Q2VPeWxhbUNoelFVOXNQZUR0cUJGWjhvcFczb1V4YjR2bWs2V3JuMXBhVlBvT2Y3Nms3S3FFbnFrMlRJR2hHUkhDM29Sb3FtNGNLdFo4OEtYTm5lUjhnZ2k3QW5jU0hRTHJzcXZTZnZBbEI3N3NIdXJpaVFBMUbSAZQCQVVfeXFMUFNzaXEzejBSV0tkUG8zMkZMX0dKMTlwY3lVSG9iUGJ3QU4tWHNDQVNfVE5DS1FuQmpidGdod0djLVhUaVREVkUyWVJnNVAxN2ZOMkpJS2xWTlZaVldaUUVKMVNHR3ZrYkZqSzJOSWI2TXhOd3lwOGRGdGNDVTlLbHE1T0xOU3dSV01EMHdjajBmVnplTzZvRWRHTUlPX29haVJ4SWJiaHNPTm82a0VNWFVhamQ4d2RFbkNIWEc1UTBfMWxqTkVpQkotOVcxMjA1STRHNk1EbzRJVE9SZWNJN0NNcllfMEYwaEpna0hpdGJ0cW5ra3VIQndVY3lfaFNPdENTY3BpVUdyVkNFeHFOVzh5eVhR?oc=5",
+      "source": "Google News 气候变化",
+      "published": "2026-11-21T22:25:47+00:00",
+      "hotness": 62.1,
+      "score": 62.1,
+      "score_v1": 14.09,
+      "score_v2": 62.1,
       "score_breakdown": {
         "algorithm": "v3.0",
         "dimension_max": {
@@ -2486,7 +1851,7 @@
         "info_score": 0.0,
         "base": 11.05,
         "base_max": 70.0,
-        "time_factor": 0.849,
+        "time_factor": 0.8317,
         "density_factor": 1.0,
         "density_note": "",
         "repeat_penalty": 1.0,
@@ -2494,27 +1859,93 @@
         "event_size": 1,
         "event_media_count": 1,
         "event_cluster_source": "ai",
-        "origin_source": "央广网",
-        "raw": 9.38,
-        "display_score": 62.5,
+        "origin_source": "DW.com",
+        "raw": 9.19,
+        "display_score": 62.1,
         "display_mode": "absolute"
       },
       "score_v1_breakdown": {
         "base": 5.0,
         "source_score": 3.6,
         "keyword_score": 0.0,
-        "time_score": 5.89,
+        "time_score": 5.49,
         "topic_bonus": 0.0,
-        "total": 14.49
+        "total": 14.09
       },
-      "summary": "以法治手段厚植广西生态优势，绘就山海共生的八桂画卷，推动人与自然和谐共生的现代化进程。",
-      "analysis": "该条目涉及【生态环境】话题，因来源较权威，热度上升。",
+      "summary": "美国退出气候外交留下空缺，中国因担心承担领导角色后果而无意填补。",
+      "analysis": "该条目涉及【气候变化】话题，因来源较权威，热度上升。",
       "topic_tags": [
-        "生态环境"
+        "气候变化"
       ],
-      "category": "生态环境",
+      "category": "气候变化",
       "matched_keywords": [],
       "keywords": []
+    },
+    {
+      "title": "生态环境部党组书记孙金龙赴浙江省、上海市调研生态环境保护工作 - 中华人民共和国生态环境部",
+      "title_en": "",
+      "title_zh": "",
+      "summary_en": "",
+      "summary_zh": "",
+      "link": "https://news.google.com/rss/articles/CBMidkFVX3lxTE1rUDhwaHNhWF81UnJpOWR0OWFvOTNEWjN2am1vMHVfZFZZWWwybG5KYmthX3lRQ09lYzQ2cTlzUGVjRXVvVWdfLW5qUkl6cFNrZkI1QlY3ODBSeFN1dTlPYk5Ya29ndUJBRHNwa3l6V0puZEFlR0E?oc=5",
+      "source": "Google News 环境保护",
+      "published": "2026-11-22T03:25:20+00:00",
+      "hotness": 59.9,
+      "score": 59.9,
+      "score_v1": 27.36,
+      "score_v2": 59.9,
+      "score_breakdown": {
+        "algorithm": "v3.0",
+        "dimension_max": {
+          "authority": 18.0,
+          "topic": 18.0,
+          "resonance": 18.0,
+          "information": 16.0
+        },
+        "authority_score": 8.05,
+        "keyword_idf_score": 7.5,
+        "topic_score": 11.29,
+        "topic_burst_score": 3.79,
+        "topic_burst_count": 3,
+        "resonance_score": 0.0,
+        "info_score": 4.0,
+        "base": 23.34,
+        "base_max": 70.0,
+        "time_factor": 0.8845,
+        "density_factor": 0.65,
+        "density_note": "地方政务通稿",
+        "repeat_penalty": 0.6,
+        "repeat_excused": false,
+        "event_size": 2,
+        "event_media_count": 1,
+        "event_cluster_source": "ai",
+        "origin_source": "中华人民共和国生态环境部",
+        "raw": 8.05,
+        "display_score": 59.9,
+        "display_mode": "absolute"
+      },
+      "score_v1_breakdown": {
+        "base": 5.0,
+        "source_score": 3.6,
+        "keyword_score": 4.0,
+        "time_score": 6.76,
+        "topic_bonus": 8.0,
+        "total": 27.36
+      },
+      "summary": "生态环境部党组书记孙金龙赴浙江省、上海市调研生态环境保护工作。",
+      "analysis": "该条目涉及【生态环境部】话题，因来源较权威且发布时间较新，热度上升。",
+      "topic_tags": [
+        "生态环境部"
+      ],
+      "category": "生态环境",
+      "matched_keywords": [
+        "生态环境",
+        "环境保护"
+      ],
+      "keywords": [
+        "生态环境",
+        "环境保护"
+      ]
     },
     {
       "title": "Adaptation Fund Mobilizes $50 Million",
@@ -2525,10 +1956,10 @@
       "link": "https://www.adaptation-fund.org/adaptation-fund-mobilizes-50-million/",
       "source": "Adaptation Fund",
       "published": "2026-11-17T20:38:49+00:00",
-      "hotness": 61.0,
-      "score": 61.0,
-      "score_v1": 8.85,
-      "score_v2": 61.0,
+      "hotness": 59.5,
+      "score": 59.5,
+      "score_v1": 8.69,
+      "score_v2": 59.5,
       "score_breakdown": {
         "algorithm": "v3.0",
         "dimension_max": {
@@ -2546,7 +1977,7 @@
         "info_score": 8.0,
         "base": 19.05,
         "base_max": 70.0,
-        "time_factor": 0.4533,
+        "time_factor": 0.4128,
         "density_factor": 1.0,
         "density_note": "",
         "repeat_penalty": 1.0,
@@ -2555,17 +1986,17 @@
         "event_media_count": 1,
         "event_cluster_source": "ai",
         "origin_source": "Adaptation Fund",
-        "raw": 8.63,
-        "display_score": 61.0,
+        "raw": 7.86,
+        "display_score": 59.5,
         "display_mode": "absolute"
       },
       "score_v1_breakdown": {
         "base": 5.0,
         "source_score": 3.6,
         "keyword_score": 0.0,
-        "time_score": 0.25,
+        "time_score": 0.09,
         "topic_bonus": 0.0,
-        "total": 8.85
+        "total": 8.69
       },
       "summary": "[本声明将随着新承诺的公布而更新——数据截至2026年11月17日土耳其时间晚8点] 在土耳其安塔利亚举行的第31届缔约方大会（COP31）上，包括在适应基金高级别捐助方对话期间，宣布了多项针对适应基金的新承诺。 公布的认捐包括：捐助方强调，适应资金的迫切需求[…] 文章《适应基金筹集5000万美元》首发于适应基金官网。",
       "analysis": "该条目涉及【环境资讯】话题，因来源较权威，热度上升。",
@@ -2573,6 +2004,66 @@
         "环境资讯"
       ],
       "category": "科研学术",
+      "matched_keywords": [],
+      "keywords": []
+    },
+    {
+      "title": "以法治厚植生态优势 绘就八桂山海共生画卷 - 央广网",
+      "title_en": "",
+      "title_zh": "",
+      "summary_en": "",
+      "summary_zh": "",
+      "link": "https://news.google.com/rss/articles/CBMic0FVX3lxTE1RbWZOWkQyaXZHdzBGVVcxQ0g1aGRVSVZSbGNIY0s0SWFkT2tuVzVDZ3dvZkdZSVdXU21hNkpVaXZVSUxPUnh5WTlWWFJ2U1BMbmhZWUpUZmJuYTFHbUVSSFlsUmpRaWxUem5LbEtmUXA4VjA?oc=5",
+      "source": "Google News 环境保护",
+      "published": "2026-11-21T00:15:44+00:00",
+      "hotness": 58.2,
+      "score": 58.2,
+      "score_v1": 10.78,
+      "score_v2": 58.2,
+      "score_breakdown": {
+        "algorithm": "v3.0",
+        "dimension_max": {
+          "authority": 18.0,
+          "topic": 18.0,
+          "resonance": 18.0,
+          "information": 16.0
+        },
+        "authority_score": 8.05,
+        "keyword_idf_score": 0.0,
+        "topic_score": 3.0,
+        "topic_burst_score": 0.0,
+        "topic_burst_count": 1,
+        "resonance_score": 0.0,
+        "info_score": 0.0,
+        "base": 11.05,
+        "base_max": 70.0,
+        "time_factor": 0.6535,
+        "density_factor": 1.0,
+        "density_note": "",
+        "repeat_penalty": 1.0,
+        "repeat_excused": false,
+        "event_size": 1,
+        "event_media_count": 1,
+        "event_cluster_source": "ai",
+        "origin_source": "央广网",
+        "raw": 7.22,
+        "display_score": 58.2,
+        "display_mode": "absolute"
+      },
+      "score_v1_breakdown": {
+        "base": 5.0,
+        "source_score": 3.6,
+        "keyword_score": 0.0,
+        "time_score": 2.18,
+        "topic_bonus": 0.0,
+        "total": 10.78
+      },
+      "summary": "以法治厚植生态优势，绘就八桂山海共生画卷。",
+      "analysis": "该条目涉及【生态环境】话题，因来源较权威，热度上升。",
+      "topic_tags": [
+        "生态环境"
+      ],
+      "category": "生态环境",
       "matched_keywords": [],
       "keywords": []
     },
@@ -2585,10 +2076,10 @@
       "link": "https://www.adaptation-fund.org/climate-home-news-building-coastal-resilience-for-local-communities-in-honduras/",
       "source": "Adaptation Fund",
       "published": "2026-11-19T16:00:24+00:00",
-      "hotness": 60.8,
-      "score": 60.8,
-      "score_v1": 10.14,
-      "score_v2": 60.8,
+      "hotness": 57.9,
+      "score": 57.9,
+      "score_v1": 9.17,
+      "score_v2": 57.9,
       "score_breakdown": {
         "algorithm": "v3.0",
         "dimension_max": {
@@ -2606,7 +2097,7 @@
         "info_score": 3.0,
         "base": 14.05,
         "base_max": 70.0,
-        "time_factor": 0.6049,
+        "time_factor": 0.505,
         "density_factor": 1.0,
         "density_note": "",
         "repeat_penalty": 1.0,
@@ -2615,17 +2106,17 @@
         "event_media_count": 1,
         "event_cluster_source": "ai",
         "origin_source": "Adaptation Fund",
-        "raw": 8.5,
-        "display_score": 60.8,
+        "raw": 7.1,
+        "display_score": 57.9,
         "display_mode": "absolute"
       },
       "score_v1_breakdown": {
         "base": 5.0,
         "source_score": 3.6,
         "keyword_score": 0.0,
-        "time_score": 1.54,
+        "time_score": 0.57,
         "topic_bonus": 0.0,
-        "total": 10.14
+        "total": 9.17
       },
       "summary": "以海洋和沿海管理为重点的气候适应项目，可为COP31的谈判代表提供有价值的案例研究。在洪都拉斯、加纳和科特迪瓦各地，面临海平面上升、洪水和极端天气的社区正在积极参与制定他们所需的解决方案。 适应基金支持的项目正在推动以地方为主导的应对措施，包括建设韧性基础设施和预警系统[…] 这篇题为《[Climate Home News] 为洪都拉斯当地社区增强沿海韧性》的文章首先发布于适应基金网站。",
       "analysis": "该条目涉及【气候变化】话题，因来源较权威，热度上升。",
@@ -2635,152 +2126,20 @@
       "category": "气候变化",
       "matched_keywords": [],
       "keywords": []
-    },
-    {
-      "title": "This remarkable new material could solve a major carbon capture problem",
-      "title_en": "This remarkable new material could solve a major carbon capture problem",
-      "title_zh": "这种非凡的新材料或许能解决碳捕获方面的一大难题",
-      "summary_en": "Scientists have developed a new carbon capture material that turns moisture from an obstacle into an advantage, potentially solving a major problem with removing CO2 from industrial emissions. The material works even in extremely humid conditions and can be reused repeatedly, offering a promising path toward cheaper, more effective carbon capture.",
-      "summary_zh": "科学家们开发出一种新型碳捕获材料，它将水分从障碍转化为优势，有望解决从工业排放中去除二氧化碳时面临的一个主要难题。这种材料即使在极度潮湿的环境下也能正常工作，并且可以反复使用，为实现更经济、更高效的碳捕获开辟了一条充满希望的道路。",
-      "link": "https://www.sciencedaily.com/releases/2026/11/261116023405.htm",
-      "source": "ScienceDaily 环境科学",
-      "published": "2026-11-17T11:29:36+00:00",
-      "hotness": 60.1,
-      "score": 60.1,
-      "score_v1": 9.67,
-      "score_v2": 60.1,
-      "score_breakdown": {
-        "algorithm": "v3.0",
-        "dimension_max": {
-          "authority": 18.0,
-          "topic": 18.0,
-          "resonance": 18.0,
-          "information": 16.0
-        },
-        "authority_score": 12.73,
-        "keyword_idf_score": 0.0,
-        "topic_score": 3.0,
-        "topic_burst_score": 0.0,
-        "topic_burst_count": 1,
-        "resonance_score": 0.0,
-        "info_score": 3.0,
-        "base": 18.73,
-        "base_max": 70.0,
-        "time_factor": 0.4353,
-        "density_factor": 1.0,
-        "density_note": "",
-        "repeat_penalty": 1.0,
-        "repeat_excused": false,
-        "event_size": 1,
-        "event_media_count": 1,
-        "event_cluster_source": "ai",
-        "origin_source": "ScienceDaily 环境科学",
-        "raw": 8.15,
-        "display_score": 60.1,
-        "display_mode": "absolute"
-      },
-      "score_v1_breakdown": {
-        "base": 5.0,
-        "source_score": 4.5,
-        "keyword_score": 0.0,
-        "time_score": 0.17,
-        "topic_bonus": 0.0,
-        "total": 9.67
-      },
-      "summary": "科学家们开发出一种新型碳捕获材料，它将水分从障碍转化为优势，有望解决从工业排放中去除二氧化碳时面临的一个主要难题。这种材料即使在极度潮湿的环境下也能正常工作，并且可以反复使用，为实现更经济、更高效的碳捕获开辟了一条充满希望的道路。",
-      "analysis": "该条目涉及【气候变化】话题，因来源权威性高，热度上升。",
-      "topic_tags": [
-        "气候变化"
-      ],
-      "category": "气候变化",
-      "matched_keywords": [],
-      "keywords": []
-    },
-    {
-      "title": "厨余变肥皂！少先队员解锁低碳半日营新玩法 - Sohu",
-      "title_en": "",
-      "title_zh": "",
-      "summary_en": "",
-      "summary_zh": "",
-      "link": "https://news.google.com/rss/articles/CBMijAFBVV95cUxOWEd1bmZob0NMejFtSC04dTQ5Q0tiMnVjX2N0eXRsQ2JfZXVLQkVPdjZVYncyeWpBYlNvd19YbW9ZeHFoUjZtU0xBT2RxUlVsck1iSURMTG9PTy11VmxRQUhfWjhRRXRRZ21XeFU0VnBLYW5BNU1KX0wwYlRTdW5Xdk0zWlVqcHY0aGJvZg?oc=5",
-      "source": "Google News 环境保护",
-      "published": "2026-11-21T05:25:09+00:00",
-      "hotness": 58.3,
-      "score": 58.3,
-      "score_v1": 15.91,
-      "score_v2": 58.3,
-      "score_breakdown": {
-        "algorithm": "v3.0",
-        "dimension_max": {
-          "authority": 18.0,
-          "topic": 18.0,
-          "resonance": 18.0,
-          "information": 16.0
-        },
-        "authority_score": 8.05,
-        "keyword_idf_score": 0.0,
-        "topic_score": 0.0,
-        "topic_burst_score": 0.0,
-        "topic_burst_count": 1,
-        "resonance_score": 0.0,
-        "info_score": 0.0,
-        "base": 8.05,
-        "base_max": 70.0,
-        "time_factor": 0.9056,
-        "density_factor": 1.0,
-        "density_note": "",
-        "repeat_penalty": 1.0,
-        "repeat_excused": false,
-        "event_size": 1,
-        "event_media_count": 1,
-        "event_cluster_source": "ai",
-        "origin_source": "Sohu",
-        "raw": 7.29,
-        "display_score": 58.3,
-        "display_mode": "absolute"
-      },
-      "score_v1_breakdown": {
-        "base": 5.0,
-        "source_score": 3.6,
-        "keyword_score": 0.0,
-        "time_score": 7.31,
-        "topic_bonus": 0.0,
-        "total": 15.91
-      },
-      "summary": "少先队员通过创新方法将厨余垃圾转化为肥皂，探索低碳生活新玩法，实现资源循环利用与环保教育的有机结合。",
-      "analysis": "该条目涉及【环境资讯】话题，因来源较权威且发布时间较新，热度上升。",
-      "topic_tags": [
-        "环境资讯"
-      ],
-      "category": "其他",
-      "matched_keywords": [],
-      "keywords": []
     }
   ],
   "keyword_analysis": [
     {
       "keyword": "气候变化",
-      "count": 6,
+      "count": 5,
       "term": "气候变化",
       "category": "气候变化"
     },
     {
       "keyword": "生态环境",
-      "count": 4,
+      "count": 3,
       "term": "生态环境",
       "category": "生态环境"
-    },
-    {
-      "keyword": "可持续发展",
-      "count": 4,
-      "term": "可持续发展",
-      "category": "环境政策"
-    },
-    {
-      "keyword": "大气污染",
-      "count": 2,
-      "term": "大气污染",
-      "category": "污染治理"
     },
     {
       "keyword": "生态系统",
@@ -2789,52 +2148,22 @@
       "category": "生态环境"
     },
     {
-      "keyword": "微塑料",
+      "keyword": "可持续发展",
       "count": 2,
-      "term": "微塑料",
-      "category": "污染治理"
+      "term": "可持续发展",
+      "category": "环境政策"
     },
     {
-      "keyword": "空气质量",
+      "keyword": "COP31",
       "count": 2,
-      "term": "空气质量",
-      "category": "污染治理"
-    },
-    {
-      "keyword": "水质",
-      "count": 2,
-      "term": "水质",
-      "category": "水处理"
-    },
-    {
-      "keyword": "化学品风险",
-      "count": 2,
-      "term": "化学品风险",
-      "category": "环境健康"
-    },
-    {
-      "keyword": "生态保护",
-      "count": 2,
-      "term": "生态保护",
-      "category": "生态环境"
-    },
-    {
-      "keyword": "能源转型",
-      "count": 2,
-      "term": "能源转型",
-      "category": "能源与碳中和"
-    },
-    {
-      "keyword": "碳中和",
-      "count": 2,
-      "term": "碳中和",
-      "category": "气候变化"
-    },
-    {
-      "keyword": "环境法典",
-      "count": 1,
-      "term": "环境法典",
+      "term": "COP31",
       "category": "其他"
+    },
+    {
+      "keyword": "重金属",
+      "count": 1,
+      "term": "重金属",
+      "category": "污染治理"
     },
     {
       "keyword": "碳市场",
@@ -2847,32 +2176,56 @@
       "count": 1,
       "term": "生物多样性",
       "category": "生态环境"
+    },
+    {
+      "keyword": "大气污染",
+      "count": 1,
+      "term": "大气污染",
+      "category": "污染治理"
+    },
+    {
+      "keyword": "臭氧",
+      "count": 1,
+      "term": "臭氧",
+      "category": "污染治理"
+    },
+    {
+      "keyword": "环境保护",
+      "count": 1,
+      "term": "环境保护",
+      "category": "环境政策"
+    },
+    {
+      "keyword": "净滩环保",
+      "count": 1,
+      "term": "净滩环保",
+      "category": "环境政策"
+    },
+    {
+      "keyword": "生态文明建设",
+      "count": 1,
+      "term": "生态文明建设",
+      "category": "生态环境"
+    },
+    {
+      "keyword": "水环境质量",
+      "count": 1,
+      "term": "水环境质量",
+      "category": "水处理"
     }
   ],
   "keywords": [
     {
       "keyword": "气候变化",
-      "count": 6,
+      "count": 5,
       "term": "气候变化",
       "category": "气候变化"
     },
     {
       "keyword": "生态环境",
-      "count": 4,
+      "count": 3,
       "term": "生态环境",
       "category": "生态环境"
-    },
-    {
-      "keyword": "可持续发展",
-      "count": 4,
-      "term": "可持续发展",
-      "category": "环境政策"
-    },
-    {
-      "keyword": "大气污染",
-      "count": 2,
-      "term": "大气污染",
-      "category": "污染治理"
     },
     {
       "keyword": "生态系统",
@@ -2881,52 +2234,22 @@
       "category": "生态环境"
     },
     {
-      "keyword": "微塑料",
+      "keyword": "可持续发展",
       "count": 2,
-      "term": "微塑料",
-      "category": "污染治理"
+      "term": "可持续发展",
+      "category": "环境政策"
     },
     {
-      "keyword": "空气质量",
+      "keyword": "COP31",
       "count": 2,
-      "term": "空气质量",
-      "category": "污染治理"
-    },
-    {
-      "keyword": "水质",
-      "count": 2,
-      "term": "水质",
-      "category": "水处理"
-    },
-    {
-      "keyword": "化学品风险",
-      "count": 2,
-      "term": "化学品风险",
-      "category": "环境健康"
-    },
-    {
-      "keyword": "生态保护",
-      "count": 2,
-      "term": "生态保护",
-      "category": "生态环境"
-    },
-    {
-      "keyword": "能源转型",
-      "count": 2,
-      "term": "能源转型",
-      "category": "能源与碳中和"
-    },
-    {
-      "keyword": "碳中和",
-      "count": 2,
-      "term": "碳中和",
-      "category": "气候变化"
-    },
-    {
-      "keyword": "环境法典",
-      "count": 1,
-      "term": "环境法典",
+      "term": "COP31",
       "category": "其他"
+    },
+    {
+      "keyword": "重金属",
+      "count": 1,
+      "term": "重金属",
+      "category": "污染治理"
     },
     {
       "keyword": "碳市场",
@@ -2939,43 +2262,71 @@
       "count": 1,
       "term": "生物多样性",
       "category": "生态环境"
+    },
+    {
+      "keyword": "大气污染",
+      "count": 1,
+      "term": "大气污染",
+      "category": "污染治理"
+    },
+    {
+      "keyword": "臭氧",
+      "count": 1,
+      "term": "臭氧",
+      "category": "污染治理"
+    },
+    {
+      "keyword": "环境保护",
+      "count": 1,
+      "term": "环境保护",
+      "category": "环境政策"
+    },
+    {
+      "keyword": "净滩环保",
+      "count": 1,
+      "term": "净滩环保",
+      "category": "环境政策"
+    },
+    {
+      "keyword": "生态文明建设",
+      "count": 1,
+      "term": "生态文明建设",
+      "category": "生态环境"
+    },
+    {
+      "keyword": "水环境质量",
+      "count": 1,
+      "term": "水环境质量",
+      "category": "水处理"
     }
   ],
-  "hot_summary": "今日热点围绕气候变化、生态环境、可持续发展、大气污染、生态系统等话题，共聚合44条资讯。",
-  "summary": "今日热点围绕气候变化、生态环境、可持续发展、大气污染、生态系统等话题，共聚合44条资讯。",
-  "weekly_summary": "近7天环境热点以气候变化、生态环境、污染治理为主，总计282条目。",
-  "weekly_insight": "近7天环境热点呈现“气候变化、生态环境、污染治理”三大类集中，总计174条，占全量近六成。科研学术与水处理等细分领域虽有所关注，但整体热点呈现明显的上升态势与集中分布特征。",
+  "hot_summary": "今日热点围绕气候变化、生态环境、生态系统、可持续发展、COP31等话题，共聚合34条资讯。",
+  "summary": "今日热点围绕气候变化、生态环境、生态系统、可持续发展、COP31等话题，共聚合34条资讯。",
+  "weekly_summary": "近7天环境热点以气候变化、生态环境、污染治理为主，政策与科研关注度稳步提升，总计280条目。",
+  "weekly_insight": "近7天环境热点呈现出显著的分类集中特征，气候变化与生态环境两大类条目数量最为集中，合计占据近半数以上的讨论焦点，显示出公众与媒体对宏观生态态势与系统性风险的高度关注。与此同时，污染治理与环境政策类热点虽数量相对较少，但呈现出明显的上升态势，反映出从治理手段向制度保障转型的趋势，",
   "weekly_keywords": [
     {
       "term": "COP31",
-      "count": 10
+      "count": 9
     },
     {
       "term": "生态环境部",
-      "count": 8
+      "count": 7
     },
     {
       "term": "生物多样性",
-      "count": 5
-    },
-    {
-      "term": "督察",
-      "count": 5
+      "count": 6
     },
     {
       "term": "大气污染",
-      "count": 4
-    },
-    {
-      "term": "流域",
-      "count": 4
-    },
-    {
-      "term": "水污染",
-      "count": 4
+      "count": 5
     },
     {
       "term": "中央生态环境保护督察",
+      "count": 4
+    },
+    {
+      "term": "督察",
       "count": 4
     },
     {
@@ -2983,25 +2334,19 @@
       "count": 4
     },
     {
-      "term": "智慧执法体系",
+      "term": "联合国气候变化大会",
+      "count": 3
+    },
+    {
+      "term": "臭氧",
+      "count": 3
+    },
+    {
+      "term": "可持续",
       "count": 3
     }
   ],
   "weekly_categories": [
-    {
-      "date": "2026-11-15",
-      "categories": {
-        "气候变化": 13,
-        "污染治理": 5,
-        "生态环境": 5,
-        "环境政策": 5,
-        "能源与碳中和": 1,
-        "水处理": 3,
-        "科研学术": 1,
-        "环境健康": 0,
-        "其他": 3
-      }
-    },
     {
       "date": "2026-11-16",
       "categories": {
@@ -3085,40 +2430,50 @@
         "环境健康": 2,
         "其他": 8
       }
+    },
+    {
+      "date": "2026-11-22",
+      "categories": {
+        "气候变化": 10,
+        "污染治理": 2,
+        "生态环境": 10,
+        "环境政策": 3,
+        "能源与碳中和": 1,
+        "水处理": 2,
+        "科研学术": 4,
+        "环境健康": 1,
+        "其他": 1
+      }
     }
   ],
   "today_categories": [
     {
       "category": "气候变化",
-      "count": 13
+      "count": 10
     },
     {
       "category": "生态环境",
-      "count": 9
+      "count": 10
     },
     {
-      "category": "污染治理",
-      "count": 6
-    },
-    {
-      "category": "其他",
+      "category": "科研学术",
       "count": 5
-    },
-    {
-      "category": "水处理",
-      "count": 3
     },
     {
       "category": "环境政策",
       "count": 3
     },
     {
-      "category": "环境健康",
+      "category": "污染治理",
       "count": 2
     },
     {
-      "category": "科研学术",
+      "category": "水处理",
       "count": 2
+    },
+    {
+      "category": "环境健康",
+      "count": 1
     },
     {
       "category": "能源与碳中和",
@@ -3127,11 +2482,6 @@
   ],
   "timeline": {
     "气候变化": [
-      {
-        "date": "2026-10-23",
-        "count": 16,
-        "total_heat": 1189.5
-      },
       {
         "date": "2026-10-24",
         "count": 18,
@@ -3276,14 +2626,14 @@
         "date": "2026-11-21",
         "count": 12,
         "total_heat": 923.5
+      },
+      {
+        "date": "2026-11-22",
+        "count": 10,
+        "total_heat": 694.0
       }
     ],
     "污染治理": [
-      {
-        "date": "2026-10-23",
-        "count": 1,
-        "total_heat": 70.8
-      },
       {
         "date": "2026-10-24",
         "count": 3,
@@ -3428,14 +2778,14 @@
         "date": "2026-11-21",
         "count": 6,
         "total_heat": 428.7
+      },
+      {
+        "date": "2026-11-22",
+        "count": 2,
+        "total_heat": 141.6
       }
     ],
     "生态环境": [
-      {
-        "date": "2026-10-23",
-        "count": 12,
-        "total_heat": 906.6
-      },
       {
         "date": "2026-10-24",
         "count": 6,
@@ -3580,14 +2930,14 @@
         "date": "2026-11-21",
         "count": 9,
         "total_heat": 654.4
+      },
+      {
+        "date": "2026-11-22",
+        "count": 10,
+        "total_heat": 681.3
       }
     ],
     "环境政策": [
-      {
-        "date": "2026-10-23",
-        "count": 3,
-        "total_heat": 228.3
-      },
       {
         "date": "2026-10-24",
         "count": 4,
@@ -3732,14 +3082,14 @@
         "date": "2026-11-21",
         "count": 3,
         "total_heat": 220.2
+      },
+      {
+        "date": "2026-11-22",
+        "count": 3,
+        "total_heat": 217.3
       }
     ],
     "能源与碳中和": [
-      {
-        "date": "2026-10-23",
-        "count": 0,
-        "total_heat": 0.0
-      },
       {
         "date": "2026-10-24",
         "count": 3,
@@ -3884,14 +3234,14 @@
         "date": "2026-11-21",
         "count": 1,
         "total_heat": 82.0
+      },
+      {
+        "date": "2026-11-22",
+        "count": 1,
+        "total_heat": 72.3
       }
     ],
     "水处理": [
-      {
-        "date": "2026-10-23",
-        "count": 3,
-        "total_heat": 233.2
-      },
       {
         "date": "2026-10-24",
         "count": 3,
@@ -4036,14 +3386,14 @@
         "date": "2026-11-21",
         "count": 2,
         "total_heat": 148.2
+      },
+      {
+        "date": "2026-11-22",
+        "count": 2,
+        "total_heat": 133.8
       }
     ],
     "科研学术": [
-      {
-        "date": "2026-10-23",
-        "count": 2,
-        "total_heat": 158.9
-      },
       {
         "date": "2026-10-24",
         "count": 3,
@@ -4188,14 +3538,14 @@
         "date": "2026-11-21",
         "count": 1,
         "total_heat": 77.8
+      },
+      {
+        "date": "2026-11-22",
+        "count": 4,
+        "total_heat": 284.4
       }
     ],
     "环境健康": [
-      {
-        "date": "2026-10-23",
-        "count": 1,
-        "total_heat": 68.9
-      },
       {
         "date": "2026-10-24",
         "count": 1,
@@ -4340,14 +3690,14 @@
         "date": "2026-11-21",
         "count": 2,
         "total_heat": 175.7
+      },
+      {
+        "date": "2026-11-22",
+        "count": 1,
+        "total_heat": 80.0
       }
     ],
     "其他": [
-      {
-        "date": "2026-10-23",
-        "count": 5,
-        "total_heat": 348.0
-      },
       {
         "date": "2026-10-24",
         "count": 2,
@@ -4492,6 +3842,11 @@
         "date": "2026-11-21",
         "count": 8,
         "total_heat": 533.0
+      },
+      {
+        "date": "2026-11-22",
+        "count": 1,
+        "total_heat": 59.5
       }
     ]
   }

@@ -1,0 +1,555 @@
+{
+  "report_date": "2026-11-22",
+  "site_name": "环境学子雷达",
+  "total_items": 34,
+  "snapshot_items": 10,
+  "category_stats": {
+    "环境政策": {
+      "count": 3,
+      "total_heat": 217.3
+    },
+    "气候变化": {
+      "count": 10,
+      "total_heat": 694.0
+    },
+    "环境健康": {
+      "count": 1,
+      "total_heat": 80.0
+    },
+    "污染治理": {
+      "count": 2,
+      "total_heat": 141.6
+    },
+    "生态环境": {
+      "count": 10,
+      "total_heat": 681.3
+    },
+    "科研学术": {
+      "count": 4,
+      "total_heat": 284.4
+    },
+    "能源与碳中和": {
+      "count": 1,
+      "total_heat": 72.3
+    },
+    "水处理": {
+      "count": 2,
+      "total_heat": 133.8
+    },
+    "其他": {
+      "count": 1,
+      "total_heat": 59.5
+    }
+  },
+  "total_sources": 28,
+  "success_sources": 26,
+  "failed_sources": 0,
+  "week_total_items": 280,
+  "week_new_keywords": 64,
+  "policy_ratio": 10.7,
+  "items": [
+    {
+      "title": "五年覆盖全国近30城，百事集团净滩环保行动步履不停 - 中国新闻网",
+      "title_en": "",
+      "title_zh": "",
+      "link": "https://news.google.com/rss/articles/CBMiaEFVX3lxTE9BWDI3UlNtOFFYTVpQcm1nbk4wazBoM3VwZkw0bE9ZRWpLWmszSWJNNno2TjhCeHB2T0M4U25DdG5oNHNYcjJFNUFJU25TWkppLUZhU1RNM3hRcFVOQ2dnejlmcDRSMjZ1?oc=5",
+      "source": "Google News 环境保护",
+      "published": "2026-11-22T07:04:52+00:00",
+      "hotness": 84.2,
+      "score_v1": 16.47,
+      "score_v2": 84.2,
+      "score_breakdown": {
+        "algorithm": "v3.0",
+        "dimension_max": {
+          "authority": 18.0,
+          "topic": 18.0,
+          "resonance": 18.0,
+          "information": 16.0
+        },
+        "authority_score": 8.05,
+        "keyword_idf_score": 0.0,
+        "topic_score": 3.0,
+        "topic_burst_score": 0.0,
+        "topic_burst_count": 1,
+        "resonance_score": 8.76,
+        "info_score": 9.0,
+        "base": 28.81,
+        "base_max": 70.0,
+        "time_factor": 0.9268,
+        "density_factor": 1.0,
+        "density_note": "",
+        "repeat_penalty": 1.0,
+        "repeat_excused": false,
+        "event_size": 2,
+        "event_media_count": 2,
+        "event_cluster_source": "ai",
+        "origin_source": "中国新闻网",
+        "raw": 26.7,
+        "display_score": 84.2,
+        "display_mode": "absolute"
+      },
+      "summary": "百事集团持续开展净滩环保行动，五年时间已覆盖全国近30个城市，致力于推动生态文明建设与企业社会责任履行。",
+      "analysis": "",
+      "topic_tags": [
+        "净滩环保行动"
+      ],
+      "category": "环境政策",
+      "matched_keywords": []
+    },
+    {
+      "title": "Will COP31 end with a new global climate deal?",
+      "title_en": "Will COP31 end with a new global climate deal?",
+      "title_zh": "第31届缔约方会议（COP31）最终能否达成一项新的全球气候协议？",
+      "link": "https://www.bbc.co.uk/news/videos/cqn0dwrewrwxo?at_medium=RSS&at_campaign=rss",
+      "source": "BBC 科学与环境",
+      "published": "2026-11-21T22:44:52+00:00",
+      "hotness": 82.4,
+      "score_v1": 27.06,
+      "score_v2": 82.4,
+      "score_breakdown": {
+        "algorithm": "v3.0",
+        "dimension_max": {
+          "authority": 18.0,
+          "topic": 18.0,
+          "resonance": 18.0,
+          "information": 16.0
+        },
+        "authority_score": 12.73,
+        "keyword_idf_score": 3.47,
+        "topic_score": 8.65,
+        "topic_burst_score": 5.19,
+        "topic_burst_count": 5,
+        "resonance_score": 0.0,
+        "info_score": 8.0,
+        "base": 29.38,
+        "base_max": 70.0,
+        "time_factor": 0.8349,
+        "density_factor": 1.0,
+        "density_note": "",
+        "repeat_penalty": 1.0,
+        "repeat_excused": false,
+        "event_size": 3,
+        "event_media_count": 1,
+        "event_cluster_source": "ai",
+        "origin_source": "BBC 科学与环境",
+        "raw": 24.53,
+        "display_score": 82.4,
+        "display_mode": "absolute"
+      },
+      "summary": "BBC气候事务编辑贾斯汀·罗拉特从土耳其安塔利亚举行的第31届联合国气候变化大会（COP 31）发回报道。",
+      "analysis": "",
+      "topic_tags": [
+        "COP31",
+        "全球气候协议"
+      ],
+      "category": "气候变化",
+      "matched_keywords": [
+        "气候变化"
+      ]
+    },
+    {
+      "title": "世界儿童日与COP31聚焦气候变化下儿童风险及中国儿童友好气候行动 - 虎嗅网",
+      "title_en": "",
+      "title_zh": "",
+      "link": "https://news.google.com/rss/articles/CBMiVEFVX3lxTE44dVprY0lFcTRhRDk2ZG51VFlIYUFEWTk3SzNjYWY3cDlIak5mSHRaWFQ5bnptb1lVQmdXZldfVGVHXzZmSDFuV1RtNGoteUQ0UmNmVA?oc=5",
+      "source": "Google News 气候变化",
+      "published": "2026-11-21T09:45:35+00:00",
+      "hotness": 80.0,
+      "score_v1": 23.84,
+      "score_v2": 80.0,
+      "score_breakdown": {
+        "algorithm": "v3.0",
+        "dimension_max": {
+          "authority": 18.0,
+          "topic": 18.0,
+          "resonance": 18.0,
+          "information": 16.0
+        },
+        "authority_score": 8.05,
+        "keyword_idf_score": 3.47,
+        "topic_score": 8.65,
+        "topic_burst_score": 5.19,
+        "topic_burst_count": 5,
+        "resonance_score": 8.76,
+        "info_score": 5.0,
+        "base": 30.46,
+        "base_max": 70.0,
+        "time_factor": 0.7199,
+        "density_factor": 1.0,
+        "density_note": "",
+        "repeat_penalty": 1.0,
+        "repeat_excused": false,
+        "event_size": 2,
+        "event_media_count": 2,
+        "event_cluster_source": "ai",
+        "origin_source": "虎嗅网",
+        "raw": 21.93,
+        "display_score": 80.0,
+        "display_mode": "absolute"
+      },
+      "summary": "聚焦气候变化背景下儿童风险，报道世界儿童日与COP31会议相关内容，展现中国在儿童友好气候行动方面的探索与实践。",
+      "analysis": "",
+      "topic_tags": [
+        "COP31",
+        "儿童风险",
+        "中国儿童友好气候行动"
+      ],
+      "category": "环境健康",
+      "matched_keywords": [
+        "气候变化"
+      ]
+    },
+    {
+      "title": "[视频]联合国气候变化大会进入加时阶段 - 央视网",
+      "title_en": "",
+      "title_zh": "",
+      "link": "https://news.google.com/rss/articles/CBMidkFVX3lxTE04SHRRWUp0UlFaaXdMaVE1Y3d5NnRpbDdSQ1hTTHFwRm9GWTFHODBtMmJCaDlmb0RNek5kVmExaUM4TGhoR2lPdTgyZlk1YklKWnkteEN1R3ItUjJuc25KT3Z3eWU4cmlkNVJsakRpdWdPZThiQ1E?oc=5",
+      "source": "Google News 气候变化",
+      "published": "2026-11-21T14:30:00+00:00",
+      "hotness": 77.2,
+      "score_v1": 24.55,
+      "score_v2": 77.2,
+      "score_breakdown": {
+        "algorithm": "v3.0",
+        "dimension_max": {
+          "authority": 18.0,
+          "topic": 18.0,
+          "resonance": 18.0,
+          "information": 16.0
+        },
+        "authority_score": 8.05,
+        "keyword_idf_score": 3.47,
+        "topic_score": 8.65,
+        "topic_burst_score": 5.19,
+        "topic_burst_count": 5,
+        "resonance_score": 8.76,
+        "info_score": 0.0,
+        "base": 25.46,
+        "base_max": 70.0,
+        "time_factor": 0.7583,
+        "density_factor": 1.0,
+        "density_note": "",
+        "repeat_penalty": 1.0,
+        "repeat_excused": true,
+        "event_size": 2,
+        "event_media_count": 2,
+        "event_cluster_source": "ai",
+        "origin_source": "央视网",
+        "raw": 19.31,
+        "display_score": 77.2,
+        "display_mode": "absolute"
+      },
+      "summary": "[视频]联合国气候变化大会进入加时阶段",
+      "analysis": "",
+      "topic_tags": [
+        "联合国"
+      ],
+      "category": "气候变化",
+      "matched_keywords": [
+        "气候变化"
+      ]
+    },
+    {
+      "title": "In-situ conversion of pollutants into catalysts: revealing high-valent bimetallic synergy for self-catalytic decomplexation of heavy-metal complexes",
+      "title_en": "In-situ conversion of pollutants into catalysts: revealing high-valent bimetallic synergy for self-catalytic decomplexation of heavy-metal complexes",
+      "title_zh": "污染物原位转化为催化剂：揭示高价双金属协同作用在重金属络合物的自催化解络过程中的作用",
+      "link": "https://www.sciencedirect.com/science/article/pii/S0043135426020191?dgcid=rss_sd_all",
+      "source": "Water Research",
+      "published": "2026-11-20T12:48:33.451260+00:00",
+      "hotness": 75.9,
+      "score_v1": 16.35,
+      "score_v2": 75.9,
+      "score_breakdown": {
+        "algorithm": "v3.0",
+        "dimension_max": {
+          "authority": 18.0,
+          "topic": 18.0,
+          "resonance": 18.0,
+          "information": 16.0
+        },
+        "authority_score": 18.0,
+        "keyword_idf_score": 8.97,
+        "topic_score": 8.97,
+        "topic_burst_score": 0.0,
+        "topic_burst_count": 1,
+        "resonance_score": 0.0,
+        "info_score": 4.0,
+        "base": 30.97,
+        "base_max": 70.0,
+        "time_factor": 0.5891,
+        "density_factor": 1.0,
+        "density_note": "",
+        "repeat_penalty": 1.0,
+        "repeat_excused": false,
+        "event_size": 1,
+        "event_media_count": 1,
+        "event_cluster_source": "ai",
+        "origin_source": "Water Research",
+        "raw": 18.24,
+        "display_score": 75.9,
+        "display_mode": "absolute"
+      },
+      "summary": "研究揭示污染物原位转化为催化剂的高价双金属协同效应，为重金属络合物的自催化解离提供新的科学路径与技术思路。",
+      "analysis": "",
+      "topic_tags": [
+        "重金属络合物",
+        "污染物原位转化",
+        "催化剂"
+      ],
+      "category": "污染治理",
+      "matched_keywords": [
+        "重金属"
+      ]
+    },
+    {
+      "title": "赛力斯绿碳实践亮相联合国气候变化大会 案例入选美丽中国年鉴 - 新浪财经",
+      "title_en": "",
+      "title_zh": "",
+      "link": "https://news.google.com/rss/articles/CBMieEFVX3lxTE9qUmhQUV8ySXJ3SV9OSTl3U2pXX3FKYWtHTXgxQ2RYYng4QXpaeENjVEFrOVNtWWVfdGl5cDc1SVpycGNYSUJzRUNtTWZCSVYxdDhob0VZQ0h1SVZzV0dZN1lrZ1VMbnhQbXQyWVlER2hYOFNBaklGaw?oc=5",
+      "source": "Google News 气候变化",
+      "published": "2026-11-21T08:46:41+00:00",
+      "hotness": 75.8,
+      "score_v1": 23.71,
+      "score_v2": 75.8,
+      "score_breakdown": {
+        "algorithm": "v3.0",
+        "dimension_max": {
+          "authority": 18.0,
+          "topic": 18.0,
+          "resonance": 18.0,
+          "information": 16.0
+        },
+        "authority_score": 8.05,
+        "keyword_idf_score": 3.47,
+        "topic_score": 8.65,
+        "topic_burst_score": 5.19,
+        "topic_burst_count": 5,
+        "resonance_score": 8.76,
+        "info_score": 0.0,
+        "base": 25.46,
+        "base_max": 70.0,
+        "time_factor": 0.7124,
+        "density_factor": 1.0,
+        "density_note": "",
+        "repeat_penalty": 1.0,
+        "repeat_excused": false,
+        "event_size": 2,
+        "event_media_count": 2,
+        "event_cluster_source": "ai",
+        "origin_source": "新浪财经",
+        "raw": 18.14,
+        "display_score": 75.8,
+        "display_mode": "absolute"
+      },
+      "summary": "赛力斯集团在联合国气候变化大会展示绿色碳峰实践，其创新案例成功入选《美丽中国年鉴》，彰显企业在碳减排与可持续发展方面的成效。",
+      "analysis": "",
+      "topic_tags": [
+        "联合国气候变化大会"
+      ],
+      "category": "气候变化",
+      "matched_keywords": [
+        "气候变化"
+      ]
+    },
+    {
+      "title": "以协同治理筑牢生态屏障 重庆深入推进长江保护 - 七一网",
+      "title_en": "",
+      "title_zh": "",
+      "link": "https://news.google.com/rss/articles/CBMimAFBVV95cUxQS3lzZzU4eFQ4ZmI2cm90SjJaUGx0ZzhyZlB2LWtIcVZpelViVjNWYmdDS2xNaXdKZTJuNFd1b3FVdmNhQjdlM2dwaGhvLTZNdnhiZUZVSWl0NGFnZGJEaFVBNXZGRjJUQ0lDcDFBWEwya2FybElIb0FPTDNIYU5scHBKQXdtZGJaR1NQc1N4eDZZZUs3ZFRtcg?oc=5",
+      "source": "Google News 环境保护",
+      "published": "2026-11-22T00:32:17+00:00",
+      "hotness": 74.2,
+      "score_v1": 14.6,
+      "score_v2": 74.2,
+      "score_breakdown": {
+        "algorithm": "v3.0",
+        "dimension_max": {
+          "authority": 18.0,
+          "topic": 18.0,
+          "resonance": 18.0,
+          "information": 16.0
+        },
+        "authority_score": 8.05,
+        "keyword_idf_score": 0.0,
+        "topic_score": 3.0,
+        "topic_burst_score": 0.0,
+        "topic_burst_count": 1,
+        "resonance_score": 8.76,
+        "info_score": 0.0,
+        "base": 19.81,
+        "base_max": 70.0,
+        "time_factor": 0.8533,
+        "density_factor": 1.0,
+        "density_note": "",
+        "repeat_penalty": 1.0,
+        "repeat_excused": true,
+        "event_size": 2,
+        "event_media_count": 2,
+        "event_cluster_source": "ai",
+        "origin_source": "七一网",
+        "raw": 16.9,
+        "display_score": 74.2,
+        "display_mode": "absolute"
+      },
+      "summary": "重庆市深入推进长江保护，通过协同治理筑牢生态屏障，持续提升水环境质量与生态安全水平。",
+      "analysis": "",
+      "topic_tags": [
+        "生态环境"
+      ],
+      "category": "生态环境",
+      "matched_keywords": []
+    },
+    {
+      "title": "Biodiversity credits hold promise, yet credit-generating protocols require safeguards to realize potential",
+      "title_en": "Biodiversity credits hold promise, yet credit-generating protocols require safeguards to realize potential",
+      "title_zh": "生物多样性信用机制前景广阔，但要充分发挥其潜力，信用生成方案仍需建立相应的保障措施",
+      "link": "https://iopscience.iop.org/article/10.1088/1748-9326/aebbdc",
+      "source": "Environmental Research Letters",
+      "published": "2026-11-20T00:00:00+00:00",
+      "hotness": 73.9,
+      "score_v1": 19.79,
+      "score_v2": 73.9,
+      "score_breakdown": {
+        "algorithm": "v3.0",
+        "dimension_max": {
+          "authority": 18.0,
+          "topic": 18.0,
+          "resonance": 18.0,
+          "information": 16.0
+        },
+        "authority_score": 18.0,
+        "keyword_idf_score": 10.3,
+        "topic_score": 10.3,
+        "topic_burst_score": 0.0,
+        "topic_burst_count": 1,
+        "resonance_score": 0.0,
+        "info_score": 3.0,
+        "base": 31.3,
+        "base_max": 70.0,
+        "time_factor": 0.5331,
+        "density_factor": 1.0,
+        "density_note": "",
+        "repeat_penalty": 1.0,
+        "repeat_excused": false,
+        "event_size": 1,
+        "event_media_count": 1,
+        "event_cluster_source": "ai",
+        "origin_source": "Environmental Research Letters",
+        "raw": 16.68,
+        "display_score": 73.9,
+        "display_mode": "absolute"
+      },
+      "summary": "鉴于当前生物多样性资金缺口，调动私人资本对于实现全球生物多样性保护目标至关重要，特别是在能力有限且公共财政资源匮乏的中低收入国家。新兴的自愿性生物多样性市场（VBM）有望为生物多样性保护撬动私人资本，但信用生成协议必须足够健全，以防止“洗绿”行为并最大限度地提高成效。 本研究是首项超越对自愿生物多样性市场（VBM）的理论批判和一般性市场评估的研究，我们从13家相对成熟的生物多样性信用组织的工作方案中，提取了项目结构和信用额度发放的详细信息。 基于这些数据，我们评估了这些协议与保护和恢复生物学原则以及自愿碳市场（VCM）经验教训的一致性。我们发现，必须采取行动改进生物多样性影响的量化工作，特别是将斑块大小和连通性纳入信用核算，并在生态相关的时限内评估项目。 此外，必须将自愿碳市场（VCM）中关于额外性、泄漏、风险和核查的保障措施更牢固地融入生物多样性碳信用市场（VBM），并加强与当地社区的深度互动及投资，以确保实现持久的、对生物多样性有利的成果。",
+      "analysis": "",
+      "topic_tags": [
+        "生物多样性市场"
+      ],
+      "category": "生态环境",
+      "matched_keywords": [
+        "碳市场",
+        "生物多样性"
+      ]
+    },
+    {
+      "title": "Spatially distributed air quality and health impacts of data center electricity demand in the United States",
+      "title_en": "Spatially distributed air quality and health impacts of data center electricity demand in the United States",
+      "title_zh": "美国数据中心电力需求对空气质量及健康影响的空间分布",
+      "link": "https://iopscience.iop.org/article/10.1088/1748-9326/aebbd4",
+      "source": "Environmental Research Letters",
+      "published": "2026-11-19T00:00:00+00:00",
+      "hotness": 73.1,
+      "score_v1": 19.29,
+      "score_v2": 73.1,
+      "score_breakdown": {
+        "algorithm": "v3.0",
+        "dimension_max": {
+          "authority": 18.0,
+          "topic": 18.0,
+          "resonance": 18.0,
+          "information": 16.0
+        },
+        "authority_score": 18.0,
+        "keyword_idf_score": 9.72,
+        "topic_score": 9.72,
+        "topic_burst_score": 0.0,
+        "topic_burst_count": 1,
+        "resonance_score": 0.0,
+        "info_score": 7.0,
+        "base": 34.72,
+        "base_max": 70.0,
+        "time_factor": 0.461,
+        "density_factor": 1.0,
+        "density_note": "",
+        "repeat_penalty": 1.0,
+        "repeat_excused": false,
+        "event_size": 1,
+        "event_media_count": 1,
+        "event_cluster_source": "ai",
+        "origin_source": "Environmental Research Letters",
+        "raw": 16.01,
+        "display_score": 73.1,
+        "display_mode": "absolute"
+      },
+      "summary": "人工智能的迅猛发展正推动美国数据中心的电力需求大幅增长，但由此产生的空气质量和公共健康影响的分布情况仍缺乏充分量化。 为了追踪2023年电网供电的数据中心用电需求对环境空气污染及相关过早死亡的影响，我们将“美国发电优化模型”与“GEOS-Chem化学传输模型”相结合。 我们对比了包含和不包含数据中心用电需求情况下的每小时、机组级电力调度情况，以量化电力行业排放、环境中的PM和臭氧浓度变化，以及相关的过早死亡人数。 研究结果表明，多个地区因数据中心需求产生的发电量主要由化石燃料机组提供，导致年平均PM浓度增加0.02–0.08 g m（局部峰值浓度高达0.2 g m），且各地区臭氧响应存在差异，其特征为冬季浓度下降、夏季浓度升高。 这些影响在美国中西部最为显著，该地区燃煤机组的边际排放量以及富含氨的大气条件加剧了二次颗粒物的形成。我们估算，该电网供电需求每年导致513例（95%置信区间： 469–557）例，此外，在美利坚合众国本土48州，每日最高8小时平均臭氧浓度（MDA8-）每年还导致额外137（95%置信区间：90–183）例过早死亡。 州级分析揭示了一种系统性的地理错配：承载最大数据中心负荷的州并不一定面临最高的归因死亡率，而一些数据中心需求较小的州却承受着沉重的负担。 这种不匹配源于互联电力区域间的调度、各区域在发电和排放方面的差异，以及大气化学和传输过程，这些因素共同导致了需求发生地与暴露及死亡发生地之间的分离。这些发现……",
+      "analysis": "",
+      "topic_tags": [
+        "数据中心",
+        "空气质量",
+        "健康影响"
+      ],
+      "category": "科研学术",
+      "matched_keywords": [
+        "大气污染",
+        "臭氧"
+      ]
+    },
+    {
+      "title": "O6-type layered oxides for sustainable high-energy battery cathodes",
+      "title_en": "O6-type layered oxides for sustainable high-energy battery cathodes",
+      "title_zh": "用于可持续高能量密度电池正极的O6型层状氧化物",
+      "link": "https://www.nature.com/articles/s41893-026-01987-5",
+      "source": "Nature Sustainability",
+      "published": "2026-11-20T00:00:00+00:00",
+      "hotness": 72.3,
+      "score_v1": 11.79,
+      "score_v2": 72.3,
+      "score_breakdown": {
+        "algorithm": "v3.0",
+        "dimension_max": {
+          "authority": 18.0,
+          "topic": 18.0,
+          "resonance": 18.0,
+          "information": 16.0
+        },
+        "authority_score": 18.0,
+        "keyword_idf_score": 0.0,
+        "topic_score": 3.0,
+        "topic_burst_score": 0.0,
+        "topic_burst_count": 1,
+        "resonance_score": 0.0,
+        "info_score": 8.0,
+        "base": 29.0,
+        "base_max": 70.0,
+        "time_factor": 0.5331,
+        "density_factor": 1.0,
+        "density_note": "",
+        "repeat_penalty": 1.0,
+        "repeat_excused": false,
+        "event_size": 1,
+        "event_media_count": 1,
+        "event_cluster_source": "ai",
+        "origin_source": "Nature Sustainability",
+        "raw": 15.46,
+        "display_score": 72.3,
+        "display_mode": "absolute"
+      },
+      "summary": "《自然·可持续性》， 无钴正极对绿色能源至关重要，但存在结构不稳定的问题。",
+      "analysis": "",
+      "topic_tags": [
+        "可持续"
+      ],
+      "category": "能源与碳中和",
+      "matched_keywords": []
+    }
+  ]
+}

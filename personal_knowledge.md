@@ -12244,3 +12244,192 @@
 
 ---
 
+## 2026-11-24
+
+**今日高频关键词**：`#气候变化` `#生态环境` `#环境保护` `#生态保护` `#碳市场`
+
+**今日 Top10 热点**
+
+### 1. 全球气候大会多谈50个小时没用！欧盟拿环境保护说事，不提自己事 - 风闻
+- **来源**：Google News 环境保护
+- **热度**：88.9
+- **链接**：https://news.google.com/rss/articles/CBMiW0FVX3lxTFBJM09raERDM0xzb3N1ZnJwWE5mLTJEc0RXNGpHdVY2VFo0bVJzS3l0WW9VNnpfcW9jZGdrWU5qWEU2VWFmMUpiaDBNYWd3cFhMSUNRUFEtYm9RYXc?oc=5
+- **摘要**：在土耳其举办的全球气候大会，经过50多小时的谈判未能达成协议，欧盟指责各国在环境保护问题上推诿，却不提自身责任。
+- **分析**：该条目涉及【全球气候大会】话题，因来源较权威且多家媒体同题报道，热度上升。
+
+### 2. 国际观察丨COP31落下帷幕 气候多边主义承压前行 - 新华网
+- **来源**：Google News 气候变化
+- **热度**：86.2
+- **链接**：https://news.google.com/rss/articles/CBMif0FVX3lxTE1MV3d2bzFsRl90TUFrRElpc29wTjAzOVp2MUpUMXNFYVA2YnJUT3dyYUhiWnhRZjJ3a1hNeHdYY2tGMXZ3dl90WjNLOFBtMVU1NWhKN3B5cm5QZjRkTHd6SV9LTEhINGVtMjBTVXlNR2E0aFNhLWJKOHEwc0ZZVmM?oc=5
+- **摘要**：COP31气候大会落幕，气候多边主义面临压力，各方在关键议题上未能达成一致，进程受阻。
+- **分析**：该条目涉及【COP31】话题，因来源较权威且发布时间较新，热度上升。
+
+### 3. 英国《金融时报》：中国为全球应对气候变化作出重要贡献 - 中国新闻网
+- **来源**：Google News 气候变化
+- **热度**：86.0
+- **链接**：https://news.google.com/rss/articles/CBMiaEFVX3lxTFBFZzFoQS1ETUpKcDJXZ3Fuemdqd0Rib2xHNVFjaVN5YzgwRmstMVZqRmszZWZrUml2QXdzeW5NN0xlZVl5VG1XQlJRZ3NYQkJ3aVJ0Wnkyel9fb0RRdTJEMGxUMVphOUhY?oc=5
+- **摘要**：英国金融时报报道，中国在全球应对气候变化方面做出重要贡献，展现了积极的国际责任担当。
+- **分析**：该条目涉及【气候变化】话题，因来源较权威且发布时间较新，热度上升。
+
+### 4. 北京市生态环境保护营商竞争力综合指数连续四年蝉联全国第一 - Sohu
+- **来源**：Google News 环境保护
+- **热度**：84.8
+- **链接**：https://news.google.com/rss/articles/CBMiiAFBVV95cUxQWGZQdGZobV80ckc3ZDBhVXdPU0M1Q09yNEZqeDVmTkhvOUx5OVJsbDVJQlhma2NFM1ZDMUlWUnVRTUtGYWVaNExKaHptRzZ5cS0zRWdnZXVEa0JnSlBuenptdEtoZXdVOVdIUGFJMUhSTXJROXVkdGtlRGVoeVF3S2lKQkNSSFNj?oc=5
+- **摘要**：北京市生态环境保护营商竞争力综合指数连续四年蝉联全国第一，生态保护与营商环境双优建设成效显著。
+- **分析**：该条目涉及【北京市】话题，因来源较权威且多家媒体同题报道，热度上升。
+
+### 5. 中国代表团出席联合国气候变化安塔利亚大会 - 中华人民共和国生态环境部
+- **来源**：Google News 气候变化
+- **热度**：84.6
+- **链接**：https://news.google.com/rss/articles/CBMib0FVX3lxTE5QQ0gwdWxVY3piWXE2SjllWEtzUjVaWnFDWHFJUGpjV2tlMERYd0RDQUhEZmgwbUd0UEUtZGh4WFoxbTBXeXBpczB4SnJtb2ZoQmtfZkZLaGlRTmN1RXEzbE1uUDhmSXY3Y2lWNFZJUQ?oc=5
+- **摘要**：中国代表团出席联合国气候变化安塔利亚大会，参与全球气候治理相关活动与交流。
+- **分析**：该条目涉及【联合国气候变化安塔利亚大会】话题，因来源较权威且多家媒体同题报道，热度上升。
+
+### 6. COP31 Completes Adaptation Fund’s Transition to Serve the Paris Agreement Exclusively, Unlocking New Carbon Market Revenue
+- **来源**：Adaptation Fund
+- **热度**：84.2
+- **链接**：https://www.adaptation-fund.org/cop31-completes-adaptation-funds-transition-to-serve-the-paris-agreement-exclusively-unlocking-new-carbon-market-revenue/
+- **摘要**：土耳其安塔利亚——2026年11月22日——第31届缔约方大会（COP31）各缔约方今日一致同意，完成适应基金向“仅服务于《巴黎协定》”的过渡。这一具有里程碑意义的决定，使该基金能够在碳市场全面运作后，立即接收根据《巴黎协定》第6条开展的碳市场活动所产生的收益。 该基金此前同时服务于《京都议定书》[…] 文章《COP31完成适应基金向“仅服务于〈巴黎协定〉”的过渡，释放新的碳市场收入》首发于适应基金官网。
+- **分析**：该条目涉及【COP31】话题，因来源较权威且多家媒体同题报道，热度上升。
+
+### 7. What failure of COP31 reveals about a divided world
+- **来源**：BBC 科学与环境
+- **热度**：83.7
+- **链接**：https://www.bbc.co.uk/news/articles/cky970n83rvjo?at_medium=RSS&at_campaign=rss
+- **摘要**：产油国的利益、美国的抵制以及围绕资金问题的争端，可能导致气候谈判破裂。
+- **分析**：该条目涉及【COP31】话题，因来源权威性高且多家媒体同题报道，热度上升。
+
+### 8. [东方时空]时空观察 全球共同应对气候变化 为何“知易行难”？ - 央视网
+- **来源**：Google News 气候变化
+- **热度**：82.5
+- **链接**：https://news.google.com/rss/articles/CBMidkFVX3lxTE5QUGkyOG1zNTVKY0JISWhueklhX09tbEFldUJ4X2dqZWNFOHFQMVpqd3h5a3d6Q2ZpUGd2djJyZ1NnNjVvS243NDYtLUc5TlZLM1Yzc1RsaWotX3k1Zm1Yc21QNEx4QVVnLXV3MFFSQ2RvSFowVXc?oc=5
+- **摘要**：[东方时空]时空观察 全球共同应对气候变化 为何“知易行难”？
+- **分析**：该条目涉及【气候变化】话题，因来源较权威且多家媒体同题报道，热度上升。
+
+### 9. Local leakage effects of establishing protected areas in multi-use forests
+- **来源**：Environmental Research Letters
+- **热度**：81.9
+- **链接**：https://iopscience.iop.org/article/10.1088/1748-9326/aebbd6
+- **摘要**：加强对用于林业生产的多用途土地的保护，是实现全球基于面积的保护目标的核心支柱。然而，人们担心这可能会导致“泄漏”效应，即资源开采活动转移到未受保护的土地上，从而削弱生物多样性目标的实现。 为评估这一风险，我们针对澳大利亚新南威尔士州应用了因果推断框架——该州长期实施将政府拥有的多用途土地转化为保护区的计划。我们估算了因采伐活动转移而产生的历史“泄漏”效应，并将其与其他导致森林砍伐的因素区分开来。 研究结果表明，若按年份平均计算，这些“泄漏”效应较小，且极少超过新保护区所避免的森林砍伐量。在项目初期（2001年），由于每年有大量森林被纳入国家公园体系，这些“泄漏”效应在统计上显著，并导致邻近地区的森林砍伐量增加。 然而，在后期（2006–2011年）每年新设立的保护区数量减少时，这些估算效应则小得多。总体而言，我们的研究结果表明，尽管保护措施可能导致活动转移并引发局部泄漏效应，但加强对多用途土地的保护仍带来了净正面的保护成果。 我们的研究结果强调，虽然加强对多用途土地的保护能够产生保护成效，但此类项目亟需配套的监测与评估机制，其中应包括对局部泄漏效应的估算。
+- **分析**：该条目涉及【保护区】话题，因来源权威性高，热度上升。
+
+### 10. Earth's next ice age may have already begun. Global warming stopped it
+- **来源**：ScienceDaily 环境科学
+- **热度**：80.6
+- **链接**：https://www.sciencedaily.com/releases/2026/11/261123005350.htm
+- **摘要**：科学家们发现了一项令人惊讶的证据，表明地球的下一次冰河时代可能已经开始，却因全球变暖而戛然而止。 通过研究加拿大北极地区巴恩斯冰盖下保存的远古植物，研究人员发现，约2000年前，一块巨大冰盖的残余部分开始再次扩张，这预示着新一轮冰期的可能开始。但到了20世纪60年代，气温上升扭转了这一扩张趋势，导致冰盖反而开始萎缩。
+- **分析**：该条目涉及【全球变暖】话题，因来源权威性高且发布时间较新，热度上升。
+
+**今日自动提取候选新词**
+
+- **COP31**（出现 5 次）
+  - 上下文：国际观察丨COP31落下帷幕 气候多边主义承压前行 - 新华网
+  - 上下文：COP31 Completes Adaptation Fund’s Transition to Serve the Paris Agreement Exclusively, Unlocking New Carbon Market Revenue
+  - 上下文：What failure of COP31 reveals about a divided world
+- **生态**（出现 4 次）
+  - 上下文：北京市生态环境保护营商竞争力综合指数连续四年蝉联全国第一 - Sohu
+  - 上下文：持续打造“生态+营商”双优环境品牌 北京市生态环境保护营商竞争力综合指数连续四年蝉联全国第一 - 北京市人民政府门户网站
+  - 上下文：北京市生态环境保护营商竞争力综合指数，连续四年位居全国第一 - 新京报
+- **全球**（出现 3 次）
+  - 上下文：全球气候大会多谈50个小时没用！欧盟拿环境保护说事，不提自己事 - 风闻
+  - 上下文：英国《金融时报》：中国为全球应对气候变化作出重要贡献 - 中国新闻网
+  - 上下文：[东方时空]时空观察 全球共同应对气候变化 为何“知易行难”？ - 央视网
+- **中国**（出现 3 次）
+  - 上下文：英国《金融时报》：中国为全球应对气候变化作出重要贡献 - 中国新闻网
+  - 上下文：中国代表团出席联合国气候变化安塔利亚大会 - 中华人民共和国生态环境部
+  - 上下文：环保企业董事长、副董事长、副总经理三名高管同日辞职 - 中国水网
+- **北京市**（出现 3 次）
+  - 上下文：北京市生态环境保护营商竞争力综合指数连续四年蝉联全国第一 - Sohu
+  - 上下文：持续打造“生态+营商”双优环境品牌 北京市生态环境保护营商竞争力综合指数连续四年蝉联全国第一 - 北京市人民政府门户网站
+  - 上下文：北京市生态环境保护营商竞争力综合指数，连续四年位居全国第一 - 新京报
+- **营商**（出现 3 次）
+  - 上下文：北京市生态环境保护营商竞争力综合指数连续四年蝉联全国第一 - Sohu
+  - 上下文：持续打造“生态+营商”双优环境品牌 北京市生态环境保护营商竞争力综合指数连续四年蝉联全国第一 - 北京市人民政府门户网站
+  - 上下文：北京市生态环境保护营商竞争力综合指数，连续四年位居全国第一 - 新京报
+- **竞争力**（出现 3 次）
+  - 上下文：北京市生态环境保护营商竞争力综合指数连续四年蝉联全国第一 - Sohu
+  - 上下文：持续打造“生态+营商”双优环境品牌 北京市生态环境保护营商竞争力综合指数连续四年蝉联全国第一 - 北京市人民政府门户网站
+  - 上下文：北京市生态环境保护营商竞争力综合指数，连续四年位居全国第一 - 新京报
+- **指数**（出现 3 次）
+  - 上下文：北京市生态环境保护营商竞争力综合指数连续四年蝉联全国第一 - Sohu
+  - 上下文：持续打造“生态+营商”双优环境品牌 北京市生态环境保护营商竞争力综合指数连续四年蝉联全国第一 - 北京市人民政府门户网站
+  - 上下文：北京市生态环境保护营商竞争力综合指数，连续四年位居全国第一 - 新京报
+- **连续**（出现 3 次）
+  - 上下文：北京市生态环境保护营商竞争力综合指数连续四年蝉联全国第一 - Sohu
+  - 上下文：持续打造“生态+营商”双优环境品牌 北京市生态环境保护营商竞争力综合指数连续四年蝉联全国第一 - 北京市人民政府门户网站
+  - 上下文：北京市生态环境保护营商竞争力综合指数，连续四年位居全国第一 - 新京报
+- **四年**（出现 3 次）
+  - 上下文：北京市生态环境保护营商竞争力综合指数连续四年蝉联全国第一 - Sohu
+  - 上下文：持续打造“生态+营商”双优环境品牌 北京市生态环境保护营商竞争力综合指数连续四年蝉联全国第一 - 北京市人民政府门户网站
+  - 上下文：北京市生态环境保护营商竞争力综合指数，连续四年位居全国第一 - 新京报
+- **全国**（出现 3 次）
+  - 上下文：北京市生态环境保护营商竞争力综合指数连续四年蝉联全国第一 - Sohu
+  - 上下文：持续打造“生态+营商”双优环境品牌 北京市生态环境保护营商竞争力综合指数连续四年蝉联全国第一 - 北京市人民政府门户网站
+  - 上下文：北京市生态环境保护营商竞争力综合指数，连续四年位居全国第一 - 新京报
+- **第一**（出现 3 次）
+  - 上下文：北京市生态环境保护营商竞争力综合指数连续四年蝉联全国第一 - Sohu
+  - 上下文：持续打造“生态+营商”双优环境品牌 北京市生态环境保护营商竞争力综合指数连续四年蝉联全国第一 - 北京市人民政府门户网站
+  - 上下文：北京市生态环境保护营商竞争力综合指数，连续四年位居全国第一 - 新京报
+- **Adaptation**（出现 3 次）
+  - 上下文：COP31 Completes Adaptation Fund’s Transition to Serve the Paris Agreement Exclusively, Unlocking New Carbon Market Revenue
+  - 上下文：[Climate Change TV] Mikko Ollikainen Discusses Adaptation Finance, Scaling Up and COP31
+  - 上下文：Adaptation Fund Mobilizes $50 Million
+- **Earth**（出现 3 次）
+  - 上下文：Earth's next ice age may have already begun. Global warming stopped it
+  - 上下文：Earth’s ancient oceans may have fooled scientists about its oxygen history
+  - 上下文：Earth's core may be leaking a 4.5-billion-year-old secret
+- **Climate**（出现 3 次）
+  - 上下文：U.N. Climate Talks End Without a Deal Amid Rift Over Fossil Fuels
+  - 上下文：[Climate Change TV] Mikko Ollikainen Discusses Adaptation Finance, Scaling Up and COP31
+  - 上下文：[Climate Home News] Building coastal resilience for local communities in Honduras
+- **气候**（出现 2 次）
+  - 上下文：全球气候大会多谈50个小时没用！欧盟拿环境保护说事，不提自己事 - 风闻
+  - 上下文：国际观察丨COP31落下帷幕 气候多边主义承压前行 - 新华网
+- **大会**（出现 2 次）
+  - 上下文：全球气候大会多谈50个小时没用！欧盟拿环境保护说事，不提自己事 - 风闻
+  - 上下文：中国代表团出席联合国气候变化安塔利亚大会 - 中华人民共和国生态环境部
+- **观察**（出现 2 次）
+  - 上下文：国际观察丨COP31落下帷幕 气候多边主义承压前行 - 新华网
+  - 上下文：[东方时空]时空观察 全球共同应对气候变化 为何“知易行难”？ - 央视网
+- **应对**（出现 2 次）
+  - 上下文：英国《金融时报》：中国为全球应对气候变化作出重要贡献 - 中国新闻网
+  - 上下文：[东方时空]时空观察 全球共同应对气候变化 为何“知易行难”？ - 央视网
+- **蝉联**（出现 2 次）
+  - 上下文：北京市生态环境保护营商竞争力综合指数连续四年蝉联全国第一 - Sohu
+  - 上下文：持续打造“生态+营商”双优环境品牌 北京市生态环境保护营商竞争力综合指数连续四年蝉联全国第一 - 北京市人民政府门户网站
+- **Fund**（出现 2 次）
+  - 上下文：COP31 Completes Adaptation Fund’s Transition to Serve the Paris Agreement Exclusively, Unlocking New Carbon Market Revenue
+  - 上下文：Adaptation Fund Mobilizes $50 Million
+- **Carbon**（出现 2 次）
+  - 上下文：COP31 Completes Adaptation Fund’s Transition to Serve the Paris Agreement Exclusively, Unlocking New Carbon Market Revenue
+  - 上下文：Carbon cycle feedback dependence on imposed land-use forcing
+- **world**（出现 2 次）
+  - 上下文：What failure of COP31 reveals about a divided world
+  - 上下文：Chemists are uncovering a hidden world of pollution
+- **effects**（出现 2 次）
+  - 上下文：Local leakage effects of establishing protected areas in multi-use forests
+  - 上下文：Divergent time-lagged effects of aquatic vegetation types on organic pollution: 25 years of satellite-based retrieval in a large shallow lake
+- **use**（出现 2 次）
+  - 上下文：Local leakage effects of establishing protected areas in multi-use forests
+  - 上下文：Carbon cycle feedback dependence on imposed land-use forcing
+- **have**（出现 2 次）
+  - 上下文：Earth's next ice age may have already begun. Global warming stopped it
+  - 上下文：Earth’s ancient oceans may have fooled scientists about its oxygen history
+- **talks**（出现 2 次）
+  - 上下文：Five takeaways from the failed climate talks COP31
+  - 上下文：Longest-ever UN climate talks end with no deal as deep divisions exposed
+- **high**（出现 2 次）
+  - 上下文：In-situ conversion of pollutants into catalysts: revealing high-valent bimetallic synergy for self-catalytic decomplexation of heavy-metal complexes
+  - 上下文：O6-type layered oxides for sustainable high-energy battery cathodes
+- **catalytic**（出现 2 次）
+  - 上下文：In-situ conversion of pollutants into catalysts: revealing high-valent bimetallic synergy for self-catalytic decomplexation of heavy-metal complexes
+  - 上下文：Dynamic interfacial charge buffering in single-atom nano-islands: breaking the activity-stability trade-off in catalytic ozonation
+- **大学**（出现 2 次）
+  - 上下文：我校化学与环境学院学生在第十届四川省大学生化学实验竞赛中荣获佳绩 - 西南民族大学
+  - 上下文：深化校企合作，赋能实践育人——环科院《大气污染控制工程》课程走进南京天加环境科技有限公司开展实践教学活动 - 南京信息工程大学
+- **pollution**（出现 2 次）
+  - 上下文：Divergent time-lagged effects of aquatic vegetation types on organic pollution: 25 years of satellite-based retrieval in a large shallow lake
+  - 上下文：Chemists are uncovering a hidden world of pollution
+
+---
+

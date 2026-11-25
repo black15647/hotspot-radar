@@ -1,0 +1,554 @@
+{
+  "report_date": "2026-11-25",
+  "site_name": "环境学子雷达",
+  "total_items": 32,
+  "snapshot_items": 10,
+  "category_stats": {
+    "污染治理": {
+      "count": 3,
+      "total_heat": 223.7
+    },
+    "科研学术": {
+      "count": 5,
+      "total_heat": 391.1
+    },
+    "能源与碳中和": {
+      "count": 3,
+      "total_heat": 234.9
+    },
+    "环境健康": {
+      "count": 1,
+      "total_heat": 81.8
+    },
+    "气候变化": {
+      "count": 8,
+      "total_heat": 576.2
+    },
+    "环境政策": {
+      "count": 3,
+      "total_heat": 218.5
+    },
+    "其他": {
+      "count": 4,
+      "total_heat": 270.6
+    },
+    "生态环境": {
+      "count": 4,
+      "total_heat": 281.1
+    },
+    "水处理": {
+      "count": 1,
+      "total_heat": 70.9
+    }
+  },
+  "total_sources": 28,
+  "success_sources": 27,
+  "failed_sources": 0,
+  "week_total_items": 263,
+  "week_new_keywords": 60,
+  "policy_ratio": 8.0,
+  "items": [
+    {
+      "title": "Attributing projected evapotranspiration and runoff changes to CO2 effect pathways under increasing atmospheric CO2 across global large river basins",
+      "title_en": "Attributing projected evapotranspiration and runoff changes to CO2 effect pathways under increasing atmospheric CO2 across global large river basins",
+      "title_zh": "在全球大气二氧化碳浓度上升背景下，全球大型河流流域中预计的蒸散量和径流变化归因于二氧化碳效应路径",
+      "link": "https://iopscience.iop.org/article/10.1088/1748-9326/aec312",
+      "source": "Environmental Research Letters",
+      "published": "2026-11-25T00:00:00+00:00",
+      "hotness": 85.3,
+      "score_v1": 22.39,
+      "score_v2": 85.3,
+      "score_breakdown": {
+        "algorithm": "v3.0",
+        "dimension_max": {
+          "authority": 18.0,
+          "topic": 18.0,
+          "resonance": 18.0,
+          "information": 16.0
+        },
+        "authority_score": 18.0,
+        "keyword_idf_score": 5.64,
+        "topic_score": 8.0,
+        "topic_burst_score": 2.36,
+        "topic_burst_count": 2,
+        "resonance_score": 0.0,
+        "info_score": 8.0,
+        "base": 34.0,
+        "base_max": 70.0,
+        "time_factor": 0.827,
+        "density_factor": 1.0,
+        "density_note": "",
+        "repeat_penalty": 1.0,
+        "repeat_excused": false,
+        "event_size": 1,
+        "event_media_count": 1,
+        "event_cluster_source": "ai",
+        "origin_source": "Environmental Research Letters",
+        "raw": 28.12,
+        "display_score": 85.3,
+        "display_mode": "absolute"
+      },
+      "summary": "大气二氧化碳通过辐射（RAD）、植被生理（BGC）和非线性相互作用（INT）等途径影响陆地水文过程，但这些途径如何驱动未来的蒸散发（ET）和径流（Q），目前仍知之甚少。 我们结合了来自六个CMIP6地球系统模型的理想化二氧化碳因子实验，并采用基于布迪科（Budyko）理论的水平衡框架，量化了这些途径对全球38个主要河流流域预计蒸散量和径流变化的贡献，并识别了相关的水文控制因素。 预测显示，大多数流域的ET和Q均将增加，但表现出显著的空间异质性。在30个流域中，辐射（RAD）是ET变化的主导因素；而在23、8和7个流域中，Q的变化则分别主要由RAD、BGC和INT主导。 在以RAD为主导的流域中，水文变化主要与水文气候变量（尤其是降水）相关；而在以BGC为主导的流域以及部分以INT为主导的流域中，布迪科参数n（作为代表预设水文气候变量未明确解析过程的综合参数）则是主要的控制因素。 这些结果表明，未来流域尺度上对二氧化碳浓度上升的水文响应既取决于主要的二氧化碳效应途径，也取决于与其相关的水文调节机制，从而为未来陆地水循环的变化提供了双层面的视角。",
+      "analysis": "",
+      "topic_tags": [
+        "大气二氧化碳",
+        "水平衡框架"
+      ],
+      "category": "污染治理",
+      "matched_keywords": [
+        "流域"
+      ]
+    },
+    {
+      "title": "The leading cities in the world for high-quality research in 2025",
+      "title_en": "The leading cities in the world for high-quality research in 2025",
+      "title_zh": "2025年全球高质量研究领域的领先城市",
+      "link": "https://www.nature.com/articles/d41586-026-03468-3",
+      "source": "Nature",
+      "published": "2026-11-25T00:00:00+00:00",
+      "hotness": 84.7,
+      "score_v1": 16.39,
+      "score_v2": 84.7,
+      "score_breakdown": {
+        "algorithm": "v3.0",
+        "dimension_max": {
+          "authority": 18.0,
+          "topic": 18.0,
+          "resonance": 18.0,
+          "information": 16.0
+        },
+        "authority_score": 18.0,
+        "keyword_idf_score": 0.0,
+        "topic_score": 3.0,
+        "topic_burst_score": 0.0,
+        "topic_burst_count": 1,
+        "resonance_score": 0.0,
+        "info_score": 12.0,
+        "base": 33.0,
+        "base_max": 70.0,
+        "time_factor": 0.827,
+        "density_factor": 1.0,
+        "density_note": "",
+        "repeat_penalty": 1.0,
+        "repeat_excused": false,
+        "event_size": 3,
+        "event_media_count": 1,
+        "event_cluster_source": "ai",
+        "origin_source": "Nature",
+        "raw": 27.29,
+        "display_score": 84.7,
+        "display_mode": "absolute"
+      },
+      "summary": "《自然》杂志，自然指数》中表现最突出的科学城市十年数据。",
+      "analysis": "",
+      "topic_tags": [
+        "十年数据"
+      ],
+      "category": "科研学术",
+      "matched_keywords": []
+    },
+    {
+      "title": "Ultrafast cellulose nanocrystal production from diverse lignocellulosic biomass",
+      "title_en": "Ultrafast cellulose nanocrystal production from diverse lignocellulosic biomass",
+      "title_zh": "利用多种木质纤维素生物质制备超快纤维素纳米晶体",
+      "link": "https://www.nature.com/articles/s41893-026-01989-3",
+      "source": "Nature Sustainability",
+      "published": "2026-11-25T00:00:00+00:00",
+      "hotness": 83.0,
+      "score_v1": 26.39,
+      "score_v2": 83.0,
+      "score_breakdown": {
+        "algorithm": "v3.0",
+        "dimension_max": {
+          "authority": 18.0,
+          "topic": 18.0,
+          "resonance": 18.0,
+          "information": 16.0
+        },
+        "authority_score": 18.0,
+        "keyword_idf_score": 4.81,
+        "topic_score": 9.47,
+        "topic_burst_score": 4.66,
+        "topic_burst_count": 4,
+        "resonance_score": 0.0,
+        "info_score": 3.0,
+        "base": 30.47,
+        "base_max": 70.0,
+        "time_factor": 0.827,
+        "density_factor": 1.0,
+        "density_note": "",
+        "repeat_penalty": 1.0,
+        "repeat_excused": false,
+        "event_size": 1,
+        "event_media_count": 1,
+        "event_cluster_source": "ai",
+        "origin_source": "Nature Sustainability",
+        "raw": 25.2,
+        "display_score": 83.0,
+        "display_mode": "absolute"
+      },
+      "summary": "《自然·可持续性》（Nature Sustainability）， 传统上，制备纤维素纳米晶体需要使用有害化学品，且净化过程复杂、能耗高。 一种可回收的水解准溶剂策略，现可利用纤维素和未经处理的生物质快速制备纤维素纳米晶体，且对环境的影响较小，成本也更低。",
+      "analysis": "",
+      "topic_tags": [
+        "纤维素纳米晶体",
+        "水解准溶剂"
+      ],
+      "category": "科研学术",
+      "matched_keywords": [
+        "可持续发展"
+      ]
+    },
+    {
+      "title": "Superspreading droplets for scalable and green perovskite photovoltaics",
+      "title_en": "Superspreading droplets for scalable and green perovskite photovoltaics",
+      "title_zh": "适用于可扩展且环保的钙钛矿光伏技术的超扩散飞沫",
+      "link": "https://www.nature.com/articles/s41893-026-01991-9",
+      "source": "Nature Sustainability",
+      "published": "2026-11-25T00:00:00+00:00",
+      "hotness": 83.0,
+      "score_v1": 26.39,
+      "score_v2": 83.0,
+      "score_breakdown": {
+        "algorithm": "v3.0",
+        "dimension_max": {
+          "authority": 18.0,
+          "topic": 18.0,
+          "resonance": 18.0,
+          "information": 16.0
+        },
+        "authority_score": 18.0,
+        "keyword_idf_score": 4.81,
+        "topic_score": 9.47,
+        "topic_burst_score": 4.66,
+        "topic_burst_count": 4,
+        "resonance_score": 0.0,
+        "info_score": 3.0,
+        "base": 30.47,
+        "base_max": 70.0,
+        "time_factor": 0.827,
+        "density_factor": 1.0,
+        "density_note": "",
+        "repeat_penalty": 1.0,
+        "repeat_excused": false,
+        "event_size": 1,
+        "event_media_count": 1,
+        "event_cluster_source": "ai",
+        "origin_source": "Nature Sustainability",
+        "raw": 25.2,
+        "display_score": 83.0,
+        "display_mode": "absolute"
+      },
+      "summary": "《自然·可持续性》（Nature Sustainability），。要扩大钙钛矿太阳能电池的生产规模，就需要采用快速且零废料的薄膜沉积工艺。",
+      "analysis": "",
+      "topic_tags": [
+        "钙钛矿太阳能电池"
+      ],
+      "category": "能源与碳中和",
+      "matched_keywords": [
+        "可持续发展"
+      ]
+    },
+    {
+      "title": "Post-wildfire soil respiration in tundra is driven by plant community composition and soil moisture in the late growing season *",
+      "title_en": "Post-wildfire soil respiration in tundra is driven by plant community composition and soil moisture in the late growing season *",
+      "title_zh": "苔原地区森林大火后的土壤呼吸受生长季后期植物群落组成和土壤含水量的影响 *",
+      "link": "https://iopscience.iop.org/article/10.1088/1748-9326/aec310",
+      "source": "Environmental Research Letters",
+      "published": "2026-11-25T00:00:00+00:00",
+      "hotness": 81.8,
+      "score_v1": 22.39,
+      "score_v2": 81.8,
+      "score_breakdown": {
+        "algorithm": "v3.0",
+        "dimension_max": {
+          "authority": 18.0,
+          "topic": 18.0,
+          "resonance": 18.0,
+          "information": 16.0
+        },
+        "authority_score": 18.0,
+        "keyword_idf_score": 5.53,
+        "topic_score": 7.89,
+        "topic_burst_score": 2.36,
+        "topic_burst_count": 2,
+        "resonance_score": 0.0,
+        "info_score": 3.0,
+        "base": 28.89,
+        "base_max": 70.0,
+        "time_factor": 0.827,
+        "density_factor": 1.0,
+        "density_note": "",
+        "repeat_penalty": 1.0,
+        "repeat_excused": false,
+        "event_size": 1,
+        "event_media_count": 1,
+        "event_cluster_source": "ai",
+        "origin_source": "Environmental Research Letters",
+        "raw": 23.89,
+        "display_score": 81.8,
+        "display_mode": "absolute"
+      },
+      "summary": "预计北极野火将增加永久冻土层下土壤的二氧化碳（CO₂）排放量。然而，我们目前缺乏关于北极苔原地区火灾后土壤呼吸及其驱动因素的原位测量数据。 我们在阿拉斯加苏厄德半岛上，采用时间序列研究方法，对过去五十年间经历过多次野火后正在恢复的苔原地区中，不同独特植物功能类型（PFT）的样地，进行了为期两年的土壤性质及生长季末期二氧化碳通量测量。 土壤呼吸量随野火发生时间的长短和燃烧次数的变化而变化，在草本植物占主导的区域最高，而在灌木和禾本植物占主导的区域则逐渐降低。在控制了植物功能类型（PFT）因素后，在原本湿润的生态系统中，随着土壤含水量的增加，土壤呼吸量也随之下降。 早春融雪期的分析表明，烧毁区域永久冻土融化加剧与有机层密度增加有关。火灾后演替过程中水资源可利用性及植物物种组成变化，可能影响北极苔原的土壤二氧化碳净排放量。",
+      "analysis": "",
+      "topic_tags": [
+        "土壤呼吸",
+        "土壤湿度"
+      ],
+      "category": "环境健康",
+      "matched_keywords": [
+        "生态系统"
+      ]
+    },
+    {
+      "title": "Contrasting occurrence of winter compound events across different vegetation types in dryland Asia",
+      "title_en": "Contrasting occurrence of winter compound events across different vegetation types in dryland Asia",
+      "title_zh": "亚洲干旱地区不同植被类型中冬季复合事件发生情况的对比",
+      "link": "https://iopscience.iop.org/article/10.1088/1748-9326/aec314",
+      "source": "Environmental Research Letters",
+      "published": "2026-11-25T00:00:00+00:00",
+      "hotness": 81.8,
+      "score_v1": 22.39,
+      "score_v2": 81.8,
+      "score_breakdown": {
+        "algorithm": "v3.0",
+        "dimension_max": {
+          "authority": 18.0,
+          "topic": 18.0,
+          "resonance": 18.0,
+          "information": 16.0
+        },
+        "authority_score": 18.0,
+        "keyword_idf_score": 5.53,
+        "topic_score": 7.89,
+        "topic_burst_score": 2.36,
+        "topic_burst_count": 2,
+        "resonance_score": 0.0,
+        "info_score": 3.0,
+        "base": 28.89,
+        "base_max": 70.0,
+        "time_factor": 0.827,
+        "density_factor": 1.0,
+        "density_note": "",
+        "repeat_penalty": 1.0,
+        "repeat_excused": false,
+        "event_size": 1,
+        "event_media_count": 1,
+        "event_cluster_source": "ai",
+        "origin_source": "Environmental Research Letters",
+        "raw": 23.89,
+        "display_score": 81.8,
+        "display_mode": "absolute"
+      },
+      "summary": "以冰点气温和大雪为特征的冬季复合事件对脆弱的干旱区生态系统产生了深远影响。然而，目前仍缺乏针对亚洲干旱区不同植被类型中冬季复合事件的定量评估。 在本研究中，我们开发了一个综合冬季复合事件指数，该指数整合了温度、积雪深度和积雪密度等指标，用于探究2001年至2024年冬季（11月至3月）不同植被类型中此类事件的特征。 研究表明，冬季复合事件空间范围最广的年份是2013年，影响了亚洲干旱区总面积的约31.52%；而强度最大的事件则发生在2021年。累计受影响面积占比最大的月份是1月，而事件强度在3月达到峰值。 温度对事件强度的相对贡献最大，但随着冬季后期雪深和雪密度的相对贡献增加，温度的相对贡献逐渐下降。 温度、积雪深度和积雪密度的贡献率以不同组合形式，塑造了各类植被类型间各异的事件特征。草原是亚洲干旱区的主要植被类型，其受影响面积占比最大（19.52%），事件发生频率也最高（64.19%）。 亚洲干旱地区的森林覆盖率相对较低，但其受影响面积比例仅次于草原，位居第二，且事件平均强度最高。这些结果量化了亚洲干旱地区各类植被类型中冬季复合事件的发生情况，突显了它们在干旱地区生态系统中的不同暴露模式。",
+      "analysis": "",
+      "topic_tags": [
+        "干旱区"
+      ],
+      "category": "气候变化",
+      "matched_keywords": [
+        "生态系统"
+      ]
+    },
+    {
+      "title": "马军调研生态环境问题整改工作_中安在线_中安在线客户端 - 安徽新闻联播",
+      "title_en": "",
+      "title_zh": "",
+      "link": "https://news.google.com/rss/articles/CBMic0FVX3lxTE9FQnlMdTV5OFlUUGcxSlFBRVdCUkpmQ1p1YmJkWENaOWp1WXE2UmIzNXRFVXVUN1A5ZTBnc3dBTHRENHpsNmxHNDNwMWFCaVFlNWd4d215SEMtSE4ybDVPdHVpMHdRZk9hdEJHMGpCZnhvSzg?oc=5",
+      "source": "Google News 环境保护",
+      "published": "2026-11-25T04:56:19+00:00",
+      "hotness": 80.0,
+      "score_v1": 23.22,
+      "score_v2": 80.0,
+      "score_breakdown": {
+        "algorithm": "v3.0",
+        "dimension_max": {
+          "authority": 18.0,
+          "topic": 18.0,
+          "resonance": 18.0,
+          "information": 16.0
+        },
+        "authority_score": 8.05,
+        "keyword_idf_score": 4.44,
+        "topic_score": 8.23,
+        "topic_burst_score": 3.79,
+        "topic_burst_count": 3,
+        "resonance_score": 8.76,
+        "info_score": 0.0,
+        "base": 25.04,
+        "base_max": 70.0,
+        "time_factor": 0.8787,
+        "density_factor": 1.0,
+        "density_note": "",
+        "repeat_penalty": 1.0,
+        "repeat_excused": false,
+        "event_size": 2,
+        "event_media_count": 2,
+        "event_cluster_source": "ai",
+        "origin_source": "安徽新闻联播",
+        "raw": 22.0,
+        "display_score": 80.0,
+        "display_mode": "absolute"
+      },
+      "summary": "马军调研生态环境问题整改工作，推动问题整改落实见效，助力生态文明建设。",
+      "analysis": "",
+      "topic_tags": [
+        "生态环境问题整改工作"
+      ],
+      "category": "环境政策",
+      "matched_keywords": [
+        "生态环境"
+      ]
+    },
+    {
+      "title": "Climate scientists urge US lawmakers to vote no on sweeping permitting bill",
+      "title_en": "Climate scientists urge US lawmakers to vote no on sweeping permitting bill",
+      "title_zh": "气候科学家敦促美国议员对一项涉及范围广泛的许可法案投反对票",
+      "link": "https://www.theguardian.com/us-news/2026/nov/24/climate-scientists-lawmakers-baaja",
+      "source": "The Guardian Environment",
+      "published": "2026-11-24T22:09:57+00:00",
+      "hotness": 79.2,
+      "score_v1": 18.49,
+      "score_v2": 79.2,
+      "score_breakdown": {
+        "algorithm": "v3.0",
+        "dimension_max": {
+          "authority": 18.0,
+          "topic": 18.0,
+          "resonance": 18.0,
+          "information": 16.0
+        },
+        "authority_score": 12.73,
+        "keyword_idf_score": 6.47,
+        "topic_score": 6.47,
+        "topic_burst_score": 0.0,
+        "topic_burst_count": 1,
+        "resonance_score": 0.0,
+        "info_score": 7.0,
+        "base": 26.2,
+        "base_max": 70.0,
+        "time_factor": 0.8091,
+        "density_factor": 1.0,
+        "density_note": "",
+        "repeat_penalty": 1.0,
+        "repeat_excused": false,
+        "event_size": 1,
+        "event_media_count": 1,
+        "event_cluster_source": "ai",
+        "origin_source": "The Guardian Environment",
+        "raw": 21.2,
+        "display_score": 79.2,
+        "display_mode": "absolute"
+      },
+      "summary": "公开信警告称，旨在加快能源和基础设施项目建设的《两党美国可负担性与就业法案》（Baaja）将造成不可逆转的气候危害。随着针对这项全面许可法案的反对声浪日益高涨，120多名气候科学家敦促美国立法者不要通过这项旨在加速能源项目、数据中心及其他基础设施建设的争议性法案。在这封致众议院议员的公开信中，这群地球科学和社会科学研究人员表示“深表关切”，认为《两党美国可负担性与就业法案》（简称Baaja）削弱了环境法律，使新的化石燃料项目无法被撤销，且对导致全球变暖的温室气体排放仅能实现微幅削减。继续阅读……",
+      "analysis": "",
+      "topic_tags": [
+        "energy projects",
+        "climate scientists"
+      ],
+      "category": "能源与碳中和",
+      "matched_keywords": [
+        "温室气体"
+      ]
+    },
+    {
+      "title": "中国红十字基金会亮相联合国气候变化大会 重点分享韧性社区人道实践 - http://www.jingjiribao.cn/",
+      "title_en": "",
+      "title_zh": "",
+      "link": "https://news.google.com/rss/articles/CBMiY0FVX3lxTE5hQjFkbTdfbjh4dkRoR214a0N1UXd0a1RHVWVkbExHeVV2NEo3M0pxbjV5OGFHQnpleWFaVk5JWExSRlBJMnpuY2RoUmZaWEQ0RXZlaVBoemhTdWU2b0VTUWw5dw?oc=5",
+      "source": "Google News 气候变化",
+      "published": "2026-11-25T08:22:46+00:00",
+      "hotness": 78.8,
+      "score_v1": 22.24,
+      "score_v2": 78.8,
+      "score_breakdown": {
+        "algorithm": "v3.0",
+        "dimension_max": {
+          "authority": 18.0,
+          "topic": 18.0,
+          "resonance": 18.0,
+          "information": 16.0
+        },
+        "authority_score": 8.05,
+        "keyword_idf_score": 3.46,
+        "topic_score": 5.82,
+        "topic_burst_score": 2.36,
+        "topic_burst_count": 2,
+        "resonance_score": 8.76,
+        "info_score": 0.0,
+        "base": 22.63,
+        "base_max": 70.0,
+        "time_factor": 0.918,
+        "density_factor": 1.0,
+        "density_note": "",
+        "repeat_penalty": 1.0,
+        "repeat_excused": false,
+        "event_size": 2,
+        "event_media_count": 2,
+        "event_cluster_source": "ai",
+        "origin_source": "http://www.jingjiribao.cn/",
+        "raw": 20.78,
+        "display_score": 78.8,
+        "display_mode": "absolute"
+      },
+      "summary": "中国红十字基金会亮相联合国气候变化大会，重点分享韧性社区人道实践，助力全球气候治理。",
+      "analysis": "",
+      "topic_tags": [
+        "中国红十字基金会",
+        "联合国气候变化大会",
+        "COP31"
+      ],
+      "category": "科研学术",
+      "matched_keywords": [
+        "气候变化"
+      ]
+    },
+    {
+      "title": "How Singapore has turned a nation into a smart-city testing ground",
+      "title_en": "How Singapore has turned a nation into a smart-city testing ground",
+      "title_zh": "新加坡如何将一个国家打造成智慧城市试验场",
+      "link": "https://www.nature.com/articles/d41586-026-03472-7",
+      "source": "Nature",
+      "published": "2026-11-25T00:00:00+00:00",
+      "hotness": 78.7,
+      "score_v1": 16.39,
+      "score_v2": 78.7,
+      "score_breakdown": {
+        "algorithm": "v3.0",
+        "dimension_max": {
+          "authority": 18.0,
+          "topic": 18.0,
+          "resonance": 18.0,
+          "information": 16.0
+        },
+        "authority_score": 18.0,
+        "keyword_idf_score": 0.0,
+        "topic_score": 0.0,
+        "topic_burst_score": 0.0,
+        "topic_burst_count": 1,
+        "resonance_score": 0.0,
+        "info_score": 7.0,
+        "base": 25.0,
+        "base_max": 70.0,
+        "time_factor": 0.827,
+        "density_factor": 1.0,
+        "density_note": "",
+        "repeat_penalty": 1.0,
+        "repeat_excused": true,
+        "event_size": 3,
+        "event_media_count": 1,
+        "event_cluster_source": "ai",
+        "origin_source": "Nature",
+        "raw": 20.67,
+        "display_score": 78.7,
+        "display_mode": "absolute"
+      },
+      "summary": "《自然》杂志， 该城邦的面积小且实行集中治理，这使得数字基础设施得以以不同寻常的速度和一致性得以引入。",
+      "analysis": "",
+      "topic_tags": [
+        "环境资讯"
+      ],
+      "category": "其他",
+      "matched_keywords": []
+    }
+  ]
+}

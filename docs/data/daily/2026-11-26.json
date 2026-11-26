@@ -1,0 +1,557 @@
+{
+  "report_date": "2026-11-26",
+  "site_name": "环境学子雷达",
+  "total_items": 37,
+  "snapshot_items": 10,
+  "category_stats": {
+    "水处理": {
+      "count": 2,
+      "total_heat": 160.8
+    },
+    "生态环境": {
+      "count": 6,
+      "total_heat": 442.9
+    },
+    "环境政策": {
+      "count": 4,
+      "total_heat": 309.9
+    },
+    "污染治理": {
+      "count": 6,
+      "total_heat": 434.4
+    },
+    "能源与碳中和": {
+      "count": 2,
+      "total_heat": 157.0
+    },
+    "科研学术": {
+      "count": 4,
+      "total_heat": 289.1
+    },
+    "其他": {
+      "count": 4,
+      "total_heat": 270.1
+    },
+    "气候变化": {
+      "count": 9,
+      "total_heat": 624.3
+    }
+  },
+  "total_sources": 28,
+  "success_sources": 27,
+  "failed_sources": 0,
+  "week_total_items": 264,
+  "week_new_keywords": 68,
+  "policy_ratio": 8.0,
+  "items": [
+    {
+      "title": "Low snow fractions increase evapotranspiration efficiency across the Greater Yellowstone Ecosystem",
+      "title_en": "Low snow fractions increase evapotranspiration efficiency across the Greater Yellowstone Ecosystem",
+      "title_zh": "较低的积雪覆盖率提高了大黄石生态系统范围内的蒸散发效率",
+      "link": "https://iopscience.iop.org/article/10.1088/1748-9326/aec1f1",
+      "source": "Environmental Research Letters",
+      "published": "2026-11-26T00:00:00+00:00",
+      "hotness": 86.3,
+      "score_v1": 36.52,
+      "score_v2": 86.3,
+      "score_breakdown": {
+        "algorithm": "v3.0",
+        "dimension_max": {
+          "authority": 18.0,
+          "topic": 18.0,
+          "resonance": 18.0,
+          "information": 16.0
+        },
+        "authority_score": 18.0,
+        "keyword_idf_score": 10.63,
+        "topic_score": 14.42,
+        "topic_burst_score": 3.79,
+        "topic_burst_count": 3,
+        "resonance_score": 0.0,
+        "info_score": 3.0,
+        "base": 35.42,
+        "base_max": 70.0,
+        "time_factor": 0.8327,
+        "density_factor": 1.0,
+        "density_note": "",
+        "repeat_penalty": 1.0,
+        "repeat_excused": false,
+        "event_size": 1,
+        "event_media_count": 1,
+        "event_cluster_source": "ai",
+        "origin_source": "Environmental Research Letters",
+        "raw": 29.5,
+        "display_score": 86.3,
+        "display_mode": "absolute"
+      },
+      "summary": "据预测，全球山区源头地区以雪形式降下的降水量将减少。融雪速率和时序的变化可能会通过改变能量和水输入的配比来影响径流形成，而这些输入因素决定了降水向大气中损失的比例，即蒸散量（ET）效率。 鉴于蒸散发效率的变化可能导致季节性积雪流域的径流更难预测，本研究针对大黄石生态系统内的八个流域，探讨了降水相态对蒸散发效率的影响。在土地覆盖变化较大的四个流域中，蒸散发效率显著增加（p < 0.05）。 在所有流域中，混合效应建模表明，在积雪比例较低的年份，更多可利用水被用于蒸散发。 然而，蒸散量对积雪状况的响应在局部范围内受到缓冲：以地下水为主的流域在短期内响应较弱，但对前一年状况的“记忆”更为强烈。这些发现表明，在积雪较少的年份，植被用水和蒸散量将对季节性积雪地区的径流形成产生更显著的影响，这可能会加剧现有的干旱。",
+      "analysis": "",
+      "topic_tags": [
+        "降水相态",
+        "大黄石生态系统"
+      ],
+      "category": "水处理",
+      "matched_keywords": [
+        "地下水",
+        "流域",
+        "生态系统"
+      ]
+    },
+    {
+      "title": "北海市龙潭村地下水饮用水水源保护区调整划定方案的公示 - 国际能源网",
+      "title_en": "",
+      "title_zh": "",
+      "link": "https://news.google.com/rss/articles/CBMiYkFVX3lxTE02b2lXcFRGWFdtTjNvZVpLcXotTjJGWnJxZi1LZktMU092YjJFY093bnJaT1JNaDBlTU9sYUtYb1R1dTAwdndFLWxVcjRsUy1jWmpRR0N6MHdqRnE3Uk9SSHd3?oc=5",
+      "source": "Google News 环境保护",
+      "published": "2026-11-26T02:01:33+00:00",
+      "hotness": 83.8,
+      "score_v1": 26.6,
+      "score_v2": 83.8,
+      "score_breakdown": {
+        "algorithm": "v3.0",
+        "dimension_max": {
+          "authority": 18.0,
+          "topic": 18.0,
+          "resonance": 18.0,
+          "information": 16.0
+        },
+        "authority_score": 8.05,
+        "keyword_idf_score": 10.08,
+        "topic_score": 13.88,
+        "topic_burst_score": 3.79,
+        "topic_burst_count": 3,
+        "resonance_score": 8.76,
+        "info_score": 0.0,
+        "base": 30.68,
+        "base_max": 70.0,
+        "time_factor": 0.8535,
+        "density_factor": 1.0,
+        "density_note": "",
+        "repeat_penalty": 1.0,
+        "repeat_excused": false,
+        "event_size": 2,
+        "event_media_count": 2,
+        "event_cluster_source": "ai",
+        "origin_source": "国际能源网",
+        "raw": 26.19,
+        "display_score": 83.8,
+        "display_mode": "absolute"
+      },
+      "summary": "北海市银海区生态环境局发布方案，对龙潭村地下水饮用水水源保护区进行调整划定，旨在加强水源保护。",
+      "analysis": "",
+      "topic_tags": [
+        "地下水饮用水水源保护区"
+      ],
+      "category": "生态环境",
+      "matched_keywords": [
+        "饮用水",
+        "地下水"
+      ]
+    },
+    {
+      "title": "《北京市噪声污染防治条例（草案）》二次审议，依法治理机动车“炸街”等流动噪声 - 京报网",
+      "title_en": "",
+      "title_zh": "",
+      "link": "https://news.google.com/rss/articles/CBMiXkFVX3lxTFBFeWhCamJNdnNLeG0xRW85VDc2QVhwNm1GNV9pejhKYUdycXNGei1JaHNnbHRrSVhlOUItOHhQVFpvRnVsSUVDTng3SWUya0l6OEMyVzJ0WnRkNlo2R1E?oc=5",
+      "source": "Google News 环境污染",
+      "published": "2026-11-26T13:07:12+00:00",
+      "hotness": 83.6,
+      "score_v1": 24.13,
+      "score_v2": 83.6,
+      "score_breakdown": {
+        "algorithm": "v3.0",
+        "dimension_max": {
+          "authority": 18.0,
+          "topic": 18.0,
+          "resonance": 18.0,
+          "information": 16.0
+        },
+        "authority_score": 8.05,
+        "keyword_idf_score": 7.15,
+        "topic_score": 9.52,
+        "topic_burst_score": 2.36,
+        "topic_burst_count": 2,
+        "resonance_score": 8.76,
+        "info_score": 0.0,
+        "base": 26.32,
+        "base_max": 70.0,
+        "time_factor": 0.9845,
+        "density_factor": 1.0,
+        "density_note": "",
+        "repeat_penalty": 1.0,
+        "repeat_excused": false,
+        "event_size": 2,
+        "event_media_count": 2,
+        "event_cluster_source": "ai",
+        "origin_source": "京报网",
+        "raw": 25.91,
+        "display_score": 83.6,
+        "display_mode": "absolute"
+      },
+      "summary": "北京市人大常委会二次审议该条例草案，进一步强化源头防治，依法治理机动车炸街等流动噪声，明确噪声污染认定不再仅看超标。",
+      "analysis": "",
+      "topic_tags": [
+        "北京市噪声污染防治条例",
+        "流动噪声"
+      ],
+      "category": "环境政策",
+      "matched_keywords": [
+        "污染防治"
+      ]
+    },
+    {
+      "title": "2026年交易额突破2亿元 湖北用排污权挖出“绿色财富” - 湖北日报传媒集团",
+      "title_en": "",
+      "title_zh": "",
+      "link": "https://news.google.com/rss/articles/CBMiWEFVX3lxTE5GWWtPQTFaM0htOGs2SjU0OVBOQ1RtMlcxOTVXUjdhMWtPRVZjdWhHd2h2RGNzbEdkMXp6SVlSd2VLMjFjOVJaWjhaRHItaG1DYjdPMkRCVlo?oc=5",
+      "source": "Google News 生态环境",
+      "published": "2026-11-26T10:48:51+00:00",
+      "hotness": 81.0,
+      "score_v1": 17.25,
+      "score_v2": 81.0,
+      "score_breakdown": {
+        "algorithm": "v3.0",
+        "dimension_max": {
+          "authority": 18.0,
+          "topic": 18.0,
+          "resonance": 18.0,
+          "information": 16.0
+        },
+        "authority_score": 8.05,
+        "keyword_idf_score": 0.0,
+        "topic_score": 3.0,
+        "topic_burst_score": 0.0,
+        "topic_burst_count": 1,
+        "resonance_score": 0.0,
+        "info_score": 13.0,
+        "base": 24.05,
+        "base_max": 70.0,
+        "time_factor": 0.9547,
+        "density_factor": 1.0,
+        "density_note": "",
+        "repeat_penalty": 1.0,
+        "repeat_excused": false,
+        "event_size": 1,
+        "event_media_count": 1,
+        "event_cluster_source": "ai",
+        "origin_source": "湖北日报传媒集团",
+        "raw": 22.96,
+        "display_score": 81.0,
+        "display_mode": "absolute"
+      },
+      "summary": "湖北日报报道，2026年湖北省排污权交易额突破2亿元，通过排污权交易挖出“绿色财富”，推动环保产业发展。",
+      "analysis": "",
+      "topic_tags": [
+        "排污权交易",
+        "化学需氧量",
+        "绿色财富"
+      ],
+      "category": "环境政策",
+      "matched_keywords": []
+    },
+    {
+      "title": "Attributing projected evapotranspiration and runoff changes to CO2 effect pathways under increasing atmospheric CO2 across global large river basins",
+      "title_en": "Attributing projected evapotranspiration and runoff changes to CO2 effect pathways under increasing atmospheric CO2 across global large river basins",
+      "title_zh": "在全球大气二氧化碳浓度上升背景下，全球大型河流流域中预计的蒸散量和径流变化归因于二氧化碳效应路径",
+      "link": "https://iopscience.iop.org/article/10.1088/1748-9326/aec312",
+      "source": "Environmental Research Letters",
+      "published": "2026-11-25T00:00:00+00:00",
+      "hotness": 80.8,
+      "score_v1": 21.03,
+      "score_v2": 80.8,
+      "score_breakdown": {
+        "algorithm": "v3.0",
+        "dimension_max": {
+          "authority": 18.0,
+          "topic": 18.0,
+          "resonance": 18.0,
+          "information": 16.0
+        },
+        "authority_score": 18.0,
+        "keyword_idf_score": 5.61,
+        "topic_score": 9.4,
+        "topic_burst_score": 3.79,
+        "topic_burst_count": 3,
+        "resonance_score": 0.0,
+        "info_score": 8.0,
+        "base": 35.4,
+        "base_max": 70.0,
+        "time_factor": 0.6428,
+        "density_factor": 1.0,
+        "density_note": "",
+        "repeat_penalty": 1.0,
+        "repeat_excused": false,
+        "event_size": 1,
+        "event_media_count": 1,
+        "event_cluster_source": "ai",
+        "origin_source": "Environmental Research Letters",
+        "raw": 22.76,
+        "display_score": 80.8,
+        "display_mode": "absolute"
+      },
+      "summary": "大气二氧化碳通过辐射（RAD）、植被生理（BGC）和非线性相互作用（INT）途径影响陆地水文过程，但这些途径如何驱动未来的蒸散发（ET）和径流（Q），目前仍知之甚少。 我们结合了来自六个CMIP6地球系统模型的理想化二氧化碳因子实验，并采用基于布迪科（Budyko）理论的水文平衡框架，量化了这些途径对全球38个主要河流流域预计蒸散量和径流变化的贡献，并识别了相关的水文控制因素。 预测显示，大多数流域的ET和Q均将增加，但表现出显著的空间异质性。在30个流域中，辐射（RAD）是ET变化的主导因素；而在23、8和7个流域中，Q的变化则分别主要由RAD、BGC和INT主导。 在以RAD为主导的流域中，水文变化主要与水文气候变量（尤其是降水）相关；而在以BGC为主导的流域以及部分以INT为主导的流域中，布迪科参数n（作为代表预设水文气候变量未明确解析过程的综合参数）则是主要的控制因素。 这些结果表明，未来流域尺度对二氧化碳浓度上升的水文响应既取决于主要的二氧化碳效应途径，也取决于其相关的水文调节机制，从而为未来陆地水循环的变化提供了双层面的视角。",
+      "analysis": "",
+      "topic_tags": [
+        "大气二氧化碳",
+        "水文平衡"
+      ],
+      "category": "污染治理",
+      "matched_keywords": [
+        "流域"
+      ]
+    },
+    {
+      "title": "北京市生态环境局等6部门关于印发《北京市促进老旧非营运柴油货车报废更新新能源货车实施细则（2026-2028年）》的通知 - 北京市人民政府门户网站",
+      "title_en": "",
+      "title_zh": "",
+      "link": "https://news.google.com/rss/articles/CBMigwFBVV95cUxQUThtMFQ4azIzS2tsOEpsY3U5c0VPZWxGOXVjOVdJNkpuT3lrWlduUmJ3Q2N5dGlEUkhkaXpVVHdqV0ZzaURvdUhGajVmS0cxWDI2aUM0aWFSYk9fUDA4dkpmSndfbEVjWVdBUmVOUEh3RVRSMlZqWmtSMUdxOXV2NnR3SQ?oc=5",
+      "source": "Google News 生态环境",
+      "published": "2026-11-26T10:22:09+00:00",
+      "hotness": 79.6,
+      "score_v1": 27.1,
+      "score_v2": 79.6,
+      "score_breakdown": {
+        "algorithm": "v3.0",
+        "dimension_max": {
+          "authority": 18.0,
+          "topic": 18.0,
+          "resonance": 18.0,
+          "information": 16.0
+        },
+        "authority_score": 8.05,
+        "keyword_idf_score": 4.42,
+        "topic_score": 9.08,
+        "topic_burst_score": 4.66,
+        "topic_burst_count": 4,
+        "resonance_score": 8.76,
+        "info_score": 9.0,
+        "base": 34.89,
+        "base_max": 70.0,
+        "time_factor": 0.9491,
+        "density_factor": 0.65,
+        "density_note": "地方政务通稿",
+        "repeat_penalty": 1.0,
+        "repeat_excused": true,
+        "event_size": 2,
+        "event_media_count": 2,
+        "event_cluster_source": "ai",
+        "origin_source": "北京市人民政府门户网站",
+        "raw": 21.53,
+        "display_score": 79.6,
+        "display_mode": "absolute"
+      },
+      "summary": "北京市生态环境局等六部门印发实施细则，旨在促进2026-2028年间老旧非营运柴油货车报废更新为新能源货车，推动柴油货车淘汰更新。",
+      "analysis": "",
+      "topic_tags": [
+        "新能源货车"
+      ],
+      "category": "能源与碳中和",
+      "matched_keywords": [
+        "生态环境"
+      ]
+    },
+    {
+      "title": "我省印发流域水生态环境保护实施方案 - fjrb.fjdaily.com",
+      "title_en": "",
+      "title_zh": "",
+      "link": "https://news.google.com/rss/articles/CBMibkFVX3lxTFBQcEctVUlaVV9SZHRQcTQ5M3VDb1JqaURYeGhFeVFUVFpwbXctcjVoVE02Sk55dUpxckh0MjdBRVl3a0VCQlBqZW1vV2NGRWNpUDB2Qnk4WlhSb05EaWQ1Vy0ya0ljbkx2STlvWlZn?oc=5",
+      "source": "Google News 环境保护",
+      "published": "2026-11-25T02:38:08+00:00",
+      "hotness": 78.4,
+      "score_v1": 36.86,
+      "score_v2": 78.4,
+      "score_breakdown": {
+        "algorithm": "v3.0",
+        "dimension_max": {
+          "authority": 18.0,
+          "topic": 18.0,
+          "resonance": 18.0,
+          "information": 16.0
+        },
+        "authority_score": 8.05,
+        "keyword_idf_score": 9.56,
+        "topic_score": 14.22,
+        "topic_burst_score": 4.66,
+        "topic_burst_count": 4,
+        "resonance_score": 8.76,
+        "info_score": 0.0,
+        "base": 31.03,
+        "base_max": 70.0,
+        "time_factor": 0.6593,
+        "density_factor": 1.0,
+        "density_note": "",
+        "repeat_penalty": 1.0,
+        "repeat_excused": false,
+        "event_size": 2,
+        "event_media_count": 2,
+        "event_cluster_source": "ai",
+        "origin_source": "fjrb.fjdaily.com",
+        "raw": 20.46,
+        "display_score": 78.4,
+        "display_mode": "absolute"
+      },
+      "summary": "省级印发流域水生态环境保护实施方案，旨在加强流域水生态环境保护，明确保护目标和治理措施。",
+      "analysis": "",
+      "topic_tags": [
+        "流域水生态环境保护",
+        "水生态保护"
+      ],
+      "category": "生态环境",
+      "matched_keywords": [
+        "流域",
+        "生态环境",
+        "环境保护"
+      ]
+    },
+    {
+      "title": "生态环境部公布2026年10月全国环境空气质量状况 - 中华人民共和国生态环境部",
+      "title_en": "",
+      "title_zh": "",
+      "link": "https://news.google.com/rss/articles/CBMicEFVX3lxTFBYVzFZR3NNMW5PQ3NRU1plWjFCdTlSR2lyQ0JLM0JQTXBDVG8tcDFFV1pJLURPY09QR0xYUW41Uk9BQ0lMM2NwbzZjSUoxYndydDdGOW8yQ2EtZDRsLVltbUo5VlBxTTgzclVYTHpRWms?oc=5",
+      "source": "Google News 生态环境",
+      "published": "2026-11-25T16:29:55+00:00",
+      "hotness": 77.9,
+      "score_v1": 22.63,
+      "score_v2": 77.9,
+      "score_breakdown": {
+        "algorithm": "v3.0",
+        "dimension_max": {
+          "authority": 18.0,
+          "topic": 18.0,
+          "resonance": 18.0,
+          "information": 16.0
+        },
+        "authority_score": 8.05,
+        "keyword_idf_score": 4.42,
+        "topic_score": 9.08,
+        "topic_burst_score": 4.66,
+        "topic_burst_count": 4,
+        "resonance_score": 0.0,
+        "info_score": 9.0,
+        "base": 26.13,
+        "base_max": 70.0,
+        "time_factor": 0.7629,
+        "density_factor": 1.0,
+        "density_note": "",
+        "repeat_penalty": 1.0,
+        "repeat_excused": false,
+        "event_size": 1,
+        "event_media_count": 1,
+        "event_cluster_source": "ai",
+        "origin_source": "中华人民共和国生态环境部",
+        "raw": 19.94,
+        "display_score": 77.9,
+        "display_mode": "absolute"
+      },
+      "summary": "生态环境部发布2026年10月全国环境空气质量状况报告，监测数据显示全国空气质量整体情况，重点关注主要污染物浓度变化及区域差异。",
+      "analysis": "",
+      "topic_tags": [
+        "生态环境部",
+        "空气质量"
+      ],
+      "category": "生态环境",
+      "matched_keywords": [
+        "生态环境"
+      ]
+    },
+    {
+      "title": "Orangutans face bleak future after Indonesia’s devastating wildfires",
+      "title_en": "Orangutans face bleak future after Indonesia’s devastating wildfires",
+      "title_zh": "印尼毁灭性森林大火过后，红毛猩猩面临黯淡的未来",
+      "link": "https://www.nature.com/articles/d41586-026-03828-z",
+      "source": "Nature",
+      "published": "2026-11-26T00:00:00+00:00",
+      "hotness": 77.9,
+      "score_v1": 16.52,
+      "score_v2": 77.9,
+      "score_breakdown": {
+        "algorithm": "v3.0",
+        "dimension_max": {
+          "authority": 18.0,
+          "topic": 18.0,
+          "resonance": 18.0,
+          "information": 16.0
+        },
+        "authority_score": 18.0,
+        "keyword_idf_score": 0.0,
+        "topic_score": 3.0,
+        "topic_burst_score": 0.0,
+        "topic_burst_count": 1,
+        "resonance_score": 0.0,
+        "info_score": 3.0,
+        "base": 24.0,
+        "base_max": 70.0,
+        "time_factor": 0.8327,
+        "density_factor": 1.0,
+        "density_note": "",
+        "repeat_penalty": 1.0,
+        "repeat_excused": false,
+        "event_size": 1,
+        "event_media_count": 1,
+        "event_cluster_source": "ai",
+        "origin_source": "Nature",
+        "raw": 19.99,
+        "display_score": 77.9,
+        "display_mode": "absolute"
+      },
+      "summary": "《自然》杂志， 超级厄尔尼诺现象加剧了印度尼西亚的火灾，这些火灾严重破坏了濒危的婆罗洲猩猩的栖息地。",
+      "analysis": "",
+      "topic_tags": [
+        "栖息地破坏"
+      ],
+      "category": "生态环境",
+      "matched_keywords": []
+    },
+    {
+      "title": "Ultrafast cellulose nanocrystal production from diverse lignocellulosic biomass",
+      "title_en": "Ultrafast cellulose nanocrystal production from diverse lignocellulosic biomass",
+      "title_zh": "利用多种木质纤维素生物质制备超快纤维素纳米晶体",
+      "link": "https://www.nature.com/articles/s41893-026-01989-3",
+      "source": "Nature Sustainability",
+      "published": "2026-11-25T00:00:00+00:00",
+      "hotness": 77.4,
+      "score_v1": 23.03,
+      "score_v2": 77.4,
+      "score_breakdown": {
+        "algorithm": "v3.0",
+        "dimension_max": {
+          "authority": 18.0,
+          "topic": 18.0,
+          "resonance": 18.0,
+          "information": 16.0
+        },
+        "authority_score": 18.0,
+        "keyword_idf_score": 4.79,
+        "topic_score": 9.45,
+        "topic_burst_score": 4.66,
+        "topic_burst_count": 4,
+        "resonance_score": 0.0,
+        "info_score": 3.0,
+        "base": 30.45,
+        "base_max": 70.0,
+        "time_factor": 0.6428,
+        "density_factor": 1.0,
+        "density_note": "",
+        "repeat_penalty": 1.0,
+        "repeat_excused": false,
+        "event_size": 1,
+        "event_media_count": 1,
+        "event_cluster_source": "ai",
+        "origin_source": "Nature Sustainability",
+        "raw": 19.57,
+        "display_score": 77.4,
+        "display_mode": "absolute"
+      },
+      "summary": "《自然·可持续性》（Nature Sustainability），。传统上，制备纤维素纳米晶体需要使用有害化学品，且净化过程复杂、能耗高。 一种可回收的水解准溶剂策略，现可利用纤维素和未经处理的生物质快速制备纤维素纳米晶体，且对环境的影响较小，成本也更低。",
+      "analysis": "",
+      "topic_tags": [
+        "纤维素纳米晶体",
+        "水解准溶剂"
+      ],
+      "category": "科研学术",
+      "matched_keywords": [
+        "可持续发展"
+      ]
+    }
+  ]
+}

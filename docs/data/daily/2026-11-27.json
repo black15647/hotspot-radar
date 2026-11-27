@@ -1,0 +1,557 @@
+{
+  "report_date": "2026-11-27",
+  "site_name": "环境学子雷达",
+  "total_items": 41,
+  "snapshot_items": 10,
+  "category_stats": {
+    "生态环境": {
+      "count": 8,
+      "total_heat": 655.5
+    },
+    "环境政策": {
+      "count": 4,
+      "total_heat": 312.9
+    },
+    "科研学术": {
+      "count": 3,
+      "total_heat": 241.6
+    },
+    "气候变化": {
+      "count": 15,
+      "total_heat": 1124.7
+    },
+    "环境健康": {
+      "count": 1,
+      "total_heat": 77.9
+    },
+    "其他": {
+      "count": 7,
+      "total_heat": 494.0
+    },
+    "能源与碳中和": {
+      "count": 1,
+      "total_heat": 71.4
+    },
+    "污染治理": {
+      "count": 2,
+      "total_heat": 137.2
+    }
+  },
+  "total_sources": 28,
+  "success_sources": 26,
+  "failed_sources": 0,
+  "week_total_items": 266,
+  "week_new_keywords": 65,
+  "policy_ratio": 8.3,
+  "items": [
+    {
+      "title": "家门口的河流被污染怎么办？生态环境部：今年已向各地推送近2800条问题线索 - Sohu",
+      "title_en": "",
+      "title_zh": "",
+      "link": "https://news.google.com/rss/articles/CBMijwFBVV95cUxNN3ZjRXItMFVVRUxKcjk4ZFEtU2FEU1VrMFJOamlYUHRocTJoUllrU04wWGU3c1dUVFNzMTJTLXBObzdZbzNSSTVxZGlTVjNWZ2I0cnd3UWZDWFlnQkFhM3ZBSHVDNVI2S3N3eUVFN3BYc2FnaExNQmFHeUZXTlFDQ2g1dHcxYzM3cVBpeERhcw?oc=5",
+      "source": "Google News 生态环境",
+      "published": "2026-11-27T07:22:02+00:00",
+      "hotness": 90.6,
+      "score_v1": 38.12,
+      "score_v2": 90.6,
+      "score_breakdown": {
+        "algorithm": "v3.0",
+        "dimension_max": {
+          "authority": 18.0,
+          "topic": 18.0,
+          "resonance": 18.0,
+          "information": 16.0
+        },
+        "authority_score": 8.05,
+        "keyword_idf_score": 4.41,
+        "topic_score": 10.34,
+        "topic_burst_score": 5.93,
+        "topic_burst_count": 10,
+        "resonance_score": 13.26,
+        "info_score": 9.0,
+        "base": 40.65,
+        "base_max": 70.0,
+        "time_factor": 0.9135,
+        "density_factor": 1.0,
+        "density_note": "",
+        "repeat_penalty": 1.0,
+        "repeat_excused": false,
+        "event_size": 3,
+        "event_media_count": 3,
+        "event_cluster_source": "ai",
+        "origin_source": "Sohu",
+        "raw": 37.13,
+        "display_score": 90.6,
+        "display_mode": "absolute"
+      },
+      "summary": "生态环境部新闻发布会回应河道污染问题，称今年已向各地推送近2800条问题线索，重点解决群众身边河道、沟渠污染发现与解决难题。",
+      "analysis": "",
+      "topic_tags": [
+        "生态环境部",
+        "河流污染"
+      ],
+      "category": "生态环境",
+      "matched_keywords": [
+        "生态环境"
+      ]
+    },
+    {
+      "title": "如何保障生态环境法典要求落实落地？生态环境部答每经：深化职责分工，赋予县级分局独立执法权 - 每日经济新闻",
+      "title_en": "",
+      "title_zh": "",
+      "link": "https://news.google.com/rss/articles/CBMiZkFVX3lxTE1FYlN6TkotODdsb2lNZjNfaDJTY2J4WWlzRGs4M1BEQlowR1BDYWtRRHB6R2lndHJxSy1hdWRkZm9nSEZpT1JFMExSY2dBZTg4X1lWRTYxb1dXcm1zeVE4aUVYdVVuZw?oc=5",
+      "source": "Google News 生态环境",
+      "published": "2026-11-27T10:19:00+00:00",
+      "hotness": 88.9,
+      "score_v1": 43.1,
+      "score_v2": 88.9,
+      "score_breakdown": {
+        "algorithm": "v3.0",
+        "dimension_max": {
+          "authority": 18.0,
+          "topic": 18.0,
+          "resonance": 18.0,
+          "information": 16.0
+        },
+        "authority_score": 8.05,
+        "keyword_idf_score": 8.72,
+        "topic_score": 14.66,
+        "topic_burst_score": 5.93,
+        "topic_burst_count": 10,
+        "resonance_score": 8.76,
+        "info_score": 4.0,
+        "base": 35.47,
+        "base_max": 70.0,
+        "time_factor": 0.9492,
+        "density_factor": 1.0,
+        "density_note": "",
+        "repeat_penalty": 1.0,
+        "repeat_excused": false,
+        "event_size": 2,
+        "event_media_count": 2,
+        "event_cluster_source": "ai",
+        "origin_source": "每日经济新闻",
+        "raw": 33.67,
+        "display_score": 88.9,
+        "display_mode": "absolute"
+      },
+      "summary": "生态环境部回应生态环境法典落实问题，提出深化职责分工、赋予县级分局独立执法权，旨在推动法典要求的有效落实落地。",
+      "analysis": "",
+      "topic_tags": [
+        "生态环境法典",
+        "独立执法权"
+      ],
+      "category": "环境政策",
+      "matched_keywords": [
+        "生态环境",
+        "环境法典"
+      ]
+    },
+    {
+      "title": "11月例行新闻发布会最新情况通报 - 中华人民共和国生态环境部",
+      "title_en": "",
+      "title_zh": "",
+      "link": "https://news.google.com/rss/articles/CBMicEFVX3lxTFBOc2tfc0wxN2FpTjZKRS1kblBzTTBDOGRFelZVVHdJWFZsSi1QSmk1ZURacS1GTUIwcjBHS3A3ZlFNTTAtdW1vT3ZWZ3NvMFlzcUpvS1Vibm9ONHR2TFdfOHZfZWJOS1hIQ2xzT3JnRUs?oc=5",
+      "source": "Google News 环境保护",
+      "published": "2026-11-27T07:25:50+00:00",
+      "hotness": 88.5,
+      "score_v1": 38.14,
+      "score_v2": 88.5,
+      "score_breakdown": {
+        "algorithm": "v3.0",
+        "dimension_max": {
+          "authority": 18.0,
+          "topic": 18.0,
+          "resonance": 18.0,
+          "information": 16.0
+        },
+        "authority_score": 8.05,
+        "keyword_idf_score": 4.41,
+        "topic_score": 10.34,
+        "topic_burst_score": 5.93,
+        "topic_burst_count": 10,
+        "resonance_score": 8.76,
+        "info_score": 9.0,
+        "base": 36.15,
+        "base_max": 70.0,
+        "time_factor": 0.9143,
+        "density_factor": 1.0,
+        "density_note": "",
+        "repeat_penalty": 1.0,
+        "repeat_excused": false,
+        "event_size": 2,
+        "event_media_count": 2,
+        "event_cluster_source": "ai",
+        "origin_source": "中华人民共和国生态环境部",
+        "raw": 33.05,
+        "display_score": 88.5,
+        "display_mode": "absolute"
+      },
+      "summary": "生态环境部11月例行新闻发布会通报最新工作情况，重点部署近期生态环境保护任务和重大决策部署落实进展。",
+      "analysis": "",
+      "topic_tags": [
+        "生态环境部"
+      ],
+      "category": "生态环境",
+      "matched_keywords": [
+        "生态环境"
+      ]
+    },
+    {
+      "title": "江西：AI赋能生态环境执法 从“全面排查”转向“精准核查” - 央视网",
+      "title_en": "",
+      "title_zh": "",
+      "link": "https://news.google.com/rss/articles/CBMiekFVX3lxTE9OOWxxN3VoV0xIb2lyNl84R0d3ajlGZkpINmJ6Ry1fQ0g1b3ZUWGNEaDlybUhnMjRSUVlweURoNW9pclhfRXgyRkFCNVh6NGk4S2FYRVZWQ0NRSTA3SFhrcTVDcU1mNXJ4U2J4TlJ4aE45YU9KY1Jab3R3?oc=5",
+      "source": "Google News 生态环境",
+      "published": "2026-11-27T10:56:04+00:00",
+      "hotness": 86.8,
+      "score_v1": 39.32,
+      "score_v2": 86.8,
+      "score_breakdown": {
+        "algorithm": "v3.0",
+        "dimension_max": {
+          "authority": 18.0,
+          "topic": 18.0,
+          "resonance": 18.0,
+          "information": 16.0
+        },
+        "authority_score": 8.05,
+        "keyword_idf_score": 4.41,
+        "topic_score": 10.34,
+        "topic_burst_score": 5.93,
+        "topic_burst_count": 10,
+        "resonance_score": 13.26,
+        "info_score": 0.0,
+        "base": 31.65,
+        "base_max": 70.0,
+        "time_factor": 0.957,
+        "density_factor": 1.0,
+        "density_note": "",
+        "repeat_penalty": 1.0,
+        "repeat_excused": true,
+        "event_size": 3,
+        "event_media_count": 3,
+        "event_cluster_source": "ai",
+        "origin_source": "央视网",
+        "raw": 30.29,
+        "display_score": 86.8,
+        "display_mode": "absolute"
+      },
+      "summary": "江西省生态环境部门利用AI技术转变执法模式，从传统全面排查转向精准核查，提高执法效率和精准度。",
+      "analysis": "",
+      "topic_tags": [
+        "AI赋能",
+        "生态环境执法"
+      ],
+      "category": "科研学术",
+      "matched_keywords": [
+        "生态环境"
+      ]
+    },
+    {
+      "title": "联合国气候变化执行秘书西蒙·斯蒂尔：COP31谈判受挫令人失望，但全球气候行动不会停步_新浪财经 - 同花顺财经",
+      "title_en": "",
+      "title_zh": "",
+      "link": "https://news.google.com/rss/articles/CBMiXkFVX3lxTFBLR3A4VUdZajU3MFZ2T1ZySUNoQzVHRFYxbjZxUnM4TzhsWjJ1bm5JZUY1RTNERFJfelVpTTZzaU4zQXlfMTN6SGVYc3hEbHduUmhhTWdOWXMzYUpabFE?oc=5",
+      "source": "Google News 气候变化",
+      "published": "2026-11-27T11:44:28+00:00",
+      "hotness": 86.6,
+      "score_v1": 33.62,
+      "score_v2": 86.6,
+      "score_breakdown": {
+        "algorithm": "v3.0",
+        "dimension_max": {
+          "authority": 18.0,
+          "topic": 18.0,
+          "resonance": 18.0,
+          "information": 16.0
+        },
+        "authority_score": 8.05,
+        "keyword_idf_score": 3.46,
+        "topic_score": 9.16,
+        "topic_burst_score": 5.7,
+        "topic_burst_count": 7,
+        "resonance_score": 8.76,
+        "info_score": 5.0,
+        "base": 30.97,
+        "base_max": 70.0,
+        "time_factor": 0.9673,
+        "density_factor": 1.0,
+        "density_note": "",
+        "repeat_penalty": 1.0,
+        "repeat_excused": false,
+        "event_size": 2,
+        "event_media_count": 2,
+        "event_cluster_source": "ai",
+        "origin_source": "同花顺财经",
+        "raw": 29.96,
+        "display_score": 86.6,
+        "display_mode": "absolute"
+      },
+      "summary": "联合国气候变化执行秘书西蒙·斯蒂尔表示COP31谈判结果令人失望，但强调全球气候行动将持续推进，不会因谈判受挫而停止。",
+      "analysis": "",
+      "topic_tags": [
+        "气候行动",
+        "全球气候"
+      ],
+      "category": "气候变化",
+      "matched_keywords": [
+        "气候变化"
+      ]
+    },
+    {
+      "title": "超强厄尔尼诺来了，如何应对秋冬季重污染天气？生态环境部回应 - ThePaper.cn",
+      "title_en": "",
+      "title_zh": "",
+      "link": "https://news.google.com/rss/articles/CBMiYEFVX3lxTE5XdWlzR25DeTZIR0p6Wkl3T3AxM21XWlBBbDBRQjgwVHVwTG9MVVVYT3l4TlNhWlVVMEduMDFKWld2VDE3UmJvcjRsVUtEWmFzb09YZDNsUzV2ZmNXOW5rUA?oc=5",
+      "source": "Google News 环境污染",
+      "published": "2026-11-27T10:12:29+00:00",
+      "hotness": 86.3,
+      "score_v1": 39.06,
+      "score_v2": 86.3,
+      "score_breakdown": {
+        "algorithm": "v3.0",
+        "dimension_max": {
+          "authority": 18.0,
+          "topic": 18.0,
+          "resonance": 18.0,
+          "information": 16.0
+        },
+        "authority_score": 8.05,
+        "keyword_idf_score": 4.41,
+        "topic_score": 10.34,
+        "topic_burst_score": 5.93,
+        "topic_burst_count": 10,
+        "resonance_score": 8.76,
+        "info_score": 4.0,
+        "base": 31.15,
+        "base_max": 70.0,
+        "time_factor": 0.9479,
+        "density_factor": 1.0,
+        "density_note": "",
+        "repeat_penalty": 1.0,
+        "repeat_excused": true,
+        "event_size": 2,
+        "event_media_count": 2,
+        "event_cluster_source": "ai",
+        "origin_source": "ThePaper.cn",
+        "raw": 29.53,
+        "display_score": 86.3,
+        "display_mode": "absolute"
+      },
+      "summary": "生态环境部回应秋冬季重污染天气应对，分析厄尔尼诺对大气污染影响及应对策略。",
+      "analysis": "",
+      "topic_tags": [
+        "厄尔尼诺",
+        "秋冬季重污染",
+        "生态环境部"
+      ],
+      "category": "气候变化",
+      "matched_keywords": [
+        "生态环境"
+      ]
+    },
+    {
+      "title": "第十届有色金属行业生态环境保护大会在南昌召开 - 中国有色网",
+      "title_en": "",
+      "title_zh": "",
+      "link": "https://news.google.com/rss/articles/CBMiXEFVX3lxTFAxYTE3NmZkaTdoTlBtT0pUSVkwcEVjWHpnSVVXNnRwYWp5dTY4OEhiV1FNSEtlcGNYcVNQTjRmc1BsRUJzM3B0RGRla0Q2UEhUVGJWTm1tX1dwQnlE?oc=5",
+      "source": "Google News 环境保护",
+      "published": "2026-11-27T05:59:00+00:00",
+      "hotness": 84.5,
+      "score_v1": 43.7,
+      "score_v2": 84.5,
+      "score_breakdown": {
+        "algorithm": "v3.0",
+        "dimension_max": {
+          "authority": 18.0,
+          "topic": 18.0,
+          "resonance": 18.0,
+          "information": 16.0
+        },
+        "authority_score": 8.05,
+        "keyword_idf_score": 7.4,
+        "topic_score": 13.34,
+        "topic_burst_score": 5.93,
+        "topic_burst_count": 10,
+        "resonance_score": 8.76,
+        "info_score": 0.0,
+        "base": 30.14,
+        "base_max": 70.0,
+        "time_factor": 0.8975,
+        "density_factor": 1.0,
+        "density_note": "",
+        "repeat_penalty": 1.0,
+        "repeat_excused": true,
+        "event_size": 2,
+        "event_media_count": 2,
+        "event_cluster_source": "ai",
+        "origin_source": "中国有色网",
+        "raw": 27.06,
+        "display_score": 84.5,
+        "display_mode": "absolute"
+      },
+      "summary": "会议聚焦有色金属行业贯彻生态文明思想，部署减污降碳举措，持续改善行业生态环境质量。",
+      "analysis": "",
+      "topic_tags": [
+        "生态环境保护大会"
+      ],
+      "category": "生态环境",
+      "matched_keywords": [
+        "生态环境",
+        "环境保护"
+      ]
+    },
+    {
+      "title": "Scientists turn one of the world’s hardest-to-recycle plastics into high-performance lubricating oil",
+      "title_en": "Scientists turn one of the world’s hardest-to-recycle plastics into high-performance lubricating oil",
+      "title_zh": "科学家将一种全球最难回收的塑料转化为高性能润滑油",
+      "link": "https://www.sciencedaily.com/releases/2026/11/261126033501.htm",
+      "source": "ScienceDaily 环境科学",
+      "published": "2026-11-27T09:52:24+00:00",
+      "hotness": 83.5,
+      "score_v1": 21.84,
+      "score_v2": 83.5,
+      "score_breakdown": {
+        "algorithm": "v3.0",
+        "dimension_max": {
+          "authority": 18.0,
+          "topic": 18.0,
+          "resonance": 18.0,
+          "information": 16.0
+        },
+        "authority_score": 12.73,
+        "keyword_idf_score": 7.58,
+        "topic_score": 7.58,
+        "topic_burst_score": 0.0,
+        "topic_burst_count": 1,
+        "resonance_score": 0.0,
+        "info_score": 7.0,
+        "base": 27.31,
+        "base_max": 70.0,
+        "time_factor": 0.9437,
+        "density_factor": 1.0,
+        "density_note": "",
+        "repeat_penalty": 1.0,
+        "repeat_excused": false,
+        "event_size": 1,
+        "event_media_count": 1,
+        "event_cluster_source": "ai",
+        "origin_source": "ScienceDaily 环境科学",
+        "raw": 25.78,
+        "display_score": 83.5,
+        "display_mode": "absolute"
+      },
+      "summary": "弗吉尼亚理工大学的科学家们发现了一种方法，能够将世界上最难回收的塑料之一转化为高性能发动机油的宝贵原料。他们创新的工艺仅需三小时，就能将废弃的聚氯乙烯（PVC）转化为有用的润滑剂材料。这一突破有望将塑料污染的主要来源转化为宝贵的工业资源，同时使润滑剂的生产更加可持续。",
+      "analysis": "",
+      "topic_tags": [
+        "环境政策"
+      ],
+      "category": "环境政策",
+      "matched_keywords": [
+        "塑料污染"
+      ]
+    },
+    {
+      "title": "生态环境部已公布190个美丽河湖优秀案例 - ThePaper.cn",
+      "title_en": "",
+      "title_zh": "",
+      "link": "https://news.google.com/rss/articles/CBMiYEFVX3lxTE5SS1hrbnlic3NlZmZFZGEtaWp6d1RHUWhDdTVwdDZyUWYzRDRNT3VMcTYtMkNXWnkyZTFZZ0xaZFRyakdFSjY1VkNrMXNtblotalI3RWw3dFhVMkhNNGk0QQ?oc=5",
+      "source": "Google News 生态环境",
+      "published": "2026-11-27T09:00:27+00:00",
+      "hotness": 83.3,
+      "score_v1": 38.65,
+      "score_v2": 83.3,
+      "score_breakdown": {
+        "algorithm": "v3.0",
+        "dimension_max": {
+          "authority": 18.0,
+          "topic": 18.0,
+          "resonance": 18.0,
+          "information": 16.0
+        },
+        "authority_score": 8.05,
+        "keyword_idf_score": 4.41,
+        "topic_score": 10.34,
+        "topic_burst_score": 5.93,
+        "topic_burst_count": 10,
+        "resonance_score": 0.0,
+        "info_score": 9.0,
+        "base": 27.39,
+        "base_max": 70.0,
+        "time_factor": 0.9331,
+        "density_factor": 1.0,
+        "density_note": "",
+        "repeat_penalty": 1.0,
+        "repeat_excused": false,
+        "event_size": 1,
+        "event_media_count": 1,
+        "event_cluster_source": "ai",
+        "origin_source": "ThePaper.cn",
+        "raw": 25.56,
+        "display_score": 83.3,
+        "display_mode": "absolute"
+      },
+      "summary": "生态环境部公布第五批美丽河湖优秀案例，50个河湖入选，累计公布190个案例，推进河湖生态保护。",
+      "analysis": "",
+      "topic_tags": [
+        "生态环境部",
+        "水环境治理"
+      ],
+      "category": "生态环境",
+      "matched_keywords": [
+        "生态环境"
+      ]
+    },
+    {
+      "title": "A scoping review of psychosocial factors of climate change inaction: implications for climate change communication and education",
+      "title_en": "A scoping review of psychosocial factors of climate change inaction: implications for climate change communication and education",
+      "title_zh": "关于气候变化不作为的心理社会因素的范围性综述：对气候变化传播与教育的启示",
+      "link": "https://iopscience.iop.org/article/10.1088/1748-9326/aebcfd",
+      "source": "Environmental Research Letters",
+      "published": "2026-11-27T00:00:00+00:00",
+      "hotness": 82.9,
+      "score_v1": 32.53,
+      "score_v2": 82.9,
+      "score_breakdown": {
+        "algorithm": "v3.0",
+        "dimension_max": {
+          "authority": 18.0,
+          "topic": 18.0,
+          "resonance": 18.0,
+          "information": 16.0
+        },
+        "authority_score": 18.0,
+        "keyword_idf_score": 3.46,
+        "topic_score": 9.16,
+        "topic_burst_score": 5.7,
+        "topic_burst_count": 7,
+        "resonance_score": 0.0,
+        "info_score": 3.0,
+        "base": 30.16,
+        "base_max": 70.0,
+        "time_factor": 0.8333,
+        "density_factor": 1.0,
+        "density_note": "",
+        "repeat_penalty": 1.0,
+        "repeat_excused": false,
+        "event_size": 1,
+        "event_media_count": 1,
+        "event_cluster_source": "ai",
+        "origin_source": "Environmental Research Letters",
+        "raw": 25.14,
+        "display_score": 82.9,
+        "display_mode": "absolute"
+      },
+      "summary": "气候变化传播与教育工作往往侧重于应对气候变化的认知层面，强调解决气候变化相关挑战的关键途径之一，可能是通过提高公众科学素养，使其更好地理解这一问题的科学原理。 然而，尽管数十年来开展了大量以知识传播为目标、信息密集型的传播与教育工作，但针对气候变化的有意义且持续的行动尚未在广泛范围内实现。这种有效且持续行动的缺失，促使来自多个领域的研究人员开始探讨阻碍气候变化行动的其他因素。 我们对聚焦于与气候变化不作为相关的心理和社会学（心理社会）因素的同行评审实证研究（n = 92）进行了系统性范围综述。 通过主题分析，我们识别出了各研究中的趋势和模式，但也注意到，尚未形成一份与气候不作为相关的、明确的独立心理社会因素清单。 政治意识形态和情绪是被讨论最多的、影响气候变化不作为的因素。其他受到显著关注的社会心理因素包括对气候变化的认知、对机构和领导者的信任、价值观以及效能信念。 为提高气候变化传播与教育成效，最常被推荐的策略包括：关注与气候相关的情绪；解决意识形态和信任问题；以及针对系统性和结构性障碍。研究结果还强调，高质量的气候传播与教育必须承认并基于人们与其所处环境、社区及个人故事之间的独特联系。",
+      "analysis": "",
+      "topic_tags": [
+        "气候变化传播"
+      ],
+      "category": "气候变化",
+      "matched_keywords": [
+        "气候变化"
+      ]
+    }
+  ]
+}

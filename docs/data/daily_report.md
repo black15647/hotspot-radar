@@ -1,140 +1,140 @@
 # 环境学子雷达 - 每日热点报告
 
-**日期**：2026-11-27
-**总条目数**：41
+**日期**：2026-11-28
+**总条目数**：32
 
-**近7天见解**：近7天环境热点呈现“气候变化、生态环境、污染治理”三大类集中，总计166条，占近7天总条目266条的显著上升。科研学术与环境政策分布相对分散，能源与碳中关注度相对较低，整体呈现生态治理与应对挑战并重的特征。
+**近7天见解**：近7天环境热点呈现出“气候变化、生态环境、污染治理”三大类最为集中的特点，其中气候变化相关议题持续保持高位，生态环境与污染治理热度呈现明显上升趋势。科研学术与环境政策作为基础性热点稳步支撑，而能源与碳中和话题虽数量相对集中，但关联度正逐步增强，整体格局呈现出生态治理与应对挑战并进的态势。
 
 ---
 
 ## 今日热点 TOP 10
 
-### 1. [家门口的河流被污染怎么办？生态环境部：今年已向各地推送近2800条问题线索 - Sohu](https://news.google.com/rss/articles/CBMijwFBVV95cUxNN3ZjRXItMFVVRUxKcjk4ZFEtU2FEU1VrMFJOamlYUHRocTJoUllrU04wWGU3c1dUVFNzMTJTLXBObzdZbzNSSTVxZGlTVjNWZ2I0cnd3UWZDWFlnQkFhM3ZBSHVDNVI2S3N3eUVFN3BYc2FnaExNQmFHeUZXTlFDQ2g1dHcxYzM3cVBpeERhcw?oc=5)
+### 1. [西藏将推动设立青藏高原应对气候变化研究中心 - Sohu](https://news.google.com/rss/articles/CBMiiAFBVV95cUxQMS1UVDllaENaeTlzWFBUakxid2QzVkRjcFN3ZVZJaGtQdU42eEJzaEc4d19UVmdZcTNIQVE1OFBwdGFOcG9Eb1EzNUxNc1Y4bmpMV096cXBvSFItbXBVN3F6MnhiclIxb05VMGpvbVcyXzZrcWxucTBnb2NqdHlpazhZVHhGaXZl?oc=5)
+
+- **来源**：Google News 气候变化
+- **热度**：90.7
+- **发布时间**：2026-11-28T11:58:21+00:00
+- **关键词**：气候变化
+
+> 西藏自治区党委书记胡昌升表示将推动设立青藏高原应对气候变化研究中心，旨在全面提升自然灾害综合防范和应急处置能力。
+
+**分析**：该条目涉及【青藏高原应对气候变化研究中心】话题，因来源较权威且发布时间较新，热度上升。
+
+---
+
+### 2. [生态环境部：环评审批预计减3万件，同时将严打监测造假 - Sohu](https://news.google.com/rss/articles/CBMiiAFBVV95cUxPUmd1VE54VnQ4dW1wdUk5cVFyOENWRjVUb3FuRVZBMUwyUkh4RFlQTzVGRFJiTVhRa3B3UElVZUxta2NEenBUanBOaVFXQUtkU1F1QjlRMkp3SGx5NGNPazRsMlNrOGpvdWRqMHNNaFBjTVpyVFFzU0RuQ2dJejBOZTV3eUhJYWF2?oc=5)
 
 - **来源**：Google News 生态环境
-- **热度**：90.6
-- **发布时间**：2026-11-27T07:22:02+00:00
+- **热度**：89.7
+- **发布时间**：2026-11-27T11:55:00+00:00
+- **关键词**：生态环境, 环评
+
+> 生态环境部新闻发言人裴晓菲表示，新修订的《建设项目生态环境评价管理办法》实施后，环评审批预计减少约3万件，降幅约25%，并将严厉打击监测造假行为。
+
+**分析**：该条目涉及【生态环境部】话题，因来源较权威且多家媒体同题报道，热度上升。
+
+---
+
+### 3. [联合国气候变化大会：推出新倡议，应对最强效温室气体SF₆，并推广新技术 - Climate and Clean Air Coalition (CCAC)](https://news.google.com/rss/articles/CBMi5AFBVV95cUxOdGdqbmRkYlRVbHF4aUFFY1EtejR1OVh2S2JiX2NybU9EaVBlYTBOUndIUS05TWx4ajRBcTdkV0tjT0hfVEJ5Y3dKSUw3WjFPX0VveWFoQ0NDREhmSHltUXMwSFB6UWY3Ry1YS19PWnR0clA2b0RZTldSTExFbTN3czlkMVlHUVVmTlAyYXdxN196RUZQeGNrVVRFS3hzbG55aDFnR0QwWnJIOUw2TVNxY0hQQU9xN3Y0WG84V2dFQW12SWZvSnBSSmJhOFNDbGgwRFBNR3dGaW5WT0xLR0hEbFlXRWk?oc=5)
+
+- **来源**：Google News 气候变化
+- **热度**：88.4
+- **发布时间**：2026-11-28T01:03:25+00:00
+- **关键词**：气候变化, 温室气体
+
+> 联合国气候变化大会期间，德国联邦环境部等发起全球SF₆承诺，旨在应对这种强效温室气体排放，并推广替代新技术。
+
+**分析**：该条目涉及【温室气体】话题，因来源较权威且发布时间较新，热度上升。
+
+---
+
+### 4. [秋冬季易高发重污染 “精准发现+差异管控+闭环整改”加强生态环境执法监管 - 央视网](https://news.google.com/rss/articles/CBMieEFVX3lxTE92VWNWUUFVc3BmN205N19pVHVSWmFrdjRhOGRxYTROTDVlUHFYXzR5U3p0UExUMXJXZ0gxQ0dlODZISmZCZHJzeHhwcndJemg4aXp4MVctY082T09JcklTQ2xLT0VrRGFQbE91c3BXNnB3bmVkUXFpcA?oc=5)
+
+- **来源**：Google News 生态环境
+- **热度**：88.2
+- **发布时间**：2026-11-28T01:49:49+00:00
 - **关键词**：生态环境
 
-> 生态环境部新闻发布会回应河道污染问题，称今年已向各地推送近2800条问题线索，重点解决群众身边河道、沟渠污染发现与解决难题。
+> 央视报道秋冬季重污染天气易高发，生态环境部将通过“精准发现、差异管控、闭环整改”三步法加强执法监管。
 
-**分析**：该条目涉及【生态环境部】话题，因来源较权威且发布时间较新，热度上升。
-
----
-
-### 2. [如何保障生态环境法典要求落实落地？生态环境部答每经：深化职责分工，赋予县级分局独立执法权 - 每日经济新闻](https://news.google.com/rss/articles/CBMiZkFVX3lxTE1FYlN6TkotODdsb2lNZjNfaDJTY2J4WWlzRGs4M1BEQlowR1BDYWtRRHB6R2lndHJxSy1hdWRkZm9nSEZpT1JFMExSY2dBZTg4X1lWRTYxb1dXcm1zeVE4aUVYdVVuZw?oc=5)
-
-- **来源**：Google News 生态环境
-- **热度**：88.9
-- **发布时间**：2026-11-27T10:19:00+00:00
-- **关键词**：生态环境, 环境法典
-
-> 生态环境部回应生态环境法典落实问题，提出深化职责分工、赋予县级分局独立执法权，旨在推动法典要求的有效落实落地。
-
-**分析**：该条目涉及【生态环境法典】话题，因来源较权威且发布时间较新，热度上升。
+**分析**：该条目涉及【重污染】话题，因来源较权威且发布时间较新，热度上升。
 
 ---
 
-### 3. [11月例行新闻发布会最新情况通报 - 中华人民共和国生态环境部](https://news.google.com/rss/articles/CBMicEFVX3lxTFBOc2tfc0wxN2FpTjZKRS1kblBzTTBDOGRFelZVVHdJWFZsSi1QSmk1ZURacS1GTUIwcjBHS3A3ZlFNTTAtdW1vT3ZWZ3NvMFlzcUpvS1Vibm9ONHR2TFdfOHZfZWJOS1hIQ2xzT3JnRUs?oc=5)
+### 5. [Comment on ‘Assessing the accuracy of the Climate TRACE global vehicular CO2 emissions’](https://iopscience.iop.org/article/10.1088/1748-9326/aeb9f8)
+
+- **来源**：Environmental Research Letters
+- **热度**：84.5
+- **发布时间**：2026-11-27T00:00:00+00:00
+- **关键词**：碳排放, 温室气体
+
+> 道路运输是美国温室气体排放的主要来源之一，但不同估算方法和数据来源得出的详细时空估算结果存在差异。 Gurney（2026，《环境研究快报》21卷 094018）将Climate TRACE排放清单中关于道路化石燃料二氧化碳的估算值与Vulcan清单中的相关数据进行了比较。 他们发现，这两个清单在2021年城市排放量方面的平均相对差异（MRD）为70.4%。我们使用更新的Climate TRACE数据（该数据在Gurney等人提交论文前近五个月已公开发布）重新进行了分析，发现平均相对差异（MRD）为8.6%。
+
+**分析**：该条目涉及【Climate TRACE】话题，因来源权威性高，热度上升。
+
+---
+
+### 6. [11月例行新闻发布会最新情况通报 - 中华人民共和国生态环境部](https://news.google.com/rss/articles/CBMicEFVX3lxTFBOc2tfc0wxN2FpTjZKRS1kblBzTTBDOGRFelZVVHdJWFZsSi1QSmk1ZURacS1GTUIwcjBHS3A3ZlFNTTAtdW1vT3ZWZ3NvMFlzcUpvS1Vibm9ONHR2TFdfOHZfZWJOS1hIQ2xzT3JnRUs?oc=5)
 
 - **来源**：Google News 环境保护
-- **热度**：88.5
+- **热度**：82.9
 - **发布时间**：2026-11-27T07:25:50+00:00
 - **关键词**：生态环境
 
-> 生态环境部11月例行新闻发布会通报最新工作情况，重点部署近期生态环境保护任务和重大决策部署落实进展。
+> 生态环境部新闻发言人在11月27日例行新闻发布会上通报了近期执法监管、环评审批等最新情况，重点回应了行业关注的热点问题。
 
-**分析**：该条目涉及【生态环境部】话题，因来源较权威且发布时间较新，热度上升。
-
----
-
-### 4. [江西：AI赋能生态环境执法 从“全面排查”转向“精准核查” - 央视网](https://news.google.com/rss/articles/CBMiekFVX3lxTE9OOWxxN3VoV0xIb2lyNl84R0d3ajlGZkpINmJ6Ry1fQ0g1b3ZUWGNEaDlybUhnMjRSUVlweURoNW9pclhfRXgyRkFCNVh6NGk4S2FYRVZWQ0NRSTA3SFhrcTVDcU1mNXJ4U2J4TlJ4aE45YU9KY1Jab3R3?oc=5)
-
-- **来源**：Google News 生态环境
-- **热度**：86.8
-- **发布时间**：2026-11-27T10:56:04+00:00
-- **关键词**：生态环境
-
-> 江西省生态环境部门利用AI技术转变执法模式，从传统全面排查转向精准核查，提高执法效率和精准度。
-
-**分析**：该条目涉及【AI赋能】话题，因来源较权威且发布时间较新，热度上升。
+**分析**：该条目涉及【生态环境部】话题，因来源较权威且多家媒体同题报道，热度上升。
 
 ---
 
-### 5. [联合国气候变化执行秘书西蒙·斯蒂尔：COP31谈判受挫令人失望，但全球气候行动不会停步_新浪财经 - 同花顺财经](https://news.google.com/rss/articles/CBMiXkFVX3lxTFBLR3A4VUdZajU3MFZ2T1ZySUNoQzVHRFYxbjZxUnM4TzhsWjJ1bm5JZUY1RTNERFJfelVpTTZzaU4zQXlfMTN6SGVYc3hEbHduUmhhTWdOWXMzYUpabFE?oc=5)
-
-- **来源**：Google News 气候变化
-- **热度**：86.6
-- **发布时间**：2026-11-27T11:44:28+00:00
-- **关键词**：气候变化
-
-> 联合国气候变化执行秘书西蒙·斯蒂尔表示COP31谈判结果令人失望，但强调全球气候行动将持续推进，不会因谈判受挫而停止。
-
-**分析**：该条目涉及【气候行动】话题，因来源较权威且发布时间较新，热度上升。
-
----
-
-### 6. [超强厄尔尼诺来了，如何应对秋冬季重污染天气？生态环境部回应 - ThePaper.cn](https://news.google.com/rss/articles/CBMiYEFVX3lxTE5XdWlzR25DeTZIR0p6Wkl3T3AxM21XWlBBbDBRQjgwVHVwTG9MVVVYT3l4TlNhWlVVMEduMDFKWld2VDE3UmJvcjRsVUtEWmFzb09YZDNsUzV2ZmNXOW5rUA?oc=5)
-
-- **来源**：Google News 环境污染
-- **热度**：86.3
-- **发布时间**：2026-11-27T10:12:29+00:00
-- **关键词**：生态环境
-
-> 生态环境部回应秋冬季重污染天气应对，分析厄尔尼诺对大气污染影响及应对策略。
-
-**分析**：该条目涉及【厄尔尼诺】话题，因来源较权威且发布时间较新，热度上升。
-
----
-
-### 7. [第十届有色金属行业生态环境保护大会在南昌召开 - 中国有色网](https://news.google.com/rss/articles/CBMiXEFVX3lxTFAxYTE3NmZkaTdoTlBtT0pUSVkwcEVjWHpnSVVXNnRwYWp5dTY4OEhiV1FNSEtlcGNYcVNQTjRmc1BsRUJzM3B0RGRla0Q2UEhUVGJWTm1tX1dwQnlE?oc=5)
-
-- **来源**：Google News 环境保护
-- **热度**：84.5
-- **发布时间**：2026-11-27T05:59:00+00:00
-- **关键词**：生态环境, 环境保护
-
-> 会议聚焦有色金属行业贯彻生态文明思想，部署减污降碳举措，持续改善行业生态环境质量。
-
-**分析**：该条目涉及【生态环境保护大会】话题，因来源较权威且发布时间较新，热度上升。
-
----
-
-### 8. [Scientists turn one of the world’s hardest-to-recycle plastics into high-performance lubricating oil](https://www.sciencedaily.com/releases/2026/11/261126033501.htm)
-
-- **来源**：ScienceDaily 环境科学
-- **热度**：83.5
-- **发布时间**：2026-11-27T09:52:24+00:00
-- **关键词**：塑料污染
-
-> 弗吉尼亚理工大学的科学家们发现了一种方法，能够将世界上最难回收的塑料之一转化为高性能发动机油的宝贵原料。他们创新的工艺仅需三小时，就能将废弃的聚氯乙烯（PVC）转化为有用的润滑剂材料。这一突破有望将塑料污染的主要来源转化为宝贵的工业资源，同时使润滑剂的生产更加可持续。
-
-**分析**：该条目涉及【环境政策】话题，因来源权威性高且发布时间较新，热度上升。
-
----
-
-### 9. [生态环境部已公布190个美丽河湖优秀案例 - ThePaper.cn](https://news.google.com/rss/articles/CBMiYEFVX3lxTE5SS1hrbnlic3NlZmZFZGEtaWp6d1RHUWhDdTVwdDZyUWYzRDRNT3VMcTYtMkNXWnkyZTFZZ0xaZFRyakdFSjY1VkNrMXNtblotalI3RWw3dFhVMkhNNGk0QQ?oc=5)
-
-- **来源**：Google News 生态环境
-- **热度**：83.3
-- **发布时间**：2026-11-27T09:00:27+00:00
-- **关键词**：生态环境
-
-> 生态环境部公布第五批美丽河湖优秀案例，50个河湖入选，累计公布190个案例，推进河湖生态保护。
-
-**分析**：该条目涉及【生态环境部】话题，因来源较权威且发布时间较新，热度上升。
-
----
-
-### 10. [A scoping review of psychosocial factors of climate change inaction: implications for climate change communication and education](https://iopscience.iop.org/article/10.1088/1748-9326/aebcfd)
+### 7. [Reply to Comment on ‘Assessing the accuracy of the Climate TRACE global vehicular CO2 emissions’](https://iopscience.iop.org/article/10.1088/1748-9326/aeb9fc)
 
 - **来源**：Environmental Research Letters
-- **热度**：82.9
+- **热度**：82.8
 - **发布时间**：2026-11-27T00:00:00+00:00
+- **关键词**：碳排放
+
+> A Comment on Gurney et al (2026 Environ. Res. Lett.21 094018); G26) attributes our finding of a 70.4% mean relative difference (MRD) between Climate TRACE (CT) and Vulcan urban on-road CO2 emissions to a since-corrected error in one CT release, reporting an 8.6% MRD using corrected data. We ’s claimed correction date, but set this timing question aside to focus on more substantive concerns. The cited correction is a single multiplicative rescaling that, by construction, can—biases the Comment does ’s own claims of unprecedented spatial granularity. We further show that the national- and county-scale ‘agreement’ the Comment cites is uninformative about the sub-national accuracy G26 actually assessed, since CT’s national totals are explicitly calibrated to EDGAR by construction, while county-level differences remain large and widely dispersed. Vulcan’s own independent validation record—against atmospheric radiocarbon inversion, traffic count, and EPA state-level estimates—su’s recommendation that CT’s on-road emissions estimates be used with caution pending independent, peer-reviewed validation remains fully justified.
+
+**分析**：该条目涉及【Climate TRACE】话题，因来源权威性高，热度上升。
+
+---
+
+### 8. [最新财新周刊｜专访中国气候变化事务特使刘振民：气候大会不必年年出新协议，而应聚焦落实进度 - 财新周刊](https://news.google.com/rss/articles/CBMiYEFVX3lxTE9CdGd6MHh3dVlORDlhWmNoMkNoZExXUXlmRmQ5T2lrZ0V0WXdsNVZTWkl2cGY2VEdOVFB5ZmNYSmxuMW5fWTFUckRuR1JlYXRIbzN6bXBGYjAwanA2SEtKcg?oc=5)
+
+- **来源**：Google News 气候变化
+- **热度**：82.7
+- **发布时间**：2026-11-28T11:41:14+00:00
 - **关键词**：气候变化
 
-> 气候变化传播与教育工作往往侧重于应对气候变化的认知层面，强调解决气候变化相关挑战的关键途径之一，可能是通过提高公众科学素养，使其更好地理解这一问题的科学原理。 然而，尽管数十年来开展了大量以知识传播为目标、信息密集型的传播与教育工作，但针对气候变化的有意义且持续的行动尚未在广泛范围内实现。这种有效且持续行动的缺失，促使来自多个领域的研究人员开始探讨阻碍气候变化行动的其他因素。 我们对聚焦于与气候变化不作为相关的心理和社会学（心理社会）因素的同行评审实证研究（n = 92）进行了系统性范围综述。 通过主题分析，我们识别出了各研究中的趋势和模式，但也注意到，尚未形成一份与气候不作为相关的、明确的独立心理社会因素清单。 政治意识形态和情绪是被讨论最多的、影响气候变化不作为的因素。其他受到显著关注的社会心理因素包括对气候变化的认知、对机构和领导者的信任、价值观以及效能信念。 为提高气候变化传播与教育成效，最常被推荐的策略包括：关注与气候相关的情绪；解决意识形态和信任问题；以及针对系统性和结构性障碍。研究结果还强调，高质量的气候传播与教育必须承认并基于人们与其所处环境、社区及个人故事之间的独特联系。
+> 财新周刊专访气候变化事务特使刘振民，认为气候大会不必每年出新协议，应聚焦落实进度。
 
-**分析**：该条目涉及【气候变化传播】话题，因来源权威性高，热度上升。
+**分析**：该条目涉及【气候变化事务特使】话题，因来源较权威且发布时间较新，热度上升。
+
+---
+
+### 9. [红桥区召开中央生态环境保护督察整改工作推进会-新闻中心 - 津云](https://news.google.com/rss/articles/CBMia0FVX3lxTE9nVFE0dmNqOVRqVXRNSE5aZUtLS25mejRPYVZ6MTRGWTZQMEJPWTlsN09hZ3F4R0NKbGpwUzE3am1TYzhSeE55WU1VZFc2aHRrQ0ttSkFvX0hYcVB4UDNOelpZby1uRkJJME5J?oc=5)
+
+- **来源**：Google News 环境保护
+- **热度**：82.2
+- **发布时间**：2026-11-28T02:23:22+00:00
+- **关键词**：生态环境, 环境保护, 督察
+
+> 红桥区召开中央生态环境保护督察整改工作推进会，部署生态环境保护督察整改工作。
+
+**分析**：该条目涉及【中央生态环境保护督察】话题，因来源较权威且发布时间较新，热度上升。
+
+---
+
+### 10. [严执法优服务并重，生态环境执法质效大幅度提升 - 新浪新闻_手机新浪网](https://news.google.com/rss/articles/CBMidEFVX3lxTE93ck81dEFzR09TMGRhTGtoMzlEbzY5X1dwM1BmNjB0WENGdllJMjFXZ1ZYNGZPXzZhMmpldS1ESU9pMmdDN0RXbFpoR2l5WEdKS054NjMyc205YjZLVUhna2NoeS1qREZYd09qN0RfRmQwRjV2?oc=5)
+
+- **来源**：Google News 生态环境
+- **热度**：82.2
+- **发布时间**：2026-11-27T10:07:48+00:00
+- **关键词**：生态环境
+
+> 生态环境部召开例行新闻发布会，局长赵世新表示执法要坚持严格执法守住底线，并加强帮扶服务促进守法，执法质效大幅提升。
+
+**分析**：该条目涉及【生态环境执法】话题，因来源较权威且多家媒体同题报道，热度上升。
 
 ---

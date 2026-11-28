@@ -1,0 +1,567 @@
+{
+  "report_date": "2026-11-28",
+  "site_name": "环境学子雷达",
+  "total_items": 32,
+  "snapshot_items": 10,
+  "category_stats": {
+    "气候变化": {
+      "count": 12,
+      "total_heat": 900.4
+    },
+    "生态环境": {
+      "count": 5,
+      "total_heat": 407.0
+    },
+    "污染治理": {
+      "count": 2,
+      "total_heat": 155.9
+    },
+    "环境政策": {
+      "count": 4,
+      "total_heat": 309.9
+    },
+    "科研学术": {
+      "count": 2,
+      "total_heat": 144.8
+    },
+    "环境健康": {
+      "count": 1,
+      "total_heat": 72.4
+    },
+    "其他": {
+      "count": 3,
+      "total_heat": 203.9
+    },
+    "水处理": {
+      "count": 2,
+      "total_heat": 136.2
+    },
+    "能源与碳中和": {
+      "count": 1,
+      "total_heat": 68.6
+    }
+  },
+  "total_sources": 28,
+  "success_sources": 26,
+  "failed_sources": 0,
+  "week_total_items": 254,
+  "week_new_keywords": 71,
+  "policy_ratio": 9.1,
+  "items": [
+    {
+      "title": "西藏将推动设立青藏高原应对气候变化研究中心 - Sohu",
+      "title_en": "",
+      "title_zh": "",
+      "link": "https://news.google.com/rss/articles/CBMiiAFBVV95cUxQMS1UVDllaENaeTlzWFBUakxid2QzVkRjcFN3ZVZJaGtQdU42eEJzaEc4d19UVmdZcTNIQVE1OFBwdGFOcG9Eb1EzNUxNc1Y4bmpMV096cXBvSFItbXBVN3F6MnhiclIxb05VMGpvbVcyXzZrcWxucTBnb2NqdHlpazhZVHhGaXZl?oc=5",
+      "source": "Google News 气候变化",
+      "published": "2026-11-28T11:58:21+00:00",
+      "hotness": 90.7,
+      "score_v1": 29.99,
+      "score_v2": 90.7,
+      "score_breakdown": {
+        "algorithm": "v3.0",
+        "dimension_max": {
+          "authority": 18.0,
+          "topic": 18.0,
+          "resonance": 18.0,
+          "information": 16.0
+        },
+        "authority_score": 8.05,
+        "keyword_idf_score": 3.46,
+        "topic_score": 8.65,
+        "topic_burst_score": 5.19,
+        "topic_burst_count": 5,
+        "resonance_score": 13.26,
+        "info_score": 8.0,
+        "base": 37.95,
+        "base_max": 70.0,
+        "time_factor": 0.9797,
+        "density_factor": 1.0,
+        "density_note": "",
+        "repeat_penalty": 1.0,
+        "repeat_excused": false,
+        "event_size": 3,
+        "event_media_count": 3,
+        "event_cluster_source": "ai",
+        "origin_source": "Sohu",
+        "raw": 37.18,
+        "display_score": 90.7,
+        "display_mode": "absolute"
+      },
+      "summary": "西藏自治区党委书记胡昌升表示将推动设立青藏高原应对气候变化研究中心，旨在全面提升自然灾害综合防范和应急处置能力。",
+      "analysis": "",
+      "topic_tags": [
+        "青藏高原应对气候变化研究中心"
+      ],
+      "category": "气候变化",
+      "matched_keywords": [
+        "气候变化"
+      ]
+    },
+    {
+      "title": "生态环境部：环评审批预计减3万件，同时将严打监测造假 - Sohu",
+      "title_en": "",
+      "title_zh": "",
+      "link": "https://news.google.com/rss/articles/CBMiiAFBVV95cUxPUmd1VE54VnQ4dW1wdUk5cVFyOENWRjVUb3FuRVZBMUwyUkh4RFlQTzVGRFJiTVhRa3B3UElVZUxta2NEenBUanBOaVFXQUtkU1F1QjlRMkp3SGx5NGNPazRsMlNrOGpvdWRqMHNNaFBjTVpyVFFzU0RuQ2dJejBOZTV3eUhJYWF2?oc=5",
+      "source": "Google News 生态环境",
+      "published": "2026-11-27T11:55:00+00:00",
+      "hotness": 89.7,
+      "score_v1": 34.04,
+      "score_v2": 89.7,
+      "score_breakdown": {
+        "algorithm": "v3.0",
+        "dimension_max": {
+          "authority": 18.0,
+          "topic": 18.0,
+          "resonance": 18.0,
+          "information": 16.0
+        },
+        "authority_score": 8.05,
+        "keyword_idf_score": 9.85,
+        "topic_score": 15.66,
+        "topic_burst_score": 5.82,
+        "topic_burst_count": 8,
+        "resonance_score": 15.56,
+        "info_score": 9.0,
+        "base": 48.28,
+        "base_max": 70.0,
+        "time_factor": 0.7315,
+        "density_factor": 1.0,
+        "density_note": "",
+        "repeat_penalty": 1.0,
+        "repeat_excused": false,
+        "event_size": 4,
+        "event_media_count": 4,
+        "event_cluster_source": "ai",
+        "origin_source": "Sohu",
+        "raw": 35.32,
+        "display_score": 89.7,
+        "display_mode": "absolute"
+      },
+      "summary": "生态环境部新闻发言人裴晓菲表示，新修订的《建设项目生态环境评价管理办法》实施后，环评审批预计减少约3万件，降幅约25%，并将严厉打击监测造假行为。",
+      "analysis": "",
+      "topic_tags": [
+        "生态环境部",
+        "环评审批",
+        "监测造假"
+      ],
+      "category": "生态环境",
+      "matched_keywords": [
+        "生态环境",
+        "环评"
+      ]
+    },
+    {
+      "title": "联合国气候变化大会：推出新倡议，应对最强效温室气体SF₆，并推广新技术 - Climate and Clean Air Coalition (CCAC)",
+      "title_en": "",
+      "title_zh": "",
+      "link": "https://news.google.com/rss/articles/CBMi5AFBVV95cUxOdGdqbmRkYlRVbHF4aUFFY1EtejR1OVh2S2JiX2NybU9EaVBlYTBOUndIUS05TWx4ajRBcTdkV0tjT0hfVEJ5Y3dKSUw3WjFPX0VveWFoQ0NDREhmSHltUXMwSFB6UWY3Ry1YS19PWnR0clA2b0RZTldSTExFbTN3czlkMVlHUVVmTlAyYXdxN196RUZQeGNrVVRFS3hzbG55aDFnR0QwWnJIOUw2TVNxY0hQQU9xN3Y0WG84V2dFQW12SWZvSnBSSmJhOFNDbGgwRFBNR3dGaW5WT0xLR0hEbFlXRWk?oc=5",
+      "source": "Google News 气候变化",
+      "published": "2026-11-28T01:03:25+00:00",
+      "hotness": 88.4,
+      "score_v1": 32.56,
+      "score_v2": 88.4,
+      "score_breakdown": {
+        "algorithm": "v3.0",
+        "dimension_max": {
+          "authority": 18.0,
+          "topic": 18.0,
+          "resonance": 18.0,
+          "information": 16.0
+        },
+        "authority_score": 8.05,
+        "keyword_idf_score": 8.06,
+        "topic_score": 13.24,
+        "topic_burst_score": 5.19,
+        "topic_burst_count": 5,
+        "resonance_score": 13.26,
+        "info_score": 4.0,
+        "base": 38.55,
+        "base_max": 70.0,
+        "time_factor": 0.8516,
+        "density_factor": 1.0,
+        "density_note": "",
+        "repeat_penalty": 1.0,
+        "repeat_excused": true,
+        "event_size": 3,
+        "event_media_count": 3,
+        "event_cluster_source": "ai",
+        "origin_source": "Google News 气候变化",
+        "raw": 32.83,
+        "display_score": 88.4,
+        "display_mode": "absolute"
+      },
+      "summary": "联合国气候变化大会期间，德国联邦环境部等发起全球SF₆承诺，旨在应对这种强效温室气体排放，并推广替代新技术。",
+      "analysis": "",
+      "topic_tags": [
+        "温室气体",
+        "联合国气候变化大会"
+      ],
+      "category": "气候变化",
+      "matched_keywords": [
+        "气候变化",
+        "温室气体"
+      ]
+    },
+    {
+      "title": "秋冬季易高发重污染 “精准发现+差异管控+闭环整改”加强生态环境执法监管 - 央视网",
+      "title_en": "",
+      "title_zh": "",
+      "link": "https://news.google.com/rss/articles/CBMieEFVX3lxTE92VWNWUUFVc3BmN205N19pVHVSWmFrdjRhOGRxYTROTDVlUHFYXzR5U3p0UExUMXJXZ0gxQ0dlODZISmZCZHJzeHhwcndJemg4aXp4MVctY082T09JcklTQ2xLT0VrRGFQbE91c3BXNnB3bmVkUXFpcA?oc=5",
+      "source": "Google News 生态环境",
+      "published": "2026-11-28T01:49:49+00:00",
+      "hotness": 88.2,
+      "score_v1": 32.75,
+      "score_v2": 88.2,
+      "score_breakdown": {
+        "algorithm": "v3.0",
+        "dimension_max": {
+          "authority": 18.0,
+          "topic": 18.0,
+          "resonance": 18.0,
+          "information": 16.0
+        },
+        "authority_score": 8.05,
+        "keyword_idf_score": 4.4,
+        "topic_score": 10.22,
+        "topic_burst_score": 5.82,
+        "topic_burst_count": 8,
+        "resonance_score": 15.56,
+        "info_score": 4.0,
+        "base": 37.83,
+        "base_max": 70.0,
+        "time_factor": 0.8598,
+        "density_factor": 1.0,
+        "density_note": "",
+        "repeat_penalty": 1.0,
+        "repeat_excused": true,
+        "event_size": 4,
+        "event_media_count": 4,
+        "event_cluster_source": "ai",
+        "origin_source": "央视网",
+        "raw": 32.53,
+        "display_score": 88.2,
+        "display_mode": "absolute"
+      },
+      "summary": "央视报道秋冬季重污染天气易高发，生态环境部将通过“精准发现、差异管控、闭环整改”三步法加强执法监管。",
+      "analysis": "",
+      "topic_tags": [
+        "重污染",
+        "闭环整改",
+        "生态环境执法监管"
+      ],
+      "category": "污染治理",
+      "matched_keywords": [
+        "生态环境"
+      ]
+    },
+    {
+      "title": "Comment on ‘Assessing the accuracy of the Climate TRACE global vehicular CO2 emissions’",
+      "title_en": "Comment on ‘Assessing the accuracy of the Climate TRACE global vehicular CO2 emissions’",
+      "title_zh": "对《评估Climate TRACE全球机动车二氧化碳排放数据的准确性》一文的评论",
+      "link": "https://iopscience.iop.org/article/10.1088/1748-9326/aeb9f8",
+      "source": "Environmental Research Letters",
+      "published": "2026-11-27T00:00:00+00:00",
+      "hotness": 84.5,
+      "score_v1": 25.1,
+      "score_v2": 84.5,
+      "score_breakdown": {
+        "algorithm": "v3.0",
+        "dimension_max": {
+          "authority": 18.0,
+          "topic": 18.0,
+          "resonance": 18.0,
+          "information": 16.0
+        },
+        "authority_score": 18.0,
+        "keyword_idf_score": 9.34,
+        "topic_score": 11.7,
+        "topic_burst_score": 2.36,
+        "topic_burst_count": 2,
+        "resonance_score": 0.0,
+        "info_score": 12.0,
+        "base": 41.7,
+        "base_max": 70.0,
+        "time_factor": 0.6476,
+        "density_factor": 1.0,
+        "density_note": "",
+        "repeat_penalty": 1.0,
+        "repeat_excused": false,
+        "event_size": 1,
+        "event_media_count": 1,
+        "event_cluster_source": "ai",
+        "origin_source": "Environmental Research Letters",
+        "raw": 27.01,
+        "display_score": 84.5,
+        "display_mode": "absolute"
+      },
+      "summary": "道路运输是美国温室气体排放的主要来源之一，但不同估算方法和数据来源得出的详细时空估算结果存在差异。 Gurney（2026，《环境研究快报》21卷 094018）将Climate TRACE排放清单中关于道路化石燃料二氧化碳的估算值与Vulcan清单中的相关数据进行了比较。 他们发现，这两个清单在2021年城市排放量方面的平均相对差异（MRD）为70.4%。我们使用更新的Climate TRACE数据（该数据在Gurney等人提交论文前近五个月已公开发布）重新进行了分析，发现平均相对差异（MRD）为8.6%。",
+      "analysis": "",
+      "topic_tags": [
+        "Climate TRACE",
+        "温室气体排放",
+        "化石燃料二氧化碳"
+      ],
+      "category": "气候变化",
+      "matched_keywords": [
+        "碳排放",
+        "温室气体"
+      ]
+    },
+    {
+      "title": "11月例行新闻发布会最新情况通报 - 中华人民共和国生态环境部",
+      "title_en": "",
+      "title_zh": "",
+      "link": "https://news.google.com/rss/articles/CBMicEFVX3lxTFBOc2tfc0wxN2FpTjZKRS1kblBzTTBDOGRFelZVVHdJWFZsSi1QSmk1ZURacS1GTUIwcjBHS3A3ZlFNTTAtdW1vT3ZWZ3NvMFlzcUpvS1Vibm9ONHR2TFdfOHZfZWJOS1hIQ2xzT3JnRUs?oc=5",
+      "source": "Google News 环境保护",
+      "published": "2026-11-27T07:25:50+00:00",
+      "hotness": 82.9,
+      "score_v1": 29.46,
+      "score_v2": 82.9,
+      "score_breakdown": {
+        "algorithm": "v3.0",
+        "dimension_max": {
+          "authority": 18.0,
+          "topic": 18.0,
+          "resonance": 18.0,
+          "information": 16.0
+        },
+        "authority_score": 8.05,
+        "keyword_idf_score": 4.4,
+        "topic_score": 10.22,
+        "topic_burst_score": 5.82,
+        "topic_burst_count": 8,
+        "resonance_score": 8.76,
+        "info_score": 9.0,
+        "base": 36.03,
+        "base_max": 70.0,
+        "time_factor": 0.6975,
+        "density_factor": 1.0,
+        "density_note": "",
+        "repeat_penalty": 1.0,
+        "repeat_excused": false,
+        "event_size": 2,
+        "event_media_count": 2,
+        "event_cluster_source": "ai",
+        "origin_source": "中华人民共和国生态环境部",
+        "raw": 25.13,
+        "display_score": 82.9,
+        "display_mode": "absolute"
+      },
+      "summary": "生态环境部新闻发言人在11月27日例行新闻发布会上通报了近期执法监管、环评审批等最新情况，重点回应了行业关注的热点问题。",
+      "analysis": "",
+      "topic_tags": [
+        "生态环境部"
+      ],
+      "category": "生态环境",
+      "matched_keywords": [
+        "生态环境"
+      ]
+    },
+    {
+      "title": "Reply to Comment on ‘Assessing the accuracy of the Climate TRACE global vehicular CO2 emissions’",
+      "title_en": "Reply to Comment on ‘Assessing the accuracy of the Climate TRACE global vehicular CO2 emissions’",
+      "title_zh": "对《评估Climate TRACE全球机动车二氧化碳排放数据的准确性》一文的评论的回复",
+      "link": "https://iopscience.iop.org/article/10.1088/1748-9326/aeb9fc",
+      "source": "Environmental Research Letters",
+      "published": "2026-11-27T00:00:00+00:00",
+      "hotness": 82.8,
+      "score_v1": 19.1,
+      "score_v2": 82.8,
+      "score_breakdown": {
+        "algorithm": "v3.0",
+        "dimension_max": {
+          "authority": 18.0,
+          "topic": 18.0,
+          "resonance": 18.0,
+          "information": 16.0
+        },
+        "authority_score": 18.0,
+        "keyword_idf_score": 6.25,
+        "topic_score": 8.61,
+        "topic_burst_score": 2.36,
+        "topic_burst_count": 2,
+        "resonance_score": 0.0,
+        "info_score": 12.0,
+        "base": 38.61,
+        "base_max": 70.0,
+        "time_factor": 0.6476,
+        "density_factor": 1.0,
+        "density_note": "",
+        "repeat_penalty": 1.0,
+        "repeat_excused": false,
+        "event_size": 1,
+        "event_media_count": 1,
+        "event_cluster_source": "ai",
+        "origin_source": "Environmental Research Letters",
+        "raw": 25.01,
+        "display_score": 82.8,
+        "display_mode": "absolute"
+      },
+      "summary": "A Comment on Gurney et al (2026 Environ. Res. Lett.21 094018); G26) attributes our finding of a 70.4% mean relative difference (MRD) between Climate TRACE (CT) and Vulcan urban on-road CO2 emissions to a since-corrected error in one CT release, reporting an 8.6% MRD using corrected data. We ’s claimed correction date, but set this timing question aside to focus on more substantive concerns. The cited correction is a single multiplicative rescaling that, by construction, can—biases the Comment does ’s own claims of unprecedented spatial granularity. We further show that the national- and county-scale ‘agreement’ the Comment cites is uninformative about the sub-national accuracy G26 actually assessed, since CT’s national totals are explicitly calibrated to EDGAR by construction, while county-level differences remain large and widely dispersed. Vulcan’s own independent validation record—against atmospheric radiocarbon inversion, traffic count, and EPA state-level estimates—su’s recommendation that CT’s on-road emissions estimates be used with caution pending independent, peer-reviewed validation remains fully justified.",
+      "analysis": "",
+      "topic_tags": [
+        "Climate TRACE",
+        "vehicular CO2 emissions"
+      ],
+      "category": "气候变化",
+      "matched_keywords": [
+        "碳排放"
+      ]
+    },
+    {
+      "title": "最新财新周刊｜专访中国气候变化事务特使刘振民：气候大会不必年年出新协议，而应聚焦落实进度 - 财新周刊",
+      "title_en": "",
+      "title_zh": "",
+      "link": "https://news.google.com/rss/articles/CBMiYEFVX3lxTE9CdGd6MHh3dVlORDlhWmNoMkNoZExXUXlmRmQ5T2lrZ0V0WXdsNVZTWkl2cGY2VEdOVFB5ZmNYSmxuMW5fWTFUckRuR1JlYXRIbzN6bXBGYjAwanA2SEtKcg?oc=5",
+      "source": "Google News 气候变化",
+      "published": "2026-11-28T11:41:14+00:00",
+      "hotness": 82.7,
+      "score_v1": 29.88,
+      "score_v2": 82.7,
+      "score_breakdown": {
+        "algorithm": "v3.0",
+        "dimension_max": {
+          "authority": 18.0,
+          "topic": 18.0,
+          "resonance": 18.0,
+          "information": 16.0
+        },
+        "authority_score": 8.05,
+        "keyword_idf_score": 3.46,
+        "topic_score": 8.65,
+        "topic_burst_score": 5.19,
+        "topic_burst_count": 5,
+        "resonance_score": 8.76,
+        "info_score": 0.0,
+        "base": 25.46,
+        "base_max": 70.0,
+        "time_factor": 0.976,
+        "density_factor": 1.0,
+        "density_note": "",
+        "repeat_penalty": 1.0,
+        "repeat_excused": true,
+        "event_size": 2,
+        "event_media_count": 2,
+        "event_cluster_source": "ai",
+        "origin_source": "财新周刊",
+        "raw": 24.85,
+        "display_score": 82.7,
+        "display_mode": "absolute"
+      },
+      "summary": "财新周刊专访气候变化事务特使刘振民，认为气候大会不必每年出新协议，应聚焦落实进度。",
+      "analysis": "",
+      "topic_tags": [
+        "气候变化事务特使"
+      ],
+      "category": "气候变化",
+      "matched_keywords": [
+        "气候变化"
+      ]
+    },
+    {
+      "title": "红桥区召开中央生态环境保护督察整改工作推进会-新闻中心 - 津云",
+      "title_en": "",
+      "title_zh": "",
+      "link": "https://news.google.com/rss/articles/CBMia0FVX3lxTE9nVFE0dmNqOVRqVXRNSE5aZUtLS25mejRPYVZ6MTRGWTZQMEJPWTlsN09hZ3F4R0NKbGpwUzE3am1TYzhSeE55WU1VZFc2aHRrQ0ttSkFvX0hYcVB4UDNOelpZby1uRkJJME5J?oc=5",
+      "source": "Google News 环境保护",
+      "published": "2026-11-28T02:23:22+00:00",
+      "hotness": 82.2,
+      "score_v1": 42.9,
+      "score_v2": 82.2,
+      "score_breakdown": {
+        "algorithm": "v3.0",
+        "dimension_max": {
+          "authority": 18.0,
+          "topic": 18.0,
+          "resonance": 18.0,
+          "information": 16.0
+        },
+        "authority_score": 8.05,
+        "keyword_idf_score": 9.84,
+        "topic_score": 15.66,
+        "topic_burst_score": 5.82,
+        "topic_burst_count": 8,
+        "resonance_score": 15.56,
+        "info_score": 4.0,
+        "base": 43.27,
+        "base_max": 70.0,
+        "time_factor": 0.8658,
+        "density_factor": 0.65,
+        "density_note": "地方政务通稿",
+        "repeat_penalty": 1.0,
+        "repeat_excused": true,
+        "event_size": 4,
+        "event_media_count": 4,
+        "event_cluster_source": "ai",
+        "origin_source": "津云",
+        "raw": 24.35,
+        "display_score": 82.2,
+        "display_mode": "absolute"
+      },
+      "summary": "红桥区召开中央生态环境保护督察整改工作推进会，部署生态环境保护督察整改工作。",
+      "analysis": "",
+      "topic_tags": [
+        "中央生态环境保护督察",
+        "整改工作"
+      ],
+      "category": "环境政策",
+      "matched_keywords": [
+        "生态环境",
+        "环境保护",
+        "督察"
+      ]
+    },
+    {
+      "title": "严执法优服务并重，生态环境执法质效大幅度提升 - 新浪新闻_手机新浪网",
+      "title_en": "",
+      "title_zh": "",
+      "link": "https://news.google.com/rss/articles/CBMidEFVX3lxTE93ck81dEFzR09TMGRhTGtoMzlEbzY5X1dwM1BmNjB0WENGdllJMjFXZ1ZYNGZPXzZhMmpldS1ESU9pMmdDN0RXbFpoR2l5WEdKS054NjMyc205YjZLVUhna2NoeS1qREZYd09qN0RfRmQwRjV2?oc=5",
+      "source": "Google News 生态环境",
+      "published": "2026-11-27T10:07:48+00:00",
+      "hotness": 82.2,
+      "score_v1": 29.8,
+      "score_v2": 82.2,
+      "score_breakdown": {
+        "algorithm": "v3.0",
+        "dimension_max": {
+          "authority": 18.0,
+          "topic": 18.0,
+          "resonance": 18.0,
+          "information": 16.0
+        },
+        "authority_score": 8.05,
+        "keyword_idf_score": 4.4,
+        "topic_score": 10.22,
+        "topic_burst_score": 5.82,
+        "topic_burst_count": 8,
+        "resonance_score": 15.56,
+        "info_score": 0.0,
+        "base": 33.83,
+        "base_max": 70.0,
+        "time_factor": 0.7176,
+        "density_factor": 1.0,
+        "density_note": "",
+        "repeat_penalty": 1.0,
+        "repeat_excused": true,
+        "event_size": 4,
+        "event_media_count": 4,
+        "event_cluster_source": "ai",
+        "origin_source": "手机新浪网",
+        "raw": 24.28,
+        "display_score": 82.2,
+        "display_mode": "absolute"
+      },
+      "summary": "生态环境部召开例行新闻发布会，局长赵世新表示执法要坚持严格执法守住底线，并加强帮扶服务促进守法，执法质效大幅提升。",
+      "analysis": "",
+      "topic_tags": [
+        "生态环境执法",
+        "严执法"
+      ],
+      "category": "环境政策",
+      "matched_keywords": [
+        "生态环境"
+      ]
+    }
+  ]
+}
